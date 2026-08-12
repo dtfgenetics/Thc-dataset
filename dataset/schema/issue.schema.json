@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/issue-1.0.0.json",
+  "title": "THC Grow Doc issue record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "slug", "name", "category", "severity", "reviewStatus", "summary", "affectedParts", "stages", "indicators", "exclusions", "progression", "lookAlikes", "confirmation", "immediateActions", "correctivePlan", "prevention", "warnings", "sources", "media"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 3 },
+    "scientificName": { "type": "string" },
+    "category": {
+      "enum": ["Nutrient deficiency", "Nutrient toxicity", "Insect", "Mite", "Fungal pathogen", "Bacterial pathogen", "Root pathogen", "Viroid", "Virus", "Phytoplasma / Spiroplasma", "Genetic / developmental", "Environmental stress", "Water / root-zone", "Normal development", "Insufficient evidence"]
+    },
+    "severity": { "enum": ["low", "moderate", "high", "critical"] },
+    "reviewStatus": { "enum": ["reviewed", "provisional", "incomplete"] },
+    "summary": { "type": "string", "minLength": 20 },
+    "affectedParts": { "$ref": "#/$defs/stringArray" },
+    "stages": { "$ref": "#/$defs/stringArray" },
+    "indicators": { "$ref": "#/$defs/stringArray" },
+    "exclusions": { "$ref": "#/$defs/stringArray" },
+    "progression": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["stage", "description"],
+        "properties": { "stage": { "type": "string" }, "description": { "type": "string" } }
+      }
+    },
+    "lookAlikes": { "$ref": "#/$defs/stringArray" },
+    "confirmation": { "$ref": "#/$defs/stringArray" },
+    "immediateActions": { "$ref": "#/$defs/stringArray" },
+    "correctivePlan": { "$ref": "#/$defs/stringArray" },
+    "prevention": { "$ref": "#/$defs/stringArray" },
+    "warnings": { "$ref": "#/$defs/stringArray" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["title", "organization", "url"],
+        "properties": { "title": { "type": "string" }, "organization": { "type": "string" }, "url": { "type": "string", "format": "uri" }, "year": { "type": "integer", "minimum": 1800, "maximum": 2100 } }
+      }
+    },
+    "media": { "type": "array", "items": { "type": "string" } }
+  },
+  "$defs": {
+    "stringArray": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "application": "0.2.0",
+  "dataset": "0.2.0",
+  "schema": "1.0.0",
+  "diagnosticEngine": "rules-0.1.0",
+  "pixelModel": null,
+  "buildDate": "2026-08-12"
+}

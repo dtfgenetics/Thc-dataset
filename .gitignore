@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.npm-cache/
+qa-*.png
+generated_images/
+*.tsbuildinfo
+.DS_Store
+.env*
+!.env.example
