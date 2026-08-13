@@ -124,4 +124,17 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toContain('Two-spotted spider mites')
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
+
+  it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
+    const record = issues.find((issue) => issue.slug === 'genetic-variegation')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/do not confirm.*photograph|do not confirm.*video/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/virus\/viroid/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/genetic|meristem-lineage/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/mosaic symptom.*not evidence/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/one mother plant|sampled one mother plant/)
+    expect(record?.lookAlikes).toContain('Hop latent viroid')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/panel e.*panels a–d/)
+  })
 })
