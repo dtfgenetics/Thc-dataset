@@ -87,6 +87,20 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.filter((item) => item.displayPermission !== 'permitted').every((item) => item.reviewStatus === 'license-review')).toBe(true)
   })
 
+  it('keeps phosphorus deficiency tissue-confirmed, root-zone bounded, and composite-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'phosphorus-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone|soil testing|substrate/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not universal|not.*universal/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/purple.*not.*ground truth/)
+    expect(record?.lookAlikes).toContain('Normal late-flower senescence')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/three diagnosis classes/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps phytoplasma and Spiroplasma syndromes molecularly bounded', () => {
     const mollicutes = issues.filter((issue) => issue.category === 'Phytoplasma / Spiroplasma')
     for (const issue of mollicutes) {
