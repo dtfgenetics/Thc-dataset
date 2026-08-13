@@ -113,4 +113,15 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toContain('Hemp russet mite')
     expect(record?.lookAlikes).toContain('Normal late-flower senescence')
   })
+
+  it('keeps thrips labels organism-confirmed and species-bounded', () => {
+    const record = issues.find((issue) => issue.slug === 'thrips')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tap.*white paper|collection tray/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/species-level.*laboratory|specialist/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not.*ground truth/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/predatory thrips.*beneficial/)
+    expect(record?.lookAlikes).toContain('Two-spotted spider mites')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
 })
