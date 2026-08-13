@@ -64,4 +64,13 @@ describe('diagnostic dataset quality gates', () => {
     const perceptualHashes = media.flatMap((item) => item.perceptualHash ? [item.perceptualHash] : [])
     expect(new Set(perceptualHashes).size).toBe(perceptualHashes.length)
   })
+
+  it('keeps bacterial diagnoses laboratory-bounded and image labels non-definitive', () => {
+    const bacterial = issues.filter((issue) => issue.category === 'Bacterial pathogen')
+    for (const issue of bacterial) {
+      expect(issue.confirmation.join(' ').toLowerCase()).toContain('laboratory')
+      expect(issue.warnings.join(' ').toLowerCase()).toMatch(/photograph|image|video/)
+      expect(issue.warnings.join(' ').toLowerCase()).toMatch(/cannot confirm|not.*ground-truth/)
+    }
+  })
 })
