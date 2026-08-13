@@ -28,9 +28,13 @@ describe('diagnostic dataset quality gates', () => {
         expect(media.license, `${media.id} is missing its license`).toBeTruthy()
         expect(media.requiredAttribution, `${media.id} is missing attribution instructions`).toBeTruthy()
         expect(media.diagnosticLabel, `${media.id} is missing its diagnostic label`).toContain(issue.slug)
+        expect(media.hostSpecies, `${media.id} is missing host-species context`).toBeTruthy()
+        expect(['cannabis', 'non-cannabis', 'organism-only']).toContain(media.hostContext)
+        expect(media.useLimitations.length, `${media.id} is missing use limitations`).toBeGreaterThan(0)
         expect(['permitted', 'not-permitted', 'unknown']).toContain(media.trainingPermission)
         if (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training') {
           expect(media.sha256, `${media.id} is missing its verified asset hash`).toMatch(/^[a-f0-9]{64}$/)
+          expect(media.perceptualHash, `${media.id} is missing its perceptual hash`).toMatch(/^dhash64:[a-f0-9]{16}$/)
           expect(media.width, `${media.id} is missing its verified width`).toBeGreaterThan(0)
           expect(media.height, `${media.id} is missing its verified height`).toBeGreaterThan(0)
         }
@@ -38,7 +42,20 @@ describe('diagnostic dataset quality gates', () => {
           expect(media.trainingPermission).toBe('permitted')
           expect(media.reviewStatus).toBe('approved-training')
         }
+        if (media.hostContext === 'non-cannabis') {
+          expect(media.confirmation).toBe('illustrative')
+          expect(media.trainingEligible).toBe(false)
+        }
       }
     }
+  })
+
+  it('keeps media identifiers and verified asset hashes unique', () => {
+    const media = issues.flatMap((issue) => issue.media)
+    expect(new Set(media.map((item) => item.id)).size).toBe(media.length)
+    const hashes = media.flatMap((item) => item.sha256 ? [item.sha256] : [])
+    expect(new Set(hashes).size).toBe(hashes.length)
+    const perceptualHashes = media.flatMap((item) => item.perceptualHash ? [item.perceptualHash] : [])
+    expect(new Set(perceptualHashes).size).toBe(perceptualHashes.length)
   })
 })

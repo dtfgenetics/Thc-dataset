@@ -45,9 +45,13 @@ export interface MediaRecord {
   mediaType: 'image' | 'video'
   requiredAttribution: string
   diagnosticLabel: string
+  hostSpecies: string
+  hostContext: 'cannabis' | 'non-cannabis' | 'organism-only'
+  useLimitations: string[]
   reviewStatus: 'candidate' | 'license-review' | 'scientific-review' | 'approved-reference' | 'approved-training' | 'rejected'
   trainingPermission: 'permitted' | 'not-permitted' | 'unknown'
   sha256?: string
+  perceptualHash?: string
   width?: number
   height?: number
   view: 'whole-plant' | 'close-up' | 'underside' | 'root-crown' | 'microscope' | 'diagram'
