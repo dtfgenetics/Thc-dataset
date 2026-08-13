@@ -74,6 +74,19 @@ describe('diagnostic dataset quality gates', () => {
     }
   })
 
+  it('keeps Botrytis bud-rot labels internal-view aware, laboratory-bounded, and license-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'botrytis-gray-mold-bud-rot')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/interior|internal/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not species-level ground truth|not.*ground truth/)
+    expect(record?.lookAlikes).toContain('Fusarium flower mold or bud rot')
+    expect(record?.lookAlikes).toContain('Normal pistil browning and late-flower senescence')
+    expect(record?.media).toHaveLength(4)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+    expect(record?.media.filter((item) => item.displayPermission !== 'permitted').every((item) => item.reviewStatus === 'license-review')).toBe(true)
+  })
+
   it('keeps phytoplasma and Spiroplasma syndromes molecularly bounded', () => {
     const mollicutes = issues.filter((issue) => issue.category === 'Phytoplasma / Spiroplasma')
     for (const issue of mollicutes) {
