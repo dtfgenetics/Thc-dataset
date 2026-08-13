@@ -101,4 +101,16 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toContain('Water shortage or drought')
     expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
   })
+
+  it('keeps heat and light labels exposure-measured and cultivar-bounded', () => {
+    const record = issues.find((issue) => issue.slug === 'heat-light-stress')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ppfd/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf temperature/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone|substrate water/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/nonspecific|not validated/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/universal.*threshold|not.*generalized/)
+    expect(record?.lookAlikes).toContain('Hemp russet mite')
+    expect(record?.lookAlikes).toContain('Normal late-flower senescence')
+  })
 })
