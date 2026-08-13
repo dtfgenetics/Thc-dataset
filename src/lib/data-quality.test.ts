@@ -137,4 +137,16 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
     expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/panel e.*panels a–d/)
   })
+
+  it('keeps late-cycle leaf aging age-positioned and non-diagnostic from color', () => {
+    const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/do not label.*color.*photograph|do not label.*color.*video/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf node|leaf age/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone.*ph.*ec/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/remained green|visible yellowing is not required/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not.*harvest|harvest.*not/)
+    expect(record?.lookAlikes).toContain('Hop latent viroid')
+    expect(record?.media).toHaveLength(0)
+  })
 })
