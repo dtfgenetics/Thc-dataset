@@ -142,7 +142,7 @@ export const issues: IssueRecord[] = [
     immediateActions: ['Quarantine suspect plants and stop moving cuttings, tools, clothing, or plant debris into clean areas.', 'Inspect nearby plants under adequate magnification before choosing a treatment.'],
     correctivePlan: ['Use only controls legal for the crop, jurisdiction, and growth stage, following the current product label.', 'Track mite counts on fixed leaf positions after intervention; visible injury can lag behind population change.', 'Remove severely infested material without spreading mites and clean shared tools between plants.'],
     prevention: ['Start with inspected, mite-free propagation material.', 'Quarantine and microscope-screen incoming clones.', 'Maintain routine microscope scouting because low populations can be visually silent.'],
-    warnings: ['Leaf curl or bronzing alone is not diagnostic.', 'Do not confuse tan cast-skin accumulations with fungal powder.', 'A compatible CC BY license permits reuse with attribution, but these reference images remain excluded from model training until file hashes, duplicate checks, and a separate training review are completed.'],
+    warnings: ['Leaf curl or bronzing alone is not diagnostic.', 'Do not confuse tan cast-skin accumulations with fungal powder.', 'CC BY 4.0 permits reuse with attribution, but these hashed reference images remain excluded from model training until perceptual duplicate checks and a separate training review are completed.'],
     sources: [sources.usuRussetMite, sources.ncsuRussetMite, sources.russetMiteCounts],
     media: [
       {
