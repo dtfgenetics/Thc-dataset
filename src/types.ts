@@ -25,6 +25,12 @@ export interface SourceRecord {
   organization: string
   url: string
   year?: number
+  authors?: string[]
+  publisher?: string
+  publicationDate?: string
+  accessedDate: string
+  doi?: string
+  supportedClaims: string[]
 }
 
 export interface MediaRecord {
@@ -36,6 +42,14 @@ export interface MediaRecord {
   creator?: string
   license?: string
   sourceUrl?: string
+  mediaType: 'image' | 'video'
+  requiredAttribution: string
+  diagnosticLabel: string
+  reviewStatus: 'candidate' | 'license-review' | 'scientific-review' | 'approved-reference' | 'approved-training' | 'rejected'
+  trainingPermission: 'permitted' | 'not-permitted' | 'unknown'
+  sha256?: string
+  width?: number
+  height?: number
   view: 'whole-plant' | 'close-up' | 'underside' | 'root-crown' | 'microscope' | 'diagram'
   stage?: string
   severity?: string

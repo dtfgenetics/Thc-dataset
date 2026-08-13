@@ -21,4 +21,10 @@ describe('rankDifferentials', () => {
     expect(results[0].issue.slug).toBe('hop-latent-viroid')
     expect(results[0].missing).toContain('validated laboratory test')
   })
+
+  it('separates hemp russet mite from spider mite when webbing is absent', () => {
+    const results = rankDifferentials(issues, context(['Dull gray or bronzed foliage', 'Brittle or reduced leaf size', 'No webbing despite mite-like damage']), [])
+    expect(results[0].issue.slug).toBe('hemp-russet-mite')
+    expect(results[0].confidence).toBe('High')
+  })
 })

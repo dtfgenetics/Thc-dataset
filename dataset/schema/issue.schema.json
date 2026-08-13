@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/issue-1.0.0.json",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/issue-1.1.0.json",
   "title": "THC Grow Doc issue record",
   "type": "object",
   "additionalProperties": false,
@@ -41,8 +41,19 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["title", "organization", "url"],
-        "properties": { "title": { "type": "string" }, "organization": { "type": "string" }, "url": { "type": "string", "format": "uri" }, "year": { "type": "integer", "minimum": 1800, "maximum": 2100 } }
+        "required": ["title", "organization", "url", "accessedDate", "supportedClaims"],
+        "properties": {
+          "title": { "type": "string" },
+          "organization": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "year": { "type": "integer", "minimum": 1800, "maximum": 2100 },
+          "authors": { "$ref": "#/$defs/stringArray" },
+          "publisher": { "type": "string", "minLength": 1 },
+          "publicationDate": { "type": "string", "format": "date" },
+          "accessedDate": { "type": "string", "format": "date" },
+          "doi": { "type": "string", "minLength": 3 },
+          "supportedClaims": { "$ref": "#/$defs/stringArray" }
+        }
       }
     },
     "media": { "type": "array", "items": { "type": "string" } }
