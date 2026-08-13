@@ -82,4 +82,13 @@ describe('diagnostic dataset quality gates', () => {
       expect(issue.lookAlikes).toContain('Beet curly top virus disease')
     }
   })
+
+  it('keeps reproductive-sex labels tied to visible flower organs and repeated inspection', () => {
+    const record = issues.find((issue) => issue.slug === 'cannabis-reproductive-sex-expression')
+    expect(record).toBeDefined()
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/seedling.*not reliable|seedling.*not.*ground-truth/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/reproductive|stigma|anther/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/repeat inspection|serial/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/chromosomal sex|genetic/)
+  })
 })
