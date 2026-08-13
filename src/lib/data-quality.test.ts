@@ -101,6 +101,20 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'boron-toxicity')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/source water|source-water/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/image-only ground truth/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/video.*no original asset url|no original asset url.*video/)
+    expect(record?.lookAlikes).toContain('Potassium deficiency')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/two diagnosis classes/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps phytoplasma and Spiroplasma syndromes molecularly bounded', () => {
     const mollicutes = issues.filter((issue) => issue.category === 'Phytoplasma / Spiroplasma')
     for (const issue of mollicutes) {
