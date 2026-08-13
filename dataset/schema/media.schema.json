@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/media-1.1.0.json",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/media-1.2.0.json",
   "title": "THC Grow Doc media record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "issueId", "originalUrl", "thumbnailUrl", "sourceUrl", "creator", "license", "requiredAttribution", "hostSpecies", "hostContext", "useLimitations", "view", "confirmation", "reviewStatus", "trainingEligible", "sha256", "perceptualHash"],
+  "required": ["id", "issueId", "originalUrl", "thumbnailUrl", "sourceUrl", "creator", "license", "requiredAttribution", "hostSpecies", "hostContext", "useLimitations", "displayPermission", "view", "confirmation", "reviewStatus", "trainingEligible", "sha256", "perceptualHash"],
   "properties": {
     "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
     "issueId": { "type": "string" },
@@ -17,6 +17,7 @@
     "hostSpecies": { "type": "string", "minLength": 1 },
     "hostContext": { "enum": ["cannabis", "non-cannabis", "organism-only"] },
     "useLimitations": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "displayPermission": { "enum": ["permitted", "not-permitted", "unknown"] },
     "organ": { "type": "string" },
     "view": { "enum": ["whole-plant", "close-up", "underside", "root-crown", "microscope", "diagram"] },
     "growthStage": { "type": "string" },

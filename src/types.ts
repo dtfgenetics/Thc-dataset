@@ -48,6 +48,7 @@ export interface MediaRecord {
   hostSpecies: string
   hostContext: 'cannabis' | 'non-cannabis' | 'organism-only'
   useLimitations: string[]
+  displayPermission: 'permitted' | 'not-permitted' | 'unknown'
   reviewStatus: 'candidate' | 'license-review' | 'scientific-review' | 'approved-reference' | 'approved-training' | 'rejected'
   trainingPermission: 'permitted' | 'not-permitted' | 'unknown'
   sha256?: string

@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, CheckCircle2, CircleAlert, ImageOff, Search } from 'lucide-react'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { categoryOrder, issues } from '../data/issues'
+import { isDisplayableMedia } from '../lib/media'
 import type { IssueCategory, IssueRecord } from '../types'
 import { ImagePlaceholder } from './icons'
 
@@ -44,13 +45,16 @@ export function IssueLibrary({ initialSlug, onClearInitialSlug }: IssueLibraryPr
         <div className="filter-row" aria-label="Filter by category"><button className={category === 'All' ? 'active' : ''} onClick={() => setCategory('All')}>All</button>{usedCategories.map((item) => <button key={item} className={category === item ? 'active' : ''} onClick={() => setCategory(item)}>{item}</button>)}</div>
       </div>
       <div className="issue-list">
-        {filtered.map((item) => (
+        {filtered.map((item) => {
+          const displayMedia = item.media.filter(isDisplayableMedia)
+          return (
           <article key={item.id} className="issue-row">
-            <div className="issue-thumb">{item.media[0]?.thumbnailUrl ? <img src={item.media[0].thumbnailUrl} alt={item.media[0].alt} /> : <ImagePlaceholder label={`No licensed reference image available for ${item.name}`} />}</div>
+            <div className="issue-thumb">{displayMedia[0]?.thumbnailUrl ? <img src={displayMedia[0].thumbnailUrl} alt={displayMedia[0].alt} /> : <ImagePlaceholder label={`No licensed reference image available for ${item.name}`} />}</div>
             <div className="issue-row-body"><div className="issue-meta"><span>{item.category}</span><span className={`severity severity-${item.severity}`}>{item.severity}</span></div><h2>{item.name}</h2>{item.scientificName ? <em>{item.scientificName}</em> : null}<p>{item.summary}</p><ul>{item.indicators.slice(0, 3).map((indicator) => <li key={indicator}>{indicator}</li>)}</ul></div>
-            <div className="issue-row-status"><span className={`review review-${item.reviewStatus}`}>{item.reviewStatus}</span><span>{item.media.length ? `${item.media.length} reviewed images` : <><ImageOff size={15} /> Image gap</>}</span><span>{item.sources.length} source{item.sources.length === 1 ? '' : 's'}</span><button onClick={() => openIssue(item)} aria-label={`Open ${item.name}`}>Open guide <ArrowRight size={17} /></button></div>
+            <div className="issue-row-status"><span className={`review review-${item.reviewStatus}`}>{item.reviewStatus}</span><span>{displayMedia.length ? `${displayMedia.length} reviewed images` : <><ImageOff size={15} /> Image gap</>}</span><span>{item.sources.length} source{item.sources.length === 1 ? '' : 's'}</span><button onClick={() => openIssue(item)} aria-label={`Open ${item.name}`}>Open guide <ArrowRight size={17} /></button></div>
           </article>
-        ))}
+          )
+        })}
       </div>
       {!filtered.length ? <div className="empty-state"><Search /><h2>No matching records</h2><p>Try another term or remove the category filter.</p></div> : null}
     </div>
@@ -58,11 +62,12 @@ export function IssueLibrary({ initialSlug, onClearInitialSlug }: IssueLibraryPr
 }
 
 function IssueDetail({ issue, onBack }: { issue: IssueRecord; onBack: () => void }) {
+  const displayMedia = issue.media.filter(isDisplayableMedia)
   return (
     <div className="view-container issue-detail">
       <button className="back-button" onClick={onBack}><ArrowLeft size={18} /> Back to issue library</button>
       <header className="detail-header"><div><div className="issue-meta"><span>{issue.category}</span><span className={`severity severity-${issue.severity}`}>{issue.severity}</span></div><h1>{issue.name}</h1>{issue.scientificName ? <em>{issue.scientificName}</em> : null}<p>{issue.summary}</p></div><div className="detail-status"><span className={`review review-${issue.reviewStatus}`}>{issue.reviewStatus}</span><small>Scientific review status</small></div></header>
-      <section className="detail-gallery" aria-labelledby="gallery-heading"><div className="detail-section-title"><h2 id="gallery-heading">Reference images</h2><span>{issue.media.length} licensed and reviewed</span></div>{issue.media.length ? <div className="media-grid">{issue.media.map((media) => <figure key={media.id}><img src={media.url ?? media.thumbnailUrl} alt={media.alt} /><figcaption>{media.caption}<small>{media.creator} · {media.license}</small></figcaption></figure>)}</div> : <div className="media-gap"><ImagePlaceholder label={`Reference media pending for ${issue.name}`} /><div><ImageOff /><h3>Verified images are still missing</h3><p>This record will not pretend a text description is a reference photograph. Media must include a source, allowed-use license, and confirmation status.</p></div></div>}</section>
+      <section className="detail-gallery" aria-labelledby="gallery-heading"><div className="detail-section-title"><h2 id="gallery-heading">Reference images</h2><span>{displayMedia.length} licensed and reviewed</span></div>{displayMedia.length ? <div className="media-grid">{displayMedia.map((media) => <figure key={media.id}><img src={media.url ?? media.thumbnailUrl} alt={media.alt} /><figcaption>{media.caption}<small>{media.creator} · {media.license}</small></figcaption></figure>)}</div> : <div className="media-gap"><ImagePlaceholder label={`Reference media pending for ${issue.name}`} /><div><ImageOff /><h3>Verified images are still missing</h3><p>This record will not pretend a text description is a reference photograph. Media must include a source, allowed-use license, and confirmation status.</p></div></div>}</section>
       <div className="detail-columns">
         <div><DetailList title="Signs that support it" items={issue.indicators} positive /><DetailList title="Evidence against it" items={issue.exclusions} /></div>
         <div><section className="detail-block"><h2>Symptom progression</h2><ol className="progression">{issue.progression.map((item) => <li key={item.stage}><strong>{item.stage}</strong><p>{item.description}</p></li>)}</ol></section><DetailList title="Look-alikes" items={issue.lookAlikes} /></div>

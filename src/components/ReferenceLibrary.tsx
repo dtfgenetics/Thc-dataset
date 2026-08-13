@@ -1,12 +1,13 @@
 import { ExternalLink, FileImage, ImageOff, Search } from 'lucide-react'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { issues } from '../data/issues'
+import { isDisplayableMedia } from '../lib/media'
 import { ImagePlaceholder } from './icons'
 
 export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) => void }) {
   const [query, setQuery] = useState('')
   const deferredQuery = useDeferredValue(query)
-  const approvedMedia = issues.flatMap((issue) => issue.media.map((media) => ({ issue, media }))).filter(({ media }) => media.url || media.thumbnailUrl)
+  const approvedMedia = issues.flatMap((issue) => issue.media.map((media) => ({ issue, media }))).filter(({ media }) => isDisplayableMedia(media) && (media.url || media.thumbnailUrl))
   const filtered = useMemo(() => approvedMedia.filter(({ issue, media }) => `${issue.name} ${issue.category} ${media.caption}`.toLowerCase().includes(deferredQuery.toLowerCase())), [approvedMedia, deferredQuery])
 
   return (

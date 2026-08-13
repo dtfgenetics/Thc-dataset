@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { issues } from '../data/issues'
+import { isDisplayableMedia } from './media'
 
 describe('diagnostic dataset quality gates', () => {
   it('keeps identifiers and slugs unique', () => {
@@ -31,6 +32,7 @@ describe('diagnostic dataset quality gates', () => {
         expect(media.hostSpecies, `${media.id} is missing host-species context`).toBeTruthy()
         expect(['cannabis', 'non-cannabis', 'organism-only']).toContain(media.hostContext)
         expect(media.useLimitations.length, `${media.id} is missing use limitations`).toBeGreaterThan(0)
+        expect(['permitted', 'not-permitted', 'unknown']).toContain(media.displayPermission)
         expect(['permitted', 'not-permitted', 'unknown']).toContain(media.trainingPermission)
         if (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training') {
           expect(media.sha256, `${media.id} is missing its verified asset hash`).toMatch(/^[a-f0-9]{64}$/)
@@ -41,6 +43,10 @@ describe('diagnostic dataset quality gates', () => {
         if (media.trainingEligible) {
           expect(media.trainingPermission).toBe('permitted')
           expect(media.reviewStatus).toBe('approved-training')
+        }
+        if (media.displayPermission !== 'permitted') {
+          expect(isDisplayableMedia(media)).toBe(false)
+          expect(media.trainingEligible).toBe(false)
         }
         if (media.hostContext === 'non-cannabis') {
           expect(media.confirmation).toBe('illustrative')
