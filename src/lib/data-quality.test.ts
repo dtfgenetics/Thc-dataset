@@ -73,4 +73,13 @@ describe('diagnostic dataset quality gates', () => {
       expect(issue.warnings.join(' ').toLowerCase()).toMatch(/cannot confirm|not.*ground-truth/)
     }
   })
+
+  it('keeps phytoplasma and Spiroplasma syndromes molecularly bounded', () => {
+    const mollicutes = issues.filter((issue) => issue.category === 'Phytoplasma / Spiroplasma')
+    for (const issue of mollicutes) {
+      expect(issue.confirmation.join(' ').toLowerCase()).toMatch(/laboratory|molecular/)
+      expect(issue.warnings.join(' ').toLowerCase()).toMatch(/image-only|visual diagnosis|not a species-level/)
+      expect(issue.lookAlikes).toContain('Beet curly top virus disease')
+    }
+  })
 })
