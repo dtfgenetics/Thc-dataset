@@ -91,4 +91,14 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/repeat inspection|serial/)
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/chromosomal sex|genetic/)
   })
+
+  it('keeps waterlogging diagnoses exposure-measured and pathogen-bounded', () => {
+    const record = issues.find((issue) => issue.slug === 'overwatering-root-hypoxia')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/container weight|substrate-water|standing water/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/image-only|photograph.*cannot/)
+    expect(record?.lookAlikes).toContain('Water shortage or drought')
+    expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
+  })
 })
