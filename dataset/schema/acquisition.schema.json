@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/acquisition-snapshot-1.0.0.json",
+  "title": "THC Plant Diagnostic acquisition snapshot record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sheetRow","order","datasetId","dataset","canonicalSource","version","expectedPackage","repositoryChecksum","license","destination","acquisitionStatus","integrityStatus","rightsStatus","criticalNotes","driveFolderId"],
+  "properties": {
+    "sheetRow": {"type":"integer","minimum":2},
+    "order": {"type":"integer","minimum":1},
+    "datasetId": {"type":"string","pattern":"^DS-[0-9]{3,}$"},
+    "dataset": {"type":"string","minLength":3},
+    "canonicalSource": {"type":"string","format":"uri"},
+    "version": {"type":"string","minLength":2},
+    "expectedPackage": {"type":"string","minLength":2},
+    "repositoryChecksum": {"type":"string","minLength":2},
+    "license": {"type":"string","minLength":2},
+    "destination": {"type":"string","minLength":2},
+    "acquisitionStatus": {"type":"string","minLength":2},
+    "integrityStatus": {"type":"string","minLength":2},
+    "rightsStatus": {"type":"string","minLength":2},
+    "criticalNotes": {"type":"string","minLength":5},
+    "driveFolderId": {"type":"string","minLength":10}
+  }
+}
