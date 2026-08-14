@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://dtfseeds.com/schemas/thc-grow-doc/sex-observation-1.0.0.json",
-  "title": "THC Grow Doc sex identification observation",
+  "title": "THC Grow Doc reproductive sex-expression observation",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "caseId", "observedAt", "classification", "evidenceMediaIds", "nodeObservations", "verificationStatus"],
@@ -13,7 +13,7 @@
     "plantAgeDays": { "type": "integer", "minimum": 0 },
     "growthStage": { "type": "string" },
     "classification": {
-      "enum": ["too-early", "probable-female", "confirmed-female", "probable-male", "confirmed-male", "possible-intersex", "confirmed-intersex", "unusable"]
+      "enum": ["too-early", "probable-pistillate", "confirmed-pistillate", "probable-staminate", "confirmed-staminate", "possible-co-sexual", "confirmed-co-sexual", "unusable"]
     },
     "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
     "evidenceMediaIds": {
@@ -48,7 +48,7 @@
       "additionalProperties": false,
       "properties": {
         "classification": {
-          "enum": ["confirmed-female", "confirmed-male", "confirmed-intersex"]
+          "enum": ["confirmed-pistillate", "confirmed-staminate", "confirmed-co-sexual"]
         },
         "confirmationCaseId": { "type": "string" },
         "confirmedAt": { "type": "string", "format": "date-time" },
