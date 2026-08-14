@@ -1,0 +1,29 @@
+name: Validate permission request packets
+
+on:
+  pull_request:
+    paths:
+      - 'dataset/permissions/**'
+      - 'dataset/schema/permission-request*.json'
+      - 'scripts/validate-permission-requests.mjs'
+      - '.github/workflows/validate-permissions.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'dataset/permissions/**'
+      - 'dataset/schema/permission-request*.json'
+      - 'scripts/validate-permission-requests.mjs'
+      - '.github/workflows/validate-permissions.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-permissions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/validate-permission-requests.mjs dataset/permissions/high-priority-requests.json

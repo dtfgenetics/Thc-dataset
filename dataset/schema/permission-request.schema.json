@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/permission-request-1.0.0.json",
+  "title": "THC Plant Diagnostic permission/data request packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["requestId", "datasetId", "source", "priority", "status", "contact", "requestedAssets", "requestedMetadata", "rightsRequested", "acquisitionRule", "notes"],
+  "properties": {
+    "requestId": {"type": "string", "pattern": "^PERM-[0-9]{3}$"},
+    "datasetId": {"type": "string", "pattern": "^DS-[0-9]{3}$"},
+    "source": {"type": "string", "minLength": 3},
+    "priority": {"enum": ["P0", "P1", "P2", "P3"]},
+    "status": {"enum": ["REQUEST_DRAFT_READY", "READY_TO_SEND", "SENT", "RESPONSE_RECEIVED", "APPROVED", "PARTIAL_APPROVAL", "DECLINED", "CLOSED_NO_RESPONSE"]},
+    "contact": {
+      "type": "object",
+      "required": ["nameOrOrganization"],
+      "properties": {
+        "nameOrOrganization": {"type": "string"},
+        "email": {"type": ["string", "null"]},
+        "organization": {"type": ["string", "null"]}
+      }
+    },
+    "requestedAssets": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 2}},
+    "requestedMetadata": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 2}},
+    "rightsRequested": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 2}},
+    "scientificUse": {"type": "array", "items": {"type": "string"}},
+    "driveEvidenceId": {"type": ["string", "null"]},
+    "requestedDate": {"type": ["string", "null"], "format": "date"},
+    "responseDate": {"type": ["string", "null"], "format": "date"},
+    "acquisitionRule": {"type": "string", "minLength": 10},
+    "notes": {"type": "string", "minLength": 5}
+  }
+}
