@@ -1,0 +1,58 @@
+name: Bulk Acquisition Phase 2 Reference Figures
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-acquisition-phase2.yml'
+      - 'scripts/bulk-acquire-phase2.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Acquire and verify Phase-2 reference figures
+        run: python scripts/bulk-acquire-phase2.py
+
+      - name: Upload run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thc-dataset-bulk-acquisition-phase2
+          path: bulk_acquisition/phase2/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Publish persistent Phase-2 release assets
+        if: always() && hashFiles('bulk_acquisition/phase2/phase2-manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-acquisition-phase2-2026-08-14'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file bulk_acquisition/phase2/phase2-summary.md
+          else
+            gh release create "$TAG" \
+              --target "$GITHUB_SHA" \
+              --title 'THC Plant Diagnostic — Bulk Acquisition Phase 2 Reference Figures' \
+              --notes-file bulk_acquisition/phase2/phase2-summary.md
+          fi
+          shopt -s nullglob
+          files=(bulk_acquisition/phase2/*)
+          gh release upload "$TAG" "${files[@]}" --clobber
+
+      - name: Summarize Phase-2 truth state
+        if: always() && hashFiles('bulk_acquisition/phase2/phase2-manifest.json') != ''
+        run: cat bulk_acquisition/phase2/phase2-summary.md >> "$GITHUB_STEP_SUMMARY"
