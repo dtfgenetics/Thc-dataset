@@ -2,6 +2,17 @@ import type { Differential, EvidenceFile, GrowContext, IssueRecord } from '../ty
 
 const normalise = (value: string) => value.trim().toLowerCase()
 
+const needsRootZoneChemistry = (issue: IssueRecord) =>
+  issue.category === 'Nutrient deficiency'
+  || issue.category === 'Nutrient toxicity'
+  || issue.category === 'Water / root-zone'
+  || issue.category === 'Root pathogen'
+
+const needsWateringContext = (issue: IssueRecord) =>
+  issue.category === 'Water / root-zone'
+  || issue.category === 'Root pathogen'
+  || issue.category === 'Environmental stress'
+
 export function rankDifferentials(
   records: IssueRecord[],
   context: GrowContext,
@@ -27,8 +38,12 @@ export function rankDifferentials(
       if ((issue.category === 'Mite' || issue.category === 'Insect') && !hasUnderside) missing.push('leaf-underside image')
       if ((issue.category === 'Root pathogen' || issue.category === 'Water / root-zone') && !hasRootView) missing.push('root or crown view')
       if (issue.category === 'Viroid' || issue.category === 'Virus' || issue.category === 'Phytoplasma / Spiroplasma') missing.push('validated laboratory test')
-      if (!context.ph) missing.push('measured pH')
-      if (!context.ec) missing.push('measured EC/PPM')
+
+      // Optional context is requested only when it can separate plausible causes.
+      // It must never block the first image/video analysis.
+      if (needsRootZoneChemistry(issue) && !context.ph) missing.push('measured pH')
+      if (needsRootZoneChemistry(issue) && !context.ec) missing.push('measured EC/PPM')
+      if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
 
       const confidence = score >= 9 && contradictory.length === 0 ? 'High' : score >= 4 ? 'Moderate' : 'Low'
 

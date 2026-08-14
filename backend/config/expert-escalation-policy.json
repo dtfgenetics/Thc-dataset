@@ -1,0 +1,7 @@
+[
+  {"escalation_id":"ESC-001","trigger":"low_confidence_or_close_top_candidates","priority":"normal","status":"AWAITING_EXPERT_REVIEW","review_channel":"THC Discord expert/admin follow-up","review_url":"https://discord.gg/vsdVNWFmDy","external_media_sharing_requires_consent":true,"training_requires_separate_opt_in":true},
+  {"escalation_id":"ESC-002","trigger":"lab_dependent_condition","priority":"high","status":"AWAITING_CONFIRMATION","review_channel":"THC Discord expert/admin follow-up","review_url":"https://discord.gg/vsdVNWFmDy","external_media_sharing_requires_consent":true,"training_requires_separate_opt_in":true},
+  {"escalation_id":"ESC-003","trigger":"multiple_cooccurring_problems","priority":"high","status":"MULTILABEL_REVIEW","review_channel":"THC Discord expert/admin follow-up","review_url":"https://discord.gg/vsdVNWFmDy","external_media_sharing_requires_consent":true,"training_requires_separate_opt_in":true},
+  {"escalation_id":"ESC-004","trigger":"user_requests_followup_or_admin_review","priority":"normal","status":"FOLLOWUP_OPEN","review_channel":"THC Discord expert/admin follow-up","review_url":"https://discord.gg/vsdVNWFmDy","external_media_sharing_requires_consent":true,"training_requires_separate_opt_in":true},
+  {"escalation_id":"ESC-005","trigger":"unusable_or_out_of_domain_media","priority":"low","status":"RESUBMISSION_REQUESTED","review_channel":"THC Discord expert/admin follow-up","review_url":"https://discord.gg/vsdVNWFmDy","external_media_sharing_requires_consent":true,"training_requires_separate_opt_in":true}
+]

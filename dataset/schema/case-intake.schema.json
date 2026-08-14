@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/case-intake-0.3.0.json",
+  "title": "THC Plant Diagnostic case intake",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["caseId", "media", "trainingOptIn"],
+  "properties": {
+    "caseId": {"type": "string", "minLength": 8},
+    "media": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["mediaId", "mediaType", "originalUri"],
+        "properties": {
+          "mediaId": {"type": "string"},
+          "mediaType": {"enum": ["image", "video"]},
+          "originalUri": {"type": "string"},
+          "primaryMedia": {"type": "boolean", "default": false},
+          "viewType": {"enum": ["whole-plant", "symptom-closeup", "leaf-top", "leaf-underside", "root", "crown", "stem", "node", "flower", "trichome-macro", "insect-macro", "sticky-card", "other"]},
+          "sha256": {"type": ["string", "null"]},
+          "perceptualHash": {"type": ["string", "null"]},
+          "parentMediaId": {"type": ["string", "null"]},
+          "videoTimestampSeconds": {"type": ["number", "null"], "minimum": 0}
+        }
+      }
+    },
+    "optionalContext": {"type": "object", "additionalProperties": true},
+    "externalReviewConsent": {"type": "boolean", "default": false},
+    "trainingOptIn": {"type": "boolean", "default": false}
+  }
+}
