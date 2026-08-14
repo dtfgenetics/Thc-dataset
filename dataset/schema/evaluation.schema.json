@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/evaluation-1.0.0.json",
+  "title": "THC Grow Doc locked evaluation example",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "taskType", "groundTruthLabels", "groundTruthLevel", "mediaIds", "locked", "datasetSplit", "fingerprint", "modelRuns"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
+    "caseId": { "type": "string" },
+    "taskType": {
+      "enum": ["plant-health", "sex-identification", "pest-identification", "disease-identification", "root-health", "macro-scan"]
+    },
+    "groundTruthLabels": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "groundTruthLevel": { "enum": ["expert-verified", "lab-confirmed", "directly-confirmed"] },
+    "mediaIds": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "contextSnapshot": { "type": "object" },
+    "locked": { "const": true },
+    "datasetSplit": { "const": "locked-evaluation" },
+    "fingerprint": { "type": "string", "minLength": 16 },
+    "modelRuns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["modelName", "modelVersion", "evaluatedAt", "predictedLabels"],
+        "properties": {
+          "modelName": { "type": "string", "minLength": 1 },
+          "modelVersion": { "type": "string", "minLength": 1 },
+          "rulesetVersion": { "type": "string" },
+          "evaluatedAt": { "type": "string", "format": "date-time" },
+          "predictedLabels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["label", "score"],
+              "properties": {
+                "label": { "type": "string", "minLength": 1 },
+                "score": { "type": "number", "minimum": 0, "maximum": 1 }
+              }
+            }
+          },
+          "top1Correct": { "type": "boolean" },
+          "groundTruthInTop3": { "type": "boolean" },
+          "abstained": { "type": "boolean" },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}
