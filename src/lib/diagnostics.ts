@@ -2,6 +2,15 @@ import type { Differential, EvidenceFile, GrowContext, IssueRecord } from '../ty
 
 const normalise = (value: string) => value.trim().toLowerCase()
 
+const laboratoryBoundedCategories = new Set([
+  'Bacterial pathogen',
+  'Viroid',
+  'Virus',
+  'Phytoplasma / Spiroplasma',
+])
+
+const microscopicMiteSlugs = new Set(['hemp-russet-mite', 'broad-mite'])
+
 const needsRootZoneChemistry = (issue: IssueRecord) =>
   issue.category === 'Nutrient deficiency'
   || issue.category === 'Nutrient toxicity'
@@ -21,6 +30,8 @@ export function rankDifferentials(
   const selected = new Set(context.symptoms.map(normalise))
   const hasRootView = evidence.some((item) => item.slot === 'root-crown')
   const hasUnderside = evidence.some((item) => item.slot === 'underside')
+  const hasWholePlant = evidence.some((item) => item.slot === 'whole-plant')
+  const hasCloseUp = evidence.some((item) => item.slot === 'close-up')
 
   return records
     .map((issue) => {
@@ -32,20 +43,43 @@ export function rankDifferentials(
       if (hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) score += 1
       if (hasUnderside && (issue.category === 'Mite' || issue.category === 'Insect')) score += 1
 
-      const missing = [] as string[]
-      if (!evidence.some((item) => item.slot === 'whole-plant')) missing.push('whole-plant view')
-      if (!evidence.some((item) => item.slot === 'close-up')) missing.push('affected-tissue close-up')
+      const missing: string[] = []
+      if (!hasWholePlant) missing.push('whole-plant view')
+      if (!hasCloseUp) missing.push('affected-tissue close-up')
       if ((issue.category === 'Mite' || issue.category === 'Insect') && !hasUnderside) missing.push('leaf-underside image')
       if ((issue.category === 'Root pathogen' || issue.category === 'Water / root-zone') && !hasRootView) missing.push('root or crown view')
-      if (issue.category === 'Viroid' || issue.category === 'Virus' || issue.category === 'Phytoplasma / Spiroplasma') missing.push('validated laboratory test')
+      if (laboratoryBoundedCategories.has(issue.category)) missing.push('validated laboratory test')
+      if (microscopicMiteSlugs.has(issue.slug)) missing.push('microscope-confirmed mite identification')
 
-      // Optional context is requested only when it can separate plausible causes.
+      // Optional grow context is requested only when it can separate plausible causes.
       // It must never block the first image/video analysis.
       if (needsRootZoneChemistry(issue) && !context.ph) missing.push('measured pH')
       if (needsRootZoneChemistry(issue) && !context.ec) missing.push('measured EC/PPM')
       if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
 
-      const confidence = score >= 9 && contradictory.length === 0 ? 'High' : score >= 4 ? 'Moderate' : 'Low'
+      let confidence: Differential['confidence'] = score >= 9 && contradictory.length === 0 ? 'High' : score >= 4 ? 'Moderate' : 'Low'
+
+      // Evidence gates prevent symptom overlap from being mistaken for confirmation.
+      if (laboratoryBoundedCategories.has(issue.category)) confidence = 'Low'
+
+      if (issue.category === 'Root pathogen' && !hasRootView) confidence = 'Low'
+
+      if (issue.category === 'Mite') {
+        if (!hasUnderside) confidence = 'Low'
+        else if (microscopicMiteSlugs.has(issue.slug) && confidence === 'High') confidence = 'Moderate'
+      }
+
+      if (issue.category === 'Insect' && !hasUnderside && confidence === 'High') confidence = 'Moderate'
+
+      if (
+        (issue.category === 'Nutrient deficiency' || issue.category === 'Nutrient toxicity')
+        && (!context.ph || !context.ec)
+        && confidence === 'High'
+      ) {
+        confidence = 'Moderate'
+      }
+
+      if ((!hasWholePlant || !hasCloseUp) && confidence === 'High') confidence = 'Moderate'
 
       return {
         issue,
