@@ -1,0 +1,46 @@
+{
+  "snapshotVersion": "2026-08-13.ds071-ds090.v1",
+  "generatedFrom": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheetId": "1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA",
+    "tab": "Acquisition_Manifest",
+    "capturedAt": "2026-08-13"
+  },
+  "recordCount": 2,
+  "records": [
+    {
+      "sheetRow": 12,
+      "order": 11,
+      "datasetId": "DS-071",
+      "dataset": "Cannabis Single-Element Nutrient Deficiency Supplement",
+      "canonicalSource": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9920212/",
+      "version": "DOI 10.3390/plants12030422; official MDPI Supplementary Material endpoint /s1",
+      "expectedPackage": "72.9 MB ZIP containing Figure S1 weekly whole-plant Control/-N/-P/-K/-Ca/-Mg/-S/-Fe/-Mn progression, Figure S2 harvest apical inflorescences, and Figure S3 healthy-control inflorescence development weeks 3-7",
+      "repositoryChecksum": "Generate archive SHA-256 plus per-extracted-file SHA-256/pHash after acquisition; preserve figure/treatment/week/organ identity",
+      "license": "CC BY 4.0",
+      "destination": "01_RAW_OPEN/DS-071_CannabisNutrientDeficiency",
+      "acquisitionStatus": "OFFICIAL SUPPLEMENT ENDPOINT RESOLVED / RAW BYTE TRANSFER BLOCKED",
+      "integrityStatus": "PENDING LOCAL ARCHIVE + EXTRACTED HASHES",
+      "rightsStatus": "OPEN WITH ATTRIBUTION",
+      "criticalNotes": "Use direct MDPI supplementary endpoint as the primary reproducible route. PMC legacy individual article-package routes changed in Aug 2026, so do not depend on the old FTP/package path. Preserve weekly progression as temporal evidence; diagnosis must still combine image pattern with pH/EC/feed/media/tissue context rather than treating appearance alone as definitive deficiency proof.",
+      "driveFolderId": "1VKzQMAZ7Dtt5DoFUpn3NPCX9nqsci33p"
+    },
+    {
+      "sheetRow": 20,
+      "order": 19,
+      "datasetId": "DS-090",
+      "dataset": "Industrial Hemp Greenhouse Water-Stress & Growth Image Dataset",
+      "canonicalSource": "https://data.mendeley.com/datasets/3md2tbx74c/1",
+      "version": "Mendeley V1 DOI 10.17632/3md2tbx74c.1; alternate paper-linked Git source pinned at commit 86cec1c30494c23c1d9b724ceb1a3aec68709250",
+      "expectedPackage": "Five hourly growth time-series trees C1-C5 + 378 labeled water-stress JPEGs (305 source-train, 73 source-test) + published classifier retained for reproducibility only",
+      "repositoryChecksum": "Pinned Git tree SHAs: C1 8b9cf5739d37651628b430083bc3dc44c2bac204; C2 ae68eadb3c159e4b11731538e688da6038f218ba; C3 9e0979570562594183a630baf4b63a16d578c4fc; C4 4138ad3c06eea92de68f41bff9f91388f8b66708; C5 c792399766afaec64cebd2336f61a1d2212491ca; stress-train decbeb56bc1a3b4b6ce64248b3e4805b7169ac29; stress-test 0457eb36d8140bb958d29b5a71e23cad7897a7d5. Generate per-file SHA-256/pHash after transfer.",
+      "license": "CC BY 4.0 via canonical Mendeley dataset",
+      "destination": "01_RAW_OPEN/DS-090_Hemp_WaterStress_Growth",
+      "acquisitionStatus": "ALL SOURCE TREES PINNED / SAMPLE JPEG RAW BYTE VERIFIED / BULK DRIVE TRANSFER PENDING",
+      "integrityStatus": "PARTIAL INVENTORY VERIFIED / PER-FILE HASHING PENDING",
+      "rightsStatus": "OPEN WITH ATTRIBUTION",
+      "criticalNotes": "Never preserve the source random train/test split as our benchmark. Merge source train/test inventory, recover plant ID + timestamp from filenames, then group all frames/derivatives by plant/time-series before assigning any split. Published yolo11x-cls.pt (Git blob a22c0a99edb12496517e47f0f9648f00a947f7ec; 59,624,868 bytes) is reproducibility metadata only and is excluded from our training and locked evaluation sets.",
+      "driveFolderId": "1Ept8AX4SufeLceGvUSE3NlvnE1jnPy-F"
+    }
+  ]
+}

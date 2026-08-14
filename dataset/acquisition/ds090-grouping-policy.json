@@ -1,0 +1,41 @@
+{
+  "policyVersion": "2026-08-13.ds090-grouping.v1",
+  "datasetId": "DS-090",
+  "canonicalRightsSource": "https://data.mendeley.com/datasets/3md2tbx74c/1",
+  "alternatePinnedSource": {
+    "repository": "fearro/IoT_monitoring_hemp",
+    "commit": "86cec1c30494c23c1d9b724ceb1a3aec68709250"
+  },
+  "sourceGroups": [
+    {"groupId":"DS090-C1","plantId":"C1","treeSha":"8b9cf5739d37651628b430083bc3dc44c2bac204","path":"Hemp_growth/C1"},
+    {"groupId":"DS090-C2","plantId":"C2","treeSha":"ae68eadb3c159e4b11731538e688da6038f218ba","path":"Hemp_growth/C2"},
+    {"groupId":"DS090-C3","plantId":"C3","treeSha":"9e0979570562594183a630baf4b63a16d578c4fc","path":"Hemp_growth/C3"},
+    {"groupId":"DS090-C4","plantId":"C4","treeSha":"4138ad3c06eea92de68f41bff9f91388f8b66708","path":"Hemp_growth/C4"},
+    {"groupId":"DS090-C5","plantId":"C5","treeSha":"c792399766afaec64cebd2336f61a1d2212491ca","path":"Hemp_growth/C5"}
+  ],
+  "publishedClassificationFolders": {
+    "train": {"treeSha":"decbeb56bc1a3b4b6ce64248b3e4805b7169ac29","publishedCount":305},
+    "test": {"treeSha":"0457eb36d8140bb958d29b5a71e23cad7897a7d5","publishedCount":73}
+  },
+  "filenameParsing": {
+    "example": "ryb_C1_20241229_08_00.jpg",
+    "regex": "^ryb_(C[1-5])_(\\d{8})_(\\d{2})_(\\d{2})\\.jpg$",
+    "fields": ["plantId", "yyyymmdd", "hour", "minute"]
+  },
+  "splitRules": [
+    "Do not preserve the publisher's random train/test assignment as our benchmark split.",
+    "Merge source train and source test inventories before our split assignment.",
+    "All images from the same plant/time-series identity must remain in one split.",
+    "Any crop, resize, augmentation, segmentation mask, or derived image inherits the parent plant/source group.",
+    "Perceptual duplicate review must run before split assignment.",
+    "A locked evaluation group may never be used for training, tuning, threshold selection, or model selection."
+  ],
+  "publishedModel": {
+    "path": "Hemp_water_stress/model/yolo11x-cls.pt",
+    "gitBlobSha": "a22c0a99edb12496517e47f0f9648f00a947f7ec",
+    "sizeBytes": 59624868,
+    "allowedUse": "reproducibility/reference only",
+    "trainingEligible": false,
+    "evaluationEligible": false
+  }
+}
