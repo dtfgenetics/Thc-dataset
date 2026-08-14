@@ -9,7 +9,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "check": "tsc -b --pretty false",
     "test": "vitest run",
-    "validate:sources": "node scripts/validate-source-snapshot.mjs dataset/registry/sources-132-146.json dataset/registry/sources-147-158.json dataset/registry/sources-159-160.json"
+    "validate:sources": "node scripts/validate-source-snapshot.mjs dataset/registry/sources-132-146.json dataset/registry/sources-147-158.json dataset/registry/sources-159-160.json dataset/registry/sources-161-163.json"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
