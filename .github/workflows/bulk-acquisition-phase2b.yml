@@ -1,0 +1,51 @@
+name: Bulk Acquisition Phase 2B PMC Reconciliation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-acquisition-phase2b.yml'
+      - 'scripts/bulk-acquire-phase2b-pmc.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reconcile current PMC figure asset routes
+        run: python scripts/bulk-acquire-phase2b-pmc.py
+      - name: Upload Phase-2B artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thc-dataset-bulk-acquisition-phase2b
+          path: bulk_acquisition/phase2b/
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Publish Phase-2B release assets
+        if: always() && hashFiles('bulk_acquisition/phase2b/phase2b-manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-acquisition-phase2b-2026-08-14'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file bulk_acquisition/phase2b/phase2b-summary.md
+          else
+            gh release create "$TAG" --target "$GITHUB_SHA" --title 'THC Plant Diagnostic — Bulk Acquisition Phase 2B PMC Reconciliation' --notes-file bulk_acquisition/phase2b/phase2b-summary.md
+          fi
+          shopt -s nullglob
+          files=(bulk_acquisition/phase2b/*)
+          gh release upload "$TAG" "${files[@]}" --clobber
+      - name: Summarize Phase-2B
+        if: always() && hashFiles('bulk_acquisition/phase2b/phase2b-summary.md') != ''
+        run: cat bulk_acquisition/phase2b/phase2b-summary.md >> "$GITHUB_STEP_SUMMARY"
