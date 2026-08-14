@@ -1,0 +1,59 @@
+name: Phase 6 Drive Bridge A
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/phase6-drive-bridge-a.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {dataset: DS-137, part: '001'}
+          - {dataset: DS-137, part: '002'}
+          - {dataset: DS-137, part: '003'}
+          - {dataset: DS-137, part: '004'}
+          - {dataset: DS-137, part: '005'}
+          - {dataset: DS-137, part: '006'}
+          - {dataset: DS-137, part: '007'}
+          - {dataset: DS-137, part: '008'}
+          - {dataset: DS-137, part: '009'}
+          - {dataset: DS-145, part: '001'}
+          - {dataset: DS-145, part: '002'}
+          - {dataset: DS-145, part: '003'}
+          - {dataset: DS-145, part: '004'}
+          - {dataset: DS-145, part: '005'}
+          - {dataset: DS-145, part: '006'}
+    steps:
+      - name: Download persistent release chunk
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATASET: ${{ matrix.dataset }}
+          PART: ${{ matrix.part }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          FILE="${DATASET}_archive.part${PART}"
+          gh release download 'bulk-transfer-phase6-2026-08-14' --repo "$GITHUB_REPOSITORY" --pattern "$FILE" --dir out
+          test -s "out/$FILE"
+          sha256sum "out/$FILE" > "out/$FILE.sha256"
+      - name: Expose Drive-sized artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bridge-${{ matrix.dataset }}-${{ matrix.part }}
+          path: |
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}.sha256
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 90
