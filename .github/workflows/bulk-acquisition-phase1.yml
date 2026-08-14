@@ -1,0 +1,66 @@
+name: Bulk Acquisition Phase 1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-acquisition-phase1.yml'
+      - 'scripts/bulk-acquire-phase1.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Acquire and verify phase-1 datasets
+        run: python scripts/bulk-acquire-phase1.py
+
+      - name: Upload run artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thc-dataset-bulk-acquisition-phase1
+          path: bulk_acquisition/phase1/
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Publish persistent release assets
+        if: always() && hashFiles('bulk_acquisition/phase1/phase1-manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-acquisition-phase1-2026-08-14'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file bulk_acquisition/phase1/phase1-summary.md
+          else
+            gh release create "$TAG" \
+              --target "$GITHUB_SHA" \
+              --title 'THC Plant Diagnostic — Bulk Acquisition Phase 1' \
+              --notes-file bulk_acquisition/phase1/phase1-summary.md
+          fi
+          shopt -s nullglob
+          files=(bulk_acquisition/phase1/*)
+          if (( ${#files[@]} == 0 )); then
+            echo 'No acquisition files were produced.' >&2
+            exit 1
+          fi
+          gh release upload "$TAG" "${files[@]}" --clobber
+
+      - name: Summarize acquisition truth state
+        if: always() && hashFiles('bulk_acquisition/phase1/phase1-manifest.json') != ''
+        run: |
+          cat bulk_acquisition/phase1/phase1-summary.md >> "$GITHUB_STEP_SUMMARY"
+          echo '' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Release tag: `bulk-acquisition-phase1-2026-08-14`' >> "$GITHUB_STEP_SUMMARY"
