@@ -28,12 +28,20 @@ GitHub snapshots exist so code, reviews, pull requests and future deployment sys
 - russet-mite microscopy raw-photo acquisition candidate;
 - UC Kearney hemp arthropod voucher/digitization partnership candidate.
 
-`sources-159-160.json` contains the next direct-cannabis localization candidates:
+`sources-159-160.json` contains direct-cannabis localization candidates:
 
 - DS-159 Cannabis Leaf Counter — leaf/plant object detection;
 - DS-160 Plant-Leave-single — plant/node/leaf/meristem instance segmentation.
 
-Both DS-159 and DS-160 remain provenance/dedup quarantine candidates until an exact source version is pinned and source-family/augmentation relationships are verified.
+`sources-161-165.json` extends the controlled snapshot with:
+
+- DS-161 sex/intersex detection plus explicit too-early, not-a-plant and closer-image-required abstention negatives;
+- DS-162 direct-cannabis nutrient/normal detection candidate;
+- DS-163 clear/milky/amber trichome-color candidate under rights/provenance hold;
+- DS-164 treatment-grounded hemp heat/drought/herbivory/mechanical-stress reference evidence;
+- DS-165 public-domain USDA-ARS broad-mite organism microscopy transfer reference.
+
+The Roboflow-derived candidates remain quarantine sources until exact versions, dataset rights, source-family lineage, host provenance and duplicates are resolved. Reference-only sources do not become phone-photo training corpora simply because their scientific evidence is strong.
 
 ## Rules
 
@@ -46,6 +54,7 @@ Both DS-159 and DS-160 remain provenance/dedup quarantine candidates until an ex
 - Locked benchmark assets must never be used for training, tuning or model selection.
 - Author-request and partner-request candidates stay outside training until explicit media/data rights are documented.
 - Roboflow forks, generated versions and augmented/resized exports must be treated as one source family until dedup/provenance review proves otherwise.
+- Explicit abstention/quality labels such as `Too-early-to-tell`, `Not-a-plant` and `Closer-image-required` must be preserved rather than collapsed into sex classes.
 
 ## Validation
 
