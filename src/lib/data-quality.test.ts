@@ -143,6 +143,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
   })
 
+  it('keeps substrate-pH stress measured, medium-bounded, and non-visual', () => {
+    const record = issues.find((issue) => issue.slug === 'acidic-extreme-substrate-ph-stress')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/actual substrate|root-zone ph/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/calibrated meter/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/alkalinity/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ec/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not a universal image phenotype|not.*universal.*image/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/peat-based.*not.*soil.*coco.*rockwool/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/fourfold micronutrients/)
+    expect(record?.lookAlikes).toContain('Waterlogging or root-zone hypoxia')
+    expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
+    expect(record?.media).toHaveLength(0)
+  })
+
   it('keeps heat and light labels exposure-measured and cultivar-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'heat-light-stress')
     expect(record?.reviewStatus).toBe('reviewed')
