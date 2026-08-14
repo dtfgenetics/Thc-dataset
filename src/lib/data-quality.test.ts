@@ -175,6 +175,19 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps copper deficiency publication-aware, analytically bounded, and image-conservative', () => {
+    const record = issues.find((issue) => issue.slug === 'copper-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone ph.*ec/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tissue|foliage/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/figure-number inconsistency/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not universal thresholds/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not image-only ground truth/)
+    expect(record?.lookAlikes).toContain('Broad mite injury')
+    expect(record?.lookAlikes).toContain('Boron deficiency')
+    expect(record?.media).toHaveLength(0)
+  })
+
   it('keeps magnesium deficiency stage-aware, analytically bounded, and sequence-safe', () => {
     const record = issues.find((issue) => issue.slug === 'magnesium-deficiency')
     expect(record?.reviewStatus).toBe('reviewed')
