@@ -1,0 +1,72 @@
+{
+  "policyVersion": "2026-08-13.ds137-ds146.transfer.v1",
+  "scope": {
+    "datasetIds": ["DS-137","DS-138","DS-139","DS-140","DS-141","DS-142","DS-143","DS-144","DS-145","DS-146"],
+    "hostContext": "cross-crop transfer to Cannabis diagnostics"
+  },
+  "invariants": {
+    "cannabisCausalGroundTruth": false,
+    "preserveOriginalSourceLabels": true,
+    "requireCannabisSpecificConfirmationForCannabisEtiology": true,
+    "requireSha256AndPerceptualDedupBeforeTraining": true,
+    "allowIndependentSampleInflationFromDerivatives": false,
+    "allowedUses": [
+      "visual feature pretraining",
+      "hard-negative learning",
+      "syndrome and damage-pattern differential learning",
+      "out-of-distribution calibration",
+      "healthy-background negatives",
+      "multi-label transfer when the source supports co-occurrence"
+    ],
+    "forbiddenUses": [
+      "Cannabis species-level pathogen confirmation from cross-crop imagery",
+      "Cannabis virus or viroid confirmation from cross-crop labels",
+      "Cannabis nutrient causal confirmation from cross-crop appearance alone",
+      "counting patches, crops, augmentations or overlapping mirrors as independent biological samples",
+      "using standardized-background datasets as proof of natural-background benchmark performance"
+    ]
+  },
+  "datasetRules": {
+    "DS-137": {
+      "role": ["healthy negatives","nutrient/powdery-mildew/spot-pattern transfer"],
+      "rules": ["Keep all provider classes intact.","Leaf-curl and causal disease names remain pepper-specific transfer metadata."]
+    },
+    "DS-138": {
+      "role": ["real-phone field transfer","healthy negatives","nutrient/mildew/spot-pattern transfer"],
+      "rules": ["Curl-virus labels cannot become Cannabis virus ground truth.","Preserve original class imbalance and field-capture context."]
+    },
+    "DS-139": {
+      "role": ["mite transfer","leafminer/herbivory transfer","sooty-mold transfer","messy phone backgrounds","healthy negatives"],
+      "rules": ["Run our own pHash/source-family audit even though the source reports duplicate screening.","Retain all 18 original labels before ontology mapping."]
+    },
+    "DS-140": {
+      "role": ["spider/web transfer","scale/mealybug transfer","mildew/sooty-mold transfer","healthy negatives"],
+      "rules": ["The 1,071-image Mendeley pest component overlaps the 5,472-image Zenodo full archive and must not be double-counted.","The Zenodo full archive remains a separate restricted child until its item license is explicitly captured.","Cross-source duplicate mapping is mandatory before split construction."]
+    },
+    "DS-141": {
+      "role": ["multi-label/co-occurrence transfer","leafminer/mildew/whitefly transfer"],
+      "rules": ["Every base image and all 64 derived patches share one sourceGroupId.","Parent and patches must remain in exactly one split.","Patch count is never independent biological sample count."]
+    },
+    "DS-142": {
+      "role": ["spider-mite vs sun-scorch morphology differential"],
+      "rules": ["Record white-background replacement, standardization and brightness enhancement as domain-shift metadata.","Do not use as a natural-background Cannabis benchmark."]
+    },
+    "DS-143": {
+      "role": ["scale-insect transfer","sooty-mold transfer","healthy negatives"],
+      "rules": ["Inspect .txt annotation class/coordinate semantics before localization import.","Preserve the mango host context in every derived asset."]
+    },
+    "DS-144": {
+      "role": ["high-resolution field transfer","healthy negatives","wilt/mosaic look-alikes"],
+      "rules": ["Retain metadata.csv and original filename mapping.","Mosaic and wilt are syndrome-transfer labels only, not Cannabis etiologic labels."]
+    },
+    "DS-145": {
+      "role": ["Botrytis/Fusarium/powdery-mildew transfer","healthy negatives"],
+      "rules": ["Preserve extreme source class imbalance in metadata.","Do not correct imbalance by duplicating rare samples across splits.","Leaf-roll-virus remains pea-specific causal metadata."]
+    },
+    "DS-146": {
+      "role": ["beneficial arthropod hard negatives","pest/non-pest discrimination"],
+      "beneficialClasses": ["green lacewing","hoverfly","lady beetle"],
+      "rules": ["Beneficial identities must never be collapsed into a generic harmful-insect label.","Use as explicit hard negatives against pest overcalling."]
+    }
+  }
+}

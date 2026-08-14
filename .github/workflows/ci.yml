@@ -20,6 +20,7 @@ jobs:
       - run: npm ci
       - run: npm run validate:sources
       - run: npm run validate:acquisition
+      - run: npm run validate:transfer
       - run: npm run check
       - run: npm test
       - run: npm run build
