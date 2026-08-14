@@ -7,12 +7,16 @@
   },
   "referenceImageIndex": {
     "name": "THC Plant Diagnostic — Reference Image Index v1.0 — CONTROLLED",
-    "googleDriveSpreadsheetId": "1FbNdxQqnyqzJ3dgA6FM4Tsd1K0GMXbjly8qD_D4JrWA"
+    "googleDriveSpreadsheetId": "1FbNdxQqnyqzJ3dgA6FM4Tsd1K0GMXbjly8qD_D4JrWA",
+    "recordCountAtSnapshot": 40,
+    "gitSnapshotFile": "reference-image-sources.json",
+    "gitCannabisReferenceCount": 30
   },
   "snapshot": {
     "date": "2026-08-13",
-    "scope": "P0 cannabis-specific sources",
-    "file": "p0-cannabis-sources.json",
+    "scope": "P0 cannabis-specific sources plus cannabis/hemp scientific reference-image sources",
+    "sourceFile": "p0-cannabis-sources.json",
+    "referenceFile": "reference-image-sources.json",
     "rule": "Drive is the editable source of truth; Git snapshots are reproducible release inputs."
   }
 }
