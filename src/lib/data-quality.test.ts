@@ -217,6 +217,22 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps nitrogen toxicity form-aware, analytically bounded, and mixed-dose safe', () => {
+    const record = issues.find((issue) => issue.slug === 'nitrogen-toxicity')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.sources).toHaveLength(2)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/nitrate.*ammonium|ammonium.*nitrate/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone.*ph.*ec/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not interchangeable|not.*generic excess/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/dark clawed leaves.*standalone/)
+    expect(record?.lookAlikes).toContain('High-EC nutrient burn or broad salinity stress')
+    expect(record?.lookAlikes).toContain('Broad mite injury')
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/five columns.*three rows/)
+    expect(record?.media[1]?.useLimitations.join(' ').toLowerCase()).toMatch(/100% ammonium.*0% nitrate/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
