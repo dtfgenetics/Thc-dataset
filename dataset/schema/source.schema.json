@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/source-1.0.0.json",
+  "title": "THC Grow Doc source registry record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "domain", "cannabisSpecific", "modality", "primaryTask", "license", "academicUse", "rawRedistribution", "publicModelDeployment", "priority", "sourceUrl", "provenanceStatus"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^DS-[0-9]{3,}$"},
+    "name": {"type": "string", "minLength": 3},
+    "domain": {"type": "string", "minLength": 3},
+    "cannabisSpecific": {"enum": ["YES", "NO", "PARTIAL"]},
+    "hostsSpecies": {"type": "string"},
+    "modality": {"type": "string", "minLength": 2},
+    "primaryTask": {"type": "string", "minLength": 2},
+    "approximateSize": {"type": "string"},
+    "classesLabels": {"type": "string"},
+    "environment": {"type": "string"},
+    "annotationType": {"type": "string"},
+    "license": {"type": "string", "minLength": 2},
+    "academicUse": {"type": "string", "minLength": 2},
+    "rawRedistribution": {"type": "string", "minLength": 2},
+    "publicModelDeployment": {"type": "string", "minLength": 2},
+    "priority": {"enum": ["P0", "P1", "P2", "P3"]},
+    "sourceUrl": {"type": "string", "format": "uri"},
+    "provenanceStatus": {"type": "string", "minLength": 2},
+    "notes": {"type": "string"}
+  }
+}

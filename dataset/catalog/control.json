@@ -1,0 +1,18 @@
+{
+  "registry": {
+    "name": "THC Plant Diagnostic — Public Dataset Registry v1.0 — CONTROLLED",
+    "googleDriveSpreadsheetId": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+    "sheet": "Dataset_Registry",
+    "recordCountAtSnapshot": 156
+  },
+  "referenceImageIndex": {
+    "name": "THC Plant Diagnostic — Reference Image Index v1.0 — CONTROLLED",
+    "googleDriveSpreadsheetId": "1FbNdxQqnyqzJ3dgA6FM4Tsd1K0GMXbjly8qD_D4JrWA"
+  },
+  "snapshot": {
+    "date": "2026-08-13",
+    "scope": "P0 cannabis-specific sources",
+    "file": "p0-cannabis-sources.json",
+    "rule": "Drive is the editable source of truth; Git snapshots are reproducible release inputs."
+  }
+}

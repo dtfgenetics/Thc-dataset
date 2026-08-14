@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/reference-1.0.0.json",
+  "title": "THC Grow Doc scientific reference-image/evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "datasetId", "category", "canonicalLabels", "cannabisSpecific", "confirmationLevel", "imageType", "sourceTitle", "sourceUrl", "license", "reuseLane", "acquisitionStatus", "whatItConfirms", "diagnosticCeiling"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^REF-[0-9]{3,}$"},
+    "datasetId": {"type": "string", "pattern": "^DS-[0-9]{3,}$"},
+    "category": {"type": "string", "minLength": 2},
+    "canonicalLabels": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "cannabisSpecific": {"enum": ["YES", "NO", "PARTIAL"]},
+    "confirmationLevel": {"type": "string", "minLength": 2},
+    "imageType": {"type": "string", "minLength": 2},
+    "sourceTitle": {"type": "string", "minLength": 3},
+    "sourceUrl": {"type": "string", "format": "uri"},
+    "license": {"type": "string", "minLength": 2},
+    "reuseLane": {"type": "string", "minLength": 2},
+    "targetFolderId": {"type": "string"},
+    "acquisitionStatus": {"type": "string", "minLength": 2},
+    "whatItConfirms": {"type": "string", "minLength": 10},
+    "diagnosticCeiling": {"type": "string", "minLength": 10}
+  }
+}
