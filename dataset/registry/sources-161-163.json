@@ -1,0 +1,56 @@
+{
+  "snapshotVersion": "2026-08-13.ds161-ds163",
+  "generatedFrom": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheetId": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+    "tab": "Dataset_Registry",
+    "capturedAt": "2026-08-13"
+  },
+  "records": [
+    {
+      "id": "DS-161",
+      "name": "Sexing Ai — Cannabis Sex/Intersex + Quality/Timing Negatives",
+      "domain": "Cannabis reproductive morphology / sexing / quality negatives",
+      "cannabisSpecific": "YES",
+      "modality": "RGB images + object-detection labels",
+      "primaryTask": "Sex/intersex localization + reject/too-early quality gating",
+      "approximateSize": "500 images; 2 models reported by Roboflow search index",
+      "classesLabels": "Closer-image-required; Female; Hermie; Male; Not-a-plant; Too-early-to-tell",
+      "license": "VERIFY exact project license before export",
+      "priority": "P0",
+      "sourceUrl": "https://universe.roboflow.com/image-cjekg/sexing-ai",
+      "provenanceStatus": "VERIFIED PROJECT PATH + CLASS METADATA / RIGHTS QUARANTINE",
+      "notes": "High-value negative-aware sexing candidate. Do not use for training until exact version, license, Cannabis provenance and duplicate/source-family lineage are verified. Too-early-to-tell maps to sex_not_yet_visually_determinable, not image_unusable."
+    },
+    {
+      "id": "DS-162",
+      "name": "cannabis_final — Cannabis Nutrient Deficiency Object Detection",
+      "domain": "Cannabis nutrient deficiency / healthy-normal hard differential",
+      "cannabisSpecific": "YES",
+      "modality": "RGB images + object-detection boxes",
+      "primaryTask": "Cannabis nutrient/normal detection candidate",
+      "approximateSize": "665 images; 7 dataset versions",
+      "classesLabels": "Normal; Magnesium; Manganese; Nitrogen; Phosphorus; Potassium",
+      "license": "CC BY 4.0",
+      "priority": "P0",
+      "sourceUrl": "https://universe.roboflow.com/cannabis-zfpch/cannabis_final",
+      "provenanceStatus": "VERIFIED METADATA / QUARANTINE",
+      "notes": "Useful real-world supplement to controlled DS-071/072 cannabis nutrient evidence. Pin exact version and audit source-image provenance plus pHash overlap with related Roboflow forks before trusted use."
+    },
+    {
+      "id": "DS-163",
+      "name": "Trichome Colour Detection — Clear/Milky/Amber Candidate",
+      "domain": "Cannabis maturity / trichome-color detection candidate",
+      "cannabisSpecific": "LIKELY YES — verify host/source provenance",
+      "modality": "Macro RGB + object-detection boxes",
+      "primaryTask": "Trichome head color localization / maturity support",
+      "approximateSize": "151 images; 3 models reported by Roboflow search index",
+      "classesLabels": "amber; clear; milky",
+      "license": "VERIFY exact project license before export",
+      "priority": "P1",
+      "sourceUrl": "https://universe.roboflow.com/trichome-identification/trichome-colour-detection",
+      "provenanceStatus": "VERIFIED PROJECT PATH + CLASS/SIZE METADATA / RIGHTS QUARANTINE",
+      "notes": "Small maturity candidate. Verify Cannabis host/tissue, optics, labeling method, image source, license, exact version and duplicates. DS-112/088 remain higher-trust maturity evidence."
+    }
+  ]
+}
