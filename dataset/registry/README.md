@@ -8,7 +8,7 @@ The authoritative editable research registry remains the Google Sheet identified
 
 GitHub snapshots exist so code, reviews, pull requests and future deployment systems can consume stable metadata without depending on chat history.
 
-## Current snapshot
+## Current snapshots
 
 `sources-132-146.json` contains DS-132 through DS-146, including:
 
@@ -19,6 +19,15 @@ GitHub snapshots exist so code, reviews, pull requests and future deployment sys
 - a co-occurrence dataset useful for multi-label transfer;
 - beneficial/non-pest insect negatives.
 
+`sources-147-158.json` contains DS-147 through DS-158, including:
+
+- GBIF and iNaturalist item-licensed biodiversity-media acquisition pools;
+- leaf instance-segmentation transfer data;
+- several cannabis-specific root/crown pathogen and Fusarium studies;
+- cannabis aphid biocontrol evidence;
+- russet-mite microscopy raw-photo acquisition candidate;
+- UC Kearney hemp arthropod voucher/digitization partnership candidate.
+
 ## Rules
 
 - A source record is metadata, not proof that raw files were acquired.
@@ -28,6 +37,7 @@ GitHub snapshots exist so code, reviews, pull requests and future deployment sys
 - Cross-crop etiologic labels are transfer evidence only; they do not confirm the same pathogen/virus in cannabis.
 - Duplicate/derived data must remain grouped by original parent when building splits.
 - Locked benchmark assets must never be used for training, tuning or model selection.
+- Author-request and partner-request candidates stay outside training until explicit media/data rights are documented.
 
 ## Validation
 
@@ -37,12 +47,13 @@ Run:
 npm run validate:sources
 ```
 
-CI runs this validator before TypeScript checks, tests and production build.
+CI validates every listed snapshot before TypeScript checks, tests and production build.
 
 ## Updating snapshots
 
 1. Update the controlled Drive registry first.
 2. Export/copy the intended verified rows into a new versioned JSON snapshot.
-3. Run the source validator.
-4. Open a pull request and let CI pass before merging.
-5. Never rewrite an old release snapshot to change history; add a new snapshot/version instead.
+3. Add the new snapshot path to `validate:sources`.
+4. Run the source validator.
+5. Open a pull request and let CI pass before merging.
+6. Never rewrite an old release snapshot to change history; add a new snapshot/version instead.
