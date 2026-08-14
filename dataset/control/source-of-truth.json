@@ -1,0 +1,38 @@
+{
+  "version": "0.3.0",
+  "controlled_registry": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheet_id": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+    "tabs": [
+      "Dataset_Registry",
+      "Unified_Taxonomy",
+      "Class_Map",
+      "Gap_Register",
+      "Evidence_Reference",
+      "Hard_Differentials",
+      "Intervention_Evidence",
+      "Diagnostic_Response_Policy",
+      "Solution_Ranking_Policy",
+      "Expert_Escalation_Policy",
+      "Optional_Context_Fields",
+      "Backend_Endpoint_Contract",
+      "Code_Release_Index"
+    ]
+  },
+  "confirmed_case_dataset": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheet_id": "192u6YIvp0yC-s89ejj6pnVlbKyFRl2_HmD89KUbhEe4"
+  },
+  "acquisition_manifest": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheet_id": "1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA"
+  },
+  "rules": [
+    "Drive remains the editable research-control source of truth.",
+    "GitHub stores code, schemas and versioned release snapshots.",
+    "Do not treat a cited webpage as permission to copy images.",
+    "Do not mix reference-only media with training-eligible media.",
+    "Do not use locked benchmark assets for training or tuning.",
+    "User uploads require separate opt-in before training use."
+  ]
+}
