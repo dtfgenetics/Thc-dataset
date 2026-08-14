@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/app-response-0.3.0.json",
+  "title": "THC Plant Diagnostic app response",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["analysisId", "caseId", "status", "primaryDiagnosis", "confidence", "confidenceBand", "whyItFits", "confirmation", "immediateActions", "evidenceSources", "expertEscalation"],
+  "properties": {
+    "analysisId": {"type": "string", "minLength": 8},
+    "caseId": {"type": "string", "minLength": 8},
+    "status": {"enum": ["complete", "provisional", "resubmission-requested", "expert-review-recommended"]},
+    "primaryDiagnosis": {
+      "type": "object",
+      "required": ["canonicalId", "canonicalLabel", "displayName"],
+      "properties": {
+        "canonicalId": {"type": "string"},
+        "canonicalLabel": {"type": "string"},
+        "displayName": {"type": "string"}
+      }
+    },
+    "confidence": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+    "confidenceBand": {"enum": ["high", "moderate", "low"]},
+    "whyItFits": {"type": "array", "items": {"type": "string"}},
+    "whyItMightNotBe": {"type": "array", "items": {"type": "string"}},
+    "alternatives": {
+      "type": "array",
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["canonicalId", "canonicalLabel", "confidence", "reason"],
+        "properties": {
+          "canonicalId": {"type": "string"},
+          "canonicalLabel": {"type": "string"},
+          "confidence": {"type": "number", "minimum": 0, "exclusiveMaximum": 1},
+          "reason": {"type": "string"}
+        }
+      }
+    },
+    "confirmation": {
+      "type": "object",
+      "required": ["canConfirmFromPhoto", "requiredEvidence", "nextBestCheck"],
+      "properties": {
+        "canConfirmFromPhoto": {"type": "boolean"},
+        "requiredEvidence": {"type": "array", "items": {"type": "string"}},
+        "nextBestCheck": {"type": "string"}
+      }
+    },
+    "immediateActions": {"type": "array", "items": {"type": "string"}},
+    "correctivePlan": {"type": "array", "items": {"type": "object"}},
+    "evidenceSources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "requestedAdditionalView": {"type": ["string", "null"]},
+    "followUpQuestion": {"type": ["string", "null"]},
+    "expertEscalation": {
+      "type": "object",
+      "required": ["available", "recommended", "consentRequired"],
+      "properties": {
+        "available": {"type": "boolean"},
+        "recommended": {"type": "boolean"},
+        "reason": {"type": ["string", "null"]},
+        "escalationId": {"type": ["string", "null"]},
+        "consentRequired": {"type": "boolean"},
+        "url": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
