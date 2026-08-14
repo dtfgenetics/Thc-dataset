@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/review-1.0.0.json",
+  "title": "THC Grow Doc case review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "caseId", "reviewedAt", "decision", "evidenceTier", "finalLabels", "errorClasses"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]+$" },
+    "caseId": { "type": "string", "minLength": 1 },
+    "reviewerId": { "type": "string" },
+    "reviewedAt": { "type": "string", "format": "date-time" },
+    "decision": {
+      "enum": ["confirmed", "probable", "incorrect", "mixed-condition", "insufficient-evidence", "needs-testing", "rejected"]
+    },
+    "evidenceTier": { "enum": ["gold", "silver", "candidate", "rejected"] },
+    "finalLabels": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "confirmationMethods": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    },
+    "errorClasses": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": ["none", "poor-media", "insufficient-evidence", "symptom-recognition", "anatomical-location", "growth-stage", "look-alike-confusion", "multiple-conditions", "environment-interpretation", "knowledge-base", "model-ranking", "user-input", "other"]
+      }
+    },
+    "promotion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eligibleForReference": { "type": "boolean" },
+        "eligibleForTraining": { "type": "boolean" },
+        "eligibleForEvaluation": { "type": "boolean" },
+        "targetSplit": { "enum": ["train", "validation", "test", "locked-evaluation", "none"] },
+        "reason": { "type": "string" }
+      }
+    },
+    "notes": { "type": "string" }
+  }
+}
