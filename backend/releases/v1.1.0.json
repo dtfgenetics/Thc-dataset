@@ -1,0 +1,25 @@
+{
+  "release_id": "CODE-011",
+  "version": "1.1.0",
+  "status": "CURRENT",
+  "released_date": "2026-08-13",
+  "drive_file_id": "1bnx3EW3X_51krjE1XH2OqT1JESL6UOt9",
+  "file_name": "THC_Plant_Diagnostic_Backend_Control_Package_v1.1.zip",
+  "sha256": "e4d78664ddd858e92386529a5f0a082607bef16b39d8cda16c8442e85ddf2fc1",
+  "supersedes": "CODE-010 / v1.0.0",
+  "contents": [
+    "production-oriented Postgres repository",
+    "private filesystem/S3-compatible object storage",
+    "three-pass diagnostic trace and reviewer workflow",
+    "controlled evidence retrieval and hard differentials",
+    "active-learning and consent gates",
+    "locked benchmark protections",
+    "coverage/readiness scoring",
+    "admin collection-priority routing"
+  ],
+  "validation": {
+    "coverage_engine_test": "PASS",
+    "migration_order_test": "PASS"
+  },
+  "public_git_policy": "This manifest may be public. Raw third-party archives, private CCCD media, secrets and restricted assets must not be committed here."
+}

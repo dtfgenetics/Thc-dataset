@@ -1,7 +1,10 @@
 {
   "project": "THC Plant Diagnostic",
   "artifact": "evidence-backend-control",
-  "current_version": "0.3.0",
+  "current_release_id": "CODE-011",
+  "current_version": "1.1.0",
+  "release_sha256": "e4d78664ddd858e92386529a5f0a082607bef16b39d8cda16c8442e85ddf2fc1",
+  "drive_release_file_id": "1bnx3EW3X_51krjE1XH2OqT1JESL6UOt9",
   "registry_spreadsheet_id": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
   "cccd_spreadsheet_id": "192u6YIvp0yC-s89ejj6pnVlbKyFRl2_HmD89KUbhEe4",
   "acquisition_manifest_spreadsheet_id": "1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA",
@@ -9,7 +12,9 @@
   "rules": {
     "released_versions_are_immutable": true,
     "image_first_analysis": true,
+    "optional_context_never_blocks_first_answer": true,
     "training_opt_in_required": true,
-    "locked_benchmark_never_training": true
+    "locked_benchmark_never_training": true,
+    "raw_third_party_archives_not_committed_to_public_git": true
   }
 }
