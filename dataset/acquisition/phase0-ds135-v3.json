@@ -1,0 +1,8 @@
+{
+  "snapshotVersion": "2026-08-13.ds135.v3",
+  "generatedFrom": {"provider":"Google Drive / Sheets","spreadsheetId":"1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA","tab":"Acquisition_Manifest","capturedAt":"2026-08-13","supersedesForTheseIds":"phase0-ds135-v2.json"},
+  "recordCount": 1,
+  "records": [
+    {"sheetRow":71,"order":70,"datasetId":"DS-135","dataset":"Cannabis Polyploidization Phenotype Reference","canonicalSource":"https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.00476/full","version":"DOI 10.3389/fpls.2019.00476; diagnostic subset Figure 2 / Figure 3 / Figure 5 / Figure 6","expectedPackage":"Four exact Frontiers figure assets: ploidy confirmation; fan leaf + stomata; sugar-leaf trichome density; cola/bud architecture. Source-file records SF-024..SF-027.","repositoryChecksum":"Generate SHA-256 per figure after Drive acquisition; retain DOI, figure number, caption, scale-bar context and ploidy label","license":"CC BY 4.0 article and figures, subject to any separately credited material","destination":"03_NORMALIZED/RAG_DS-135_Cannabis_Polyploid_Reference","acquisitionStatus":"FIGURE URLS RESOLVED / RAW-BYTE DRIVE INGEST PENDING","integrityStatus":"PENDING SHA-256 / PHASH","rightsStatus":"OPEN REFERENCE WITH ATTRIBUTION","criticalNotes":"Use as genetically/ploidy-grounded normal morphology hard negatives. SF-026 (Figure 3) directly contrasts diploid/tetraploid fan leaves and stomata; SF-027/SF-024 show trichome and inflorescence architecture. Do not convert these differences into disease labels or universal harvest rules.","driveFolderId":"1U1KSbhu_CdCp8GtTaKPEKs2sBbBVZDyw"}
+  ]
+}
