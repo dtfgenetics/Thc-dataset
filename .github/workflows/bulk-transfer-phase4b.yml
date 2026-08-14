@@ -1,0 +1,60 @@
+name: Bulk Transfer Acquisition Phase 4B Public Route
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-transfer-phase4b.yml'
+      - 'scripts/bulk-acquire-transfer-phase4b.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Acquire DS-142, DS-143 and DS-146 through public Download All route
+        run: python scripts/bulk-acquire-transfer-phase4b.py
+
+      - name: Upload manifest-only workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: thc-transfer-phase4b-manifests
+          path: |
+            bulk_acquisition/phase4b_public/*manifest.json
+            bulk_acquisition/phase4b_public/*inventory.json
+            bulk_acquisition/phase4b_public/*parts.json
+            bulk_acquisition/phase4b_public/*summary.md
+            bulk_acquisition/phase4b_public/*checksums.sha256
+          if-no-files-found: warn
+          retention-days: 90
+
+      - name: Publish persistent release chunks
+        if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-transfer-phase4b-2026-08-14'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
+          else
+            gh release create "$TAG" --target "$GITHUB_SHA" \
+              --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
+              --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
+          fi
+          gh release upload "$TAG" bulk_acquisition/phase4b_public/* --clobber
+
+      - name: Summarize
+        if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-summary.md') != ''
+        run: cat bulk_acquisition/phase4b_public/phase4b-summary.md >> "$GITHUB_STEP_SUMMARY"
