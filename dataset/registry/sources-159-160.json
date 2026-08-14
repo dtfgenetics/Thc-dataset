@@ -1,0 +1,53 @@
+{
+  "snapshotVersion": "2026-08-13.ds159-ds160",
+  "generatedFrom": {
+    "provider": "Google Drive / Sheets",
+    "spreadsheetId": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+    "tab": "Dataset_Registry",
+    "capturedAt": "2026-08-13"
+  },
+  "records": [
+    {
+      "id": "DS-159",
+      "name": "Cannabis Leaf Counter — Leaf/Plant Object Detection",
+      "domain": "Cannabis organ localization / healthy morphology",
+      "cannabisSpecific": "YES",
+      "hostsSpecies": "Cannabis",
+      "modality": "RGB images + bounding boxes",
+      "primaryTask": "Leaf/plant object detection / localization pretraining",
+      "approximateSize": "489-image project; Roboflow version history includes 274-image v1/v2 snapshots and a larger v3 project state",
+      "classesLabels": "Leaf; plant",
+      "environment": "Mixed / repository-defined",
+      "annotationType": "Bounding boxes; Roboflow train/val/test versions",
+      "license": "CC BY 4.0",
+      "academicUse": "YES",
+      "rawRedistribution": "YES with attribution after provenance audit",
+      "publicModelDeployment": "YES with attribution after provenance/dedup QA",
+      "priority": "P1",
+      "sourceUrl": "https://universe.roboflow.com/agriculture-aoi5o/cannabis-leaf-counter",
+      "provenanceStatus": "VERIFIED METADATA / QUARANTINE",
+      "notes": "Direct cannabis leaf/plant localization candidate. Pin one exact dataset version before acquisition. Agriculture/VG workspace copies and Roboflow versions must be treated as one source family until pHash and provenance review show independent originals."
+    },
+    {
+      "id": "DS-160",
+      "name": "Plant-Leave-single — Cannabis Plant/Node/Leaf/Meristem Segmentation Candidate",
+      "domain": "Cannabis organ localization / meristem-node segmentation",
+      "cannabisSpecific": "YES",
+      "hostsSpecies": "Cannabis / project imagery identified as cannabis-related candidate",
+      "modality": "RGB instance segmentation",
+      "primaryTask": "Plant/node/leaf/meristem localization pretraining",
+      "approximateSize": "255 source images; processed model dataset v2 reports 619 images",
+      "classesLabels": "plant; BNode; Leaf; Meristem",
+      "environment": "Repository-defined",
+      "annotationType": "Instance segmentation masks/polygons",
+      "license": "CC BY 4.0",
+      "academicUse": "YES",
+      "rawRedistribution": "YES with attribution after provenance audit",
+      "publicModelDeployment": "YES with attribution after provenance/dedup QA",
+      "priority": "P1",
+      "sourceUrl": "https://universe.roboflow.com/aiplant/plant-leave-single",
+      "provenanceStatus": "VERIFIED METADATA / QUARANTINE",
+      "notes": "High-value localization candidate because it includes nodes and meristems. Treat the 255-source-image project and 619-image processed/model version as one source family; preserve original/augmentation lineage and verify Cannabis host provenance before trusted use."
+    }
+  ]
+}
