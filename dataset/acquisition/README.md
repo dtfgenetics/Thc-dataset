@@ -4,11 +4,18 @@ This directory stores versioned GitHub snapshots of the controlled Phase 0 acqui
 
 A source being registered or marked `READY TO FETCH` is **not** proof that its raw files were acquired. Acquisition is only complete after the exact source/version is pinned, rights are cleared for the intended lane, physical files are present, repository checksums are checked where available, local SHA-256 hashes are generated, images are perceptually deduplicated, source/plant/session/augmentation groups are preserved, and a leakage-safe split is assigned where training is allowed.
 
-## Current snapshot
+## Current snapshots
 
-- `phase0-ds133-ds148.json` mirrors the verified Drive acquisition rows for DS-133 through DS-148 as of 2026-08-13.
-- Folder IDs point to the actual Drive destinations created for these datasets.
+- `phase0-ds133-ds148.json` is the original verified Drive snapshot for DS-133 through DS-148.
+- Later `v2`, `v3`, etc. files are immutable deltas. For a dataset ID, the highest-version delta that explicitly supersedes an earlier snapshot is the current acquisition state.
+- Folder IDs point to the actual Drive destinations.
 - Restricted, per-item, noncommercial, share-alike, provenance-uncertain, and quarantine sources stay outside the unrestricted raw lane.
+
+## Concurrency-safe source-file IDs
+
+The controlled Drive `Source_Files` table can be edited by multiple workstreams. Do not assume that the next sequential `SF-###` value remains free between read and write. New parallel ingestion work should prefer stable dataset-scoped IDs such as `SF-DS135-F03`, `SF-DS147-GBIF-<gbifID>`, or another deterministic source-specific identifier. Existing sequential IDs remain valid and must never be overwritten merely to restore numbering.
+
+When a collision is discovered, preserve both legitimate records, allocate a non-colliding stable ID for the new record, update parent-manifest references, and add a new immutable Git delta rather than rewriting history.
 
 ## Required gates
 
