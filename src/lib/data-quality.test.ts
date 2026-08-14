@@ -175,6 +175,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps magnesium deficiency stage-aware, analytically bounded, and sequence-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'magnesium-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/upper- and lower-canopy foliage/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone ph.*ec/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/differed in later leaf-age distribution/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not.*universal threshold/)
+    expect(record?.lookAlikes).toContain('Potassium deficiency')
+    expect(record?.lookAlikes).toContain('Normal late-flower senescence')
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/three diagnosis classes/)
+    expect(record?.media[1]?.useLimitations.join(' ').toLowerCase()).toMatch(/five panels mix/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
