@@ -1,0 +1,12 @@
+[
+  {"rule_id":"SOL-001","priority":1,"condition":"lab_dependent_or_low_etiologic_confidence","action":"Rank confirmation, containment and low-risk supportive actions above pathogen- or product-specific intervention."},
+  {"rule_id":"SOL-002","priority":2,"condition":"multiple_interventions","action":"Rank controlled cannabis evidence above cannabis observational/extension evidence, then hemp-specific evidence, then closely related greenhouse transfer, then generic transfer."},
+  {"rule_id":"SOL-003","priority":3,"condition":"preventative_only","action":"Never relabel preventative evidence as curative."},
+  {"rule_id":"SOL-004","priority":4,"condition":"regulated_product_or_organism","action":"Require a current jurisdiction/crop/label/registration check before giving rates or approved-use claims."},
+  {"rule_id":"SOL-005","priority":5,"condition":"commercial_brand_named_in_study","action":"Prefer active ingredient, organism or mode of action. Use brands only after current label verification."},
+  {"rule_id":"SOL-006","priority":6,"condition":"cooccurring_or_unresolved","action":"Prefer actions safe across leading causes and defer actions that could worsen plausible alternatives."},
+  {"rule_id":"SOL-007","priority":7,"condition":"no_cannabis_specific_intervention","action":"Show transfer evidence only with an explicit transfer warning."},
+  {"rule_id":"SOL-008","priority":8,"condition":"genotype_or_environment_dependent","action":"Surface applicability limits and lower confidence when context differs materially from the evidence source."},
+  {"rule_id":"SOL-009","priority":9,"condition":"action_destroys_diagnostic_evidence","action":"Capture requested diagnostic evidence before destructive action when practical."},
+  {"rule_id":"SOL-010","priority":10,"condition":"followup_outcome_available","action":"Record better/same/worse and side effects; improvement alone never proves etiology."}
+]
