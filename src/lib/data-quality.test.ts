@@ -116,6 +116,20 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps iron deficiency symptom-negative aware, analytically bounded, and composite-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'iron-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf tissue|tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/no visible.*symptom|symptom absence cannot rule out/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not universal|not.*universal/)
+    expect(record?.lookAlikes).toContain('Manganese deficiency')
+    expect(record?.lookAlikes).toContain('Light bleaching or heat stress')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/two diagnosis classes/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
