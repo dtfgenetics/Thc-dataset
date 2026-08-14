@@ -145,6 +145,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps sulfur deficiency canopy-aware, senescence-bounded, and sequence-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'sulfur-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/upper- and lower-canopy|upper.*lower.*canopy/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/differed.*canopy location|canopy position alone/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/senescence/)
+    expect(record?.lookAlikes).toContain('Nitrogen deficiency')
+    expect(record?.lookAlikes).toContain('Normal late-flower senescence')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/four panels/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
