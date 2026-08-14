@@ -1,0 +1,74 @@
+name: Phase 4B Drive Chunk Bridge
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/phase4b-drive-bridge.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        include:
+          - {dataset: DS-142, part: '001'}
+          - {dataset: DS-142, part: '002'}
+          - {dataset: DS-142, part: '003'}
+          - {dataset: DS-142, part: '004'}
+          - {dataset: DS-142, part: '005'}
+          - {dataset: DS-142, part: '006'}
+          - {dataset: DS-142, part: '007'}
+          - {dataset: DS-142, part: '008'}
+          - {dataset: DS-142, part: '009'}
+          - {dataset: DS-142, part: '010'}
+          - {dataset: DS-142, part: '011'}
+          - {dataset: DS-142, part: '012'}
+          - {dataset: DS-142, part: '013'}
+          - {dataset: DS-142, part: '014'}
+          - {dataset: DS-142, part: '015'}
+          - {dataset: DS-142, part: '016'}
+          - {dataset: DS-142, part: '017'}
+          - {dataset: DS-142, part: '018'}
+          - {dataset: DS-142, part: '019'}
+          - {dataset: DS-143, part: '001'}
+          - {dataset: DS-143, part: '002'}
+          - {dataset: DS-143, part: '003'}
+          - {dataset: DS-143, part: '004'}
+          - {dataset: DS-146, part: '001'}
+          - {dataset: DS-146, part: '002'}
+          - {dataset: DS-146, part: '003'}
+    steps:
+      - name: Download one persistent release chunk
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATASET: ${{ matrix.dataset }}
+          PART: ${{ matrix.part }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          FILE="${DATASET}_archive.part${PART}"
+          gh release download 'bulk-transfer-phase4b-2026-08-14' \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern "$FILE" \
+            --dir out
+          test -s "out/$FILE"
+          sha256sum "out/$FILE" > "out/$FILE.sha256"
+
+      - name: Expose connector-sized chunk artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bridge-${{ matrix.dataset }}-${{ matrix.part }}
+          path: |
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}.sha256
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 90
