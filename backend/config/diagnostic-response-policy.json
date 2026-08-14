@@ -1,0 +1,79 @@
+[
+  {
+    "policy_id": "POL-DEFAULT",
+    "canonical_ids": ["*"],
+    "photo_only_max_confidence": 0.8,
+    "photo_can_confirm": "provisional_only",
+    "rule": "Return a provisional answer from usable media; optional context can refine but never block the first answer."
+  },
+  {
+    "policy_id": "POL-HLVD",
+    "canonical_ids": ["CAN-DIS-011"],
+    "photo_only_max_confidence": 0.55,
+    "photo_can_confirm": false,
+    "required_confirmation": ["RT-PCR", "RT-qPCR", "validated molecular test"],
+    "wording": "HLVd-compatible symptoms detected; this cannot be confirmed from a photo."
+  },
+  {
+    "policy_id": "POL-PYTHIUM",
+    "canonical_ids": ["CAN-ROOT-002"],
+    "photo_only_max_confidence": 0.5,
+    "photo_can_confirm": false,
+    "required_confirmation": ["root/crown evidence", "isolation/microscopy/PCR/sequence"]
+  },
+  {
+    "policy_id": "POL-FUSARIUM",
+    "canonical_ids": ["CAN-ROOT-003"],
+    "photo_only_max_confidence": 0.5,
+    "photo_can_confirm": false,
+    "required_confirmation": ["root/crown/vascular evidence", "culture/PCR/sequence or expert pathology confirmation"]
+  },
+  {
+    "policy_id": "POL-PM",
+    "canonical_ids": ["CAN-DIS-001"],
+    "photo_only_max_confidence": 0.92,
+    "photo_can_confirm": "classic_colony_morphology",
+    "mandatory_differentials": ["nutrient salt residue", "spray residue", "mineral deposits", "other leaf spots"]
+  },
+  {
+    "policy_id": "POL-BOTRYTIS",
+    "canonical_ids": ["CAN-DIS-002"],
+    "photo_only_max_confidence": 0.85,
+    "photo_can_confirm": "provisional_high",
+    "mandatory_differentials": ["fusarium_inflorescence_rot_suspected", "penicillium_inflorescence_mold_suspected", "aspergillus_inflorescence_mold_suspected", "inflorescence_mold_unspecified", "physical flower damage"]
+  },
+  {
+    "policy_id": "POL-SPIDER-MITE",
+    "canonical_ids": ["CAN-PEST-001"],
+    "photo_only_max_confidence": 0.93,
+    "photo_can_confirm": "organism_or_egg_webbing_macro"
+  },
+  {
+    "policy_id": "POL-BROAD-RUSSET",
+    "canonical_ids": ["CAN-PEST-008", "CAN-PEST-012"],
+    "photo_only_max_confidence": 0.55,
+    "photo_can_confirm": false,
+    "required_confirmation": ["high-magnification organism or egg evidence"]
+  },
+  {
+    "policy_id": "POL-PH-LOCKOUT",
+    "canonical_ids": ["CAN-STRESS-006"],
+    "photo_only_max_confidence": 0.4,
+    "photo_can_confirm": false,
+    "required_confirmation": ["root-zone pH/EC/feed context"]
+  },
+  {
+    "policy_id": "POL-MO",
+    "canonical_ids": ["CAN-NUT-014"],
+    "photo_only_max_confidence": 0.2,
+    "photo_can_confirm": false,
+    "required_confirmation": ["tissue Mo concentration", "controlled nutrient history"]
+  },
+  {
+    "policy_id": "POL-CHEMICAL",
+    "canonical_ids": ["CAN-STRESS-009"],
+    "photo_only_max_confidence": 0.6,
+    "photo_can_confirm": false,
+    "required_confirmation": ["known spray/drift/carryover timing", "spatial pattern", "progression/recovery"]
+  }
+]
