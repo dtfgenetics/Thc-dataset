@@ -1,0 +1,15 @@
+{
+  "project": "THC Plant Diagnostic",
+  "artifact": "evidence-backend-control",
+  "current_version": "0.3.0",
+  "registry_spreadsheet_id": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+  "cccd_spreadsheet_id": "192u6YIvp0yC-s89ejj6pnVlbKyFRl2_HmD89KUbhEe4",
+  "acquisition_manifest_spreadsheet_id": "1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA",
+  "discord_review_url": "https://discord.gg/vsdVNWFmDy",
+  "rules": {
+    "released_versions_are_immutable": true,
+    "image_first_analysis": true,
+    "training_opt_in_required": true,
+    "locked_benchmark_never_training": true
+  }
+}
