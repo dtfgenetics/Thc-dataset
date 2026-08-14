@@ -130,6 +130,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps zinc deficiency phosphorus-aware, analytically bounded, and dose-composite safe', () => {
+    const record = issues.find((issue) => issue.slug === 'zinc-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/phosphorus/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/phosphorus.*may have caused|mechanism-specific/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/symptom absence cannot exclude/)
+    expect(record?.lookAlikes).toContain('Iron deficiency')
+    expect(record?.lookAlikes).toContain('Phosphorus toxicity or phosphorus-zinc interaction')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/five columns.*distinct zinc treatments/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
