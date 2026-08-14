@@ -28,6 +28,13 @@ GitHub snapshots exist so code, reviews, pull requests and future deployment sys
 - russet-mite microscopy raw-photo acquisition candidate;
 - UC Kearney hemp arthropod voucher/digitization partnership candidate.
 
+`sources-159-160.json` contains the next direct-cannabis localization candidates:
+
+- DS-159 Cannabis Leaf Counter — leaf/plant object detection;
+- DS-160 Plant-Leave-single — plant/node/leaf/meristem instance segmentation.
+
+Both DS-159 and DS-160 remain provenance/dedup quarantine candidates until an exact source version is pinned and source-family/augmentation relationships are verified.
+
 ## Rules
 
 - A source record is metadata, not proof that raw files were acquired.
@@ -38,6 +45,7 @@ GitHub snapshots exist so code, reviews, pull requests and future deployment sys
 - Duplicate/derived data must remain grouped by original parent when building splits.
 - Locked benchmark assets must never be used for training, tuning or model selection.
 - Author-request and partner-request candidates stay outside training until explicit media/data rights are documented.
+- Roboflow forks, generated versions and augmented/resized exports must be treated as one source family until dedup/provenance review proves otherwise.
 
 ## Validation
 
