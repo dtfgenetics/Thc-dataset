@@ -1,0 +1,71 @@
+name: Bulk Transfer Acquisition Phase 6
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-transfer-phase6.yml'
+      - 'scripts/bulk-acquire-transfer-phase6.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  prepare-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prepare persistent release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-transfer-phase6-2026-08-14'
+          if ! gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title 'THC Plant Diagnostic — Bulk Transfer Phase 6' --notes 'Parallel raw acquisition for DS-137, DS-138, DS-139 and DS-145. Cross-crop transfer only; no training promotion.'
+          fi
+
+  acquire:
+    needs: prepare-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        dataset: [DS-137, DS-138, DS-139, DS-145]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Acquire one public Mendeley dataset
+        run: python scripts/bulk-acquire-transfer-phase6.py "${{ matrix.dataset }}"
+      - name: Upload manifest artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase6-${{ matrix.dataset }}-manifest
+          path: |
+            bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*manifest.json
+            bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*inventory.json
+            bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*parts.json
+            bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*summary.md
+            bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*checksums.sha256
+          if-no-files-found: warn
+          retention-days: 90
+      - name: Publish persistent chunks
+        if: always() && hashFiles(format('bulk_acquisition/phase6_transfer/{0}/{0}_phase6_manifest.json', matrix.dataset)) != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='bulk-transfer-phase6-2026-08-14'
+          shopt -s nullglob
+          files=(bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/*)
+          gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" "${files[@]}" --clobber
+      - name: Summarize
+        if: always() && hashFiles(format('bulk_acquisition/phase6_transfer/{0}/{0}_phase6_summary.md', matrix.dataset)) != ''
+        run: cat bulk_acquisition/phase6_transfer/${{ matrix.dataset }}/${{ matrix.dataset }}_phase6_summary.md >> "$GITHUB_STEP_SUMMARY"
