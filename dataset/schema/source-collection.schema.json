@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/source-collection-1.0.0.json",
+  "title": "THC Grow Doc source registry collection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["snapshotVersion", "generatedFrom", "records"],
+  "properties": {
+    "snapshotVersion": {"type": "string", "minLength": 1},
+    "generatedFrom": {
+      "type": "object",
+      "required": ["provider", "spreadsheetId", "tab"],
+      "properties": {
+        "provider": {"type": "string"},
+        "spreadsheetId": {"type": "string"},
+        "tab": {"type": "string"},
+        "capturedAt": {"type": "string"}
+      }
+    },
+    "records": {
+      "type": "array",
+      "items": {"$ref": "source.schema.json"}
+    }
+  }
+}
