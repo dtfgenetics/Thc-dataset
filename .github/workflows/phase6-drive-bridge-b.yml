@@ -1,0 +1,93 @@
+name: Phase 6 Drive Bridge B
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/phase6-drive-bridge-b.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bridge:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        include:
+          - {dataset: DS-138, part: '001'}
+          - {dataset: DS-138, part: '002'}
+          - {dataset: DS-138, part: '003'}
+          - {dataset: DS-138, part: '004'}
+          - {dataset: DS-138, part: '005'}
+          - {dataset: DS-138, part: '006'}
+          - {dataset: DS-138, part: '007'}
+          - {dataset: DS-138, part: '008'}
+          - {dataset: DS-138, part: '009'}
+          - {dataset: DS-138, part: '010'}
+          - {dataset: DS-138, part: '011'}
+          - {dataset: DS-138, part: '012'}
+          - {dataset: DS-138, part: '013'}
+          - {dataset: DS-138, part: '014'}
+          - {dataset: DS-138, part: '015'}
+          - {dataset: DS-138, part: '016'}
+          - {dataset: DS-138, part: '017'}
+          - {dataset: DS-138, part: '018'}
+          - {dataset: DS-138, part: '019'}
+          - {dataset: DS-138, part: '020'}
+          - {dataset: DS-138, part: '021'}
+          - {dataset: DS-138, part: '022'}
+          - {dataset: DS-138, part: '023'}
+          - {dataset: DS-138, part: '024'}
+          - {dataset: DS-138, part: '025'}
+          - {dataset: DS-138, part: '026'}
+          - {dataset: DS-138, part: '027'}
+          - {dataset: DS-138, part: '028'}
+          - {dataset: DS-138, part: '029'}
+          - {dataset: DS-138, part: '030'}
+          - {dataset: DS-138, part: '031'}
+          - {dataset: DS-138, part: '032'}
+          - {dataset: DS-138, part: '033'}
+          - {dataset: DS-138, part: '034'}
+          - {dataset: DS-139, part: '001'}
+          - {dataset: DS-139, part: '002'}
+          - {dataset: DS-139, part: '003'}
+          - {dataset: DS-139, part: '004'}
+          - {dataset: DS-139, part: '005'}
+          - {dataset: DS-139, part: '006'}
+          - {dataset: DS-139, part: '007'}
+          - {dataset: DS-139, part: '008'}
+          - {dataset: DS-139, part: '009'}
+          - {dataset: DS-139, part: '010'}
+          - {dataset: DS-139, part: '011'}
+          - {dataset: DS-139, part: '012'}
+          - {dataset: DS-139, part: '013'}
+          - {dataset: DS-139, part: '014'}
+          - {dataset: DS-139, part: '015'}
+    steps:
+      - name: Download persistent release chunk
+        env:
+          GH_TOKEN: ${{ github.token }}
+          DATASET: ${{ matrix.dataset }}
+          PART: ${{ matrix.part }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p out
+          FILE="${DATASET}_archive.part${PART}"
+          gh release download 'bulk-transfer-phase6-2026-08-14' --repo "$GITHUB_REPOSITORY" --pattern "$FILE" --dir out
+          test -s "out/$FILE"
+          sha256sum "out/$FILE" > "out/$FILE.sha256"
+      - name: Expose Drive-sized artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bridge-${{ matrix.dataset }}-${{ matrix.part }}
+          path: |
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}
+            out/${{ matrix.dataset }}_archive.part${{ matrix.part }}.sha256
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 90
