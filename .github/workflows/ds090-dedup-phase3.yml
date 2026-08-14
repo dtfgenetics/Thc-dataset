@@ -1,0 +1,58 @@
+name: DS-090 Dedup and Leakage Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/ds090-dedup-phase3.yml'
+      - 'scripts/ds090-dedup-phase3.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image hashing dependency
+        run: python -m pip install --disable-pip-version-check pillow==11.3.0
+
+      - name: Audit DS-090 hashes, groups, and split leakage
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/ds090-dedup-phase3.py
+
+      - name: Upload audit artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ds090-dedup-grouping-phase3
+          path: bulk_acquisition/phase3_ds090/
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Publish persistent audit release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          TAG='ds090-dedup-phase3-2026-08-14'
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release edit "$TAG" --notes-file bulk_acquisition/phase3_ds090/phase3-summary.md
+          else
+            gh release create "$TAG" --target "$GITHUB_SHA" \
+              --title 'DS-090 Deduplication and Leakage Audit — Phase 3' \
+              --notes-file bulk_acquisition/phase3_ds090/phase3-summary.md
+          fi
+          gh release upload "$TAG" bulk_acquisition/phase3_ds090/* --clobber
+
+      - name: Summarize
+        run: cat bulk_acquisition/phase3_ds090/phase3-summary.md >> "$GITHUB_STEP_SUMMARY"
