@@ -190,6 +190,20 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps potassium deficiency leaf-type aware, analytically bounded, and sequence-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'potassium-deficiency')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/fan- and sugar-leaf tissue/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone ph.*ec/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/differed in stage, onset time, and early tissue presentation/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not.*universal threshold/)
+    expect(record?.lookAlikes).toContain('High-EC nutrient burn or salinity')
+    expect(record?.lookAlikes).toContain('Boron toxicity')
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/sugar-leaf and fan-leaf/)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
