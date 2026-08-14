@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/thc-grow-doc/permission-request-collection-1.0.0.json",
+  "title": "THC Plant Diagnostic permission request collection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedFrom", "requests"],
+  "properties": {
+    "version": {"type": "string", "minLength": 1},
+    "generatedFrom": {
+      "type": "object",
+      "required": ["provider", "spreadsheetId", "tab"],
+      "properties": {
+        "provider": {"type": "string"},
+        "spreadsheetId": {"type": "string"},
+        "tab": {"type": "string"},
+        "capturedAt": {"type": "string"}
+      }
+    },
+    "requests": {
+      "type": "array",
+      "items": {"$ref": "permission-request.schema.json"}
+    }
+  }
+}
