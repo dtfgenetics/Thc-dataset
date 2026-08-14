@@ -67,6 +67,12 @@ export interface IssueRecord {
   slug: string
   name: string
   scientificName?: string
+  canonicalId?: string
+  canonicalLabel?: string
+  evidenceIds?: string[]
+  interventionEvidenceIds?: string[]
+  responsePolicyId?: string
+  photoOnlyMaxConfidence?: number
   category: IssueCategory
   severity: Severity
   reviewStatus: ReviewStatus
