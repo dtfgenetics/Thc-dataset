@@ -1,0 +1,63 @@
+{
+  "dataset_manifest": "training\\leakage_safe_split.csv",
+  "total_rows": 1266,
+  "unique_hashes": 1165,
+  "unique_groups": 17,
+  "label_count": 9,
+  "top_labels": [
+    [
+      "growth_time_series",
+      874
+    ],
+    [
+      "water_stress_3_days",
+      110
+    ],
+    [
+      "healthy",
+      101
+    ],
+    [
+      "water_stress_6_days",
+      87
+    ],
+    [
+      "water_stress_9_days",
+      80
+    ],
+    [
+      "unknown",
+      11
+    ],
+    [
+      "figure_s1.png",
+      1
+    ],
+    [
+      "figure_s2.png",
+      1
+    ],
+    [
+      "figure_s3.png",
+      1
+    ]
+  ],
+  "split_counts": {
+    "test": 84,
+    "train": 655,
+    "val": 527
+  },
+  "issues": {
+    "duplicate_hashes_found": true,
+    "duplicate_hash_count": 101,
+    "group_overlap_risk": true,
+    "has_train_val_test": true
+  },
+  "benchmark_ready": false,
+  "policy": {
+    "locked_benchmark_required": true,
+    "no_leakage_between_train_val_test": true,
+    "user_uploads_not_used_for_training": true,
+    "human_review_required_before_production_labels": true
+  }
+}

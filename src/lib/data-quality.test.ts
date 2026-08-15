@@ -1,11 +1,24 @@
 import { describe, expect, it } from 'vitest'
+import { buildReferenceSearchText } from '../components/ReferenceLibrary'
 import { issues } from '../data/issues'
+import { summarizeEvidenceAccuracy } from './benchmarking'
 import { isDisplayableMedia } from './media'
 
 describe('diagnostic dataset quality gates', () => {
   it('keeps identifiers and slugs unique', () => {
     expect(new Set(issues.map((issue) => issue.id)).size).toBe(issues.length)
     expect(new Set(issues.map((issue) => issue.slug)).size).toBe(issues.length)
+  })
+
+  it('searches reference records by issue, source title and direct source URL', () => {
+    const issue = issues.find((entry) => entry.slug === 'phosphorus-deficiency')
+    expect(issue).toBeTruthy()
+    const media = issue!.media[0]
+    const text = buildReferenceSearchText(issue!, media)
+
+    expect(text).toContain('phosphorus deficiency')
+    expect(text).toContain('characterization of nutrient disorders of cannabis sativa')
+    expect(text).toContain('https://doi.org/10.3390/app9204432')
   })
 
   it('maps reviewed records to dated, claim-level sources', () => {
@@ -336,5 +349,30 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not.*harvest|harvest.*not/)
     expect(record?.lookAlikes).toContain('Hop latent viroid')
     expect(record?.media).toHaveLength(0)
+  })
+})
+
+describe('evidence accuracy scoring', () => {
+  it('marks complete evidence as benchmark-ready when clear images and context are present', () => {
+    const snapshot = summarizeEvidenceAccuracy([
+      { id: 'img-1', slot: 'whole-plant', quality: 'good', notes: [], file: new File(['a'], 'a.jpg', { type: 'image/jpeg' }), previewUrl: 'a' },
+      { id: 'img-2', slot: 'close-up', quality: 'good', notes: [], file: new File(['b'], 'b.jpg', { type: 'image/jpeg' }), previewUrl: 'b' },
+      { id: 'img-3', slot: 'underside', quality: 'review', notes: ['needs closer detail'], file: new File(['c'], 'c.jpg', { type: 'image/jpeg' }), previewUrl: 'c' },
+    ], {
+      stage: 'flowering', medium: 'coco', ph: '6.2', ec: '1.8', watering: 'steady', recentChanges: 'none', symptoms: ['leaf yellowing', 'curling'],
+    })
+
+    expect(snapshot.status).toBe('locked')
+    expect(snapshot.score).toBeGreaterThanOrEqual(80)
+    expect(snapshot.reasons.length).toBeGreaterThanOrEqual(0)
+  })
+
+  it('blocks low-quality evidence from acting like a benchmark result', () => {
+    const snapshot = summarizeEvidenceAccuracy([], {
+      stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [],
+    })
+
+    expect(snapshot.status).toBe('blocked')
+    expect(snapshot.score).toBe(0)
   })
 })

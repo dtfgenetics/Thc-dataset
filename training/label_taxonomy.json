@@ -1,0 +1,78 @@
+{
+  "version": "1.0",
+  "scope": "Human-reviewed taxonomy for plant-health reference image classes",
+  "review_status": "requires_human_validation_before_production_training",
+  "dataset_priority": [
+    "DS-090",
+    "DS-071",
+    "DS-074",
+    "DS-097",
+    "DS-135",
+    "DS-117",
+    "DS-165"
+  ],
+  "classes": [
+    {
+      "canonical_label": "healthy",
+      "aliases": ["healthy", "normal_growth", "non_stressed"],
+      "dataset_ids": ["DS-090"],
+      "notes": "Reference label for un-stressed hemp plants in the growth-monitoring time series.",
+      "confidence": "moderate"
+    },
+    {
+      "canonical_label": "water_stress_3_days",
+      "aliases": ["water stress 3 days", "water stress 3d", "3 day stress"],
+      "dataset_ids": ["DS-090"],
+      "notes": "Early water deficit stage; confirm by temporal sequence and plant health context.",
+      "confidence": "moderate"
+    },
+    {
+      "canonical_label": "water_stress_6_days",
+      "aliases": ["water stress 6 days", "water stress 6d", "6 day stress"],
+      "dataset_ids": ["DS-090"],
+      "notes": "Mid-stage deficit. Should be reviewed against the study design and plant status.",
+      "confidence": "moderate"
+    },
+    {
+      "canonical_label": "water_stress_9_days",
+      "aliases": ["water stress 9 days", "water stress 9d", "9 day stress"],
+      "dataset_ids": ["DS-090"],
+      "notes": "Advanced deficit stage with strongest visual stress signals; still requires context review.",
+      "confidence": "moderate"
+    },
+    {
+      "canonical_label": "growth_time_series",
+      "aliases": ["growth_time_series", "time_series_growth", "hemp_growth"],
+      "dataset_ids": ["DS-090"],
+      "notes": "Useful for temporal growth modeling and sequence modeling, but not a single disease label.",
+      "confidence": "moderate"
+    },
+    {
+      "canonical_label": "figure_s1_png",
+      "aliases": ["figure_s1.png", "figure_s1"],
+      "dataset_ids": ["DS-071"],
+      "notes": "Path-derived placeholder from source figure naming; should be replaced by a scientific label after review.",
+      "confidence": "low"
+    },
+    {
+      "canonical_label": "figure_s2_png",
+      "aliases": ["figure_s2.png", "figure_s2"],
+      "dataset_ids": ["DS-071"],
+      "notes": "Path-derived placeholder from source figure naming; should be replaced by a scientific label after review.",
+      "confidence": "low"
+    },
+    {
+      "canonical_label": "figure_s3_png",
+      "aliases": ["figure_s3.png", "figure_s3"],
+      "dataset_ids": ["DS-071"],
+      "notes": "Path-derived placeholder from source figure naming; should be replaced by a scientific label after review.",
+      "confidence": "low"
+    }
+  ],
+  "review_rules": [
+    "Keep each image grouped by plant, time series, and dataset to avoid leakage.",
+    "Convert file-name-derived labels into canonical scientific symptom labels before production training.",
+    "Do not treat warning-only or path-derived labels as clinical ground truth.",
+    "Use the taxonomy as a human-reviewed control layer, not as a final model truth source."
+  ]
+}

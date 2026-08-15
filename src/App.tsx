@@ -8,6 +8,7 @@ import { GrowContextForm } from './components/GrowContextForm'
 import { GrowLog } from './components/GrowLog'
 import { IssueLibrary } from './components/IssueLibrary'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
+import GamesHub from './components/GamesHub'
 import { issues } from './data/issues'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
@@ -46,6 +47,7 @@ export default function App() {
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
       {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
+      {view === 'games' ? <GamesHub /> : null}
       {view === 'log' ? <GrowLog /> : null}
       {view === 'about' ? <About /> : null}
     </AppShell>

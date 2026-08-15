@@ -74,6 +74,16 @@ Do not commit:
 - restricted/noncommercial assets into a public-open release lane;
 - benchmark media after it has been exposed to training.
 
+## Reference API runtime
+
+The reference search API is started through:
+
+```bash
+bash backend/start-reference-api.sh
+```
+
+This runs the Node-based index search service and exposes the health and search endpoints for the site.
+
 ## Versioning
 
 Released backend-control versions are immutable. New work receives a new version. `backend/CURRENT.json` identifies the active tested release while the controlled Drive `Code_Release_Index` preserves the release history.

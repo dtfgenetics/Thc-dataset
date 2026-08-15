@@ -1,0 +1,38 @@
+[
+  {
+    "name": "plants-2101397/Figure S1.png",
+    "compressedSize": 34269486,
+    "uncompressedSize": 34288560,
+    "crc32": "c84eee2d"
+  },
+  {
+    "name": "plants-2101397/Figure S2.png",
+    "compressedSize": 1205081,
+    "uncompressedSize": 1205595,
+    "crc32": "e70958d9"
+  },
+  {
+    "name": "plants-2101397/Figure S3.png",
+    "compressedSize": 2740496,
+    "uncompressedSize": 2741147,
+    "crc32": "33c0a92a"
+  },
+  {
+    "name": "zip files with figures/Figure S1.zip",
+    "compressedSize": 34264483,
+    "uncompressedSize": 34264483,
+    "crc32": "dc6e5ce2"
+  },
+  {
+    "name": "zip files with figures/Figure S2.zip",
+    "compressedSize": 1204996,
+    "uncompressedSize": 1204996,
+    "crc32": "5e5f8e64"
+  },
+  {
+    "name": "zip files with figures/Figure S3.zip",
+    "compressedSize": 2740279,
+    "uncompressedSize": 2740279,
+    "crc32": "d9f3e1b4"
+  }
+]

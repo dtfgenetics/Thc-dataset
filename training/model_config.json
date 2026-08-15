@@ -1,0 +1,25 @@
+{
+  "task": "plant_health_reference_classifier",
+  "default_backbone": "efficientnet_v2_s",
+  "backbones": [
+    "efficientnet_v2_s",
+    "convnext_tiny"
+  ],
+  "image_size": 224,
+  "dataset_manifest": "training/leakage_safe_split.csv",
+  "image_root": "dataset/acquisition/acquired",
+  "epochs": 10,
+  "batch_size": 16,
+  "learning_rate": 0.0001,
+  "optimizer": "adamw",
+  "label_policy": {
+    "require_human_review": true,
+    "strict_no_leakage": true,
+    "locked_benchmark_required": true
+  },
+  "notes": [
+    "Prefer EfficientNetV2-S for early accuracy experiments due to strong speed/accuracy tradeoff.",
+    "Use ConvNeXt-Tiny as a second baseline when more robust visual features are needed.",
+    "Before production, re-label the taxonomy using reviewed scientific evidence and hold out a locked benchmark set."
+  ]
+}

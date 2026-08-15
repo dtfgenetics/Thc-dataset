@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0",
+  "phase": "bulk-acquisition-phase2-reference-figures",
+  "createdAt": "2026-08-15T03:36:13.165662+00:00",
+  "repository": "dtfgenetics/Thc-dataset",
+  "rightsExclusions": [
+    {
+      "datasetId": "DS-097",
+      "sourceFileId": "SF-030",
+      "figure": "Figure 2",
+      "status": "not-acquired-publicly",
+      "reason": "Composite includes panels explicitly reproduced from Canadian Journal of Plant Pathology by permission; article-level CC BY is not treated as automatic redistribution authority for those panels."
+    }
+  ],
+  "results": [
+    {
+      "datasetId": "DS-117",
+      "sourceFileId": "SF-024",
+      "figure": "Figure 1",
+      "status": "acquired",
+      "file": "DS117_Figure1_leaf_morphogenesis.png",
+      "sizeBytes": 4328855,
+      "sha256": "02e646ccab3c92bdb936879beb7846d342bc14949231ceefd20fe111c4542c79",
+      "finalUrl": "https://mdpi-res.com/d_attachment/plants/plants-12-03646/article_deploy/html/images/plants-12-03646-g001.png",
+      "contentType": "image/png",
+      "license": "CC BY 4.0",
+      "role": "healthy/developmental hard-negative reference",
+      "diagnosticCeiling": "Normal developmental morphology for White Widow under the study conditions; not a universal cultivar-stage template."
+    },
+    {
+      "datasetId": "DS-074",
+      "sourceFileId": "SF-025",
+      "figure": "Figure 1",
+      "status": "acquired",
+      "file": "DS074_Figure1_female_inflorescence_development.webp",
+      "sizeBytes": 2727270,
+      "sha256": "be91917669796d460568c5efab91a19642bc09e8564e9d3369e80c8bf8ece755",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/533993/xml-images/fpls-11-00718-g001.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "female inflorescence morphology reference",
+      "diagnosticCeiling": "Stage/morphology reference; not a strict preflower-only classifier target."
+    },
+    {
+      "datasetId": "DS-074",
+      "sourceFileId": "SF-026",
+      "figure": "Figure 2",
+      "status": "acquired",
+      "file": "DS074_Figure2_intersex_anthers.webp",
+      "sizeBytes": 1790558,
+      "sha256": "c49067a37515958b518b12e97fead1775d71a69e93003bb3995b9f98af865b74",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/533993/xml-images/fpls-11-00718-g002.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "intersex anther morphology reference",
+      "diagnosticCeiling": "High-confidence intersex only when anthers are visibly present; timing/quality abstention still required."
+    },
+    {
+      "datasetId": "DS-074",
+      "sourceFileId": "SF-027",
+      "figure": "Figure 6",
+      "status": "acquired",
+      "file": "DS074_Figure6_male_flower_development.webp",
+      "sizeBytes": 1568412,
+      "sha256": "c1abc75f202f88616be0fc3922b0cb3da22e3ef47943b2c93ee3a4df1d71dcc5",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/533993/xml-images/fpls-11-00718-g006.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "male flower/anther morphology reference",
+      "diagnosticCeiling": "Male reproductive morphology reference; not evidence that an immature vegetative plant is male."
+    },
+    {
+      "datasetId": "DS-097",
+      "sourceFileId": "SF-028",
+      "figure": "Figure 4",
+      "status": "acquired",
+      "file": "DS097_Figure4_botrytis_bud_rot.webp",
+      "sizeBytes": 2141232,
+      "sha256": "4ed61bf021a048297bbb06cc9125f331fa2158d8e30159f20c8ef52091a9dda6",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/439316/xml-images/fpls-10-01120-g004.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0 article figure; no separate third-party credit identified for Figure 4",
+      "role": "Botrytis bud-rot progression reference",
+      "diagnosticCeiling": "Visual bud rot supports a differential; species confirmation remains tied to source culture/molecular evidence and user cases may require lab confirmation."
+    },
+    {
+      "datasetId": "DS-097",
+      "sourceFileId": "SF-029",
+      "figure": "Figure 7",
+      "status": "acquired",
+      "file": "DS097_Figure7_powdery_mildew.webp",
+      "sizeBytes": 2706514,
+      "sha256": "b87f39f0d7b7b3230ab8c4cb25054f0d9aee3de92aa7bc796cd0add98d718c9a",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/439316/xml-images/fpls-10-01120-g007.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "Cannabis powdery-mildew progression reference",
+      "diagnosticCeiling": "Syndrome-level visual reference; taxon/species certainty must follow the source molecular limits."
+    },
+    {
+      "datasetId": "DS-135",
+      "sourceFileId": "SF-DS135-F02",
+      "figure": "Figure 2",
+      "status": "acquired",
+      "file": "DS135_Figure2_ploidy_confirmation.webp",
+      "sizeBytes": 99200,
+      "sha256": "adcae84bfacd6e0a9f28fa9ffd7bb639555107cbb74b0811793f6db03f3a4833",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/449166/xml-images/fpls-10-00476-g002.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "ploidy confirmation evidence anchor",
+      "diagnosticCeiling": "Evidence anchor, not an image-only user diagnosis."
+    },
+    {
+      "datasetId": "DS-135",
+      "sourceFileId": "SF-DS135-F03",
+      "figure": "Figure 3",
+      "status": "acquired",
+      "file": "DS135_Figure3_leaf_stomata_morphology.webp",
+      "sizeBytes": 281936,
+      "sha256": "3a66f40fcbc2767bbaab4390f08d28dbdb899b0a32f2335ae44877d23d5d24e9",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/449166/xml-images/fpls-10-00476-g003.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "diploid/tetraploid morphology hard negative",
+      "diagnosticCeiling": "Genetic/ploidy-grounded normal variation; do not infer polyploidy from leaf shape alone."
+    },
+    {
+      "datasetId": "DS-135",
+      "sourceFileId": "SF-DS135-F05",
+      "figure": "Figure 5",
+      "status": "acquired",
+      "file": "DS135_Figure5_trichome_density_morphology.webp",
+      "sizeBytes": 1036490,
+      "sha256": "f8887a5f1009f897596e2c8b79fb0dcac8bf296dad4ec091c11f88c4bc62df72",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/449166/xml-images/fpls-10-00476-g005.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "trichome-density genetic morphology reference",
+      "diagnosticCeiling": "Morphology reference only; not a universal maturity or harvest rule."
+    },
+    {
+      "datasetId": "DS-135",
+      "sourceFileId": "SF-DS135-F06",
+      "figure": "Figure 6",
+      "status": "acquired",
+      "file": "DS135_Figure6_inflorescence_architecture.webp",
+      "sizeBytes": 956242,
+      "sha256": "bf0db9714c5d391c2998fabc84e52eab4d361737d1f1956aed7bd93e9cb24a02",
+      "finalUrl": "https://www.frontiersin.org/files/Articles/449166/xml-images/fpls-10-00476-g006.webp",
+      "contentType": "image/webp",
+      "license": "CC BY 4.0",
+      "role": "inflorescence-architecture genetic hard negative",
+      "diagnosticCeiling": "Genetic/ploidy variation reference; not disease evidence by itself."
+    },
+    {
+      "datasetId": "DS-112",
+      "sourceFileId": "SF-031",
+      "figure": "Figure 13",
+      "status": "blocked",
+      "error": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10071647/bin/42238_2023_178_Fig13_HTML.jpg: HTTP Error 404: Not Found | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10071647/bin/42238_2023_178_Fig13_HTML.jpg: HTTP Error 404: Not Found | OA package fallback: HTTP Error 404: Not Found"
+    },
+    {
+      "datasetId": "DS-120",
+      "sourceFileId": "SF-041",
+      "figure": "Figure 1",
+      "status": "blocked",
+      "error": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10878361/bin/nvad044_fig1.jpg: HTTP Error 404: Not Found | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10878361/bin/nvad044_fig1.jpg: HTTP Error 404: Not Found | OA package fallback: HTTP Error 404: Not Found"
+    },
+    {
+      "datasetId": "DS-073",
+      "sourceFileId": "SF-043",
+      "figure": "Figure 3",
+      "status": "blocked",
+      "error": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11902214/bin/plants-14-00830-g003.jpg: HTTP Error 404: Not Found | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11902214/bin/plants-14-00830-g003.jpg: HTTP Error 404: Not Found | OA package fallback: HTTP Error 404: Not Found"
+    },
+    {
+      "datasetId": "DS-102",
+      "sourceFileId": "SF-044",
+      "figure": "Figure 7",
+      "status": "blocked",
+      "error": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10779078/bin/ijms-25-00014-g007.jpg: HTTP Error 404: Not Found | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10779078/bin/ijms-25-00014-g007.jpg: HTTP Error 404: Not Found | OA package fallback: HTTP Error 404: Not Found"
+    }
+  ],
+  "truthRule": "Only status=acquired means verified image bytes are included. Figure acquisition never raises the scientific diagnostic ceiling recorded for the source."
+}
