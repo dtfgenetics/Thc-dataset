@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { buildReferenceSearchText } from '../components/ReferenceLibrary'
 import { issues } from '../data/issues'
 import { isDisplayableMedia } from './media'
 
@@ -6,6 +7,17 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps identifiers and slugs unique', () => {
     expect(new Set(issues.map((issue) => issue.id)).size).toBe(issues.length)
     expect(new Set(issues.map((issue) => issue.slug)).size).toBe(issues.length)
+  })
+
+  it('searches reference records by issue, source title and direct source URL', () => {
+    const issue = issues.find((entry) => entry.slug === 'phosphorus-deficiency')
+    expect(issue).toBeTruthy()
+    const media = issue!.media[0]
+    const text = buildReferenceSearchText(issue!, media)
+
+    expect(text).toContain('phosphorus deficiency')
+    expect(text).toContain('characterization of nutrient disorders of cannabis sativa')
+    expect(text).toContain('https://doi.org/10.3390/app9204432')
   })
 
   it('maps reviewed records to dated, claim-level sources', () => {

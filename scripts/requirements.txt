@@ -1,0 +1,5 @@
+# Recommended lightweight dependencies for dataset cleaning
+Pillow>=9.0.0
+imagehash>=4.3.0
+scikit-image>=0.20.0
+numpy>=1.23.0

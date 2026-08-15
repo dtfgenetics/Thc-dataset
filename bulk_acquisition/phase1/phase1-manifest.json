@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "phase": "bulk-acquisition-phase1",
+  "createdAt": "2026-08-15T01:12:48.467126+00:00",
+  "repository": "dtfgenetics/Thc-dataset",
+  "results": [
+    {
+      "datasetId": "DS-090",
+      "status": "acquired",
+      "canonicalRightsSource": "https://data.mendeley.com/datasets/3md2tbx74c/1",
+      "acquisitionSource": "https://github.com/fearro/IoT_monitoring_hemp.git",
+      "pinnedCommit": "86cec1c30494c23c1d9b724ceb1a3aec68709250",
+      "verifiedTrees": {
+        "Hemp_growth/C1": "8b9cf5739d37651628b430083bc3dc44c2bac204",
+        "Hemp_growth/C2": "ae68eadb3c159e4b11731538e688da6038f218ba",
+        "Hemp_growth/C3": "9e0979570562594183a630baf4b63a16d578c4fc",
+        "Hemp_growth/C4": "4138ad3c06eea92de68f41bff9f91388f8b66708",
+        "Hemp_growth/C5": "c792399766afaec64cebd2336f61a1d2212491ca",
+        "Hemp_water_stress/train": "decbeb56bc1a3b4b6ce64248b3e4805b7169ac29",
+        "Hemp_water_stress/test": "0457eb36d8140bb958d29b5a71e23cad7897a7d5"
+      },
+      "fileCount": 1253,
+      "jpegCount": 1252,
+      "waterStressJpegCount": 378,
+      "growthCounts": {
+        "C1": 187,
+        "C2": 175,
+        "C3": 176,
+        "C4": 172,
+        "C5": 164
+      },
+      "stressClassCounts": {
+        "healthy": 101,
+        "water stress 3 days": 110,
+        "water stress 6 days": 87,
+        "water stress 9 days": 80
+      },
+      "archive": "DS-090_hemp-water-stress_pinned-86cec1c.tar.gz",
+      "archiveSizeBytes": 84990440,
+      "archiveSha256": "3fc4739de01aec610a3ff6dcd0cc26d3d56a023ad7eca6a123630b96422ee6ee",
+      "inventory": "DS-090_file_inventory.csv",
+      "publishedModel": {
+        "sizeBytes": 59624868,
+        "gitBlobSha1": "a22c0a99edb12496517e47f0f9648f00a947f7ec",
+        "sha256": "5b99af0f075efcd88349746fad4ff0a88cd591712b578a887286790544bd449c",
+        "trainingEligible": false,
+        "evaluationEligible": false
+      },
+      "license": "CC BY 4.0 via canonical Mendeley Data record",
+      "splitPolicy": "Merge source train/test, deduplicate, then group all frames/derivatives by plant/time-series before assigning our splits."
+    },
+    {
+      "datasetId": "DS-071",
+      "status": "acquired",
+      "canonicalSource": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9920212/",
+      "doi": "10.3390/plants12030422",
+      "downloadRoute": "https://mdpi-res.com/d_attachment/plants/plants-12-00422/article_deploy/plants-12-00422-s001.zip",
+      "finalUrl": "https://mdpi-res.com/d_attachment/plants/plants-12-00422/article_deploy/plants-12-00422-s001.zip",
+      "archive": "DS-071_cannabis-nutrient-deficiency_supplement.zip",
+      "archiveSizeBytes": 76425981,
+      "archiveSha256": "58fb53c26a013d870ef6e84e7a90c35c1184000b309365348d3a87beb0b8d8e9",
+      "zipEntryCount": 6,
+      "inventory": "DS-071_zip_inventory.json",
+      "license": "CC BY 4.0",
+      "useRule": "Preserve treatment, week, organ and figure identity. Visual appearance supports a differential but does not replace root-zone pH/EC/feed/history/tissue context."
+    },
+    {
+      "datasetId": "DS-165",
+      "status": "acquired",
+      "source": "Wikimedia Commons mirror of USDA ARS micrograph",
+      "downloadRoute": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Polyphagotarsonemus%20latus%2C%20USDA%20BARC.jpg",
+      "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/19/Polyphagotarsonemus_latus%2C_USDA_BARC.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "file": "DS-165_Polyphagotarsonemus_latus_USDA_BARC.jpg",
+      "sizeBytes": 1845677,
+      "providerSha1": "0c7adac292bdd1d0c31df51d13635e872b311a42",
+      "sha256": "011b6d31db0c33b61a0ac2ad85bd9abe41608a485184d02c6537d1fa7f3e9a7f",
+      "dimensions": "2894x2480",
+      "license": "Public domain \u2014 USDA Agricultural Research Service",
+      "useRule": "Organism morphology transfer/reference only; not Cannabis-host feeding-damage ground truth."
+    }
+  ],
+  "truthRule": "Only records with status=acquired have bytes present in this release bundle. Metadata-only or failed downloads remain blocked."
+}

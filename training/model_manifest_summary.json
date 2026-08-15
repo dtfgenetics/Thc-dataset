@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-08-15T09:50:00Z",
+  "purpose": "Starter image metadata and leakage-safe split scaffolding for model training",
+  "files": [
+    "metadata_manifest.csv",
+    "leakage_safe_split.csv",
+    "README.md"
+  ],
+  "notes": [
+    "Labels are path-derived and should be reviewed before production training.",
+    "The split is group-safe, so all images from the same plant/time-series do not cross train/val/test.",
+    "This is a conservative base for future transfer-learning and benchmarking work."
+  ]
+}

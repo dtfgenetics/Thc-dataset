@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-08-15T15:19:18Z",
+  "count": 1266,
+  "splits": {
+    "train": 655,
+    "val": 527,
+    "test": 84
+  },
+  "labels": {
+    "growth_time_series": 874,
+    "water_stress_3_days": 110,
+    "healthy": 101,
+    "water_stress_6_days": 87,
+    "water_stress_9_days": 80,
+    "unknown": 11,
+    "figure_s1.png": 1,
+    "figure_s2.png": 1,
+    "figure_s3.png": 1
+  },
+  "dataset_ids": {
+    "DS-090": 1252,
+    "DS135": 4,
+    "DS-071": 3,
+    "DS074": 3,
+    "DS097": 2,
+    "DS-165": 1,
+    "DS117": 1
+  },
+  "pixel_metrics": {
+    "brightness_mean": 226.6773,
+    "contrast_mean": 41.0836,
+    "entropy_mean": 4.4267
+  }
+}
