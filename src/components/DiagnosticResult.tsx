@@ -1,4 +1,5 @@
 import { AlertTriangle, ArrowRight, CheckCircle2, FlaskConical, Search } from 'lucide-react'
+import { summarizeEvidenceAccuracy } from '../lib/benchmarking'
 import type { Differential, EvidenceFile, GrowContext } from '../types'
 
 interface DiagnosticResultProps {
@@ -12,6 +13,7 @@ interface DiagnosticResultProps {
 
 export function DiagnosticResult({ evidence, context, results, reviewed, onReview, onOpenIssue }: DiagnosticResultProps) {
   const evidenceReady = evidence.length > 0 || context.symptoms.length > 0
+  const quality = summarizeEvidenceAccuracy(evidence, context)
 
   if (!reviewed) {
     return (
@@ -24,6 +26,15 @@ export function DiagnosticResult({ evidence, context, results, reviewed, onRevie
           <div><strong>{evidence.length}</strong><small>media files</small></div>
           <div><strong>{context.symptoms.length}</strong><small>symptoms</small></div>
           <div><strong>{[context.stage, context.medium, context.ph, context.ec].filter(Boolean).length}</strong><small>context fields</small></div>
+        </div>
+        <div className="accuracy-callout">
+          <div className="accuracy-head">
+            <span>Accuracy layer</span>
+            <strong>{quality.score}%</strong>
+          </div>
+          <div className="accuracy-meter"><i style={{ width: `${quality.score}%` }} className={`meter-${quality.status}`} /></div>
+          <small className={`status-badge status-${quality.status}`}>{quality.headline}</small>
+          <ul>{quality.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
         </div>
         <button className="primary-button" onClick={onReview} disabled={!evidenceReady}>Review evidence <ArrowRight size={18} /></button>
         <small className="result-disclaimer">The current build ranks structured symptom evidence. Pixel-model analysis is not yet connected and is never implied.</small>
@@ -38,6 +49,15 @@ export function DiagnosticResult({ evidence, context, results, reviewed, onRevie
         <span>Screening result</span>
         <h2>No defensible match yet</h2>
         <p>The evidence does not support a ranked condition. Add closer views, underside or root photos, and measured grow details.</p>
+        <div className="accuracy-callout">
+          <div className="accuracy-head">
+            <span>Accuracy layer</span>
+            <strong>{quality.score}%</strong>
+          </div>
+          <div className="accuracy-meter"><i style={{ width: `${quality.score}%` }} className={`meter-${quality.status}`} /></div>
+          <small className={`status-badge status-${quality.status}`}>{quality.headline}</small>
+          <ul>{quality.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
+        </div>
         <button className="secondary-button" onClick={onReview}>Review again</button>
       </aside>
     )
@@ -51,6 +71,15 @@ export function DiagnosticResult({ evidence, context, results, reviewed, onRevie
       <div className={`confidence confidence-${top.confidence.toLowerCase()}`}>{top.confidence} evidence match</div>
       <h2>{top.issue.name}</h2>
       <p>{top.issue.summary}</p>
+      <div className="accuracy-callout">
+        <div className="accuracy-head">
+          <span>Accuracy layer</span>
+          <strong>{quality.score}%</strong>
+        </div>
+        <div className="accuracy-meter"><i style={{ width: `${quality.score}%` }} className={`meter-${quality.status}`} /></div>
+        <small className={`status-badge status-${quality.status}`}>{quality.headline}</small>
+        <ul>{quality.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul>
+      </div>
       <div className="evidence-list positive"><strong><CheckCircle2 size={17} /> Supporting evidence</strong>{top.supporting.length ? <ul>{top.supporting.map((item) => <li key={item}>{item}</li>)}</ul> : <p>No symptom-level support recorded.</p>}</div>
       {top.contradicting.length ? <div className="evidence-list negative"><strong><AlertTriangle size={17} /> Evidence against</strong><ul>{top.contradicting.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
       <div className="missing-evidence"><strong>What would improve this result</strong><p>{top.missing.slice(0, 3).join(' · ') || 'No additional structured fields required'}</p></div>

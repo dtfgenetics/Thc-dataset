@@ -20,8 +20,13 @@ This folder is the first production-safe training scaffold for the cannabis/hemp
 
 - `build_metadata_manifest.py` — creates a conservative file-level metadata manifest with dataset ID, label, group ID, dimensions, and hash
 - `create_leakage_safe_split.py` — assigns train/val/test splits at the group level to avoid plant/session leakage
+- `create_locked_benchmark.py` — reserves a held-out benchmark split from the same manifest so it remains untouched by training and tuning
+- `benchmark_workflow.py` — produces a locked-evaluation benchmark summary so training quality is checked before any production claim
 - `enrich_image_metadata.py` — computes pixel-level statistics (brightness, contrast, entropy, sharpness, aspect ratio, color means) for use in quality checks and downstream filtering
-- `train_classifier.py` — minimal transfer-learning classifier starter that consumes the split manifest
+- `label_taxonomy.json` — reviewed canonical class mapping and human-review rules
+- `label_taxonomy_review.md` — explicit checklist for converting path-derived labels into scientific labels
+- `model_config.json` — config for EfficientNetV2 and ConvNeXt model experiments
+- `train_classifier.py` — minimal transfer-learning classifier starter that consumes the split manifest and accepts a backbone argument
 - `requirements.txt` — Python dependencies for image model training
 
 ## Current generated data
@@ -36,8 +41,15 @@ This folder is the first production-safe training scaffold for the cannabis/hemp
 ```bash
 python training/build_metadata_manifest.py
 python training/create_leakage_safe_split.py
-python training/train_classifier.py --manifest training/leakage_safe_split.csv --image-root dataset/acquisition/acquired --split train
+python training/create_locked_benchmark.py
+python training/train_classifier.py --manifest training/leakage_safe_split.csv --image-root dataset/acquisition/acquired --split train --backbone efficientnet_v2_s --eval-split val --max-samples 32
 ```
+
+Use `--max-samples` for a quick CPU smoke test. The full dataset is meant for larger GPU runs later.
+
+The script loads the default backbone and training settings from `training/model_config.json` when `--backbone` is omitted. Use `--backbone convnext_tiny` for a second baseline comparison.
+
+The benchmark file `training/locked_benchmark_manifest.csv` is intentionally excluded from optimizer tuning and is meant to be used only for final evaluation.
 
 ## Notes
 

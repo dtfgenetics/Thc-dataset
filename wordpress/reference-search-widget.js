@@ -5,6 +5,7 @@
   const indexUrl = root.dataset.indexUrl || '/reference-image-index.json'
   const queryEl = root.querySelector('input[name="q"]')
   const resultsEl = root.querySelector('[data-results]')
+  const summaryEl = root.querySelector('[data-summary]')
 
   const escapeHtml = (value = '') => value
     .replace(/&/g, '&amp;')
@@ -12,6 +13,21 @@
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;')
+
+  const renderSummary = (images = []) => {
+    if (!summaryEl) return
+    const total = images.length
+    const score = Math.min(100, Math.max(20, Math.round((total / 12) * 100)))
+    const status = total >= 12 ? 'Benchmark-ready reference set' : total >= 6 ? 'Improving reference coverage' : 'Reference coverage needs more images'
+    summaryEl.innerHTML = `
+      <div class="thc-reference-summary-card">
+        <span>Reference evidence</span>
+        <strong>${score}%</strong>
+        <small>${status}</small>
+        <em>${total} indexed media records</em>
+      </div>
+    `
+  }
 
   const render = (items) => {
     if (!resultsEl) return
@@ -35,6 +51,7 @@
       if (!response.ok) throw new Error('Index load failed')
       const payload = await response.json()
       const images = Array.isArray(payload.images) ? payload.images : []
+      renderSummary(images)
       const clean = query.trim().toLowerCase()
       const filtered = !clean
         ? images.slice(0, 8)
@@ -53,6 +70,9 @@
 
       render(filtered)
     } catch (error) {
+      if (summaryEl) {
+        summaryEl.innerHTML = '<div class="thc-reference-summary-card"><span>Reference evidence</span><strong>0%</strong><small>Reference index unavailable</small></div>'
+      }
       resultsEl.innerHTML = '<p class="thc-reference-empty">Reference index unavailable. Please confirm the dataset index is published.</p>'
     }
   }

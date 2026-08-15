@@ -1,0 +1,18 @@
+{
+  "source_manifest": "training\\leakage_safe_split.csv",
+  "output_manifest": "training\\locked_benchmark_manifest.csv",
+  "total_rows": 1266,
+  "benchmark_rows": 212,
+  "benchmark_groups": 3,
+  "label_counts": {
+    "figure_s1.png": 1,
+    "healthy": 101,
+    "water_stress_3_days": 110
+  },
+  "policy": {
+    "locked_benchmark_required": true,
+    "benchmark_is_excluded_from_training": true,
+    "benchmark_is_reproducible": true,
+    "benchmark_is_untouched_by_tuning": true
+  }
+}

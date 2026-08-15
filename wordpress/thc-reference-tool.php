@@ -23,6 +23,7 @@ function thc_reference_tool_shortcode($atts = []) {
     ?>
     <div class="thc-reference-tool" data-thc-reference-tool data-index-url="<?php echo esc_url($atts['index_url']); ?>">
       <h3><?php echo esc_html($atts['title']); ?></h3>
+      <div class="thc-reference-summary" data-summary></div>
       <label class="thc-reference-search">
         <span class="screen-reader-text">Search reference images</span>
         <input type="search" name="q" placeholder="Search dataset, label, file, or source tag" />
