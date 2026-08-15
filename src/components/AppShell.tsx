@@ -8,6 +8,7 @@ import {
   Menu,
   NotebookPen,
   X,
+  ExternalLink,
 } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import type { View } from '../types'
@@ -51,6 +52,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
         </nav>
         <div className="header-actions">
           <button className="dataset-button" onClick={() => chooseView('coverage')}><Database size={17} /> Dataset v0.2</button>
+          <a className="external-app-button" href="https://canna-ph-flow.base44.app" target="_blank" rel="noopener noreferrer" title="Open Canna pH Flow app in new tab"><ExternalLink size={14} /> Open Canna pH Flow</a>
           <button className="menu-button" onClick={() => setMenuOpen((current) => !current)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -59,6 +61,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
 
       {menuOpen ? (
         <nav className="mobile-nav" aria-label="Grow Doc mobile navigation">
+          <a className="external-app-button" href="https://canna-ph-flow.base44.app" target="_blank" rel="noopener noreferrer" title="Open Canna pH Flow app in new tab"><ExternalLink size={14} /> Open Canna pH Flow</a>
           {navItems.map((item) => {
             const Icon = item.icon
             return <button key={item.id} className={activeView === item.id ? 'active' : ''} onClick={() => chooseView(item.id)}><Icon size={19} />{item.label}</button>
