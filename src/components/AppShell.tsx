@@ -9,6 +9,7 @@ import {
   NotebookPen,
   X,
   ExternalLink,
+  Gamepad,
 } from 'lucide-react'
 import { useState, type ReactNode } from 'react'
 import type { View } from '../types'
@@ -20,6 +21,7 @@ const navItems: Array<{ id: View; label: string; icon: typeof Camera }> = [
   { id: 'references', label: 'Reference images', icon: FileImage },
   { id: 'log', label: 'Grow log', icon: NotebookPen },
   { id: 'coverage', label: 'Dataset coverage', icon: BarChart3 },
+  { id: 'games', label: 'Game hub', icon: Gamepad },
   { id: 'about', label: 'About', icon: HelpCircle },
 ]
 
