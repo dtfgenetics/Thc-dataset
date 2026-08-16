@@ -185,7 +185,7 @@ const verifiedReferenceMediaBySlug: Record<string, MediaRecord[]> = {
       requiredAttribution: 'McGehee CS, Raudales RE. 2021. First Report of Pathogens Associated With Root Rot and Wilt of Cannabis sativa in Connecticut. Frontiers in Agronomy 3:706138. CC BY 4.0.',
       diagnosticLabel: 'pythium-root-rot — controlled hemp root-pathogen pathogenicity comparison including Pythium myriotylum',
       hostSpecies: 'Cannabis sativa',
-      hostContext: 'hemp',
+      hostContext: 'cannabis',
       useLimitations: [
         'Multi-pathogen treatment composite; reference-only as a whole figure.',
         'Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific.',
