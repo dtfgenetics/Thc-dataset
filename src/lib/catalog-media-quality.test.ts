@@ -44,6 +44,7 @@ describe('runtime catalog media quality', () => {
       'media-pythium-hemp-pathogenicity-figure-7',
       'media-hlvd-cannabis-figure-1',
       'media-bctv-cannabis-figure-19',
+      'media-two-spotted-spider-mite-hemp-figure-1',
     ])
 
     for (const { media } of allMedia.filter(({ media }) => referenceOnlyIds.has(media.id))) {
