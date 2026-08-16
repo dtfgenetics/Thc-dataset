@@ -1,6 +1,5 @@
 import { categoryOrder, issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
-import { virusIssues } from './virus-issues'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
 import type { IssueRecord } from '../types'
 
@@ -54,9 +53,7 @@ export const supplementalIssues = rawSupplementalIssues
   .map(normalizeKnownSourceErrata)
   .map(enrichVerifiedReferenceMedia)
 
-export const reviewedVirusIssues = virusIssues.map(enrichVerifiedReferenceMedia)
-
-export const issues = [...coreIssues, ...supplementalIssues, ...reviewedVirusIssues]
+export const issues = [...coreIssues, ...supplementalIssues]
 
 export { categoryOrder }
 
