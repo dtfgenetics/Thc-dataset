@@ -49,6 +49,7 @@ jobs:
               'www.ncbi.nlm.nih.gov',
               'www.mdpi.com',
               'mdpi-res.com',
+              'media.springernature.com',
           }
           max_bytes = 20_000_000
           candidates = json.loads(CANDIDATES.read_text(encoding='utf-8'))
