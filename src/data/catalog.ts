@@ -22,8 +22,6 @@ const attachControlledCoreIds = (issue: IssueRecord): IssueRecord => {
 // Publisher verification on 2026-08-16 found one DOI typo in the first
 // supplemental source batch. Normalize known source errata at the catalog
 // boundary so the public app and QA/export layers never publish the stale value.
-// The underlying supplemental file can be flattened into this corrected form
-// during the next controlled data-file refactor.
 const normalizeKnownSourceErrata = (issue: IssueRecord): IssueRecord => {
   if (issue.slug !== 'rice-root-aphid') return issue
 
@@ -108,6 +106,105 @@ const verifiedReferenceMediaBySlug: Record<string, MediaRecord[]> = {
       trainingEligible: false,
     },
   ],
+  'cannabis-aphid': [
+    {
+      id: 'media-cannabis-aphid-figure-2',
+      url: 'https://mdpi-res.com/d_attachment/plants/plants-14-00931/article_deploy/html/images/plants-14-00931-g002.png',
+      alt: 'Cannabis plants infested with cannabis aphids alongside magnified adult and winged Phorodon cannabis.',
+      caption: 'Cannabis plants of the Congo Durban variety infested with Phorodon cannabis, with adult and winged adult aphids shown under a stereo microscope at 20× magnification (Lopez Restrepo and Kovalchuk 2025, Figure 2).',
+      creator: 'Daniel Lopez Restrepo and Igor Kovalchuk',
+      license: 'CC BY 4.0',
+      sourceUrl: 'https://doi.org/10.3390/plants14060931',
+      mediaType: 'image',
+      requiredAttribution: 'Lopez Restrepo D, Kovalchuk I. 2025. Investigating the Effects of Entomopathogenic Fungi on Mortality of Phorodon cannabis Populations in Cannabis Plants. Plants 14(6):931. CC BY 4.0.',
+      diagnosticLabel: 'cannabis-aphid — Phorodon cannabis infestation and adult morphology on Cannabis sativa',
+      hostSpecies: 'Cannabis sativa',
+      hostContext: 'cannabis',
+      useLimitations: [
+        'Multi-panel plant-and-organism figure; reference-only as a whole image.',
+        'Do not infer cannabis aphid from yellowing, wilting, or leaf distortion without directly observing aphids or other insect evidence.',
+        'Keep training-ineligible until panel-level source grouping and crop review are complete.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '9e03540f970a4db0a8519a71c7773bc93d1221550e8a1ccf9190371e617ad012',
+      perceptualHash: 'dhash64:6444daa9ad9b989a',
+      width: 1623,
+      height: 1724,
+      view: 'diagram',
+      stage: 'all',
+      severity: 'moderate',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
+  'powdery-mildew': [
+    {
+      id: 'media-powdery-mildew-cannabis-figure-2',
+      url: 'https://www.frontiersin.org/files/Articles/720215/xml-images/fagro-03-720215-g0002.webp',
+      alt: 'Cannabis powdery mildew experiment comparing a susceptible plant with dense powdery mycelial growth and a resistant phenotype without visible colonies.',
+      caption: 'Cannabis powdery mildew resistance experiment showing a susceptible phenotype with dense mycelial growth beside a resistant phenotype without visible powdery mildew colonies (Mihalyov and Garfinkel 2021, Figure 2).',
+      creator: 'Paul D. Mihalyov and Andrea R. Garfinkel',
+      license: 'CC BY 4.0',
+      sourceUrl: 'https://doi.org/10.3389/fagro.2021.720215',
+      mediaType: 'image',
+      requiredAttribution: 'Mihalyov PD, Garfinkel AR. 2021. Discovery and Genetic Mapping of PM1, a Powdery Mildew Resistance Gene in Cannabis sativa L. Frontiers in Agronomy 3:720215. CC BY 4.0.',
+      diagnosticLabel: 'powdery-mildew — Cannabis powdery mildew susceptible/resistant phenotype comparison',
+      hostSpecies: 'Cannabis sativa',
+      hostContext: 'cannabis',
+      useLimitations: [
+        'Reference-only phenotype comparison from a controlled disease-resistance experiment.',
+        'Dense white mycelial growth can strongly support powdery mildew, but organism identification remains separate when the causal species matters.',
+        'Do not use the resistant panel as a negative training control without source-group and experimental-context review.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '7690fd41440735591b9e4562b00fdc58274577cbb3ea38f305f98c27474e6046',
+      perceptualHash: 'dhash64:69accecc8edb638e',
+      width: 1535,
+      height: 1027,
+      view: 'whole-plant',
+      stage: 'vegetative',
+      severity: 'moderate',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
+  'pythium-root-rot': [
+    {
+      id: 'media-pythium-hemp-pathogenicity-figure-7',
+      url: 'https://www.frontiersin.org/files/Articles/706138/xml-images/fagro-03-706138-g0007.webp',
+      alt: 'Hemp plants from a controlled pathogenicity trial comparing Pythium, Globisporangium, Fusarium, and uninoculated treatments.',
+      caption: "Hemp 'Wife' plants 14 days after inoculation with pathogenic Pythium myriotylum, Globisporangium irregulare, or Fusarium oxysporum isolates, plus the uninoculated control (McGehee and Raudales 2021, Figure 7).",
+      creator: 'Cora S. McGehee and Rosa E. Raudales',
+      license: 'CC BY 4.0',
+      sourceUrl: 'https://doi.org/10.3389/fagro.2021.706138',
+      mediaType: 'image',
+      requiredAttribution: 'McGehee CS, Raudales RE. 2021. First Report of Pathogens Associated With Root Rot and Wilt of Cannabis sativa in Connecticut. Frontiers in Agronomy 3:706138. CC BY 4.0.',
+      diagnosticLabel: 'pythium-root-rot — controlled hemp root-pathogen pathogenicity comparison including Pythium myriotylum',
+      hostSpecies: 'Cannabis sativa',
+      hostContext: 'hemp',
+      useLimitations: [
+        'Multi-pathogen treatment composite; reference-only as a whole figure.',
+        'Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific.',
+        'Do not use this figure to visually confirm Pythium in an unknown plant; root/crown evidence and laboratory identification remain required.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '54267dc0fe3eccabaa8f5bd87cae3394beece60a21134bac7d765c0d1817d47b',
+      perceptualHash: 'dhash64:e949555123865373',
+      width: 2008,
+      height: 1501,
+      view: 'whole-plant',
+      stage: 'vegetative',
+      severity: 'high',
+      confirmation: 'lab-confirmed',
+      trainingEligible: false,
+    },
+  ],
 }
 
 const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
@@ -116,7 +213,9 @@ const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
   return { ...issue, media: [...issue.media, ...verifiedMedia] }
 }
 
-export const coreIssues = rawCoreIssues.map(attachControlledCoreIds)
+export const coreIssues = rawCoreIssues
+  .map(attachControlledCoreIds)
+  .map(enrichVerifiedReferenceMedia)
 export const supplementalIssues = rawSupplementalIssues
   .map(normalizeKnownSourceErrata)
   .map(enrichVerifiedReferenceMedia)
