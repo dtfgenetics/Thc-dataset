@@ -38,7 +38,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
   })
 
   it('admits only fully verified reference media into supplemental profiles', () => {
-    const permittedMediaSlugs = new Set(['rice-root-aphid', 'fusarium-crown-root-rot'])
+    const permittedMediaSlugs = new Set(['rice-root-aphid', 'fusarium-crown-root-rot', 'cannabis-aphid'])
     for (const issue of supplementalIssues) {
       if (!permittedMediaSlugs.has(issue.slug)) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
