@@ -29,8 +29,8 @@ describe('supplemental diagnostic ranking', () => {
     expect(results[0].issue.slug).toBe('fusarium-crown-root-rot')
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('root or crown view')
-    expect(results[0].missing).toContain('confirmation: root/crown evidence')
-    expect(results[0].missing).toContain('confirmation: isolation/microscopy/PCR/sequence')
+    expect(results[0].missing).toContain('confirmation: root/crown/vascular evidence')
+    expect(results[0].missing).toContain('confirmation: culture/PCR/sequence or expert pathology confirmation')
   })
 
   it('ranks cannabis aphid above rice root aphid when foliage colonies are directly observed', () => {
