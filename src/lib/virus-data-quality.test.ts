@@ -26,7 +26,7 @@ describe('BCTV Cannabis diagnostic profile', () => {
     expect(bctv?.exclusions.length).toBeGreaterThanOrEqual(4)
     expect(bctv?.lookAlikes.length).toBeGreaterThanOrEqual(4)
     expect(bctv?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory|molecular|rt-pcr|pcr/)
-    expect(bctv?.warnings.join(' ').toLowerCase()).toMatch(/visual evidence cannot confirm|photograph alone/)
+    expect(bctv?.warnings.join(' ').toLowerCase()).toMatch(/visual symptoms are not specific enough to confirm|visual evidence cannot confirm|photograph alone/)
   })
 
   it('includes the reproducibly verified RT-PCR-confirmed Cannabis reference figure', () => {
@@ -45,10 +45,10 @@ describe('BCTV Cannabis diagnostic profile', () => {
     const results = rankDifferentials(
       issues,
       context([
-        'Severe stunting occurs together with reduced leaf size and distorted new growth',
-        'New leaves show intense twisting, curling, or deformation that persists across successive nodes',
-        'Mosaic or irregular discoloration accompanies leaf twisting and reduced growth',
-        'Small leaves proliferate on shortened branches or compact shoots',
+        'Stunted or bushy plant architecture',
+        'Twisted, puckered, or upward-curled young leaves',
+        'Pale-green to yellow new foliage',
+        'Yellow mosaic or generalized chlorosis',
       ]),
       [],
     )
