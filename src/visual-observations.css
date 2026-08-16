@@ -1,0 +1,116 @@
+.visual-observation-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.visual-observation-card {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem;
+  border: 1px solid var(--border, #d9ded6);
+  border-radius: 1rem;
+  background: var(--surface, #fff);
+}
+
+.visual-observation-intro {
+  display: flex;
+  gap: .8rem;
+  align-items: flex-start;
+}
+
+.visual-observation-intro svg {
+  flex: 0 0 auto;
+  margin-top: .15rem;
+}
+
+.visual-observation-intro p,
+.visual-observation-summary p,
+.visual-observation-notes,
+.visual-observation-empty {
+  margin: .3rem 0 0;
+}
+
+.visual-analyze-button {
+  justify-self: start;
+}
+
+.visual-observation-error,
+.visual-observation-warning {
+  display: flex;
+  gap: .55rem;
+  align-items: flex-start;
+  padding: .75rem .85rem;
+  border-radius: .75rem;
+  background: rgba(150, 87, 0, .09);
+}
+
+.visual-observation-result {
+  display: grid;
+  gap: 1rem;
+}
+
+.visual-observation-summary,
+.visual-indicator-review,
+.visual-feature-list {
+  display: grid;
+  gap: .55rem;
+}
+
+.visual-indicator-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+
+.visual-indicator-list button {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .55rem .7rem;
+  border: 1px solid var(--border, #d9ded6);
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.visual-indicator-list button.approved {
+  border-color: currentColor;
+  font-weight: 700;
+}
+
+.visual-feature-list ul {
+  display: grid;
+  gap: .45rem;
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.visual-feature-list li span {
+  display: inline-block;
+  margin-right: .45rem;
+  padding: .1rem .4rem;
+  border: 1px solid var(--border, #d9ded6);
+  border-radius: 999px;
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+
+.provider-data-notice {
+  display: block;
+  line-height: 1.45;
+  opacity: .78;
+}
+
+@media (max-width: 640px) {
+  .visual-observation-card {
+    padding: .9rem;
+  }
+
+  .visual-analyze-button,
+  .visual-indicator-review .primary-button {
+    width: 100%;
+  }
+}
