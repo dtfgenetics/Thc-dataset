@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { categoryOrder, issues } from '../data/issues'
+import { categoryOrder, issues } from '../data/catalog'
 import { hasResolvedDisplayMedia, isDisplayableMedia, resolvedDisplayMediaForIssue } from './media'
 
 const targetByCategory: Partial<Record<(typeof categoryOrder)[number], number>> = {
