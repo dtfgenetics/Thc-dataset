@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - 'dataset/acquisition/verified-open-media-candidates.json'
+      - 'dataset/acquisition/verified-open-media-candidates*.json'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +36,8 @@ jobs:
           import urllib.request
           from PIL import Image
 
-          CANDIDATES = pathlib.Path('dataset/acquisition/verified-open-media-candidates.json')
+          ACQUISITION_DIR = pathlib.Path('dataset/acquisition')
+          CANDIDATE_FILES = sorted(ACQUISITION_DIR.glob('verified-open-media-candidates*.json'))
           OUT = pathlib.Path('verified_media')
           OUT.mkdir(exist_ok=True)
 
@@ -52,9 +53,22 @@ jobs:
               'media.springernature.com',
           }
           max_bytes = 20_000_000
-          candidates = json.loads(CANDIDATES.read_text(encoding='utf-8'))
-          if not isinstance(candidates, list) or not candidates:
-              raise SystemExit('Candidate manifest must be a non-empty JSON array.')
+          candidates = []
+          for candidate_file in CANDIDATE_FILES:
+              batch = json.loads(candidate_file.read_text(encoding='utf-8'))
+              if not isinstance(batch, list):
+                  raise SystemExit(f'{candidate_file}: candidate manifest must be a JSON array.')
+              for item in batch:
+                  if isinstance(item, dict):
+                      item = {**item, 'candidate_manifest': candidate_file.name}
+                  candidates.append(item)
+
+          if not candidates:
+              raise SystemExit('No open-media candidates were found.')
+          candidate_ids = [candidate.get('id') for candidate in candidates if isinstance(candidate, dict)]
+          if len(candidate_ids) != len(set(candidate_ids)):
+              duplicates = sorted({candidate_id for candidate_id in candidate_ids if candidate_ids.count(candidate_id) > 1})
+              raise SystemExit(f'Duplicate candidate IDs across manifests: {duplicates}')
 
           def dhash64(image: Image.Image) -> str:
               gray = image.convert('L').resize((9, 8), Image.Resampling.LANCZOS)
@@ -81,6 +95,8 @@ jobs:
 
           results = []
           for candidate in candidates:
+              if not isinstance(candidate, dict):
+                  raise SystemExit('Each candidate must be a JSON object.')
               required = ['id', 'issue_slug', 'image_url', 'source_article', 'caption', 'creator', 'license', 'license_url', 'intended_use']
               missing = [key for key in required if not candidate.get(key)]
               if missing:
