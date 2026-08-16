@@ -1,5 +1,5 @@
 import { AlertTriangle, CheckCircle2, Database, FileImage, ShieldCheck } from 'lucide-react'
-import { categoryOrder, issues } from '../data/issues'
+import { categoryOrder, issues } from '../data/catalog'
 import { hasResolvedDisplayMedia, isDisplayableMedia } from '../lib/media'
 
 const targetByCategory: Partial<Record<(typeof categoryOrder)[number], number>> = {
