@@ -1,6 +1,6 @@
 import { ExternalLink, FileImage, ImageOff, Search } from 'lucide-react'
 import { useDeferredValue, useMemo, useState } from 'react'
-import { issues } from '../data/issues'
+import { issues } from '../data/catalog'
 import { isDisplayableMedia } from '../lib/media'
 import { ImagePlaceholder } from './icons'
 
