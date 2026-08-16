@@ -8,6 +8,7 @@ import { GrowContextForm } from './components/GrowContextForm'
 import { GrowLog } from './components/GrowLog'
 import { IssueLibrary } from './components/IssueLibrary'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
+import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/issues'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
@@ -35,12 +36,16 @@ export default function App() {
 
   const removeFile = (id: string) => { setEvidence((current) => { const target = current.find((item) => item.id === id); if (target) URL.revokeObjectURL(target.previewUrl); return current.filter((item) => item.id !== id) }); setReviewed(false) }
   const openIssue = (slug: string) => { setIssueSlug(slug); setView('issues') }
+  const applyVisualObservations = (indicators: string[]) => {
+    setContext((current) => ({ ...current, symptoms: [...new Set([...current.symptoms, ...indicators])] }))
+    setReviewed(false)
+  }
 
   return (
     <AppShell activeView={view} onViewChange={setView}>
       {view === 'diagnose' ? (
         <div className="diagnostic-page">
-          <div className="diagnostic-layout"><div className="workflow-column"><EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} /><GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} /></div><DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} /></div>
+          <div className="diagnostic-layout"><div className="workflow-column"><EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} /><VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} /><GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} /></div><DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} /></div>
         </div>
       ) : null}
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
