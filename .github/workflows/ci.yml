@@ -23,4 +23,8 @@ jobs:
       - run: npm run validate:transfer
       - run: npm run check
       - run: npm test
+      - name: Validate visual observation PHP proxy
+        run: php -l public/api/visual-observations.php
       - run: npm run build
+      - name: Verify visual observation proxy ships in the production bundle
+        run: test -f dist/api/visual-observations.php
