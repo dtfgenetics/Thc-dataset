@@ -22,22 +22,75 @@ const needsWateringContext = (issue: IssueRecord) =>
   || issue.category === 'Root pathogen'
   || issue.category === 'Environmental stress'
 
+const buildIndicatorFrequency = (records: IssueRecord[]) => {
+  const frequency = new Map<string, number>()
+  for (const issue of records) {
+    // Count an indicator once per diagnosis. Repeated wording inside one record
+    // must not make a symptom look more generic than it is across the catalog.
+    const uniqueIndicators = new Set(issue.indicators.map(normalise))
+    for (const indicator of uniqueIndicators) {
+      frequency.set(indicator, (frequency.get(indicator) ?? 0) + 1)
+    }
+  }
+  return frequency
+}
+
+const indicatorSignalWeight = (frequency: number) => {
+  if (frequency <= 1) return 4
+  if (frequency === 2) return 3.5
+  if (frequency <= 4) return 3
+  if (frequency <= 8) return 2.5
+  return 2
+}
+
+const capPhotoOnlyConfidence = (
+  issue: IssueRecord,
+  confidence: Differential['confidence'],
+  missing: string[],
+): Differential['confidence'] => {
+  const rawCap = issue.photoOnlyMaxConfidence
+  if (typeof rawCap !== 'number' || !Number.isFinite(rawCap)) return confidence
+
+  // Support either normalized 0–1 metadata or percentage-style 0–100 metadata.
+  const cap = rawCap > 1 ? rawCap / 100 : rawCap
+  if (cap < 1 && !missing.includes('non-visual confirmation required by issue confidence policy')) {
+    missing.push('non-visual confirmation required by issue confidence policy')
+  }
+  if (cap <= 0.5) return 'Low'
+  if (cap < 1 && confidence === 'High') return 'Moderate'
+  return confidence
+}
+
 export function rankDifferentials(
   records: IssueRecord[],
   context: GrowContext,
   evidence: EvidenceFile[],
 ): Differential[] {
   const selected = new Set(context.symptoms.map(normalise))
+  const indicatorFrequency = buildIndicatorFrequency(records)
   const hasRootView = evidence.some((item) => item.slot === 'root-crown')
   const hasUnderside = evidence.some((item) => item.slot === 'underside')
   const hasWholePlant = evidence.some((item) => item.slot === 'whole-plant')
   const hasCloseUp = evidence.some((item) => item.slot === 'close-up')
 
-  return records
+  const ranked = records
     .map((issue) => {
       const matched = issue.indicators.filter((indicator) => selected.has(normalise(indicator)))
       const contradictory = issue.exclusions.filter((indicator) => selected.has(normalise(indicator)))
-      let score = matched.length * 3 - contradictory.length * 4
+
+      // Not every symptom carries the same information. A sign shared by many
+      // diagnoses (for example generic yellowing or stunting) is useful, but it
+      // should not outweigh a rarer, more discriminating pattern simply because
+      // several common symptoms were selected.
+      const supportingScore = matched.reduce((total, indicator) => {
+        const frequency = indicatorFrequency.get(normalise(indicator)) ?? 1
+        return total + indicatorSignalWeight(frequency)
+      }, 0)
+      const contradictionScore = contradictory.reduce((total, indicator) => {
+        const frequency = indicatorFrequency.get(normalise(indicator)) ?? 1
+        return total + Math.max(4, indicatorSignalWeight(frequency) + 1)
+      }, 0)
+      let score = supportingScore - contradictionScore
 
       if (context.stage && issue.stages.includes(context.stage)) score += 1
       if (hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) score += 1
@@ -57,7 +110,14 @@ export function rankDifferentials(
       if (needsRootZoneChemistry(issue) && !context.ec) missing.push('measured EC/PPM')
       if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
 
-      let confidence: Differential['confidence'] = score >= 9 && contradictory.length === 0 ? 'High' : score >= 4 ? 'Moderate' : 'Low'
+      // Require multiple independent symptom signals before confidence can rise.
+      // A single visually compatible symptom is a lead, not a diagnosis.
+      let confidence: Differential['confidence'] =
+        score >= 10 && matched.length >= 3 && contradictory.length === 0
+          ? 'High'
+          : score >= 5 && matched.length >= 2
+            ? 'Moderate'
+            : 'Low'
 
       // Evidence gates prevent symptom overlap from being mistaken for confirmation.
       if (laboratoryBoundedCategories.has(issue.category)) confidence = 'Low'
@@ -81,6 +141,8 @@ export function rankDifferentials(
 
       if ((!hasWholePlant || !hasCloseUp) && confidence === 'High') confidence = 'Moderate'
 
+      confidence = capPhotoOnlyConfidence(issue, confidence, missing)
+
       return {
         issue,
         confidence,
@@ -93,6 +155,28 @@ export function rankDifferentials(
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 4)
+
+  // A high absolute score is not enough when another diagnosis explains the
+  // same evidence nearly as well. Preserve the differential and ask for the
+  // observation/test that separates the leading look-alikes.
+  return ranked.map((item, index) => {
+    let confidence = item.confidence
+    const missing = [...item.missing]
+
+    if (index > 0 && confidence === 'High') confidence = 'Moderate'
+
+    if (index === 0 && ranked.length > 1) {
+      const margin = item.score - ranked[1].score
+      if (margin < 2) {
+        if (confidence === 'High') confidence = 'Moderate'
+        if (!missing.includes('additional discriminating evidence between the leading look-alikes')) {
+          missing.push('additional discriminating evidence between the leading look-alikes')
+        }
+      }
+    }
+
+    return { ...item, confidence, missing }
+  })
 }
 
 export async function inspectEvidenceFile(file: File) {
