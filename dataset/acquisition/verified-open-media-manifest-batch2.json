@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "verified_at_utc": "2026-08-16T15:23:06Z",
+  "verification_workflow": ".github/workflows/verify-open-reference-media.yml",
+  "verification_run_id": 31955472859,
+  "verification_artifact_id": 9265819448,
+  "artifact_digest": "sha256:42e4e47d81c1bcfae8127add26ded9f7d4b448b8e0c807b8f5346c9f102084d6",
+  "items": [
+    {
+      "id": "media-two-spotted-spider-mite-hemp-figure-1",
+      "issue_slug": "two-spotted-spider-mites",
+      "source_article": "https://doi.org/10.3390/agronomy16060651",
+      "requested_accept": "image/png",
+      "sha256": "dcde792626693321579109e4698605a8606e83c2fcdbdf16446fa4bba2a1dfa6",
+      "perceptual_hash": "dhash64:d2129296869696b6",
+      "bytes": 2027799,
+      "mime_type": "image/png",
+      "width": 1455,
+      "height": 1340,
+      "license": "CC BY 4.0",
+      "creator": "Ivy N. Thweatt and Katelyn Kesheimer; figure included in the article with consent",
+      "intended_use": "reference-only",
+      "training_eligible": false,
+      "verification_status": "downloaded-hashed-image-verified"
+    }
+  ]
+}
