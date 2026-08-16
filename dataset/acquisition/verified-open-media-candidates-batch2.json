@@ -1,16 +1,1 @@
-[
-  {
-    "id": "media-hemp-witches-broom-phytoplasma-figure-4",
-    "verification_revision": 2,
-    "issue_slug": "hemp-witches-broom-phytoplasma",
-    "image_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7455686/bin/13205_2020_2407_Fig4_HTML.jpg",
-    "source_article": "https://doi.org/10.1007/s13205-020-02407-x",
-    "caption": "Phytoplasma disease symptoms in weed species at IARI, New Delhi; panels (a) and (b) compare healthy and phytoplasma-infected Cannabis sativa (Figure 4).",
-    "creator": "Aido Taloh, D. V. S. Raju, Namita Banyal, Gunjeet Kumar, Priyam Panda, R. Manimekalai, Carmine Marcone, G. P. Rao, and coauthors",
-    "license": "CC BY 4.0",
-    "license_url": "https://creativecommons.org/licenses/by/4.0/",
-    "confirmation": "Peer-reviewed open-access study used nested PCR, sequencing, BLAST/phylogenetic analysis and in-silico RFLP. The Cannabis sativa phytoplasma strain MF509775 grouped with 16SrVI and was assigned to subgroup 16SrVI-D; Figure 4 includes healthy and infected Cannabis panels.",
-    "intended_use": "reference-only",
-    "limitations": "Multi-species composite; only panels (a) and (b) depict Cannabis sativa. Use as a molecularly anchored phytoplasma reference, not a visual confirmation tool. Witches' broom, chlorosis and stunting overlap other disorders. Keep the full figure training-ineligible until Cannabis panels are independently cropped, hashed and reviewed."
-  }
-]
+[]
