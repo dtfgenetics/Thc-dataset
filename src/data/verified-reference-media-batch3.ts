@@ -27,7 +27,7 @@ export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> =
       perceptualHash: 'dhash64:b3e78e80888094ca',
       width: 1536,
       height: 1152,
-      view: 'affected-close-up',
+      view: 'close-up',
       stage: 'all',
       severity: 'high',
       confirmation: 'expert-reviewed',
