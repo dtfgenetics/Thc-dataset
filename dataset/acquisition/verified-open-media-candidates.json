@@ -21,10 +21,52 @@
     "source_article": "https://doi.org/10.3389/fagro.2021.796062",
     "caption": "Infection of greenhouse grown cannabis plants by Fusarium species (Figure 4), including yellowing, crown infection/decay, pith necrosis, crown rot, diseased cuttings, flower infection, cultures, and pathogenicity-test symptoms.",
     "creator": "Zamir Punja (photographs), published in Gwinn et al. 2022",
-    "license": "CC BY",
+    "license": "CC BY 4.0",
     "license_url": "https://creativecommons.org/licenses/by/4.0/",
     "confirmation": "Peer-reviewed Cannabis Fusarium composite tied to published organism identification and pathogenicity evidence in the source review and cited primary studies.",
     "intended_use": "reference-only",
     "limitations": "Multi-panel, multi-species disease composite. Use only as a reviewed reference figure; the full composite is not a single-class training image and cannot visually confirm a Fusarium species in an unknown user plant."
+  },
+  {
+    "id": "media-cannabis-aphid-figure-2",
+    "verification_revision": 1,
+    "issue_slug": "cannabis-aphid",
+    "image_url": "https://mdpi-res.com/d_attachment/plants/plants-14-00931/article_deploy/html/images/plants-14-00931-g002.png",
+    "source_article": "https://doi.org/10.3390/plants14060931",
+    "caption": "Cannabis plants of the Congo Durban variety infested with Phorodon cannabis, plus adult and winged adult aphids under a stereo microscope at 20× magnification (Figure 2).",
+    "creator": "Daniel Lopez Restrepo and Igor Kovalchuk",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20× stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
+    "intended_use": "reference-only",
+    "limitations": "Multi-panel plant-and-organism figure. Use as Cannabis host and aphid morphology reference; do not infer that yellowing or wilting alone identifies cannabis aphid. Keep training-ineligible until panel-level source grouping and crop review are complete."
+  },
+  {
+    "id": "media-powdery-mildew-cannabis-figure-2",
+    "verification_revision": 1,
+    "issue_slug": "powdery-mildew",
+    "image_url": "https://www.frontiersin.org/files/Articles/720215/xml-images/fagro-03-720215-g0002.webp",
+    "source_article": "https://doi.org/10.3389/fagro.2021.720215",
+    "caption": "Cannabis powdery mildew resistance experiment showing a susceptible phenotype with dense mycelial growth beside a resistant phenotype without visible powdery mildew colonies (Figure 2).",
+    "creator": "Paul D. Mihalyov and Andrea R. Garfinkel",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed Cannabis powdery mildew study; the source also characterized Golovinomyces ambrosiae conidia and conidiophores from infected Cannabis leaves and used controlled inoculation/phenotyping.",
+    "intended_use": "reference-only",
+    "limitations": "Reference figure includes susceptible and resistant phenotypes under imposed disease pressure. Visible white mycelium supports powdery-mildew suspicion but does not replace organism/pathology confirmation when the causal species matters."
+  },
+  {
+    "id": "media-pythium-hemp-pathogenicity-figure-7",
+    "verification_revision": 1,
+    "issue_slug": "pythium-root-rot",
+    "image_url": "https://www.frontiersin.org/files/Articles/706138/xml-images/fagro-03-706138-g0007.webp",
+    "source_article": "https://doi.org/10.3389/fagro.2021.706138",
+    "caption": "Hemp 'Wife' plants 14 days after inoculation with pathogenic Pythium myriotylum, Globisporangium irregulare, or Fusarium oxysporum isolates, plus the uninoculated control (Figure 7).",
+    "creator": "Cora S. McGehee and Rosa E. Raudales",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Controlled pathogenicity study on hemp used identified isolates, inoculation, symptom tracking, and re-isolation; Pythium myriotylum produced strong growth reduction, chlorosis, and wilt in vivo.",
+    "intended_use": "reference-only",
+    "limitations": "Multi-pathogen treatment composite. Use as controlled pathogenicity/context reference only; the whole-plant appearance is not Pythium-specific and cannot visually confirm the causal organism in an unknown plant."
   }
 ]
