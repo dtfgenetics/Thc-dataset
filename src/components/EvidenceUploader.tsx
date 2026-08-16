@@ -55,7 +55,7 @@ export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUpload
           )
         })}
       </div>
-      <div className="privacy-note"><Check size={16} /><span>Uploads stay in this browser in this build and are not used for training.</span></div>
+      <div className="privacy-note"><Check size={16} /><span>Uploads stay in your browser unless you explicitly choose visual analysis. DTF does not add uploaded media to its training dataset.</span></div>
       <div className="quality-criteria" aria-label="Photo quality checklist">
         <strong>Photo quality</strong>
         <span><Aperture /> Sharp focus</span>
