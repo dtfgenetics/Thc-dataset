@@ -55,6 +55,17 @@ jobs:
           if not isinstance(candidates, list) or not candidates:
               raise SystemExit('Candidate manifest must be a non-empty JSON array.')
 
+          def dhash64(image: Image.Image) -> str:
+              gray = image.convert('L').resize((9, 8), Image.Resampling.LANCZOS)
+              pixels = list(gray.getdata())
+              value = 0
+              for y in range(8):
+                  for x in range(8):
+                      value <<= 1
+                      if pixels[y * 9 + x] > pixels[y * 9 + x + 1]:
+                          value |= 1
+              return f'dhash64:{value:016x}'
+
           results = []
           for candidate in candidates:
               required = ['id', 'issue_slug', 'image_url', 'source_article', 'caption', 'creator', 'license', 'license_url', 'intended_use']
@@ -95,6 +106,7 @@ jobs:
                   with Image.open(out_path) as image:
                       width, height = image.size
                       image_format = image.format
+                      perceptual_hash = dhash64(image)
               except Exception as exc:
                   raise SystemExit(f"{candidate['id']}: Pillow could not parse image: {exc}")
 
@@ -103,6 +115,7 @@ jobs:
                   **candidate,
                   'resolved_image_url': final_url,
                   'sha256': sha256,
+                  'perceptual_hash': perceptual_hash,
                   'bytes': len(data),
                   'mime_type': content_type,
                   'width': width,
@@ -112,7 +125,7 @@ jobs:
                   'verification_status': 'downloaded-hashed-image-verified',
               }
               results.append(result)
-              print(f"VERIFIED_MEDIA {candidate['id']} sha256={sha256} bytes={len(data)} {width}x{height} {content_type}")
+              print(f"VERIFIED_MEDIA {candidate['id']} sha256={sha256} perceptual={perceptual_hash} bytes={len(data)} {width}x{height} {content_type}")
 
           manifest = OUT / 'verified-media-manifest.json'
           manifest.write_text(json.dumps(results, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
