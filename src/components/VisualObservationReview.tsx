@@ -1,6 +1,6 @@
 import { AlertTriangle, Check, Eye, LoaderCircle, Sparkles } from 'lucide-react'
 import { useMemo, useState } from 'react'
-import { symptomOptions } from '../data/issues'
+import { symptomOptions } from '../data/catalog'
 import { requestVisualObservations, type VisualObservationResult } from '../lib/visual-observations'
 import type { EvidenceFile } from '../types'
 
