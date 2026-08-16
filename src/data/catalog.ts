@@ -1,6 +1,23 @@
-import { categoryOrder, issues as coreIssues } from './issues'
+import { categoryOrder, issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
 import type { IssueRecord, MediaRecord } from '../types'
+
+// These mappings are not inferred from names. Each pair is directly supported by
+// backend/config/diagnostic-response-policy.json, where the policy names exactly
+// one canonical diagnosis ID. Ambiguous multi-ID policies remain unmapped here.
+const controlledCoreIssueIds: Record<string, { canonicalId: string; responsePolicyId: string }> = {
+  'hop-latent-viroid': { canonicalId: 'CAN-DIS-011', responsePolicyId: 'POL-HLVD' },
+  'pythium-root-rot': { canonicalId: 'CAN-ROOT-002', responsePolicyId: 'POL-PYTHIUM' },
+  'powdery-mildew': { canonicalId: 'CAN-DIS-001', responsePolicyId: 'POL-PM' },
+  'botrytis-gray-mold-bud-rot': { canonicalId: 'CAN-DIS-002', responsePolicyId: 'POL-BOTRYTIS' },
+  'two-spotted-spider-mites': { canonicalId: 'CAN-PEST-001', responsePolicyId: 'POL-SPIDER-MITE' },
+  'acidic-extreme-substrate-ph-stress': { canonicalId: 'CAN-STRESS-006', responsePolicyId: 'POL-PH-LOCKOUT' },
+}
+
+const attachControlledCoreIds = (issue: IssueRecord): IssueRecord => {
+  const mapping = controlledCoreIssueIds[issue.slug]
+  return mapping ? { ...issue, ...mapping } : issue
+}
 
 // Publisher verification on 2026-08-16 found one DOI typo in the first
 // supplemental source batch. Normalize known source errata at the catalog
@@ -99,6 +116,7 @@ const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
   return { ...issue, media: [...issue.media, ...verifiedMedia] }
 }
 
+export const coreIssues = rawCoreIssues.map(attachControlledCoreIds)
 export const supplementalIssues = rawSupplementalIssues
   .map(normalizeKnownSourceErrata)
   .map(enrichVerifiedReferenceMedia)
