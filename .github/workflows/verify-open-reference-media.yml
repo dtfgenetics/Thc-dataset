@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'dataset/acquisition/verified-open-media-candidates*.json'
+      - 'dataset/acquisition/verified-open-media-manifest*.json'
   workflow_dispatch:
 
 permissions:
@@ -38,6 +39,7 @@ jobs:
 
           ACQUISITION_DIR = pathlib.Path('dataset/acquisition')
           CANDIDATE_FILES = sorted(ACQUISITION_DIR.glob('verified-open-media-candidates*.json'))
+          PRIOR_MANIFEST_FILES = sorted(ACQUISITION_DIR.glob('verified-open-media-manifest*.json'))
           OUT = pathlib.Path('verified_media')
           OUT.mkdir(exist_ok=True)
 
@@ -54,6 +56,7 @@ jobs:
               'bugwoodcloud.org',
           }
           max_bytes = 20_000_000
+
           candidates = []
           for candidate_file in CANDIDATE_FILES:
               batch = json.loads(candidate_file.read_text(encoding='utf-8'))
@@ -70,6 +73,20 @@ jobs:
           if len(candidate_ids) != len(set(candidate_ids)):
               duplicates = sorted({candidate_id for candidate_id in candidate_ids if candidate_ids.count(candidate_id) > 1})
               raise SystemExit(f'Duplicate candidate IDs across manifests: {duplicates}')
+
+          prior_by_id = {}
+          for prior_file in PRIOR_MANIFEST_FILES:
+              payload = json.loads(prior_file.read_text(encoding='utf-8'))
+              items = payload.get('items', []) if isinstance(payload, dict) else []
+              for item in items:
+                  if not isinstance(item, dict) or not item.get('id'):
+                      continue
+                  current = prior_by_id.get(item['id'])
+                  prior_by_id[item['id']] = item if current is None else {
+                      **current,
+                      **item,
+                      'previous_observed_sha256': item.get('previous_observed_sha256', current.get('previous_observed_sha256')),
+                  }
 
           def dhash64(image: Image.Image) -> str:
               gray = image.convert('L').resize((9, 8), Image.Resampling.LANCZOS)
@@ -143,6 +160,24 @@ jobs:
                   raise SystemExit(f"{candidate['id']}: Pillow could not parse image: {exc}")
 
               sha256 = hashlib.sha256(data).hexdigest()
+              prior = prior_by_id.get(candidate['id'])
+              stability_status = 'first-verification'
+              prior_sha256 = None
+              if prior:
+                  prior_hash = prior.get('perceptual_hash')
+                  prior_width = prior.get('width')
+                  prior_height = prior.get('height')
+                  prior_sha256 = prior.get('sha256')
+                  if prior_hash and prior_hash != perceptual_hash:
+                      raise SystemExit(
+                          f"{candidate['id']}: VISUAL DRIFT: prior {prior_hash}, current {perceptual_hash}. Manual review required."
+                      )
+                  if prior_width and prior_height and (prior_width != width or prior_height != height):
+                      raise SystemExit(
+                          f"{candidate['id']}: DIMENSION DRIFT: prior {prior_width}x{prior_height}, current {width}x{height}. Manual review required."
+                      )
+                  stability_status = 'exact-byte-match' if prior_sha256 == sha256 else 'reencoded-same-visual'
+
               result = {
                   **candidate,
                   'requested_accept': requested_accept,
@@ -156,9 +191,15 @@ jobs:
                   'image_format': image_format,
                   'artifact_path': str(out_path),
                   'verification_status': 'downloaded-hashed-image-verified',
+                  'stability_status': stability_status,
               }
+              if prior_sha256 and prior_sha256 != sha256:
+                  result['previous_verified_sha256'] = prior_sha256
               results.append(result)
-              print(f"VERIFIED_MEDIA {candidate['id']} accept={requested_accept} sha256={sha256} perceptual={perceptual_hash} bytes={len(data)} {width}x{height} {content_type}")
+              print(
+                  f"VERIFIED_MEDIA {candidate['id']} stability={stability_status} accept={requested_accept} "
+                  f"sha256={sha256} perceptual={perceptual_hash} bytes={len(data)} {width}x{height} {content_type}"
+              )
 
           manifest = OUT / 'verified-media-manifest.json'
           manifest.write_text(json.dumps(results, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
