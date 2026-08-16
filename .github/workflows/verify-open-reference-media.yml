@@ -66,6 +66,18 @@ jobs:
                           value |= 1
               return f'dhash64:{value:016x}'
 
+          def accept_header_for(url: str) -> str:
+              ext = pathlib.Path(urllib.parse.urlparse(url).path).suffix.lower()
+              return {
+                  '.png': 'image/png',
+                  '.webp': 'image/webp',
+                  '.jpg': 'image/jpeg',
+                  '.jpeg': 'image/jpeg',
+                  '.gif': 'image/gif',
+                  '.tif': 'image/tiff',
+                  '.tiff': 'image/tiff',
+              }.get(ext, 'image/*')
+
           results = []
           for candidate in candidates:
               required = ['id', 'issue_slug', 'image_url', 'source_article', 'caption', 'creator', 'license', 'license_url', 'intended_use']
@@ -79,11 +91,13 @@ jobs:
               if parsed.scheme != 'https' or parsed.hostname not in allowed_hosts:
                   raise SystemExit(f"{candidate['id']}: image host is not allowlisted: {parsed.hostname}")
 
+              requested_accept = accept_header_for(candidate['image_url'])
               request = urllib.request.Request(
                   candidate['image_url'],
                   headers={
                       'User-Agent': 'DTF-THC-Dataset-Reference-Audit/1.0 (+https://github.com/dtfgenetics/Thc-dataset)',
-                      'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+                      'Accept': requested_accept,
+                      'Cache-Control': 'no-cache',
                   },
               )
               with urllib.request.urlopen(request, timeout=45) as response:
@@ -113,6 +127,7 @@ jobs:
               sha256 = hashlib.sha256(data).hexdigest()
               result = {
                   **candidate,
+                  'requested_accept': requested_accept,
                   'resolved_image_url': final_url,
                   'sha256': sha256,
                   'perceptual_hash': perceptual_hash,
@@ -125,7 +140,7 @@ jobs:
                   'verification_status': 'downloaded-hashed-image-verified',
               }
               results.append(result)
-              print(f"VERIFIED_MEDIA {candidate['id']} sha256={sha256} perceptual={perceptual_hash} bytes={len(data)} {width}x{height} {content_type}")
+              print(f"VERIFIED_MEDIA {candidate['id']} accept={requested_accept} sha256={sha256} perceptual={perceptual_hash} bytes={len(data)} {width}x{height} {content_type}")
 
           manifest = OUT / 'verified-media-manifest.json'
           manifest.write_text(json.dumps(results, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
