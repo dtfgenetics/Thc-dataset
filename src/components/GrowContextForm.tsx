@@ -1,6 +1,6 @@
 import { ChevronDown } from 'lucide-react'
 import { useState } from 'react'
-import { symptomOptions } from '../data/issues'
+import { symptomOptions } from '../data/catalog'
 import type { GrowContext } from '../types'
 
 interface GrowContextFormProps {
