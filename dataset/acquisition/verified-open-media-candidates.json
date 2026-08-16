@@ -96,5 +96,19 @@
     "confirmation": "Peer-reviewed Cannabis molecular-diagnostics study. Figure 19 explicitly states that symptomatic indoor/outdoor plants were subjected to molecular diagnostics and BCTV presence was confirmed by RT-PCR.",
     "intended_use": "reference-only",
     "limitations": "BCTV symptoms vary by genotype and are not visually specific. Use only as a laboratory-confirmed Cannabis virus reference; do not identify BCTV from leaf curl, stunting, discoloration, or growth pattern alone. Keep training-ineligible as a full composite."
+  },
+  {
+    "id": "media-two-spotted-spider-mite-hemp-figure-1",
+    "verification_revision": 1,
+    "issue_slug": "two-spotted-spider-mites",
+    "image_url": "https://mdpi-res.com/d_attachment/agronomy/agronomy-16-00651/article_deploy/html/images/agronomy-16-00651-g001.png",
+    "source_article": "https://doi.org/10.3390/agronomy16060651",
+    "caption": "Standardized 0–5 visual damage scale for two-spotted spider mite (Tetranychus urticae) on flowering hemp, from no visible damage through stippling/chlorosis to extensive necrosis and dense webbing (Figure 1).",
+    "creator": "Ivy N. Thweatt and Katelyn Kesheimer; figure included in the article with consent",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed 2026 hemp study assessed Tetranychus urticae herbivory with a standardized damage scale under greenhouse exposure. The article identifies spider mite feeding injury as foliar stippling, chlorosis, necrosis, and webbing.",
+    "intended_use": "reference-only",
+    "limitations": "Damage-scale composite rather than a clean single-class training photo. Confirm mites or eggs on leaf undersides with magnification before attributing stippling/webbing to Tetranychus urticae. Keep the full figure training-ineligible until panel-level review and source grouping are complete."
   }
 ]
