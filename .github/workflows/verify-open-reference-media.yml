@@ -51,6 +51,7 @@ jobs:
               'www.mdpi.com',
               'mdpi-res.com',
               'media.springernature.com',
+              'bugwoodcloud.org',
           }
           max_bytes = 20_000_000
           candidates = []
