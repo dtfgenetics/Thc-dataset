@@ -1,6 +1,18 @@
+import responsePolicies from '../../backend/config/diagnostic-response-policy.json'
 import type { Differential, EvidenceFile, GrowContext, IssueRecord } from '../types'
 
 const normalise = (value: string) => value.trim().toLowerCase()
+
+interface DiagnosticResponsePolicy {
+  policy_id: string
+  canonical_ids: string[]
+  photo_only_max_confidence: number
+  photo_can_confirm: boolean | string
+  required_confirmation?: string[]
+}
+
+const policies = responsePolicies as DiagnosticResponsePolicy[]
+const defaultPolicy = policies.find((policy) => policy.policy_id === 'POL-DEFAULT')
 
 const laboratoryBoundedCategories = new Set([
   'Bacterial pathogen',
@@ -43,22 +55,65 @@ const indicatorSignalWeight = (frequency: number) => {
   return 2
 }
 
-const capPhotoOnlyConfidence = (
+const responsePolicyFor = (issue: IssueRecord) => {
+  if (issue.responsePolicyId) {
+    const explicit = policies.find((policy) => policy.policy_id === issue.responsePolicyId)
+    if (explicit) return explicit
+  }
+  if (issue.canonicalId) {
+    const canonical = policies.find((policy) => policy.canonical_ids.includes(issue.canonicalId as string))
+    if (canonical) return canonical
+  }
+  return defaultPolicy
+}
+
+const confidenceAtCeiling = (ceiling: number): Differential['confidence'] => {
+  if (ceiling >= 0.85) return 'High'
+  if (ceiling >= 0.6) return 'Moderate'
+  return 'Low'
+}
+
+const lowerConfidenceTo = (
+  confidence: Differential['confidence'],
+  ceiling: Differential['confidence'],
+): Differential['confidence'] => {
+  const order: Record<Differential['confidence'], number> = { Low: 0, Moderate: 1, High: 2 }
+  return order[confidence] <= order[ceiling] ? confidence : ceiling
+}
+
+const applyResponsePolicy = (
   issue: IssueRecord,
   confidence: Differential['confidence'],
   missing: string[],
 ): Differential['confidence'] => {
-  const rawCap = issue.photoOnlyMaxConfidence
+  const policy = responsePolicyFor(issue)
+  const rawCap = issue.photoOnlyMaxConfidence ?? policy?.photo_only_max_confidence
   if (typeof rawCap !== 'number' || !Number.isFinite(rawCap)) return confidence
 
-  // Support either normalized 0–1 metadata or percentage-style 0–100 metadata.
-  const cap = rawCap > 1 ? rawCap / 100 : rawCap
-  if (cap < 1 && !missing.includes('non-visual confirmation required by issue confidence policy')) {
-    missing.push('non-visual confirmation required by issue confidence policy')
+  // The controlled backend stores normalized 0–1 ceilings. Percentage-style
+  // values are tolerated for future imported records without changing meaning.
+  const cap = Math.max(0, Math.min(1, rawCap > 1 ? rawCap / 100 : rawCap))
+  const capped = lowerConfidenceTo(confidence, confidenceAtCeiling(cap))
+
+  if (capped !== confidence && !missing.includes('response policy limits photo-only confidence')) {
+    missing.push('response policy limits photo-only confidence')
   }
-  if (cap <= 0.5) return 'Low'
-  if (cap < 1 && confidence === 'High') return 'Moderate'
-  return confidence
+
+  if (policy?.photo_can_confirm === false) {
+    const required = policy.required_confirmation ?? []
+    if (!required.length) {
+      if (!missing.includes('non-visual confirmation required by issue confidence policy')) {
+        missing.push('non-visual confirmation required by issue confidence policy')
+      }
+    } else {
+      for (const item of required) {
+        const label = `confirmation: ${item}`
+        if (!missing.includes(label)) missing.push(label)
+      }
+    }
+  }
+
+  return capped
 }
 
 export function rankDifferentials(
@@ -141,7 +196,9 @@ export function rankDifferentials(
 
       if ((!hasWholePlant || !hasCloseUp) && confidence === 'High') confidence = 'Moderate'
 
-      confidence = capPhotoOnlyConfidence(issue, confidence, missing)
+      // Use the same controlled response policy as the backend adjudicator so
+      // visual-only confidence cannot silently exceed the condition-specific ceiling.
+      confidence = applyResponsePolicy(issue, confidence, missing)
 
       return {
         issue,
