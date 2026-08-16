@@ -42,3 +42,9 @@ Do not place the future reference-media collection in the JavaScript bundle or W
 - Every approved image requires source, creator, license, issue, view, stage/severity where known, confirmation status, and review status.
 - User uploads are excluded from training by default.
 - Viroid, virus, phytoplasma, and Spiroplasma records must state that visual evidence cannot confirm infection.
+
+## Source of truth
+
+This repository is the canonical machine-readable/code source for the THC Plant Diagnostic system. Human-readable research, licensing, controlled registries, and approved source assets are maintained in the Google Drive master source.
+
+See [`docs/SOURCE_OF_TRUTH.md`](docs/SOURCE_OF_TRUTH.md) for the canonical Drive/GitHub ownership rules and consolidation structure.
