@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "verified_at_utc": "2026-08-16T15:33:18Z",
+  "verification_workflow": ".github/workflows/verify-open-reference-media.yml",
+  "verification_run_id": 31955986162,
+  "verification_artifact_id": 9265947549,
+  "artifact_digest": "sha256:0a67afdd9f2c6c63e65fb8cdafc42d754b679526e62229a69597a42728eb50cf",
+  "items": [
+    {
+      "id": "media-thrips-hemp-bugwood-5569060",
+      "issue_slug": "thrips",
+      "source_article": "https://www.invasive.org/browse/detail.cfm?imgnum=5569060",
+      "requested_accept": "image/jpeg",
+      "sha256": "04234384d5ab682600c748a65a62395adbf1cdfbe1f9489df43969025d53e54c",
+      "perceptual_hash": "dhash64:b3e78e80888094ca",
+      "bytes": 916334,
+      "mime_type": "image/jpeg",
+      "width": 1536,
+      "height": 1152,
+      "license": "CC BY 3.0",
+      "creator": "Whitney Cranshaw, Colorado State University, Bugwood.org",
+      "intended_use": "reference-only",
+      "training_eligible": false,
+      "verification_status": "downloaded-hashed-image-verified"
+    }
+  ]
+}
