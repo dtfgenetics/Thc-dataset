@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { issues } from '../data/catalog'
-import { supplementalIssues } from '../data/supplemental-issues'
+import { issues, supplementalIssues } from '../data/catalog'
 
 describe('supplemental diagnostic catalog quality gates', () => {
   it('keeps combined identifiers and slugs unique', () => {
@@ -27,6 +26,14 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(source.supportedClaims.length, `${issue.slug} source lacks claim mapping`).toBeGreaterThan(0)
       }
     }
+  })
+
+  it('publishes the publisher-verified rice root aphid DOI', () => {
+    const issue = supplementalIssues.find((item) => item.slug === 'rice-root-aphid')
+    const source = issue?.sources.find((item) => item.title === 'Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America')
+    expect(source?.doi).toBe('10.1093/jipm/pmaa008')
+    expect(source?.url).toBe('https://doi.org/10.1093/jipm/pmaa008')
+    expect(source?.publicationDate).toBe('2020-07-20')
   })
 
   it('does not invent licensed media for newly added profiles', () => {
