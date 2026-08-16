@@ -1,6 +1,7 @@
 import { categoryOrder, issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
+import { verifiedReferenceMediaBatch2BySlug } from './verified-reference-media-batch2'
 import type { IssueRecord } from '../types'
 
 // These mappings are not inferred from names. Each pair is directly supported by
@@ -40,7 +41,10 @@ const normalizeKnownSourceErrata = (issue: IssueRecord): IssueRecord => {
 }
 
 const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
-  const verifiedMedia = verifiedReferenceMediaBySlug[issue.slug] ?? []
+  const verifiedMedia = [
+    ...(verifiedReferenceMediaBySlug[issue.slug] ?? []),
+    ...(verifiedReferenceMediaBatch2BySlug[issue.slug] ?? []),
+  ]
   if (!verifiedMedia.length) return issue
   return { ...issue, media: [...issue.media, ...verifiedMedia] }
 }
