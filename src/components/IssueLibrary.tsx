@@ -1,6 +1,6 @@
 import { ArrowLeft, ArrowRight, CheckCircle2, CircleAlert, ImageOff, Search } from 'lucide-react'
 import { useDeferredValue, useMemo, useState } from 'react'
-import { categoryOrder, issues } from '../data/issues'
+import { categoryOrder, issues } from '../data/catalog'
 import { resolvedDisplayMediaForIssue } from '../lib/media'
 import type { IssueCategory, IssueRecord } from '../types'
 import { ImagePlaceholder } from './icons'
