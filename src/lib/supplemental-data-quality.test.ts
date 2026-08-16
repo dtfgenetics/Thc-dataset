@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { issues, supplementalIssues } from '../data/catalog'
+import { isDisplayableMedia } from './media'
 
 describe('supplemental diagnostic catalog quality gates', () => {
   it('keeps combined identifiers and slugs unique', () => {
@@ -36,10 +37,42 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(source?.publicationDate).toBe('2020-07-20')
   })
 
-  it('does not invent licensed media for newly added profiles', () => {
+  it('admits only fully verified reference media into supplemental profiles', () => {
+    const permittedMediaSlugs = new Set(['rice-root-aphid', 'fusarium-crown-root-rot'])
     for (const issue of supplementalIssues) {
-      expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
+      if (!permittedMediaSlugs.has(issue.slug)) {
+        expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
+        continue
+      }
+
+      expect(issue.media.length, `${issue.slug} should have one verified promoted reference`).toBe(1)
+      const media = issue.media[0]
+      expect(media.sourceUrl).toMatch(/^https:\/\//)
+      expect(media.url ?? media.thumbnailUrl).toMatch(/^https:\/\//)
+      expect(media.creator).toBeTruthy()
+      expect(media.license).toMatch(/CC BY/i)
+      expect(media.requiredAttribution).toBeTruthy()
+      expect(media.diagnosticLabel).toContain(issue.slug)
+      expect(media.hostSpecies.toLowerCase()).toContain('cannabis')
+      expect(media.hostContext).toBe('cannabis')
+      expect(media.useLimitations.length).toBeGreaterThan(1)
+      expect(media.displayPermission).toBe('permitted')
+      expect(media.reviewStatus).toBe('approved-reference')
+      expect(media.trainingPermission).toBe('permitted')
+      expect(media.trainingEligible).toBe(false)
+      expect(media.sha256).toMatch(/^[a-f0-9]{64}$/)
+      expect(media.perceptualHash).toMatch(/^dhash64:[a-f0-9]{16}$/)
+      expect(media.width).toBeGreaterThan(0)
+      expect(media.height).toBeGreaterThan(0)
+      expect(isDisplayableMedia(media)).toBe(true)
     }
+  })
+
+  it('keeps promoted supplemental media hashes unique', () => {
+    const media = supplementalIssues.flatMap((issue) => issue.media)
+    expect(new Set(media.map((item) => item.id)).size).toBe(media.length)
+    expect(new Set(media.map((item) => item.sha256)).size).toBe(media.length)
+    expect(new Set(media.map((item) => item.perceptualHash)).size).toBe(media.length)
   })
 
   it('keeps Fusarium laboratory-bounded and tied to the controlled policy', () => {
@@ -49,6 +82,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(issue?.photoOnlyMaxConfidence).toBe(0.5)
     expect(issue?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory|isolation|molecular|sequence/)
     expect(issue?.warnings.join(' ').toLowerCase()).toMatch(/cannot confirm fusarium|without laboratory/)
+    expect(issue?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
   it('keeps salinity and drought measurement-bounded instead of image-defined', () => {
