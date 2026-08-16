@@ -1,0 +1,128 @@
+name: Verify Open Reference Media
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dataset/acquisition/verified-open-media-candidates.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-media:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install image metadata dependency
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Download, validate, and hash candidate media
+        run: |
+          python <<'PY'
+          import hashlib
+          import json
+          import mimetypes
+          import pathlib
+          import re
+          import urllib.parse
+          import urllib.request
+          from PIL import Image
+
+          CANDIDATES = pathlib.Path('dataset/acquisition/verified-open-media-candidates.json')
+          OUT = pathlib.Path('verified_media')
+          OUT.mkdir(exist_ok=True)
+
+          allowed_hosts = {
+              'academic.oup.com',
+              'oup.silverchair-cdn.com',
+              'www.frontiersin.org',
+              'frontiersin.org',
+              'pmc.ncbi.nlm.nih.gov',
+              'www.ncbi.nlm.nih.gov',
+              'www.mdpi.com',
+              'mdpi-res.com',
+          }
+          max_bytes = 20_000_000
+          candidates = json.loads(CANDIDATES.read_text(encoding='utf-8'))
+          if not isinstance(candidates, list) or not candidates:
+              raise SystemExit('Candidate manifest must be a non-empty JSON array.')
+
+          results = []
+          for candidate in candidates:
+              required = ['id', 'issue_slug', 'image_url', 'source_article', 'caption', 'creator', 'license', 'license_url', 'intended_use']
+              missing = [key for key in required if not candidate.get(key)]
+              if missing:
+                  raise SystemExit(f"{candidate.get('id', '<unknown>')}: missing fields {missing}")
+              if candidate['intended_use'] != 'reference-only':
+                  raise SystemExit(f"{candidate['id']}: acquisition workflow only admits reference-only candidates")
+
+              parsed = urllib.parse.urlparse(candidate['image_url'])
+              if parsed.scheme != 'https' or parsed.hostname not in allowed_hosts:
+                  raise SystemExit(f"{candidate['id']}: image host is not allowlisted: {parsed.hostname}")
+
+              request = urllib.request.Request(
+                  candidate['image_url'],
+                  headers={
+                      'User-Agent': 'DTF-THC-Dataset-Reference-Audit/1.0 (+https://github.com/dtfgenetics/Thc-dataset)',
+                      'Accept': 'image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8',
+                  },
+              )
+              with urllib.request.urlopen(request, timeout=45) as response:
+                  content_type = response.headers.get_content_type()
+                  if not content_type.startswith('image/'):
+                      raise SystemExit(f"{candidate['id']}: non-image content type {content_type}")
+                  data = response.read(max_bytes + 1)
+                  final_url = response.geturl()
+              if len(data) > max_bytes:
+                  raise SystemExit(f"{candidate['id']}: file exceeds {max_bytes} bytes")
+
+              safe_id = re.sub(r'[^A-Za-z0-9._-]+', '-', candidate['id']).strip('-')
+              ext = pathlib.Path(urllib.parse.urlparse(final_url).path).suffix.lower()
+              if ext not in {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.tif', '.tiff'}:
+                  ext = mimetypes.guess_extension(content_type) or '.img'
+              out_path = OUT / f'{safe_id}{ext}'
+              out_path.write_bytes(data)
+
+              try:
+                  with Image.open(out_path) as image:
+                      width, height = image.size
+                      image_format = image.format
+              except Exception as exc:
+                  raise SystemExit(f"{candidate['id']}: Pillow could not parse image: {exc}")
+
+              sha256 = hashlib.sha256(data).hexdigest()
+              result = {
+                  **candidate,
+                  'resolved_image_url': final_url,
+                  'sha256': sha256,
+                  'bytes': len(data),
+                  'mime_type': content_type,
+                  'width': width,
+                  'height': height,
+                  'image_format': image_format,
+                  'artifact_path': str(out_path),
+                  'verification_status': 'downloaded-hashed-image-verified',
+              }
+              results.append(result)
+              print(f"VERIFIED_MEDIA {candidate['id']} sha256={sha256} bytes={len(data)} {width}x{height} {content_type}")
+
+          manifest = OUT / 'verified-media-manifest.json'
+          manifest.write_text(json.dumps(results, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+          print('THC_MEDIA_ACQUISITION_JSON=' + json.dumps(results, separators=(',', ':'), ensure_ascii=False))
+          PY
+
+      - name: Upload verified media evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-open-reference-media
+          path: verified_media/
+          if-no-files-found: error
+          retention-days: 30
