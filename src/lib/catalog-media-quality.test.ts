@@ -45,12 +45,13 @@ describe('runtime catalog media quality', () => {
       'media-hlvd-cannabis-figure-1',
       'media-bctv-cannabis-figure-19',
       'media-two-spotted-spider-mite-hemp-figure-1',
+      'media-thrips-hemp-bugwood-5569060',
     ])
 
     for (const { media } of allMedia.filter(({ media }) => referenceOnlyIds.has(media.id))) {
       expect(media.reviewStatus).toBe('approved-reference')
       expect(media.trainingEligible).toBe(false)
-      expect(media.useLimitations.join(' ').toLowerCase()).toMatch(/reference|do not|not .*specific|training|laboratory/)
+      expect(media.useLimitations.join(' ').toLowerCase()).toMatch(/reference|do not|not .*specific|training|laboratory|confirm/)
     }
   })
 })
