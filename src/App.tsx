@@ -9,7 +9,7 @@ import { GrowLog } from './components/GrowLog'
 import { IssueLibrary } from './components/IssueLibrary'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
-import { issues } from './data/issues'
+import { issues } from './data/catalog'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
 
