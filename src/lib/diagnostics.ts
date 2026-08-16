@@ -14,6 +14,20 @@ interface DiagnosticResponsePolicy {
 const policies = responsePolicies as DiagnosticResponsePolicy[]
 const defaultPolicy = policies.find((policy) => policy.policy_id === 'POL-DEFAULT')
 
+// Compatibility bridge while the public IssueRecord catalog is migrated to the
+// controlled canonical taxonomy. Only slugs verified in the public issue catalog
+// are mapped here; unknown/ambiguous records continue to use POL-DEFAULT.
+const responsePolicyBySlug: Record<string, string> = {
+  'hop-latent-viroid': 'POL-HLVD',
+  'pythium-root-rot': 'POL-PYTHIUM',
+  'powdery-mildew': 'POL-PM',
+  'botrytis-gray-mold-bud-rot': 'POL-BOTRYTIS',
+  'two-spotted-spider-mites': 'POL-SPIDER-MITE',
+  'hemp-russet-mite': 'POL-BROAD-RUSSET',
+  'broad-mite': 'POL-BROAD-RUSSET',
+  'acidic-extreme-substrate-ph-stress': 'POL-PH-LOCKOUT',
+}
+
 const laboratoryBoundedCategories = new Set([
   'Bacterial pathogen',
   'Viroid',
@@ -63,6 +77,11 @@ const responsePolicyFor = (issue: IssueRecord) => {
   if (issue.canonicalId) {
     const canonical = policies.find((policy) => policy.canonical_ids.includes(issue.canonicalId as string))
     if (canonical) return canonical
+  }
+  const slugPolicyId = responsePolicyBySlug[issue.slug]
+  if (slugPolicyId) {
+    const slugPolicy = policies.find((policy) => policy.policy_id === slugPolicyId)
+    if (slugPolicy) return slugPolicy
   }
   return defaultPolicy
 }
