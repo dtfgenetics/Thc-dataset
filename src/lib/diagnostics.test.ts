@@ -136,6 +136,24 @@ describe('rankDifferentials', () => {
     )
 
     expect(results[0].confidence).toBe('Low')
-    expect(results[0].missing).toContain('non-visual confirmation required by issue confidence policy')
+    expect(results[0].missing).toContain('response policy limits photo-only confidence')
+  })
+
+  it('uses controlled backend confirmation requirements for policy-bound conditions', () => {
+    const record = fixtureIssue(
+      'hlvd-policy-fixture',
+      ['Short internodes', 'Brittle tissue', 'Stunted growth'],
+      { canonicalId: 'CAN-DIS-011' },
+    )
+
+    const results = rankDifferentials(
+      [record],
+      context(['Short internodes', 'Brittle tissue', 'Stunted growth']),
+      [],
+    )
+
+    expect(results[0].confidence).toBe('Low')
+    expect(results[0].missing).toContain('confirmation: RT-PCR')
+    expect(results[0].missing).toContain('confirmation: RT-qPCR')
   })
 })
