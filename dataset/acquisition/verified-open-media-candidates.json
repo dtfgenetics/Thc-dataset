@@ -68,5 +68,33 @@
     "confirmation": "Controlled pathogenicity study on hemp used identified isolates, inoculation, symptom tracking, and re-isolation; Pythium myriotylum produced strong growth reduction, chlorosis, and wilt in vivo.",
     "intended_use": "reference-only",
     "limitations": "Multi-pathogen treatment composite. Use as controlled pathogenicity/context reference only; the whole-plant appearance is not Pythium-specific and cannot visually confirm the causal organism in an unknown plant."
+  },
+  {
+    "id": "media-hlvd-cannabis-figure-1",
+    "verification_revision": 1,
+    "issue_slug": "hop-latent-viroid",
+    "image_url": "https://mdpi-res.com/d_attachment/plants/plants-14-00830/article_deploy/html/images/plants-14-00830-g001.png",
+    "source_article": "https://doi.org/10.3390/plants14050830",
+    "caption": "Cannabis stock plants and HLVd detection results from leaf and root tissues (Figure 1), with HLVd bands confirmed by sequence analysis; the study describes infected plants as showing reduced vigor, smaller leaves, stunting, and reduced inflorescence development.",
+    "creator": "Zamir K. Punja, Cameron Scott, Heather H. Tso, Jack Munz, and Liam Buirs; figure photographer not separately stated",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed 2025 Cannabis HLVd study using RT-PCR/RT-qPCR and sequence confirmation. Figure 1 ties sampled Cannabis plants to molecular HLVd detection rather than visual diagnosis alone.",
+    "intended_use": "reference-only",
+    "limitations": "HLVd is laboratory-bounded. Use only as a molecularly anchored Cannabis disease reference. Do not visually confirm HLVd from stunting, yellowing, small leaves, weak roots, or reduced flowering. Keep training-ineligible as a full composite."
+  },
+  {
+    "id": "media-bctv-cannabis-figure-19",
+    "verification_revision": 1,
+    "issue_slug": "beet-curly-top-virus",
+    "image_url": "https://mdpi-res.com/d_attachment/ijms/ijms-25-00014/article_deploy/html/images/ijms-25-00014-g019.png",
+    "source_article": "https://doi.org/10.3390/ijms25010014",
+    "caption": "Indoor- and outdoor-grown Cannabis plants with symptoms attributed to Beet curly top virus across multiple genotypes (Figure 19); BCTV presence was confirmed by RT-PCR with universal primers.",
+    "creator": "Zamir K. Punja, Dieter Kahl, Ron Reade, Yu Xiang, Jack Munz, and Punya Nachappa; visualization credited to Zamir K. Punja",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed Cannabis molecular-diagnostics study. Figure 19 explicitly states that symptomatic indoor/outdoor plants were subjected to molecular diagnostics and BCTV presence was confirmed by RT-PCR.",
+    "intended_use": "reference-only",
+    "limitations": "BCTV symptoms vary by genotype and are not visually specific. Use only as a laboratory-confirmed Cannabis virus reference; do not identify BCTV from leaf curl, stunting, discoloration, or growth pattern alone. Keep training-ineligible as a full composite."
   }
 ]
