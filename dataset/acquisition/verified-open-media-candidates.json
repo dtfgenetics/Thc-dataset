@@ -1,0 +1,28 @@
+[
+  {
+    "id": "media-rice-root-aphid-cannabis-figure-2",
+    "issue_slug": "rice-root-aphid",
+    "image_url": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/jipm/11/1/10.1093_jipm_pmaa008/2/m_pmaa008f0002.jpeg?Expires=2147483647&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&Signature=EPhu~pO~64p7GWKwLaeesO7JYfmMa8VpG5vqYu3ZxcGNwF4RdNFDEDOKBStsTpzEbph7z24JZxLSMtGslR7jMlrIlILt1UcCGx-Fnyt19QbE7xHClKmKI~qCVKVkjbXTWnBnVEtu9oUVGZdiWWD4SAO9ncgBncMgG1~Qh3cKeT6LT65KkdLoqRRDtwc0UU6riQgTj77ZsnuPdaXALAY5kAPxOwv1fVEZjnWJEcrAw3qygYI3bvDiIg0vF1UfSWUkiufo5KMGNkW1chR9j4IMsHkkoB6tE9ypcaSyRmoYdX5sKbjjeJmarUMy5LQJZGUSSqEQeOD7781Q5oWjw8UsXA__",
+    "source_article": "https://doi.org/10.1093/jipm/pmaa008",
+    "caption": "Rice root aphids living on the roots of aeroponically grown Cannabis sativa (Figure 2).",
+    "creator": "Whitney Cranshaw and Suzanne Wainwright-Evans; figure photographer not separately stated in the caption",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Published Cannabis host figure in a peer-reviewed open-access article identifying Rhopalosiphum rufiabdominale on Cannabis roots.",
+    "intended_use": "reference-only",
+    "limitations": "Use as organism/root-zone reference evidence. Do not infer that generalized canopy decline uniquely identifies rice root aphid. Do not mark training-eligible until source-group and panel-level review are complete."
+  },
+  {
+    "id": "media-fusarium-cannabis-figure-4",
+    "issue_slug": "fusarium-crown-root-rot",
+    "image_url": "https://www.frontiersin.org/files/Articles/796062/xml-images/fagro-03-796062-g0004.webp",
+    "source_article": "https://doi.org/10.3389/fagro.2021.796062",
+    "caption": "Infection of greenhouse grown cannabis plants by Fusarium species (Figure 4), including yellowing, crown infection/decay, pith necrosis, crown rot, diseased cuttings, flower infection, cultures, and pathogenicity-test symptoms.",
+    "creator": "Zamir Punja (photographs), published in Gwinn et al. 2022",
+    "license": "CC BY",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "confirmation": "Peer-reviewed Cannabis Fusarium composite tied to published organism identification and pathogenicity evidence in the source review and cited primary studies.",
+    "intended_use": "reference-only",
+    "limitations": "Multi-panel, multi-species disease composite. Use only as a reviewed reference figure; the full composite is not a single-class training image and cannot visually confirm a Fusarium species in an unknown user plant."
+  }
+]
