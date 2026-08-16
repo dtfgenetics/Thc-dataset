@@ -1,19 +1,21 @@
 {
-  "schema_version": "1.0.0",
-  "verified_at_utc": "2026-08-16T15:23:06Z",
+  "schema_version": "1.1.0",
+  "verified_at_utc": "2026-08-16T15:33:18Z",
   "verification_workflow": ".github/workflows/verify-open-reference-media.yml",
-  "verification_run_id": 31955472859,
-  "verification_artifact_id": 9265819448,
-  "artifact_digest": "sha256:42e4e47d81c1bcfae8127add26ded9f7d4b448b8e0c807b8f5346c9f102084d6",
+  "verification_run_id": 31955986162,
+  "verification_artifact_id": 9265947549,
+  "artifact_digest": "sha256:0a67afdd9f2c6c63e65fb8cdafc42d754b679526e62229a69597a42728eb50cf",
   "items": [
     {
       "id": "media-two-spotted-spider-mite-hemp-figure-1",
       "issue_slug": "two-spotted-spider-mites",
       "source_article": "https://doi.org/10.3390/agronomy16060651",
       "requested_accept": "image/png",
-      "sha256": "dcde792626693321579109e4698605a8606e83c2fcdbdf16446fa4bba2a1dfa6",
+      "sha256": "373860a3230e75afaebd94fbc0ed95fe8e3620fc812b1b659b321597010182ef",
+      "previous_observed_sha256": "dcde792626693321579109e4698605a8606e83c2fcdbdf16446fa4bba2a1dfa6",
       "perceptual_hash": "dhash64:d2129296869696b6",
-      "bytes": 2027799,
+      "bytes": 1893778,
+      "previous_observed_bytes": 2027799,
       "mime_type": "image/png",
       "width": 1455,
       "height": 1340,
@@ -21,7 +23,8 @@
       "creator": "Ivy N. Thweatt and Katelyn Kesheimer; figure included in the article with consent",
       "intended_use": "reference-only",
       "training_eligible": false,
-      "verification_status": "downloaded-hashed-image-verified"
+      "verification_status": "downloaded-hashed-image-verified",
+      "byte_stability_note": "Publisher served a re-encoded PNG between verification runs. Dimensions and dHash remained identical; SHA-256 records the currently observed source bytes and is not treated as the permanent identity of the visual work."
     }
   ]
 }
