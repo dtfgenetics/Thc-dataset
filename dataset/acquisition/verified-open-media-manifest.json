@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "verified_at_utc": "2026-08-16T05:54:39Z",
+  "verification_workflow": ".github/workflows/verify-open-reference-media.yml",
+  "verification_run_id": 31930109477,
+  "verification_artifact_id": 9259019653,
+  "items": [
+    {
+      "id": "media-rice-root-aphid-cannabis-figure-2",
+      "issue_slug": "rice-root-aphid",
+      "source_article": "https://doi.org/10.1093/jipm/pmaa008",
+      "resolved_image_url": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/jipm/11/1/10.1093_jipm_pmaa008/2/m_pmaa008f0002.jpeg?Expires=2147483647&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&Signature=EPhu~pO~64p7GWKwLaeesO7JYfmMa8VpG5vqYu3ZxcGNwF4RdNFDEDOKBStsTpzEbph7z24JZxLSMtGslR7jMlrIlILt1UcCGx-Fnyt19QbE7xHClKmKI~qCVKVkjbXTWnBnVEtu9oUVGZdiWWD4SAO9ncgBncMgG1~Qh3cKeT6LT65KkdLoqRRDtwc0UU6riQgTj77ZsnuPdaXALAY5kAPxOwv1fVEZjnWJEcrAw3qygYI3bvDiIg0vF1UfSWUkiufo5KMGNkW1chR9j4IMsHkkoB6tE9ypcaSyRmoYdX5sKbjjeJmarUMy5LQJZGUSSqEQeOD7781Q5oWjw8UsXA__",
+      "sha256": "3fb068bfe723ed06c654bfcc96f990bfabdfa2e976a7770242325c7ae311dea4",
+      "perceptual_hash": "dhash64:19191b1a4e595b6b",
+      "bytes": 38338,
+      "mime_type": "image/jpeg",
+      "width": 520,
+      "height": 403,
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": "Whitney Cranshaw and Suzanne Wainwright-Evans; figure photographer not separately stated in the caption",
+      "intended_use": "reference-only",
+      "training_eligible": false,
+      "verification_status": "downloaded-hashed-image-verified"
+    },
+    {
+      "id": "media-fusarium-cannabis-figure-4",
+      "issue_slug": "fusarium-crown-root-rot",
+      "source_article": "https://doi.org/10.3389/fagro.2021.796062",
+      "resolved_image_url": "https://www.frontiersin.org/files/Articles/796062/xml-images/fagro-03-796062-g0004.webp",
+      "sha256": "a02abbebd496081013d34deb188640f3fc134a1ce3b0a77526ddd2babb576ebf",
+      "perceptual_hash": "dhash64:a7cd13d159c9cfcd",
+      "bytes": 2589208,
+      "mime_type": "image/webp",
+      "width": 1417,
+      "height": 1748,
+      "license": "CC BY 4.0",
+      "license_url": "https://creativecommons.org/licenses/by/4.0/",
+      "creator": "Zamir Punja (photographs), published in Gwinn et al. 2022",
+      "intended_use": "reference-only",
+      "training_eligible": false,
+      "verification_status": "downloaded-hashed-image-verified"
+    }
+  ]
+}
