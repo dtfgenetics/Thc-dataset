@@ -42,12 +42,14 @@ describe('runtime catalog media quality', () => {
       'media-cannabis-aphid-figure-2',
       'media-powdery-mildew-cannabis-figure-2',
       'media-pythium-hemp-pathogenicity-figure-7',
+      'media-hlvd-cannabis-figure-1',
+      'media-bctv-cannabis-figure-19',
     ])
 
     for (const { media } of allMedia.filter(({ media }) => referenceOnlyIds.has(media.id))) {
       expect(media.reviewStatus).toBe('approved-reference')
       expect(media.trainingEligible).toBe(false)
-      expect(media.useLimitations.join(' ').toLowerCase()).toMatch(/reference|do not|not .*specific|training/)
+      expect(media.useLimitations.join(' ').toLowerCase()).toMatch(/reference|do not|not .*specific|training|laboratory/)
     }
   })
 })
