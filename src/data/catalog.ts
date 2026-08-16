@@ -35,7 +35,7 @@ const verifiedReferenceMediaBySlug: Record<string, MediaRecord[]> = {
       sourceUrl: 'https://doi.org/10.1093/jipm/pmaa008',
       mediaType: 'image',
       requiredAttribution: 'Cranshaw W, Wainwright-Evans S. 2020. Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America. Journal of Integrated Pest Management 11(1):15. CC BY 4.0.',
-      diagnosticLabel: 'Rice root aphid (Rhopalosiphum rufiabdominale) on Cannabis roots',
+      diagnosticLabel: 'rice-root-aphid — Rice root aphid (Rhopalosiphum rufiabdominale) on Cannabis roots',
       hostSpecies: 'Cannabis sativa',
       hostContext: 'cannabis',
       useLimitations: [
@@ -68,7 +68,7 @@ const verifiedReferenceMediaBySlug: Record<string, MediaRecord[]> = {
       sourceUrl: 'https://doi.org/10.3389/fagro.2021.796062',
       mediaType: 'image',
       requiredAttribution: 'Gwinn KD, Hansen Z, Kelly H, Ownley BH. 2022. Diseases of Cannabis sativa Caused by Diverse Fusarium Species. Frontiers in Agronomy 3:796062. Figure photographs courtesy of Zamir Punja. CC BY 4.0.',
-      diagnosticLabel: 'Fusarium-associated Cannabis crown/root/wilt disease composite',
+      diagnosticLabel: 'fusarium-crown-root-rot — Fusarium-associated Cannabis crown/root/wilt disease composite',
       hostSpecies: 'Cannabis sativa',
       hostContext: 'cannabis',
       useLimitations: [
