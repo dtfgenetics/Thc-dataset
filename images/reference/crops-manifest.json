@@ -1,0 +1,424 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "reference-only-panel-crops",
+  "recordCount": 12,
+  "trainingEligibleCount": 0,
+  "sourceGroupCount": 3,
+  "policy": "All crops remain reference-only. Pixel isolation of a panel does not make it training-eligible; parent source grouping, diagnostic review, embedded figure-label risk, and evidence requirements still apply.",
+  "records": [
+    {
+      "id": "crop-cannabis-aphid-a",
+      "parentId": "media-cannabis-aphid-figure-2",
+      "parentPath": "images/reference/original/media-cannabis-aphid-figure-2.png",
+      "sourceGroupId": "doi-10.3390-plants14060931-fig2",
+      "issueSlug": "cannabis-aphid",
+      "box": [
+        16,
+        19,
+        805,
+        1064
+      ],
+      "label": "infested-cannabis-panel-a",
+      "host": "Cannabis sativa",
+      "view": "flowering-canopy-closeup",
+      "confirmation": "peer-reviewed-controlled-infestation",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Panel contains a printed figure label and comes from the same source group as three related panels.",
+      "repositoryPath": "images/reference/crops/crop-cannabis-aphid-a.png",
+      "parentDimensions": [
+        1623,
+        1724
+      ],
+      "cropDimensions": [
+        789,
+        1045
+      ],
+      "sha256": "a4356f7058edbc700a652c8fa9629f42bc9371a8cbbc192bbe31b9571fdb9479",
+      "perceptualHash": "dhash64:36189151864ed6d3",
+      "bytes": 798998,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-cannabis-aphid-b",
+      "parentId": "media-cannabis-aphid-figure-2",
+      "parentPath": "images/reference/original/media-cannabis-aphid-figure-2.png",
+      "sourceGroupId": "doi-10.3390-plants14060931-fig2",
+      "issueSlug": "cannabis-aphid",
+      "box": [
+        829,
+        19,
+        1611,
+        1064
+      ],
+      "label": "infested-cannabis-panel-b",
+      "host": "Cannabis sativa",
+      "view": "stem-and-node-closeup",
+      "confirmation": "peer-reviewed-controlled-infestation",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Panel contains a printed figure label and comes from the same source group as three related panels.",
+      "repositoryPath": "images/reference/crops/crop-cannabis-aphid-b.png",
+      "parentDimensions": [
+        1623,
+        1724
+      ],
+      "cropDimensions": [
+        782,
+        1045
+      ],
+      "sha256": "6fc1c0d87f108d77a904b220d72394717c08435e20988d22faab01e575e4905a",
+      "perceptualHash": "dhash64:3961653d12a597d3",
+      "bytes": 756542,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-cannabis-aphid-c",
+      "parentId": "media-cannabis-aphid-figure-2",
+      "parentPath": "images/reference/original/media-cannabis-aphid-figure-2.png",
+      "sourceGroupId": "doi-10.3390-plants14060931-fig2",
+      "issueSlug": "cannabis-aphid",
+      "box": [
+        16,
+        1079,
+        675,
+        1702
+      ],
+      "label": "adult-aphid-morphology-panel-c",
+      "host": "organism-only",
+      "view": "stereo-microscope",
+      "confirmation": "peer-reviewed-morphology",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Organism morphology reference is not a Cannabis symptom-class training photograph and contains a printed figure label.",
+      "repositoryPath": "images/reference/crops/crop-cannabis-aphid-c.png",
+      "parentDimensions": [
+        1623,
+        1724
+      ],
+      "cropDimensions": [
+        659,
+        623
+      ],
+      "sha256": "cf7311206f6214a4c4451f8e8beda87b38de693ce8d7bf2fe11ee9fe41dbbd3d",
+      "perceptualHash": "dhash64:1430f060f0a4a848",
+      "bytes": 114832,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-cannabis-aphid-d",
+      "parentId": "media-cannabis-aphid-figure-2",
+      "parentPath": "images/reference/original/media-cannabis-aphid-figure-2.png",
+      "sourceGroupId": "doi-10.3390-plants14060931-fig2",
+      "issueSlug": "cannabis-aphid",
+      "box": [
+        699,
+        1079,
+        1611,
+        1702
+      ],
+      "label": "winged-adult-aphid-morphology-panel-d",
+      "host": "organism-only",
+      "view": "stereo-microscope",
+      "confirmation": "peer-reviewed-morphology",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Organism morphology reference is not a Cannabis symptom-class training photograph and contains a printed figure label.",
+      "repositoryPath": "images/reference/crops/crop-cannabis-aphid-d.png",
+      "parentDimensions": [
+        1623,
+        1724
+      ],
+      "cropDimensions": [
+        912,
+        623
+      ],
+      "sha256": "9193c36ba11cacb4c755abf3ac13cb04db0192501a54f6f1c5a5ea7134493303",
+      "perceptualHash": "dhash64:0646c563b30c84ca",
+      "bytes": 409628,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-powdery-mildew-resistant",
+      "parentId": "media-powdery-mildew-cannabis-figure-2",
+      "parentPath": "images/reference/original/media-powdery-mildew-cannabis-figure-2.webp",
+      "sourceGroupId": "doi-10.3389-fagro.2021.720215-fig2",
+      "issueSlug": "powdery-mildew",
+      "box": [
+        778,
+        5,
+        1532,
+        1023
+      ],
+      "label": "resistant-no-visible-powdery-mildew-colonies",
+      "host": "Cannabis sativa",
+      "view": "whole-plant",
+      "confirmation": "controlled-inoculation-and-peer-reviewed-pathology",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Useful within-source negative/control reference, but not an independent healthy ground-truth sample and contains a printed panel label.",
+      "repositoryPath": "images/reference/crops/crop-powdery-mildew-resistant.png",
+      "parentDimensions": [
+        1535,
+        1027
+      ],
+      "cropDimensions": [
+        754,
+        1018
+      ],
+      "sha256": "3e4f85250d7d02c7bd0a2179f1a478637cf82f342219a4f06b4d68b400433d23",
+      "perceptualHash": "dhash64:47ccf07878de0c2a",
+      "bytes": 623620,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-powdery-mildew-susceptible",
+      "parentId": "media-powdery-mildew-cannabis-figure-2",
+      "parentPath": "images/reference/original/media-powdery-mildew-cannabis-figure-2.webp",
+      "sourceGroupId": "doi-10.3389-fagro.2021.720215-fig2",
+      "issueSlug": "powdery-mildew",
+      "box": [
+        3,
+        5,
+        768,
+        1023
+      ],
+      "label": "susceptible-dense-visible-powdery-mildew",
+      "host": "Cannabis sativa",
+      "view": "whole-plant",
+      "confirmation": "controlled-inoculation-and-peer-reviewed-pathology",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Strong reference phenotype, but printed panel label and same-source resistant comparison require grouped review before training.",
+      "repositoryPath": "images/reference/crops/crop-powdery-mildew-susceptible.png",
+      "parentDimensions": [
+        1535,
+        1027
+      ],
+      "cropDimensions": [
+        765,
+        1018
+      ],
+      "sha256": "9f7c774c7a837eedc5b3f937376e2c2e2a9669ffffb6e7223ee288c2bb3b9edc",
+      "perceptualHash": "dhash64:1c4660e8d0701a67",
+      "bytes": 672243,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-0",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        10,
+        10,
+        480,
+        465
+      ],
+      "label": "damage-score-0-no-visible-damage",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "0",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Source-grouped control panel; one scientific source cannot supply an independent train/test split.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-0.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        470,
+        455
+      ],
+      "sha256": "ccf7e700dae9fbfd4927c985ece1a189724031eb2040f3113a897110c2a7f568",
+      "perceptualHash": "dhash64:186d430ea1e6b599",
+      "bytes": 253955,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-1",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        480,
+        10,
+        960,
+        465
+      ],
+      "label": "damage-score-1-limited-mostly-lower-leaves",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "1",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Panel is evidence-backed but remains source-grouped and requires independent organism-confirmed examples before training.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-1.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        480,
+        455
+      ],
+      "sha256": "c53b4f978082c9abb31ffff82ee6b51abf2fd01b5ea776c31629d868e74902dc",
+      "perceptualHash": "dhash64:336d6abc79746169",
+      "bytes": 249608,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-2",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        960,
+        10,
+        1443,
+        465
+      ],
+      "label": "damage-score-2-noticeable-lower-middle-leaves",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "2",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Panel is evidence-backed but remains source-grouped and requires independent organism-confirmed examples before training.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-2.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        483,
+        455
+      ],
+      "sha256": "43b234ec3477411244765603139d5b18c41109136119c6a68a1413bea7679fd8",
+      "perceptualHash": "dhash64:ecc8e0707064e0ca",
+      "bytes": 247493,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-3",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        10,
+        614,
+        480,
+        1185
+      ],
+      "label": "damage-score-3-majority-of-leaves",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "3",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Panel is evidence-backed but remains source-grouped and requires independent organism-confirmed examples before training.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-3.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        470,
+        571
+      ],
+      "sha256": "8601eed8849a90603b6b3bc799e99e1372795e22e1aa7af0c91e6f5ee913677b",
+      "perceptualHash": "dhash64:aaface5260ceaa68",
+      "bytes": 375916,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-4",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        480,
+        614,
+        960,
+        1185
+      ],
+      "label": "damage-score-4-majority-of-leaves-heavy-webbing",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "4",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Panel is evidence-backed but remains source-grouped and requires independent organism-confirmed examples before training.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-4.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        480,
+        571
+      ],
+      "sha256": "b4456302c4356ae68342813a7c1d55b93df21107bb2e2d3590fd529c41de1f9d",
+      "perceptualHash": "dhash64:ce6e4288ed63c4a9",
+      "bytes": 305016,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-spider-mite-damage-5",
+      "parentId": "media-two-spotted-spider-mite-hemp-figure-1",
+      "parentPath": "images/reference/original/media-two-spotted-spider-mite-hemp-figure-1.png",
+      "sourceGroupId": "doi-10.3390-agronomy16060651-fig1",
+      "issueSlug": "two-spotted-spider-mites",
+      "box": [
+        960,
+        614,
+        1443,
+        1185
+      ],
+      "label": "damage-score-5-dead-or-little-green-left",
+      "host": "Cannabis sativa hemp",
+      "view": "canopy-closeup",
+      "severity": "5",
+      "confirmation": "peer-reviewed-standardized-damage-scale",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Panel is evidence-backed but remains source-grouped and requires independent organism-confirmed examples before training.",
+      "repositoryPath": "images/reference/crops/crop-spider-mite-damage-5.png",
+      "parentDimensions": [
+        1455,
+        1340
+      ],
+      "cropDimensions": [
+        483,
+        571
+      ],
+      "sha256": "a7863200d221feda692d5c5abad9c2d283dd78b66ff4762324128f45aed93d20",
+      "perceptualHash": "dhash64:ccf2a4f6e685f660",
+      "bytes": 340759,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    }
+  ]
+}
