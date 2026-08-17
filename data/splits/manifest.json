@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "blocked-no-training-eligible-samples",
+  "datasetScope": "Cannabis-only supervised diagnostic vision data",
+  "ready": false,
+  "counts": {
+    "train": 0,
+    "validation": 0,
+    "test": 0,
+    "holdout": 0,
+    "totalTrainingEligible": 0
+  },
+  "sourceOfTruth": "data/training-eligible-media.json",
+  "splitPolicy": "data/split-policy.json",
+  "readinessGate": "data/model-training-readiness.json",
+  "rules": [
+    "Do not populate any supervised split from reference-only samples.",
+    "All frames, panels, crops, serial observations, and near-duplicates from one sourceGroupId stay in the same split.",
+    "All observations from the same plant or clone-linked capture group stay in the same split when identifiers are available.",
+    "Cross-crop transfer datasets are excluded from Cannabis ground-truth splits.",
+    "Laboratory-dependent labels require the corresponding confirmation evidence before eligibility.",
+    "A split is not publishable until duplicate/perceptual-hash and provenance audits pass."
+  ],
+  "plannedRatiosAfterUnlock": {
+    "train": 0.7,
+    "validation": 0.15,
+    "test": 0.15,
+    "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
+  },
+  "reasonBlocked": "The current corpus contains a completed 35-profile knowledge base plus rights-cleared reference originals and derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+}
