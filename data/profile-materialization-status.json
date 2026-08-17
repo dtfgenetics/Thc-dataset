@@ -1,26 +1,49 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
+  "status": "verified-complete",
   "targetProfileCount": 35,
-  "materializedProfileCount": 6,
-  "pendingProfileCount": 29,
-  "canonicalSource": {
-    "path": "src/data/supplemental-issues.ts",
-    "blobSha": "808754ce302a85123bd412717c70b3a7e91be5fa"
+  "materializedProfileCount": 35,
+  "pendingProfileCount": 0,
+  "canonicalSources": [
+    {
+      "path": "src/data/issues.ts",
+      "blobSha": "3df7062943fc9cc67a777569df9967aaf1d77823",
+      "profileCount": 29
+    },
+    {
+      "path": "src/data/supplemental-issues.ts",
+      "blobSha": "808754ce302a85123bd412717c70b3a7e91be5fa",
+      "profileCount": 6
+    }
+  ],
+  "generatedRelease": {
+    "commitSha": "a51747d52068b6d64bed16e3df6adf7a4e400e93",
+    "profileIndex": "data/profiles/index.json",
+    "masterJson": "data/diagnostic-profiles.json",
+    "jsonl": "data/diagnostic-profiles.jsonl",
+    "csv": "data/diagnostic-profiles.csv",
+    "sources": "data/sources.json",
+    "exportManifest": "data/export-manifest.json"
   },
-  "materialized": [
-    {"id":"pest-cannabis-aphid","path":"data/profiles/pest-cannabis-aphid.json","blobSha":"d19f1eeab9f3839b7791d6078e606edc8d46dfd6"},
-    {"id":"pest-fungus-gnats","path":"data/profiles/pest-fungus-gnats.json","blobSha":"0fdcd3e5632c69f817867d50b198012708da0218"},
-    {"id":"pest-rice-root-aphid","path":"data/profiles/pest-rice-root-aphid.json","blobSha":"9fc66fa2bbaac6221b9574abe7fbde272d4e38da"},
-    {"id":"root-fusarium-crown-rot","path":"data/profiles/root-fusarium-crown-rot.json","blobSha":"706bae9aa610ff1ff4f4467c676ead87b7273e68"},
-    {"id":"stress-drought-water-deficit","path":"data/profiles/stress-drought-water-deficit.json","blobSha":"25cf2b78a2147e0492db48ad2c97696fb52fe9e5"},
-    {"id":"stress-salinity-high-ec","path":"data/profiles/stress-salinity-high-ec.json","blobSha":"4a22fae2d37a86c7cc0aaf4e3be6534aa31b73d8"}
+  "verification": [
+    {
+      "pass": 1,
+      "method": "GitHub Actions export followed by scripts/validate-data-release.mjs",
+      "result": "passed",
+      "details": "29 primary plus 6 supplemental records materialized; strict release validation passed."
+    },
+    {
+      "pass": 2,
+      "method": "Read-back from main after generated data commit",
+      "result": "passed",
+      "details": "data/profiles/index.json reports 35 records and data/export-manifest.json independently reports 35 profiles, 58 evidence sources, and 31 profile-linked media records."
+    },
+    {
+      "pass": 3,
+      "method": "Independent ID and content parity review",
+      "result": "passed",
+      "details": "The 35-entry diagnostic index matches the 35-file profile index; representative nutrient, pathogen, and normal-development records contain full detailed diagnostic fields and embedded evidence."
+    }
   ],
-  "pending": [
-    "nut-def-n","nut-def-p","nut-def-ca","nut-def-fe","nut-def-zn","nut-def-s","nut-def-mn","nut-def-cu","nut-def-mg","nut-def-k","nut-tox-n","nut-tox-b","mite-spider","mite-hemp-russet","mite-broad","insect-thrips","fungal-pm","fungal-botrytis-bud-rot","bacterial-xanthomonas-leaf-spot","root-pythium","virus-bctv","phytoplasma-hemp-witches-broom","viroid-hplvd","gen-variegation","env-heat","water-over","root-ph-extreme","normal-sex-expression","normal-fade"
-  ],
-  "verification": {
-    "method": "Read back from GitHub main after write; compare materialized IDs and canonical source blob against src/data/supplemental-issues.ts.",
-    "status": "verified-partial",
-    "note": "These six records contain complete detailed diagnostic fields and embedded source records. The remaining 29 records are not represented as complete standalone JSON yet."
-  }
+  "pending": []
 }
