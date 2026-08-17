@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import crypto from 'node:crypto'
 
 const root = process.cwd()
 const requiredFiles = [
@@ -13,6 +14,8 @@ const requiredFiles = [
   'data/split-policy.json',
   'data/release-readiness.json',
   'data/public-dataset-registry.json',
+  'data/model-training-readiness.json',
+  'data/splits/manifest.json',
   // Deterministically generated detailed layer
   'data/export-manifest.json',
   'data/diagnostic-profiles.json',
@@ -22,6 +25,9 @@ const requiredFiles = [
   'data/sources.json',
   'data/profile-reference-media.json',
   'data/training-eligible-media.json',
+  // Persisted reference image layer
+  'images/reference/manifest.json',
+  'images/reference/crops-manifest.json',
 ]
 
 const errors = []
@@ -33,6 +39,11 @@ async function existsNonEmpty(file) {
   } catch {
     return false
   }
+}
+
+async function sha256File(file) {
+  const bytes = await fs.readFile(path.join(root, file))
+  return crypto.createHash('sha256').update(bytes).digest('hex')
 }
 
 for (const file of requiredFiles) {
@@ -55,7 +66,6 @@ function sameJson(a, b) {
   return JSON.stringify(a) === JSON.stringify(b)
 }
 
-// Stop here with a useful file list instead of throwing confusing ENOENT errors.
 if (errors.length) {
   console.error(`DATA RELEASE VALIDATION FAILED (${errors.length})`)
   for (const error of errors) console.error(`- ${error}`)
@@ -68,24 +78,32 @@ const [
   curatedMedia,
   readiness,
   publicRegistry,
+  modelReadiness,
+  splitManifest,
   exportManifest,
   profiles,
   profileIndex,
   sources,
   profileReferenceMedia,
   trainingEligibleMedia,
+  referenceBinaryManifest,
+  cropManifest,
 ] = await Promise.all([
   parseJson('data/manifest.json'),
   parseJson('data/diagnostic-index.json'),
   parseJson('data/reference-media.json'),
   parseJson('data/release-readiness.json'),
   parseJson('data/public-dataset-registry.json'),
+  parseJson('data/model-training-readiness.json'),
+  parseJson('data/splits/manifest.json'),
   parseJson('data/export-manifest.json'),
   parseJson('data/diagnostic-profiles.json'),
   parseJson('data/profiles/index.json'),
   parseJson('data/sources.json'),
   parseJson('data/profile-reference-media.json'),
   parseJson('data/training-eligible-media.json'),
+  parseJson('images/reference/manifest.json'),
+  parseJson('images/reference/crops-manifest.json'),
 ])
 
 if (!Array.isArray(index.records) || index.records.length < 35) errors.push('diagnostic-index.json: expected at least 35 records')
@@ -97,6 +115,8 @@ if (!Array.isArray(profileIndex.records)) errors.push('data/profiles/index.json:
 if (!Array.isArray(sources)) errors.push('sources.json: top level must be an array')
 if (!Array.isArray(profileReferenceMedia)) errors.push('profile-reference-media.json: top level must be an array')
 if (!Array.isArray(trainingEligibleMedia)) errors.push('training-eligible-media.json: top level must be an array')
+if (!Array.isArray(referenceBinaryManifest.records)) errors.push('images/reference/manifest.json: records must be an array')
+if (!Array.isArray(cropManifest.records)) errors.push('images/reference/crops-manifest.json: records must be an array')
 
 if (!errors.length) {
   const indexIds = index.records.map((r) => r.id)
@@ -111,15 +131,9 @@ if (!errors.length) {
   if (duplicateProfileIds.length) errors.push(`diagnostic-profiles.json: duplicate ids ${duplicateProfileIds.join(', ')}`)
   if (duplicateSlugs.length) errors.push(`diagnostic-profiles.json: duplicate slugs ${duplicateSlugs.join(', ')}`)
 
-  if (!sameJson(sorted(indexIds), sorted(profileIds))) {
-    errors.push('diagnostic-profiles.json: exported profile IDs do not exactly match diagnostic-index.json')
-  }
-  if (!sameJson(sorted(profileIds), sorted(profileIndexIds))) {
-    errors.push('data/profiles/index.json: IDs do not exactly match diagnostic-profiles.json')
-  }
-  if (profileIndex.recordCount !== profiles.length) {
-    errors.push(`data/profiles/index.json: recordCount ${profileIndex.recordCount} does not match ${profiles.length} profiles`)
-  }
+  if (!sameJson(sorted(indexIds), sorted(profileIds))) errors.push('diagnostic-profiles.json: exported profile IDs do not exactly match diagnostic-index.json')
+  if (!sameJson(sorted(profileIds), sorted(profileIndexIds))) errors.push('data/profiles/index.json: IDs do not exactly match diagnostic-profiles.json')
+  if (profileIndex.recordCount !== profiles.length) errors.push(`data/profiles/index.json: recordCount ${profileIndex.recordCount} does not match ${profiles.length} profiles`)
 
   const readinessIds = new Set(readiness.classes.map((r) => r.id))
   for (const id of indexIds) if (!readinessIds.has(id)) errors.push(`release-readiness.json: missing class ${id}`)
@@ -134,9 +148,7 @@ if (!errors.length) {
     for (const field of ['id','slug','name','category','severity','reviewStatus','summary']) {
       if (profile[field] == null || profile[field] === '') errors.push(`${profile.id || '<missing-id>'}: missing ${field}`)
     }
-    for (const field of requiredProfileArrays) {
-      if (!Array.isArray(profile[field])) errors.push(`${profile.id}: ${field} must be an array`)
-    }
+    for (const field of requiredProfileArrays) if (!Array.isArray(profile[field])) errors.push(`${profile.id}: ${field} must be an array`)
 
     const file = `data/profiles/${profile.id}.json`
     if (!(await existsNonEmpty(file))) {
@@ -172,17 +184,13 @@ if (!errors.length) {
   const sourceKeys = sources.map((r) => r.sourceKey)
   const duplicateSourceKeys = duplicates(sourceKeys)
   if (duplicateSourceKeys.length) errors.push(`sources.json: duplicate source keys ${duplicateSourceKeys.join(', ')}`)
-  for (const source of sources) {
-    if (!source.sourceKey || !source.title || !source.url) errors.push(`sources.json: incomplete source ${source.sourceKey || '<missing-key>'}`)
-  }
+  for (const source of sources) if (!source.sourceKey || !source.title || !source.url) errors.push(`sources.json: incomplete source ${source.sourceKey || '<missing-key>'}`)
 
   const generatedMediaIds = profileReferenceMedia.map((r) => r.id)
   const duplicateGeneratedMediaIds = duplicates(generatedMediaIds)
   if (duplicateGeneratedMediaIds.length) errors.push(`profile-reference-media.json: duplicate media ids ${duplicateGeneratedMediaIds.join(', ')}`)
   for (const row of trainingEligibleMedia) {
-    if (row.trainingEligible !== true || row.trainingPermission !== 'permitted') {
-      errors.push(`${row.id}: training-eligible media violates permission gate`)
-    }
+    if (row.trainingEligible !== true || row.trainingPermission !== 'permitted') errors.push(`${row.id}: training-eligible media violates permission gate`)
     if (!generatedMediaIds.includes(row.id)) errors.push(`${row.id}: training-eligible media missing from profile-reference-media.json`)
   }
 
@@ -211,9 +219,51 @@ if (!errors.length) {
       if (!['train','validation','test'].includes(row.splitStatus)) errors.push(`${row.sampleId}: trainingEligible but no model split assigned`)
     }
   }
-
-  if (curatedManifest.referenceMediaRecordCount !== curatedMedia.records.length) errors.push('manifest.json: referenceMediaRecordCount mismatch')
+  if (curatedManifest.curatedReferenceMediaRecordCount !== curatedMedia.records.length && curatedManifest.referenceMediaRecordCount !== curatedMedia.records.length) errors.push('manifest.json: curated reference media count mismatch')
   if (curatedManifest.referenceAnnotationCount !== annotations.length) errors.push('manifest.json: referenceAnnotationCount mismatch')
+
+  // Byte-level verification of persisted reference originals.
+  if (referenceBinaryManifest.recordCount !== referenceBinaryManifest.records.length) errors.push('images/reference/manifest.json: recordCount mismatch')
+  const binaryIds = referenceBinaryManifest.records.map((r) => r.id)
+  const duplicateBinaryIds = duplicates(binaryIds)
+  if (duplicateBinaryIds.length) errors.push(`images/reference/manifest.json: duplicate ids ${duplicateBinaryIds.join(', ')}`)
+  for (const record of referenceBinaryManifest.records) {
+    const file = record.repository_path
+    if (!file || !(await existsNonEmpty(file))) {
+      errors.push(`${record.id}: persisted reference binary missing or empty (${file || 'no path'})`)
+      continue
+    }
+    const actualSha = await sha256File(file)
+    if (actualSha !== record.sha256) errors.push(`${record.id}: SHA-256 mismatch for persisted reference binary`)
+    if (record.trainingEligible !== false) errors.push(`${record.id}: persisted reference binary must remain trainingEligible=false unless separately promoted`)
+    if (!record.license || !record.source_article) errors.push(`${record.id}: persisted reference binary missing license/source provenance`)
+  }
+  if (curatedManifest.localReferenceImageBinaryCount != null && curatedManifest.localReferenceImageBinaryCount !== referenceBinaryManifest.records.length) errors.push('manifest.json: localReferenceImageBinaryCount mismatch')
+
+  // Byte-level verification of derived panel crops and source grouping.
+  if (cropManifest.recordCount !== cropManifest.records.length) errors.push('images/reference/crops-manifest.json: recordCount mismatch')
+  const cropIds = cropManifest.records.map((r) => r.id)
+  const duplicateCropIds = duplicates(cropIds)
+  if (duplicateCropIds.length) errors.push(`images/reference/crops-manifest.json: duplicate ids ${duplicateCropIds.join(', ')}`)
+  for (const record of cropManifest.records) {
+    const file = record.repositoryPath
+    if (!file || !(await existsNonEmpty(file))) {
+      errors.push(`${record.id}: derived crop missing or empty (${file || 'no path'})`)
+      continue
+    }
+    const actualSha = await sha256File(file)
+    if (actualSha !== record.sha256) errors.push(`${record.id}: SHA-256 mismatch for derived crop`)
+    if (!record.sourceGroupId) errors.push(`${record.id}: crop missing sourceGroupId`)
+    if (record.trainingEligible !== false) errors.push(`${record.id}: reference crop must remain trainingEligible=false unless separately promoted`)
+  }
+  if (curatedManifest.referencePanelCropCount != null && curatedManifest.referencePanelCropCount !== cropManifest.records.length) errors.push('manifest.json: referencePanelCropCount mismatch')
+
+  // Fail-closed training readiness and split invariants.
+  const totalSplitCount = ['train','validation','test','holdout'].reduce((sum, key) => sum + Number(splitManifest.counts?.[key] || 0), 0)
+  if (trainingEligibleMedia.length === 0) {
+    if (modelReadiness.readyForSupervisedCannabisDiagnosisTraining !== false) errors.push('model-training-readiness.json: must be blocked while trainingEligibleMedia is empty')
+    if (splitManifest.ready !== false || totalSplitCount !== 0 || Number(splitManifest.counts?.totalTrainingEligible || 0) !== 0) errors.push('data/splits/manifest.json: splits must remain empty and blocked while no training-eligible samples exist')
+  }
 }
 
 if (errors.length) {
@@ -231,5 +281,9 @@ console.log(JSON.stringify({
   trainingEligibleGeneratedMedia: trainingEligibleMedia.length,
   curatedReferenceMedia: curatedMedia.records.length,
   curatedReferenceAnnotations: curatedManifest.referenceAnnotationCount,
+  persistedReferenceBinaries: referenceBinaryManifest.records.length,
+  persistedReferenceCrops: cropManifest.records.length,
+  trainingReady: modelReadiness.readyForSupervisedCannabisDiagnosisTraining,
+  splitSamples: ['train','validation','test','holdout'].reduce((sum, key) => sum + Number(splitManifest.counts?.[key] || 0), 0),
   transferDatasets: publicRegistry.datasets.length,
 }, null, 2))
