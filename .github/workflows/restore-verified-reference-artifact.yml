@@ -1,0 +1,89 @@
+name: Restore exact verified reference artifact
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/restore-verified-reference-artifact.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: restore-verified-reference-artifact
+  cancel-in-progress: false
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download previously verified 25-image artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: persisted-open-reference-media
+          path: /tmp/verified-reference
+          github-token: ${{ github.token }}
+          repository: dtfgenetics/Thc-dataset
+          run-id: 32080877843
+
+      - name: Restore exact verified originals and manifest
+        shell: bash
+        run: |
+          test -f /tmp/verified-reference/manifest.json
+          test -d /tmp/verified-reference/original
+          rm -rf images/reference/original
+          mkdir -p images/reference/original
+          cp -a /tmp/verified-reference/original/. images/reference/original/
+          cp /tmp/verified-reference/manifest.json images/reference/manifest.json
+
+      - name: Recompute and verify every restored image hash
+        run: |
+          python - <<'PY'
+          import hashlib, json, pathlib
+          manifest_path = pathlib.Path('images/reference/manifest.json')
+          manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+          assert manifest['recordCount'] == 25, manifest.get('recordCount')
+          assert manifest['unavailableCount'] == 0, manifest.get('unavailableCount')
+          assert manifest['trainingEligibleCount'] == 0, manifest.get('trainingEligibleCount')
+          originals = [p for p in pathlib.Path('images/reference/original').iterdir() if p.is_file()]
+          assert len(originals) == 25, len(originals)
+          for record in manifest['records']:
+              path = pathlib.Path(record['repository_path'])
+              assert path.is_file() and path.stat().st_size > 0, path
+              actual = hashlib.sha256(path.read_bytes()).hexdigest()
+              assert actual == record['sha256'], (record['id'], actual, record['sha256'])
+              assert record['trainingEligible'] is False, record['id']
+          print(json.dumps({
+              'verifiedOriginals': len(originals),
+              'manifestRecords': manifest['recordCount'],
+              'unavailable': manifest['unavailableCount'],
+              'trainingEligible': manifest['trainingEligibleCount'],
+          }, indent=2))
+          PY
+
+      - name: Commit exact verified artifact state
+        shell: bash
+        run: |
+          git add images/reference/original images/reference/manifest.json
+          if git diff --cached --quiet -- images/reference/original images/reference/manifest.json; then
+            echo 'Exact verified artifact already restored.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Restore exact verified 25-image reference corpus'
+          git push origin main
+
+      - name: Upload restored verification snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: restored-verified-reference-corpus
+          path: |
+            images/reference/original/
+            images/reference/manifest.json
+          if-no-files-found: error
+          retention-days: 30
