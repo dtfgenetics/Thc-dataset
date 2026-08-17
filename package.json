@@ -10,6 +10,7 @@
     "check": "tsc -b --pretty false",
     "test": "vitest run",
     "export:data": "node scripts/export-machine-data.mjs",
+    "export:data:verify": "node scripts/export-machine-data.mjs",
     "validate:sources": "node scripts/validate-source-snapshot.mjs dataset/registry/sources-132-146.json dataset/registry/sources-147-158.json dataset/registry/sources-159-160.json dataset/registry/sources-161-165.json",
     "validate:acquisition": "node scripts/validate-acquisition-snapshot.mjs dataset/acquisition/phase0-ds133-ds148.json dataset/acquisition/phase0-ds133-ds134-v2.json dataset/acquisition/phase0-ds135-v2.json dataset/acquisition/phase0-ds135-v3.json dataset/acquisition/phase0-ds135-v4.json dataset/acquisition/phase0-ds071-ds090-v1.json dataset/acquisition/phase0-ds137-ds146-v2.json dataset/acquisition/phase0-ds159-ds165-v1.json dataset/acquisition/phase0-ds135-v5.json",
     "validate:transfer": "node scripts/validate-transfer-policy.mjs dataset/acquisition/cross-crop-transfer-policy-ds137-ds146.json"
