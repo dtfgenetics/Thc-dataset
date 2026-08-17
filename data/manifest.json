@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.1.0",
-  "releaseStatus": "machine-readable-diagnostic-release-with-reference-binaries",
+  "schemaVersion": "2.2.0",
+  "releaseStatus": "verified-structured-diagnostic-reference-release",
   "diagnosticProfileCount": 35,
   "standaloneDetailedProfileCount": 35,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -8,9 +8,15 @@
   "profileReferenceMediaCount": 31,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
-  "trainingEligibleMediaCount": 0,
   "verifiedExternalTransferDatasetCount": 3,
-  "localReferenceImageBinaryCount": 9,
+  "referenceCandidateCount": 25,
+  "localReferenceImageBinaryCount": 15,
+  "referenceUnavailableCount": 10,
+  "referencePanelCropCount": 12,
+  "referencePanelCropSourceGroupCount": 3,
+  "totalPersistedReferenceImageFiles": 27,
+  "trainingEligibleMediaCount": 0,
+  "supervisedTrainingReady": false,
   "files": {
     "diagnosticIndexJson": "data/diagnostic-index.json",
     "diagnosticIndexCsv": "data/diagnostic-index.csv",
@@ -26,9 +32,14 @@
     "referenceAnnotations": "data/reference-annotations.jsonl",
     "referenceImageDirectory": "images/reference/original",
     "referenceImageManifest": "images/reference/manifest.json",
+    "referenceCropSpec": "data/reference-crop-spec.json",
+    "referenceCropDirectory": "images/reference/crops",
+    "referenceCropManifest": "images/reference/crops-manifest.json",
     "imageAnnotationSchema": "data/image-annotation-schema.json",
     "splitPolicy": "data/split-policy.json",
     "releaseReadiness": "data/release-readiness.json",
+    "modelTrainingReadiness": "data/model-training-readiness.json",
+    "cannabisSplitManifest": "data/splits/manifest.json",
     "publicDatasetRegistry": "data/public-dataset-registry.json",
     "trainingEligibleMedia": "data/training-eligible-media.json",
     "exportManifest": "data/export-manifest.json"
@@ -50,29 +61,39 @@
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
     "validateCommand": "npm run validate:data-release",
+    "referenceBinaryScript": "scripts/persist-open-reference-media.py",
+    "referenceCropBuilder": "scripts/build-reference-crops.py",
     "profileWorkflow": ".github/workflows/export-machine-data.yml",
     "referenceBinaryWorkflow": ".github/workflows/persist-open-reference-media.yml",
-    "referenceBinaryScript": "scripts/persist-open-reference-media.py"
+    "referenceCropWorkflow": ".github/workflows/build-reference-crops.yml"
   },
   "verificationStatus": {
     "profileDataPassesRequired": 3,
     "profileDataPassesCompleted": 3,
     "profileDataResult": "passed",
     "statusFile": "data/profile-materialization-status.json",
-    "referenceBinaryResult": "validated-and-persisted",
-    "referenceBinaryCount": 9
+    "referenceBinaryResult": "validated-hashed-persisted-with-unavailable-tracking",
+    "referenceBinaryCount": 15,
+    "referenceUnavailableCount": 10,
+    "referenceCropResult": "validated-hashed-persisted",
+    "referenceCropCount": 12,
+    "referenceCropSourceGroups": 3,
+    "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for persisted originals and crops"
   },
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
     "typescriptSources": "Canonical authored records; deterministic exporter materializes all 35 as standalone JSON plus aggregate JSON, JSONL, and CSV.",
-    "referenceBinaries": "Rights-cleared originals are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, and source provenance in images/reference/manifest.json.",
-    "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports."
+    "referenceBinaries": "Rights-cleared originals are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, source provenance, and unavailable-source tracking.",
+    "referenceCrops": "Reviewed panel derivatives are persisted under images/reference/crops with exact pixel bounds, parent/source-group linkage, hashes, diagnostic reference labels, and trainingEligible=false.",
+    "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports.",
+    "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate, and coverage requirements."
   },
   "limitations": [
     "The structured diagnostic knowledge layer is fully materialized at 35 of 35 profiles.",
-    "Nine rights-cleared reference image binaries are now stored persistently in the repository; this is a reference corpus, not a sufficient machine-learning training corpus.",
-    "No current reference image is marked trainingEligible. Scientific composites require panel-level crops, labels, source grouping, and leakage-safe split assignment first.",
+    "Fifteen rights-cleared reference originals and twelve reviewed panel crops are stored persistently; these are a reference corpus, not a sufficient supervised training corpus.",
+    "Ten otherwise approved reference candidates are currently unavailable from their publisher endpoints and are explicitly recorded rather than silently omitted.",
+    "No current sample is marked trainingEligible, so Cannabis-only train/validation/test/holdout splits remain intentionally empty and blocked.",
     "Copyright-restricted institutional images remain excluded from the public training layer.",
     "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
   ],
@@ -80,13 +101,18 @@
     "completed": [
       "materialize all 35 detailed diagnostic profiles",
       "produce aggregate JSON, JSONL, CSV, sources and per-profile index",
-      "persist and hash currently verified rights-cleared original reference image binaries"
+      "persist and hash verified rights-cleared original reference image binaries",
+      "create and hash the first reviewed panel-level reference crops",
+      "create fail-closed supervised-training readiness and empty Cannabis split manifests",
+      "add byte-level SHA-256 verification for persisted originals and crops"
     ],
     "required": [
-      "crop and annotate scientific composite panels",
-      "create Cannabis-only train validation test manifests after training-eligible samples exist",
-      "add healthy Cannabis controls and look-alike negatives",
-      "run duplicate and provenance audit before any model-accuracy claim"
+      "expand panel crops and annotations across remaining usable composite figures",
+      "acquire independent confirmed Cannabis photographs and videos beyond scientific composites",
+      "add healthy Cannabis controls and look-alike negatives across cultivars, stages, media, and capture conditions",
+      "promote only samples that pass rights, diagnostic-confirmation, source-group, duplicate, and human-review gates",
+      "populate Cannabis-only train validation test manifests only after training-eligible coverage requirements are met",
+      "run duplicate/provenance and held-out-source audits before any model-accuracy claim"
     ]
   }
 }
