@@ -7,6 +7,7 @@ on:
       - 'data/**'
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
+      - 'scripts/validate-reference-crop-geometry.mjs'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/persist-open-reference-media.py'
       - 'scripts/build-reference-crops.py'
@@ -19,6 +20,7 @@ on:
       - 'data/**'
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
+      - 'scripts/validate-reference-crop-geometry.mjs'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/persist-open-reference-media.py'
       - 'scripts/build-reference-crops.py'
@@ -53,6 +55,9 @@ jobs:
       - name: Validate profiles sources media bytes crops and training gate
         run: npm run validate:data-release
 
+      - name: Validate manual and grid crop geometry
+        run: npm run validate:crop-geometry
+
       - name: Summarize release counts
         run: |
           node - <<'NODE'
@@ -65,6 +70,8 @@ jobs:
             referenceOriginals: manifest.localReferenceImageBinaryCount,
             unavailableReferences: manifest.referenceUnavailableCount,
             referenceCrops: manifest.referencePanelCropCount,
+            referenceCropSourceGroups: manifest.referencePanelCropSourceGroupCount,
+            totalReferenceImages: manifest.totalPersistedReferenceImageFiles,
             trainingEligible: manifest.trainingEligibleMediaCount,
             supervisedTrainingReady: manifest.supervisedTrainingReady,
           }, null, 2))
