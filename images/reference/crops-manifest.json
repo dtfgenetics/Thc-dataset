@@ -1,11 +1,394 @@
 {
-  "schemaVersion": "1.0.0",
-  "status": "reference-only-panel-crops",
-  "recordCount": 12,
+  "schemaVersion": "1.1.0",
+  "status": "reference-only-panel-crops-expanded",
+  "recordCount": 66,
+  "manualCropCount": 12,
+  "gridDerivedCropCount": 54,
   "trainingEligibleCount": 0,
-  "sourceGroupCount": 3,
-  "policy": "All crops remain reference-only. Pixel isolation of a panel does not make it training-eligible; parent source grouping, diagnostic review, embedded figure-label risk, and evidence requirements still apply.",
+  "sourceGroupCount": 9,
+  "policy": "All crops remain reference-only. Pixel isolation of a panel does not make it training-eligible; parent source grouping, diagnostic review, embedded figure-label risk, and evidence requirements still apply. These grids were reviewed against the persisted scientific originals. Grid expansion creates reference-only panel derivatives. Every panel remains grouped by sourceGroupId and trainingEligible=false.",
   "records": [
+    {
+      "id": "crop-boron-deficiency-reference-advanced",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "boron-deficiency-reference",
+      "box": [
+        970,
+        1099,
+        1763,
+        1575
+      ],
+      "label": "boron-deficiency-reference-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Boron deficiency reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-advanced.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        793,
+        476
+      ],
+      "sha256": "037b441d022748241c114f75c82bafbbd067e1eb4a69dff12daf3686d8e82f61",
+      "perceptualHash": "dhash64:cc1c2d4f136959d1",
+      "bytes": 72584,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-boron-deficiency-reference-initial",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "boron-deficiency-reference",
+      "box": [
+        970,
+        127,
+        1763,
+        599
+      ],
+      "label": "boron-deficiency-reference-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Boron deficiency reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-initial.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        793,
+        472
+      ],
+      "sha256": "c27233656317aef77a4342f353be4782225bdd4f02e8ad5c3e91a76ff4184433",
+      "perceptualHash": "dhash64:4b6e4f6ba7a5333b",
+      "bytes": 78698,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-boron-deficiency-reference-intermediate",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "boron-deficiency-reference",
+      "box": [
+        970,
+        613,
+        1763,
+        1085
+      ],
+      "label": "boron-deficiency-reference-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Boron deficiency reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-intermediate.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        793,
+        472
+      ],
+      "sha256": "86f4ce624eabbc3957e5794d5166584ee772a34191b73f63f6c583e8993f85ca",
+      "perceptualHash": "dhash64:b013074e4bcdcb7b",
+      "bytes": 74476,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-boron-toxicity-advanced",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "boron-toxicity",
+      "box": [
+        1132,
+        1280,
+        2051,
+        1844
+      ],
+      "label": "boron-toxicity-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Boron toxicity"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-toxicity-advanced.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        919,
+        564
+      ],
+      "sha256": "225335e58fa8b03a656a3d3e8e23a20e1c8a064aac494dffb0ae99036d367acb",
+      "perceptualHash": "dhash64:3216262606049440",
+      "bytes": 72029,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-boron-toxicity-initial",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "boron-toxicity",
+      "box": [
+        1132,
+        131,
+        2051,
+        688
+      ],
+      "label": "boron-toxicity-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Boron toxicity"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-toxicity-initial.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        919,
+        557
+      ],
+      "sha256": "026aa9bb9e95c3a4ffd8f9b7022e9e1afc9978a2750ba3391d14857083d26130",
+      "perceptualHash": "dhash64:be1e2f2b0b0bcb8b",
+      "bytes": 76668,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-boron-toxicity-intermediate",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "boron-toxicity",
+      "box": [
+        1132,
+        705,
+        2051,
+        1263
+      ],
+      "label": "boron-toxicity-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Boron toxicity"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-boron-toxicity-intermediate.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        919,
+        558
+      ],
+      "sha256": "e3db71b606304b159cfff98f7a274e326afaced93004f367de3cf31a35ee11e3",
+      "perceptualHash": "dhash64:571a2a291d961034",
+      "bytes": 84528,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-calcium-deficiency-vegetative-advanced",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "calcium-deficiency",
+      "box": [
+        1864,
+        1253,
+        2691,
+        1795
+      ],
+      "label": "calcium-deficiency-vegetative-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Calcium deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-calcium-deficiency-vegetative-advanced.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        827,
+        542
+      ],
+      "sha256": "f15d799379d3ac11090e49acc941d754bd1c77999097c76e5b97f8f10380eacc",
+      "perceptualHash": "dhash64:361c18020e276d68",
+      "bytes": 82437,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-calcium-deficiency-vegetative-initial",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "calcium-deficiency",
+      "box": [
+        1864,
+        150,
+        2691,
+        684
+      ],
+      "label": "calcium-deficiency-vegetative-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Calcium deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-calcium-deficiency-vegetative-initial.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        827,
+        534
+      ],
+      "sha256": "ea11786fb1ef5172534d98cfb1c1d152406d59a1f0834a61ce3cf648ad13d017",
+      "perceptualHash": "dhash64:662e1e4e48deecec",
+      "bytes": 73365,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-calcium-deficiency-vegetative-intermediate",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "calcium-deficiency",
+      "box": [
+        1864,
+        701,
+        2691,
+        1237
+      ],
+      "label": "calcium-deficiency-vegetative-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Calcium deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-calcium-deficiency-vegetative-intermediate.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        827,
+        536
+      ],
+      "sha256": "0d6008cf4bd61c5161998ec9c77780fe39790b4b3d77b869bf966fc0d6cdbcaf",
+      "perceptualHash": "dhash64:99194b4307224ccc",
+      "bytes": 77885,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
     {
       "id": "crop-cannabis-aphid-a",
       "parentId": "media-cannabis-aphid-figure-2",
@@ -139,6 +522,1692 @@
       "sha256": "9193c36ba11cacb4c755abf3ac13cb04db0192501a54f6f1c5a5ea7134493303",
       "perceptualHash": "dhash64:0646c563b30c84ca",
       "bytes": 409628,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-copper-deficiency-advanced",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "copper-deficiency",
+      "box": [
+        1787,
+        1099,
+        2579,
+        1575
+      ],
+      "label": "copper-deficiency-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Copper deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-copper-deficiency-advanced.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        792,
+        476
+      ],
+      "sha256": "382e7717e6322d10ac4f7fafe07c943a13459fd9254410477e9477cab69345db",
+      "perceptualHash": "dhash64:96961616040484cc",
+      "bytes": 69638,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-copper-deficiency-initial",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "copper-deficiency",
+      "box": [
+        1787,
+        127,
+        2579,
+        599
+      ],
+      "label": "copper-deficiency-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Copper deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-copper-deficiency-initial.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        792,
+        472
+      ],
+      "sha256": "01a34c1171e1aed2af847749a8433f957bc88953c732c7ea297d01db6344e414",
+      "perceptualHash": "dhash64:b2a6663c3a521712",
+      "bytes": 71157,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-copper-deficiency-intermediate",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "copper-deficiency",
+      "box": [
+        1787,
+        613,
+        2579,
+        1085
+      ],
+      "label": "copper-deficiency-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Copper deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-copper-deficiency-intermediate.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        792,
+        472
+      ],
+      "sha256": "fe113df477ef627c87ef8a2e4f01a98f7cc5ff0dfdc8290004a1253085fac368",
+      "perceptualHash": "dhash64:81a686c6c6c6a484",
+      "bytes": 65041,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-iron-deficiency-advanced",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "iron-deficiency",
+      "box": [
+        202,
+        1433,
+        1189,
+        2056
+      ],
+      "label": "iron-deficiency-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Iron deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-iron-deficiency-advanced.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        987,
+        623
+      ],
+      "sha256": "c06f6c159aeee793654be98563bdf45e0c13db1dbbfecb430eb1fa23bafa5c98",
+      "perceptualHash": "dhash64:6760a7c5650a1a5a",
+      "bytes": 82246,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-iron-deficiency-initial",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "iron-deficiency",
+      "box": [
+        202,
+        167,
+        1189,
+        781
+      ],
+      "label": "iron-deficiency-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Iron deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-iron-deficiency-initial.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        987,
+        614
+      ],
+      "sha256": "12bb9e0356087507a6f18693e77b974b05279da295b18d0b34fdb32738610d86",
+      "perceptualHash": "dhash64:3a3a8f4e4ecaea63",
+      "bytes": 76838,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-iron-deficiency-intermediate",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "iron-deficiency",
+      "box": [
+        202,
+        799,
+        1189,
+        1415
+      ],
+      "label": "iron-deficiency-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Iron deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-iron-deficiency-intermediate.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        987,
+        616
+      ],
+      "sha256": "3d4ef4dcceee796ae250bcd1cf8078e23e4b24e8c55e7e08c7c130f06b5d5c5d",
+      "perceptualHash": "dhash64:f0cee64e466eecbd",
+      "bytes": 75625,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-magnesium-deficiency-vegetative-advanced",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "magnesium-deficiency",
+      "box": [
+        1118,
+        1308,
+        2027,
+        1876
+      ],
+      "label": "magnesium-deficiency-vegetative-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Magnesium deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-magnesium-deficiency-vegetative-advanced.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        909,
+        568
+      ],
+      "sha256": "61e6671d76cb4a1e9f0ea6ea03ba67544d22fa9e84bc7289c9e45ccbecf33721",
+      "perceptualHash": "dhash64:b21acd4d8e0ccad2",
+      "bytes": 82283,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-magnesium-deficiency-vegetative-initial",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "magnesium-deficiency",
+      "box": [
+        1118,
+        151,
+        2027,
+        712
+      ],
+      "label": "magnesium-deficiency-vegetative-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Magnesium deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-magnesium-deficiency-vegetative-initial.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        909,
+        561
+      ],
+      "sha256": "b664c30a680dd56390d39f32895feba10d190135b672f937e6b854e043067bed",
+      "perceptualHash": "dhash64:7ccbd71e0713999a",
+      "bytes": 71692,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-magnesium-deficiency-vegetative-intermediate",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "magnesium-deficiency",
+      "box": [
+        1118,
+        729,
+        2027,
+        1291
+      ],
+      "label": "magnesium-deficiency-vegetative-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Magnesium deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-magnesium-deficiency-vegetative-intermediate.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        909,
+        562
+      ],
+      "sha256": "49ef6b34b4d19111f8b12b3a63254e7677e5e28d5af545e82867faf8afa1c8c4",
+      "perceptualHash": "dhash64:719fb677cacbcddb",
+      "bytes": 84256,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-deficiency-advanced",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "manganese-deficiency",
+      "box": [
+        154,
+        1099,
+        942,
+        1575
+      ],
+      "label": "manganese-deficiency-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Manganese deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-deficiency-advanced.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        788,
+        476
+      ],
+      "sha256": "d3aa7bcb5256b1cf2fdda2487c6789938600be7e86b9a923d56673a1aa2fe631",
+      "perceptualHash": "dhash64:189cd28b898c63f3",
+      "bytes": 83842,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-deficiency-initial",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "manganese-deficiency",
+      "box": [
+        154,
+        127,
+        942,
+        599
+      ],
+      "label": "manganese-deficiency-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Manganese deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-deficiency-initial.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        788,
+        472
+      ],
+      "sha256": "3d95409b0ce9bbbd9f46bc07ef4297c352edb43115d71144579795f43933b203",
+      "perceptualHash": "dhash64:331213151b33233d",
+      "bytes": 76528,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-deficiency-intermediate",
+      "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig4",
+      "issueSlug": "manganese-deficiency",
+      "box": [
+        154,
+        613,
+        942,
+        1085
+      ],
+      "label": "manganese-deficiency-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "gridId": "cockson-mn-b-cu-deficiency-figure-4",
+      "columnContext": {
+        "diagnosis": "Manganese deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-deficiency-intermediate.png",
+      "parentDimensions": [
+        2598,
+        1599
+      ],
+      "cropDimensions": [
+        788,
+        472
+      ],
+      "sha256": "b6576054ddc80c7a2d554f96cd1506cb57fa6bf19e2499862d0fb8feadd762f3",
+      "perceptualHash": "dhash64:cce4831f87c7c3e6",
+      "bytes": 67265,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-toxicity-reference-advanced",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "manganese-toxicity-reference",
+      "box": [
+        188,
+        1280,
+        1099,
+        1844
+      ],
+      "label": "manganese-toxicity-reference-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Manganese toxicity reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-advanced.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        911,
+        564
+      ],
+      "sha256": "e6a0a3c659e8930aa6aa904c2bc63caa8e8b3687ec5f01e332eafeb9dfa06f6d",
+      "perceptualHash": "dhash64:49fbb69f1f1d194b",
+      "bytes": 77820,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-toxicity-reference-initial",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "manganese-toxicity-reference",
+      "box": [
+        188,
+        131,
+        1099,
+        688
+      ],
+      "label": "manganese-toxicity-reference-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Manganese toxicity reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-initial.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        911,
+        557
+      ],
+      "sha256": "f9086b21fdbfabba75aed450b72173e35681ae7d9c327810a2a7811249ad1294",
+      "perceptualHash": "dhash64:7276a7c61e0e8c99",
+      "bytes": 80535,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-manganese-toxicity-reference-intermediate",
+      "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
+      "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig5",
+      "issueSlug": "manganese-toxicity-reference",
+      "box": [
+        188,
+        705,
+        1099,
+        1263
+      ],
+      "label": "manganese-toxicity-reference-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "gridId": "cockson-mn-b-toxicity-figure-5",
+      "columnContext": {
+        "diagnosis": "Manganese toxicity reference",
+        "referenceOnlyClass": true
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-intermediate.png",
+      "parentDimensions": [
+        2079,
+        1866
+      ],
+      "cropDimensions": [
+        911,
+        558
+      ],
+      "sha256": "dc1a075b72bbe37c1c384e215a57e5bf50944da7e6fe70d4f3f0e8ff48165b0b",
+      "perceptualHash": "dhash64:cad686cbcb4ac2f3",
+      "bytes": 67779,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-deficiency-advanced",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "nitrogen-deficiency",
+      "box": [
+        167,
+        1253,
+        986,
+        1795
+      ],
+      "label": "nitrogen-deficiency-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Nitrogen deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-deficiency-advanced.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        819,
+        542
+      ],
+      "sha256": "869b3cb0101ff6b16f757034e88e28ce8c5cdf93eb7f78abacb43db35065c4fc",
+      "perceptualHash": "dhash64:7af87a2c0d353818",
+      "bytes": 67714,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-deficiency-initial",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "nitrogen-deficiency",
+      "box": [
+        167,
+        150,
+        986,
+        684
+      ],
+      "label": "nitrogen-deficiency-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Nitrogen deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-deficiency-initial.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        819,
+        534
+      ],
+      "sha256": "db530a10276425560353958c18d1f97b19f61db495da9c218e93148bf68b2633",
+      "perceptualHash": "dhash64:8c0c2e6e0d042485",
+      "bytes": 78613,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-deficiency-intermediate",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "nitrogen-deficiency",
+      "box": [
+        167,
+        701,
+        986,
+        1237
+      ],
+      "label": "nitrogen-deficiency-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Nitrogen deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-deficiency-intermediate.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        819,
+        536
+      ],
+      "sha256": "256a43fe8d88e7fa2b6f29183df28790b14da9d863a69bd56125ffd0d258cbff",
+      "perceptualHash": "dhash64:ce86be3aac2e5ed6",
+      "bytes": 77659,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-160mgL-roots",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        887,
+        950,
+        1325,
+        1458
+      ],
+      "label": "nitrogen-dose-160mgL-roots",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "roots",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "160 mg/L total nitrogen",
+        "treatmentInterpretation": "study-reference-dose"
+      },
+      "rowContext": {
+        "view": "roots",
+        "organ": "roots",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-160mgL-roots.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        438,
+        508
+      ],
+      "sha256": "0fb9f152a2c462fbb2675a2db49e9de17ae9a03e8f7f5a9fc5abcfefea1947cd",
+      "perceptualHash": "dhash64:b2f0e0e8c8f0a2a0",
+      "bytes": 232668,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-160mgL-whole-plant",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        887,
+        0,
+        1325,
+        448
+      ],
+      "label": "nitrogen-dose-160mgL-whole-plant",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "whole plant",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "160 mg/L total nitrogen",
+        "treatmentInterpretation": "study-reference-dose"
+      },
+      "rowContext": {
+        "view": "whole plant",
+        "organ": "whole plant",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-160mgL-whole-plant.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        438,
+        448
+      ],
+      "sha256": "e8a7d8b9599e9e86c1c6f89085e9f075e46b3206ff2c67f4a794877b6d69d5b4",
+      "perceptualHash": "dhash64:b777e4e8f0f0f2e2",
+      "bytes": 184847,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-160mgL-youngest-fully-developed-leaf",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        887,
+        479,
+        1325,
+        919
+      ],
+      "label": "nitrogen-dose-160mgL-youngest-fully-developed-leaf",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "youngest fully developed leaf",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "160 mg/L total nitrogen",
+        "treatmentInterpretation": "study-reference-dose"
+      },
+      "rowContext": {
+        "view": "youngest fully developed leaf",
+        "organ": "leaf",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-160mgL-youngest-fully-developed-leaf.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        438,
+        440
+      ],
+      "sha256": "35e4f24ad1d489889265233537d473673f25a0c109b83f570df232b21af4e610",
+      "perceptualHash": "dhash64:0035b296d4e9f070",
+      "bytes": 140139,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-240mgL-roots",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1328,
+        950,
+        1767,
+        1458
+      ],
+      "label": "nitrogen-dose-240mgL-roots",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "roots",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "240 mg/L total nitrogen",
+        "treatmentInterpretation": "study-high-dose-root-restriction-context"
+      },
+      "rowContext": {
+        "view": "roots",
+        "organ": "roots",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-240mgL-roots.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        508
+      ],
+      "sha256": "72a144f942e2090571e67264545be59005c959dd5dd9fc73e9c087097354b622",
+      "perceptualHash": "dhash64:f2f2f2e0f2f2ca82",
+      "bytes": 164928,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-240mgL-whole-plant",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1328,
+        0,
+        1767,
+        448
+      ],
+      "label": "nitrogen-dose-240mgL-whole-plant",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "whole plant",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "240 mg/L total nitrogen",
+        "treatmentInterpretation": "study-high-dose-root-restriction-context"
+      },
+      "rowContext": {
+        "view": "whole plant",
+        "organ": "whole plant",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-240mgL-whole-plant.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        448
+      ],
+      "sha256": "e0ed1de465f51cb4d1a0925342195db4a85748c8dd9e2fd2c10214e5810df8ed",
+      "perceptualHash": "dhash64:efb7f0f8f1f0e2f3",
+      "bytes": 189047,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-240mgL-youngest-fully-developed-leaf",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1328,
+        479,
+        1767,
+        919
+      ],
+      "label": "nitrogen-dose-240mgL-youngest-fully-developed-leaf",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "youngest fully developed leaf",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "240 mg/L total nitrogen",
+        "treatmentInterpretation": "study-high-dose-root-restriction-context"
+      },
+      "rowContext": {
+        "view": "youngest fully developed leaf",
+        "organ": "leaf",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-240mgL-youngest-fully-developed-leaf.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        440
+      ],
+      "sha256": "c12c6f467120dec438535ffd11265925540b3d7214a16ed20713cd3656a9fe0d",
+      "perceptualHash": "dhash64:1a123392d468f8f1",
+      "bytes": 135096,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-30mgL-roots",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        0,
+        950,
+        441,
+        1458
+      ],
+      "label": "nitrogen-dose-30mgL-roots",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "roots",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "30 mg/L total nitrogen",
+        "treatmentInterpretation": "study-lowest-dose"
+      },
+      "rowContext": {
+        "view": "roots",
+        "organ": "roots",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-30mgL-roots.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        441,
+        508
+      ],
+      "sha256": "2b5ffbe49c8357c0980de191ae7cf4ec628043c3f132104bd9f46e5e7f178844",
+      "perceptualHash": "dhash64:b2b2b2b0f0b2b6b2",
+      "bytes": 149171,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-30mgL-whole-plant",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        0,
+        0,
+        441,
+        448
+      ],
+      "label": "nitrogen-dose-30mgL-whole-plant",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "whole plant",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "30 mg/L total nitrogen",
+        "treatmentInterpretation": "study-lowest-dose"
+      },
+      "rowContext": {
+        "view": "whole plant",
+        "organ": "whole plant",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-30mgL-whole-plant.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        441,
+        448
+      ],
+      "sha256": "b3deed335ad4b96b85c27a8b396fcd7a21abc061483285e9976674a59f13cf7d",
+      "perceptualHash": "dhash64:6fdb7bf1f1f1f3f3",
+      "bytes": 108271,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-30mgL-youngest-fully-developed-leaf",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        0,
+        479,
+        441,
+        919
+      ],
+      "label": "nitrogen-dose-30mgL-youngest-fully-developed-leaf",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "youngest fully developed leaf",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "30 mg/L total nitrogen",
+        "treatmentInterpretation": "study-lowest-dose"
+      },
+      "rowContext": {
+        "view": "youngest fully developed leaf",
+        "organ": "leaf",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-30mgL-youngest-fully-developed-leaf.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        441,
+        440
+      ],
+      "sha256": "7e428a3107c402b903606504c15d64abaf3ed121ea167301c283daabf471c86f",
+      "perceptualHash": "dhash64:3f0f3390d579f0f0",
+      "bytes": 103573,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-320mgL-roots",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1770,
+        950,
+        2209,
+        1458
+      ],
+      "label": "nitrogen-dose-320mgL-roots",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "roots",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "320 mg/L total nitrogen",
+        "treatmentInterpretation": "study-highest-dose-excess-context"
+      },
+      "rowContext": {
+        "view": "roots",
+        "organ": "roots",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-320mgL-roots.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        508
+      ],
+      "sha256": "4bc18baa6aeda36940397dd7f61d8b56e4e7e78aa131b849f375c1c9e752ed2b",
+      "perceptualHash": "dhash64:b2b2f2f0f0f8fcfa",
+      "bytes": 150755,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-320mgL-whole-plant",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1770,
+        0,
+        2209,
+        448
+      ],
+      "label": "nitrogen-dose-320mgL-whole-plant",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "whole plant",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "320 mg/L total nitrogen",
+        "treatmentInterpretation": "study-highest-dose-excess-context"
+      },
+      "rowContext": {
+        "view": "whole plant",
+        "organ": "whole plant",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-320mgL-whole-plant.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        448
+      ],
+      "sha256": "ffa60825df2010e4a414db434cd24b01953616d59bf5235cb601bdf2bdeab4db",
+      "perceptualHash": "dhash64:275733f3f1f1e3e7",
+      "bytes": 137321,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-320mgL-youngest-fully-developed-leaf",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        1770,
+        479,
+        2209,
+        919
+      ],
+      "label": "nitrogen-dose-320mgL-youngest-fully-developed-leaf",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "youngest fully developed leaf",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "320 mg/L total nitrogen",
+        "treatmentInterpretation": "study-highest-dose-excess-context"
+      },
+      "rowContext": {
+        "view": "youngest fully developed leaf",
+        "organ": "leaf",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-320mgL-youngest-fully-developed-leaf.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        439,
+        440
+      ],
+      "sha256": "4ca83c0b8b29eae6f73f33c3781b24a5e93c213b8c66f75237f75d66aa66d71b",
+      "perceptualHash": "dhash64:1012133294dc79f0",
+      "bytes": 105752,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-80mgL-roots",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        444,
+        950,
+        884,
+        1458
+      ],
+      "label": "nitrogen-dose-80mgL-roots",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "roots",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "80 mg/L total nitrogen",
+        "treatmentInterpretation": "study-low-dose"
+      },
+      "rowContext": {
+        "view": "roots",
+        "organ": "roots",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-80mgL-roots.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        440,
+        508
+      ],
+      "sha256": "32e583c6ba61a2a3fc99e9eb792c60ca9119e61f435ef4671e2ea53a986b4a2b",
+      "perceptualHash": "dhash64:b2f2f0f0e8f0f2ce",
+      "bytes": 176551,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-80mgL-whole-plant",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        444,
+        0,
+        884,
+        448
+      ],
+      "label": "nitrogen-dose-80mgL-whole-plant",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "whole plant",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "80 mg/L total nitrogen",
+        "treatmentInterpretation": "study-low-dose"
+      },
+      "rowContext": {
+        "view": "whole plant",
+        "organ": "whole plant",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-80mgL-whole-plant.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        440,
+        448
+      ],
+      "sha256": "6a8ca20d819c5945be3aaa82235bd16a933df0f35ec08e2f9ccc1cbb31625a84",
+      "perceptualHash": "dhash64:37b371e9f1f3f3f3",
+      "bytes": 153110,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-nitrogen-dose-80mgL-youngest-fully-developed-leaf",
+      "parentId": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "parentPath": "images/reference/original/frontiers-cannabis-nitrogen-dose-figure-1.jpg",
+      "sourceGroupId": "doi-10.3389-fpls.2020.572293-fig1",
+      "issueSlug": "nitrogen-toxicity",
+      "box": [
+        444,
+        479,
+        884,
+        919
+      ],
+      "label": "nitrogen-dose-80mgL-youngest-fully-developed-leaf",
+      "host": "Cannabis sativa medical cultivar",
+      "view": "youngest fully developed leaf",
+      "severity": "dose-response context",
+      "confirmation": "lab-confirmed-controlled-total-nitrogen-dose-response",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Five-dose by three-organ controlled experiment. Panels are treatment observations, not independent diagnosis classes; retain dose and organ metadata and keep all 15 panels in one source group.",
+      "gridId": "saloner-total-nitrogen-dose-figure-1",
+      "columnContext": {
+        "treatment": "80 mg/L total nitrogen",
+        "treatmentInterpretation": "study-low-dose"
+      },
+      "rowContext": {
+        "view": "youngest fully developed leaf",
+        "organ": "leaf",
+        "severity": "dose-response context"
+      },
+      "repositoryPath": "images/reference/crops/crop-nitrogen-dose-80mgL-youngest-fully-developed-leaf.png",
+      "parentDimensions": [
+        2209,
+        1622
+      ],
+      "cropDimensions": [
+        440,
+        440
+      ],
+      "sha256": "02add85ad1c4fe8030c850c18cc5ef6f929b415f647c9cb21badb40e4fe63437",
+      "perceptualHash": "dhash64:3532b694d468f0f0",
+      "bytes": 137457,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-phosphorus-deficiency-advanced",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "phosphorus-deficiency",
+      "box": [
+        1015,
+        1253,
+        1839,
+        1795
+      ],
+      "label": "phosphorus-deficiency-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Phosphorus deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-phosphorus-deficiency-advanced.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        824,
+        542
+      ],
+      "sha256": "7366a9e19d6bb86e1072b08b7bd7a244155d7f62ebe7c47d3bfc4ec09f8d5bb6",
+      "perceptualHash": "dhash64:be2e4b4d7e377b79",
+      "bytes": 70958,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-phosphorus-deficiency-initial",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "phosphorus-deficiency",
+      "box": [
+        1015,
+        150,
+        1839,
+        684
+      ],
+      "label": "phosphorus-deficiency-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Phosphorus deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-phosphorus-deficiency-initial.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        824,
+        534
+      ],
+      "sha256": "fd36b4be9f60c0e89cb3711c6a77eb0658fc82c449672fe2586a34e892ab40f1",
+      "perceptualHash": "dhash64:a99c5f065e183838",
+      "bytes": 65811,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-phosphorus-deficiency-intermediate",
+      "parentId": "mdpi-cannabis-n-p-ca-deficiency-figure-2",
+      "parentPath": "images/reference/original/mdpi-cannabis-n-p-ca-deficiency-figure-2.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig2",
+      "issueSlug": "phosphorus-deficiency",
+      "box": [
+        1015,
+        701,
+        1839,
+        1237
+      ],
+      "label": "phosphorus-deficiency-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "One-cultivar controlled withholding sequence; preserve all nine panels as one source group and require independent Cannabis examples before training eligibility.",
+      "gridId": "cockson-n-p-ca-deficiency-figure-2",
+      "columnContext": {
+        "diagnosis": "Phosphorus deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-phosphorus-deficiency-intermediate.png",
+      "parentDimensions": [
+        2718,
+        1818
+      ],
+      "cropDimensions": [
+        824,
+        536
+      ],
+      "sha256": "83f7cb24bb221fb691e891e1e56073fa69e566d75e0179133beab78205e49dfb",
+      "perceptualHash": "dhash64:4ccdcececac6f7f1",
+      "bytes": 67791,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-potassium-deficiency-vegetative-advanced",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "potassium-deficiency",
+      "box": [
+        2054,
+        1308,
+        2965,
+        1876
+      ],
+      "label": "potassium-deficiency-vegetative-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Potassium deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-potassium-deficiency-vegetative-advanced.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        911,
+        568
+      ],
+      "sha256": "16983cb4b36dd0cb14e593edf0cb16713fd04826fed59aaceabfca42766fdeb7",
+      "perceptualHash": "dhash64:e94c1c9c8eca4c49",
+      "bytes": 86845,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-potassium-deficiency-vegetative-initial",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "potassium-deficiency",
+      "box": [
+        2054,
+        151,
+        2965,
+        712
+      ],
+      "label": "potassium-deficiency-vegetative-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Potassium deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-potassium-deficiency-vegetative-initial.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        911,
+        561
+      ],
+      "sha256": "d266fe3ef31921bb8a3d7abe2bdd42ca62fee6d2c3a93d26a02424370f87a5b1",
+      "perceptualHash": "dhash64:24c5894848c84848",
+      "bytes": 83326,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-potassium-deficiency-vegetative-intermediate",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "potassium-deficiency",
+      "box": [
+        2054,
+        729,
+        2965,
+        1291
+      ],
+      "label": "potassium-deficiency-vegetative-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Potassium deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-potassium-deficiency-vegetative-intermediate.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        911,
+        562
+      ],
+      "sha256": "659bd8c495d6ad0c2ad0b24f5128295adbd6701d4e2132bf1d6e9cb83efc6f8a",
+      "perceptualHash": "dhash64:accec686ceceacb2",
+      "bytes": 79684,
       "derivedFormat": "PNG",
       "derivativeStatus": "pixel-bounds-generated-and-hashed"
     },
@@ -417,6 +2486,258 @@
       "sha256": "a7863200d221feda692d5c5abad9c2d283dd78b66ff4762324128f45aed93d20",
       "perceptualHash": "dhash64:ccf2a4f6e685f660",
       "bytes": 340759,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-sulfur-deficiency-vegetative-advanced",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "sulfur-deficiency",
+      "box": [
+        183,
+        1308,
+        1086,
+        1876
+      ],
+      "label": "sulfur-deficiency-vegetative-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Sulfur deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-sulfur-deficiency-vegetative-advanced.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        903,
+        568
+      ],
+      "sha256": "a688d170cea52732b5aee8d3efc7c173b3391fa8dd84e055eeedde129e9ac4aa",
+      "perceptualHash": "dhash64:9fcdedb5e4a683c1",
+      "bytes": 91119,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-sulfur-deficiency-vegetative-initial",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "sulfur-deficiency",
+      "box": [
+        183,
+        151,
+        1086,
+        712
+      ],
+      "label": "sulfur-deficiency-vegetative-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Sulfur deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-sulfur-deficiency-vegetative-initial.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        903,
+        561
+      ],
+      "sha256": "5b9c04be45b3e67d2019ed4a2ca7cd2ddbddd2f8ce88c96b21eb64e83815b2f5",
+      "perceptualHash": "dhash64:43454e062e088808",
+      "bytes": 75400,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-sulfur-deficiency-vegetative-intermediate",
+      "parentId": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "parentPath": "images/reference/original/mdpi-cannabis-s-mg-k-deficiency-figure-3.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig3",
+      "issueSlug": "sulfur-deficiency",
+      "box": [
+        183,
+        729,
+        1086,
+        1291
+      ],
+      "label": "sulfur-deficiency-vegetative-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled sulfur/magnesium/potassium withholding sequence; all nine related panels stay source-grouped.",
+      "gridId": "cockson-s-mg-k-deficiency-figure-3",
+      "columnContext": {
+        "diagnosis": "Sulfur deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-sulfur-deficiency-vegetative-intermediate.png",
+      "parentDimensions": [
+        2985,
+        1893
+      ],
+      "cropDimensions": [
+        903,
+        562
+      ],
+      "sha256": "a3d392928a9de0a7c9941d1c1f5d6658fb514eac69371c539befee2f837d5832",
+      "perceptualHash": "dhash64:0f4f390182873632",
+      "bytes": 80045,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-zinc-deficiency-vegetative-advanced",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "zinc-deficiency",
+      "box": [
+        1224,
+        1433,
+        2220,
+        2056
+      ],
+      "label": "zinc-deficiency-vegetative-advanced",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "advanced",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Zinc deficiency"
+      },
+      "rowContext": {
+        "severity": "advanced"
+      },
+      "repositoryPath": "images/reference/crops/crop-zinc-deficiency-vegetative-advanced.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        996,
+        623
+      ],
+      "sha256": "e762a4a1c45b9547fb7aa43b6cd4e0f3e7908c851da70a0e884280e9d290a3ec",
+      "perceptualHash": "dhash64:d8744cc4cd6a6e4d",
+      "bytes": 86587,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-zinc-deficiency-vegetative-initial",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "zinc-deficiency",
+      "box": [
+        1224,
+        167,
+        2220,
+        781
+      ],
+      "label": "zinc-deficiency-vegetative-initial",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "initial",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Zinc deficiency"
+      },
+      "rowContext": {
+        "severity": "initial"
+      },
+      "repositoryPath": "images/reference/crops/crop-zinc-deficiency-vegetative-initial.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        996,
+        614
+      ],
+      "sha256": "538f0b9cc4e084717c7edede27efe97299041f337258a16ac82ddacdebc9dc53",
+      "perceptualHash": "dhash64:a9119243594dc8a8",
+      "bytes": 86529,
+      "derivedFormat": "PNG",
+      "derivativeStatus": "pixel-bounds-generated-and-hashed"
+    },
+    {
+      "id": "crop-zinc-deficiency-vegetative-intermediate",
+      "parentId": "mdpi-cannabis-iron-zinc-deficiency-figure-6",
+      "parentPath": "images/reference/original/mdpi-cannabis-iron-zinc-deficiency-figure-6.png",
+      "sourceGroupId": "doi-10.3390-app9204432-fig6",
+      "issueSlug": "zinc-deficiency",
+      "box": [
+        1224,
+        799,
+        2220,
+        1415
+      ],
+      "label": "zinc-deficiency-vegetative-intermediate",
+      "host": "Cannabis sativa T1",
+      "view": "controlled-vegetative-symptom-panel",
+      "severity": "intermediate",
+      "confirmation": "lab-confirmed-controlled-nutrient-withholding",
+      "embeddedPanelLabel": false,
+      "trainingEligible": false,
+      "reason": "Controlled iron/zinc withholding sequence; preserve all six panels as one source group and retain nutrient-specific analytical context.",
+      "gridId": "cockson-fe-zn-deficiency-figure-6",
+      "columnContext": {
+        "diagnosis": "Zinc deficiency"
+      },
+      "rowContext": {
+        "severity": "intermediate"
+      },
+      "repositoryPath": "images/reference/crops/crop-zinc-deficiency-vegetative-intermediate.png",
+      "parentDimensions": [
+        2241,
+        2079
+      ],
+      "cropDimensions": [
+        996,
+        616
+      ],
+      "sha256": "d2107a57b39ef13a1b335436d4d4845e713c9896009fcf7201c9ff1994de5c0a",
+      "perceptualHash": "dhash64:c6ea63e7c5cde9e9",
+      "bytes": 86631,
       "derivedFormat": "PNG",
       "derivativeStatus": "pixel-bounds-generated-and-hashed"
     }
