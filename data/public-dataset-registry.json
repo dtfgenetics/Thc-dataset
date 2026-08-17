@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "purpose": "Registry of external public plant-disease datasets that may improve generic visual feature learning without being mislabeled as Cannabis ground truth.",
+  "rules": {
+    "cannabisGroundTruth": "Only Cannabis/hemp samples with Cannabis-specific provenance and diagnosis evidence may enter Cannabis diagnosis evaluation sets.",
+    "crossCropTraining": "Cross-crop samples may be used for representation learning, generic symptom localization, negative examples, and robustness testing when license terms permit.",
+    "labelTransfer": "Never copy a non-Cannabis crop disease label directly into a Cannabis diagnosis class solely because the visual symptom looks similar.",
+    "evaluationIsolation": "External transfer datasets must not be mixed into the Cannabis test set or used to inflate Cannabis diagnostic accuracy claims."
+  },
+  "datasets": [
+    {
+      "id": "hf-mohanty-plantvillage",
+      "name": "PlantVillage",
+      "provider": "mohanty on Hugging Face",
+      "url": "https://huggingface.co/datasets/mohanty/PlantVillage",
+      "license": "CC BY-SA 3.0",
+      "reportedImages": 54306,
+      "reportedSpecies": 14,
+      "reportedDiseaseClasses": 26,
+      "modality": ["image", "text"],
+      "task": "image classification",
+      "domain": "controlled-background crop leaf disease",
+      "recommendedUse": ["generic plant-disease representation pretraining", "healthy-vs-damaged feature learning", "augmentation and robustness experiments"],
+      "prohibitedUse": ["Cannabis ground-truth labels", "Cannabis-only accuracy claims", "direct disease-class transfer without Cannabis evidence"],
+      "status": "verified-registry-entry"
+    },
+    {
+      "id": "hf-geraldmc-plantdoc-full",
+      "name": "PlantDoc full",
+      "provider": "geraldmc on Hugging Face",
+      "url": "https://huggingface.co/datasets/geraldmc/plantdoc-full",
+      "license": "CC BY 4.0",
+      "reportedSizeCategory": "1K<n<10K",
+      "modality": ["image", "text"],
+      "task": "image classification",
+      "domain": "field-condition plant disease imagery",
+      "recommendedUse": ["field-background robustness", "generic disease representation pretraining", "domain-shift benchmarking"],
+      "prohibitedUse": ["Cannabis ground-truth labels", "Cannabis test-set substitution"],
+      "status": "verified-registry-entry"
+    },
+    {
+      "id": "hf-rick003-plant-disease-clean-v1",
+      "name": "Clean Plant Disease Detection Dataset v1",
+      "provider": "rick003 on Hugging Face",
+      "url": "https://huggingface.co/datasets/rick003/plant-disease-clean-v1",
+      "license": "CC BY 4.0",
+      "reportedImages": 1896,
+      "reportedClasses": 17,
+      "reportedSplit": {"train":1328,"validation":284,"test":284},
+      "modality": ["image", "text"],
+      "task": "object detection",
+      "domain": "multi-crop plant disease detection",
+      "qualityNotes": ["dataset card reports zero invalid YOLO labels", "dataset card reports zero near-duplicate images across train/validation/test under its audit threshold"],
+      "recommendedUse": ["lesion localization pretraining", "object-detection pipeline testing", "cross-split leakage QA examples"],
+      "prohibitedUse": ["Cannabis ground-truth labels", "Cannabis-only accuracy claims"],
+      "status": "verified-registry-entry"
+    }
+  ]
+}
