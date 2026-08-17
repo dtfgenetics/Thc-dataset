@@ -3,6 +3,7 @@ import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import ts from 'typescript'
 
+// Canonical exporter for machine-readable dataset release files.
 const root = process.cwd()
 const outDir = path.join(root, 'data')
 const tempDir = path.join(root, '.dataset-export-tmp')
