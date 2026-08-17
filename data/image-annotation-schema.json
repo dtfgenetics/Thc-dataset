@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dtfgenetics/Thc-dataset/data/image-annotation-schema.json",
+  "title": "THC Cannabis Diagnostic Image Annotation",
+  "type": "object",
+  "required": ["sampleId","assetId","hostSpecies","hostContext","diagnosis","labelStatus","evidenceTier","view","sourceGroupId","rights","splitStatus"],
+  "properties": {
+    "sampleId": {"type":"string","minLength":1},
+    "assetId": {"type":"string","minLength":1},
+    "parentAssetId": {"type":["string","null"]},
+    "sourceGroupId": {"type":"string","description":"All panels, crops, frames, or near-duplicates from one original source must share this id."},
+    "sourceUrl": {"type":["string","null"]},
+    "localPath": {"type":["string","null"]},
+    "sha256": {"type":["string","null"],"pattern":"^[a-f0-9]{64}$"},
+    "perceptualHash": {"type":["string","null"]},
+    "hostSpecies": {"type":"string"},
+    "hostContext": {"enum":["cannabis","hemp","cross-crop","organism-only","non-plant-control"]},
+    "cultivar": {"type":["string","null"]},
+    "plantId": {"type":["string","null"]},
+    "diagnosis": {
+      "type":"object",
+      "required":["profileId","name"],
+      "properties": {
+        "profileId":{"type":"string"},
+        "name":{"type":"string"},
+        "mechanism":{"type":["string","null"]},
+        "differentialIds":{"type":"array","items":{"type":"string"}}
+      }
+    },
+    "labelStatus": {"enum":["confirmed","treatment-associated","expert-attributed","suspected","negative-control","unresolved"]},
+    "evidenceTier": {"enum":["A-lab-confirmed-causal","B-controlled-treatment","C-expert-diagnosed","D-symptom-only","E-cross-crop-transfer"]},
+    "confirmationMethod": {"type":"array","items":{"type":"string"}},
+    "stage": {"type":["string","null"]},
+    "severity": {"type":["string","null"]},
+    "affectedOrgan": {"type":"array","items":{"type":"string"}},
+    "canopyPosition": {"enum":["upper","middle","lower","whole-plant","root-zone","unknown"]},
+    "view": {"enum":["whole-plant","canopy","leaf-upper","leaf-lower","close-up","macro","microscope","root","stem-crown","inflorescence","diagram","video-frame","other"]},
+    "boundingBoxes": {
+      "type":"array",
+      "items":{"type":"object","required":["x","y","width","height","label"],"properties":{"x":{"type":"number"},"y":{"type":"number"},"width":{"type":"number"},"height":{"type":"number"},"label":{"type":"string"}}}
+    },
+    "capture": {
+      "type":"object",
+      "properties": {
+        "date":{"type":["string","null"]},
+        "lighting":{"type":["string","null"]},
+        "camera":{"type":["string","null"]},
+        "whiteBalanceControlled":{"type":["boolean","null"]},
+        "scalePresent":{"type":["boolean","null"]}
+      }
+    },
+    "rootZoneMeasurements": {
+      "type":"object",
+      "properties": {
+        "pH":{"type":["number","null"]},
+        "ec":{"type":["number","null"]},
+        "ecUnit":{"type":["string","null"]},
+        "waterContent":{"type":["number","null"]},
+        "temperatureC":{"type":["number","null"]}
+      }
+    },
+    "rights": {
+      "type":"object",
+      "required":["displayPermission","trainingPermission"],
+      "properties": {
+        "license":{"type":["string","null"]},
+        "creator":{"type":["string","null"]},
+        "requiredAttribution":{"type":["string","null"]},
+        "displayPermission":{"enum":["permitted","not-permitted","unknown"]},
+        "trainingPermission":{"enum":["permitted","not-permitted","unknown"]}
+      }
+    },
+    "trainingEligible": {"type":"boolean","default":false},
+    "splitStatus": {"enum":["unassigned","train","validation","test","reference-only","excluded"]},
+    "exclusionReasons": {"type":"array","items":{"type":"string"}},
+    "review": {
+      "type":"object",
+      "properties": {
+        "scientificReview":{"enum":["pending","approved","rejected"]},
+        "rightsReview":{"enum":["pending","approved","rejected"]},
+        "annotationReview":{"enum":["pending","approved","rejected"]}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if":{"properties":{"trainingEligible":{"const":true}}},
+      "then":{"properties":{"rights":{"properties":{"trainingPermission":{"const":"permitted"}}},"splitStatus":{"enum":["train","validation","test"]}}}
+    }
+  ]
+}
