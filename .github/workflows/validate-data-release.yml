@@ -1,0 +1,71 @@
+name: Validate machine-readable data release
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'images/reference/**'
+      - 'scripts/validate-data-release.mjs'
+      - 'scripts/export-machine-data.mjs'
+      - 'scripts/persist-open-reference-media.py'
+      - 'scripts/build-reference-crops.py'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-data-release.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'data/**'
+      - 'images/reference/**'
+      - 'scripts/validate-data-release.mjs'
+      - 'scripts/export-machine-data.mjs'
+      - 'scripts/persist-open-reference-media.py'
+      - 'scripts/build-reference-crops.py'
+      - 'package.json'
+      - 'package-lock.json'
+      - '.github/workflows/validate-data-release.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-data-release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-data-release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate profiles sources media bytes crops and training gate
+        run: npm run validate:data-release
+
+      - name: Summarize release counts
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs')
+          const manifest = JSON.parse(fs.readFileSync('data/manifest.json', 'utf8'))
+          console.log(JSON.stringify({
+            diagnosticProfiles: manifest.diagnosticProfileCount,
+            standaloneProfiles: manifest.standaloneDetailedProfileCount,
+            evidenceSources: manifest.evidenceSourceCount,
+            referenceOriginals: manifest.localReferenceImageBinaryCount,
+            unavailableReferences: manifest.referenceUnavailableCount,
+            referenceCrops: manifest.referencePanelCropCount,
+            trainingEligible: manifest.trainingEligibleMediaCount,
+            supervisedTrainingReady: manifest.supervisedTrainingReady,
+          }, null, 2))
+          NODE
