@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.0.0",
-  "releaseStatus": "machine-readable-diagnostic-release-complete",
+  "schemaVersion": "2.1.0",
+  "releaseStatus": "machine-readable-diagnostic-release-with-reference-binaries",
   "diagnosticProfileCount": 35,
   "standaloneDetailedProfileCount": 35,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -10,7 +10,7 @@
   "referenceAnnotationCount": 21,
   "trainingEligibleMediaCount": 0,
   "verifiedExternalTransferDatasetCount": 3,
-  "localReferenceImageBinaryCount": 0,
+  "localReferenceImageBinaryCount": 9,
   "files": {
     "diagnosticIndexJson": "data/diagnostic-index.json",
     "diagnosticIndexCsv": "data/diagnostic-index.csv",
@@ -24,6 +24,8 @@
     "profileReferenceMedia": "data/profile-reference-media.json",
     "curatedReferenceMedia": "data/reference-media.json",
     "referenceAnnotations": "data/reference-annotations.jsonl",
+    "referenceImageDirectory": "images/reference/original",
+    "referenceImageManifest": "images/reference/manifest.json",
     "imageAnnotationSchema": "data/image-annotation-schema.json",
     "splitPolicy": "data/split-policy.json",
     "releaseReadiness": "data/release-readiness.json",
@@ -48,30 +50,39 @@
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
     "validateCommand": "npm run validate:data-release",
-    "workflow": ".github/workflows/export-machine-data.yml"
+    "profileWorkflow": ".github/workflows/export-machine-data.yml",
+    "referenceBinaryWorkflow": ".github/workflows/persist-open-reference-media.yml",
+    "referenceBinaryScript": "scripts/persist-open-reference-media.py"
   },
   "verificationStatus": {
-    "passesRequired": 3,
-    "passesCompleted": 3,
-    "result": "passed",
-    "statusFile": "data/profile-materialization-status.json"
+    "profileDataPassesRequired": 3,
+    "profileDataPassesCompleted": 3,
+    "profileDataResult": "passed",
+    "statusFile": "data/profile-materialization-status.json",
+    "referenceBinaryResult": "validated-and-persisted",
+    "referenceBinaryCount": 9
   },
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
     "typescriptSources": "Canonical authored records; deterministic exporter materializes all 35 as standalone JSON plus aggregate JSON, JSONL, and CSV.",
+    "referenceBinaries": "Rights-cleared originals are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, and source provenance in images/reference/manifest.json.",
     "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports."
   },
   "limitations": [
     "The structured diagnostic knowledge layer is fully materialized at 35 of 35 profiles.",
-    "No image binary is currently stored persistently in the repository; reference media are still represented by URLs, hashes, rights, and annotations.",
+    "Nine rights-cleared reference image binaries are now stored persistently in the repository; this is a reference corpus, not a sufficient machine-learning training corpus.",
     "No current reference image is marked trainingEligible. Scientific composites require panel-level crops, labels, source grouping, and leakage-safe split assignment first.",
     "Copyright-restricted institutional images remain excluded from the public training layer.",
     "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
   ],
   "nextReleaseGate": {
+    "completed": [
+      "materialize all 35 detailed diagnostic profiles",
+      "produce aggregate JSON, JSONL, CSV, sources and per-profile index",
+      "persist and hash currently verified rights-cleared original reference image binaries"
+    ],
     "required": [
-      "persist rights-cleared original reference image binaries and a binary manifest",
       "crop and annotate scientific composite panels",
       "create Cannabis-only train validation test manifests after training-eligible samples exist",
       "add healthy Cannabis controls and look-alike negatives",
