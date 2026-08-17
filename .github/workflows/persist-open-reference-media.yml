@@ -6,13 +6,18 @@ on:
     paths:
       - 'dataset/acquisition/verified-open-media-candidates*.json'
       - '.github/workflows/persist-open-reference-media.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'dataset/acquisition/verified-open-media-candidates*.json'
+      - '.github/workflows/persist-open-reference-media.yml'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: persist-open-reference-media
+  group: persist-open-reference-media-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -20,6 +25,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -188,7 +195,11 @@ jobs:
           print(f'REFERENCE_BINARY_COUNT={len(results)}')
           PY
 
+      - name: Show validated binary changes
+        run: git status --short images/reference
+
       - name: Commit verified reference binaries and manifest
+        if: github.event_name != 'pull_request'
         shell: bash
         run: |
           if git diff --quiet -- images/reference; then
