@@ -1,7 +1,9 @@
 {
-  "schemaVersion": "1.1.0",
-  "releaseStatus": "structured-reference-release",
+  "schemaVersion": "1.2.0",
+  "releaseStatus": "structured-reference-release-partially-materialized",
   "diagnosticProfileCount": 35,
+  "standaloneDetailedProfileCount": 6,
+  "pendingStandaloneDetailedProfileCount": 29,
   "referenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "trainingEligibleReferenceMediaCount": 0,
@@ -9,6 +11,8 @@
   "files": {
     "diagnosticIndexJson": "data/diagnostic-index.json",
     "diagnosticIndexCsv": "data/diagnostic-index.csv",
+    "standaloneProfileDirectory": "data/profiles",
+    "profileMaterializationStatus": "data/profile-materialization-status.json",
     "referenceMedia": "data/reference-media.json",
     "referenceAnnotations": "data/reference-annotations.jsonl",
     "imageAnnotationSchema": "data/image-annotation-schema.json",
@@ -23,23 +27,41 @@
   "tooling": {
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
-    "validateCommand": "npm run validate:data-release"
+    "validateCommand": "npm run validate:data-release",
+    "workflow": ".github/workflows/export-machine-data.yml"
   },
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
-    "typescriptSources": "Canonical detailed application records until the full standalone profile export is materialized."
+    "typescriptSources": "Canonical detailed application records until all 35 standalone JSON profiles are materialized and validated.",
+    "curatedVsGenerated": "Curated reference-media.json and manifest.json must never be overwritten by generated application exports. Generated media and export metadata use separate filenames."
+  },
+  "materialization": {
+    "verifiedCount": 6,
+    "targetCount": 35,
+    "sourceBlobSha": "808754ce302a85123bd412717c70b3a7e91be5fa",
+    "verifiedIds": [
+      "pest-cannabis-aphid",
+      "pest-fungus-gnats",
+      "pest-rice-root-aphid",
+      "root-fusarium-crown-rot",
+      "stress-drought-water-deficit",
+      "stress-salinity-high-ec"
+    ],
+    "statusFile": "data/profile-materialization-status.json"
   },
   "limitations": [
-    "The 35-entry diagnostic index is machine-readable, but the complete detailed TypeScript diagnostic records still need to be materialized as standalone JSON records.",
+    "Six of 35 detailed diagnostic records are now verified as standalone JSON files; 29 still require materialization before the detailed release is complete.",
     "Reference-media entries contain provenance and rights metadata; image binaries are not yet stored as a local model-training corpus.",
     "No current reference image is marked trainingEligible. Scientific composites require panel-level crops, labels, source grouping, and leakage-safe split assignment first.",
     "Copyright-restricted institutional images remain excluded from the public training layer.",
-    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
+    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth.",
+    "GitHub push automation has not yet produced a verifiable generated export commit, so automation is not treated as completed evidence."
   ],
   "nextReleaseGate": {
     "required": [
-      "materialize all detailed diagnostic profiles as standalone JSON",
+      "materialize and read-back verify the remaining 29 detailed diagnostic profiles",
+      "produce diagnostic-profiles.json, JSONL, CSV, sources.json and per-profile index using the hardened exporter",
       "download and hash rights-cleared original image binaries",
       "crop and annotate scientific composite panels",
       "create Cannabis-only train validation test manifests",
