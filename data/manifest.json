@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseStatus": "bootstrap-machine-readable",
+  "diagnosticProfileCount": 35,
+  "referenceMediaRecordCount": 21,
+  "trainingEligibleMediaCount": 0,
+  "files": {
+    "diagnosticIndexJson": "data/diagnostic-index.json",
+    "diagnosticIndexCsv": "data/diagnostic-index.csv",
+    "referenceMedia": "data/reference-media.json"
+  },
+  "canonicalDetailedSources": [
+    "src/data/issues.ts",
+    "src/data/supplemental-issues.ts"
+  ],
+  "exporter": "scripts/export-machine-data.mjs",
+  "limitations": [
+    "The current JSON/CSV index is machine-readable, but the full detailed TypeScript records have not yet been materialized into standalone JSON because repository Actions are not executing.",
+    "Reference-media entries point to verified source assets and rights metadata; the image binaries are not yet stored as a local training corpus.",
+    "No reference image is currently marked trainingEligible. Composite scientific figures need panel-level crops, labels, source grouping, and leakage-safe train/validation/test assignment before model training.",
+    "Copyright-restricted institutional images remain outside this public reference-media seed file rather than being treated as training data."
+  ]
+}
