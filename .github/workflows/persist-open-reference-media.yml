@@ -6,12 +6,14 @@ on:
     paths:
       - 'dataset/acquisition/verified-open-media-candidates*.json'
       - 'scripts/persist-open-reference-media.py'
+      - 'scripts/recover-reference-media.py'
       - '.github/workflows/persist-open-reference-media.yml'
   pull_request:
     branches: [main]
     paths:
       - 'dataset/acquisition/verified-open-media-candidates*.json'
       - 'scripts/persist-open-reference-media.py'
+      - 'scripts/recover-reference-media.py'
       - '.github/workflows/persist-open-reference-media.yml'
   workflow_dispatch:
 
@@ -40,6 +42,9 @@ jobs:
 
       - name: Download validate hash and stage rights-cleared references
         run: python scripts/persist-open-reference-media.py
+
+      - name: Recover approved publisher fallback assets
+        run: python scripts/recover-reference-media.py
 
       - name: Show validated binary changes
         run: git status --short images/reference
