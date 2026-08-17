@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Leakage-safe Cannabis diagnostic split policy",
+  "goal": "Prevent scientific figures, serial images, video frames, clones, plants, and near-duplicates from leaking across train, validation, and test sets.",
+  "groupingPriority": [
+    "sourceGroupId",
+    "plantId",
+    "original video or scientific figure",
+    "cultivar-and-experiment cohort",
+    "near-duplicate perceptual-hash cluster"
+  ],
+  "hardRules": [
+    "Every derivative crop from one original image stays in one split.",
+    "Every panel from one scientific composite figure stays in one split unless the entire source is reference-only.",
+    "All frames from one video stay in one split.",
+    "Serial photographs of the same plant stay in one split.",
+    "Clonal siblings from the same experimental treatment should stay together when treatment identity could leak the diagnosis.",
+    "Exact SHA-256 duplicates and perceptual near-duplicates may not occur in different splits.",
+    "Cross-crop transfer data may not enter the Cannabis validation or test set.",
+    "Rights-restricted, symptom-only, mechanistically ambiguous, or unresolved samples are excluded or reference-only, not silently promoted to training ground truth."
+  ],
+  "recommendedCannabisSplit": {"train":0.70,"validation":0.15,"test":0.15},
+  "minimumEvaluationRequirements": {
+    "independentSourceGroupsPerClass": 3,
+    "independentPlantsPerClass": 10,
+    "preferredTestImagesPerClass": 30,
+    "requireHealthyControls": true,
+    "requireLookAlikeNegatives": true
+  },
+  "evaluationMetrics": [
+    "macro-F1",
+    "balanced accuracy",
+    "per-class precision",
+    "per-class recall",
+    "top-3 recall",
+    "expected calibration error",
+    "abstention coverage and selective accuracy",
+    "confusion matrix by diagnosis family"
+  ],
+  "claimPolicy": "Do not publish a Cannabis diagnostic accuracy number unless the held-out test set contains Cannabis/hemp samples from independent source groups and the split has passed duplicate and provenance audits."
+}
