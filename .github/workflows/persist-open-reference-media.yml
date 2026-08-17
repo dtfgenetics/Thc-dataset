@@ -70,3 +70,5 @@ jobs:
           path: images/reference/
           if-no-files-found: error
           retention-days: 30
+
+# Explicit main-branch trigger after publisher-fallback verification passed in PR #18.
