@@ -1,23 +1,50 @@
 {
-  "schemaVersion": "1.0.0",
-  "releaseStatus": "bootstrap-machine-readable",
+  "schemaVersion": "1.1.0",
+  "releaseStatus": "structured-reference-release",
   "diagnosticProfileCount": 35,
   "referenceMediaRecordCount": 21,
-  "trainingEligibleMediaCount": 0,
+  "referenceAnnotationCount": 21,
+  "trainingEligibleReferenceMediaCount": 0,
+  "verifiedExternalTransferDatasetCount": 3,
   "files": {
     "diagnosticIndexJson": "data/diagnostic-index.json",
     "diagnosticIndexCsv": "data/diagnostic-index.csv",
-    "referenceMedia": "data/reference-media.json"
+    "referenceMedia": "data/reference-media.json",
+    "referenceAnnotations": "data/reference-annotations.jsonl",
+    "imageAnnotationSchema": "data/image-annotation-schema.json",
+    "splitPolicy": "data/split-policy.json",
+    "releaseReadiness": "data/release-readiness.json",
+    "publicDatasetRegistry": "data/public-dataset-registry.json"
   },
   "canonicalDetailedSources": [
     "src/data/issues.ts",
     "src/data/supplemental-issues.ts"
   ],
-  "exporter": "scripts/export-machine-data.mjs",
+  "tooling": {
+    "exporter": "scripts/export-machine-data.mjs",
+    "validator": "scripts/validate-data-release.mjs",
+    "validateCommand": "npm run validate:data-release"
+  },
+  "dataLayerPolicy": {
+    "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
+    "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
+    "typescriptSources": "Canonical detailed application records until the full standalone profile export is materialized."
+  },
   "limitations": [
-    "The current JSON/CSV index is machine-readable, but the full detailed TypeScript records have not yet been materialized into standalone JSON because repository Actions are not executing.",
-    "Reference-media entries point to verified source assets and rights metadata; the image binaries are not yet stored as a local training corpus.",
-    "No reference image is currently marked trainingEligible. Composite scientific figures need panel-level crops, labels, source grouping, and leakage-safe train/validation/test assignment before model training.",
-    "Copyright-restricted institutional images remain outside this public reference-media seed file rather than being treated as training data."
-  ]
+    "The 35-entry diagnostic index is machine-readable, but the complete detailed TypeScript diagnostic records still need to be materialized as standalone JSON records.",
+    "Reference-media entries contain provenance and rights metadata; image binaries are not yet stored as a local model-training corpus.",
+    "No current reference image is marked trainingEligible. Scientific composites require panel-level crops, labels, source grouping, and leakage-safe split assignment first.",
+    "Copyright-restricted institutional images remain excluded from the public training layer.",
+    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
+  ],
+  "nextReleaseGate": {
+    "required": [
+      "materialize all detailed diagnostic profiles as standalone JSON",
+      "download and hash rights-cleared original image binaries",
+      "crop and annotate scientific composite panels",
+      "create Cannabis-only train validation test manifests",
+      "add healthy Cannabis controls and look-alike negatives",
+      "run duplicate and provenance audit before any accuracy claim"
+    ]
+  }
 }
