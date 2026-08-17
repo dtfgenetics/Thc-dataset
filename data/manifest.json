@@ -1,72 +1,81 @@
 {
-  "schemaVersion": "1.2.0",
-  "releaseStatus": "structured-reference-release-partially-materialized",
+  "schemaVersion": "2.0.0",
+  "releaseStatus": "machine-readable-diagnostic-release-complete",
   "diagnosticProfileCount": 35,
-  "standaloneDetailedProfileCount": 6,
-  "pendingStandaloneDetailedProfileCount": 29,
-  "referenceMediaRecordCount": 21,
+  "standaloneDetailedProfileCount": 35,
+  "pendingStandaloneDetailedProfileCount": 0,
+  "evidenceSourceCount": 58,
+  "profileReferenceMediaCount": 31,
+  "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
-  "trainingEligibleReferenceMediaCount": 0,
+  "trainingEligibleMediaCount": 0,
   "verifiedExternalTransferDatasetCount": 3,
+  "localReferenceImageBinaryCount": 0,
   "files": {
     "diagnosticIndexJson": "data/diagnostic-index.json",
     "diagnosticIndexCsv": "data/diagnostic-index.csv",
+    "diagnosticProfilesJson": "data/diagnostic-profiles.json",
+    "diagnosticProfilesJsonl": "data/diagnostic-profiles.jsonl",
+    "diagnosticProfilesCsv": "data/diagnostic-profiles.csv",
     "standaloneProfileDirectory": "data/profiles",
+    "standaloneProfileIndex": "data/profiles/index.json",
     "profileMaterializationStatus": "data/profile-materialization-status.json",
-    "referenceMedia": "data/reference-media.json",
+    "sources": "data/sources.json",
+    "profileReferenceMedia": "data/profile-reference-media.json",
+    "curatedReferenceMedia": "data/reference-media.json",
     "referenceAnnotations": "data/reference-annotations.jsonl",
     "imageAnnotationSchema": "data/image-annotation-schema.json",
     "splitPolicy": "data/split-policy.json",
     "releaseReadiness": "data/release-readiness.json",
-    "publicDatasetRegistry": "data/public-dataset-registry.json"
+    "publicDatasetRegistry": "data/public-dataset-registry.json",
+    "trainingEligibleMedia": "data/training-eligible-media.json",
+    "exportManifest": "data/export-manifest.json"
   },
   "canonicalDetailedSources": [
-    "src/data/issues.ts",
-    "src/data/supplemental-issues.ts"
+    {
+      "path": "src/data/issues.ts",
+      "blobSha": "3df7062943fc9cc67a777569df9967aaf1d77823",
+      "profileCount": 29
+    },
+    {
+      "path": "src/data/supplemental-issues.ts",
+      "blobSha": "808754ce302a85123bd412717c70b3a7e91be5fa",
+      "profileCount": 6
+    }
   ],
+  "generatedReleaseCommit": "a51747d52068b6d64bed16e3df6adf7a4e400e93",
   "tooling": {
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
     "validateCommand": "npm run validate:data-release",
     "workflow": ".github/workflows/export-machine-data.yml"
   },
+  "verificationStatus": {
+    "passesRequired": 3,
+    "passesCompleted": 3,
+    "result": "passed",
+    "statusFile": "data/profile-materialization-status.json"
+  },
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
-    "typescriptSources": "Canonical detailed application records until all 35 standalone JSON profiles are materialized and validated.",
-    "curatedVsGenerated": "Curated reference-media.json and manifest.json must never be overwritten by generated application exports. Generated media and export metadata use separate filenames."
-  },
-  "materialization": {
-    "verifiedCount": 6,
-    "targetCount": 35,
-    "sourceBlobSha": "808754ce302a85123bd412717c70b3a7e91be5fa",
-    "verifiedIds": [
-      "pest-cannabis-aphid",
-      "pest-fungus-gnats",
-      "pest-rice-root-aphid",
-      "root-fusarium-crown-rot",
-      "stress-drought-water-deficit",
-      "stress-salinity-high-ec"
-    ],
-    "statusFile": "data/profile-materialization-status.json"
+    "typescriptSources": "Canonical authored records; deterministic exporter materializes all 35 as standalone JSON plus aggregate JSON, JSONL, and CSV.",
+    "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports."
   },
   "limitations": [
-    "Six of 35 detailed diagnostic records are now verified as standalone JSON files; 29 still require materialization before the detailed release is complete.",
-    "Reference-media entries contain provenance and rights metadata; image binaries are not yet stored as a local model-training corpus.",
+    "The structured diagnostic knowledge layer is fully materialized at 35 of 35 profiles.",
+    "No image binary is currently stored persistently in the repository; reference media are still represented by URLs, hashes, rights, and annotations.",
     "No current reference image is marked trainingEligible. Scientific composites require panel-level crops, labels, source grouping, and leakage-safe split assignment first.",
     "Copyright-restricted institutional images remain excluded from the public training layer.",
-    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth.",
-    "GitHub push automation has not yet produced a verifiable generated export commit, so automation is not treated as completed evidence."
+    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
   ],
   "nextReleaseGate": {
     "required": [
-      "materialize and read-back verify the remaining 29 detailed diagnostic profiles",
-      "produce diagnostic-profiles.json, JSONL, CSV, sources.json and per-profile index using the hardened exporter",
-      "download and hash rights-cleared original image binaries",
+      "persist rights-cleared original reference image binaries and a binary manifest",
       "crop and annotate scientific composite panels",
-      "create Cannabis-only train validation test manifests",
+      "create Cannabis-only train validation test manifests after training-eligible samples exist",
       "add healthy Cannabis controls and look-alike negatives",
-      "run duplicate and provenance audit before any accuracy claim"
+      "run duplicate and provenance audit before any model-accuracy claim"
     ]
   }
 }
