@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import ts from 'typescript'
+import * as ts from 'typescript'
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
 // IMPORTANT: generated files never overwrite manually reviewed reference-media.json
