@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.2.0",
-  "releaseStatus": "verified-structured-diagnostic-reference-release",
+  "schemaVersion": "2.3.0",
+  "releaseStatus": "verified-structured-diagnostic-reference-release-complete",
   "diagnosticProfileCount": 35,
   "standaloneDetailedProfileCount": 35,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -10,11 +10,11 @@
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
   "referenceCandidateCount": 25,
-  "localReferenceImageBinaryCount": 15,
-  "referenceUnavailableCount": 10,
+  "localReferenceImageBinaryCount": 25,
+  "referenceUnavailableCount": 0,
   "referencePanelCropCount": 12,
   "referencePanelCropSourceGroupCount": 3,
-  "totalPersistedReferenceImageFiles": 27,
+  "totalPersistedReferenceImageFiles": 37,
   "trainingEligibleMediaCount": 0,
   "supervisedTrainingReady": false,
   "files": {
@@ -57,54 +57,67 @@
     }
   ],
   "generatedReleaseCommit": "a51747d52068b6d64bed16e3df6adf7a4e400e93",
+  "referenceArtifactVerification": {
+    "sourceWorkflowRun": 32080877843,
+    "artifactId": 9305073118,
+    "artifactZipSha256": "0da03e15ffde7c7dd8fbe6c53fcd18e2cee1b393c0f01d0007b5538c63ed8b77",
+    "restoredRecordCount": 25,
+    "unavailableCount": 0,
+    "policy": "The persisted 25-image original corpus was restored from the already verified PR artifact and every file SHA-256 was recomputed before commit."
+  },
   "tooling": {
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
     "validateCommand": "npm run validate:data-release",
     "referenceBinaryScript": "scripts/persist-open-reference-media.py",
+    "referenceRecoveryScript": "scripts/recover-reference-media.py",
     "referenceCropBuilder": "scripts/build-reference-crops.py",
     "profileWorkflow": ".github/workflows/export-machine-data.yml",
     "referenceBinaryWorkflow": ".github/workflows/persist-open-reference-media.yml",
-    "referenceCropWorkflow": ".github/workflows/build-reference-crops.yml"
+    "referenceArtifactRestoreWorkflow": ".github/workflows/restore-verified-reference-artifact.yml",
+    "referenceCropWorkflow": ".github/workflows/build-reference-crops.yml",
+    "continuousReleaseValidationWorkflow": ".github/workflows/validate-data-release.yml"
   },
   "verificationStatus": {
     "profileDataPassesRequired": 3,
     "profileDataPassesCompleted": 3,
     "profileDataResult": "passed",
     "statusFile": "data/profile-materialization-status.json",
-    "referenceBinaryResult": "validated-hashed-persisted-with-unavailable-tracking",
-    "referenceBinaryCount": 15,
-    "referenceUnavailableCount": 10,
+    "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
+    "referenceBinaryCount": 25,
+    "referenceUnavailableCount": 0,
     "referenceCropResult": "validated-hashed-persisted",
     "referenceCropCount": 12,
     "referenceCropSourceGroups": 3,
-    "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for persisted originals and crops"
+    "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
   },
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
     "typescriptSources": "Canonical authored records; deterministic exporter materializes all 35 as standalone JSON plus aggregate JSON, JSONL, and CSV.",
-    "referenceBinaries": "Rights-cleared originals are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, source provenance, and unavailable-source tracking.",
+    "referenceBinaries": "All 25 currently approved rights-cleared original references are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, and source provenance.",
     "referenceCrops": "Reviewed panel derivatives are persisted under images/reference/crops with exact pixel bounds, parent/source-group linkage, hashes, diagnostic reference labels, and trainingEligible=false.",
     "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports.",
     "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate, and coverage requirements."
   },
   "limitations": [
     "The structured diagnostic knowledge layer is fully materialized at 35 of 35 profiles.",
-    "Fifteen rights-cleared reference originals and twelve reviewed panel crops are stored persistently; these are a reference corpus, not a sufficient supervised training corpus.",
-    "Ten otherwise approved reference candidates are currently unavailable from their publisher endpoints and are explicitly recorded rather than silently omitted.",
+    "All 25 currently approved rights-cleared reference originals and 12 reviewed panel crops are stored persistently, for 37 source-controlled reference image files.",
     "No current sample is marked trainingEligible, so Cannabis-only train/validation/test/holdout splits remain intentionally empty and blocked.",
-    "Copyright-restricted institutional images remain excluded from the public training layer.",
+    "The reference corpus is evidence and visual context, not yet a statistically sufficient supervised Cannabis training corpus.",
+    "Copyright-restricted or rights-unknown institutional images remain excluded from the public training layer.",
     "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
   ],
   "nextReleaseGate": {
     "completed": [
       "materialize all 35 detailed diagnostic profiles",
       "produce aggregate JSON, JSONL, CSV, sources and per-profile index",
-      "persist and hash verified rights-cleared original reference image binaries",
-      "create and hash the first reviewed panel-level reference crops",
+      "persist all 25 currently approved rights-cleared original reference images",
+      "recover publisher-blocked MDPI and Springer references through verified official fallback assets",
+      "create and hash the first 12 reviewed panel-level reference crops",
       "create fail-closed supervised-training readiness and empty Cannabis split manifests",
-      "add byte-level SHA-256 verification for persisted originals and crops"
+      "add byte-level SHA-256 verification for persisted originals and crops",
+      "triple-verify the structured profile layer and clean-room verify the image/reference layer"
     ],
     "required": [
       "expand panel crops and annotations across remaining usable composite figures",
