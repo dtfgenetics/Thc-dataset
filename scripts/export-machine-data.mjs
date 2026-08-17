@@ -1,7 +1,10 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { createRequire } from 'node:module'
 import { pathToFileURL } from 'node:url'
-import * as ts from 'typescript'
+
+const require = createRequire(import.meta.url)
+const ts = require('typescript')
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
 // IMPORTANT: generated files never overwrite manually reviewed reference-media.json
