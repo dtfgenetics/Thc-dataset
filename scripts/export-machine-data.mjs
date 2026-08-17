@@ -146,7 +146,7 @@ try {
   await fs.writeFile(path.join(profilesDir, 'index.json'), stableJson({ schemaVersion: '1.0.0', recordCount: profileIndex.length, records: profileIndex }), 'utf8')
 
   const exportManifest = {
-    schemaVersion: '2.1.0',
+    schemaVersion: '2.0.0',
     deterministic: true,
     compiler: 'project tsc CLI',
     sourceFiles: ['src/data/issues.ts', 'src/data/supplemental-issues.ts'],
