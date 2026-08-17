@@ -1,0 +1,36 @@
+id,slug,name,category,recordType,sourceFile
+nut-def-n,nitrogen-deficiency,Nitrogen deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-p,phosphorus-deficiency,Phosphorus deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-ca,calcium-deficiency,Calcium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-fe,iron-deficiency,Iron deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-zn,zinc-deficiency,Zinc deficiency / low-zinc treatment response,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-s,sulfur-deficiency,Sulfur deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-mn,manganese-deficiency,Manganese deficiency / low-manganese treatment response,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-cu,copper-deficiency,Copper deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-mg,magnesium-deficiency,Magnesium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-def-k,potassium-deficiency,Potassium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
+nut-tox-n,nitrogen-toxicity,Nitrogen toxicity,Nutrient toxicity,diagnostic-profile,src/data/issues.ts
+nut-tox-b,boron-toxicity,Boron toxicity,Nutrient toxicity,diagnostic-profile,src/data/issues.ts
+mite-spider,two-spotted-spider-mites,Two-spotted spider mites,Mite,diagnostic-profile,src/data/issues.ts
+mite-hemp-russet,hemp-russet-mite,Hemp russet mite,Mite,diagnostic-profile,src/data/issues.ts
+mite-broad,broad-mite,Broad mite,Mite,diagnostic-profile,src/data/issues.ts
+insect-thrips,thrips,Thrips feeding injury,Insect,diagnostic-profile,src/data/issues.ts
+fungal-pm,powdery-mildew,Powdery mildew,Fungal pathogen,diagnostic-profile,src/data/issues.ts
+fungal-botrytis-bud-rot,botrytis-gray-mold-bud-rot,Botrytis gray mold and bud rot,Fungal pathogen,diagnostic-profile,src/data/issues.ts
+bacterial-xanthomonas-leaf-spot,xanthomonas-bacterial-leaf-spot,Xanthomonas bacterial leaf spot,Bacterial pathogen,diagnostic-profile,src/data/issues.ts
+root-pythium,pythium-root-rot,Pythium root rot,Root pathogen,diagnostic-profile,src/data/issues.ts
+virus-bctv,beet-curly-top-virus,Beet curly top virus disease,Virus,diagnostic-profile,src/data/issues.ts
+phytoplasma-hemp-witches-broom,hemp-witches-broom-phytoplasma,Hemp witches’ broom (phytoplasma-associated),Phytoplasma / Spiroplasma,diagnostic-profile,src/data/issues.ts
+viroid-hplvd,hop-latent-viroid,Hop latent viroid,Viroid,diagnostic-profile,src/data/issues.ts
+gen-variegation,genetic-variegation,Stable chlorotic sectoring / suspected genetic variegation,Genetic / developmental,diagnostic-profile,src/data/issues.ts
+env-heat,heat-light-stress,High-temperature or high-light exposure,Environmental stress,diagnostic-profile,src/data/issues.ts
+water-over,overwatering-root-hypoxia,Waterlogging or root-zone hypoxia,Water / root-zone,diagnostic-profile,src/data/issues.ts
+root-ph-extreme,acidic-extreme-substrate-ph-stress,Acidic or extreme substrate-pH root stress,Water / root-zone,diagnostic-profile,src/data/issues.ts
+normal-sex-expression,cannabis-reproductive-sex-expression,Cannabis reproductive sex expression,Normal development,diagnostic-profile,src/data/issues.ts
+normal-fade,normal-late-flower-fade,Late-cycle leaf aging / senescence context,Normal development,diagnostic-profile,src/data/issues.ts
+pest-cannabis-aphid,cannabis-aphid,Cannabis aphid,Insect,diagnostic-profile,src/data/supplemental-issues.ts
+pest-rice-root-aphid,rice-root-aphid,Rice root aphid on cannabis,Insect,diagnostic-profile,src/data/supplemental-issues.ts
+pest-fungus-gnats,fungus-gnats-root-feeding,Fungus gnats / root-feeding Bradysia larvae,Insect,diagnostic-profile,src/data/supplemental-issues.ts
+root-fusarium-crown-rot,fusarium-crown-root-rot,Fusarium crown and root rot / wilt complex,Root pathogen,diagnostic-profile,src/data/supplemental-issues.ts
+stress-salinity-high-ec,salinity-high-ec-stress,Salinity / elevated root-zone EC stress,Water / root-zone,diagnostic-profile,src/data/supplemental-issues.ts
+stress-drought-water-deficit,drought-water-deficit-stress,Drought / water-deficit stress,Water / root-zone,diagnostic-profile,src/data/supplemental-issues.ts
