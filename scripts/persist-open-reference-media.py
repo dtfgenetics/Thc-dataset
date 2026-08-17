@@ -4,6 +4,7 @@ import json
 import mimetypes
 import pathlib
 import re
+import urllib.error
 import urllib.parse
 import urllib.request
 from PIL import Image
@@ -67,6 +68,7 @@ def normalize_explicit_candidate(item, source_file):
     return {
         **item,
         'origin_registry': str(source_file),
+        'required_fetch': True,
         'expected_sha256': None,
         'expected_perceptual_hash': None,
         'expected_width': None,
@@ -110,6 +112,7 @@ def normalize_profile_media(item):
         'stage': item.get('stage'),
         'severity': item.get('severity'),
         'origin_registry': str(PROFILE_MEDIA_PATH),
+        'required_fetch': False,
         'expected_sha256': item.get('sha256'),
         'expected_perceptual_hash': item.get('perceptualHash'),
         'expected_width': item.get('width'),
@@ -119,7 +122,6 @@ def normalize_profile_media(item):
 
 def load_candidates():
     by_id = {}
-
     if PROFILE_MEDIA_PATH.is_file():
         profile_media = json.loads(PROFILE_MEDIA_PATH.read_text(encoding='utf-8'))
         if not isinstance(profile_media, list):
@@ -141,7 +143,6 @@ def load_candidates():
             normalized = normalize_explicit_candidate(item, source_file)
             if not normalized.get('id'):
                 raise SystemExit(f'{source_file}: candidate missing id')
-            # Explicit acquisition records override generated profile-media records.
             by_id[normalized['id']] = normalized
 
     if not by_id:
@@ -149,12 +150,42 @@ def load_candidates():
     return [by_id[key] for key in sorted(by_id)]
 
 
+def unavailable_record(candidate, reason, http_status=None, preserved=False):
+    return {
+        'id': candidate.get('id'),
+        'issue_slug': candidate.get('issue_slug'),
+        'source_image_url': candidate.get('image_url'),
+        'source_article': candidate.get('source_article'),
+        'license': candidate.get('license'),
+        'origin_registry': candidate.get('origin_registry'),
+        'required_fetch': bool(candidate.get('required_fetch')),
+        'reason': reason,
+        'http_status': http_status,
+        'previous_local_copy_preserved': preserved,
+        'trainingEligible': False,
+    }
+
+
+def preserve_previous(candidate, previous, results):
+    baseline = previous.get(candidate['id'])
+    if not baseline:
+        return False
+    repository_path = baseline.get('repository_path')
+    if not repository_path or not pathlib.Path(repository_path).is_file():
+        return False
+    preserved = dict(baseline)
+    preserved['verification_status'] = 'previously-persisted-remote-temporarily-unavailable'
+    preserved['trainingEligible'] = False
+    results.append(preserved)
+    return True
+
+
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     candidates = load_candidates()
     previous = existing_baseline()
     results = []
-    expected_files = set()
+    unavailable = []
 
     for candidate in candidates:
         required = ['id', 'issue_slug', 'image_url', 'source_article', 'caption', 'creator', 'license', 'intended_use']
@@ -170,25 +201,40 @@ def main():
         if parsed.scheme != 'https' or parsed.hostname not in ALLOWED_HOSTS:
             raise SystemExit(f"{candidate['id']}: non-allowlisted host {parsed.hostname}")
 
+        print(f"FETCH {candidate['id']} {candidate['image_url']}")
         request = urllib.request.Request(candidate['image_url'], headers={
-            'User-Agent': 'DTF-THC-Dataset-Reference-Persistence/1.2 (+https://github.com/dtfgenetics/Thc-dataset)',
+            'User-Agent': 'DTF-THC-Dataset-Reference-Persistence/1.3 (+https://github.com/dtfgenetics/Thc-dataset)',
             'Accept': 'image/*',
             'Cache-Control': 'no-cache',
         })
-        with urllib.request.urlopen(request, timeout=45) as response:
-            content_type = response.headers.get_content_type()
-            if not content_type.startswith('image/'):
-                raise SystemExit(f"{candidate['id']}: non-image content type {content_type}")
-            data = response.read(MAX_BYTES + 1)
-            final_url = response.geturl()
-        if not data or len(data) > MAX_BYTES:
-            raise SystemExit(f"{candidate['id']}: invalid image byte size {len(data)}")
+        try:
+            with urllib.request.urlopen(request, timeout=45) as response:
+                content_type = response.headers.get_content_type()
+                if not content_type.startswith('image/'):
+                    raise ValueError(f'non-image content type {content_type}')
+                data = response.read(MAX_BYTES + 1)
+                final_url = response.geturl()
+            if not data or len(data) > MAX_BYTES:
+                raise ValueError(f'invalid image byte size {len(data)}')
+        except urllib.error.HTTPError as exc:
+            if candidate.get('required_fetch'):
+                raise SystemExit(f"{candidate['id']}: required image fetch failed HTTP {exc.code}")
+            preserved = preserve_previous(candidate, previous, results)
+            unavailable.append(unavailable_record(candidate, f'HTTP {exc.code}: {exc.reason}', exc.code, preserved))
+            print(f"UNAVAILABLE {candidate['id']} HTTP {exc.code} preserved={preserved}")
+            continue
+        except (urllib.error.URLError, TimeoutError, ValueError) as exc:
+            if candidate.get('required_fetch'):
+                raise SystemExit(f"{candidate['id']}: required image fetch failed: {exc}")
+            preserved = preserve_previous(candidate, previous, results)
+            unavailable.append(unavailable_record(candidate, str(exc), None, preserved))
+            print(f"UNAVAILABLE {candidate['id']} {exc} preserved={preserved}")
+            continue
 
         safe_id = re.sub(r'[^A-Za-z0-9._-]+', '-', candidate['id']).strip('-')
         ext = extension_for(content_type, final_url)
         output_path = OUTPUT_DIR / f'{safe_id}{ext}'
         output_path.write_bytes(data)
-        expected_files.add(output_path.name)
 
         try:
             with Image.open(output_path) as image:
@@ -199,7 +245,12 @@ def main():
                 perceptual_hash = dhash64(image)
         except Exception as exc:
             output_path.unlink(missing_ok=True)
-            raise SystemExit(f"{candidate['id']}: invalid image payload: {exc}")
+            if candidate.get('required_fetch'):
+                raise SystemExit(f"{candidate['id']}: required image payload invalid: {exc}")
+            preserved = preserve_previous(candidate, previous, results)
+            unavailable.append(unavailable_record(candidate, f'invalid image payload: {exc}', None, preserved))
+            print(f"UNAVAILABLE {candidate['id']} invalid-image preserved={preserved}")
+            continue
 
         sha256 = hashlib.sha256(data).hexdigest()
         baseline = previous.get(candidate['id'])
@@ -213,10 +264,16 @@ def main():
             if expected_phash and perceptual_hash == expected_phash and dimensions_match:
                 drift_status = 'publisher-byte-reencoding-visual-stable'
             else:
-                raise SystemExit(
-                    f"{candidate['id']}: publisher visual drift detected; old sha={expected_sha} new sha={sha256} "
-                    f"old phash={expected_phash} new phash={perceptual_hash} old dims={(expected_width, expected_height)} new dims={(width, height)}"
-                )
+                output_path.unlink(missing_ok=True)
+                if candidate.get('required_fetch'):
+                    raise SystemExit(
+                        f"{candidate['id']}: required publisher visual drift; old sha={expected_sha} new sha={sha256} "
+                        f"old phash={expected_phash} new phash={perceptual_hash} old dims={(expected_width, expected_height)} new dims={(width, height)}"
+                    )
+                preserved = preserve_previous(candidate, previous, results)
+                unavailable.append(unavailable_record(candidate, 'publisher visual drift requires human review', None, preserved))
+                print(f"UNAVAILABLE {candidate['id']} visual-drift preserved={preserved}")
+                continue
 
         results.append({
             'id': candidate['id'],
@@ -253,22 +310,25 @@ def main():
         })
         print(f"PERSISTED {candidate['id']} {width}x{height} {len(data)} bytes sha256={sha256} {drift_status}")
 
-    for existing in OUTPUT_DIR.iterdir():
-        if existing.is_file() and existing.name not in expected_files:
-            existing.unlink()
-
+    # Never delete existing binaries merely because an upstream publisher is temporarily unavailable.
+    # Orphan cleanup is a separate explicit review action.
+    records_by_id = {row['id']: row for row in results}
     manifest = {
-        'schemaVersion': '1.1.0',
-        'status': 'reference-only-persisted',
-        'recordCount': len(results),
+        'schemaVersion': '1.2.0',
+        'status': 'reference-only-persisted-with-unavailable-tracking',
+        'candidateCount': len(candidates),
+        'recordCount': len(records_by_id),
+        'unavailableCount': len(unavailable),
         'trainingEligibleCount': 0,
-        'originRegistryCount': len({row.get('origin_registry') for row in results}),
-        'policy': 'These binaries are rights-cleared reference evidence only. Persistence does not make a full figure or composite model-training eligible.',
-        'records': sorted(results, key=lambda item: item['id']),
+        'originRegistryCount': len({row.get('origin_registry') for row in records_by_id.values()}),
+        'policy': 'These binaries are rights-cleared reference evidence only. Optional publisher outages are recorded and do not erase previously verified local copies. Persistence never makes a full figure or composite model-training eligible.',
+        'records': sorted(records_by_id.values(), key=lambda item: item['id']),
+        'unavailable': sorted(unavailable, key=lambda item: item['id']),
     }
     MANIFEST_PATH.parent.mkdir(parents=True, exist_ok=True)
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
-    print(f'REFERENCE_BINARY_COUNT={len(results)}')
+    print(f"REFERENCE_BINARY_COUNT={len(records_by_id)}")
+    print(f"REFERENCE_UNAVAILABLE_COUNT={len(unavailable)}")
 
 
 if __name__ == '__main__':
