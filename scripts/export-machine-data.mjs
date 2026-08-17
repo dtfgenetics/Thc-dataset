@@ -1,15 +1,15 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { createRequire } from 'node:module'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
 import { pathToFileURL } from 'node:url'
 
-const require = createRequire(import.meta.url)
-const ts = require('typescript')
+const execFileAsync = promisify(execFile)
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
-// IMPORTANT: generated files never overwrite manually reviewed reference-media.json
-// or manifest.json. Curated review metadata and generated application data are kept
-// as separate layers and are cross-checked by validate-data-release.mjs.
+// The project TypeScript CLI performs source compilation. This avoids relying on
+// unstable runtime exports from the TypeScript package itself.
+// Generated files never overwrite manually reviewed reference-media.json or manifest.json.
 
 const root = process.cwd()
 const outDir = path.join(root, 'data')
@@ -27,20 +27,27 @@ await fs.mkdir(outDir, { recursive: true })
 await fs.rm(tempDir, { recursive: true, force: true })
 await fs.mkdir(tempDir, { recursive: true })
 
-async function loadTsModule(sourcePath, tempName) {
-  const source = await fs.readFile(path.join(root, sourcePath), 'utf8')
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: {
-      target: ts.ScriptTarget.ES2022,
-      module: ts.ModuleKind.ES2022,
-      importsNotUsedAsValues: ts.ImportsNotUsedAsValues.Remove,
-    },
-    fileName: sourcePath,
-  }).outputText
+async function compileCanonicalSources() {
+  const args = [
+    '--no-install', 'tsc',
+    'src/data/issues.ts',
+    'src/data/supplemental-issues.ts',
+    '--target', 'ES2022',
+    '--module', 'ES2022',
+    '--moduleResolution', 'Bundler',
+    '--rootDir', 'src',
+    '--outDir', tempDir,
+    '--skipLibCheck',
+    '--declaration', 'false',
+    '--sourceMap', 'false',
+    '--noEmitOnError', 'true',
+  ]
+  await execFileAsync('npx', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
+}
 
-  const tempPath = path.join(tempDir, tempName)
-  await fs.writeFile(tempPath, compiled, 'utf8')
-  return import(`${pathToFileURL(tempPath).href}?v=${Date.now()}`)
+async function loadCompiledModule(relativePath) {
+  const compiledPath = path.join(tempDir, relativePath)
+  return import(`${pathToFileURL(compiledPath).href}?v=${Date.now()}`)
 }
 
 function stableJson(value) {
@@ -57,8 +64,9 @@ function canonicalKey(value) {
 }
 
 try {
-  const mainModule = await loadTsModule('src/data/issues.ts', 'issues.mjs')
-  const supplementalModule = await loadTsModule('src/data/supplemental-issues.ts', 'supplemental-issues.mjs')
+  await compileCanonicalSources()
+  const mainModule = await loadCompiledModule('data/issues.js')
+  const supplementalModule = await loadCompiledModule('data/supplemental-issues.js')
 
   const primaryIssues = Array.isArray(mainModule.issues) ? mainModule.issues : []
   const supplementalIssues = Array.isArray(supplementalModule.supplementalIssues) ? supplementalModule.supplementalIssues : []
@@ -69,25 +77,15 @@ try {
     throw new Error(`Expected at least ${minimumExpectedProfiles} diagnostic profiles, found ${diagnosticProfiles.length}. Refusing partial export.`)
   }
 
-  const duplicateIds = diagnosticProfiles
-    .map((item) => item.id)
-    .filter((id, index, all) => all.indexOf(id) !== index)
-  if (duplicateIds.length) {
-    throw new Error(`Duplicate diagnostic profile ids: ${[...new Set(duplicateIds)].join(', ')}`)
-  }
+  const duplicateIds = diagnosticProfiles.map((item) => item.id).filter((id, index, all) => all.indexOf(id) !== index)
+  if (duplicateIds.length) throw new Error(`Duplicate diagnostic profile ids: ${[...new Set(duplicateIds)].join(', ')}`)
 
-  const duplicateSlugs = diagnosticProfiles
-    .map((item) => item.slug)
-    .filter((slug, index, all) => all.indexOf(slug) !== index)
-  if (duplicateSlugs.length) {
-    throw new Error(`Duplicate diagnostic profile slugs: ${[...new Set(duplicateSlugs)].join(', ')}`)
-  }
+  const duplicateSlugs = diagnosticProfiles.map((item) => item.slug).filter((slug, index, all) => all.indexOf(slug) !== index)
+  if (duplicateSlugs.length) throw new Error(`Duplicate diagnostic profile slugs: ${[...new Set(duplicateSlugs)].join(', ')}`)
 
   for (const profile of diagnosticProfiles) {
     const missing = requiredProfileFields.filter((field) => profile[field] == null)
-    if (missing.length) {
-      throw new Error(`${profile.id || '<missing-id>'}: missing required fields ${missing.join(', ')}`)
-    }
+    if (missing.length) throw new Error(`${profile.id || '<missing-id>'}: missing required fields ${missing.join(', ')}`)
     for (const field of ['affectedParts','stages','indicators','exclusions','progression','lookAlikes','confirmation','immediateActions','correctivePlan','prevention','warnings','sources','media']) {
       if (!Array.isArray(profile[field])) throw new Error(`${profile.id}: ${field} must be an array`)
     }
@@ -99,36 +97,22 @@ try {
     for (const source of issue.sources ?? []) {
       const key = source.doi || source.url || `${source.title}|${source.organization || ''}`
       const previous = sourceMap.get(key)
-      if (previous && canonicalKey(previous) !== canonicalKey(source)) {
-        throw new Error(`Conflicting source metadata for ${key}`)
-      }
+      if (previous && canonicalKey(previous) !== canonicalKey(source)) throw new Error(`Conflicting source metadata for ${key}`)
       if (!previous) sourceMap.set(key, source)
     }
 
     for (const media of issue.media ?? []) {
       if (!media.id) throw new Error(`${issue.id}: media record is missing id`)
-      const enriched = {
-        ...media,
-        issueId: issue.id,
-        issueSlug: issue.slug,
-        issueName: issue.name,
-        issueCategory: issue.category,
-      }
+      const enriched = { ...media, issueId: issue.id, issueSlug: issue.slug, issueName: issue.name, issueCategory: issue.category }
       const previous = mediaMap.get(media.id)
-      if (previous && canonicalKey(previous) !== canonicalKey(enriched)) {
-        throw new Error(`Conflicting media metadata for ${media.id}`)
-      }
+      if (previous && canonicalKey(previous) !== canonicalKey(enriched)) throw new Error(`Conflicting media metadata for ${media.id}`)
       if (!previous) mediaMap.set(media.id, enriched)
     }
   }
 
-  const sources = [...sourceMap.entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([sourceKey, source]) => ({ sourceKey, ...source }))
+  const sources = [...sourceMap.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([sourceKey, source]) => ({ sourceKey, ...source }))
   const profileReferenceMedia = [...mediaMap.values()].sort((a, b) => String(a.id).localeCompare(String(b.id)))
-  const trainingEligibleMedia = profileReferenceMedia.filter(
-    (item) => item.trainingEligible === true && item.trainingPermission === 'permitted'
-  )
+  const trainingEligibleMedia = profileReferenceMedia.filter((item) => item.trainingEligible === true && item.trainingPermission === 'permitted')
 
   const profileIndex = diagnosticProfiles.map((profile) => ({
     id: profile.id,
@@ -142,54 +126,28 @@ try {
     path: `data/profiles/${profile.id}.json`,
   }))
 
-  const csvHeaders = [
-    'id','slug','name','scientificName','category','severity','reviewStatus','summary',
-    'affectedParts','stages','indicators','exclusions','lookAlikes','confirmation',
-    'immediateActions','correctivePlan','prevention','warnings','sourceCount','mediaCount'
-  ]
-
+  const csvHeaders = ['id','slug','name','scientificName','category','severity','reviewStatus','summary','affectedParts','stages','indicators','exclusions','lookAlikes','confirmation','immediateActions','correctivePlan','prevention','warnings','sourceCount','mediaCount']
   const csvRows = diagnosticProfiles.map((issue) => {
     const row = {
-      id: issue.id,
-      slug: issue.slug,
-      name: issue.name,
-      scientificName: issue.scientificName ?? '',
-      category: issue.category,
-      severity: issue.severity,
-      reviewStatus: issue.reviewStatus,
-      summary: issue.summary,
-      affectedParts: issue.affectedParts.join(' | '),
-      stages: issue.stages.join(' | '),
-      indicators: issue.indicators.join(' | '),
-      exclusions: issue.exclusions.join(' | '),
-      lookAlikes: issue.lookAlikes.join(' | '),
-      confirmation: issue.confirmation.join(' | '),
-      immediateActions: issue.immediateActions.join(' | '),
-      correctivePlan: issue.correctivePlan.join(' | '),
-      prevention: issue.prevention.join(' | '),
-      warnings: issue.warnings.join(' | '),
-      sourceCount: issue.sources.length,
-      mediaCount: issue.media.length,
+      id: issue.id, slug: issue.slug, name: issue.name, scientificName: issue.scientificName ?? '', category: issue.category,
+      severity: issue.severity, reviewStatus: issue.reviewStatus, summary: issue.summary,
+      affectedParts: issue.affectedParts.join(' | '), stages: issue.stages.join(' | '), indicators: issue.indicators.join(' | '),
+      exclusions: issue.exclusions.join(' | '), lookAlikes: issue.lookAlikes.join(' | '), confirmation: issue.confirmation.join(' | '),
+      immediateActions: issue.immediateActions.join(' | '), correctivePlan: issue.correctivePlan.join(' | '), prevention: issue.prevention.join(' | '),
+      warnings: issue.warnings.join(' | '), sourceCount: issue.sources.length, mediaCount: issue.media.length,
     }
     return csvHeaders.map((key) => csvCell(row[key])).join(',')
   })
 
-  // Recreate this directory so deleted/renamed source profiles cannot leave stale files.
   await fs.rm(profilesDir, { recursive: true, force: true })
   await fs.mkdir(profilesDir, { recursive: true })
-
-  for (const profile of diagnosticProfiles) {
-    await fs.writeFile(path.join(profilesDir, `${profile.id}.json`), stableJson(profile), 'utf8')
-  }
-  await fs.writeFile(path.join(profilesDir, 'index.json'), stableJson({
-    schemaVersion: '1.0.0',
-    recordCount: profileIndex.length,
-    records: profileIndex,
-  }), 'utf8')
+  for (const profile of diagnosticProfiles) await fs.writeFile(path.join(profilesDir, `${profile.id}.json`), stableJson(profile), 'utf8')
+  await fs.writeFile(path.join(profilesDir, 'index.json'), stableJson({ schemaVersion: '1.0.0', recordCount: profileIndex.length, records: profileIndex }), 'utf8')
 
   const exportManifest = {
-    schemaVersion: '2.0.0',
+    schemaVersion: '2.1.0',
     deterministic: true,
+    compiler: 'project tsc CLI',
     sourceFiles: ['src/data/issues.ts', 'src/data/supplemental-issues.ts'],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
