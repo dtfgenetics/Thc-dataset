@@ -1,0 +1,70 @@
+name: Build verified reference panel crops
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'images/reference/manifest.json'
+      - 'data/reference-crop-spec.json'
+      - 'scripts/build-reference-crops.py'
+      - '.github/workflows/build-reference-crops.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'images/reference/manifest.json'
+      - 'data/reference-crop-spec.json'
+      - 'scripts/build-reference-crops.py'
+      - '.github/workflows/build-reference-crops.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-reference-crops-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build-crops:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Generate validate and hash reference panel crops
+        run: python scripts/build-reference-crops.py
+
+      - name: Show crop changes
+        run: git status --short images/reference/crops images/reference/crops-manifest.json
+
+      - name: Commit validated crops
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          git add images/reference/crops images/reference/crops-manifest.json
+          if git diff --cached --quiet -- images/reference/crops images/reference/crops-manifest.json; then
+            echo 'Reference crops already current.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Generate verified reference panel crops'
+          git push origin main
+
+      - name: Upload crop evidence artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: verified-reference-panel-crops
+          path: |
+            images/reference/crops/
+            images/reference/crops-manifest.json
+          if-no-files-found: error
+          retention-days: 30
