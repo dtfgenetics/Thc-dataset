@@ -70,3 +70,5 @@ jobs:
           git add data
           git commit -m 'Generate validated machine-readable dataset exports'
           git push origin HEAD:${{ github.head_ref || github.ref_name }}
+
+# PR verification trigger: full export + validator must pass before merge.
