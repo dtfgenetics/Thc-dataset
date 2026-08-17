@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "blocked-reference-corpus-only",
+  "readyForSupervisedCannabisDiagnosisTraining": false,
+  "knowledgeLayer": {
+    "diagnosticProfiles": 35,
+    "materializedProfiles": 35,
+    "evidenceSources": 58,
+    "status": "complete-for-current-taxonomy"
+  },
+  "visionLayer": {
+    "referenceOriginalManifest": "images/reference/manifest.json",
+    "referenceCropManifest": "images/reference/crops-manifest.json",
+    "trainingEligibleManifest": "data/training-eligible-media.json",
+    "trainingEligibleSamples": 0,
+    "referenceOnlyPolicy": "No sample under images/reference/original or images/reference/crops may enter a supervised training split unless a reviewed annotation explicitly changes trainingEligible to true and all source-group/split gates pass."
+  },
+  "minimumUnlockRequirements": {
+    "minimumConfirmedCannabisImagesPerP0Class": 50,
+    "preferredConfirmedCannabisImagesPerP0Class": 150,
+    "minimumIndependentPlantsPerP0Class": 10,
+    "minimumIndependentSourceGroupsPerP0Class": 3,
+    "minimumHealthyCannabisControls": 300,
+    "minimumLookAlikeNegativesPerCoreClass": 25,
+    "minimumVideosPerCoreClass": 10,
+    "requireSourceGroupIsolationAcrossSplits": true,
+    "requireNearDuplicateIsolationAcrossSplits": true,
+    "requireRightsReview": true,
+    "requireHumanDiagnosticReview": true,
+    "requireConfirmationEvidenceAppropriateToDiagnosis": true
+  },
+  "confirmationExamples": {
+    "nutrientDisorder": ["controlled withholding or dose-response evidence", "tissue/root-zone analytical evidence", "documented treatment context"],
+    "miteOrInsect": ["organism visible or expert/microscope identification", "host damage paired with organism evidence where possible"],
+    "fungalOrRootPathogen": ["culture, microscopy, molecular identification, or pathogenicity evidence appropriate to the claim"],
+    "virusViroidPhytoplasma": ["PCR/RT-PCR/sequence or other accepted molecular confirmation"],
+    "abioticStress": ["measured environmental/root-zone exposure linked to the photographed plant"]
+  },
+  "doNotUseAsTrainingGroundTruth": [
+    "whole scientific composites containing multiple labels",
+    "copyright-restricted or rights-unknown images",
+    "symptom-only social-media photographs without confirmation",
+    "same-source panels split across train and evaluation",
+    "cross-crop plant-disease images relabeled as Cannabis",
+    "single photographs used to claim laboratory-dependent diseases"
+  ],
+  "unlockProcedure": [
+    "ingest a rights-cleared sample with full annotation schema",
+    "attach confirmation/evidence and human review",
+    "compute cryptographic and perceptual hashes",
+    "assign sourceGroupId and plant/capture grouping",
+    "run duplicate and leakage checks",
+    "only then set trainingEligible=true",
+    "rebuild splits by source group and rerun readiness validation"
+  ]
+}
