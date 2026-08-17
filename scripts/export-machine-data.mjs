@@ -30,6 +30,7 @@ await fs.mkdir(tempDir, { recursive: true })
 async function compileCanonicalSources() {
   const args = [
     '--no-install', 'tsc',
+    '--ignoreConfig',
     'src/data/issues.ts',
     'src/data/supplemental-issues.ts',
     '--target', 'ES2022',
