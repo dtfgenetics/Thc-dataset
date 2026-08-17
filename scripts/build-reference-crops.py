@@ -5,6 +5,7 @@ import pathlib
 from PIL import Image
 
 SPEC_PATH = pathlib.Path('data/reference-crop-spec.json')
+GRID_SPEC_PATH = pathlib.Path('data/reference-grid-crop-spec.json')
 OUT_DIR = pathlib.Path('images/reference/crops')
 MANIFEST_PATH = pathlib.Path('images/reference/crops-manifest.json')
 
@@ -21,14 +22,63 @@ def dhash64(image: Image.Image) -> str:
     return f'dhash64:{value:016x}'
 
 
+def expand_grid_specs(grid_spec):
+    expanded = []
+    for grid in grid_spec.get('grids', []):
+        xs = grid.get('xBands')
+        ys = grid.get('yBands')
+        columns = grid.get('columns')
+        rows = grid.get('rows')
+        if not all(isinstance(value, list) and value for value in [xs, ys, columns, rows]):
+            raise SystemExit(f"{grid.get('id')}: incomplete grid geometry")
+        if len(xs) != len(columns) or len(ys) != len(rows):
+            raise SystemExit(f"{grid.get('id')}: geometry does not match column/row metadata")
+
+        for ci, column in enumerate(columns):
+            for ri, row in enumerate(rows):
+                crop_id = f"crop-{column['id']}-{row['id']}"
+                x0, x1 = xs[ci]
+                y0, y1 = ys[ri]
+                record = {
+                    'id': crop_id,
+                    'parentId': grid['parentId'],
+                    'parentPath': grid['parentPath'],
+                    'sourceGroupId': grid['sourceGroupId'],
+                    'issueSlug': column['issueSlug'],
+                    'box': [x0, y0, x1, y1],
+                    'label': f"{column['id']}-{row['id']}",
+                    'host': grid['host'],
+                    'view': row.get('view', 'controlled-vegetative-symptom-panel'),
+                    'severity': row.get('severity', 'source-context'),
+                    'confirmation': grid['confirmation'],
+                    'embeddedPanelLabel': False,
+                    'trainingEligible': False,
+                    'reason': grid['reason'],
+                    'gridId': grid['id'],
+                    'columnContext': {key: value for key, value in column.items() if key not in {'id', 'issueSlug'}},
+                    'rowContext': {key: value for key, value in row.items() if key != 'id'},
+                }
+                expanded.append(record)
+    return expanded
+
+
 def main():
     spec = json.loads(SPEC_PATH.read_text(encoding='utf-8'))
-    crops = spec.get('crops')
-    if not isinstance(crops, list) or not crops:
+    manual_crops = spec.get('crops')
+    if not isinstance(manual_crops, list) or not manual_crops:
         raise SystemExit('reference-crop-spec.json must contain a non-empty crops array')
+
+    grid_crops = []
+    grid_policy = None
+    if GRID_SPEC_PATH.is_file():
+        grid_spec = json.loads(GRID_SPEC_PATH.read_text(encoding='utf-8'))
+        grid_crops = expand_grid_specs(grid_spec)
+        grid_policy = grid_spec.get('policy')
+
+    crops = [*manual_crops, *grid_crops]
     ids = [row.get('id') for row in crops]
     if None in ids or len(ids) != len(set(ids)):
-        raise SystemExit('Crop IDs must be present and unique')
+        raise SystemExit('Crop IDs must be present and globally unique')
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     expected = set()
@@ -73,17 +123,23 @@ def main():
         if existing.is_file() and existing.name not in expected:
             existing.unlink()
 
+    policies = [value for value in [spec.get('policy'), grid_policy] if value]
     manifest = {
-        'schemaVersion': '1.0.0',
-        'status': 'reference-only-panel-crops',
+        'schemaVersion': '1.1.0',
+        'status': 'reference-only-panel-crops-expanded',
         'recordCount': len(records),
+        'manualCropCount': len(manual_crops),
+        'gridDerivedCropCount': len(grid_crops),
         'trainingEligibleCount': 0,
         'sourceGroupCount': len({row['sourceGroupId'] for row in records}),
-        'policy': spec.get('policy'),
+        'policy': ' '.join(policies),
         'records': sorted(records, key=lambda item: item['id']),
     }
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     print(f"REFERENCE_CROP_COUNT={len(records)}")
+    print(f"REFERENCE_MANUAL_CROP_COUNT={len(manual_crops)}")
+    print(f"REFERENCE_GRID_CROP_COUNT={len(grid_crops)}")
+    print(f"REFERENCE_CROP_SOURCE_GROUPS={manifest['sourceGroupCount']}")
 
 
 if __name__ == '__main__':
