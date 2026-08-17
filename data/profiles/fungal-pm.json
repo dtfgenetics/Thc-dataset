@@ -1,0 +1,79 @@
+{
+  "id": "fungal-pm",
+  "slug": "powdery-mildew",
+  "name": "Powdery mildew",
+  "category": "Fungal pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A white superficial fungal growth that forms expanding powdery colonies on leaves, stems, petioles, and reproductive tissue.",
+  "affectedParts": [
+    "leaf surface",
+    "stem",
+    "flower"
+  ],
+  "stages": [
+    "all"
+  ],
+  "indicators": [
+    "White powder on leaves",
+    "Patches expand across surfaces",
+    "Powder can transfer when touched"
+  ],
+  "exclusions": [
+    "Residue follows droplet outlines after spraying",
+    "Webbing or insects are visible",
+    "The pale area is inside the tissue and cannot be disturbed"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Small white circular colonies appear."
+    },
+    {
+      "stage": "Moderate",
+      "description": "Colonies merge across leaves and stems."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Tissue yellows or dies and reproductive material may be contaminated."
+    }
+  ],
+  "lookAlikes": [
+    "Foliar spray residue",
+    "Mineral deposits",
+    "Trichomes on floral tissue"
+  ],
+  "confirmation": [
+    "Inspect colony margins with magnification.",
+    "Use a plant diagnostic lab when legal or commercial decisions depend on certainty."
+  ],
+  "immediateActions": [
+    "Isolate affected material and reduce spore movement.",
+    "Stop overhead wetting and review humidity/airflow."
+  ],
+  "correctivePlan": [
+    "Use legal stage-appropriate controls and sanitation.",
+    "Remove heavily affected tissue without dispersing spores."
+  ],
+  "prevention": [
+    "Maintain clean intake material and stable humidity.",
+    "Inspect dense interior canopy zones."
+  ],
+  "warnings": [
+    "Do not consume visibly mold-contaminated material.",
+    "Do not assume every white mark is mildew."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Powdery Mildew Caused by Golovinomyces ambrosiae on Cannabis sativa in North America",
+      "organization": "Plant Disease (Pépin et al.)",
+      "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-01-19-0049-PDN",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Golovinomyces ambrosiae causes powdery mildew on Cannabis sativa and produces superficial white colonies on susceptible tissue."
+      ]
+    }
+  ],
+  "media": []
+}

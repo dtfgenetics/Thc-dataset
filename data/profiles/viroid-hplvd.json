@@ -1,0 +1,80 @@
+{
+  "id": "viroid-hplvd",
+  "slug": "hop-latent-viroid",
+  "name": "Hop latent viroid",
+  "scientificName": "Hop latent viroid (HLVd)",
+  "category": "Viroid",
+  "severity": "critical",
+  "reviewStatus": "reviewed",
+  "summary": "A systemic viroid that may remain asymptomatic or produce stunting, brittle stems, short internodes, weak rooting, and reduced reproductive performance.",
+  "affectedParts": [
+    "whole plant",
+    "stem",
+    "roots",
+    "flower"
+  ],
+  "stages": [
+    "all"
+  ],
+  "indicators": [
+    "Short internodes",
+    "Brittle stems or leaves",
+    "Stunted growth",
+    "Weak flower production"
+  ],
+  "exclusions": [
+    "Symptoms resolve after correcting a measured root-zone problem",
+    "One branch alone is mechanically damaged",
+    "No comparison with a healthy clone exists"
+  ],
+  "progression": [
+    {
+      "stage": "Latent",
+      "description": "Plant may show no reliable visual symptoms."
+    },
+    {
+      "stage": "Expression",
+      "description": "Reduced vigor, short internodes, brittle growth, or poor rooting develops."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Yield and quality decline; secondary stress may intensify."
+    }
+  ],
+  "lookAlikes": [
+    "Genetic dwarfism",
+    "Root disease",
+    "Chronic environmental stress"
+  ],
+  "confirmation": [
+    "Use a validated RT-PCR or equivalent laboratory test.",
+    "Retest representative tissue when timing or sampling may affect detection."
+  ],
+  "immediateActions": [
+    "Quarantine suspect plants and stop sharing tools or propagation material."
+  ],
+  "correctivePlan": [
+    "Base culling and sanitation decisions on validated testing and facility protocol."
+  ],
+  "prevention": [
+    "Test mother stock and incoming clones.",
+    "Disinfect tools between plants with a validated viroid protocol."
+  ],
+  "warnings": [
+    "HLVd cannot be confirmed from a photograph.",
+    "Do not label a plant infected without laboratory evidence."
+  ],
+  "sources": [
+    {
+      "title": "Hop Latent Viroid: A Hidden Threat to the Cannabis Industry",
+      "organization": "Viruses (Adkar-Purushothama et al.)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053334/",
+      "year": 2023,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Hop latent viroid can be asymptomatic or associated with reduced vigor, shortened internodes, brittle growth, poor rooting, and reduced yield or quality; molecular testing is needed for confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

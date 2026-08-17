@@ -1,0 +1,249 @@
+{
+  "id": "phytoplasma-hemp-witches-broom",
+  "slug": "hemp-witches-broom-phytoplasma",
+  "name": "Hemp witches’ broom (phytoplasma-associated)",
+  "scientificName": "Candidatus Phytoplasma trifolii and other phytoplasmas",
+  "category": "Phytoplasma / Spiroplasma",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A leafhopper-associated systemic syndrome in which cannabis can develop shortened nodes, clusters of proliferating axillary or apical shoots, stunting, small distorted leaves, chlorosis, mottling, and curling; the same visual pattern can involve Beet curly top virus, Spiroplasma citri, or mixed infection.",
+  "affectedParts": [
+    "young and expanding leaves",
+    "upper and lower leaf surfaces",
+    "leaf petioles",
+    "axillary buds",
+    "apical shoots",
+    "stems and internodes",
+    "whole-plant architecture"
+  ],
+  "stages": [
+    "field-grown leaf-bearing plants; cannabis-specific stage effects are not established"
+  ],
+  "indicators": [
+    "Clusters of excessive apical or axillary shoots forming a broom-like tip",
+    "Shortened internodes and compact branch clusters",
+    "Small, distorted, curled, or upward-rolled leaves",
+    "Leaf chlorosis with mottling or mosaic",
+    "Vein-bounded green islands on the upper leaf surface",
+    "Interveinal discoloration with a pale pustule-like appearance from below",
+    "Whole-plant stunting with abnormal branching"
+  ],
+  "exclusions": [
+    "Validated testing identifies Beet curly top virus without detecting phytoplasma in properly sampled tissue",
+    "Validated testing identifies Spiroplasma citri or another agent and does not detect phytoplasma",
+    "Microscopy confirms broad mites or hemp russet mites in the distorted growing tips",
+    "Abnormal branching follows deliberate topping or training and subsequent leaves remain normal",
+    "Distortion maps to documented herbicide or plant-growth-regulator exposure",
+    "Short internodes and branching remain stable in healthy clones without chlorosis, mottling, progressive distortion, or pathogen detection"
+  ],
+  "progression": [
+    {
+      "stage": "Foliar expression",
+      "description": "Leaves may curl, roll upward, mottle, become chlorotic, or develop vein-bounded green islands above with pale interveinal discoloration visible below."
+    },
+    {
+      "stage": "Architectural expression",
+      "description": "Internodes shorten while apical or axillary shoots proliferate into compact highly branched clusters; leaves on affected branches may remain small and distorted and the plant may become stunted."
+    },
+    {
+      "stage": "Temporal sequence uncertain",
+      "description": "Primary cannabis reports document variable symptoms during the growing season but do not establish a universal order or rate. Capture the same plant serially and do not infer infection age from one image."
+    }
+  ],
+  "lookAlikes": [
+    "Beet curly top virus disease",
+    "Spiroplasma citri infection",
+    "Mixed BCTV-phytoplasma-Spiroplasma infection",
+    "Broad mite",
+    "Hemp russet mite",
+    "Plant-growth-regulator herbicide injury",
+    "Topping or high-stress training response",
+    "Genetic dwarfism or fasciation",
+    "Micronutrient or root-zone disorder",
+    "Mosaic virus complex"
+  ],
+  "confirmation": [
+    "Do not confirm phytoplasma from witches’ broom architecture, a photograph, video, or leafhopper observation.",
+    "Submit the most symptomatic young leaves with petioles to a plant diagnostic laboratory using that laboratory’s current sampling and shipping protocol; include a healthy comparator when requested.",
+    "Use a validated phytoplasma molecular assay followed by sequence or classification evidence when group-level identity matters; the Nevada report combined real-time PCR, nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis.",
+    "Request a differential panel that includes Beet curly top virus and Spiroplasma citri because the three agents can produce overlapping symptoms and can occur together.",
+    "Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof."
+  ],
+  "immediateActions": [
+    "Flag suspect plants and pause distribution of their cuttings pending laboratory results.",
+    "Scout nearby plants and leafhoppers while keeping vector presence separate from pathogen confirmation.",
+    "Keep all symptom-only images out of phytoplasma, Spiroplasma, and BCTV ground-truth classes."
+  ],
+  "correctivePlan": [
+    "Base removal and vector-management decisions on laboratory results, production policy, and locally legal recommendations.",
+    "If phytoplasma is not detected, continue testing or differential review for BCTV, Spiroplasma citri, mites, chemical injury, and physiological causes.",
+    "Continue serial observation because one plant or branch can combine architecture, foliar color, and distortion differently over time."
+  ],
+  "prevention": [
+    "Use tested and traceable propagation material.",
+    "Monitor leafhoppers and regional alerts without assuming every vector carries the same pathogen.",
+    "Control weed reservoirs and vectors only with locally appropriate, crop-legal practices."
+  ],
+  "warnings": [
+    "Witches’ broom is a syndrome, not a species-level visual diagnosis.",
+    "Cannabis symptom overlap and documented mixed infections make image-only ground truth unsafe.",
+    "The three institutional photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden and prohibited from automated training.",
+    "Cannabis-specific evidence does not establish a universal symptom order, cultivar response, or infection-to-symptom interval."
+  ],
+  "sources": [
+    {
+      "title": "First Report of ‘Candidatus Phytoplasma trifolii’ Associated with a Witches’ Broom Disease in Cannabis sativa in Nevada, U.S.A",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-01-19-0098-PDN",
+      "authors": [
+        "X. Feng",
+        "M. Kyotani",
+        "S. Dubrovsky",
+        "A.-L. Fabritius"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2019-05-03",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1094/PDIS-01-19-0098-PDN",
+      "supportedClaims": [
+        "Symptomatic Nevada cannabis had leaf curling, mottling, chlorosis, witches’ broom, stunting, and shortened nodes.",
+        "Upper leaf surfaces showed vein-bounded green islands while lower surfaces showed interveinal discoloration with a pale pustule-like appearance.",
+        "Phytoplasma was detected from petioles of the most symptomatic leaves by 23S rRNA real-time PCR; nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis supported identification near Candidatus Phytoplasma trifolii."
+      ]
+    },
+    {
+      "title": "Hemp Abnormal Growth Is Attributed to Mono-, Di-, or Tri-Infections of Spiroplasma citri, Candidatus Phytoplasma trifolii, and Beet Curly Top Virus",
+      "organization": "PhytoFrontiers",
+      "url": "https://doi.org/10.1094/PHYTOFR-05-23-0064-SC",
+      "authors": [
+        "Jennifer L. Schoener",
+        "Shouhua Wang"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2023-12-01",
+      "year": 2023,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1094/PHYTOFR-05-23-0064-SC",
+      "supportedClaims": [
+        "Across 67 symptomatic Nevada hemp samples, abnormal growth included stunting, yellowing, excessive apical branching, witches’ broom clusters, upward leaf rolling, mottling, and mosaic.",
+        "Candidatus Phytoplasma trifolii was detected in 14 samples, Beet curly top virus in 57, and Spiroplasma citri in two; dual and triple infections occurred.",
+        "The overlapping syndrome cannot assign one causal agent visually, so diagnostic testing should consider phytoplasma, Spiroplasma citri, and Beet curly top virus rather than treating witches’ broom as a species-specific image label."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-Witches’ Broom",
+      "organization": "Pacific Northwest Pest Management Handbooks",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-witches-broom",
+      "authors": [
+        "C. M. Ocamb"
+      ],
+      "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+      "year": 2026,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Cannabis witches’ broom expression varies with the phytoplasma involved; typical plants are stunted with highly branched stems, axillary shoot proliferation, and small, distorted, chlorotic leaves.",
+        "Phytoplasmas are leafhopper-transmitted, regional pathogen types vary, and vector presence or symptoms alone do not identify the phytoplasma involved.",
+        "The three cannabis symptom photographs are credited to C. M. Ocamb, Oregon State University, 2022; the landing page states copyright but supplies no reuse license."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "pnw-hemp-phytoplasma-misshapen-leaves-2022",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmamisshapenleavescmo.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmamisshapenleavescmo.jpg?itok=MDhD0jyE",
+      "alt": "Hemp leaves with cupping, curling, and deformation associated with phytoplasma infection by Oregon State University Extension",
+      "caption": "Metadata-only institutional reference showing distorted and curled hemp leaves. Hidden until explicit reuse permission is documented and never sufficient as phytoplasma ground truth.",
+      "creator": "C. M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-witches-broom",
+      "mediaType": "image",
+      "requiredAttribution": "C. M. Ocamb, Oregon State University, 2022; obtain permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "hemp-witches-broom-phytoplasma-misshapen-curled-leaves",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Symptom association does not identify the phytoplasma or exclude mixed infection."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "ff8f6a2104ca687a8ea4fd032eb647f340d80b73ebfb695c75d43ace4543ced5",
+      "perceptualHash": "dhash64:63e9c9a4ce122733",
+      "width": 399,
+      "height": 348,
+      "view": "close-up",
+      "stage": "detached symptomatic leaves",
+      "severity": "symptomatic deformation",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-phytoplasma-yellow-leaves-2022",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmayellowingleavescmo.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmayellowingleavescmo.jpg?itok=h42NlrDV",
+      "alt": "Yellow hemp leaves associated with phytoplasma infection by Oregon State University Extension",
+      "caption": "Metadata-only institutional reference showing yellow coloration in hemp leaves. Hidden pending permission; detached-leaf color lacks whole-plant distribution and is nonspecific.",
+      "creator": "C. M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-witches-broom",
+      "mediaType": "image",
+      "requiredAttribution": "C. M. Ocamb, Oregon State University, 2022; obtain permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "hemp-witches-broom-phytoplasma-yellow-leaf-close-up",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Detached leaves omit canopy distribution; yellowing alone is not diagnostic."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "d18905906e807c21e916159ae3b1dca27015d45e354f5a4ee336e81f3fdb9e64",
+      "perceptualHash": "dhash64:707454dcdcc89c6c",
+      "width": 428,
+      "height": 271,
+      "view": "close-up",
+      "stage": "detached symptomatic leaves",
+      "severity": "symptomatic chlorosis",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-phytoplasma-multiple-meristems-2022",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmamultiplemeristemscmo.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-witches-broom/hempphytoplasmamultiplemeristemscmo.jpg?itok=T2a_Of_i",
+      "alt": "Hemp branch tip with excessive meristem proliferation associated with phytoplasma witches’ broom by Oregon State University Extension",
+      "caption": "Metadata-only institutional branch view of excessive meristem proliferation. Hidden pending permission and not usable as a pathogen-specific visual label.",
+      "creator": "C. M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-witches-broom",
+      "mediaType": "image",
+      "requiredAttribution": "C. M. Ocamb, Oregon State University, 2022; obtain permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "hemp-witches-broom-phytoplasma-multiple-meristem-branch-tip",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Architecture can overlap with training response, BCTV, Spiroplasma, and mixed infection."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "e25ce6322694261d8fc6b28be810501a44a856349cf80885a59a0e505f1451e4",
+      "perceptualHash": "dhash64:f6631350508b1316",
+      "width": 431,
+      "height": 392,
+      "view": "close-up",
+      "stage": "field-grown branch tip",
+      "severity": "symptomatic meristem proliferation",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": "env-heat",
+  "slug": "heat-light-stress",
+  "name": "High-temperature or high-light exposure",
+  "category": "Environmental stress",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "Measured high temperature or unusually intense light can alter Cannabis physiology, yield, and flowering development, but published Cannabis experiments do not validate cupping, bleaching, or a single PPFD or temperature value as a universal visible injury diagnosis.",
+  "affectedParts": [
+    "whole canopy",
+    "upper and lower inflorescences",
+    "recently expanded leaves",
+    "canopy nearest a local heat or light source"
+  ],
+  "stages": [
+    "vegetative",
+    "flower initiation",
+    "flower development",
+    "late flower"
+  ],
+  "indicators": [
+    "Air temperature, leaf temperature, PPFD, photoperiod, and humidity are recorded at the affected canopy position across time",
+    "Abnormal new inflorescence clusters develop on top of older inflorescences during sustained high-temperature flowering exposure",
+    "Flower maturation or production differs from a matched cultivar under a cooler measured regime",
+    "Gas-exchange or chlorophyll-fluorescence measurements change even when a specific foliar lesion is absent",
+    "A spatial gradient repeats with measured temperature or irradiance rather than merely with leaf age"
+  ],
+  "exclusions": [
+    "No time-stamped canopy-level temperature, leaf-temperature, PPFD, photoperiod, or humidity record supports an exposure event",
+    "Only upward leaf curl, pale tissue, dry margins, or canopy posture is visible",
+    "Mites, thrips, webbing, cast skins, eggs, frass, or feeding scars are present",
+    "Root-zone water content, irrigation history, pH, EC, or root disease explains the distribution better",
+    "The change follows nutrient, pesticide, growth-regulator, or other chemical application",
+    "Only late-flower senescence or cultivar-typical inflorescence architecture is visible",
+    "High PPFD alone is treated as injury even though the plant is acclimated and temperature and water status are within its measured response range"
+  ],
+  "progression": [
+    {
+      "stage": "Exposure documentation",
+      "description": "Record canopy and leaf temperature, PPFD, photoperiod, humidity or vapor-pressure deficit, carbon dioxide, irrigation status, cultivar, and exact duration before assigning an environmental-exposure label."
+    },
+    {
+      "stage": "Physiological response",
+      "description": "Photosynthesis, respiration, transpiration, stomatal conductance, and water-use efficiency can change with temperature; controlled Cannabis results show that the direction and optimum are variety dependent and may precede a specific visible lesion."
+    },
+    {
+      "stage": "Flowering response",
+      "description": "At 31/27 degrees Celsius day/night versus 25/21 degrees Celsius in one controlled study, abnormal new clusters developed atop older inflorescences and normal maturation was disrupted; dry-matter response differed between the two genotypes."
+    },
+    {
+      "stage": "Serial assessment",
+      "description": "Compare new leaves and inflorescences after the measured exposure is corrected; persistent or spreading changes without a matching environmental gradient require renewed pest, pathogen, root-zone, nutrition, and genetic evaluation."
+    }
+  ],
+  "lookAlikes": [
+    "Water shortage or excessive vapor demand",
+    "Potassium deficiency",
+    "High root-zone EC or pH-related nutrient unavailability",
+    "Hemp russet mite",
+    "Broad mite",
+    "Thrips injury",
+    "Wind or fan injury",
+    "Pesticide or plant-growth-regulator injury",
+    "Normal late-flower senescence",
+    "Cultivar-typical foxtailing or inflorescence architecture"
+  ],
+  "confirmation": [
+    "Map PPFD and air temperature at multiple canopy positions and times; measure leaf temperature with a calibrated contact or infrared method and record humidity or vapor-pressure deficit, photoperiod, carbon dioxide, and lamp distance.",
+    "Compare affected and unaffected plants of the same cultivar, developmental stage, irrigation treatment, and root-zone condition; include a cooler or lower-exposure reference when available.",
+    "Inspect leaf undersides and protected new growth with magnification for mites and thrips, and document the root system, substrate water content, pH, and EC.",
+    "Use serial whole-plant, canopy, and close-up images with an exposure log; do not convert a single photograph or uncalibrated camera color shift into heat- or light-stress ground truth.",
+    "For abnormal flowering, inspect multiple inflorescences over time and compare with cultivar records to separate heat-associated reversion or foxtailing from normal architecture, late-flower growth, or genetic traits."
+  ],
+  "immediateActions": [
+    "Preserve the pre-correction environmental log and matched photographs, then remove an acute unsafe heat load or equipment fault gradually.",
+    "Verify irrigation delivery and root-zone moisture before changing light, humidity, or irrigation together.",
+    "Quarantine or isolate only when pest or infectious disease evidence warrants it; environmental exposure alone is not contagious."
+  ],
+  "correctivePlan": [
+    "Correct the measured source, such as a canopy hot spot, failed cooling or air mixing, excessive lamp proximity, or an abrupt unacclimated light increase, while changing one controllable factor at a time.",
+    "Re-map the canopy after correction and score only new tissue and subsequent inflorescence development against a matched control.",
+    "Escalate persistent abnormalities to pest microscopy, root-zone testing, tissue analysis, or a plant diagnostic laboratory rather than repeatedly reducing light without evidence."
+  ],
+  "prevention": [
+    "Log canopy-level PPFD, photoperiod, air and leaf temperature, humidity or vapor-pressure deficit, carbon dioxide, and irrigation status by zone.",
+    "Map hot spots and irradiance gradients after fixture, HVAC, canopy-height, or density changes.",
+    "Retain cultivar- and stage-matched healthy reference sequences because published temperature optima and production responses vary among Cannabis genotypes."
+  ],
+  "warnings": [
+    "Upward curl, tacoing, bleaching, pale tops, dry margins, and leaf angle are nonspecific and are not validated Cannabis heat- or light-stress ground truth without measured exposure and exclusion checks.",
+    "A controlled Stillwater trial produced linearly increasing inflorescence yield through 1,800 micromoles per square metre per second; therefore PPFD magnitude alone does not prove injury or define a universal damaging threshold.",
+    "Temperature optima for photosynthesis differed among tested drug- and fiber-type varieties, so 25, 30, 35, or 40 degrees Celsius must not be generalized into one cultivar-independent diagnosis.",
+    "The abnormal inflorescence-cluster observation came from defined 31/27 degrees Celsius flowering treatments in two genotypes and should be labeled treatment-associated, not universally heat-specific.",
+    "No reusable Cannabis symptom photograph with exposure measurements and adequate causal confirmation was admitted in this record; media remain empty rather than promoting anecdotal or vendor imagery."
+  ],
+  "sources": [
+    {
+      "title": "High air temperature reduces plant specialized metabolite yield in medical cannabis, and has genotype-specific effects on inflorescence dry matter production",
+      "organization": "Environmental and Experimental Botany (Holweg et al.)",
+      "url": "https://doi.org/10.1016/j.envexpbot.2025.106085",
+      "authors": [
+        "Mexximiliaan M. S. F. Holweg",
+        "Thomas Curren",
+        "Aurora Cravino",
+        "Elias Kaiser",
+        "Iris F. Kappers",
+        "Ep Heuvelink",
+        "Leo F. M. Marcelis"
+      ],
+      "publisher": "Elsevier",
+      "year": 2025,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1016/j.envexpbot.2025.106085",
+      "supportedClaims": [
+        "In controlled short-day production, plants of two medical Cannabis genotypes were compared at 25/21 and 31/27 degrees Celsius day/night temperatures and at PPFDs of 600, 900, and 1,200 micromoles per square metre per second.",
+        "The higher-temperature treatment reduced total cannabinoid concentration in both genotypes but reduced inflorescence dry matter only in Harmony CBD, demonstrating a genotype-specific production response.",
+        "High temperature produced abnormal new inflorescence clusters on top of older inflorescences and disrupted normal maturation; this flowering morphology is treatment-associated but is not a universal image-only heat threshold."
+      ]
+    },
+    {
+      "title": "Temperature response of photosynthesis in different drug and fiber varieties of Cannabis sativa L.",
+      "organization": "Physiology and Molecular Biology of Plants (Chandra et al.)",
+      "url": "https://doi.org/10.1007/s12298-011-0068-4",
+      "authors": [
+        "Suman Chandra",
+        "Hemant Lata",
+        "Ikhlas A. Khan",
+        "Mahmoud A. ElSohly"
+      ],
+      "publisher": "Springer Nature on behalf of the Prof. H. S. Srivastava Foundation for Science and Society",
+      "publicationDate": "2011-06-01",
+      "year": 2011,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1007/s12298-011-0068-4",
+      "supportedClaims": [
+        "Across three drug-type and four fiber-type Cannabis varieties measured from 20 to 40 degrees Celsius, photosynthetic optima varied by variety from about 25 to 35 degrees Celsius.",
+        "Dark respiration approximately doubled from 20 to 40 degrees Celsius in all tested varieties, while photosynthesis, transpiration, stomatal conductance, and water-use efficiency showed variety-dependent responses.",
+        "The experiment measured gas exchange rather than a validated visible heat-injury syndrome, so its temperature values must not be used as universal image-label thresholds."
+      ]
+    },
+    {
+      "title": "Cannabis Yield, Potency, and Leaf Photosynthesis Respond Differently to Increasing Light Levels in an Indoor Environment",
+      "organization": "Frontiers in Plant Science (Rodriguez-Morrison et al.)",
+      "url": "https://doi.org/10.3389/fpls.2021.646020",
+      "authors": [
+        "Victoria Rodriguez-Morrison",
+        "David Llewellyn",
+        "Youbin Zheng"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2021-05-11",
+      "year": 2021,
+      "accessedDate": "2026-08-13",
+      "doi": "10.3389/fpls.2021.646020",
+      "supportedClaims": [
+        "Indoor-grown Cannabis sativa Stillwater was exposed during flowering to average canopy PPFDs from 120 to 1,800 micromoles per square metre per second.",
+        "Dry inflorescence yield increased linearly through the highest tested PPFD even though leaf-level photosynthesis saturated below 1,800 micromoles per square metre per second.",
+        "The high-light experiment did not establish a universal PPFD injury threshold or validate cupping, bleaching, or edge necrosis as light-specific visual symptoms; light exposure must be interpreted with cultivar, acclimation, canopy position, temperature, carbon dioxide, and water status.",
+        "In Stillwater during the 12-hour flowering phase, chlorophyll-content index was higher in week 1 than weeks 5 and 9 and was consistently higher in upper- than lower-canopy fan leaves; the authors described evidence of early senescence but stated that the contributions of leaf age and plant ontogeny to diminished week-9 photosynthesis were unresolved.",
+        "The study measured chlorophyll index and physiology rather than validating a yellow-leaf appearance, harvest date, or universal late-flower-fade sequence."
+      ]
+    }
+  ],
+  "media": []
+}

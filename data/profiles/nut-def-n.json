@@ -1,0 +1,118 @@
+{
+  "id": "nut-def-n",
+  "slug": "nitrogen-deficiency",
+  "name": "Nitrogen deficiency",
+  "category": "Nutrient deficiency",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "A mobile-nutrient shortage that usually begins as an even yellowing of older leaves before moving upward.",
+  "affectedParts": [
+    "older leaves",
+    "whole plant"
+  ],
+  "stages": [
+    "vegetative",
+    "flower"
+  ],
+  "indicators": [
+    "Older leaves yellow first",
+    "Whole plant pale",
+    "Lower leaves drop",
+    "Growth slows"
+  ],
+  "exclusions": [
+    "New growth is affected first",
+    "Yellowing is sharply interveinal",
+    "Root-zone EC is already high"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Lower leaves lose uniform green color."
+    },
+    {
+      "stage": "Moderate",
+      "description": "Yellowing advances upward and older leaves drop."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Canopy thins and growth or flower development slows."
+    }
+  ],
+  "lookAlikes": [
+    "Normal late-flower fade",
+    "Overwatering or root hypoxia",
+    "Magnesium deficiency"
+  ],
+  "confirmation": [
+    "Check whether symptoms begin on the oldest leaves.",
+    "Review root-zone pH and EC before adding fertilizer."
+  ],
+  "immediateActions": [
+    "Measure pH and EC/PPM before changing feed.",
+    "Correct watering or root-zone problems first."
+  ],
+  "correctivePlan": [
+    "If EC is low and pH is in range, increase complete nutrition gradually.",
+    "Recheck new growth over 5–7 days."
+  ],
+  "prevention": [
+    "Track input and runoff EC.",
+    "Avoid reducing nitrogen too early in flower."
+  ],
+  "warnings": [
+    "Do not diagnose from one yellow leaf.",
+    "Do not add nitrogen when high EC or root damage is the primary cause."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
+        "Phosphorus-withheld plants first showed slight stunting and irregular olive-green spots on lower and older leaflets after seven weeks; spots enlarged, appeared sunken and almost wet, developed some marginal necrosis, and advanced to extensive olive spotting and large necrotic portions.",
+        "At first phosphorus-deficiency symptom expression, phosphorus-withheld most-recent-mature leaves contained 0.09% phosphorus dry weight compared with 0.43% in controls, a 79% difference under the experiment conditions.",
+        "The study used one cultivar, began nutrient withholding at transplant, and reported no statistically significant biomass difference for phosphorus-withheld plants at the symptom-onset harvest, so its timing, tissue value, and appearance are not universal diagnostic thresholds.",
+        "Figure 2 is a CC BY 4.0 composite showing initial, intermediate, and advanced nitrogen-, phosphorus-, and calcium-deficiency phenotypes in Cannabis sativa T1.",
+        "In calcium-withheld T1 plants, symptoms appeared after five weeks as slight stunting and irregular growing tips and newly expanding leaves; leaflet bases stayed narrow and paler than tips, then basal and interveinal chlorosis, marginal necrosis, distorted geometry, growing-tip death, and axillary branching developed.",
+        "At first calcium-deficiency symptom expression, most-recent-mature leaves contained 0.39% calcium dry weight compared with 3.73% in controls, but the one-cultivar silica-sand withholding experiment does not establish a universal tissue threshold or field sequence.",
+        "Iron-withheld T1 plants first developed symptoms after nine weeks: slight marginal yellowing, especially near leaflet bases, progressed to interveinal chlorosis on growing-tip and newly expanding leaves and spread through the upper half while middle and lower foliage remained healthy dark green.",
+        "At first iron-deficiency symptom expression, iron-withheld most-recent-mature leaves contained 60.08 mg/kg iron compared with 111.75 mg/kg in controls, 46% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Figure 6 is a CC BY 4.0 composite with initial, intermediate, and advanced iron-deficiency images in its left column and zinc-deficiency images in its right column.",
+        "Manganese-withheld T1 plants developed bright-yellow netted interveinal chlorosis on upper and central foliage after six weeks; the netting began near leaflet midribs, spread toward margins, retained green veins, and later developed small tan necrotic regions.",
+        "At first manganese-deficiency symptom expression, manganese-withheld most-recent-mature leaves contained 7.56 mg/kg manganese compared with 29.40 mg/kg in controls, 74% lower under the experiment conditions; dry biomass did not differ significantly at that harvest.",
+        "The control manganese concentration was itself below the cited general crop survey range, and the study used one cultivar in silica sand with complete withholding, so neither treatment value is a universal Cannabis diagnostic threshold.",
+        "Figure 4 is a CC BY 4.0 composite showing initial, intermediate, and advanced manganese-, boron-, and copper-deficiency phenotypes in Cannabis sativa T1; only its left column represents manganese deficiency.",
+        "Copper-withheld T1 plants first developed visible symptoms after nine weeks, beginning with slight whole-plant stunting and mild distortion of newer and expanding leaves, especially narrowed and slightly yellow leaflet bases.",
+        "As copper-withholding symptoms advanced, basal narrowing and distortion intensified, marginal interveinal chlorosis developed, and the whole leaf progressed to fine interveinal chlorosis with slightly inward- and downward-curled margins and reduced turgidity.",
+        "At first copper-deficiency symptom expression, copper-withheld most-recent-mature leaves contained 1.41 mg/kg copper compared with 4.65 mg/kg in controls, 70% lower under the experiment conditions; treated plants produced 45% less biomass.",
+        "The control copper concentration of 4.65 mg/kg was itself slightly below the general crop survey range cited by the authors, and the one-cultivar complete-withholding result does not establish a universal Cannabis threshold.",
+        "The published Figure 4 caption and column labels identify initial, intermediate, and advanced copper-deficiency panels in the right column, although the copper subsection text cites Figure 5; Figure 5 is captioned as manganese- and boron-toxicity progression, so this source-level numbering inconsistency must remain attached to copper panel review.",
+        "Magnesium-withheld T1 plants first developed slight interveinal yellowing on lower and older foliage after seven weeks; the contrast between green veins and yellow interveinal tissue intensified and some regions became necrotic.",
+        "At first magnesium-deficiency symptom expression, magnesium-withheld most-recent-mature leaves contained 0.12% magnesium compared with 0.61% in controls, 80% lower under the experiment conditions; biomass did not differ significantly at that harvest.",
+        "Figure 3 is a CC BY 4.0 composite showing initial, intermediate, and advanced sulfur-, magnesium-, and potassium-deficiency phenotypes in Cannabis sativa T1; only its center column represents magnesium deficiency.",
+        "Potassium-withheld T1 plants first developed yellowing at leaflet margins and saw-tooth serrations on lower and older foliage after nine weeks; yellowing intensified and moved inward toward the midrib, followed by tan necrosis concentrated along serrated margins.",
+        "At first potassium-deficiency symptom expression, potassium-withheld most-recent-mature leaves contained 0.41% potassium compared with 2.85% in controls, 86% lower under the experiment conditions; treated plants produced 27% less biomass.",
+        "Figure 3 is a CC BY 4.0 composite whose right column shows initial, intermediate, and advanced potassium-deficiency phenotypes; the sulfur and magnesium columns are separate diagnoses and the asset is indexed once under the magnesium record to avoid duplicate media hashes.",
+        "Zinc-withheld T1 plants first developed symptoms after nine weeks as marginal yellowing on newer and expanding leaves, concentrated along leaflet margins and toothed portions; tan, irregularly shaped marginal necrosis developed as the disorder progressed.",
+        "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
+        "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,139 @@
+{
+  "id": "root-ph-extreme",
+  "slug": "acidic-extreme-substrate-ph-stress",
+  "name": "Acidic or extreme substrate-pH root stress",
+  "category": "Water / root-zone",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "A measured root-zone condition in which persistently acidic peat-based substrate suppresses Cannabis shoot and root development, while either acidic or high-pH extremes can restrict visible root growth. There is no unique leaf appearance: cultivar, fertility, EC, substrate, and exposure duration materially change what a camera can see.",
+  "affectedParts": [
+    "root tips and developing root system",
+    "whole-plant diameter and shoot biomass",
+    "lower foliage when low pH is combined with excessive micronutrient fertility in a susceptible cultivar",
+    "leaf tips and leaflet interior during treatment-associated bronzing and necrosis",
+    "root-zone solution and substrate for direct pH and EC measurement"
+  ],
+  "stages": [
+    "root establishment",
+    "vegetative growth",
+    "chronic root-zone exposure"
+  ],
+  "indicators": [
+    "Repeated calibrated substrate measurements remain at an extreme rather than a single irrigation or runoff reading",
+    "Root-tip development is reduced relative to matched healthy plants before a specific foliar pattern is reliable",
+    "Whole-plant diameter and accumulated shoot biomass lag despite plant height sometimes remaining similar",
+    "At acidic pH, leaf-tissue micronutrient concentrations may rise without visible toxicity",
+    "In the Sweetened pH 3.8 plus fourfold-micronutrient treatment, lower-leaf tips bronzed, became necrotic, spread inward, and developed chlorosis",
+    "The same low-pH and high-micronutrient treatment did not produce the same foliage response in Cherry Wine"
+  ],
+  "exclusions": [
+    "Only nutrient-solution input pH was measured and the actual substrate or root-zone pH is unknown",
+    "A single runoff, reservoir, or slurry reading is outside target but repeat representative measurements are not",
+    "High EC, fertilizer imbalance, or source-water alkalinity explains the response without a persistent measured substrate-pH extreme",
+    "Roots are restricted by saturation, compaction, container binding, drought, temperature, oxygen limitation, transplant damage, or root disease",
+    "Foliar bronzing or necrosis is localized to heat, light, spray, contact, pest feeding, or infectious lesions",
+    "Tissue analysis supports a specific nutrient deficiency or toxicity and measured root-zone pH is not outside the production-system target",
+    "Color differences appear only under altered lighting, white balance, cultivar pigmentation, senescence, or compression artifact"
+  ],
+  "progression": [
+    {
+      "stage": "Exposure establishment",
+      "description": "Substrate pH persists outside the intended system range; solution pH alone does not establish the root-zone exposure."
+    },
+    {
+      "stage": "Early root response",
+      "description": "Root-tip expansion can slow before a diagnostic foliage pattern appears. In Baox, separation at pH 3.1 and 7.1 was evident by 21 days after planting."
+    },
+    {
+      "stage": "Vegetative growth response",
+      "description": "Plant diameter, root mass, or shoot dry mass can fall while height remains deceptively similar; compare serial whole-plant and root-zone measurements with matched controls."
+    },
+    {
+      "stage": "Cultivar-dependent foliage response",
+      "description": "Low pH plus excessive micronutrients may cause lower-leaf tip bronzing, chlorosis, and spreading necrosis in a susceptible cultivar, but absence of those symptoms does not exclude pH stress."
+    },
+    {
+      "stage": "After correction",
+      "description": "New root tips, canopy expansion, and new-leaf quality should be followed over time; existing necrosis will not reverse and response alone does not prove the original diagnosis."
+    }
+  ],
+  "lookAlikes": [
+    "Waterlogging or root-zone hypoxia",
+    "High-EC nutrient burn or salinity",
+    "Water shortage or drought",
+    "Cold or overheated root zone",
+    "Root binding or compacted substrate",
+    "Pythium root rot",
+    "Phytophthora root rot",
+    "Fusarium crown or root disease",
+    "Micronutrient toxicity",
+    "Phosphorus deficiency",
+    "Potassium deficiency",
+    "Heat or high-light injury",
+    "Foliar spray phytotoxicity",
+    "Normal late-flower senescence"
+  ],
+  "confirmation": [
+    "Do not diagnose pH stress from leaf color, tip burn, stunting, one photograph, one video, or a generic nutrient-availability chart.",
+    "Measure the actual substrate or root-zone pH repeatedly with a calibrated meter and a method appropriate to the medium; record sampling location, depth, irrigation timing, extraction method, meter calibration, temperature, and replicate values.",
+    "Measure root-zone and input EC alongside pH, and document source-water pH and alkalinity, fertilizer formulation, acid or base additions, lime charge, substrate batch, irrigation volume, leaching fraction, and drainage.",
+    "Capture serial whole-plant top and side views, root-zone and cleaned-root views, upper- and lower-canopy views, and close-ups of both leaf surfaces under repeatable lighting with scale and a matched same-cultivar control.",
+    "Record cultivar, plant age, stage, days of exposure, container volume, substrate composition, water content, root-zone temperature, dissolved oxygen where relevant, and root-tip quantity or standardized root coverage.",
+    "Use representative leaf-tissue and root-zone or substrate analysis to separate a pH-associated exposure from a specific nutrient disorder; use a plant diagnostic laboratory when discolored or decaying roots, lesions, or pests remain plausible.",
+    "Retain a measured-exposure or suspected label unless the pH history, root or growth response, competing exposures, and analytical evidence are linked to the photographed plant."
+  ],
+  "immediateActions": [
+    "Preserve pre-correction pH, EC, alkalinity, solution, substrate, tissue, root, and image records before changing the system.",
+    "Verify the measuring method and calibration with repeat samples; avoid large unmeasured acid, base, lime, fertilizer, or flush corrections.",
+    "Quarantine uncertain images and videos from diagnostic ground truth until exposure and confounder evidence is linked."
+  ],
+  "correctivePlan": [
+    "Correct the verified cause gradually using substrate- and water-appropriate guidance, considering alkalinity and buffering rather than input pH alone.",
+    "Restore a balanced fertilizer and irrigation program while monitoring substrate pH, EC, water content, drainage, and new root growth.",
+    "Reassess root pathogens, salinity, water status, temperature, and nutrient-specific differentials if new root tips and growth do not improve after the measured pH returns to the intended range."
+  ],
+  "prevention": [
+    "Establish a production-system-specific substrate pH and EC monitoring protocol with calibrated meters, consistent extraction methods, replicate sampling, and trend alerts.",
+    "Test source-water alkalinity and account for substrate lime and fertilizer acidity before making recurring pH adjustments.",
+    "Keep same-cultivar controls and serial root and canopy images so gradual growth restriction is not mistaken for a specific leaf disorder."
+  ],
+  "warnings": [
+    "The study supports a measured substrate-pH stress record, not a universal image phenotype or a universal nutrient-lockout chart.",
+    "The 5.5 to 6.5 recommendation came from peat-based greenhouse experiments and must not be copied unchanged to soil, field, coco, rockwool, aeroponic, or deep-water systems.",
+    "At normal micronutrient supply, low pH increased tissue accumulation without a universal visible toxicity; absence of bronzing does not establish that the root zone is acceptable.",
+    "The lower-leaf bronzing sequence occurred in Sweetened under pH 3.8 plus fourfold micronutrients and was absent in Cherry Wine; it is not low-pH-specific ground truth.",
+    "A single runoff or reservoir pH value does not prove the pH experienced throughout the root system.",
+    "No image or video is admitted for this record because no stable original asset URL was independently verified during this review.",
+    "All symptom-only or uncalibrated-pH samples remain low confidence and require human review."
+  ],
+  "sources": [
+    {
+      "title": "Impact of substrate pH and micronutrient fertility rates on Cannabis sativa",
+      "organization": "Agrosystems, Geosciences & Environment (Veazie et al.)",
+      "url": "https://doi.org/10.1002/agg2.70044",
+      "authors": [
+        "Patrick Veazie",
+        "Paul Cockson",
+        "J. Turner Smith",
+        "Brian Schulker",
+        "Brian Jackson",
+        "Kristin Hicks",
+        "Brian Whipker"
+      ],
+      "publisher": "Wiley Periodicals LLC on behalf of the Crop Science Society of America and the American Society of Agronomy",
+      "publicationDate": "2025-02-21",
+      "year": 2025,
+      "accessedDate": "2026-08-14",
+      "doi": "10.1002/agg2.70044",
+      "supportedClaims": [
+        "In a controlled peat-perlite experiment, industrial hemp shoot dry weight was lower at substrate pH 3.0 and 4.0 than at pH 5.0 through 7.0; plant diameter was smaller at pH 3.0, while mean plant height did not differ across that pH range.",
+        "Visible root-tip counts in Cannabis sativa Baox mini-rhizotrons were lowest at both measured extremes, pH 3.1 and 7.1, by 21 days after planting, while counts at pH 3.7 through 5.9 were similar.",
+        "Termination EC was higher at pH 3.0 and 7.0 than at intermediate pH values in the first experiment, so pH response cannot be interpreted without the accompanying salt and fertility context.",
+        "Lower pH increased several leaf-tissue micronutrient concentrations, but normal micronutrient supply did not produce a universal toxicity phenotype; the authors concluded that Cannabis growth was inhibited below pH 5.0 and recommended a greenhouse substrate range of 5.5 to 6.5 for the systems evaluated.",
+        "With fourfold micronutrients at target pH 3.8, Sweetened developed lower-foliage tip bronzing that advanced to necrosis, inward spread, and chlorosis, whereas Cherry Wine did not show the same response, demonstrating cultivar- and fertility-dependent appearance.",
+        "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds."
+      ]
+    }
+  ],
+  "media": []
+}

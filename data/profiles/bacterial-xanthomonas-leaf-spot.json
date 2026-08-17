@@ -1,0 +1,155 @@
+{
+  "id": "bacterial-xanthomonas-leaf-spot",
+  "slug": "xanthomonas-bacterial-leaf-spot",
+  "name": "Xanthomonas bacterial leaf spot",
+  "scientificName": "Xanthomonas cannabis",
+  "category": "Bacterial pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "A documented bacterial leaf spot of hemp in which small water-soaked lesions progress to approximately 1–2 mm necrotic centers surrounded by comparatively broad yellow halos; images can support triage but cannot distinguish the bacterium from fungal or abiotic look-alikes.",
+  "affectedParts": [
+    "leaf blades",
+    "upper and lower leaf surfaces"
+  ],
+  "stages": [
+    "growth stage not established in cannabis-specific primary evidence"
+  ],
+  "indicators": [
+    "Small water-soaked leaf spots before necrosis develops",
+    "Necrotic centers approximately 1–2 mm in diameter",
+    "Yellow halos approximately 2–3 mm wide",
+    "Discrete lesions with a halo wider than the necrotic center",
+    "Focal spotting rather than a whole-leaf nutrient-mobility gradient"
+  ],
+  "exclusions": [
+    "White surface colonies, fungal fruiting structures, or diagnostic spores support a fungal cause",
+    "Fine stippling, webbing, or organisms on the leaf underside support arthropod feeding",
+    "Damage follows spray droplets, contact points, or a documented chemical application and does not progress after exposure ends",
+    "Symptoms follow a measured older-leaf or younger-leaf nutrient pattern without discrete water-soaked lesions",
+    "A plant diagnostic laboratory identifies another pathogen or abiotic cause from a representative active lesion"
+  ],
+  "progression": [
+    {
+      "stage": "Early lesion",
+      "description": "A small water-soaked spot develops in leaf tissue; record both leaf surfaces because general bacterial leaf spots can first be more apparent from below."
+    },
+    {
+      "stage": "Established lesion",
+      "description": "The center becomes necrotic at roughly 1–2 mm across while a yellow halo roughly 2–3 mm wide surrounds it, producing a small dark center with a proportionally broad chlorotic border."
+    },
+    {
+      "stage": "Later course uncertain",
+      "description": "Cannabis-specific primary evidence used here does not establish a dependable late-stage coalescence, defoliation, stem, or flower pattern. Do not infer those labels from general-host bacterial leaf-spot images."
+    }
+  ],
+  "lookAlikes": [
+    "Septoria or other fungal leaf spot",
+    "Alternaria leaf spot",
+    "Cercospora leaf spot",
+    "Foliar spray injury",
+    "Edema or water-soaking from physiological stress",
+    "Thrips or mite feeding punctures",
+    "Localized nutrient or salt injury"
+  ],
+  "confirmation": [
+    "Photograph the whole plant and both sides of several leaves, then capture a scale-referenced close-up showing the necrotic-center and halo dimensions and the distribution of lesions across the canopy.",
+    "Submit fresh, recently expanding lesions that include the transition between healthy and affected tissue to a plant diagnostic laboratory; keep samples separate, cool, and dry according to that laboratory’s instructions.",
+    "Ask the laboratory to distinguish bacterial from fungal leaf spot and, if a Xanthomonas isolate is recovered, identify it with validated physiological and molecular or sequence-based methods rather than morphology alone.",
+    "Microscopic bacterial streaming may support a bacterial differential, but absence of streaming does not exclude bacteria and streaming does not confirm Xanthomonas cannabis to species.",
+    "Map reports using the current accepted name Xanthomonas cannabis while retaining Xanthomonas campestris pv. cannabis as a historical synonym for literature and laboratory searches."
+  ],
+  "immediateActions": [
+    "Flag the plant and pause movement of cuttings or symptomatic foliage until laboratory triage.",
+    "Handle suspect foliage only when dry, avoid splash between plants, and clean hands and tools before moving to unaffected plants.",
+    "Keep unconfirmed lesion photographs out of bacterial ground-truth and training sets."
+  ],
+  "correctivePlan": [
+    "Base removal, sanitation, and any crop treatment on the confirmed diagnosis and local legal label; a visual bacterial-leaf-spot suspicion is not a treatment prescription.",
+    "Inspect nearby plants for comparable small haloed lesions and document whether new lesions appear after splash or handling events without treating that association as proof.",
+    "If laboratory results do not recover or identify the bacterium, reopen fungal, arthropod, chemical, and physiological differentials."
+  ],
+  "prevention": [
+    "Use documented healthy propagation material and retain lot or mother-plant traceability.",
+    "Minimize leaf wetness and splash during routine handling where compatible with the production system.",
+    "Disinfect tools and segregate symptomatic material under a written sanitation protocol."
+  ],
+  "warnings": [
+    "A photograph or video cannot confirm Xanthomonas cannabis; lesion size and halo geometry are triage features only.",
+    "The key symptom measurements come from a historical Japanese hemp report and do not establish current local prevalence, cultivar susceptibility, or production-system risk.",
+    "General greenhouse bacterial-leaf-spot guidance is used only for differential diagnosis and handling precautions, not as cannabis-specific epidemiological proof.",
+    "No cannabis-specific image or video with verified reuse and automated-training permission was found for this batch; no media was copied or admitted."
+  ],
+  "sources": [
+    {
+      "title": "Bacterial leaf spot of hemp caused by Xanthomonas campestris pv. cannabis in Japan",
+      "organization": "Journal of General Plant Pathology",
+      "url": "https://doi.org/10.1007/s10327-013-0497-8",
+      "authors": [
+        "Osamu Netsu",
+        "Toshio Kijima",
+        "Yuichi Takikawa"
+      ],
+      "publisher": "Springer Nature on behalf of the Phytopathological Society of Japan",
+      "year": 2014,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1007/s10327-013-0497-8",
+      "supportedClaims": [
+        "The cannabis-specific Japanese report described leaf lesions with necrotic centers approximately 1–2 mm in diameter and yellow halos approximately 2–3 mm wide.",
+        "Pathological, physiological, and genetic characterization linked the Japanese causal bacterium to the organism historically named Xanthomonas campestris pv. cannabis in Romania."
+      ]
+    },
+    {
+      "title": "Comparative genomics of a cannabis pathogen reveals insight into the evolution of pathogenicity in Xanthomonas",
+      "organization": "Frontiers in Plant Science",
+      "url": "https://doi.org/10.3389/fpls.2015.00431",
+      "authors": [
+        "Jonathan M. Jacobs",
+        "Céline Pesce",
+        "Pierre Lefeuvre",
+        "Ralf Koebnik"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2015-06-16",
+      "year": 2015,
+      "accessedDate": "2026-08-13",
+      "doi": "10.3389/fpls.2015.00431",
+      "supportedClaims": [
+        "Cannabis bacterial leaf spot was described as water-soaked lesions followed by necrosis with a yellow halo.",
+        "The study sequenced two geographically distinct strains previously isolated from symptomatic cannabis tissue in Japan and Romania and proposed the species name Xanthomonas cannabis."
+      ]
+    },
+    {
+      "title": "Species: Xanthomonas cannabis",
+      "organization": "List of Prokaryotic names with Standing in Nomenclature (LPSN)",
+      "url": "https://lpsn.dsmz.de/species/xanthomonas-cannabis",
+      "publisher": "Leibniz Institute DSMZ",
+      "year": 2026,
+      "accessedDate": "2026-08-13",
+      "doi": "10.83108/rn.69153",
+      "supportedClaims": [
+        "Xanthomonas cannabis (ex Severin 1978) McKnight et al. 2026 is the validly published correct species name.",
+        "The historical names Xanthomonas campestris pv. cannabis and the 2015 proposed name “Xanthomonas cannabis” are homotypic synonyms; type strain identifiers include ICMP 6570, LMG 9042, and NCPPB 2877."
+      ]
+    },
+    {
+      "title": "Bacterial Leaf Spot on Greenhouse Ornamentals",
+      "organization": "NC State Extension",
+      "url": "https://content.ces.ncsu.edu/leaf-spotting-bacteria-on-ornamentals",
+      "authors": [
+        "Inga Meadows",
+        "Suzette Sharpe",
+        "Ella Hinchliffe",
+        "Sara Villani"
+      ],
+      "publisher": "North Carolina State University Extension",
+      "publicationDate": "2019-01-14",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Across greenhouse ornamental hosts, bacterial and fungal leaf spots can be visually confounded; bacterial streaming can support suspicion but may be absent, and diagnosis by a plant disease clinic is recommended.",
+        "As general bacterial-leaf-spot precautions rather than cannabis-specific epidemiology, splashing water and handling wet plants can spread bacteria, so suspect plants should be handled dry and separately."
+      ]
+    }
+  ],
+  "media": []
+}

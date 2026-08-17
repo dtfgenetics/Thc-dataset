@@ -1,1 +1,109 @@
-{"id":"root-fusarium-crown-rot","slug":"fusarium-crown-root-rot","name":"Fusarium crown and root rot / wilt complex","scientificName":"Fusarium spp.","canonicalId":"CAN-ROOT-003","responsePolicyId":"POL-FUSARIUM","photoOnlyMaxConfidence":0.5,"category":"Root pathogen","severity":"high","reviewStatus":"reviewed","summary":"A Cannabis crown/root/wilt disease complex associated with multiple Fusarium species. Yellowing and wilt are nonspecific; dark sunken crown tissue, root necrosis, and internal discoloration increase suspicion, while laboratory isolation or molecular work is required for organism-level confirmation.","affectedParts":["roots","crown","lower stem","vascular and pith tissues","whole canopy secondarily"],"stages":["propagation","vegetative","flower","all"],"indicators":["Dark sunken crown lesions extend upward from the cannabis root zone","Reddish-brown or dark internal stem discoloration originates at the crown","Roots are necrotic while crown tissue is darkened or rotted","Canopy yellowing and wilt occur together with documented crown or internal stem decay"],"exclusions":["Roots and crown are firm and healthy with no internal discoloration","Brown slimy roots occur without crown or internal stem lesions and Pythium or oxygen stress is better supported","Wilt resolves promptly after correcting a documented irrigation deficit without crown decay","Only one-sided mechanical stem injury explains the crown discoloration"],"progression":[{"stage":"Early crown/root disease","description":"Root or crown tissue darkens and growth may slow before the canopy pattern is distinctive."},{"stage":"Wilt development","description":"General or sometimes asymmetric yellowing and wilt develops as crown/root damage advances."},{"stage":"Advanced collapse","description":"Internal decay may extend upward from the crown and plants can rapidly wilt, defoliate, collapse, or die."}],"lookAlikes":["Pythium root rot","Severe drought or irrigation failure","Root-zone hypoxia / overwatering","Vascular or bacterial disease"],"confirmation":["Inspect roots, crown, and a clean stem cross-section for the distribution of decay and internal discoloration.","Use a plant-diagnostic laboratory for isolation plus molecular or sequence-based identification when Fusarium confirmation changes management."],"immediateActions":["Quarantine severely affected plants and avoid moving contaminated root-zone material or runoff to clean plants.","Document crown/root/internal symptoms before destructive sampling and preserve representative tissue for diagnosis."],"correctivePlan":["Base sanitation, culling, irrigation-system, and crop-protection decisions on confirmed pathogen and production-system evidence.","Inspect propagation stock and adjacent plants because Fusarium can move through infected plant material and contaminated production environments."],"prevention":["Start with clean propagation stock and sanitized tools, containers, and root-zone systems.","Prevent recirculation or movement of contaminated irrigation water where pathogen spread is a concern."],"warnings":["A photograph of yellowing or wilt cannot confirm Fusarium.","Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence."],"sources":[{"title":"Root and crown rot pathogens causing wilt symptoms on field-grown marijuana (Cannabis sativa L.) plants","organization":"Canadian Journal of Plant Pathology","url":"https://doi.org/10.1080/07060661.2018.1535470","publicationDate":"2018-11-08","year":2018,"accessedDate":"2026-08-16","doi":"10.1080/07060661.2018.1535470","supportedClaims":["Affected field-grown Cannabis plants showed general or one-sided yellowing, rapid wilting, and collapse, with dark sunken crown lesions and internal discoloration extending upward from the root/crown zone.","Fusarium oxysporum, F. brachygibbosum, F. solani, F. equiseti, and Pythium aphanidermatum were recovered from affected tissues; pathogenicity work demonstrates that visual wilt alone does not identify one causal species.","Darkened or necrotic roots, crown rot, and reddish-brown internal decay are more discriminating observations than general canopy yellowing."]},{"title":"Diseases of Cannabis sativa Caused by Diverse Fusarium Species","organization":"Frontiers in Agronomy","url":"https://doi.org/10.3389/fagro.2021.796062","publisher":"Frontiers Media SA","publicationDate":"2021-12-23","year":2021,"accessedDate":"2026-08-16","doi":"10.3389/fagro.2021.796062","supportedClaims":["Multiple Fusarium species are associated with Cannabis root, crown, stem, wilt, and flower disease syndromes.","Reported Cannabis Fusarium diagnoses use culture and sequence-based or other laboratory identification together with pathogenicity evidence; symptom appearance is not species-level confirmation."]}],"media":[]}
+{
+  "id": "root-fusarium-crown-rot",
+  "slug": "fusarium-crown-root-rot",
+  "name": "Fusarium crown and root rot / wilt complex",
+  "scientificName": "Fusarium spp.",
+  "canonicalId": "CAN-ROOT-003",
+  "responsePolicyId": "POL-FUSARIUM",
+  "photoOnlyMaxConfidence": 0.5,
+  "category": "Root pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A Cannabis crown/root/wilt disease complex associated with multiple Fusarium species. Yellowing and wilt are nonspecific; dark sunken crown tissue, root necrosis, and internal discoloration increase suspicion, while laboratory isolation or molecular work is required for organism-level confirmation.",
+  "affectedParts": [
+    "roots",
+    "crown",
+    "lower stem",
+    "vascular and pith tissues",
+    "whole canopy secondarily"
+  ],
+  "stages": [
+    "propagation",
+    "vegetative",
+    "flower",
+    "all"
+  ],
+  "indicators": [
+    "Dark sunken crown lesions extend upward from the cannabis root zone",
+    "Reddish-brown or dark internal stem discoloration originates at the crown",
+    "Roots are necrotic while crown tissue is darkened or rotted",
+    "Canopy yellowing and wilt occur together with documented crown or internal stem decay"
+  ],
+  "exclusions": [
+    "Roots and crown are firm and healthy with no internal discoloration",
+    "Brown slimy roots occur without crown or internal stem lesions and Pythium or oxygen stress is better supported",
+    "Wilt resolves promptly after correcting a documented irrigation deficit without crown decay",
+    "Only one-sided mechanical stem injury explains the crown discoloration"
+  ],
+  "progression": [
+    {
+      "stage": "Early crown/root disease",
+      "description": "Root or crown tissue darkens and growth may slow before the canopy pattern is distinctive."
+    },
+    {
+      "stage": "Wilt development",
+      "description": "General or sometimes asymmetric yellowing and wilt develops as crown/root damage advances."
+    },
+    {
+      "stage": "Advanced collapse",
+      "description": "Internal decay may extend upward from the crown and plants can rapidly wilt, defoliate, collapse, or die."
+    }
+  ],
+  "lookAlikes": [
+    "Pythium root rot",
+    "Severe drought or irrigation failure",
+    "Root-zone hypoxia / overwatering",
+    "Vascular or bacterial disease"
+  ],
+  "confirmation": [
+    "Inspect roots, crown, and a clean stem cross-section for the distribution of decay and internal discoloration.",
+    "Use a plant-diagnostic laboratory for isolation plus molecular or sequence-based identification when Fusarium confirmation changes management."
+  ],
+  "immediateActions": [
+    "Quarantine severely affected plants and avoid moving contaminated root-zone material or runoff to clean plants.",
+    "Document crown/root/internal symptoms before destructive sampling and preserve representative tissue for diagnosis."
+  ],
+  "correctivePlan": [
+    "Base sanitation, culling, irrigation-system, and crop-protection decisions on confirmed pathogen and production-system evidence.",
+    "Inspect propagation stock and adjacent plants because Fusarium can move through infected plant material and contaminated production environments."
+  ],
+  "prevention": [
+    "Start with clean propagation stock and sanitized tools, containers, and root-zone systems.",
+    "Prevent recirculation or movement of contaminated irrigation water where pathogen spread is a concern."
+  ],
+  "warnings": [
+    "A photograph of yellowing or wilt cannot confirm Fusarium.",
+    "Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence."
+  ],
+  "sources": [
+    {
+      "title": "Root and crown rot pathogens causing wilt symptoms on field-grown marijuana (Cannabis sativa L.) plants",
+      "organization": "Canadian Journal of Plant Pathology",
+      "url": "https://doi.org/10.1080/07060661.2018.1535470",
+      "publicationDate": "2018-11-08",
+      "year": 2018,
+      "accessedDate": "2026-08-16",
+      "doi": "10.1080/07060661.2018.1535470",
+      "supportedClaims": [
+        "Affected field-grown Cannabis plants showed general or one-sided yellowing, rapid wilting, and collapse, with dark sunken crown lesions and internal discoloration extending upward from the root/crown zone.",
+        "Fusarium oxysporum, F. brachygibbosum, F. solani, F. equiseti, and Pythium aphanidermatum were recovered from affected tissues; pathogenicity work demonstrates that visual wilt alone does not identify one causal species.",
+        "Darkened or necrotic roots, crown rot, and reddish-brown internal decay are more discriminating observations than general canopy yellowing."
+      ]
+    },
+    {
+      "title": "Diseases of Cannabis sativa Caused by Diverse Fusarium Species",
+      "organization": "Frontiers in Agronomy",
+      "url": "https://doi.org/10.3389/fagro.2021.796062",
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2021-12-23",
+      "year": 2021,
+      "accessedDate": "2026-08-16",
+      "doi": "10.3389/fagro.2021.796062",
+      "supportedClaims": [
+        "Multiple Fusarium species are associated with Cannabis root, crown, stem, wilt, and flower disease syndromes.",
+        "Reported Cannabis Fusarium diagnoses use culture and sequence-based or other laboratory identification together with pathogenicity evidence; symptom appearance is not species-level confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,172 @@
+{
+  "id": "nut-def-cu",
+  "slug": "copper-deficiency",
+  "name": "Copper deficiency",
+  "category": "Nutrient deficiency",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A controlled vegetative Cannabis copper-withholding response characterized by late-onset stunting, basal narrowing and yellowing of newer leaflets, progressive new-leaf distortion, fine interveinal chlorosis, slight inward/downward margin curl, and reduced turgidity. The evidence comes from one cultivar and requires tissue and root-zone confirmation.",
+  "affectedParts": [
+    "whole plant for relative stunting",
+    "growing tips and newer foliage",
+    "newly expanding leaflets",
+    "leaflet bases",
+    "interveinal tissue",
+    "leaf margins",
+    "most-recent-mature leaves for source-comparable tissue analysis",
+    "roots and root zone for availability checks"
+  ],
+  "stages": [
+    "vegetative",
+    "late-onset deficiency",
+    "initial basal narrowing and yellowing",
+    "advanced distortion and fine interveinal chlorosis"
+  ],
+  "indicators": [
+    "Slight whole-plant stunting relative to a matched healthy plant",
+    "Newer and expanding leaves show mild distortion concentrated near leaflet bases",
+    "Leaflet bases become narrower than the distal leaflet and slightly yellow",
+    "Basal narrowing and distortion become more pronounced as the sequence advances",
+    "Marginal interveinal chlorosis develops on new and expanding leaves",
+    "Advanced leaves show fine interveinal chlorosis across much of the blade",
+    "Leaf margins distort and curl slightly inward and downward",
+    "New and expanding leaves show mildly reduced turgidity",
+    "Low copper is documented in correctly positioned foliage and linked to supply or root-zone availability"
+  ],
+  "exclusions": [
+    "New-leaf interveinal chlorosis occurs without basal narrowing or distortion and iron, manganese, or zinc evidence is stronger",
+    "Growing-tip distortion, narrow leaflet bases, root-tip loss, severe wilting, or tip death follows a boron-deficiency pattern and boron analysis supports it",
+    "Newest leaves are puckered, bronzed, hardened, or strap-like and broad mites are found under adequate magnification",
+    "Uniform wilting or reduced turgidity follows irrigation, drought, heat, root hypoxia, salinity, or root disease rather than the published leaf sequence",
+    "Fine stippling, silver scars, webbing, eggs, mites, thrips, or fecal spots are present on magnified inspection",
+    "Mosaic, vein clearing, brittle growth, asymmetrical distortion, or molecular evidence supports a virus or viroid",
+    "Discrete lesions, halos, surface growth, vascular discoloration, root decay, or laboratory evidence supports a pathogen",
+    "Damage maps to a lamp-facing surface, heat event, spray droplets, residue, rubbing point, pruning event, or other documented exposure",
+    "Color or distortion appears only under grow lights, altered white balance, glare, shadow, compression, residue, or a stable inherited leaf form",
+    "Correctly positioned tissue copper is adequate for the cultivar, stage, method, and production system or another nutrient result explains the syndrome better"
+  ],
+  "progression": [
+    {
+      "stage": "Before visible separation",
+      "description": "Copper supply or availability may be low before a reliable image pattern appears; the controlled T1 study did not report visible symptoms until nine weeks after withholding began."
+    },
+    {
+      "stage": "Initial",
+      "description": "The plant becomes slightly stunted and newer or expanding leaves show mild distortion, narrowed leaflet bases, and slight basal yellowing."
+    },
+    {
+      "stage": "Intermediate",
+      "description": "Basal narrowing and distortion intensify and marginal interveinal chlorosis appears on new and expanding leaves."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Fine interveinal chlorosis extends across the leaf, margins become distorted with slight inward and downward curl, and newer leaves show mildly reduced turgidity."
+    },
+    {
+      "stage": "After a documented correction",
+      "description": "Assess subsequent growth, new-leaf geometry, serial canopy views, root-zone measurements, and follow-up tissue analysis; established deformation or chlorosis may not reverse."
+    }
+  ],
+  "lookAlikes": [
+    "Iron deficiency",
+    "Manganese deficiency",
+    "Zinc deficiency or phosphorus-zinc interaction",
+    "Boron deficiency",
+    "Calcium deficiency",
+    "Broad mite injury",
+    "Hemp russet mite injury",
+    "Thrips injury",
+    "Virus or viroid syndrome",
+    "High-pH or high-EC root-zone stress",
+    "Waterlogging or root-zone hypoxia",
+    "Drought or excessive vapor demand",
+    "Pythium or other root disease",
+    "Heat or high-light injury",
+    "Foliar spray or plant-growth-regulator injury",
+    "Genetic or developmental leaf-shape variation",
+    "Camera white-balance, exposure, or grow-light color shift"
+  ],
+  "confirmation": [
+    "Do not confirm copper deficiency from stunting, narrow leaflet bases, chlorosis, curl, reduced turgidity, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the photographed plant.",
+    "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, growing tips, new and mature leaves of known node and physiological age, leaflet bases and margins, both leaf surfaces, internodes with scale, and roots under neutral repeatable lighting with a healthy same-cultivar reference.",
+    "Record cultivar, stage, days since onset, copper concentration and formulation, iron, manganese, zinc, boron, calcium, sulfur, phosphorus, and complete fertilizer inputs, source-water chemistry and alkalinity, irrigation history, substrate or solution type, and recent product changes.",
+    "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing copper supply.",
+    "Submit correctly positioned foliage plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret copper with plant part, stage, cultivar, method, and competing elements rather than treating 1.41 mg/kg as a universal cutoff.",
+    "Inspect growing points and both leaf surfaces with magnification and use a plant diagnostic laboratory when broad mites, russet mites, thrips, root disease, viruses, viroids, or other pathogens remain plausible.",
+    "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth copper deficiency."
+  ],
+  "immediateActions": [
+    "Mark affected and matched healthy plants; preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative tissue before changing nutrition.",
+    "Correct documented pH, salinity, saturation, drought, temperature, oxygenation, or root-health problems before assuming copper concentration is inadequate.",
+    "Avoid blind copper supplementation when boron, iron, manganese, zinc, mites, pathogens, spray injury, and genetic leaf form have not been excluded."
+  ],
+  "correctivePlan": [
+    "When analytical and production records support inadequate copper supply or availability and roots are functional, restore a balanced crop- and system-appropriate micronutrient program gradually under current local agronomic guidance.",
+    "Track subsequent leaf geometry, chlorosis, turgidity, internode growth, roots, root-zone measurements, and follow-up tissue results rather than judging correction from old deformed leaves.",
+    "If copper status is adequate or the pattern continues, reopen boron, iron, manganese, zinc, calcium, root disease, arthropod, pathogen, environmental, exposure, and genetic differentials."
+  ],
+  "prevention": [
+    "Record copper and competing micronutrients in fertilizer, source water, and representative tissue by plant part and stage rather than relying on a generic deficiency chart.",
+    "Calibrate pH and EC meters, monitor root-zone conditions and leachate where appropriate, and keep irrigation, dryback, temperature, and oxygenation records.",
+    "Maintain same-cultivar healthy references and consistent growing-tip, node-, and canopy-position sampling so developmental leaf shape is not mistaken for copper response."
+  ],
+  "warnings": [
+    "The controlled sequence came from one Cannabis sativa T1 cultivar in silica sand with copper completely withheld; nine weeks, 1.41 mg/kg tissue copper, 45% lower biomass, and the pictured pattern are experiment-specific, not universal thresholds.",
+    "The control contained 4.65 mg/kg copper, slightly below the general crop survey range cited by the authors, which further limits conversion of either value into a Cannabis cutoff.",
+    "The source contains a figure-number inconsistency: its copper prose cites Figure 5, while the published Figure 4 caption and right-column label identify copper deficiency and Figure 5 is captioned manganese and boron toxicity. Copper panels require human verification against the original layout.",
+    "New-growth distortion, basal narrowing, chlorosis, curl, reduced turgidity, and stunting overlap nutritional, root-zone, arthropod, pathogen, environmental, exposure, genetic, and imaging conditions and are not image-only ground truth.",
+    "The CC BY Figure 4 asset is already hashed and indexed under manganese deficiency; it is cross-referenced rather than duplicated here because repository quality gates require unique verified media hashes.",
+    "No separate image or video is admitted for this record in this batch; all symptom-only samples and any derived copper-panel crops require human review and linked analytical evidence before ground-truth use."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
+        "Phosphorus-withheld plants first showed slight stunting and irregular olive-green spots on lower and older leaflets after seven weeks; spots enlarged, appeared sunken and almost wet, developed some marginal necrosis, and advanced to extensive olive spotting and large necrotic portions.",
+        "At first phosphorus-deficiency symptom expression, phosphorus-withheld most-recent-mature leaves contained 0.09% phosphorus dry weight compared with 0.43% in controls, a 79% difference under the experiment conditions.",
+        "The study used one cultivar, began nutrient withholding at transplant, and reported no statistically significant biomass difference for phosphorus-withheld plants at the symptom-onset harvest, so its timing, tissue value, and appearance are not universal diagnostic thresholds.",
+        "Figure 2 is a CC BY 4.0 composite showing initial, intermediate, and advanced nitrogen-, phosphorus-, and calcium-deficiency phenotypes in Cannabis sativa T1.",
+        "In calcium-withheld T1 plants, symptoms appeared after five weeks as slight stunting and irregular growing tips and newly expanding leaves; leaflet bases stayed narrow and paler than tips, then basal and interveinal chlorosis, marginal necrosis, distorted geometry, growing-tip death, and axillary branching developed.",
+        "At first calcium-deficiency symptom expression, most-recent-mature leaves contained 0.39% calcium dry weight compared with 3.73% in controls, but the one-cultivar silica-sand withholding experiment does not establish a universal tissue threshold or field sequence.",
+        "Iron-withheld T1 plants first developed symptoms after nine weeks: slight marginal yellowing, especially near leaflet bases, progressed to interveinal chlorosis on growing-tip and newly expanding leaves and spread through the upper half while middle and lower foliage remained healthy dark green.",
+        "At first iron-deficiency symptom expression, iron-withheld most-recent-mature leaves contained 60.08 mg/kg iron compared with 111.75 mg/kg in controls, 46% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Figure 6 is a CC BY 4.0 composite with initial, intermediate, and advanced iron-deficiency images in its left column and zinc-deficiency images in its right column.",
+        "Manganese-withheld T1 plants developed bright-yellow netted interveinal chlorosis on upper and central foliage after six weeks; the netting began near leaflet midribs, spread toward margins, retained green veins, and later developed small tan necrotic regions.",
+        "At first manganese-deficiency symptom expression, manganese-withheld most-recent-mature leaves contained 7.56 mg/kg manganese compared with 29.40 mg/kg in controls, 74% lower under the experiment conditions; dry biomass did not differ significantly at that harvest.",
+        "The control manganese concentration was itself below the cited general crop survey range, and the study used one cultivar in silica sand with complete withholding, so neither treatment value is a universal Cannabis diagnostic threshold.",
+        "Figure 4 is a CC BY 4.0 composite showing initial, intermediate, and advanced manganese-, boron-, and copper-deficiency phenotypes in Cannabis sativa T1; only its left column represents manganese deficiency.",
+        "Copper-withheld T1 plants first developed visible symptoms after nine weeks, beginning with slight whole-plant stunting and mild distortion of newer and expanding leaves, especially narrowed and slightly yellow leaflet bases.",
+        "As copper-withholding symptoms advanced, basal narrowing and distortion intensified, marginal interveinal chlorosis developed, and the whole leaf progressed to fine interveinal chlorosis with slightly inward- and downward-curled margins and reduced turgidity.",
+        "At first copper-deficiency symptom expression, copper-withheld most-recent-mature leaves contained 1.41 mg/kg copper compared with 4.65 mg/kg in controls, 70% lower under the experiment conditions; treated plants produced 45% less biomass.",
+        "The control copper concentration of 4.65 mg/kg was itself slightly below the general crop survey range cited by the authors, and the one-cultivar complete-withholding result does not establish a universal Cannabis threshold.",
+        "The published Figure 4 caption and column labels identify initial, intermediate, and advanced copper-deficiency panels in the right column, although the copper subsection text cites Figure 5; Figure 5 is captioned as manganese- and boron-toxicity progression, so this source-level numbering inconsistency must remain attached to copper panel review.",
+        "Magnesium-withheld T1 plants first developed slight interveinal yellowing on lower and older foliage after seven weeks; the contrast between green veins and yellow interveinal tissue intensified and some regions became necrotic.",
+        "At first magnesium-deficiency symptom expression, magnesium-withheld most-recent-mature leaves contained 0.12% magnesium compared with 0.61% in controls, 80% lower under the experiment conditions; biomass did not differ significantly at that harvest.",
+        "Figure 3 is a CC BY 4.0 composite showing initial, intermediate, and advanced sulfur-, magnesium-, and potassium-deficiency phenotypes in Cannabis sativa T1; only its center column represents magnesium deficiency.",
+        "Potassium-withheld T1 plants first developed yellowing at leaflet margins and saw-tooth serrations on lower and older foliage after nine weeks; yellowing intensified and moved inward toward the midrib, followed by tan necrosis concentrated along serrated margins.",
+        "At first potassium-deficiency symptom expression, potassium-withheld most-recent-mature leaves contained 0.41% potassium compared with 2.85% in controls, 86% lower under the experiment conditions; treated plants produced 27% less biomass.",
+        "Figure 3 is a CC BY 4.0 composite whose right column shows initial, intermediate, and advanced potassium-deficiency phenotypes; the sulfur and magnesium columns are separate diagnoses and the asset is indexed once under the magnesium record to avoid duplicate media hashes.",
+        "Zinc-withheld T1 plants first developed symptoms after nine weeks as marginal yellowing on newer and expanding leaves, concentrated along leaflet margins and toothed portions; tan, irregularly shaped marginal necrosis developed as the disorder progressed.",
+        "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
+        "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+      ]
+    }
+  ],
+  "media": []
+}

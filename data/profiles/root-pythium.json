@@ -1,0 +1,79 @@
+{
+  "id": "root-pythium",
+  "slug": "pythium-root-rot",
+  "name": "Pythium root rot",
+  "scientificName": "Pythium spp.",
+  "category": "Root pathogen",
+  "severity": "critical",
+  "reviewStatus": "reviewed",
+  "summary": "An oomycete root disease favored by wet, low-oxygen conditions; affected roots discolor, soften, and lose function.",
+  "affectedParts": [
+    "roots",
+    "crown",
+    "whole plant"
+  ],
+  "stages": [
+    "all"
+  ],
+  "indicators": [
+    "Brown slimy roots",
+    "Wilting despite moisture",
+    "Stunting and yellowing",
+    "Crown rot in severe cases"
+  ],
+  "exclusions": [
+    "Roots are tan from media staining but firm",
+    "Container is very light and dry",
+    "Only one leaf shows damage"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Root tips lose white color and growth slows."
+    },
+    {
+      "stage": "Moderate",
+      "description": "Roots brown and soften while foliage wilts or yellows."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Root systems collapse and crown tissue may rot."
+    }
+  ],
+  "lookAlikes": [
+    "Overwatering or root hypoxia",
+    "Phytophthora root rot",
+    "Fusarium crown disease"
+  ],
+  "confirmation": [
+    "Inspect cleaned roots for texture and active white tips.",
+    "Laboratory testing is required to distinguish similar root pathogens."
+  ],
+  "immediateActions": [
+    "Isolate affected root-zone water and tools.",
+    "Restore oxygenation and correct saturation."
+  ],
+  "correctivePlan": [
+    "Remove irrecoverable plants where appropriate and sanitize wetted equipment.",
+    "Use only legal crop-appropriate treatments."
+  ],
+  "prevention": [
+    "Control water temperature, sanitation, oxygen, and irrigation duration."
+  ],
+  "warnings": [
+    "Visual symptoms cannot reliably identify Pythium to species."
+  ],
+  "sources": [
+    {
+      "title": "Several Pythium species cause crown and root rot on cannabis plants grown under commercial greenhouse conditions",
+      "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
+      "url": "https://www.tandfonline.com/doi/full/10.1080/07060661.2021.1954695",
+      "year": 2022,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Multiple Pythium species cause crown and root rot in greenhouse cannabis, and pathogen identity cannot be resolved reliably from above-ground symptoms alone."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,133 @@
+{
+  "id": "water-over",
+  "slug": "overwatering-root-hypoxia",
+  "name": "Waterlogging or root-zone hypoxia",
+  "category": "Water / root-zone",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A persistently saturated root zone can suppress Cannabis root elongation, leaf expansion, relative chlorophyll, gas exchange, and biomass; the canopy response overlaps drought, nutrient, transplant, and root-disease injury, so exposure measurements are required.",
+  "affectedParts": [
+    "root system",
+    "whole canopy",
+    "expanding leaves",
+    "reproductive canopy"
+  ],
+  "stages": [
+    "transplant establishment",
+    "vegetative",
+    "reproductive"
+  ],
+  "indicators": [
+    "Root zone remains saturated or stands in water across repeated observations",
+    "Whole-plant growth and canopy expansion slow relative to a matched healthy plant",
+    "Root system is shorter or has less new growth than a matched control",
+    "Canopy greenness declines over time rather than forming discrete lesions",
+    "Leaf-area development and biomass accumulation remain depressed after drainage"
+  ],
+  "exclusions": [
+    "Container weight or substrate-water measurement shows the root zone is dry rather than saturated",
+    "The pattern is restricted to one mechanically damaged branch",
+    "Discrete leaf lesions, fungal growth, vascular discoloration, root galls, or organisms provide a better causal explanation",
+    "Roots are brown, soft, or decayed and a laboratory test identifies Pythium, Phytophthora, Fusarium, or another pathogen",
+    "Measured salinity or pH is outside the crop target and explains the distribution better",
+    "Only canopy posture is available without irrigation, drainage, root, or time-series context"
+  ],
+  "progression": [
+    {
+      "stage": "Exposure",
+      "description": "The container or soil zone remains saturated or flooded; canopy appearance can still be nonspecific, so the event should be labeled from measured exposure rather than leaf posture."
+    },
+    {
+      "stage": "Seven-day vegetative response",
+      "description": "Controlled waterlogging reduced root length, leaf area, leaf-area index, relative chlorophyll, stomatal conductance, and plant biomass in Cannabis cv. G1."
+    },
+    {
+      "stage": "Short recovery",
+      "description": "In the same experiment, waterlogged plants remained below controls and water-shortage plants after seven days of recovery, especially for root length, leaf area, and biomass."
+    },
+    {
+      "stage": "Prolonged reproductive response",
+      "description": "Longer exposure reduced canopy leaf area, relative chlorophyll, photosynthetic efficiency, root and shoot biomass, and flower biomass; exact timing and magnitude remain genotype- and stage-limited."
+    }
+  ],
+  "lookAlikes": [
+    "Water shortage or drought",
+    "Pythium root rot",
+    "Phytophthora root or crown rot",
+    "Fusarium wilt or crown disease",
+    "High root-zone EC or pH-related nutrient unavailability",
+    "Nitrogen deficiency",
+    "Poor transplant root establishment"
+  ],
+  "confirmation": [
+    "Document irrigation volume and timing, drainage duration, runoff, standing water, container weight, or calibrated substrate-water content across time; a canopy photograph alone cannot confirm waterlogging.",
+    "Compare the entire plant and cleaned root system with a healthy plant of the same cultivar, age, medium, and stage, recording root length, active root tips, leaf-area expansion, and recovery after drainage is restored.",
+    "Measure root-zone pH and EC because salinity and nutrient availability can produce overlapping canopy decline.",
+    "If roots or crowns are discolored, soft, necrotic, or decayed, submit representative root and crown tissue to a plant diagnostic laboratory before assigning an abiotic-only label."
+  ],
+  "immediateActions": [
+    "Stop adding unnecessary irrigation and remove standing water while preserving a documented sample of the pre-correction root-zone condition.",
+    "Separate drainage and runoff from healthy plants when infectious root disease remains possible.",
+    "Inspect roots, emitters, drain paths, and neighboring containers before choosing a correction."
+  ],
+  "correctivePlan": [
+    "Correct the measured cause of persistent saturation, such as blocked drainage, excessive shot size or frequency, poor container drainage, compacted media, or flooding.",
+    "Return irrigation gradually to a measured dryback pattern appropriate to the crop stage and medium, then score only new growth and root recovery.",
+    "Use laboratory results and locally legal crop protocols if a root pathogen is confirmed; drainage correction alone does not establish or cure a pathogen diagnosis."
+  ],
+  "prevention": [
+    "Record irrigation input, runoff, container weight or substrate water content, and dryback duration instead of relying on a fixed calendar.",
+    "Use matched healthy controls and photograph the whole plant, root zone, and cleaned roots across time.",
+    "Keep drainage paths functional and prevent shared runoff from moving between containers."
+  ],
+  "warnings": [
+    "Reduced growth, pale foliage, or leaf posture is not specific to excess water and must not be used as image-only ground truth.",
+    "The controlled waterlogging results come from one Cannabis genotype and defined seven-to-21-day treatments; symptom timing and severity should not be generalized as universal thresholds.",
+    "Brown or decayed roots cannot safely be labeled abiotic hypoxia without excluding Pythium, Phytophthora, Fusarium, and other root diseases.",
+    "No symptom photograph with adequate Cannabis-specific confirmation and reusable provenance was admitted in this batch."
+  ],
+  "sources": [
+    {
+      "title": "Impact of varying water stress periods (water shortage vs. waterlogging) on Cannabis sativa growth, leaf physiology, and CBD content",
+      "organization": "Notulae Botanicae Horti Agrobotanici Cluj-Napoca",
+      "url": "https://doi.org/10.15835/nbha53414864",
+      "authors": [
+        "Camilo A. Rincón-Bohórquez",
+        "Cristhian C. Chávez-Arias",
+        "Hermann Restrepo-Díaz"
+      ],
+      "publisher": "University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca",
+      "publicationDate": "2025-12-23",
+      "year": 2025,
+      "accessedDate": "2026-08-13",
+      "doi": "10.15835/nbha53414864",
+      "supportedClaims": [
+        "In a controlled Cannabis sativa cv. G1 experiment, waterlogging was imposed by standing potted plants in a two-centimetre sheet of water; diagnosis therefore depended on verified root-zone exposure rather than canopy appearance alone.",
+        "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
+        "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
+        "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+      ]
+    },
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A 2017–2018 North Carolina survey based on 572 agronomic and 117 plant-clinic hemp submissions attributed common environmental disorders to excessive rainfall flooding roots and to poor root development in transplanted clones.",
+        "The same diagnostic survey found Pythium diseases in greenhouse hemp, supporting explicit separation of abiotic flooding injury from root-pathogen diagnoses."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,208 @@
+{
+  "id": "virus-bctv",
+  "slug": "beet-curly-top-virus",
+  "name": "Beet curly top virus disease",
+  "scientificName": "Beet curly top virus (BCTV)",
+  "category": "Virus",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A beet-leafhopper-vectored viral disease of field-grown hemp that can produce uneven stunting, bushy or shortened shoots, twisted and upward-curled young leaves, and pale-green, yellow, mosaic, or fully chlorotic foliage.",
+  "affectedParts": [
+    "young and expanding leaves",
+    "shoot tips",
+    "stems and internodes",
+    "buds",
+    "whole plant"
+  ],
+  "stages": [
+    "seedling",
+    "vegetative",
+    "pre-flower",
+    "flower"
+  ],
+  "indicators": [
+    "Stunted or bushy plant architecture",
+    "Twisted, puckered, or upward-curled young leaves",
+    "Pale-green to yellow new foliage",
+    "Yellow mosaic or generalized chlorosis",
+    "Shortened stem growth",
+    "Symptomatic shoots beside apparently healthy shoots on the same plant"
+  ],
+  "exclusions": [
+    "Microscopy confirms broad mites or hemp russet mites in protected new growth",
+    "Distortion follows a documented herbicide or plant-growth-regulator exposure pattern",
+    "Symptoms are uniform only on the hottest or brightest canopy surface and measured environmental stress explains the distribution",
+    "Only older leaves follow a mobile-nutrient pattern without twisted new shoots",
+    "A validated laboratory assay is negative on properly collected tissue and another cause is confirmed"
+  ],
+  "progression": [
+    {
+      "stage": "Early expression",
+      "description": "New growth may begin twisting or puckering while shoots slow; pale-green or yellow coloration can develop, but appearance varies by cultivar, growth stage, temperature, and virus strain."
+    },
+    {
+      "stage": "Established disease",
+      "description": "Plants become stunted or bushy with shortened stems and distorted, upward-curled, yellowed, or mosaic foliage; shoots may differ markedly within one plant."
+    },
+    {
+      "stage": "Variable later course",
+      "description": "Early infections are generally more severe, yet some plants appear to outgrow visible symptoms or retain a mixture of symptomatic and apparently healthy shoot portions."
+    }
+  ],
+  "lookAlikes": [
+    "Tomato spotted wilt virus",
+    "Broad mite",
+    "Hemp russet mite",
+    "Plant-growth-regulator herbicide injury",
+    "Heat or light stress",
+    "Micronutrient or root-zone disorder",
+    "Genetic or chimeric variegation"
+  ],
+  "confirmation": [
+    "Do not confirm BCTV from an image or from beet-leafhopper presence; submit representative symptomatic tissue to a plant diagnostic laboratory using a validated BCTV-targeted molecular assay.",
+    "Sample newly symptomatic shoots rather than only old damaged leaves, and include an apparently healthy comparison when the laboratory protocol allows.",
+    "Ask the laboratory to consider other viruses or mixed infection when symptoms or assay results do not fully agree; BCTV can occur in mixed strain or mixed pathogen infections.",
+    "Record field position, onset date, affected growth stage, nearby weed hosts, and beet-leafhopper observations to support epidemiological interpretation without treating them as proof of infection."
+  ],
+  "immediateActions": [
+    "Mark and isolate suspect propagation material; stop taking or distributing cuttings until laboratory results are available.",
+    "Scout the crop, field edges, leaf undersides, and nearby weeds for beet leafhoppers and additional symptomatic plants.",
+    "Prevent unverified symptom images from being assigned a virus ground-truth label."
+  ],
+  "correctivePlan": [
+    "Base roguing or retention decisions on laboratory confirmation and the facility or field disease protocol.",
+    "Manage beet-leafhopper exposure with locally recommended legal practices; vector control does not cure an infected plant.",
+    "Continue monitoring because visible symptoms may vary among shoots or appear to recede."
+  ],
+  "prevention": [
+    "Use tested propagation material and maintain source records.",
+    "Monitor beet leafhoppers from spring onward with crop inspection and field-edge trapping appropriate to the production system.",
+    "Reduce unmanaged weed and volunteer hosts around field borders using legal, agronomically appropriate practices."
+  ],
+  "warnings": [
+    "Visual symptoms are not specific enough to confirm a virus.",
+    "A beet leafhopper on a plant does not establish that the insect or plant carries BCTV.",
+    "The two institutional hemp photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden from the public gallery and prohibited from automated training."
+  ],
+  "sources": [
+    {
+      "title": "Curly Top Disease of Hemp (Cannabis sativa) in California Is Caused by Mild-Type Strains of Beet curly top virus Often in Mixed Infection",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-04-22-0856-SC",
+      "authors": [
+        "Tomas A. Melgarejo",
+        "Li-Fang Chen",
+        "Maria R. Rojas",
+        "Annemiek Schilder",
+        "Robert L. Gilbertson"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2022-12-01",
+      "year": 2022,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1094/PDIS-04-22-0856-SC",
+      "supportedClaims": [
+        "California hemp plants with curly-top-like disease were characteristically stunted and bushy with distorted, upward-curled, yellowed leaves.",
+        "A multiplex PCR detected Beet curly top virus in 89% of hemp samples with curly-top-like symptoms, while other symptom types had low BCTV incidence and were associated with other factors.",
+        "An infectious BCTV-CO clone reproduced curly-top-like symptoms in hemp, fulfilling Koch’s postulates; mixed BCTV strain infections also occurred."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-Curly Top",
+      "organization": "Pacific Northwest Pest Management Handbooks",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-curly-top",
+      "authors": [
+        "K. Frost",
+        "C. M. Ocamb"
+      ],
+      "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+      "publicationDate": "2026-03-01",
+      "year": 2026,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Hemp curly-top symptoms vary with variety, growth stage, temperature, and virus strain; predominant signs include stunting, twisted or curled leaves, and pale-green-to-yellow foliage.",
+        "Leaves may pucker and curl upward, or remain green while new growth twists and stem growth is stunted; earlier infection generally produces more severe symptoms.",
+        "Individual plants can contain symptomatic and apparently healthy shoot portions or appear to outgrow visible symptoms.",
+        "The four hemp symptom photographs are credited to C. M. Ocamb, Oregon State University, 2021; the landing page states copyright but provides no reuse license."
+      ]
+    },
+    {
+      "title": "Curly Top Virus",
+      "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
+      "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-curly-top-virus",
+      "publisher": "Utah State University Extension",
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Infected field-grown hemp can become stunted and develop yellow mosaic or generalized leaf chlorosis.",
+        "Beet leafhoppers transmit curly-top viruses during probing and feeding; scouting is especially important while plants are small and should include leaf undersides, field edges, and nearby weeds.",
+        "Yellow mosaic hemp samples should be submitted to a plant diagnostic laboratory, and tomato spotted wilt virus is an early-season look-alike."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "pnw-bctv-hemp-field-2021",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-curly-top/img7117fieldshotofbctvinfectedhempaug2021shrunk.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-curly-top/img7117fieldshotofbctvinfectedhempaug2021shrunk.jpg?itok=k5k0AB1L",
+      "alt": "Field-grown hemp plant with uneven shoot twisting and curling attributed to Beet curly top virus by Oregon State University Extension",
+      "caption": "Metadata-only institutional reference: an August field plant with symptomatic curled and twisted shoots beside less-affected portions. Hidden until explicit display permission is documented.",
+      "creator": "C. M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-curly-top",
+      "mediaType": "image",
+      "requiredAttribution": "C. M. Ocamb, Oregon State University, 2021; obtain permission from the rights holder before display, copying, modification, or training use.",
+      "diagnosticLabel": "beet-curly-top-virus-field-plant-mixed-shoot-pattern",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored in the repository.",
+        "Do not display or copy without documented permission.",
+        "Symptom pattern is not a substitute for laboratory confirmation."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "4f8dcc3aa026415a98f7eece19c645543450c1a914e56fff3787f0141c9098d2",
+      "perceptualHash": "dhash64:6020161f3c4655f8",
+      "width": 3024,
+      "height": 4032,
+      "view": "whole-plant",
+      "stage": "field-grown plant in August",
+      "severity": "symptomatic mixed-shoot pattern",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-bctv-hemp-detached-leaves-2021",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-curly-top/img7446hemp2021-126bctvpositiveshrunk.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-curly-top/img7446hemp2021-126bctvpositiveshrunk.jpg?itok=_pBqzapO",
+      "alt": "Detached hemp leaves with twisting and deformity attributed to Beet curly top virus by Oregon State University Extension",
+      "caption": "Metadata-only institutional close reference of twisted, deformed hemp leaves. Hidden until explicit display permission is documented and never sufficient as image-only virus ground truth.",
+      "creator": "C. M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-curly-top",
+      "mediaType": "image",
+      "requiredAttribution": "C. M. Ocamb, Oregon State University, 2021; obtain permission from the rights holder before display, copying, modification, or training use.",
+      "diagnosticLabel": "beet-curly-top-virus-detached-leaf-twisting",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored in the repository.",
+        "Detached leaves remove whole-plant distribution and temporal context.",
+        "Do not display, copy, or train without documented permission."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "2d1c2c5a52a5272309f3d450fb31d562a63a039a842ee2c6ecd59d9d71f7ec51",
+      "perceptualHash": "dhash64:ec7dd8ccdcccfdcd",
+      "width": 2823,
+      "height": 2538,
+      "view": "close-up",
+      "stage": "detached symptomatic leaves",
+      "severity": "symptomatic",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
+}

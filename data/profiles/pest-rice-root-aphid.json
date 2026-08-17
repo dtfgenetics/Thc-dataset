@@ -1,1 +1,90 @@
-{"id":"pest-rice-root-aphid","slug":"rice-root-aphid","name":"Rice root aphid on cannabis","scientificName":"Rhopalosiphum rufiabdominale","category":"Insect","severity":"moderate","reviewStatus":"reviewed","summary":"A root-associated aphid that has become a common host-associated pest of indoor Cannabis in North America. Root-zone insect evidence is required because above-ground decline is nonspecific.","affectedParts":["roots","growing medium surface","root-zone container","whole plant secondarily"],"stages":["vegetative","flower","late flower","all"],"indicators":["Aphid colonies are visible on cannabis roots after careful root-zone inspection","Winged aphids emerge from or cluster around the growing medium while root colonies are present","Root-associated aphids are documented while stems and leaf undersides lack the typical cannabis-aphid colony pattern"],"exclusions":["No aphids are found on roots after representative inspection of the root ball or root zone","Aphids are concentrated on leaves and stems rather than roots","Small dark flies and translucent black-headed larvae support fungus gnats instead","Brown slimy roots and wilt occur without root aphids and a root pathogen or oxygen problem explains the decline better"],"progression":[{"stage":"Root colonization","description":"Populations remain largely hidden around roots and may be missed by canopy-only scouting."},{"stage":"Population increase","description":"More root-associated aphids are present and winged adults may emerge from the growing medium."},{"stage":"Late-cycle visibility","description":"Large numbers of alates may emerge from soil near plant maturity; above-ground stress still requires separate causal evaluation."}],"lookAlikes":["Cannabis aphid","Fungus gnats","Root pathogen","Water / root-zone stress"],"confirmation":["Expose representative roots and document aphids directly associated with roots.","Use morphological identification when distinguishing rice root aphid from other aphids is operationally important."],"immediateActions":["Inspect nearby root zones and isolate infested propagation material where practical.","Record root condition separately so root feeding is not confused with concurrent root disease or irrigation stress."],"correctivePlan":["Use a root-zone IPM plan appropriate to the production system and local rules.","Verify population decline by repeat root inspection rather than relying only on fewer flying adults."],"prevention":["Inspect root balls of incoming plants and rooted cuttings.","Include root-zone scouting when unexplained flying aphids appear indoors."],"warnings":["Do not diagnose rice root aphid from yellowing, stunting, or flying insects alone.","Root aphids and root disease can coexist; finding one does not exclude the other."],"sources":[{"title":"Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America","organization":"Journal of Integrated Pest Management","url":"https://doi.org/10.1093/jipm/pmaa014","publicationDate":"2020-07-21","year":2020,"accessedDate":"2026-08-16","doi":"10.1093/jipm/pmaa014","supportedClaims":["Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.","On Cannabis this aphid is found primarily in association with plant roots, and winged adults may emerge from soil in large numbers as plants approach maturity.","A root-zone aphid observation is much more discriminating than nonspecific above-ground stress symptoms."]}],"media":[]}
+{
+  "id": "pest-rice-root-aphid",
+  "slug": "rice-root-aphid",
+  "name": "Rice root aphid on cannabis",
+  "scientificName": "Rhopalosiphum rufiabdominale",
+  "category": "Insect",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "A root-associated aphid that has become a common host-associated pest of indoor Cannabis in North America. Root-zone insect evidence is required because above-ground decline is nonspecific.",
+  "affectedParts": [
+    "roots",
+    "growing medium surface",
+    "root-zone container",
+    "whole plant secondarily"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "late flower",
+    "all"
+  ],
+  "indicators": [
+    "Aphid colonies are visible on cannabis roots after careful root-zone inspection",
+    "Winged aphids emerge from or cluster around the growing medium while root colonies are present",
+    "Root-associated aphids are documented while stems and leaf undersides lack the typical cannabis-aphid colony pattern"
+  ],
+  "exclusions": [
+    "No aphids are found on roots after representative inspection of the root ball or root zone",
+    "Aphids are concentrated on leaves and stems rather than roots",
+    "Small dark flies and translucent black-headed larvae support fungus gnats instead",
+    "Brown slimy roots and wilt occur without root aphids and a root pathogen or oxygen problem explains the decline better"
+  ],
+  "progression": [
+    {
+      "stage": "Root colonization",
+      "description": "Populations remain largely hidden around roots and may be missed by canopy-only scouting."
+    },
+    {
+      "stage": "Population increase",
+      "description": "More root-associated aphids are present and winged adults may emerge from the growing medium."
+    },
+    {
+      "stage": "Late-cycle visibility",
+      "description": "Large numbers of alates may emerge from soil near plant maturity; above-ground stress still requires separate causal evaluation."
+    }
+  ],
+  "lookAlikes": [
+    "Cannabis aphid",
+    "Fungus gnats",
+    "Root pathogen",
+    "Water / root-zone stress"
+  ],
+  "confirmation": [
+    "Expose representative roots and document aphids directly associated with roots.",
+    "Use morphological identification when distinguishing rice root aphid from other aphids is operationally important."
+  ],
+  "immediateActions": [
+    "Inspect nearby root zones and isolate infested propagation material where practical.",
+    "Record root condition separately so root feeding is not confused with concurrent root disease or irrigation stress."
+  ],
+  "correctivePlan": [
+    "Use a root-zone IPM plan appropriate to the production system and local rules.",
+    "Verify population decline by repeat root inspection rather than relying only on fewer flying adults."
+  ],
+  "prevention": [
+    "Inspect root balls of incoming plants and rooted cuttings.",
+    "Include root-zone scouting when unexplained flying aphids appear indoors."
+  ],
+  "warnings": [
+    "Do not diagnose rice root aphid from yellowing, stunting, or flying insects alone.",
+    "Root aphids and root disease can coexist; finding one does not exclude the other."
+  ],
+  "sources": [
+    {
+      "title": "Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America",
+      "organization": "Journal of Integrated Pest Management",
+      "url": "https://doi.org/10.1093/jipm/pmaa014",
+      "publicationDate": "2020-07-21",
+      "year": 2020,
+      "accessedDate": "2026-08-16",
+      "doi": "10.1093/jipm/pmaa014",
+      "supportedClaims": [
+        "Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.",
+        "On Cannabis this aphid is found primarily in association with plant roots, and winged adults may emerge from soil in large numbers as plants approach maturity.",
+        "A root-zone aphid observation is much more discriminating than nonspecific above-ground stress symptoms."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "2.0.0",
+  "deterministic": true,
+  "compiler": "project tsc CLI",
+  "sourceFiles": [
+    "src/data/issues.ts",
+    "src/data/supplemental-issues.ts"
+  ],
+  "counts": {
+    "primaryDiagnosticProfiles": 29,
+    "supplementalDiagnosticProfiles": 6,
+    "diagnosticProfiles": 35,
+    "sources": 58,
+    "profileReferenceMedia": 31,
+    "trainingEligibleMedia": 0
+  },
+  "files": {
+    "diagnosticProfiles": "data/diagnostic-profiles.json",
+    "diagnosticProfilesJsonl": "data/diagnostic-profiles.jsonl",
+    "diagnosticProfilesCsv": "data/diagnostic-profiles.csv",
+    "profileDirectory": "data/profiles",
+    "profileIndex": "data/profiles/index.json",
+    "sources": "data/sources.json",
+    "profileReferenceMedia": "data/profile-reference-media.json",
+    "trainingEligibleMedia": "data/training-eligible-media.json"
+  },
+  "safeguards": [
+    "Generated output does not overwrite curated data/reference-media.json.",
+    "Generated output does not overwrite curated data/manifest.json.",
+    "Duplicate profile ids and slugs fail closed.",
+    "Conflicting duplicate source or media metadata fails closed.",
+    "A partial export below the established 35-profile baseline fails closed."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "id": "mite-spider",
+  "slug": "two-spotted-spider-mites",
+  "name": "Two-spotted spider mites",
+  "scientificName": "Tetranychus urticae",
+  "category": "Mite",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "Sap-feeding mites cause fine stippling from the leaf underside and visible webbing as populations increase.",
+  "affectedParts": [
+    "leaf underside",
+    "canopy",
+    "flower"
+  ],
+  "stages": [
+    "all"
+  ],
+  "indicators": [
+    "Tiny yellow or white stipples",
+    "Fine webbing",
+    "Visible mites or eggs under magnification"
+  ],
+  "exclusions": [
+    "Silver scraped streaks with black specks",
+    "No organisms after careful underside inspection",
+    "Damage follows a nutrient-mobility pattern"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Fine pale stippling appears on individual leaves."
+    },
+    {
+      "stage": "Moderate",
+      "description": "Bronzing spreads and mites or eggs are visible below."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Webbing spans leaves or flowers and plants decline."
+    }
+  ],
+  "lookAlikes": [
+    "Thrips",
+    "Hemp russet mites",
+    "Spray residue"
+  ],
+  "confirmation": [
+    "Inspect undersides with 30–60× magnification.",
+    "Look for round eggs and moving mites."
+  ],
+  "immediateActions": [
+    "Isolate affected plants.",
+    "Inspect nearby plants and remove heavily infested material safely."
+  ],
+  "correctivePlan": [
+    "Use a legal crop- and stage-appropriate IPM rotation.",
+    "Repeat monitoring between treatments."
+  ],
+  "prevention": [
+    "Quarantine incoming plants.",
+    "Scout leaf undersides weekly."
+  ],
+  "warnings": [
+    "Avoid spraying unsuitable products on flowers.",
+    "Webbing indicates an established population, not an early case."
+  ],
+  "sources": [
+    {
+      "title": "Spider Mites",
+      "organization": "University of California Statewide IPM Program",
+      "url": "https://ipm.ucanr.edu/home-and-landscape/spider-mites/",
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Spider-mite feeding causes stippling and established populations can produce webbing; leaf-underside inspection is required."
+      ]
+    }
+  ],
+  "media": []
+}

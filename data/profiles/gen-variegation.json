@@ -1,0 +1,196 @@
+{
+  "id": "gen-variegation",
+  "slug": "genetic-variegation",
+  "name": "Stable chlorotic sectoring / suspected genetic variegation",
+  "category": "Genetic / developmental",
+  "severity": "low",
+  "reviewStatus": "reviewed",
+  "summary": "Sharply bounded chlorotic or chlorophyll-deficient sectors can be consistent with somatic mutation or mosaicism in Cannabis, but no published Cannabis image morphology proves genetic cause; treat this as an exclusion-based phenotype until serial lineage evidence and appropriate laboratory work support the attribution.",
+  "affectedParts": [
+    "individual leaflet sectors",
+    "entire leaflet portions",
+    "successive leaves from one shoot or meristem",
+    "one branch or clonal lineage",
+    "whole plant only when a documented cultivar trait is established"
+  ],
+  "stages": [
+    "vegetative",
+    "flowering; stage specificity is not established"
+  ],
+  "indicators": [
+    "Abrupt yellow, cream, pale-green, or near-white tissue adjoining normally green tissue within the same leaf",
+    "Sector-shaped or longitudinal pigment loss rather than uniform whole-leaf yellowing",
+    "The same shoot position or clonal lineage is mapped across successive leaves and time rather than inferred from one detached leaf",
+    "Affected tissue retains its boundary while new observations document whether the pattern remains localized, expands, disappears, or is joined by distortion and stunting",
+    "Matched images preserve upper and lower leaf surfaces, whole-plant distribution, branch identity, scale, cultivar, developmental stage, and camera-lighting conditions"
+  ],
+  "exclusions": [
+    "Validated testing detects a virus or viroid consistent with the sampled tissue and syndrome",
+    "Mosaic, mottling, line patterns, curling, brittle growth, shortened internodes, stunting, or reduced inflorescence performance progress beyond the original sector",
+    "Chlorosis follows leaf age, interveinal or marginal patterns, or a measured tissue-nutrient, substrate-pH, or root-zone-EC abnormality better than a branch lineage",
+    "Microscopy or organism sampling confirms thrips, mites, leafminers, or another pest associated with the marks",
+    "The distribution maps to a lamp, spray, pesticide, plant-growth regulator, abrasion, heat event, or other documented exposure",
+    "Camera white balance, glare, shadow, senescence, or cultivar pigmentation explains the apparent color boundary"
+  ],
+  "progression": [
+    {
+      "stage": "Initial observation",
+      "description": "Capture calibrated whole-plant, branch, upper-surface, and lower-surface views; assign a symptom-only chlorotic-sector label, not a genetic ground-truth label."
+    },
+    {
+      "stage": "Lineage mapping",
+      "description": "Mark the shoot and record successive leaves and any cuttings over time. A stable lineage association increases suspicion of a developmental or genetic origin but does not exclude latent or localized infection."
+    },
+    {
+      "stage": "Differential testing",
+      "description": "Compare matched healthy tissue and evaluate pests, root-zone pH and EC, nutrient status, exposure history, and a region- and facility-appropriate virus/viroid panel before narrowing the cause."
+    },
+    {
+      "stage": "Attribution",
+      "description": "Use genetic or meristem-lineage analysis when a genetic claim matters. Cannabis somatic mosaicism has been sequenced within one mother plant, but published evidence does not establish a universal visible phenotype or inheritance rule."
+    }
+  ],
+  "lookAlikes": [
+    "Mosaic, mottling, or line-pattern syndrome of unresolved cause",
+    "Beet curly top virus disease",
+    "Hop latent viroid",
+    "Lettuce chlorosis virus or other regional virus",
+    "Iron, manganese, magnesium, or nitrogen disorder",
+    "Root-zone pH or EC disorder",
+    "Thrips, mites, or leafminer injury",
+    "Herbicide or plant-growth-regulator injury",
+    "Spray or high-light injury",
+    "Normal senescence or cultivar pigmentation",
+    "Camera color, glare, or shadow artifact"
+  ],
+  "confirmation": [
+    "Do not confirm genetic variegation, chimerism, mutation, virus freedom, or training ground truth from a photograph or video.",
+    "Record the exact leaf, node, branch, plant, cultivar, propagation source, date, stage, lighting, and serial change; include healthy plants of the same cultivar and environment.",
+    "Inspect both leaf surfaces and protected growth with magnification, and document pest organisms or their absence separately from the color phenotype.",
+    "Measure root-zone pH and EC and review irrigation, tissue or solution analysis, nutrient history, spray records, lamp position, temperature, and mechanical injury before assigning a developmental explanation.",
+    "Submit symptomatic and matched asymptomatic tissue to a plant diagnostic laboratory for a locally appropriate validated virus/viroid differential; a negative targeted assay excludes only the agents and sample covered by that assay.",
+    "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof."
+  ],
+  "immediateActions": [
+    "Keep the visual label at “chlorotic sectoring—cause unresolved” and flag it for human review.",
+    "Pause distribution of suspect cuttings and separate them from verified genetic-trait references until infectious causes are reasonably excluded.",
+    "Preserve serial imagery and matched tissue before pruning or discarding the affected shoot."
+  ],
+  "correctivePlan": [
+    "Correct only measured root-zone, nutrient, pest, or exposure problems and document whether new growth changes.",
+    "If validated pathogen testing is positive, move the sample to the confirmed pathogen class and follow the facility’s sanitation and plant-health protocol.",
+    "If differential testing is negative and the pattern tracks a shoot or clone, retain a “suspected genetic/developmental” label unless genetic evidence supports a stronger claim."
+  ],
+  "prevention": [
+    "Maintain cultivar, mother-plant, cutting-position, and clone-lineage records.",
+    "Use tested propagation stock and tool-sanitation practices so a stable-looking pattern is not assumed noninfectious.",
+    "Capture healthy reference plants under repeatable lighting and camera settings for color comparison."
+  ],
+  "warnings": [
+    "“Genetic mosaicism” describes within-organism genetic variation; a visible “mosaic symptom” is not evidence of that mechanism.",
+    "The Cannabis mosaicism sequencing study sampled one mother plant and did not link its variants to visible leaf sectors.",
+    "The VIGS bleaching experiment was an intentionally virus-vector-induced gene-silencing phenotype and must not be treated as proof that natural bleaching is inherited or noninfectious.",
+    "The composite reference image mixes four unresolved mosaic-like presentations with panel e, which the authors characterize as somatic-mutation-associated chlorotic sectors; preserve panel labels and never train the entire composite as one genetic class.",
+    "Negative molecular, microscopy, or indicator-host findings are bounded by sample quality, agent coverage, assay performance, and observation time.",
+    "This reviewed record validates an uncertainty-bounded workflow, not image-only genetic ground truth; all symptom-only samples remain human-review items."
+  ],
+  "sources": [
+    {
+      "title": "Accumulation of somatic mutations leads to genetic mosaicism in cannabis",
+      "organization": "The Plant Genome (Adamek et al.)",
+      "url": "https://doi.org/10.1002/tpg2.20169",
+      "authors": [
+        "Kristian Adamek",
+        "Andrew Maxwell Phineas Jones",
+        "Davoud Torkamaneh"
+      ],
+      "publisher": "Wiley on behalf of the Crop Science Society of America",
+      "publicationDate": "2021-11-22",
+      "year": 2022,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1002/tpg2.20169",
+      "supportedClaims": [
+        "Deep whole-genome sequencing of top, middle, and bottom samples from one 1.5-year-old Cannabis mother plant detected many variants unique to individual canopy samples, demonstrating within-plant genetic mosaicism in that plant.",
+        "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability."
+      ]
+    },
+    {
+      "title": "Virus-induced gene silencing (VIGS) in Cannabis sativa L.",
+      "organization": "Plant Methods (Schachtsiek et al.)",
+      "url": "https://doi.org/10.1186/s13007-019-0542-5",
+      "authors": [
+        "Julia Schachtsiek",
+        "Tajammul Hussain",
+        "Khadija Azzouhri",
+        "Oliver Kayser",
+        "Felix Stehle"
+      ],
+      "publisher": "Springer Nature",
+      "publicationDate": "2019-12-26",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "doi": "10.1186/s13007-019-0542-5",
+      "supportedClaims": [
+        "Experimental silencing of Cannabis phytoene desaturase and magnesium-chelatase-subunit-I genes produced spotted leaf bleaching, 70–73% lower target-transcript expression, and corresponding carotenoid or chlorophyll-a reductions.",
+        "This deliberately induced, virus-vector phenotype shows that perturbing pigment-related gene expression can create visible bleaching; it does not establish that naturally occurring sectors are genetic or safe from infectious differentials."
+      ]
+    },
+    {
+      "title": "Challenges to Cannabis sativa Production from Pathogens and Microbes—The Role of Molecular Diagnostics and Bioinformatics",
+      "organization": "International Journal of Molecular Sciences (Punja et al.)",
+      "url": "https://doi.org/10.3390/ijms25010014",
+      "authors": [
+        "Zamir K. Punja",
+        "Dieter Kahl",
+        "Ron Reade",
+        "Yu Xiang",
+        "Jack Munz",
+        "Punya Nachappa"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2023-12-19",
+      "year": 2024,
+      "accessedDate": "2026-08-13",
+      "doi": "10.3390/ijms25010014",
+      "supportedClaims": [
+        "The authors documented Cannabis leaves with mosaic, mottling, and line patterns that superficially resembled viral symptoms, and separately illustrated sharply chlorotic, chlorophyll-deficient sectors attributed to somatic mutation in Figure 4e.",
+        "Defined broad-spectrum and specific RT-PCR assays did not detect the targeted viruses in tested OG Kush and Headband tissues; positive controls worked, no virus-like particles were seen in the examined Cannabis samples by transmission electron microscopy, and inoculated indicator hosts remained symptomless for three weeks.",
+        "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "preprints-cannabis-genetic-variegation-figure-4-2023",
+      "url": "https://www.preprints.org/frontend/picture/ms_xml/manuscript/c19f1e01d84baf38dc0b607b1782457f/preprints-89006-g004.png",
+      "alt": "Composite figure of Cannabis leaves with unresolved mosaic-like patterns in panels a through d and chlorotic sectors attributed by the authors to somatic mutation in panel e",
+      "caption": "Rights-cleared reference composite from the author preprint corresponding to the peer-reviewed Punja et al. paper. Only panel e is presented by the authors as somatic-mutation-associated chlorotic sectoring; panels a–d are visually overlapping, unresolved mosaic-like differentials. It is not genetic ground truth.",
+      "creator": "Zamir K. Punja, Dieter Kahl, Ron Reade, Yu Xiang, Jack Munz, and Punya Nachappa",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "sourceUrl": "https://www.preprints.org/manuscript/202310.1852",
+      "mediaType": "image",
+      "requiredAttribution": "Punja ZK, Kahl D, Reade R, Xiang Y, Munz J, Nachappa P. Figure 4 in the 2023 Preprints.org version of “Challenges to Cannabis sativa Production from Pathogens and Microbes—the Role of Molecular Diagnostics and Bioinformatics,” CC BY 4.0; link the source and license and indicate any modification.",
+      "diagnosticLabel": "genetic-variegation-chlorotic-sector-differential-composite",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference URL only; the asset is not copied into the repository.",
+        "Panel e is the suspected somatic-mutation comparison; panels a–d are unresolved mosaic-like differentials and must not inherit the genetic label.",
+        "No panel is sequence-confirmed as the cause shown; retain panel labels, caption context, and human review.",
+        "CC BY permits automated use with attribution, but this composite is excluded from training eligibility because its panels contain different and incompletely resolved labels."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "c2827ee3f76d2d0fab7e466a4fc3e60442c16f7cb7dd8fda97c09f1aa42832ad",
+      "perceptualHash": "dhash64:52de2504c5b07448",
+      "width": 1846,
+      "height": 2780,
+      "view": "close-up",
+      "stage": "vegetative and flowering leaf samples",
+      "severity": "mixed chlorotic and mosaic-like foliar patterns",
+      "confirmation": "illustrative",
+      "trainingEligible": false
+    }
+  ]
+}

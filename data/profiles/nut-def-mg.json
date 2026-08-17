@@ -1,0 +1,289 @@
+{
+  "id": "nut-def-mg",
+  "slug": "magnesium-deficiency",
+  "name": "Magnesium deficiency",
+  "category": "Nutrient deficiency",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "summary": "A stage- and canopy-dependent magnesium-status disorder characterized by interveinal chlorosis that retains greener veins and can progress to interveinal necrosis. Controlled vegetative plants began on older lower foliage, while a flowering trial shifted rapidly toward smaller, younger fan leaves; images require tissue and root-zone confirmation.",
+  "affectedParts": [
+    "lower and older foliage in the controlled vegetative T1 sequence",
+    "lower fan leaves at flowering symptom onset",
+    "smaller and younger fan leaves during rapid flowering progression",
+    "interveinal tissue between the midrib and extreme leaflet margins",
+    "some sugar leaves during advanced flowering symptoms",
+    "apical inflorescences, which were least affected in the flowering study",
+    "upper- and lower-canopy foliage for paired tissue sampling",
+    "roots and root zone for availability checks"
+  ],
+  "stages": [
+    "vegetative",
+    "flowering",
+    "pre-symptomatic low-magnesium exposure",
+    "initial interveinal chlorosis",
+    "advanced chlorosis and interveinal necrosis"
+  ],
+  "indicators": [
+    "Older leaves yellow between green veins",
+    "Rust or tan spotting",
+    "Interveinal tissue becomes pale or yellow while veins remain distinctly greener",
+    "The vegetative T1 sequence begins on lower and older foliage",
+    "The flowering Gelato 29 sequence begins as mild lower-fan-leaf chlorosis in week four, between the midrib and leaf margins",
+    "Flowering symptoms can progress rapidly and predominantly affect smaller, younger fan leaves even while some older fan leaves remain largely unaffected",
+    "Severe interveinal injury becomes necrotic and increases from leaflet bases toward tips in the flowering sequence",
+    "By advanced flowering, extensive yellowing may spare the midrib and extreme leaflet margins",
+    "Serial whole-plant views show broad canopy spread while apical inflorescences remain relatively less affected",
+    "Low magnesium is documented in correctly positioned foliage and linked to supply or root-zone availability"
+  ],
+  "exclusions": [
+    "Uniform yellowing without a persistent interveinal pattern is better explained by nitrogen deficiency or late-flower senescence",
+    "Marginal saw-tooth yellowing or tan necrosis follows the controlled potassium sequence rather than remaining primarily interveinal",
+    "New-growth chlorosis is concentrated at the growing tip and iron or manganese analysis supports that diagnosis more strongly",
+    "Yellowing begins at leaflet bases or on sugar leaves in a sulfur-type pattern and sulfur evidence is stronger",
+    "Root-zone EC is high with broad tip or margin burn and multi-ion salinity explains the injury",
+    "Fine stippling, silver scars, webbing, eggs, mites, thrips, or fecal spots are present on magnified inspection",
+    "Discrete lesions, halos, surface growth, vascular discoloration, root decay, or laboratory evidence supports a pathogen",
+    "Mosaic, vein clearing, distortion, brittle growth, or molecular evidence supports a virus or viroid",
+    "Symptoms map to a lamp-facing surface, heat event, spray droplets, residue, rubbing point, or other documented exposure",
+    "Roots are saturated, oxygen-limited, drought-stressed, temperature-injured, mechanically damaged, or diseased enough to explain impaired uptake",
+    "Color or contrast appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar pigmentation"
+  ],
+  "progression": [
+    {
+      "stage": "Before visible separation",
+      "description": "Magnesium supply or root-zone availability may decline before a reliable image pattern appears; the flowering trial remained visually symptom-free for three weeks."
+    },
+    {
+      "stage": "Initial vegetative sequence",
+      "description": "After seven weeks of complete withholding in T1 silica-sand culture, slight interveinal yellowing appears on lower and older foliage."
+    },
+    {
+      "stage": "Initial flowering sequence",
+      "description": "In week four, mild chlorosis appears on lower fan leaves in regions between the midrib and margins."
+    },
+    {
+      "stage": "Rapid flowering progression",
+      "description": "Beyond week four, symptoms spread rapidly and predominantly involve smaller, younger fan leaves; older fan leaves and inflorescence sugar leaves may initially be less affected."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Green veins contrast sharply with yellow interveinal tissue; necrotic regions develop, severity can increase from leaflet base to tip, and widespread symptoms may spare the midrib, extreme margins, or apical inflorescences."
+    },
+    {
+      "stage": "After a documented correction",
+      "description": "Assess subsequent growth, lesion expansion, serial canopy distribution, root-zone measurements, and follow-up tissue analysis; existing chlorotic or necrotic tissue may not recover."
+    }
+  ],
+  "lookAlikes": [
+    "Potassium deficiency",
+    "Iron deficiency",
+    "Manganese deficiency",
+    "Sulfur deficiency",
+    "Nitrogen deficiency",
+    "Normal late-flower senescence",
+    "High-EC nutrient burn or salinity",
+    "High-pH or otherwise unsuitable root-zone pH",
+    "Waterlogging, root-zone hypoxia, or root disease",
+    "Drought or excessive vapor demand",
+    "Heat or high-light injury",
+    "Spider mite, broad mite, hemp russet mite, or thrips injury",
+    "Virus, viroid, or mosaic-like disorder",
+    "Leaf-spot pathogen",
+    "Spray, residue, or mechanical injury",
+    "Cultivar pigmentation or camera color artifact"
+  ],
+  "confirmation": [
+    "Do not confirm magnesium deficiency from interveinal yellowing, rust-colored tissue, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the photographed plant.",
+    "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, small and large fan leaves of known node and physiological age, sugar leaves, inflorescences, both leaf surfaces, and roots under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+    "Record cultivar, stage and flowering week, days since onset, magnesium concentration and formulation, calcium, potassium, sulfur, iron, manganese, and complete fertilizer inputs, source-water mineral content and alkalinity, irrigation history, and substrate or solution type.",
+    "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing magnesium supply.",
+    "Submit strategically positioned upper- and lower-canopy foliage plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret magnesium with plant part, stage, cultivar, method, and competing ions.",
+    "Inspect both leaf surfaces and roots with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
+    "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth magnesium deficiency."
+  ],
+  "immediateActions": [
+    "Mark affected and matched healthy plants; preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative tissue before changing nutrition.",
+    "Correct documented pH, salinity, saturation, temperature, oxygenation, or root-health problems before assuming magnesium concentration is inadequate.",
+    "Avoid blind magnesium supplementation when potassium, calcium, sulfur, iron, manganese, pests, pathogens, senescence, and imaging artifacts have not been excluded."
+  ],
+  "correctivePlan": [
+    "When analytical and production records support inadequate magnesium supply or availability and roots are functional, restore a balanced crop- and system-appropriate nutrient program gradually under current local agronomic guidance.",
+    "Track subsequent leaves by node and size, canopy distribution, root growth, root-zone measurements, and follow-up upper- and lower-canopy tissue results rather than judging correction from old foliage.",
+    "If magnesium status is adequate or the pattern continues, reopen potassium, iron, manganese, sulfur, nitrogen, salinity, root disease, arthropod, pathogen, environmental, exposure, senescence, and genetic differentials."
+  ],
+  "prevention": [
+    "Record magnesium, calcium, potassium, sulfur, and alkalinity in source water, fertilizer, and representative tissue rather than relying on a generic feed ratio or symptom chart.",
+    "Calibrate pH and EC meters, monitor root-zone conditions and leachate where appropriate, and keep irrigation, dryback, temperature, and oxygenation records.",
+    "Maintain same-cultivar healthy references and consistent node-, leaf-size-, and canopy-position sampling so stage and age shifts are not mistaken for nutrient response."
+  ],
+  "warnings": [
+    "The vegetative visual sequence came from one Cannabis sativa T1 cultivar in silica sand with magnesium completely withheld; seven weeks, 0.12% tissue magnesium, and the pictured pattern are experiment-specific, not universal thresholds.",
+    "The flowering study used three Gelato 29 plants per treatment in deep-water culture; its week-four onset, younger-fan-leaf predominance, 748 g versus 1110 g fresh inflorescence masses, and canopy distribution must not be generalized.",
+    "The two controlled studies differed in later leaf-age distribution: vegetative T1 emphasized older foliage, while flowering Gelato 29 rapidly affected smaller, younger fan leaves and left some older fan leaves relatively unaffected; leaf age alone is not ground truth.",
+    "Interveinal chlorosis and necrosis overlap nutritional, root-zone, arthropod, pathogen, environmental, developmental, and imaging conditions and are not image-only ground truth.",
+    "The vegetative CC BY figure contains sulfur-, magnesium-, and potassium-deficiency columns and is excluded from automated training until panels are bounded and class- and stage-annotated.",
+    "The flowering CC BY figure combines leaf close-ups, a detached-leaf sequence, inflorescence context, and whole-plant views from one small experiment; it remains excluded from automated training until panels are annotated, source-grouped, scientifically reviewed, and assigned a leakage-safe split.",
+    "All symptom-only and late-flower samples require human review and linked analytical evidence before ground-truth use."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
+        "Phosphorus-withheld plants first showed slight stunting and irregular olive-green spots on lower and older leaflets after seven weeks; spots enlarged, appeared sunken and almost wet, developed some marginal necrosis, and advanced to extensive olive spotting and large necrotic portions.",
+        "At first phosphorus-deficiency symptom expression, phosphorus-withheld most-recent-mature leaves contained 0.09% phosphorus dry weight compared with 0.43% in controls, a 79% difference under the experiment conditions.",
+        "The study used one cultivar, began nutrient withholding at transplant, and reported no statistically significant biomass difference for phosphorus-withheld plants at the symptom-onset harvest, so its timing, tissue value, and appearance are not universal diagnostic thresholds.",
+        "Figure 2 is a CC BY 4.0 composite showing initial, intermediate, and advanced nitrogen-, phosphorus-, and calcium-deficiency phenotypes in Cannabis sativa T1.",
+        "In calcium-withheld T1 plants, symptoms appeared after five weeks as slight stunting and irregular growing tips and newly expanding leaves; leaflet bases stayed narrow and paler than tips, then basal and interveinal chlorosis, marginal necrosis, distorted geometry, growing-tip death, and axillary branching developed.",
+        "At first calcium-deficiency symptom expression, most-recent-mature leaves contained 0.39% calcium dry weight compared with 3.73% in controls, but the one-cultivar silica-sand withholding experiment does not establish a universal tissue threshold or field sequence.",
+        "Iron-withheld T1 plants first developed symptoms after nine weeks: slight marginal yellowing, especially near leaflet bases, progressed to interveinal chlorosis on growing-tip and newly expanding leaves and spread through the upper half while middle and lower foliage remained healthy dark green.",
+        "At first iron-deficiency symptom expression, iron-withheld most-recent-mature leaves contained 60.08 mg/kg iron compared with 111.75 mg/kg in controls, 46% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Figure 6 is a CC BY 4.0 composite with initial, intermediate, and advanced iron-deficiency images in its left column and zinc-deficiency images in its right column.",
+        "Manganese-withheld T1 plants developed bright-yellow netted interveinal chlorosis on upper and central foliage after six weeks; the netting began near leaflet midribs, spread toward margins, retained green veins, and later developed small tan necrotic regions.",
+        "At first manganese-deficiency symptom expression, manganese-withheld most-recent-mature leaves contained 7.56 mg/kg manganese compared with 29.40 mg/kg in controls, 74% lower under the experiment conditions; dry biomass did not differ significantly at that harvest.",
+        "The control manganese concentration was itself below the cited general crop survey range, and the study used one cultivar in silica sand with complete withholding, so neither treatment value is a universal Cannabis diagnostic threshold.",
+        "Figure 4 is a CC BY 4.0 composite showing initial, intermediate, and advanced manganese-, boron-, and copper-deficiency phenotypes in Cannabis sativa T1; only its left column represents manganese deficiency.",
+        "Copper-withheld T1 plants first developed visible symptoms after nine weeks, beginning with slight whole-plant stunting and mild distortion of newer and expanding leaves, especially narrowed and slightly yellow leaflet bases.",
+        "As copper-withholding symptoms advanced, basal narrowing and distortion intensified, marginal interveinal chlorosis developed, and the whole leaf progressed to fine interveinal chlorosis with slightly inward- and downward-curled margins and reduced turgidity.",
+        "At first copper-deficiency symptom expression, copper-withheld most-recent-mature leaves contained 1.41 mg/kg copper compared with 4.65 mg/kg in controls, 70% lower under the experiment conditions; treated plants produced 45% less biomass.",
+        "The control copper concentration of 4.65 mg/kg was itself slightly below the general crop survey range cited by the authors, and the one-cultivar complete-withholding result does not establish a universal Cannabis threshold.",
+        "The published Figure 4 caption and column labels identify initial, intermediate, and advanced copper-deficiency panels in the right column, although the copper subsection text cites Figure 5; Figure 5 is captioned as manganese- and boron-toxicity progression, so this source-level numbering inconsistency must remain attached to copper panel review.",
+        "Magnesium-withheld T1 plants first developed slight interveinal yellowing on lower and older foliage after seven weeks; the contrast between green veins and yellow interveinal tissue intensified and some regions became necrotic.",
+        "At first magnesium-deficiency symptom expression, magnesium-withheld most-recent-mature leaves contained 0.12% magnesium compared with 0.61% in controls, 80% lower under the experiment conditions; biomass did not differ significantly at that harvest.",
+        "Figure 3 is a CC BY 4.0 composite showing initial, intermediate, and advanced sulfur-, magnesium-, and potassium-deficiency phenotypes in Cannabis sativa T1; only its center column represents magnesium deficiency.",
+        "Potassium-withheld T1 plants first developed yellowing at leaflet margins and saw-tooth serrations on lower and older foliage after nine weeks; yellowing intensified and moved inward toward the midrib, followed by tan necrosis concentrated along serrated margins.",
+        "At first potassium-deficiency symptom expression, potassium-withheld most-recent-mature leaves contained 0.41% potassium compared with 2.85% in controls, 86% lower under the experiment conditions; treated plants produced 27% less biomass.",
+        "Figure 3 is a CC BY 4.0 composite whose right column shows initial, intermediate, and advanced potassium-deficiency phenotypes; the sulfur and magnesium columns are separate diagnoses and the asset is indexed once under the magnesium record to avoid duplicate media hashes.",
+        "Zinc-withheld T1 plants first developed symptoms after nine weeks as marginal yellowing on newer and expanding leaves, concentrated along leaflet margins and toothed portions; tan, irregularly shaped marginal necrosis developed as the disorder progressed.",
+        "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
+        "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+      ]
+    },
+    {
+      "title": "Foliar Symptomology, Nutrient Content, Yield, and Secondary Metabolite Variability of Cannabis Grown Hydroponically with Different Single-Element Nutrient Deficiencies",
+      "organization": "Plants (Llewellyn et al.)",
+      "url": "https://doi.org/10.3390/plants12030422",
+      "authors": [
+        "David Llewellyn",
+        "Scott Golem",
+        "A. Maxwell P. Jones",
+        "Youbin Zheng"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2023-01-17",
+      "year": 2023,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3390/plants12030422",
+      "supportedClaims": [
+        "Three Gelato 29 plants per treatment were grown in aerated deep-water culture; single-element withholding began with the switch to a 12-hour flowering photoperiod, plants were examined daily and photographed weekly, and upper- and lower-canopy foliage was laboratory analyzed at symptom onset.",
+        "In the calcium-withheld treatment, lower fan leaves developed interveinal spots with yellow rings and necrotic brown centers in week three; by week four symptoms occupied mostly the lower two-thirds and were concentrated near leaflet margins and tips.",
+        "By week five, spots coalesced into irregular marginal necrosis, serration points browned, injury moved upward into younger fan and sugar leaves, and upper fan-leaf tips curled upward; by week six most fan and sugar leaves were affected.",
+        "The flowering-stage lower-leaf onset differed markedly from the vegetative-stage T1 study and from the usual expectation for an immobile nutrient; lower-canopy foliage also contained almost three times the calcium of upper-canopy foliage at symptom onset.",
+        "Calcium-withheld plants averaged 621 g fresh inflorescence mass compared with 1110 g in controls under this three-plant-per-treatment experiment; those values do not establish a universal yield-loss estimate.",
+        "Figure 5 is a CC BY 4.0 five-panel Cannabis calcium-deficiency progression from week-three spotting through widespread marginal necrosis and upward curling in week six.",
+        "Despite foliar iron concentrations less than half those of controls, iron-withheld flowering Gelato 29 plants showed no visible deficiency symptoms and no significant aboveground biomass reduction by the end of the 7.5-week treatment.",
+        "The symptom-negative flowering result came from three plants in one cultivar and one deep-water-culture experiment; it demonstrates that absence of a visible syndrome cannot exclude inadequate iron status, not that flowering Cannabis never shows iron-deficiency symptoms.",
+        "In sulfur-withheld flowering Gelato 29, recently developed upper sugar leaves yellowed in week four; by week five upper fan leaves angled upward and lower fan leaves developed interveinal chlorosis from midrib to margins, later progressing through fan leaves to total yellowing and senescence while early sugar-leaf chlorosis changed little except for browned tips and marginal teeth.",
+        "Sulfur-withheld foliage had substantially lower sulfur than all other treatments, with no significant upper-versus-lower canopy concentration difference; inflorescence yield was 34% lower than control while vegetative biomass, root biomass, and cannabinoid concentrations showed no major effect in the three-plant treatment.",
+        "Figure 7 is a CC BY 4.0 four-panel sulfur-deficiency progression showing younger sugar-leaf yellowing, upward-angled upper fan leaves, a fan-leaf chlorosis sequence, and the later whole-plant distribution.",
+        "The flowering study contrasted with the vegetative T1 study in first described canopy location and progression direction, and cautioned that late-flower nutrient symptomology can be confounded with natural foliar senescence.",
+        "No visually obvious manganese-deficiency signs developed in the manganese-withheld flowering Gelato 29 plants; at week seven their apical inflorescences were similar to controls in size, shape, and color, and the treatment did not reduce biomass or cannabinoid concentrations.",
+        "At harvest, manganese-withheld upper-canopy foliage was extremely low in manganese relative to lower-canopy foliage and other treatments, yet the plants remained visually similar to controls, so a symptom-negative image cannot exclude low manganese status.",
+        "The authors state that nutrient diagnosis should integrate fertilizer and leachate composition, symptomology, and strategically timed and positioned foliar analysis because cultivar, environment, maturity, and sample location affect tissue concentrations.",
+        "Figure 9 is a CC BY 4.0 side-by-side comparison of manganese-withheld and control apical inflorescences during week seven; it is a controlled symptom-negative reference rather than a visible-deficiency example.",
+        "Magnesium-withheld flowering Gelato 29 plants had no visible symptoms for three weeks; mild interveinal chlorosis began on lower fan leaves in week four between the midrib and margins, then rapidly predominated on smaller, younger fan leaves while older fan leaves and inflorescence sugar leaves were less affected.",
+        "Severely affected flowering leaves developed interveinal necrosis that increased from leaflet bases toward tips; by week five symptoms were widespread except at apical inflorescences, and by week six most smaller fan leaves and sugar leaves were yellow except at the midrib and extreme margins while some older fan leaves remained largely unaffected.",
+        "At symptom onset, lower-canopy foliage in the magnesium-withheld treatment contained about one-third the magnesium of upper-canopy foliage; the treatment averaged 748 g fresh inflorescence mass versus 1110 g in controls, approximately 30% lower in this three-plant-per-treatment experiment, while cannabinoid concentrations were not significantly affected.",
+        "Figure 6 is a CC BY 4.0 five-panel flowering-stage magnesium-deficiency progression spanning the first mild lower-fan-leaf chlorosis, whole-plant distribution, detached-leaf severity, inflorescence context, and advanced whole-plant symptoms.",
+        "Potassium-withheld flowering Gelato 29 plants had no visible symptoms for two weeks; in week three, larger sugar leaves developed dark-brown lesions around secondary branch veins, while lower fan leaves developed lighter browning at leaflet tips and marginal teeth one week later.",
+        "By week five both potassium-deficiency pathways appeared on the same plant: sugar-leaf lesions predominated near the top and fan-leaf injury was strongest in the middle third, with light-brown fan-leaf injury moving inward especially through interveinal tissue.",
+        "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
+        "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
+        "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "mdpi-cannabis-s-mg-k-deficiency-figure-3",
+      "url": "https://www.mdpi.com/applsci/applsci-09-04432/article_deploy/html/images/applsci-09-04432-g003.png",
+      "thumbnailUrl": "https://www.mdpi.com/applsci/applsci-09-04432/article_deploy/html/images/applsci-09-04432-g003-550.jpg",
+      "alt": "Nine-panel controlled Cannabis deficiency composite with sulfur, magnesium, and potassium columns and initial, intermediate, and advanced rows",
+      "caption": "Controlled vegetative composite. The center column documents magnesium-deficiency progression from lower/older interveinal yellowing to strong green-vein contrast and necrosis; the left and right columns are separate sulfur- and potassium-deficiency classes.",
+      "creator": "Paul Cockson, Hunter Landis, Turner Smith, Kristin Hicks, and Brian E. Whipker",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3390/app9204432",
+      "mediaType": "image",
+      "requiredAttribution": "Cockson P, Landis H, Smith T, Hicks K, Whipker BE (2019), Applied Sciences 9(20):4432, Figure 3, CC BY 4.0; link the source and license and indicate modifications.",
+      "diagnosticLabel": "magnesium-deficiency-cannabis-controlled-progression-mixed-with-sulfur-and-potassium",
+      "hostSpecies": "Cannabis sativa T1",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "One cultivar, silica-sand culture, complete magnesium withholding, and the seven-week onset do not establish universal field symptoms, timing, or tissue thresholds.",
+        "The composite contains three diagnosis classes: only the center column is magnesium deficiency; the left is sulfur deficiency and the right is potassium deficiency, so a whole-image single-class label is invalid.",
+        "The rows are a severity sequence from one experiment; preserve source grouping and do not split related panels across training and evaluation.",
+        "Reference display only until every panel is bounded, class- and stage-annotated, independently reviewed, and assigned a leakage-safe dataset split."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "f61e1206e1c7940ea609bfc9ead4afe0aff5cfd54ba51bc80a77c9113bbfe9ee",
+      "perceptualHash": "dhash64:9888b8ed9dd6e1ad",
+      "width": 2985,
+      "height": 1893,
+      "view": "diagram",
+      "stage": "initial, intermediate, and advanced vegetative deficiency",
+      "severity": "initial through advanced",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    },
+    {
+      "id": "mdpi-cannabis-magnesium-deficiency-figure-6",
+      "url": "https://www.mdpi.com/plants/plants-12-00422/article_deploy/html/images/plants-12-00422-g006.png",
+      "thumbnailUrl": "https://www.mdpi.com/plants/plants-12-00422/article_deploy/html/images/plants-12-00422-g006-550.jpg",
+      "alt": "Five-panel flowering Cannabis magnesium-deficiency progression with lower-fan-leaf onset, detached-leaf severity sequence, canopy distribution, inflorescence context, and advanced whole-plant symptoms",
+      "caption": "Controlled flowering Gelato 29 progression from mild week-four lower-fan-leaf interveinal chlorosis through rapid smaller-fan-leaf involvement, interveinal necrosis, and widespread week-six yellowing with relatively spared apical inflorescences.",
+      "creator": "David Llewellyn, Scott Golem, A. Maxwell P. Jones, and Youbin Zheng",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3390/plants12030422",
+      "mediaType": "image",
+      "requiredAttribution": "Llewellyn D, Golem S, Jones AMP, Zheng Y (2023), Plants 12(3):422, Figure 6, CC BY 4.0; link the source and license and indicate modifications.",
+      "diagnosticLabel": "magnesium-deficiency-cannabis-flowering-controlled-progression",
+      "hostSpecies": "Cannabis sativa Gelato 29",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "One cultivar, three plants per treatment, flowering-stage deep-water culture, and complete magnesium withholding do not establish universal production symptoms, timing, yield effects, or tissue thresholds.",
+        "The five panels mix close-up, whole-plant, detached-leaf, and inflorescence-context views across several weeks and severity states; every panel needs separate view, tissue, stage, and severity annotation.",
+        "Preserve source grouping across all panels and derivatives and do not split related observations across training and evaluation.",
+        "Reference display only until panels are bounded, individually annotated, scientifically reviewed, and assigned a leakage-safe dataset split."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "3fbec5e7662c1efb634550afabef95f2eb4b847f7ddfe254db99c678c624fc94",
+      "perceptualHash": "dhash64:c486c6aa2ae4c4ce",
+      "width": 2549,
+      "height": 4150,
+      "view": "diagram",
+      "stage": "week four through week six flowering deficiency",
+      "severity": "initial through advanced",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    }
+  ]
+}

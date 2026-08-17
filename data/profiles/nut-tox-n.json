@@ -1,0 +1,240 @@
+{
+  "id": "nut-tox-n",
+  "slug": "nitrogen-toxicity",
+  "name": "Nitrogen toxicity",
+  "category": "Nutrient toxicity",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "summary": "A measurement-dependent Cannabis nitrogen disorder with two distinct controlled contexts: excessive total nitrogen during vegetative growth produced smaller dark-green shoots and restricted roots, while excessive ammonium fraction during reproductive growth caused growing-tip curl and marginal necrosis, later wilting, systemic necrosis, root damage, and possible plant death. These pathways must not be collapsed into a generic dark-leaf or claw label.",
+  "affectedParts": [
+    "whole plant and organs for relative size",
+    "youngest fully developed fan leaves",
+    "growing tips and apical foliage under severe ammonium-form injury",
+    "leaf margins",
+    "stems and side branches",
+    "roots",
+    "apical and side inflorescences during reproductive-stage ammonium exposure",
+    "irrigation solution, leachate, substrate, and root zone for causal measurement"
+  ],
+  "stages": [
+    "vegetative total-nitrogen dose response",
+    "reproductive-stage nitrogen-form response",
+    "pre-symptomatic high-ammonium exposure",
+    "early severe ammonium injury",
+    "late cumulative ammonium injury"
+  ],
+  "indicators": [
+    "Documented nitrogen supply exceeds the crop, stage, cultivar, and production-system demand or the ammonium fraction is excessive relative to nitrate",
+    "At 320 mg/L total nitrogen in the controlled vegetative study, the whole plant, leaves, and roots were smaller than at the experiment optimum and foliage was dark green",
+    "Root restriction appeared at 240 mg/L total nitrogen even though shoot development and coloration remained visually similar to the 160 mg/L treatment",
+    "Dark-green color spans adequate and excessive total-nitrogen treatments and is supporting context only, never a diagnostic feature by itself",
+    "Under 100% ammonium at fixed total nitrogen, early apical growth was stunted and growing-tip leaves curled with marginal necrosis",
+    "Severe ammonium-form injury progressed from growing tips to widespread necrosis, wilting, severe root damage, and plant death",
+    "A 50% ammonium treatment remained visually normal through most of the experiment before necrosis and wilting appeared in the final two weeks",
+    "Serial measurements show reduced growth or biomass together with excess nitrogen exposure, elevated tissue nitrogen, high leachate nitrogen, or an excessive ammonium-to-nitrate ratio"
+  ],
+  "exclusions": [
+    "Dark green foliage is the only finding; the controlled total-nitrogen study showed similar color from 160 through 320 mg/L",
+    "Downward leaf clawing occurs without verified high nitrogen or ammonium exposure and without the published growth, root, or marginal-necrosis context",
+    "Root-zone EC or osmotic stress is high but nitrogen concentration, form, tissue status, and leachate do not isolate nitrogen from broad salinity injury",
+    "Growing tips are curled or necrotic and broad mites, russet mites, thrips, boron disorder, spray injury, heat, or light exposure explains the distribution better",
+    "Wilt follows drought, excessive vapor demand, waterlogging, root hypoxia, root temperature, or vascular/root disease without a nitrogen exposure-response link",
+    "Marginal necrosis follows a potassium, boron, salinity, contact, foliar-product, wind, or pathogen pattern and analytical evidence does not support nitrogen-form injury",
+    "Plants are small because of nitrogen deficiency, unsuitable pH, root binding, irrigation failure, cultivar architecture, stage, or another measured nutrient disorder",
+    "Color, gloss, or apparent curl changes only under grow lights, altered white balance, glare, shadow, lens distortion, compression, or stable genetic leaf form"
+  ],
+  "progression": [
+    {
+      "stage": "Excess total nitrogen before reliable visual separation",
+      "description": "Tissue nitrogen and leachate nitrogen may increase and nitrogen-use efficiency may decline before a unique image phenotype develops; high treatment EC and formulation remain confounders."
+    },
+    {
+      "stage": "Vegetative total-nitrogen response",
+      "description": "At the highest controlled dose, plants and organs are smaller and dark green; root restriction can begin at a lower excessive dose while the shoot still resembles the study optimum."
+    },
+    {
+      "stage": "Early severe ammonium-form injury",
+      "description": "By day 17 under 100% ammonium, apical growth is stunted and growing-tip leaves curl with marginal necrosis."
+    },
+    {
+      "stage": "Delayed moderate ammonium-form injury",
+      "description": "At 50% ammonium, plants can appear normal for most of the crop cycle before leaves become necrotic and wilt during the final two weeks."
+    },
+    {
+      "stage": "Advanced ammonium-form injury",
+      "description": "Necrosis spreads through the plant, roots are severely damaged, growth remains restricted, wilting intensifies, and plants may die."
+    },
+    {
+      "stage": "After documented correction",
+      "description": "Judge subsequent growth, root condition, new lesion formation, root-zone and leachate chemistry, and follow-up tissue analysis; existing necrosis will not recover."
+    }
+  ],
+  "lookAlikes": [
+    "High-EC nutrient burn or broad salinity stress",
+    "Overwatering or root-zone hypoxia",
+    "Drought or excessive vapor demand",
+    "Heat or high-light injury",
+    "Cold or overheated root zone",
+    "Pythium, Phytophthora, Fusarium, or other root disease",
+    "Potassium deficiency",
+    "Boron deficiency or toxicity",
+    "Calcium deficiency",
+    "Broad mite injury",
+    "Hemp russet mite injury",
+    "Thrips injury",
+    "Foliar spray or plant-growth-regulator injury",
+    "Leaf-spot or vascular pathogen",
+    "Virus or viroid syndrome",
+    "Genetic leaf curl or compact architecture",
+    "Camera white-balance, exposure, glare, or grow-light color shift"
+  ],
+  "confirmation": [
+    "Do not confirm nitrogen toxicity from dark foliage, gloss, leaf clawing, tip burn, curl, one photograph, or one video; retain a suspected label until nitrogen dose or form, root-zone measurements, and plant response are linked.",
+    "Separate suspected excessive total-nitrogen dose from suspected ammonium-form toxicity; record nitrate and ammonium concentrations and proportions rather than only a product EC or total fertilizer rate.",
+    "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, growing tips, youngest fully developed leaves, both leaf surfaces and margins, stems, side branches, inflorescences when present, and washed roots under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+    "Record cultivar, stage, days since onset, complete fertilizer formulation, each nitrogen source, stock and injector calculations, water alkalinity, irrigation volume, drainage fraction, substrate or solution type, temperature, humidity, light, and recent product changes.",
+    "Measure calibrated input and representative root-zone or solution pH and EC, and test input, reservoir, leachate, or drainage for total nitrogen, nitrate, and ammonium as appropriate to the system; compare supply with actual water use and drainage.",
+    "Submit defined-position leaf tissue and appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret nitrogen with cultivar, stage, organ, method, salinity, and competing nutrients rather than using 160, 240, or 320 mg/L as universal thresholds.",
+    "Inspect growing tips and both leaf surfaces with magnification and use a plant diagnostic laboratory when mites, thrips, root disease, viruses, viroids, vascular pathogens, or foliar injury remain plausible.",
+    "Treat response of subsequent growth after a measured correction as supporting evidence only; it does not retroactively make the original image ground-truth nitrogen toxicity."
+  ],
+  "immediateActions": [
+    "Preserve pre-treatment images, fertilizer labels, mixing records, solution samples, root-zone measurements, representative tissue, and matched healthy controls before changing the program.",
+    "Pause discretionary nitrogen-heavy additives while verifying total nitrogen, nitrate-to-ammonium ratio, pH, EC, irrigation, drainage, and root health; do not automatically flush an oxygen-limited or already saturated root zone.",
+    "Quarantine severe wilt or root decline from ground-truth collections and exclude infectious and arthropod causes before attributing the response to nutrition."
+  ],
+  "correctivePlan": [
+    "When measurements confirm excessive total nitrogen, reduce cumulative nitrogen exposure gradually within a balanced crop-, cultivar-, stage-, and system-appropriate program under current local agronomic guidance.",
+    "When an excessive ammonium fraction is confirmed, correct nitrogen form as well as total concentration while monitoring pH movement, salinity, calcium, magnesium, potassium, roots, irrigation, and drainage.",
+    "Track subsequent root growth, apical leaf geometry, new marginal necrosis, plant expansion, root-zone and leachate chemistry, and follow-up tissue results; reopen differentials if the exposure-response relationship is absent."
+  ],
+  "prevention": [
+    "Record nitrogen concentration and nitrate-to-ammonium ratio for source water, each fertilizer component, final solution, and representative tissue instead of relying on product dose or EC alone.",
+    "Calibrate dosing equipment and pH/EC meters, verify stock calculations, and monitor irrigation volume, drainage fraction, leachate chemistry, dryback, root-zone temperature, and oxygenation.",
+    "Maintain same-cultivar healthy references and consistent node-, organ-, and stage-specific imaging and tissue sampling so naturally dark foliage or compact architecture is not mislabeled."
+  ],
+  "warnings": [
+    "The vegetative dose study used one medical Cannabis cultivar, five plants per treatment, soilless media, long photoperiod, and a specific nutrient formulation; its 160 mg/L optimum and 240–320 mg/L restrictions are not universal Cannabis thresholds.",
+    "Irrigation EC increased with nitrogen dose in the vegetative study, so the highest-dose phenotype cannot be separated from treatment-specific salinity and ion-balance effects by an image.",
+    "The reproductive study held total nitrogen at 200 mg/L while exchanging nitrate for ammonium; high-ammonium injury is not interchangeable with excessive total nitrogen, and the authors noted that reduced or absent nitrate may contribute.",
+    "The 50% ammonium plants appeared normal for most of the experiment before late necrosis and wilting; a normal image cannot exclude a harmful nitrogen-form treatment or predict yield.",
+    "The controlled sources do not support dark clawed leaves, gloss, soft stems, burned tips, or delayed flowering as standalone Cannabis nitrogen-toxicity ground truth; those legacy claims were removed.",
+    "The dose-response Figure 1 combines five treatment columns and three organ/view rows and remains training-ineligible until every panel is dose-, organ-, time-, and source-group annotated with a leakage-safe split.",
+    "The 100% ammonium apical image is CC BY 4.0 but represents an extreme treatment confounded by nitrate absence; it remains training-ineligible and requires human scientific review.",
+    "All symptom-only, dark-leaf-only, claw-only, and unmeasured-EC samples remain low confidence and require human review."
+  ],
+  "sources": [
+    {
+      "title": "Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod",
+      "organization": "Frontiers in Plant Science (Saloner and Bernstein)",
+      "url": "https://doi.org/10.3389/fpls.2020.572293",
+      "authors": [
+        "Avia Saloner",
+        "Nirit Bernstein"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2020-11-17",
+      "year": 2020,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3389/fpls.2020.572293",
+      "supportedClaims": [
+        "A controlled long-photoperiod experiment compared one medical Cannabis cultivar at 30, 80, 160, 240, and 320 mg/L total nitrogen in soilless media, with five replicate plants per treatment and repeated plant-development measurements.",
+        "At 320 mg/L nitrogen the plants and plant organs were smaller and dark green; at 240 mg/L shoot coloration and development appeared similar to the 160 mg/L treatment while root development was already restricted.",
+        "Supply above 160 mg/L restricted growth and biomass in this experiment, while nitrogen use efficiency declined and leaf, stem, and root total nitrogen and nitrate generally increased across the tested range.",
+        "The 160–320 mg/L treatments had similar dark-green leaf color, so dark foliage by itself did not distinguish the study optimum from excessive supply.",
+        "At high nitrogen, photosynthetic pigments continued to increase but photosynthesis did not; the authors associated the high-supply decline with stomatal closure and reduced stomatal conductance, transpiration, and intercellular carbon dioxide.",
+        "Irrigation EC rose with nitrogen treatment from 2080 µS/cm at 160 mg/L to 2510 and 2760 µS/cm at 240 and 320 mg/L, and high-treatment leachate nitrogen exceeded input concentration; nitrogen-dose effects therefore cannot be separated from the experiment-specific salt and formulation context by an image alone.",
+        "Figure 1 is a CC BY 4.0 composite showing whole plants, youngest fully developed leaves, and roots across the five nitrogen doses; the columns are treatment levels rather than independent diagnosis classes."
+      ]
+    },
+    {
+      "title": "Nitrogen Source Matters: High NH4/NO3 Ratio Reduces Cannabinoids, Terpenoids, and Yield in Medical Cannabis",
+      "organization": "Frontiers in Plant Science (Saloner and Bernstein)",
+      "url": "https://doi.org/10.3389/fpls.2022.830224",
+      "authors": [
+        "Avia Saloner",
+        "Nirit Bernstein"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2022-06-01",
+      "year": 2022,
+      "accessedDate": "2026-08-14",
+      "doi": "10.3389/fpls.2022.830224",
+      "supportedClaims": [
+        "A controlled reproductive-stage experiment held total nitrogen at 200 mg/L and compared 0, 10, 30, 50, and 100% ammonium fractions, with five replicate medical Cannabis plants per treatment.",
+        "Plants receiving 0–30% ammonium appeared similar and did not show toxicity symptoms, while 50% ammonium plants appeared normal through most of the experiment before leaf necrosis and wilting emerged during the last two weeks.",
+        "At 50% ammonium, 40% of plants wilted in the final week and inflorescence biomass was 46% lower than in the nitrate-only treatment; this late response cannot be inferred reliably from an earlier normal-looking image.",
+        "The 100% ammonium treatment caused early stunting, curly leaves with marginal necrosis at growing tips, severe root damage, spread of necrosis to all plant parts, wilting, and plant death.",
+        "The early 100% ammonium growing-tip image was taken 17 days after treatment began, while whole-plant, inflorescence, and root images were captured at maturation and the sampled leaf image ten days earlier.",
+        "The authors cautioned that damage under 50–100% ammonium may also reflect reduced or absent nitrate supply, making ammonium-form toxicity mechanistically different from excessive total nitrogen dose.",
+        "Figures 1 and 2 are CC BY 4.0 visual references; Figure 1 mixes five ammonium ratios, organs, and capture times, while Figure 2 shows one apical view from the 100% ammonium treatment."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "frontiers-cannabis-nitrogen-dose-figure-1",
+      "url": "https://www.frontiersin.org/files/Articles/572293/fpls-11-572293-HTML/image_m/fpls-11-572293-g001.jpg",
+      "alt": "Fifteen-panel controlled medical Cannabis nitrogen-dose composite with whole plants, youngest fully developed leaves, and roots at five nitrogen concentrations",
+      "caption": "Controlled vegetative dose response. Columns show 30, 80, 160, 240, and 320 mg/L total nitrogen; rows show whole plants, youngest fully developed leaves, and roots. The 320 mg/L treatment was smaller and dark green, while root restriction was already evident at 240 mg/L.",
+      "creator": "Avia Saloner and Nirit Bernstein",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fpls.2020.572293",
+      "mediaType": "image",
+      "requiredAttribution": "Saloner A and Bernstein N (2020), Frontiers in Plant Science 11:572293, Figure 1, CC BY 4.0; credit the authors, link the source and license, and indicate modifications.",
+      "diagnosticLabel": "nitrogen-toxicity-cannabis-total-dose-response-controlled-mixed-dose-and-organ",
+      "hostSpecies": "Cannabis sativa medical cultivar",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Five columns are distinct nitrogen doses and three rows are distinct organs or views; whole-image single-class labeling and random panel splitting are invalid.",
+        "Only the 320 mg/L column was described as visually overdosed; 240 mg/L showed restricted roots while shoot coloration and development remained similar to the 160 mg/L treatment.",
+        "One cultivar, long photoperiod, soilless media, treatment-specific EC, and one formulation do not establish universal visual or analytical thresholds.",
+        "Reference display only until panels are bounded, dose-, organ-, time-, and diagnosis-annotated, scientifically reviewed, source-grouped, and assigned a leakage-safe split."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "1846c08b0267f81750436126bc985d3b5174ea059bc47bd03080794586b2c163",
+      "perceptualHash": "dhash64:f555d55555555571",
+      "width": 2209,
+      "height": 1622,
+      "view": "diagram",
+      "stage": "vegetative day 31 dose response",
+      "severity": "deficient through excessive dose context",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    },
+    {
+      "id": "frontiers-cannabis-ammonium-toxicity-figure-2",
+      "url": "https://www.frontiersin.org/files/Articles/830224/fpls-13-830224-HTML/image_m/fpls-13-830224-g002.jpg",
+      "alt": "Apical medical Cannabis foliage with severe curl and marginal necrosis after seventeen days of a one-hundred-percent ammonium nitrogen treatment",
+      "caption": "Controlled early severe ammonium-form injury at the growing tip, photographed 17 days after initiation of the 100% ammonium and 0% nitrate treatment.",
+      "creator": "Avia Saloner and Nirit Bernstein",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fpls.2022.830224",
+      "mediaType": "image",
+      "requiredAttribution": "Saloner A and Bernstein N (2022), Frontiers in Plant Science 13:830224, Figure 2, CC BY 4.0; credit the authors, link the source and license, and indicate modifications.",
+      "diagnosticLabel": "nitrogen-toxicity-cannabis-severe-ammonium-form-apical-day-17",
+      "hostSpecies": "Cannabis sativa medical cultivar",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "The image represents an extreme 100% ammonium and 0% nitrate treatment at fixed 200 mg/L total nitrogen, not generic excess total nitrogen.",
+        "The authors cautioned that reduced or absent nitrate may contribute to injury, so the image cannot establish a single unconfounded mechanism.",
+        "One cultivar, five replicates, reproductive-stage controlled conditions, and one formulation do not establish universal symptoms or timing.",
+        "Reference display only until the image and any derivatives are scientifically reviewed, source-grouped, and assigned a leakage-safe split with extreme-treatment metadata."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "5ca9e552b4c14700d99fd528b1db2ec2c31b1f14d405f0cfc36f33d518f71e24",
+      "perceptualHash": "dhash64:8bb3b7e369cc89cd",
+      "width": 2217,
+      "height": 2217,
+      "view": "close-up",
+      "stage": "reproductive day 17 after treatment initiation",
+      "severity": "severe early ammonium-form injury",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    }
+  ]
+}

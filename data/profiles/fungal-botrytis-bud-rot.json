@@ -1,0 +1,293 @@
+{
+  "id": "fungal-botrytis-bud-rot",
+  "slug": "botrytis-gray-mold-bud-rot",
+  "name": "Botrytis gray mold and bud rot",
+  "scientificName": "Botrytis cinerea",
+  "category": "Fungal pathogen",
+  "severity": "critical",
+  "reviewStatus": "reviewed",
+  "summary": "A destructive Cannabis flower, stem, leaf, seedling, and postharvest disease associated with brown water-soaked or necrotic decay and, when conditions permit, gray to gray-brown sporulation. Internal flower decay can be poorly represented by an exterior view, and brown bud rot is not species-specific without laboratory confirmation.",
+  "affectedParts": [
+    "developing and mature inflorescences",
+    "internal flower tissue",
+    "bracts and sugar leaves",
+    "stems and branch junctions",
+    "fan leaves under severe disease pressure",
+    "seedlings and cuttings",
+    "harvested and drying flower"
+  ],
+  "stages": [
+    "propagation",
+    "vegetative",
+    "flower",
+    "harvest and postharvest"
+  ],
+  "indicators": [
+    "One or more bracts or sugar leaves within a flower turn water-soaked, tan, or brown and collapse",
+    "Brown necrosis and mycelium occur inside a flower when it is carefully opened",
+    "Gray to gray-brown fuzzy growth or dusty spore masses develop on dead flower or stem tissue under humid conditions",
+    "Localized flower decay expands until much or all of an inflorescence is brown, dry-rotted, or collapsed",
+    "Stem lesions become pale or brown cankers and may split, girdle, or break; black sclerotia can occur",
+    "Under severe late-harvest pressure, small circular leaf spots can enlarge, merge, and become vein-delimited necrotic areas, sometimes with yellow margins",
+    "Multiple affected flowers cluster in dense, humid, poorly drying canopy zones and increase on serial inspection"
+  ],
+  "exclusions": [
+    "White superficial colonies occur without brown internal decay and microscopy supports powdery mildew",
+    "Only pistils or evenly aging leaves have browned while bracts, stems, and internal flower tissue remain firm and free of advancing lesions",
+    "Fusarium, Penicillium, or another mold is recovered from the active lesion instead of Botrytis",
+    "White cottony mycelium and the laboratory result support Sclerotinia rather than Botrytis",
+    "Damage stops after a documented heat, light, spray, or mechanical event and no mycelium, spores, or advancing rot develop",
+    "Caterpillars, frass, chewing, or webbing explain the localized flower collapse",
+    "A single postharvest discoloration image is available without intact-tissue context, environmental history, microscopy, culture, or molecular testing"
+  ],
+  "progression": [
+    {
+      "stage": "Early flower or stem lesion",
+      "description": "A small water-soaked or brown area develops on bracts, adjacent leaves, or a stem; exterior images can understate internal flower involvement."
+    },
+    {
+      "stage": "Internal and local expansion",
+      "description": "Necrosis spreads through nearby bracts and flower tissue, with internal brown decay or mycelium becoming apparent when the affected flower is examined safely."
+    },
+    {
+      "stage": "Sporulation under conducive conditions",
+      "description": "Gray to gray-brown fuzzy growth and spore masses develop on necrotic tissue; their absence in a dry image does not exclude an earlier or inactive infection."
+    },
+    {
+      "stage": "Advanced or postharvest loss",
+      "description": "A large portion or the whole inflorescence can be destroyed, stems can canker or break, and internal decay can persist into harvested material."
+    }
+  ],
+  "lookAlikes": [
+    "Fusarium flower mold or bud rot",
+    "Penicillium postharvest bud rot",
+    "Sclerotinia white mold",
+    "Powdery mildew",
+    "Normal pistil browning and late-flower senescence",
+    "Caterpillar or other boring-insect injury with frass",
+    "Heat, light, spray, or mechanical injury",
+    "Noninfectious postharvest browning"
+  ],
+  "confirmation": [
+    "Capture the affected flower exterior, a safely exposed interior cross-section, a close-up of the active lesion margin, surrounding flowers, and a whole-plant distribution view with scale; do not infer a clean interior from an exterior photograph.",
+    "Record serial change plus flowering or harvest stage, canopy location, temperature, relative humidity, condensation or wetness duration, irrigation or rain exposure, air movement, and drying conditions; these variables describe risk but do not confirm the organism.",
+    "With appropriate containment and protective procedures, sample the interface between advancing diseased and apparently healthy tissue rather than only dry dead tissue.",
+    "Submit representative flower or stem tissue to a plant diagnostic laboratory for microscopy and isolation plus a validated molecular or sequence-based assay when a Botrytis species label matters; request testing that considers Fusarium, Penicillium, Sclerotinia, and other flower molds.",
+    "Keep the image label at suspected gray mold or bud rot unless organism evidence is linked to the photographed plant and lesion; morphology or an environmental match alone is not laboratory confirmation."
+  ],
+  "immediateActions": [
+    "Isolate or clearly mark suspect plants and stop moving affected flowers, tools, clothing, or debris through clean areas.",
+    "Avoid shaking or uncontained opening of visibly sporulating flowers; collect diagnostic images and samples with procedures that limit spore dispersal.",
+    "Separate visibly moldy harvested material from apparently clean material and do not consume or distribute it."
+  ],
+  "correctivePlan": [
+    "Base crop removal, sanitation, environmental correction, and any treatment on the confirmed diagnosis, current local law, the production system, growth stage, and the current product label.",
+    "Reduce persistent tissue wetness and correct airflow or humidity problems documented in the affected zone without treating an environmental adjustment as proof that Botrytis caused the lesion.",
+    "Reinspect fixed flowers and neighboring plants over time; document new lesions and laboratory results, because old necrotic tissue will not recover."
+  ],
+  "prevention": [
+    "Scout both exterior and protected interior flower zones during flowering and before harvest, especially where tissue dries slowly.",
+    "Sanitize tools between plants, remove crop debris without dispersing it, and prevent infected propagation or harvested material from entering clean zones.",
+    "Maintain traceable records linking plant, room or field position, media, environmental logs, sample identifier, and laboratory result."
+  ],
+  "warnings": [
+    "Brown flower decay, gray fuzz, humidity, or a damaged sugar leaf alone is not species-level ground truth; multiple fungi and noninfectious injuries overlap visually.",
+    "Opening diseased flowers can expose hidden decay but can also release spores; use containment and appropriate protective procedures.",
+    "Temperature and humidity ranges reported by institutions are conducive-condition context, not universal diagnostic thresholds.",
+    "The CC BY composite figure is reference-only pending panel-level annotation and dataset-split review; the three university photographs have no explicit reuse license and remain hidden metadata references.",
+    "Do not use or distribute visibly mold-contaminated flower."
+  ],
+  "sources": [
+    {
+      "title": "Pathogens and Molds Affecting Production and Quality of Cannabis sativa L.",
+      "organization": "Frontiers in Plant Science (Punja et al.)",
+      "url": "https://doi.org/10.3389/fpls.2019.01120",
+      "authors": [
+        "Zamir K. Punja",
+        "Danielle Collyer",
+        "Cameron Scott",
+        "Samantha Lung",
+        "Janesse Holmes",
+        "Darren Sutton"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2019-10-17",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "doi": "10.3389/fpls.2019.01120",
+      "supportedClaims": [
+        "Across sampled indoor, greenhouse, and field Cannabis crops, flower buds with brown discoloration, blighted bracts and leaves, tissue decay, and grayish-brown mycelium yielded cultures identified as Botrytis cinerea by morphology and ITS-rDNA sequencing.",
+        "The study documented a visual sequence from browning and decay of leaves and bracts in developing inflorescences to destruction of the entire inflorescence, as well as internal mycelium and decay in harvested flowers.",
+        "Under severe late-harvest disease pressure, Cannabis leaves developed small circular spots that enlarged and coalesced into necrotic, often vein-delimited areas, sometimes with yellow margins; this leaf presentation was contextual rather than a standalone diagnostic rule.",
+        "Botrytis cinerea, Fusarium oxysporum, and Penicillium olsonii recovered from harvested buds each produced browning and decay after inoculation under high humidity, demonstrating that brown bud rot is not species-specific in an image.",
+        "Figure 4 is a multi-panel Cannabis reference containing early and advanced inflorescence disease, internal harvested-bud decay, culture and microscopy views, and leaf lesions; the article and figure are licensed CC BY 4.0."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-Gray Mold (Botrytis Bud Blight and Stem Canker)",
+      "organization": "Pacific Northwest Pest Management Handbooks",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-gray-mold-botrytis-bud-blight-stem-canker",
+      "authors": [
+        "C. M. Ocamb",
+        "N. K. Osterbauer"
+      ],
+      "publisher": "Oregon State University, Washington State University, and University of Idaho",
+      "year": 2026,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Gray mold can affect Cannabis seedlings, stems, foliage, and flowers; brown water-soaked bud spots can progress to dead inflorescences covered by brown to gray-brown spores.",
+        "Stem infection can produce cankers, splitting or breakage, and black sclerotia, while heavily affected plants can decline quickly under conducive conditions.",
+        "Cool, humid or wet conditions and prolonged tissue wetness favor disease, but environmental conditions are risk context rather than proof of cause.",
+        "The page photographs show a close exterior bud-rot view, a close sporulating-flower view, and a whole-plant distribution view; each is credited to Cynthia M. Ocamb in 2020, and the page states copyright without an explicit media-reuse license."
+      ]
+    },
+    {
+      "title": "Gray Mold of Industrial Hemp",
+      "organization": "NC State Extension",
+      "url": "https://content.ces.ncsu.edu/gray-mold-of-industrial-hemp",
+      "authors": [
+        "Shelby Ferrell",
+        "Lindsey Thiessen"
+      ],
+      "publisher": "North Carolina State University Extension",
+      "publicationDate": "2019-09-09",
+      "year": 2019,
+      "accessedDate": "2026-08-13",
+      "supportedClaims": [
+        "Brown water-soaked lesions on hemp stems, leaves, or flowers can become necrotic and develop gray spores; stem lesions can girdle stems, cause breakage, and form black irregular sclerotia.",
+        "Seedlings and cuttings can damp off under cool, wet conditions, with necrotic or water-soaked roots, while moist and humid production conditions favor disease development.",
+        "Fusarium flower mold can resemble gray mold but lacks the characteristic gray spore masses, Fusarium cankers lack gray spores and sclerotia, and Sclerotinia produces white mycelial mats; these features guide triage but laboratory confirmation remains appropriate."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "frontiers-cannabis-botrytis-figure-4",
+      "url": "https://www.frontiersin.org/files/Articles/439316/xml-images/fpls-10-01120-g004.webp",
+      "thumbnailUrl": "https://www.frontiersin.org/files/Articles/439316/xml-images/fpls-10-01120-g004.webp",
+      "alt": "Nine-panel Cannabis Botrytis figure showing early and advanced flower decay, internal harvested-flower decay, culture and microscope morphology, and leaf lesions",
+      "caption": "Cannabis-specific scientific composite: panels include developing and destroyed inflorescences, internal harvested-flower decay, culture and microscopy views, and late-harvest leaf lesions. Use panel-level context; the composite is not one homogeneous image class.",
+      "creator": "Zamir K. Punja, Danielle Collyer, Cameron Scott, Samantha Lung, Janesse Holmes, and Darren Sutton",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fpls.2019.01120",
+      "mediaType": "image",
+      "requiredAttribution": "Punja ZK, Collyer D, Scott C, Lung S, Holmes J, Sutton D (2019), Frontiers in Plant Science 10:1120, CC BY 4.0; link the source and license and indicate modifications.",
+      "diagnosticLabel": "botrytis-gray-mold-bud-rot-cannabis-multi-panel-progression",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Scientific reference only until each panel is separately bounded, annotated, and assigned a dataset split.",
+        "Panels A-D and H-I show plant phenotypes; panels E-G show culture or microscope morphology and must not be mixed into a symptom-image class.",
+        "Brown flower decay overlaps Fusarium and Penicillium; the figure cannot establish that appearance alone is species-specific."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "4ed61bf021a048297bbb06cc9125f331fa2158d8e30159f20c8ef52091a9dda6",
+      "perceptualHash": "dhash64:5595d3d149492567",
+      "width": 1175,
+      "height": 1720,
+      "view": "diagram",
+      "stage": "flower through postharvest; culture and microscopy panels included",
+      "severity": "early through advanced",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-botrytis-bud-exterior-2020",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempbudgraymoldcmo2020.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempbudgraymoldcmo2020.jpg?itok=yT74CzLD",
+      "alt": "Close exterior view of a hemp flower with brown collapsed bracts and leaves attributed to gray mold by the Pacific Northwest handbook",
+      "caption": "Metadata-only institutional exterior flower view showing brown, collapsed floral tissue; internal extent and organism identity cannot be inferred from this view alone.",
+      "creator": "Cynthia M. Ocamb, Oregon State University, 2020",
+      "license": "Copyright © Oregon State University; no explicit media-reuse license stated",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-gray-mold-botrytis-bud-blight-stem-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Cynthia M. Ocamb, Oregon State University, 2020; obtain written permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "botrytis-gray-mold-bud-rot-hemp-exterior-flower",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Exterior flower view does not show hidden internal disease or species-confirming structures."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "d0ec2e0201e452720b5a91e215a928e089b655eff5d7e8d514ea6e7e9275a685",
+      "perceptualHash": "dhash64:e6c5e585aab38beb",
+      "width": 4032,
+      "height": 3024,
+      "view": "close-up",
+      "stage": "flower",
+      "severity": "visible localized flower decay",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-botrytis-sporulation-2020",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempbudgraymoldsporulationcmo2020.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempbudgraymoldsporulationcmo2020.jpg?itok=dVoWjxTj",
+      "alt": "Close view of a hemp terminal flower with gray-brown fuzzy sporulation attributed to Botrytis gray mold by the Pacific Northwest handbook",
+      "caption": "Metadata-only institutional sporulation view. Gray-brown growth is a useful discriminator from clean maturation, but it is not a substitute for organism confirmation.",
+      "creator": "Cynthia M. Ocamb, Oregon State University, 2020",
+      "license": "Copyright © Oregon State University; no explicit media-reuse license stated",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-gray-mold-botrytis-bud-blight-stem-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Cynthia M. Ocamb, Oregon State University, 2020; obtain written permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "botrytis-gray-mold-bud-rot-hemp-sporulating-flower",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Institutional visual attribution supports triage, not a linked laboratory result for arbitrary matching images."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "0f3c99ff19ce698038d4efeca83ec9c21966c62eda46d0e069b3453bf96b199b",
+      "perceptualHash": "dhash64:4cb1dfdf94a465c5",
+      "width": 844,
+      "height": 1125,
+      "view": "close-up",
+      "stage": "flower",
+      "severity": "sporulating lesion",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-botrytis-whole-plant-2020",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempplantgraymoldcmo2020.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-gray-mold-stem-canker/hempplantgraymoldcmo2020.jpg?itok=sbudXaoR",
+      "alt": "Whole field-grown hemp plant with several brown terminal flowers attributed to gray mold by the Pacific Northwest handbook",
+      "caption": "Metadata-only whole-plant distribution view showing multiple affected terminal flowers; use with close and internal views rather than as standalone species evidence.",
+      "creator": "Cynthia M. Ocamb, Oregon State University, 2020",
+      "license": "Copyright © Oregon State University; no explicit media-reuse license stated",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-gray-mold-botrytis-bud-blight-stem-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Cynthia M. Ocamb, Oregon State University, 2020; obtain written permission before display, copying, modification, or training use.",
+      "diagnosticLabel": "botrytis-gray-mold-bud-rot-hemp-whole-plant-distribution",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or train without documented permission.",
+        "Whole-plant view localizes distribution but cannot resolve internal decay, spores, or causal species."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "704f205faa7ea7c57c2d064e4a2cb603472fe4fb7a9452a325fadc1abf9573ef",
+      "perceptualHash": "dhash64:35e9adb75343e32e",
+      "width": 666,
+      "height": 841,
+      "view": "whole-plant",
+      "stage": "flower",
+      "severity": "multiple affected terminal flowers",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
+}
