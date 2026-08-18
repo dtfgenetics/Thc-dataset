@@ -1,5 +1,5 @@
 {
-  "schemaVersion":"1.0.0",
+  "schemaVersion":"1.1.0",
   "purpose":"Coverage targets for turning the diagnostic taxonomy into a defensible Cannabis image/video dataset.",
   "globalTargets":{
     "minimumConfirmedCannabisImagesPerCoreClass":50,
@@ -50,6 +50,25 @@
     {"id":"pest-fungus-gnats","priority":"P1","needs":["larva/adult/root-zone pairs","root-disease controls"]},
     {"id":"root-fusarium-crown-rot","priority":"P0","needs":["crown cross-sections","lab-confirmed roots","Pythium controls"]},
     {"id":"stress-salinity-high-ec","priority":"P0","needs":["measured EC series","ion/source metadata","K/N-toxicity negatives"]},
-    {"id":"stress-drought-water-deficit","priority":"P0","needs":["measured moisture series","recovery sequences","salinity/root-disease negatives"]}
+    {"id":"stress-drought-water-deficit","priority":"P0","needs":["measured moisture series","recovery sequences","salinity/root-disease negatives"]},
+    {"id":"nut-def-b","priority":"P1","needs":["controlled progression panels","root-tip images","mite/calcium/herbicide negatives","tissue/root-zone metadata"]},
+    {"id":"nut-tox-mn","priority":"P2","needs":["analytically confirmed high-Mn cases","B/K/salinity negatives","pH context"]},
+    {"id":"nut-def-mo-analytical","priority":"P2","needs":["analytical low-Mo cases","symptom-negative controls","explicit image-only abstention examples"]},
+    {"id":"fungal-alternaria-leaf-spot","priority":"P1","needs":["lab-confirmed lesion images","Septoria/Cercospora/Bipolaris negatives"]},
+    {"id":"fungal-septoria-leaf-spot","priority":"P1","needs":["pycnidia macros","lab-confirmed independent sources","species-aware labels"]},
+    {"id":"fungal-bipolaris-leaf-spot","priority":"P1","needs":["conidiophore/conidia references","field progression","other leaf-spot negatives"]},
+    {"id":"fungal-cercospora-leaf-spot","priority":"P1","needs":["lower-canopy progression","conidiophore macros","Septoria/anthracnose negatives"]},
+    {"id":"fungal-anthracnose-leaf-spot","priority":"P1","needs":["shot-hole progression","molecularly confirmed cases","other leaf-spot negatives"]},
+    {"id":"fungal-pseudocercospora-leaf-spot","priority":"P1","needs":["upper/lower paired leaf images","sooty underside sporulation","molecular confirmation"]},
+    {"id":"oomycete-downy-mildew","priority":"P0","needs":["underside sporulation macros","resistant/susceptible controls","oomycete-confirmed cases"]},
+    {"id":"fungal-sclerotinia-white-mold","priority":"P1","needs":["white-mold/crown views","lab confirmation","Botrytis/Fusarium/southern-blight negatives"]},
+    {"id":"env-herbicide-clomazone","priority":"P2","needs":["exposure-confirmed field patterns","iron/light/genetic-variegation negatives","chemical history"]},
+    {"id":"root-binding-container-stress","priority":"P1","needs":["intact root-ball images","post-transplant series","root-disease negatives"]},
+    {"id":"fungal-fusarium-foliar-flower-blight","priority":"P0","needs":["flower/head and leaf series","culture/PCR-confirmed cases","Botrytis/Sclerotinia negatives"]},
+    {"id":"fungal-exserohilum-leaf-blight","priority":"P1","needs":["leaf/stem lesion series","conidial microscopy","Bipolaris/Septoria negatives"]},
+    {"id":"bacterial-serratia-leaf-spot","priority":"P1","needs":["vein-limited lesion progression","bacterial ooze macros","culture/molecular confirmation"]},
+    {"id":"fungal-southern-blight","priority":"P0","needs":["soil-line/crown progression","mycelium and sclerotia macros","Rhizoctonia/Fusarium/Pythium negatives"]},
+    {"id":"root-rhizoctonia","priority":"P0","needs":["crown/lower-stem lesions","root images","hyphal/lab confirmation","southern-blight controls"]},
+    {"id":"nematode-root-knot","priority":"P1","needs":["washed-root gall images","female/egg-mass microscopy","molecularly identified Meloidogyne cases"]}
   ]
 }

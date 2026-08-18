@@ -1,13 +1,13 @@
-import { categoryOrder, issues as rawCoreIssues } from './issues'
+import { issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
+import { expandedIssues as rawExpandedIssues } from './expanded-issues'
+import { expandedIssuesBatch2 as rawExpandedIssuesBatch2 } from './expanded-issues-batch2'
+import { categoryOrder } from './categories'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
 import { verifiedReferenceMediaBatch2BySlug } from './verified-reference-media-batch2'
 import { verifiedReferenceMediaBatch3BySlug } from './verified-reference-media-batch3'
-import type { IssueRecord } from '../types'
+import type { IssueRecord, SourceRecord } from '../types'
 
-// These mappings are not inferred from names. Each pair is directly supported by
-// backend/config/diagnostic-response-policy.json, where the policy names exactly
-// one canonical diagnosis ID. Ambiguous multi-ID policies remain unmapped here.
 const controlledCoreIssueIds: Record<string, { canonicalId: string; responsePolicyId: string }> = {
   'hop-latent-viroid': { canonicalId: 'CAN-DIS-011', responsePolicyId: 'POL-HLVD' },
   'pythium-root-rot': { canonicalId: 'CAN-ROOT-002', responsePolicyId: 'POL-PYTHIUM' },
@@ -22,24 +22,37 @@ const attachControlledCoreIds = (issue: IssueRecord): IssueRecord => {
   return mapping ? { ...issue, ...mapping } : issue
 }
 
-// Publisher verification on 2026-08-16 found one DOI typo in the first
-// supplemental source batch. Normalize known source errata at the catalog
-// boundary so the public app and QA/export layers never publish the stale value.
-const normalizeKnownSourceErrata = (issue: IssueRecord): IssueRecord => {
-  if (issue.slug !== 'rice-root-aphid') return issue
-
-  return {
-    ...issue,
-    sources: issue.sources.map((source) => source.title === 'Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America'
-      ? {
-          ...source,
-          url: 'https://doi.org/10.1093/jipm/pmaa008',
-          doi: '10.1093/jipm/pmaa008',
-          publicationDate: '2020-07-20',
-        }
-      : source),
+const normalizeSourceErrata = (source: SourceRecord): SourceRecord => {
+  if (source.title === 'Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America') {
+    return {
+      ...source,
+      url: 'https://doi.org/10.1093/jipm/pmaa008',
+      doi: '10.1093/jipm/pmaa008',
+      publicationDate: '2020-07-20',
+    }
   }
+
+  if (source.doi === '10.3390/app9204432') {
+    return { ...source, organization: 'Applied Sciences (Cockson et al.)' }
+  }
+
+  if (source.title === 'Septoria cannabicola, a new species on Cannabis sativa from Japan') {
+    return {
+      ...source,
+      url: 'https://doi.org/10.47371/mycosci.2023.1.004',
+      doi: '10.47371/mycosci.2023.1.004',
+      publicationDate: '2024-03-02',
+    }
+  }
+
+  return source
 }
+
+const normalizeKnownErrata = (issue: IssueRecord): IssueRecord => ({
+  ...issue,
+  category: issue.slug === 'downy-mildew-pseudoperonospora' ? 'Oomycete pathogen' : issue.category,
+  sources: issue.sources.map(normalizeSourceErrata),
+})
 
 const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
   const verifiedMedia = [
@@ -48,15 +61,19 @@ const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
     ...(verifiedReferenceMediaBatch3BySlug[issue.slug] ?? []),
   ]
   if (!verifiedMedia.length) return issue
-  return { ...issue, media: [...issue.media, ...verifiedMedia] }
+
+  const byId = new Map(issue.media.map((item) => [item.id, item]))
+  for (const item of verifiedMedia) byId.set(item.id, item)
+  return { ...issue, media: [...byId.values()] }
 }
 
 export const coreIssues = rawCoreIssues
   .map(attachControlledCoreIds)
+  .map(normalizeKnownErrata)
   .map(enrichVerifiedReferenceMedia)
 
-export const supplementalIssues = rawSupplementalIssues
-  .map(normalizeKnownSourceErrata)
+export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues, ...rawExpandedIssuesBatch2]
+  .map(normalizeKnownErrata)
   .map(enrichVerifiedReferenceMedia)
 
 export const issues = [...coreIssues, ...supplementalIssues]

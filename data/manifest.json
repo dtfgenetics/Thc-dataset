@@ -1,11 +1,11 @@
 {
-  "schemaVersion": "2.4.0",
-  "releaseStatus": "verified-structured-diagnostic-reference-release-expanded",
-  "diagnosticProfileCount": 35,
-  "standaloneDetailedProfileCount": 35,
+  "schemaVersion": "2.6.0",
+  "releaseStatus": "accuracy-audit-54-profile-release-candidate",
+  "diagnosticProfileCount": 54,
+  "standaloneDetailedProfileCount": 54,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 58,
-  "profileReferenceMediaCount": 31,
+  "evidenceSourceCount": 74,
+  "profileReferenceMediaCount": 40,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
@@ -48,18 +48,21 @@
     "exportManifest": "data/export-manifest.json"
   },
   "canonicalDetailedSources": [
-    {
-      "path": "src/data/issues.ts",
-      "blobSha": "3df7062943fc9cc67a777569df9967aaf1d77823",
-      "profileCount": 29
-    },
-    {
-      "path": "src/data/supplemental-issues.ts",
-      "blobSha": "808754ce302a85123bd412717c70b3a7e91be5fa",
-      "profileCount": 6
-    }
+    {"path": "src/data/issues.ts", "profileCount": 29},
+    {"path": "src/data/supplemental-issues.ts", "profileCount": 6},
+    {"path": "src/data/expanded-issues.ts", "profileCount": 13},
+    {"path": "src/data/expanded-issues-batch2.ts", "profileCount": 6}
   ],
-  "generatedReleaseCommit": "a51747d52068b6d64bed16e3df6adf7a4e400e93",
+  "measuredCandidateExport": {
+    "workflowRun": 32098183519,
+    "diagnosticProfiles": 54,
+    "coreProfiles": 29,
+    "supplementalAndExpandedProfiles": 25,
+    "uniqueEvidenceSources": 74,
+    "profileLinkedMedia": 40,
+    "trainingEligibleMedia": 0,
+    "releaseValidatorResult": "passed"
+  },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
     "artifactId": 9305073118,
@@ -82,10 +85,10 @@
     "continuousReleaseValidationWorkflow": ".github/workflows/validate-data-release.yml"
   },
   "verificationStatus": {
-    "profileDataPassesRequired": 3,
-    "profileDataPassesCompleted": 3,
-    "profileDataResult": "passed",
-    "statusFile": "data/profile-materialization-status.json",
+    "previous35ProfileRelease": "passed-three-way-and-clean-room-verified",
+    "accuracyExpansionPassesRequired": 3,
+    "accuracyExpansionPassesCompleted": 1,
+    "accuracyExpansionResult": "candidate-export-and-generated-release-validation-passed",
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
     "referenceBinaryCount": 25,
     "referenceUnavailableCount": 0,
@@ -99,40 +102,38 @@
   "dataLayerPolicy": {
     "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
     "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
-    "typescriptSources": "Canonical authored records; deterministic exporter materializes all 35 as standalone JSON plus aggregate JSON, JSONL, and CSV.",
-    "referenceBinaries": "All 25 currently approved rights-cleared original references are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution, and source provenance.",
-    "referenceCrops": "Sixty-six reference panel derivatives are persisted under images/reference/crops. Twelve were manually bounded and fifty-four were expanded from reviewed scientific grid geometry. Every crop retains parent/source-group linkage, hashes, diagnosis or treatment context, and trainingEligible=false.",
-    "curatedVsGenerated": "Curated reference-media.json and manifest.json are not overwritten by generated application exports.",
-    "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate, and coverage requirements."
+    "typescriptSources": "The reviewed application catalog is canonical. The deterministic exporter materializes all 54 catalog profiles as standalone JSON plus aggregate JSON, JSONL and CSV, and regenerates the diagnostic index from that same catalog.",
+    "sourceErrata": "Known source errata are normalized at the catalog boundary so the app and downloadable release cannot disagree on corrected DOI or publication metadata.",
+    "referenceBinaries": "All 25 currently approved rights-cleared original references are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution and source provenance.",
+    "referenceCrops": "Sixty-six reference panel derivatives are persisted under images/reference/crops. Twelve were manually bounded and fifty-four were expanded from reviewed scientific grid geometry. Every crop retains parent/source-group linkage, hashes, diagnosis or treatment context and trainingEligible=false.",
+    "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate and coverage requirements."
   },
   "limitations": [
-    "The structured diagnostic knowledge layer is fully materialized at 35 of 35 profiles.",
-    "All 25 currently approved rights-cleared reference originals and 66 reviewed/geometry-derived panel crops are stored persistently, for 91 source-controlled reference image files.",
-    "Some panel crops represent controlled treatment observations or reference-only classes such as boron deficiency or manganese toxicity that are not yet standalone diagnostic profiles; this status is preserved in crop metadata.",
+    "This 54-profile expansion is a release candidate until the full application tests/build, main-branch generated-data persistence, and independent clean-room verification pass.",
+    "The 91 source-controlled images remain a reference corpus, not a statistically sufficient supervised Cannabis training corpus.",
     "No current sample is marked trainingEligible, so Cannabis-only train/validation/test/holdout splits remain intentionally empty and blocked.",
-    "The reference corpus is evidence and visual context, not yet a statistically sufficient supervised Cannabis training corpus.",
+    "Several new disease classes require culture, microscopy, molecular testing or analytical measurements for high-confidence confirmation; their photo-only confidence caps are deliberately conservative.",
     "Copyright-restricted or rights-unknown institutional images remain excluded from the public training layer.",
     "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
   ],
   "nextReleaseGate": {
     "completed": [
-      "materialize all 35 detailed diagnostic profiles",
-      "produce aggregate JSON, JSONL, CSV, sources and per-profile index",
-      "persist all 25 currently approved rights-cleared original reference images",
-      "recover publisher-blocked MDPI and Springer references through verified official fallback assets",
-      "create, hash, and source-group 66 panel-level reference crops across nine scientific source groups",
-      "create fail-closed supervised-training readiness and empty Cannabis split manifests",
-      "add byte-level SHA-256 verification for persisted originals and crops",
-      "triple-verify the structured profile layer and clean-room verify the image/reference layer"
+      "expand authored diagnostic taxonomy from 35 to 54 evidence-backed profiles",
+      "fix application-versus-export source-normalization architecture",
+      "replace hand-maintained diagnostic index generation with deterministic catalog export",
+      "correct the rice-root-aphid DOI path and Septoria cannabicola DOI",
+      "represent downy mildew as an oomycete and root-knot nematodes as nematodes",
+      "correct the JSON Schema media type from strings to structured media records",
+      "measure candidate release at 54 profiles, 74 unique sources and 40 profile-linked media records",
+      "persist all 25 approved rights-cleared originals and 66 source-grouped panel crops"
     ],
     "required": [
-      "crop and annotate additional irregular-layout figures where panel meaning can be verified without ambiguity",
-      "promote boron deficiency and manganese toxicity from reference-only visual classes into evidence-backed standalone diagnostic profiles if the literature supports complete corrective/confirmation records",
-      "acquire independent confirmed Cannabis photographs and videos beyond scientific composites",
-      "add healthy Cannabis controls and look-alike negatives across cultivars, stages, media, and capture conditions",
-      "promote only samples that pass rights, diagnostic-confirmation, source-group, duplicate, and human-review gates",
-      "populate Cannabis-only train validation test manifests only after training-eligible coverage requirements are met",
-      "run duplicate/provenance and held-out-source audits before any model-accuracy claim"
+      "pass the corrected regression test suite and production build",
+      "merge only after current PR gates are green",
+      "persist the generated 54-profile machine release on main",
+      "read back all 54 standalone profile files and regenerated index from main",
+      "run an independent clean-room verification against the merged 54-profile release",
+      "continue acquiring independent confirmed Cannabis photographs/videos, healthy controls and look-alike negatives"
     ]
   }
 }
