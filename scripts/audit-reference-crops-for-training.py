@@ -27,6 +27,10 @@ STRONG_CONFIRMATION_TOKENS = (
     "lab-confirmed",
     "controlled-nutrient",
     "controlled-pathogenicity",
+    "controlled-infestation",
+    "controlled-inoculation",
+    "standardized-damage-scale",
+    "pathogenicity",
     "molecular",
     "ploidy-confirmed",
     "genotype-linked",
@@ -57,10 +61,12 @@ def strong_confirmation(crop: dict, parent: dict) -> bool:
 
 
 def reference_only_class(crop: dict) -> bool:
+    # Reference-only is a property of the current diagnosis/column, not of sibling
+    # columns mentioned in a shared figure-level reason string.
     if bool(crop.get("columnContext", {}).get("referenceOnlyClass")):
         return True
     slug = str(crop.get("issueSlug", "")).lower()
-    return slug.endswith("-reference") or "reference-only" in str(crop.get("reason", "")).lower()
+    return slug.endswith("-reference")
 
 
 def main():
@@ -72,7 +78,6 @@ def main():
     if not crops:
         raise SystemExit("No reference crops found")
 
-    # First pass: immutable panel/source facts.
     provisional = []
     for crop in crops:
         parent = parents.get(crop.get("parentId"))
@@ -121,7 +126,6 @@ def main():
             }
         )
 
-    # Class-level independence: one paper/figure cannot establish a deployable class.
     eligible_groups_by_issue = collections.defaultdict(set)
     total_groups_by_issue = collections.defaultdict(set)
     counts_by_issue = collections.Counter()
@@ -142,7 +146,6 @@ def main():
             blockers.append("no_panel_review_candidates")
         if len(eligible_groups) < 2:
             blockers.append("fewer_than_two_independent_eligible_source_groups")
-        # A trustworthy held-out benchmark should not be carved out of the same scientific figure.
         if len(eligible_groups) < 3:
             blockers.append("insufficient_independent_groups_for_train_validation_locked_eval_design")
 
@@ -168,17 +171,15 @@ def main():
     class_status_counts = collections.Counter(r["classAdmissionStatus"] for r in class_reviews)
 
     audit = {
-        "schemaVersion": "1.0.0",
-        "generatedFrom": [
-            str(CROPS_PATH.relative_to(ROOT)),
-            str(PARENTS_PATH.relative_to(ROOT)),
-        ],
+        "schemaVersion": "1.1.0",
+        "generatedFrom": [str(CROPS_PATH.relative_to(ROOT)), str(PARENTS_PATH.relative_to(ROOT))],
         "policy": {
             "trainingPromotion": "This audit never sets trainingEligible=true.",
             "sourceGrouping": "Every crop derived from the same scientific figure/sourceGroupId must remain in one partition.",
             "independence": "At least two independent eligible source groups are required before class-level training admission is considered; three are preferred to support train/validation/locked-evaluation separation.",
             "causalCeiling": "Virus/viroid and etiologically ambiguous pathogen panels remain subject to laboratory/molecular confirmation ceilings even when used as reference features.",
             "referenceVsTraining": "CC-BY or public-domain rights are necessary but not sufficient; scientific confirmation, host relevance, shortcut review, deduplication and split safety are separate gates.",
+            "sharedFigureText": "A reason/comment applying to a multi-column figure cannot mark sibling diagnostic columns reference-only; only explicit per-column referenceOnlyClass or a -reference issue slug can do that."
         },
         "summary": {
             "panelCropCount": len(provisional),
