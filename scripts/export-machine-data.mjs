@@ -1,15 +1,19 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
 import { createRequire } from 'node:module'
+
+const execFileAsync = promisify(execFile)
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
 // The application catalog is the single reviewed source boundary. This keeps
 // source errata, controlled IDs, category normalization and verified-media
 // enrichment identical between the UI and machine-readable release.
 //
-// Materialization uses the already-installed TypeScript compiler API only to
-// transpile the src/data modules to temporary CommonJS. The repository's normal
-// `npm run check` remains the independent full TypeScript type-safety gate.
+// TypeScript 7 removed the legacy `moduleResolution=node/node10` option. For a
+// CommonJS emit, the compiler now applies modern bundler-like resolution, so the
+// exporter deliberately does not force the removed legacy option.
 
 const root = process.cwd()
 const outDir = path.join(root, 'data')
@@ -27,67 +31,23 @@ await fs.mkdir(outDir, { recursive: true })
 await fs.rm(tempDir, { recursive: true, force: true })
 await fs.mkdir(tempDir, { recursive: true })
 
-async function loadTypeScriptApi() {
-  const namespace = await import('typescript')
-  const candidates = [
-    namespace,
-    namespace.default,
-    namespace.default?.default,
-    namespace['module.exports'],
-    namespace.default?.['module.exports'],
-  ]
-  const ts = candidates.find((candidate) =>
-    candidate &&
-    typeof candidate.transpileModule === 'function' &&
-    candidate.ScriptTarget &&
-    candidate.ModuleKind,
-  )
-  if (!ts) {
-    const shapes = candidates.filter(Boolean).map((candidate) => Object.keys(candidate).slice(0, 12))
-    throw new Error(`Unable to resolve TypeScript compiler API. Module shapes: ${JSON.stringify(shapes)}`)
-  }
-  return ts
-}
-
 async function compileCanonicalCatalog() {
-  const ts = await loadTypeScriptApi()
-  const sourceDir = path.join(root, 'src', 'data')
-  const outputDir = path.join(tempDir, 'data')
-  await fs.mkdir(outputDir, { recursive: true })
-
-  const entries = (await fs.readdir(sourceDir, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && entry.name.endsWith('.ts'))
-    .map((entry) => entry.name)
-    .sort()
-
-  if (!entries.includes('catalog.ts')) throw new Error('Canonical src/data/catalog.ts was not found')
-
-  for (const name of entries) {
-    const inputPath = path.join(sourceDir, name)
-    const source = await fs.readFile(inputPath, 'utf8')
-    const result = ts.transpileModule(source, {
-      compilerOptions: {
-        target: ts.ScriptTarget.ES2022,
-        module: ts.ModuleKind.CommonJS,
-        esModuleInterop: true,
-        sourceMap: false,
-        declaration: false,
-      },
-      fileName: inputPath,
-      reportDiagnostics: true,
-    })
-
-    const hardDiagnostics = (result.diagnostics ?? []).filter((diagnostic) => diagnostic.category === ts.DiagnosticCategory.Error)
-    if (hardDiagnostics.length) {
-      const text = hardDiagnostics.map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n')).join(' | ')
-      throw new Error(`${name}: TypeScript transpile diagnostics: ${text}`)
-    }
-
-    await fs.writeFile(path.join(outputDir, name.replace(/\.ts$/, '.js')), result.outputText, 'utf8')
-  }
-
+  const args = [
+    '--no-install', 'tsc',
+    '--ignoreConfig',
+    'src/data/catalog.ts',
+    '--target', 'ES2022',
+    '--module', 'CommonJS',
+    '--rootDir', 'src',
+    '--outDir', tempDir,
+    '--skipLibCheck',
+    '--declaration', 'false',
+    '--sourceMap', 'false',
+    '--noEmitOnError', 'true',
+  ]
+  await execFileAsync('npx', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
   await fs.writeFile(path.join(tempDir, 'package.json'), '{"type":"commonjs"}\n', 'utf8')
-  return path.join(outputDir, 'catalog.js')
+  return path.join(tempDir, 'data', 'catalog.js')
 }
 
 function stableJson(value) {
@@ -235,7 +195,7 @@ try {
   const exportManifest = {
     schemaVersion: '2.0.0',
     deterministic: true,
-    compiler: 'installed TypeScript compiler API transpile-only; repository TypeScript validation runs independently',
+    compiler: 'TypeScript 7-compatible tsc CommonJS emit; repository TypeScript validation runs independently',
     sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts', 'src/data/expanded-issues-batch2.ts'],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
