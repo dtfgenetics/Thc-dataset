@@ -1,5 +1,7 @@
-import { categoryOrder, issues as rawCoreIssues } from './issues'
+import { issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
+import { expandedIssues as rawExpandedIssues } from './expanded-issues'
+import { categoryOrder } from './categories'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
 import { verifiedReferenceMediaBatch2BySlug } from './verified-reference-media-batch2'
 import { verifiedReferenceMediaBatch3BySlug } from './verified-reference-media-batch3'
@@ -48,14 +50,17 @@ const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
     ...(verifiedReferenceMediaBatch3BySlug[issue.slug] ?? []),
   ]
   if (!verifiedMedia.length) return issue
-  return { ...issue, media: [...issue.media, ...verifiedMedia] }
+
+  const byId = new Map(issue.media.map((item) => [item.id, item]))
+  for (const item of verifiedMedia) byId.set(item.id, item)
+  return { ...issue, media: [...byId.values()] }
 }
 
 export const coreIssues = rawCoreIssues
   .map(attachControlledCoreIds)
   .map(enrichVerifiedReferenceMedia)
 
-export const supplementalIssues = rawSupplementalIssues
+export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues]
   .map(normalizeKnownSourceErrata)
   .map(enrichVerifiedReferenceMedia)
 
