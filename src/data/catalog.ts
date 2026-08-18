@@ -1,6 +1,7 @@
 import { issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
 import { expandedIssues as rawExpandedIssues } from './expanded-issues'
+import { expandedIssuesBatch2 as rawExpandedIssuesBatch2 } from './expanded-issues-batch2'
 import { categoryOrder } from './categories'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
 import { verifiedReferenceMediaBatch2BySlug } from './verified-reference-media-batch2'
@@ -71,7 +72,7 @@ export const coreIssues = rawCoreIssues
   .map(normalizeKnownErrata)
   .map(enrichVerifiedReferenceMedia)
 
-export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues]
+export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues, ...rawExpandedIssuesBatch2]
   .map(normalizeKnownErrata)
   .map(enrichVerifiedReferenceMedia)
 
