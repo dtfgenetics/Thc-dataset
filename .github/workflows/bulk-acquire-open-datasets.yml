@@ -39,15 +39,20 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/pv/extracted/raw/color --output-dir acquisition/pv/packages --prefix DS-005-PlantVillage-color --shards 6 --dataset-id DS-005 --source-url 'https://huggingface.co/datasets/mohanty/PlantVillage' --source-revision main --license 'CC BY-SA 3.0' --notes 'Controlled-background disease transfer/pretraining corpus; preserve leaf grouping and never treat as Cannabis causal ground truth.'
           cp acquisition/pv/packages/DS-005-PlantVillage-color-manifest.json acquisition/pv/meta/
           sha256sum acquisition/pv/data.zip > acquisition/pv/meta/source-data.zip.sha256
-      - name: Upload PlantVillage raw package
-        uses: actions/upload-artifact@v4
-        with:
-          name: DS-005-PlantVillage-color-raw
-          path: |
-            acquisition/pv/packages/
-            acquisition/pv/meta/
-          compression-level: 0
-          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-01, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-02, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-03, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-04, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-05, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-05.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-06, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-06.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-metadata, path: acquisition/pv/meta/, retention-days: 30}
 
   plantdoc-classification:
     name: DS-007 PlantDoc classification
@@ -73,15 +78,20 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/test --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
           cp acquisition/plantdoc-class/README.md acquisition/plantdoc-class/LICENSE.txt acquisition/plantdoc-class/SOURCE_COMMIT.txt acquisition/plantdoc-class/meta/
           cp acquisition/plantdoc-class/packages/*manifest.json acquisition/plantdoc-class/meta/
-      - name: Upload PlantDoc classification raw package
-        uses: actions/upload-artifact@v4
-        with:
-          name: DS-007-PlantDoc-classification-raw
-          path: |
-            acquisition/plantdoc-class/packages/
-            acquisition/plantdoc-class/meta/
-          compression-level: 0
-          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-03, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-04, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-test-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-test-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-metadata, path: acquisition/plantdoc-class/meta/, retention-days: 30}
 
   plantdoc-detection:
     name: DS-007 PlantDoc object detection
@@ -107,77 +117,52 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TEST --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
           cp acquisition/plantdoc-det/README.md acquisition/plantdoc-det/LICENSE.txt acquisition/plantdoc-det/SOURCE_COMMIT.txt acquisition/plantdoc-det/train_labels.csv acquisition/plantdoc-det/test_labels.csv acquisition/plantdoc-det/meta/
           cp acquisition/plantdoc-det/packages/*manifest.json acquisition/plantdoc-det/meta/
-      - name: Upload PlantDoc detection raw package
-        uses: actions/upload-artifact@v4
-        with:
-          name: DS-007-PlantDoc-detection-raw
-          path: |
-            acquisition/plantdoc-det/packages/
-            acquisition/plantdoc-det/meta/
-          compression-level: 0
-          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-03, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-04, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-test-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-test-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-metadata, path: acquisition/plantdoc-det/meta/, retention-days: 30}
 
   hemp-water-stress:
     name: DS-090 industrial hemp water stress
     runs-on: ubuntu-latest
     timeout-minutes: 60
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - name: Discover and download Mendeley public files
+      - name: Clone author-provided alternate data repository
         shell: bash
         run: |
-          python - <<'PY'
-          import json, re, urllib.request
-          from pathlib import Path
-          dataset='3md2tbx74c'; version='1'
-          out=Path('acquisition/hemp-water'); out.mkdir(parents=True, exist_ok=True)
-          headers={'User-Agent':'DTF-THC-Dataset-Acquisition/1.0','Accept':'application/json'}
-          meta=None; errors=[]
-          for url in [f'https://api.data.mendeley.com/datasets/{dataset}?version={version}', f'https://api.mendeley.com/datasets/{dataset}?version={version}']:
-            try:
-              req=urllib.request.Request(url,headers=headers)
-              with urllib.request.urlopen(req,timeout=45) as r: body=r.read()
-              meta=json.loads(body); (out/'api-metadata.json').write_bytes(body); print('METADATA_OK',url); break
-            except Exception as e: errors.append(f'{url}: {e!r}')
-          if meta is None:
-            page=f'https://data.mendeley.com/datasets/{dataset}/{version}'
-            try:
-              req=urllib.request.Request(page,headers={'User-Agent':'Mozilla/5.0'})
-              with urllib.request.urlopen(req,timeout=45) as r: html=r.read().decode('utf-8','replace')
-              (out/'dataset-page.html').write_text(html,encoding='utf-8')
-            except Exception as e: errors.append(f'{page}: {e!r}')
-            (out/'acquisition-errors.json').write_text(json.dumps(errors,indent=2),encoding='utf-8')
-            raise SystemExit('Could not resolve Mendeley public file metadata')
-          files=meta.get('files') or []
-          if isinstance(files,dict): files=files.get('results') or []
-          rows=[]
-          for f in files:
-            fid=f.get('id') or f.get('file_id') or f.get('uuid'); name=f.get('filename') or f.get('file_name') or fid
-            if not fid: continue
-            safe=re.sub(r'[^A-Za-z0-9._-]+','_',name or fid)
-            url=f'https://api.data.mendeley.com/datasets/{dataset}/files/{fid}/file_downloaded?version={version}'
-            try:
-              req=urllib.request.Request(url,headers={'User-Agent':'DTF-THC-Dataset-Acquisition/1.0'})
-              with urllib.request.urlopen(req,timeout=180) as r: data=r.read()
-              (out/safe).write_bytes(data); rows.append({'id':fid,'name':safe,'bytes':len(data),'source':url}); print('DOWNLOADED',safe,len(data))
-            except Exception as e: rows.append({'id':fid,'name':safe,'error':repr(e),'source':url})
-          (out/'download-manifest.json').write_text(json.dumps(rows,indent=2),encoding='utf-8')
-          if not any('bytes' in r for r in rows): raise SystemExit('No Mendeley files downloaded')
-          PY
-      - name: Package hemp source
+          set -euxo pipefail
+          git clone --depth=1 https://github.com/fearro/IoT_monitoring_hemp.git acquisition/hemp-water
+          git -C acquisition/hemp-water rev-parse HEAD > acquisition/hemp-water/SOURCE_COMMIT.txt
+          rm -rf acquisition/hemp-water/.git
+      - name: Package growth and water-stress bytes
         shell: bash
         run: |
-          tar -cf acquisition/DS-090-Hemp-WaterStress-Growth.tar -C acquisition/hemp-water .
-          sha256sum acquisition/DS-090-Hemp-WaterStress-Growth.tar > acquisition/DS-090-Hemp-WaterStress-Growth.sha256
-      - name: Upload hemp water-stress raw package
-        uses: actions/upload-artifact@v4
-        with:
-          name: DS-090-Hemp-WaterStress-Growth-raw
-          path: |
-            acquisition/DS-090-Hemp-WaterStress-Growth.tar
-            acquisition/DS-090-Hemp-WaterStress-Growth.sha256
-          compression-level: 0
-          retention-days: 30
+          mkdir -p acquisition/hemp-water/packages acquisition/hemp-water/meta
+          rev="$(cat acquisition/hemp-water/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_growth --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-growth --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Five hemp plants, hourly early-growth sequence; regroup by plant/time for leakage-safe use.'
+          python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_water_stress --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-water-stress --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Healthy / 3-day / 6-day / 9-day water-stress classes. Source train/test split is not authoritative for our benchmark.'
+          cp acquisition/hemp-water/README.md acquisition/hemp-water/SOURCE_COMMIT.txt acquisition/hemp-water/meta/
+          cp acquisition/hemp-water/packages/*manifest.json acquisition/hemp-water/meta/
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-growth-01, path: acquisition/hemp-water/packages/DS-090-Hemp-growth-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-growth-02, path: acquisition/hemp-water/packages/DS-090-Hemp-growth-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-water-stress-01, path: acquisition/hemp-water/packages/DS-090-Hemp-water-stress-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-water-stress-02, path: acquisition/hemp-water/packages/DS-090-Hemp-water-stress-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-metadata, path: acquisition/hemp-water/meta/, retention-days: 30}
