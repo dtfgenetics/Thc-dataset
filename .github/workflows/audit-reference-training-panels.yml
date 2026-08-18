@@ -2,7 +2,7 @@ name: Audit reference panels for training admission
 
 on:
   push:
-    branches: [main, training-panel-audit]
+    branches: [main]
     paths:
       - 'scripts/audit-reference-crops-for-training.py'
       - 'scripts/audit-unpanelized-reference-originals.py'
@@ -62,8 +62,8 @@ jobs:
           print('unpanelized', pending['summary'])
           PY
 
-      - name: Commit generated audits on non-PR runs
-        if: github.event_name != 'pull_request'
+      - name: Commit generated audits on main
+        if: github.event_name == 'push' && github.ref_name == 'main'
         shell: bash
         run: |
           git add dataset/training/reference-panel-admission-audit.json dataset/training/unpanelized-reference-originals.json
@@ -73,7 +73,7 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git commit -m 'Update reference training-admission audits'
-            git push origin HEAD:${{ github.ref_name }}
+            git push origin HEAD:main
           fi
 
       - name: Upload admission audits
