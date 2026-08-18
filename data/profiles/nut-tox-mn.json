@@ -1,0 +1,113 @@
+{
+  "id": "nut-tox-mn",
+  "slug": "manganese-toxicity",
+  "name": "Manganese toxicity / high-manganese response",
+  "category": "Nutrient toxicity",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.45,
+  "summary": "A Cannabis high-manganese treatment response reported as lower-leaf marginal chlorosis progressing inward to necrosis. The published treatment did not establish a universal toxic tissue threshold, so analytical context is required.",
+  "affectedParts": [
+    "lower and older leaves",
+    "leaf margins",
+    "interveinal tissue",
+    "whole canopy secondarily"
+  ],
+  "stages": [
+    "vegetative",
+    "all"
+  ],
+  "indicators": [
+    "Marginal yellowing begins on lower leaves",
+    "Yellowing expands inward toward the midrib",
+    "Advanced leaves become severely chlorotic with necrotic margins and may abscise",
+    "Root-zone or tissue evidence supports elevated manganese exposure"
+  ],
+  "exclusions": [
+    "No elevated manganese exposure or tissue evidence exists",
+    "Boron toxicity, potassium deficiency, salinity, or root stress better explains marginal injury",
+    "Lesions are discrete and pathogen-like rather than exposure-distributed"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Lower-leaf margins become yellow."
+    },
+    {
+      "stage": "Intermediate",
+      "description": "Chlorosis moves inward across the leaf surface."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Margins become necrotic, severe chlorosis develops, and some affected leaves may fall."
+    }
+  ],
+  "lookAlikes": [
+    "Boron toxicity",
+    "Potassium deficiency",
+    "Salinity / high EC",
+    "Low-pH micronutrient stress",
+    "Normal senescence"
+  ],
+  "confirmation": [
+    "Measure root-zone pH and manganese exposure and use tissue analysis when possible.",
+    "Do not use the 47.88 mg/kg value from one cultivar as a universal toxicity threshold; the authors specifically noted it fell within a prior survey range."
+  ],
+  "immediateActions": [
+    "Verify pH, EC, fertilizer composition, source water, and tissue manganese before correction."
+  ],
+  "correctivePlan": [
+    "Correct the measured manganese source or pH condition rather than treating leaf color alone.",
+    "Follow new growth and analytical values after correction."
+  ],
+  "prevention": [
+    "Track micronutrient formulation and root-zone pH.",
+    "Use cultivar- and system-aware tissue interpretation."
+  ],
+  "warnings": [
+    "The 2019 study found no significant biomass difference at the reported treatment and called for higher-concentration work to refine toxicity thresholds.",
+    "Visual marginal chlorosis is not manganese-specific."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-17",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+        "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+        "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+        "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+        "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+      ]
+    },
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+        "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+        "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+        "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+      ]
+    }
+  ],
+  "media": []
+}

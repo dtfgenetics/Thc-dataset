@@ -1,0 +1,90 @@
+{
+  "id": "fungal-alternaria-leaf-spot",
+  "slug": "alternaria-leaf-spot",
+  "name": "Alternaria leaf spot",
+  "scientificName": "Alternaria alternata",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.45,
+  "summary": "A laboratory-confirmed Cannabis leaf-spot disease. Brown lesions with yellow halos are compatible with Alternaria, but that appearance overlaps several hemp pathogens and must not be treated as species-level image ground truth.",
+  "affectedParts": [
+    "leaves",
+    "leaf surface",
+    "whole canopy when severe"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "all"
+  ],
+  "indicators": [
+    "Small spots enlarge into brown irregular lesions with light yellow halos",
+    "Lesion centers may become fragile or perforated as disease advances",
+    "Multiple lesions can expand and merge on affected foliage"
+  ],
+  "exclusions": [
+    "Pycnidia strongly support a Septoria differential",
+    "Sooty underside conidial masses support Pseudocercospora",
+    "Round white-centered lesions with melanized conidiophores support Cercospora",
+    "No pathogen evidence is present and spray or contact injury maps to the lesion distribution"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Small leaf spots appear."
+    },
+    {
+      "stage": "Developing",
+      "description": "Spots enlarge into irregular brown lesions with pale yellow halos."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Lesions expand, coalesce, and centers may perforate."
+    }
+  ],
+  "lookAlikes": [
+    "Septoria leaf spot",
+    "Cercospora leaf spot",
+    "Bipolaris leaf spot",
+    "Anthracnose leaf spot",
+    "Bacterial leaf spot"
+  ],
+  "confirmation": [
+    "For species-level diagnosis use culture and/or validated molecular identification from representative lesions.",
+    "Photograph both surfaces and lesion distribution and preserve a sample before treatment."
+  ],
+  "immediateActions": [
+    "Separate heavily affected propagation material and reduce avoidable leaf wetness while diagnosis is pending."
+  ],
+  "correctivePlan": [
+    "Use a disease-management plan appropriate to the confirmed pathogen and production setting.",
+    "Remove heavily diseased debris when appropriate and monitor new lesions."
+  ],
+  "prevention": [
+    "Avoid moving symptomatic plant material between clean areas.",
+    "Use sanitation and irrigation practices that limit prolonged leaf wetness."
+  ],
+  "warnings": [
+    "Brown spots with yellow halos are not Alternaria-specific.",
+    "The primary report was one regional disease occurrence; prevalence varies by environment and production system."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Leaf Spot on Industrial Hemp (Cannabis sativa) Caused by Alternaria alternata in China",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-01-21-0130-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2021-10-26",
+      "year": 2021,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-01-21-0130-PDN",
+      "supportedClaims": [
+        "Industrial hemp leaf spots began as small spots and developed into brown irregular lesions with light yellow halos; lesion centers could perforate as disease advanced.",
+        "The isolate was identified as Alternaria alternata by morphology and multilocus molecular evidence, and inoculated healthy hemp developed similar lesions while controls remained asymptomatic.",
+        "Re-isolation from inoculated plants fulfilled Koch postulates, so the record supports an organism-confirmed Cannabis leaf-spot diagnosis rather than visual similarity alone."
+      ]
+    }
+  ],
+  "media": []
+}

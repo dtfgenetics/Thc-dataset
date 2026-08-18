@@ -75,5 +75,39 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-pythium-hemp-pathogenicity-figure-7",
+      "url": "https://www.frontiersin.org/files/Articles/706138/xml-images/fagro-03-706138-g0007.webp",
+      "alt": "Hemp plants from a controlled pathogenicity trial comparing Pythium, Globisporangium, Fusarium, and uninoculated treatments.",
+      "caption": "Hemp 'Wife' plants 14 days after inoculation with pathogenic Pythium myriotylum, Globisporangium irregulare, or Fusarium oxysporum isolates, plus the uninoculated control (McGehee and Raudales 2021, Figure 7).",
+      "creator": "Cora S. McGehee and Rosa E. Raudales",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fagro.2021.706138",
+      "mediaType": "image",
+      "requiredAttribution": "McGehee CS, Raudales RE. 2021. First Report of Pathogens Associated With Root Rot and Wilt of Cannabis sativa in Connecticut. Frontiers in Agronomy 3:706138. CC BY 4.0.",
+      "diagnosticLabel": "pythium-root-rot — controlled hemp root-pathogen pathogenicity comparison including Pythium myriotylum",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Multi-pathogen treatment composite; reference-only as a whole figure.",
+        "Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific.",
+        "Do not use this figure to visually confirm Pythium in an unknown plant; root/crown evidence and laboratory identification remain required."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "54267dc0fe3eccabaa8f5bd87cae3394beece60a21134bac7d765c0d1817d47b",
+      "perceptualHash": "dhash64:e949555123865373",
+      "width": 2008,
+      "height": 1501,
+      "view": "whole-plant",
+      "stage": "vegetative",
+      "severity": "high",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    }
+  ],
+  "canonicalId": "CAN-ROOT-002",
+  "responsePolicyId": "POL-PYTHIUM"
 }

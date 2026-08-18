@@ -1,0 +1,109 @@
+{
+  "id": "nematode-root-knot",
+  "slug": "root-knot-nematodes",
+  "name": "Root-knot nematodes",
+  "scientificName": "Meloidogyne spp. (including M. incognita)",
+  "category": "Nematode",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A confirmed Cannabis root-parasitic nematode problem. Root galling with females/egg masses is far more discriminating than above-ground stunting or chlorosis, which overlap nearly every root-zone disorder.",
+  "affectedParts": [
+    "roots",
+    "root galls",
+    "whole plant secondarily"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Roots develop characteristic localized galls or knots",
+    "Females can be present inside galled root tissue with egg masses associated with roots",
+    "Plants may be stunted or chlorotic secondarily",
+    "Nematode morphology or molecular testing identifies Meloidogyne"
+  ],
+  "exclusions": [
+    "Root enlargements are normal lateral-root structures rather than galls",
+    "No galls/nematodes are found and a different root disease or abiotic condition is confirmed",
+    "Only canopy stunting/chlorosis is available without root inspection"
+  ],
+  "progression": [
+    {
+      "stage": "Root infection",
+      "description": "Nematodes establish feeding sites and root galls develop."
+    },
+    {
+      "stage": "Increasing burden",
+      "description": "Gall number and root disruption increase; above-ground growth may become stunted or chlorotic."
+    }
+  ],
+  "lookAlikes": [
+    "Rhizoctonia root rot",
+    "Fusarium root/crown disease",
+    "Root binding",
+    "Nutrient deficiency",
+    "Drought / water-deficit stress"
+  ],
+  "confirmation": [
+    "Wash and inspect the complete root system for true galls and collect roots/soil for nematode analysis.",
+    "Use adult/juvenile morphology and/or validated molecular assays when Meloidogyne species matters."
+  ],
+  "immediateActions": [
+    "Prevent movement of potentially infested soil/root debris into clean production areas.",
+    "Preserve representative galled roots and surrounding soil for diagnosis."
+  ],
+  "correctivePlan": [
+    "Base management on confirmed nematode identification, production system, and locally legal options."
+  ],
+  "prevention": [
+    "Use clean planting material/media and avoid moving infested soil on tools/equipment.",
+    "Inspect roots when unexplained stunting occurs in field/container production."
+  ],
+  "warnings": [
+    "Above-ground chlorosis and stunting are nonspecific and should have very low diagnostic weight without root evidence.",
+    "Cannabis yield-loss thresholds for root-knot nematodes remain incompletely defined."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+      ]
+    },
+    {
+      "title": "Root-Knot Nematodes",
+      "organization": "Compendium of Cannabis Diseases",
+      "url": "https://doi.org/10.1094/9780890546284.03.05.1",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2022-09-13",
+      "year": 2022,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/9780890546284.03.05.1",
+      "supportedClaims": [
+        "Infection of hemp by root-knot nematodes (Meloidogyne spp.) is established, although the extent of Cannabis yield loss is not well quantified.",
+        "Organism confirmation and root signs are required; above-ground stunting or chlorosis alone is nonspecific."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,5 +1,101 @@
 [
   {
+    "id": "bacterial-serratia-leaf-spot",
+    "slug": "serratia-marcescens-leaf-spot",
+    "name": "Serratia bacterial leaf spot",
+    "scientificName": "Serratia marcescens",
+    "category": "Bacterial pathogen",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A pathogenicity-confirmed Cannabis bacterial disease producing small vein-limited angular lesions that can coalesce across leaves, stems and flower parts. Red bacterial ooze is useful supporting evidence but species confirmation requires laboratory identification.",
+    "affectedParts": [
+      "leaves",
+      "stems",
+      "flower parts"
+    ],
+    "stages": [
+      "seedling",
+      "vegetative",
+      "flower",
+      "greenhouse production"
+    ],
+    "indicators": [
+      "Small dark-brown 1–3 mm lesions are angular or vein-limited",
+      "Lesions coalesce into larger necrotic regions as disease advances",
+      "Red bacterial ooze streams from affected plant tissue",
+      "Laboratory culture and 16S/rpoB or equivalent evidence supports Serratia marcescens"
+    ],
+    "exclusions": [
+      "No bacterial ooze or lab evidence exists and lesions fit a fungal leaf spot better",
+      "Xanthomonas or another bacterial pathogen is identified",
+      "Chemical/contact injury follows a spray or exposure boundary"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Small dark vein-limited lesions develop."
+      },
+      {
+        "stage": "Coalescing",
+        "description": "Lesions merge into larger necrotic regions on leaves and other aerial tissues."
+      },
+      {
+        "stage": "Severe",
+        "description": "Large tissue areas can be lost and whole plants were lost in the original production observations."
+      }
+    ],
+    "lookAlikes": [
+      "Xanthomonas bacterial leaf spot",
+      "Septoria leaf spot",
+      "Cercospora leaf spot",
+      "Anthracnose",
+      "Contact spray injury"
+    ],
+    "confirmation": [
+      "Collect fresh lesion-margin tissue for bacterial isolation and molecular identification.",
+      "Treat red ooze as a strong clue, not a substitute for organism confirmation."
+    ],
+    "immediateActions": [
+      "Separate strongly affected propagation material and avoid moving wet symptomatic tissue through clean areas.",
+      "Preserve a fresh sample before sanitation."
+    ],
+    "correctivePlan": [
+      "Use laboratory-confirmed bacterial-disease sanitation and management appropriate to the production system."
+    ],
+    "prevention": [
+      "Sanitize tools/contact surfaces and minimize splash movement from symptomatic plants.",
+      "Use clean propagation material."
+    ],
+    "warnings": [
+      "Serratia includes strains of human-health relevance; use appropriate hygiene and diagnostic-lab handling.",
+      "Angular necrotic lesions alone are not Serratia-specific."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Serratia marcescens Causing a Leaf Spot Disease on Industrial Hemp (Cannabis sativa)",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-04-19-0782-PDN",
+        "authors": [
+          "T. Schappe",
+          "D. F. Ritchie",
+          "L. D. Thiessen"
+        ],
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2020-02-10",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-04-19-0782-PDN",
+        "supportedClaims": [
+          "Greenhouse-grown hemp developed small dark-brown 1–3 mm vein-limited angular lesions on leaves, stems, and flower parts; lesions coalesced into larger necrotic regions and red bacterial ooze was observed.",
+          "Serratia marcescens was supported by colony/microscopic traits and 16S rRNA plus rpoB sequence evidence.",
+          "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "bacterial-xanthomonas-leaf-spot",
     "slug": "xanthomonas-bacterial-leaf-spot",
     "name": "Xanthomonas bacterial leaf spot",
@@ -320,6 +416,378 @@
     "media": []
   },
   {
+    "id": "env-herbicide-clomazone",
+    "slug": "herbicide-clomazone-bleaching-injury",
+    "name": "Herbicide injury — clomazone-type bleaching",
+    "category": "Environmental stress",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.35,
+    "summary": "A documented hemp chemical-injury differential in which soil-residual clomazone caused severe bleaching of newly formed tissue. The image pattern is not enough to identify the active ingredient; exposure history is essential.",
+    "affectedParts": [
+      "newly formed leaves",
+      "shoot tips",
+      "whole plant depending on exposure"
+    ],
+    "stages": [
+      "seedling",
+      "vegetative",
+      "post-transplant field establishment"
+    ],
+    "indicators": [
+      "Newly formed tissue becomes markedly bleached after a plausible herbicide carryover or drift event",
+      "Multiple plants share an exposure-pattern distribution in the field or production area",
+      "Symptoms begin after a documented chemical application, carryover, contaminated medium, or drift event"
+    ],
+    "exclusions": [
+      "No plausible chemical exposure exists",
+      "Iron or sulfur deficiency is analytically supported and follows a root-zone pattern",
+      "Mites or systemic pathogens explain deformation and discoloration better",
+      "Bleaching maps tightly to high-light exposure rather than chemical distribution"
+    ],
+    "progression": [
+      {
+        "stage": "Exposure",
+        "description": "Plants encounter residual or drifted herbicide."
+      },
+      {
+        "stage": "New-growth expression",
+        "description": "New tissue loses normal pigmentation and becomes bleached."
+      },
+      {
+        "stage": "Severe injury",
+        "description": "Growth can remain strongly impaired; the documented clomazone field case did not recover."
+      }
+    ],
+    "lookAlikes": [
+      "Iron deficiency",
+      "Sulfur deficiency",
+      "High-light bleaching",
+      "Broad mite injury",
+      "Genetic variegation"
+    ],
+    "confirmation": [
+      "Reconstruct spray, carryover, neighboring-field, substrate, and water-treatment history.",
+      "Use field pattern, timing, and where available laboratory residue analysis; do not identify clomazone from color alone."
+    ],
+    "immediateActions": [
+      "Stop further suspected exposure and preserve records of all recent chemical applications.",
+      "Separate exposure investigation from nutrient correction so evidence is not erased."
+    ],
+    "correctivePlan": [
+      "Address the confirmed exposure source and follow crop-specific professional guidance for affected plants and contaminated media/soil."
+    ],
+    "prevention": [
+      "Maintain chemical-use records and review previous-crop residual restrictions before planting hemp.",
+      "Protect production areas from drift and contaminated equipment."
+    ],
+    "warnings": [
+      "Bleached new growth is not clomazone-specific.",
+      "This profile does not recommend herbicide use; it is an injury-identification differential."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+          "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+          "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+          "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-alternaria-leaf-spot",
+    "slug": "alternaria-leaf-spot",
+    "name": "Alternaria leaf spot",
+    "scientificName": "Alternaria alternata",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.45,
+    "summary": "A laboratory-confirmed Cannabis leaf-spot disease. Brown lesions with yellow halos are compatible with Alternaria, but that appearance overlaps several hemp pathogens and must not be treated as species-level image ground truth.",
+    "affectedParts": [
+      "leaves",
+      "leaf surface",
+      "whole canopy when severe"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "all"
+    ],
+    "indicators": [
+      "Small spots enlarge into brown irregular lesions with light yellow halos",
+      "Lesion centers may become fragile or perforated as disease advances",
+      "Multiple lesions can expand and merge on affected foliage"
+    ],
+    "exclusions": [
+      "Pycnidia strongly support a Septoria differential",
+      "Sooty underside conidial masses support Pseudocercospora",
+      "Round white-centered lesions with melanized conidiophores support Cercospora",
+      "No pathogen evidence is present and spray or contact injury maps to the lesion distribution"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Small leaf spots appear."
+      },
+      {
+        "stage": "Developing",
+        "description": "Spots enlarge into irregular brown lesions with pale yellow halos."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Lesions expand, coalesce, and centers may perforate."
+      }
+    ],
+    "lookAlikes": [
+      "Septoria leaf spot",
+      "Cercospora leaf spot",
+      "Bipolaris leaf spot",
+      "Anthracnose leaf spot",
+      "Bacterial leaf spot"
+    ],
+    "confirmation": [
+      "For species-level diagnosis use culture and/or validated molecular identification from representative lesions.",
+      "Photograph both surfaces and lesion distribution and preserve a sample before treatment."
+    ],
+    "immediateActions": [
+      "Separate heavily affected propagation material and reduce avoidable leaf wetness while diagnosis is pending."
+    ],
+    "correctivePlan": [
+      "Use a disease-management plan appropriate to the confirmed pathogen and production setting.",
+      "Remove heavily diseased debris when appropriate and monitor new lesions."
+    ],
+    "prevention": [
+      "Avoid moving symptomatic plant material between clean areas.",
+      "Use sanitation and irrigation practices that limit prolonged leaf wetness."
+    ],
+    "warnings": [
+      "Brown spots with yellow halos are not Alternaria-specific.",
+      "The primary report was one regional disease occurrence; prevalence varies by environment and production system."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Leaf Spot on Industrial Hemp (Cannabis sativa) Caused by Alternaria alternata in China",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-01-21-0130-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2021-10-26",
+        "year": 2021,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-01-21-0130-PDN",
+        "supportedClaims": [
+          "Industrial hemp leaf spots began as small spots and developed into brown irregular lesions with light yellow halos; lesion centers could perforate as disease advanced.",
+          "The isolate was identified as Alternaria alternata by morphology and multilocus molecular evidence, and inoculated healthy hemp developed similar lesions while controls remained asymptomatic.",
+          "Re-isolation from inoculated plants fulfilled Koch postulates, so the record supports an organism-confirmed Cannabis leaf-spot diagnosis rather than visual similarity alone."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-anthracnose-leaf-spot",
+    "slug": "anthracnose-colletotrichum-leaf-spot",
+    "name": "Anthracnose leaf spot",
+    "scientificName": "Colletotrichum fioriniae",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A confirmed Cannabis anthracnose leaf-spot disease. Tan-centered lesions can crack or drop out into shot-hole symptoms and coalesce into necrotic blotches, but those features still overlap other leaf-spot diseases.",
+    "affectedParts": [
+      "leaves",
+      "lower canopy",
+      "leaf margins"
+    ],
+    "stages": [
+      "reproductive",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Light-green specks become round or angular spots with tan centers, darker brown margins, and yellow halos",
+      "Lesion centers may crack or drop out, producing shot-hole or frog-eye appearance",
+      "Coalescing lesions can form larger necrotic regions and marginal lesions can cause scorching, puckering, or twisting"
+    ],
+    "exclusions": [
+      "Sooty underside conidial masses support Pseudocercospora",
+      "Pycnidia support Septoria",
+      "Laboratory testing identifies another leaf-spot pathogen",
+      "Physical holes occur without surrounding lesion development or pathogen evidence"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Scattered light-green specks appear."
+      },
+      {
+        "stage": "Developing",
+        "description": "Spots become tan-centered with darker margins and halos."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Centers can crack or drop out and lesions may coalesce into larger necrotic areas."
+      }
+    ],
+    "lookAlikes": [
+      "Cercospora leaf spot",
+      "Septoria leaf spot",
+      "Alternaria leaf spot",
+      "Bacterial leaf spot",
+      "Mechanical injury"
+    ],
+    "confirmation": [
+      "Use culture plus morphology and molecular identification when assigning Colletotrichum fioriniae.",
+      "Do not use shot-hole appearance alone as confirmation."
+    ],
+    "immediateActions": [
+      "Preserve representative lesions for diagnosis and isolate heavily affected propagation material."
+    ],
+    "correctivePlan": [
+      "Use pathogen-confirmed sanitation and disease management appropriate to the production system."
+    ],
+    "prevention": [
+      "Reduce carryover of diseased debris and avoid prolonged foliage wetness where practical."
+    ],
+    "warnings": [
+      "Shot-hole and frog-eye lesions are not species-specific.",
+      "The first report does not establish nationwide prevalence or a universal symptom sequence."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Anthracnose Leaf Spot Caused by Colletotrichum fioriniae on Hemp (Cannabis sativa)",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-10-19-2216-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2020-02-23",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-10-19-2216-PDN",
+        "supportedClaims": [
+          "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
+          "Colletotrichum fioriniae was identified by morphology and four gene sequences, and inoculation reproduced characteristic leaf spots while controls remained symptomless.",
+          "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-bipolaris-leaf-spot",
+    "slug": "bipolaris-leaf-spot",
+    "name": "Bipolaris leaf spot",
+    "scientificName": "Bipolaris gigantea",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.45,
+    "summary": "A confirmed hemp leaf-spot and blight disease caused by Bipolaris gigantea. Necrosis can become severe, but lesion appearance overlaps Septoria, Cercospora, Alternaria, anthracnose, and abiotic damage.",
+    "affectedParts": [
+      "leaves",
+      "canopy",
+      "buds secondarily when blight is severe"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Necrotic leaf spots expand and can contribute to broader leaf blight",
+      "Disease can become widespread in outdoor hemp",
+      "Compatible lesions occur with Bipolaris conidia or molecular evidence from affected tissue"
+    ],
+    "exclusions": [
+      "Pycnidia dominate lesions",
+      "Cercospora-type conidiophores and white-centered round spots dominate",
+      "A chemical or physical injury pattern follows an exposure boundary",
+      "Laboratory testing identifies a different leaf-spot pathogen"
+    ],
+    "progression": [
+      {
+        "stage": "Leaf spot",
+        "description": "Localized necrotic lesions develop."
+      },
+      {
+        "stage": "Increasing disease",
+        "description": "Lesion number and necrotic area increase across foliage."
+      },
+      {
+        "stage": "Blight",
+        "description": "Severe cases can involve broad tissue necrosis and canopy loss."
+      }
+    ],
+    "lookAlikes": [
+      "Septoria leaf spot",
+      "Cercospora leaf spot",
+      "Alternaria leaf spot",
+      "Anthracnose",
+      "Herbicide or contact injury"
+    ],
+    "confirmation": [
+      "Use fungal morphology and molecular identification from representative lesions for organism-level confirmation.",
+      "Record field distribution and lesion progression; one photograph is insufficient for B. gigantea."
+    ],
+    "immediateActions": [
+      "Preserve symptomatic tissue for diagnosis before discarding representative samples.",
+      "Separate diseased material from clean propagation stock."
+    ],
+    "correctivePlan": [
+      "Apply confirmed leaf-spot disease management appropriate to local rules and production conditions."
+    ],
+    "prevention": [
+      "Reduce infected crop residue and prolonged leaf wetness where feasible.",
+      "Scout field plantings for early leaf spots."
+    ],
+    "warnings": [
+      "Bipolaris leaf spot can look like several other Cannabis leaf-spot diseases.",
+      "Yield impact varies by cultivar, season, and disease complex."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Hemp Leaf Spot Caused by a Bipolaris Species on Hemp (Cannabis sativa) in Kentucky",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-01-20-0004-BR",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2020-03-20",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-01-20-0004-BR",
+        "supportedClaims": [
+          "Outdoor hemp in Kentucky developed severe necrotic leaf spot and blight associated with a Bipolaris lineage corresponding to Drechslera gigantea/Bipolaris gigantea.",
+          "Inoculated hemp leaves developed symptoms while noninoculated controls remained symptomless, and molecular loci supported placement in Bipolaris.",
+          "The report supports Bipolaris leaf spot as a Cannabis-specific disease but requires pathogen evidence for species-level confirmation."
+        ]
+      },
+      {
+        "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2024-05-18",
+        "year": 2024,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-11-23-2483-RE",
+        "supportedClaims": [
+          "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+          "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+          "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "fungal-botrytis-bud-rot",
     "slug": "botrytis-gray-mold-bud-rot",
     "name": "Botrytis gray mold and bud rot",
@@ -610,7 +1078,338 @@
         "confirmation": "expert-reviewed",
         "trainingEligible": false
       }
-    ]
+    ],
+    "canonicalId": "CAN-DIS-002",
+    "responsePolicyId": "POL-BOTRYTIS"
+  },
+  {
+    "id": "fungal-cercospora-leaf-spot",
+    "slug": "cercospora-leaf-spot",
+    "name": "Cercospora leaf spot",
+    "scientificName": "Cercospora cf. flagellaris",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A Cannabis leaf-spot disease that often begins on older lower leaves as yellow flecks and develops into round lesions with pale centers, dark borders, and yellow halos. Conidiophore and laboratory evidence are needed because several pathogens make similar spots.",
+    "affectedParts": [
+      "older lower-canopy leaves",
+      "leaf lesions",
+      "whole canopy as disease spreads"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "late reproductive"
+    ],
+    "indicators": [
+      "Small yellow flecks appear first on older lower foliage",
+      "Lesions become round, approximately 2 to 6 mm, with tan-to-white centers",
+      "Dark brown to purplish raised borders and yellow halos may develop",
+      "Melanized conidiophores can become visible in lesion centers"
+    ],
+    "exclusions": [
+      "Dark pycnidia support Septoria",
+      "Sooty underside masses support Pseudocercospora",
+      "Shot-hole lesions with Colletotrichum evidence support anthracnose",
+      "Laboratory testing identifies another pathogen"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Small yellow flecks appear on older lower leaves."
+      },
+      {
+        "stage": "Developing",
+        "description": "Round lesions enlarge and centers pale while dark borders and halos become clearer."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Spots can coalesce and lesion centers may break down."
+      }
+    ],
+    "lookAlikes": [
+      "Septoria leaf spot",
+      "Anthracnose",
+      "Alternaria leaf spot",
+      "Bipolaris leaf spot",
+      "Pseudocercospora olive leaf spot"
+    ],
+    "confirmation": [
+      "Inspect lesion centers with magnification and submit tissue for fungal identification.",
+      "Use morphology and/or molecular testing before assigning Cercospora cf. flagellaris at species level."
+    ],
+    "immediateActions": [
+      "Document early lower-canopy distribution and preserve representative lesions."
+    ],
+    "correctivePlan": [
+      "Use confirmed leaf-spot disease management and sanitation appropriate to the setting."
+    ],
+    "prevention": [
+      "Scout older foliage and reduce avoidable leaf wetness.",
+      "Avoid moving symptomatic material into clean areas."
+    ],
+    "warnings": [
+      "Round pale-centered lesions are not unique to Cercospora.",
+      "Cercospora often appears as part of a multi-pathogen field leaf-spot complex."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Cercospora cf. flagellaris on Industrial Hemp (Cannabis sativa) in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-01-19-0135-PDN",
+        "publisher": "American Phytopathological Society",
+        "year": 2019,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-01-19-0135-PDN",
+        "supportedClaims": [
+          "Cercospora leaf spot began on older lower-canopy hemp leaves as small yellow flecks and progressed to round 2 to 6 mm lesions with tan-to-white centers, dark brown-to-purplish borders, and yellow halos.",
+          "Melanized conidiophores could become visible in lesion centers before centers disintegrated.",
+          "Whole-plant inoculation reproduced similar symptoms and the fungus was recovered again, supporting pathogenicity rather than visual association alone."
+        ]
+      },
+      {
+        "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2024-05-18",
+        "year": 2024,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-11-23-2483-RE",
+        "supportedClaims": [
+          "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+          "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+          "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-exserohilum-leaf-blight",
+    "slug": "exserohilum-helminthosporium-leaf-blight",
+    "name": "Exserohilum / Helminthosporium leaf blight",
+    "scientificName": "Exserohilum rostratum (syn. Setosphaeria rostrata)",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.45,
+    "summary": "A confirmed outdoor hemp leaf and stem spot disease. Round brown-to-black lesions with dark margins are compatible, but abundant conidia and laboratory identification are needed because the lesion appearance overlaps other leaf spots.",
+    "affectedParts": [
+      "leaves",
+      "stems",
+      "canopy"
+    ],
+    "stages": [
+      "post-transplant",
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Round brown-to-black lesions develop on leaves or stems",
+      "Lesions have distinctly darkened margins",
+      "Abundant large conidia can be observed within compatible lesions",
+      "ITS/RPB2 or equivalent fungal identification supports Exserohilum/Setosphaeria"
+    ],
+    "exclusions": [
+      "Pycnidia strongly support Septoria",
+      "Pale-centered lesions with Cercospora structures support Cercospora",
+      "Sooty underside masses support Pseudocercospora",
+      "No fungal evidence exists and chemical or mechanical injury follows an exposure pattern"
+    ],
+    "progression": [
+      {
+        "stage": "Spot",
+        "description": "Round dark lesions appear on foliage or stems."
+      },
+      {
+        "stage": "Blight",
+        "description": "Lesion burden and necrotic tissue increase and can contribute to leaf distortion or blight."
+      }
+    ],
+    "lookAlikes": [
+      "Bipolaris leaf spot",
+      "Septoria leaf spot",
+      "Cercospora leaf spot",
+      "Alternaria leaf spot",
+      "Bacterial leaf spot"
+    ],
+    "confirmation": [
+      "Examine lesion structures microscopically and use culture plus molecular identification for organism-level confirmation.",
+      "Photograph both surfaces and stem lesions before sampling."
+    ],
+    "immediateActions": [
+      "Preserve representative lesions and reduce transfer of symptomatic debris into clean areas."
+    ],
+    "correctivePlan": [
+      "Use confirmed leaf-blight management and sanitation appropriate to the production system."
+    ],
+    "prevention": [
+      "Scout field foliage and stems and reduce prolonged leaf wetness where practical."
+    ],
+    "warnings": [
+      "“Helminthosporium” is a historical/common disease name and does not by itself identify the modern fungal taxon.",
+      "Dark round spots are not Exserohilum-specific."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "authors": [
+          "Lindsey D. Thiessen",
+          "Tyler Schappe",
+          "Sarah Cochran",
+          "Kristin Hicks",
+          "Angela R. Post"
+        ],
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+          "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+          "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+          "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+          "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+          "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-fusarium-foliar-flower-blight",
+    "slug": "fusarium-foliar-flower-head-blight",
+    "name": "Fusarium foliar, flower and head blight complex",
+    "scientificName": "Fusarium equiseti / Fusarium graminearum",
+    "category": "Fungal pathogen",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.4,
+    "summary": "A Cannabis Fusarium disease complex affecting leaves, flowers, drying floral material, stems and grain heads. It must be separated from Fusarium root/crown rot because infection site, symptom pattern and confirmation evidence differ.",
+    "affectedParts": [
+      "leaves",
+      "flowers",
+      "grain heads",
+      "drying floral material",
+      "stems"
+    ],
+    "stages": [
+      "flower",
+      "reproductive",
+      "postharvest drying context"
+    ],
+    "indicators": [
+      "Floral surfaces develop abundant hyphae with light-brown necrotic tips",
+      "Leaves develop roughly circular light-brown lesions with darker brown margins and gray-brown aging centers",
+      "Blight is centered on floral/head tissue rather than beginning as root decay",
+      "Fusarium macroconidia, culture, sequence or species-specific molecular evidence accompanies compatible tissue"
+    ],
+    "exclusions": [
+      "Root/crown rot and vascular wilt dominate without foliar or floral lesions",
+      "Gray fuzzy sporulation and diagnostic evidence identify Botrytis",
+      "White mold and sclerotia identify a Sclerotinia or southern-blight differential",
+      "No Fusarium evidence is present and drying/heat/mechanical injury explains floral browning"
+    ],
+    "progression": [
+      {
+        "stage": "Foliar/floral onset",
+        "description": "Localized leaf lesions or necrotic flower tips develop and surface hyphae may become visible."
+      },
+      {
+        "stage": "Blight",
+        "description": "Necrosis expands through affected foliar or floral tissue."
+      },
+      {
+        "stage": "Latent-infection caveat",
+        "description": "F. graminearum may be detectable before obvious blight, especially around flowering, so visual absence is not proof of absence."
+      }
+    ],
+    "lookAlikes": [
+      "Botrytis gray mold / bud rot",
+      "Sclerotinia white mold",
+      "Alternaria leaf spot",
+      "Bipolaris leaf spot",
+      "Fusarium crown/root rot"
+    ],
+    "confirmation": [
+      "Submit representative fresh lesion/flower tissue for culture and molecular identification when Fusarium species matters.",
+      "For suspected F. graminearum, species-specific molecular assays can detect infection that is not yet visually obvious."
+    ],
+    "immediateActions": [
+      "Separate suspect floral material from clean material and preserve diagnostic samples before treatment or disposal.",
+      "Inspect roots/crowns separately so root Fusarium is not conflated with foliar/flower blight."
+    ],
+    "correctivePlan": [
+      "Use laboratory-supported disease management and sanitation appropriate to the production stage and local crop rules."
+    ],
+    "prevention": [
+      "Use clean propagation/seed sources where applicable and reduce movement of symptomatic plant debris.",
+      "Track humidity, rainfall/leaf wetness, and flower-stage disease development without treating environment as proof of pathogen identity."
+    ],
+    "warnings": [
+      "Fusarium flower browning is not visually species-specific.",
+      "The 2020 survey identified both F. equiseti and F. graminearum in the foliar/flower blight complex; do not collapse every lesion into F. graminearum.",
+      "Image-only absence cannot exclude latent F. graminearum infection."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "authors": [
+          "Lindsey D. Thiessen",
+          "Tyler Schappe",
+          "Sarah Cochran",
+          "Kristin Hicks",
+          "Angela R. Post"
+        ],
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+          "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+          "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+          "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+          "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+          "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+        ]
+      },
+      {
+        "title": "First Report of Fusarium graminearum Causing Head Blight on Hemp (Cannabis sativa) in Wisconsin",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-10-25-2036-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2026-02-16",
+        "year": 2026,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-10-25-2036-PDN",
+        "supportedClaims": [
+          "Fusarium graminearum was reported causing blight of hemp grain heads, strengthening evidence that Fusarium flower/head disease is a distinct Cannabis diagnostic target from Fusarium root/crown rot.",
+          "The disease note used isolation and pathogen identification from symptomatic grain heads rather than relying on flower appearance alone."
+        ]
+      },
+      {
+        "title": "Detection and Quantification of Latent Infection by Fusarium graminearum, Causal Agent of Fusarium Head Blight on Hemp (Cannabis sativa) Fields in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-04-25-0774-RE",
+        "publisher": "American Phytopathological Society",
+        "year": 2026,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-04-25-0774-RE",
+        "supportedClaims": [
+          "A multi-site hemp field study used species-specific qPCR to detect and quantify F. graminearum in asymptomatic and symptomatic tissues.",
+          "Latent infection occurred before visible disease and infection was more prominent during flowering, so absence of visible blight cannot exclude infection and image-only confirmation is unsafe."
+        ]
+      }
+    ],
+    "media": []
   },
   {
     "id": "fungal-pm",
@@ -686,6 +1485,456 @@
         "accessedDate": "2026-08-13",
         "supportedClaims": [
           "Golovinomyces ambrosiae causes powdery mildew on Cannabis sativa and produces superficial white colonies on susceptible tissue."
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": "media-powdery-mildew-cannabis-figure-2",
+        "url": "https://www.frontiersin.org/files/Articles/720215/xml-images/fagro-03-720215-g0002.webp",
+        "alt": "Cannabis powdery mildew experiment comparing a susceptible plant with dense powdery mycelial growth and a resistant phenotype without visible colonies.",
+        "caption": "Cannabis powdery mildew resistance experiment showing a susceptible phenotype with dense mycelial growth beside a resistant phenotype without visible powdery mildew colonies (Mihalyov and Garfinkel 2021, Figure 2).",
+        "creator": "Paul D. Mihalyov and Andrea R. Garfinkel",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3389/fagro.2021.720215",
+        "mediaType": "image",
+        "requiredAttribution": "Mihalyov PD, Garfinkel AR. 2021. Discovery and Genetic Mapping of PM1, a Powdery Mildew Resistance Gene in Cannabis sativa L. Frontiers in Agronomy 3:720215. CC BY 4.0.",
+        "diagnosticLabel": "powdery-mildew — Cannabis powdery mildew susceptible/resistant phenotype comparison",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-only phenotype comparison from a controlled disease-resistance experiment.",
+          "Dense white mycelial growth can strongly support powdery mildew, but organism identification remains separate when the causal species matters.",
+          "Do not use the resistant panel as a negative training control without source-group and experimental-context review."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "7690fd41440735591b9e4562b00fdc58274577cbb3ea38f305f98c27474e6046",
+        "perceptualHash": "dhash64:69accecc8edb638e",
+        "width": 1535,
+        "height": 1027,
+        "view": "whole-plant",
+        "stage": "vegetative",
+        "severity": "moderate",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ],
+    "canonicalId": "CAN-DIS-001",
+    "responsePolicyId": "POL-PM"
+  },
+  {
+    "id": "fungal-pseudocercospora-leaf-spot",
+    "slug": "pseudocercospora-olive-sooty-leaf-spot",
+    "name": "Pseudocercospora olive / sooty leaf spot",
+    "scientificName": "Pseudocercospora cannabina",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A molecularly documented Cannabis leaf-spot disease characterized in one report by olive-to-pale lesions and sooty sporulation on the lower leaf surface. The underside view is important because upper-surface spots alone overlap many pathogens.",
+    "affectedParts": [
+      "leaves",
+      "lower leaf surface",
+      "vein-limited tissue"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "all"
+    ],
+    "indicators": [
+      "Olive or pale yellowish leaf spots are present",
+      "Lesions can be vein-limited, irregular to subcircular, and several millimeters across",
+      "Lower leaf surfaces develop grey-brown to sooty conidial masses associated with lesions"
+    ],
+    "exclusions": [
+      "No underside sporulation is present and a different leaf-spot pathogen is confirmed",
+      "Pycnidia support Septoria",
+      "White-centered round lesions with Cercospora structures support Cercospora"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Olive or pale discoloration develops in leaf tissue."
+      },
+      {
+        "stage": "Developing",
+        "description": "Irregular or subcircular lesions expand along vein-limited areas."
+      },
+      {
+        "stage": "Sporulating",
+        "description": "Sooty conidial masses become visible on the lower leaf surface."
+      }
+    ],
+    "lookAlikes": [
+      "Septoria leaf spot",
+      "Cercospora leaf spot",
+      "Alternaria leaf spot",
+      "Downy mildew",
+      "Powdery mildew residue"
+    ],
+    "confirmation": [
+      "Photograph both leaf surfaces and inspect underside growth with magnification.",
+      "Use fungal morphology plus multilocus molecular identification for species-level confirmation."
+    ],
+    "immediateActions": [
+      "Preserve sporulating tissue for diagnosis and reduce movement of symptomatic leaves."
+    ],
+    "correctivePlan": [
+      "Use confirmed fungal leaf-spot management appropriate to the production system."
+    ],
+    "prevention": [
+      "Scout both leaf surfaces and reduce prolonged foliage wetness."
+    ],
+    "warnings": [
+      "Olive spots alone are not diagnostic.",
+      "The strongest modern Cannabis evidence is regional and species identification depends on morpho-molecular methods."
+    ],
+    "sources": [
+      {
+        "title": "First Molecular Phylogenetic Identification and Report of Pseudocercospora cannabina Causing Leaf Spot Disease on Cannabis sativa in Thailand",
+        "organization": "Horticulturae",
+        "url": "https://doi.org/10.3390/horticulturae9121261",
+        "publisher": "MDPI AG",
+        "publicationDate": "2023-11-23",
+        "year": 2023,
+        "accessedDate": "2026-08-17",
+        "doi": "10.3390/horticulturae9121261",
+        "supportedClaims": [
+          "Cannabis in Thailand developed olive leaf spot associated with Pseudocercospora cannabina.",
+          "Lesions were vein-limited to irregular or subcircular, pale yellowish, approximately 2 to 6 mm, with sooty conidial masses especially on the lower surface.",
+          "Morphology, multilocus phylogeny, pathogenicity testing, re-isolation, and identification fulfilled a molecularly supported disease report."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-sclerotinia-white-mold",
+    "slug": "sclerotinia-white-mold",
+    "name": "Sclerotinia white mold",
+    "scientificName": "Sclerotinia sclerotiorum",
+    "category": "Fungal pathogen",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.4,
+    "summary": "A confirmed Cannabis fungal disease that can contribute to white-mold, wilt, and yellowing syndromes. Because Botrytis, Fusarium, Pythium, and other molds can overlap visually, white growth alone is not species-level evidence.",
+    "affectedParts": [
+      "stems",
+      "crown",
+      "leaves",
+      "whole plant",
+      "flowering tissue depending on infection site"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "all"
+    ],
+    "indicators": [
+      "White fungal growth occurs on symptomatic Cannabis tissue with associated wilt or yellowing",
+      "Affected tissue declines in a pattern consistent with an active stem/crown or aerial infection",
+      "Laboratory isolation or DNA evidence identifies Sclerotinia sclerotiorum"
+    ],
+    "exclusions": [
+      "Gray mold and laboratory evidence identify Botrytis",
+      "Root/crown testing identifies Fusarium or Pythium instead",
+      "White residue is nonliving spray/mineral material",
+      "No organism evidence accompanies nonspecific wilt"
+    ],
+    "progression": [
+      {
+        "stage": "Local infection",
+        "description": "Affected tissue develops mold and localized decline."
+      },
+      {
+        "stage": "Systemic impact",
+        "description": "Stem or crown involvement can contribute to yellowing and wilt."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Tissue collapse can become extensive; appearance overlaps other mold diseases."
+      }
+    ],
+    "lookAlikes": [
+      "Botrytis gray mold",
+      "Fusarium wilt / crown rot",
+      "Pythium root rot",
+      "Powdery mildew",
+      "Nonliving spray residue"
+    ],
+    "confirmation": [
+      "Use culture and molecular identification for Sclerotinia confirmation.",
+      "Photograph infection site, internal stem/crown condition when available, and whole-plant distribution."
+    ],
+    "immediateActions": [
+      "Isolate strongly affected plants and preserve diagnostic tissue before disposal."
+    ],
+    "correctivePlan": [
+      "Use laboratory-confirmed disease management and sanitation appropriate to the setting."
+    ],
+    "prevention": [
+      "Limit carryover of infected plant debris and conditions that keep susceptible tissue wet for extended periods."
+    ],
+    "warnings": [
+      "White mold appearance is not specific to Sclerotinia.",
+      "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification."
+    ],
+    "sources": [
+      {
+        "title": "Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation",
+        "organization": "Journal of Phytopathology",
+        "url": "https://doi.org/10.1111/jph.70196",
+        "publisher": "Wiley",
+        "publicationDate": "2025-11-16",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1111/jph.70196",
+        "supportedClaims": [
+          "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
+          "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
+          "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-septoria-leaf-spot",
+    "slug": "septoria-leaf-spot",
+    "name": "Septoria leaf spot complex",
+    "scientificName": "Septoria cannabis / Septoria cannabicola",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A lower- and inner-canopy hemp leaf-spot syndrome caused by Septoria species. Dark pycnidia within expanding brown-gray lesions are useful evidence, but modern work shows more than one Septoria species can infect Cannabis.",
+    "affectedParts": [
+      "older lower leaves",
+      "inner canopy leaves",
+      "leaf lesions"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Disease often begins on lower or inner-canopy leaves",
+      "Small irregular brown-to-gray spots expand to several millimeters",
+      "Dark round pycnidia can be visible within lesions",
+      "Older leaves may defoliate as disease advances"
+    ],
+    "exclusions": [
+      "Sooty conidial masses on the underside support Pseudocercospora",
+      "White-centered round lesions with a pronounced dark border support Cercospora as a differential",
+      "Shot-hole lesions and Colletotrichum evidence support anthracnose",
+      "No fungal structures or lab evidence are present and an abiotic exposure fits the distribution better"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Small discolored spots appear on older or inner leaves."
+      },
+      {
+        "stage": "Developing",
+        "description": "Brown-to-gray lesions enlarge and reproductive structures may become visible."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Lesions multiply and older foliage can yellow and drop."
+      }
+    ],
+    "lookAlikes": [
+      "Cercospora leaf spot",
+      "Bipolaris leaf spot",
+      "Alternaria leaf spot",
+      "Pseudocercospora olive leaf spot",
+      "Anthracnose"
+    ],
+    "confirmation": [
+      "Examine lesions for pycnidia and submit representative tissue for fungal identification when species matters.",
+      "Use morphology and molecular sequence data for species-level Septoria classification because S. cannabis and S. cannabicola cannot be separated by a generic spot photo."
+    ],
+    "immediateActions": [
+      "Document lower-versus-upper canopy distribution and both leaf surfaces.",
+      "Limit movement of symptomatic foliage into clean production areas."
+    ],
+    "correctivePlan": [
+      "Use confirmed-disease sanitation and environmental management appropriate to the system.",
+      "Track new lesion development after intervention."
+    ],
+    "prevention": [
+      "Scout lower and inner canopy foliage early.",
+      "Reduce prolonged leaf wetness and carryover of infected debris where practical."
+    ],
+    "warnings": [
+      "Septoria species taxonomy on Cannabis is not reducible to visual symptoms.",
+      "Do not train a species classifier from mixed Septoria figures without organism-confirmed labels."
+    ],
+    "sources": [
+      {
+        "title": "Reemergence of Septoria Leaf Spot Caused by Septoria cannabis on Hemp in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-12-20-2620-SC",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2021-10-17",
+        "year": 2021,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-12-20-2620-SC",
+        "supportedClaims": [
+          "Septoria leaf spot was documented on hemp primarily on lower leaves and inner canopy, with small irregular brown-to-gray lesions expanding to roughly 5 to 7.5 mm and dark pycnidia in lesions.",
+          "Eight isolates were tested for pathogenicity on greenhouse-grown hemp and diagnostic loci were sequenced; morphology and sequence evidence supported Septoria cannabis in the Kentucky material.",
+          "Visual lesion appearance alone cannot separate Septoria from other hemp leaf-spot pathogens."
+        ]
+      },
+      {
+        "title": "Septoria cannabicola, a new species on Cannabis sativa from Japan",
+        "organization": "Mycoscience",
+        "url": "https://doi.org/10.47371/mycosci.2023.1.004",
+        "publisher": "Mycological Society of Japan",
+        "year": 2024,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Molecular phylogeny and morphology demonstrated that Cannabis leaf spot historically attributed to Septoria cannabis can involve a distinct species, Septoria cannabicola.",
+          "Natural symptoms began as indistinct yellow spots on lower leaves and progressed to brown irregular lesions and premature defoliation of older leaves.",
+          "Species-level Septoria naming therefore requires laboratory evidence rather than lesion appearance alone."
+        ],
+        "doi": "10.47371/mycosci.2023.1.004",
+        "publicationDate": "2024-03-02"
+      },
+      {
+        "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2024-05-18",
+        "year": 2024,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-11-23-2483-RE",
+        "supportedClaims": [
+          "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+          "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+          "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "fungal-southern-blight",
+    "slug": "southern-blight-athelia-rolfsii",
+    "name": "Southern blight",
+    "scientificName": "Athelia rolfsii (Sclerotium rolfsii)",
+    "category": "Root pathogen",
+    "severity": "critical",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A warm-condition soilborne Cannabis disease centered at the soil line, crown and taproot. White cottony mycelium plus tan-to-brown spherical sclerotia at the plant base are strong signs, but wilt alone is nonspecific.",
+    "affectedParts": [
+      "lower stem at soil line",
+      "crown",
+      "taproot",
+      "root surface",
+      "whole plant"
+    ],
+    "stages": [
+      "vegetative",
+      "reproductive",
+      "warm field conditions"
+    ],
+    "indicators": [
+      "Dark brown-to-tan discoloration develops near the soil line",
+      "Rot extends into crown or taproot while foliage yellows and the plant wilts/collapses",
+      "White cottony mycelium develops on basal tissue or adjacent soil",
+      "Numerous spherical tan-to-dark-brown sclerotia occur with compatible basal rot"
+    ],
+    "exclusions": [
+      "No basal rot, mycelium or sclerotia are present and measured drought explains wilt",
+      "Laboratory evidence identifies Rhizoctonia, Fusarium, Pythium or another root/crown pathogen",
+      "White growth is confined to leaves/flowers without basal disease"
+    ],
+    "progression": [
+      {
+        "stage": "Basal lesion",
+        "description": "Dark tan-brown discoloration appears at the soil line."
+      },
+      {
+        "stage": "Crown/root rot",
+        "description": "Rot moves into crown and taproot as foliage yellows."
+      },
+      {
+        "stage": "Collapse",
+        "description": "Whole plants can wilt and collapse while white mycelium and brown sclerotia accumulate at the base."
+      }
+    ],
+    "lookAlikes": [
+      "Rhizoctonia root rot / sore shin",
+      "Fusarium crown/root rot",
+      "Pythium root rot",
+      "Sclerotinia white mold",
+      "Severe root-zone hypoxia"
+    ],
+    "confirmation": [
+      "Inspect the soil line/crown/root surface for characteristic mycelium and sclerotia and submit tissue/culture for organism confirmation.",
+      "Record temperature/moisture context, but do not use hot wet conditions as diagnostic proof."
+    ],
+    "immediateActions": [
+      "Isolate affected root-zone material and prevent movement of contaminated soil or debris to clean areas.",
+      "Preserve basal tissue and sclerotia for diagnostic testing."
+    ],
+    "correctivePlan": [
+      "Use confirmed soilborne-disease sanitation and crop-legal management appropriate to the setting.",
+      "Address excess moisture where measured without assuming moisture correction eliminates established pathogen inoculum."
+    ],
+    "prevention": [
+      "Avoid moving contaminated soil or plant debris between production areas.",
+      "Monitor crown/root health during warm wet periods."
+    ],
+    "warnings": [
+      "Whole-plant wilt alone cannot identify southern blight.",
+      "Sclerotia and laboratory evidence are substantially stronger than canopy appearance."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "authors": [
+          "Lindsey D. Thiessen",
+          "Tyler Schappe",
+          "Sarah Cochran",
+          "Kristin Hicks",
+          "Angela R. Post"
+        ],
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+          "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+          "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+          "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+          "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+          "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+        ]
+      },
+      {
+        "title": "First Report of Southern Blight Caused by Sclerotium rolfsii on Hemp (Cannabis sativa) in Sicily and Southern Italy",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-91-5-0636A",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2007-04-20",
+        "year": 2007,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-91-5-0636A",
+        "supportedClaims": [
+          "Infected hemp developed dark brown-to-tan discoloration at the soil line, crown and taproot rot, foliar yellowing, whole-plant collapse, white cottony mycelium, and tan-to-dark-brown spherical sclerotia.",
+          "Pathogenicity was reproduced on hemp and Sclerotium rolfsii was reisolated while noninoculated controls remained symptomless.",
+          "High summer temperatures and high soil moisture were associated with the reported outbreak but are risk context, not diagnostic proof."
         ]
       }
     ],
@@ -1104,6 +2353,37 @@
         "view": "close-up",
         "stage": "vegetative canopy",
         "severity": "scattered feeding scars",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-thrips-hemp-bugwood-5569060",
+        "url": "https://bugwoodcloud.org/images/1536x1024/5569060.jpg",
+        "alt": "Severe onion-thrips feeding injury on a Cannabis sativa hemp leaf.",
+        "caption": "Severe leaf injury to hemp produced by onion thrips (Thrips tabaci), Bugwood image 5569060.",
+        "creator": "Whitney Cranshaw, Colorado State University, Bugwood.org",
+        "license": "CC BY 3.0",
+        "sourceUrl": "https://www.invasive.org/browse/detail.cfm?imgnum=5569060",
+        "mediaType": "image",
+        "requiredAttribution": "Whitney Cranshaw, Colorado State University, Bugwood.org, image 5569060. Licensed under CC BY 3.0.",
+        "diagnosticLabel": "thrips — severe Thrips tabaci feeding injury on Cannabis sativa hemp",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-only feeding-damage image.",
+          "Silvery or pale scars and speckling can overlap other pests or physical injury.",
+          "Confirm thrips adults or larvae with magnification before making a species-level causal claim."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "04234384d5ab682600c748a65a62395adbf1cdfbe1f9489df43969025d53e54c",
+        "perceptualHash": "dhash64:b3e78e80888094ca",
+        "width": 1536,
+        "height": 1152,
+        "view": "close-up",
+        "stage": "all",
+        "severity": "high",
         "confirmation": "expert-reviewed",
         "trainingEligible": false
       }
@@ -1586,6 +2866,150 @@
         ]
       }
     ],
+    "media": [
+      {
+        "id": "media-two-spotted-spider-mite-hemp-figure-1",
+        "url": "https://mdpi-res.com/d_attachment/agronomy/agronomy-16-00651/article_deploy/html/images/agronomy-16-00651-g001.png",
+        "alt": "Standardized flowering-hemp damage scale for two-spotted spider mites from no visible injury through stippling, chlorosis, necrosis, and dense webbing.",
+        "caption": "Standardized 0–5 two-spotted spider mite damage scale on hemp, from no visible damage to extensive necrosis and webbing (Thweatt et al. 2026, Figure 1).",
+        "creator": "Ivy N. Thweatt and Katelyn Kesheimer; figure included in the article with consent",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3390/agronomy16060651",
+        "mediaType": "image",
+        "requiredAttribution": "Thweatt IN, Saleem M, Xu J, Zebelo S, Ajayi OS. 2026. Cultivar Identity and Spider Mite Herbivory Shape Rhizosphere Bacteria in Hemp (Cannabis sativa L.). Agronomy 16(6):651. Figure 1 from Ivy N. Thweatt and Katelyn Kesheimer, included with consent. CC BY 4.0.",
+        "diagnosticLabel": "two-spotted-spider-mites — Tetranychus urticae damage severity scale on flowering hemp",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Damage-scale composite; reference-only as a whole figure.",
+          "Stippling, chlorosis, necrosis, and webbing support mite injury but species-level attribution still requires direct mite/egg evidence.",
+          "Do not treat the six severity panels as independent training examples until panel-level crop, source-group, and label review are complete.",
+          "The publisher has served visually identical PNG encodings with different cryptographic hashes; dHash remained stable. Treat SHA-256 as the observed source-byte hash, not a permanent publisher identifier."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "373860a3230e75afaebd94fbc0ed95fe8e3620fc812b1b659b321597010182ef",
+        "perceptualHash": "dhash64:d2129296869696b6",
+        "width": 1455,
+        "height": 1340,
+        "view": "diagram",
+        "stage": "flower",
+        "severity": "0–5 damage scale",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ],
+    "canonicalId": "CAN-PEST-001",
+    "responsePolicyId": "POL-SPIDER-MITE"
+  },
+  {
+    "id": "nematode-root-knot",
+    "slug": "root-knot-nematodes",
+    "name": "Root-knot nematodes",
+    "scientificName": "Meloidogyne spp. (including M. incognita)",
+    "category": "Nematode",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A confirmed Cannabis root-parasitic nematode problem. Root galling with females/egg masses is far more discriminating than above-ground stunting or chlorosis, which overlap nearly every root-zone disorder.",
+    "affectedParts": [
+      "roots",
+      "root galls",
+      "whole plant secondarily"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Roots develop characteristic localized galls or knots",
+      "Females can be present inside galled root tissue with egg masses associated with roots",
+      "Plants may be stunted or chlorotic secondarily",
+      "Nematode morphology or molecular testing identifies Meloidogyne"
+    ],
+    "exclusions": [
+      "Root enlargements are normal lateral-root structures rather than galls",
+      "No galls/nematodes are found and a different root disease or abiotic condition is confirmed",
+      "Only canopy stunting/chlorosis is available without root inspection"
+    ],
+    "progression": [
+      {
+        "stage": "Root infection",
+        "description": "Nematodes establish feeding sites and root galls develop."
+      },
+      {
+        "stage": "Increasing burden",
+        "description": "Gall number and root disruption increase; above-ground growth may become stunted or chlorotic."
+      }
+    ],
+    "lookAlikes": [
+      "Rhizoctonia root rot",
+      "Fusarium root/crown disease",
+      "Root binding",
+      "Nutrient deficiency",
+      "Drought / water-deficit stress"
+    ],
+    "confirmation": [
+      "Wash and inspect the complete root system for true galls and collect roots/soil for nematode analysis.",
+      "Use adult/juvenile morphology and/or validated molecular assays when Meloidogyne species matters."
+    ],
+    "immediateActions": [
+      "Prevent movement of potentially infested soil/root debris into clean production areas.",
+      "Preserve representative galled roots and surrounding soil for diagnosis."
+    ],
+    "correctivePlan": [
+      "Base management on confirmed nematode identification, production system, and locally legal options."
+    ],
+    "prevention": [
+      "Use clean planting material/media and avoid moving infested soil on tools/equipment.",
+      "Inspect roots when unexplained stunting occurs in field/container production."
+    ],
+    "warnings": [
+      "Above-ground chlorosis and stunting are nonspecific and should have very low diagnostic weight without root evidence.",
+      "Cannabis yield-loss thresholds for root-knot nematodes remain incompletely defined."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "authors": [
+          "Lindsey D. Thiessen",
+          "Tyler Schappe",
+          "Sarah Cochran",
+          "Kristin Hicks",
+          "Angela R. Post"
+        ],
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+          "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+          "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+          "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+          "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+          "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+        ]
+      },
+      {
+        "title": "Root-Knot Nematodes",
+        "organization": "Compendium of Cannabis Diseases",
+        "url": "https://doi.org/10.1094/9780890546284.03.05.1",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2022-09-13",
+        "year": 2022,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/9780890546284.03.05.1",
+        "supportedClaims": [
+          "Infection of hemp by root-knot nematodes (Meloidogyne spp.) is established, although the extent of Cannabis yield loss is not well quantified.",
+          "Organism confirmation and root signs are required; above-ground stunting or chlorosis alone is nonspecific."
+        ]
+      }
+    ],
     "media": []
   },
   {
@@ -2016,6 +3440,107 @@
         "trainingEligible": false
       }
     ]
+  },
+  {
+    "id": "nut-def-b",
+    "slug": "boron-deficiency",
+    "name": "Boron deficiency",
+    "category": "Nutrient deficiency",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A controlled Cannabis boron-withholding disorder centered on growing tips, expanding leaves, and root tips. Severe new-growth distortion is useful supporting evidence, but diagnosis should be tied to nutrition and root-zone measurements rather than leaf shape alone.",
+    "affectedParts": [
+      "growing tips",
+      "new and expanding leaves",
+      "leaf margins",
+      "root tips",
+      "whole plant in advanced cases"
+    ],
+    "stages": [
+      "vegetative",
+      "all"
+    ],
+    "indicators": [
+      "Growing tips become stunted before older foliage shows a dominant pattern",
+      "New leaflets are distorted, smaller, and narrow near the leaflet base",
+      "Advanced new growth curls inward, downward, or at irregular angles and develops marginal necrosis",
+      "Severe deficiency can kill growing tips and root tips and lead to whole-plant wilting"
+    ],
+    "exclusions": [
+      "Distorted tips contain broad mites or hemp russet mites",
+      "Root-zone boron supply and tissue analysis are adequate while another exposure explains the distortion",
+      "Damage is localized to a spray, heat, or mechanical event",
+      "Only old leaves are affected while new growth remains normal"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Slight stunting develops from the growing tips."
+      },
+      {
+        "stage": "Intermediate",
+        "description": "New leaves become narrower and increasingly distorted."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Margins become necrotic, apical tissue can die, root-tip loss can become severe, and the whole plant may wilt."
+      }
+    ],
+    "lookAlikes": [
+      "Calcium deficiency",
+      "Broad mite",
+      "Hemp russet mite",
+      "Herbicide or growth-regulator injury",
+      "Root disease"
+    ],
+    "confirmation": [
+      "Review fertilizer and source-water boron and measure root-zone pH/EC before assigning the cause.",
+      "Use representative tissue analysis when the diagnosis is consequential; the published Cannabis values are experiment-specific, not universal thresholds."
+    ],
+    "immediateActions": [
+      "Preserve pre-correction root-zone and tissue measurements.",
+      "Inspect distorted growth under magnification for mites before changing nutrition."
+    ],
+    "correctivePlan": [
+      "Correct a confirmed boron under-supply gradually with a crop-appropriate nutrition plan.",
+      "Track new meristem and root growth; damaged leaves and dead tips will not reverse."
+    ],
+    "prevention": [
+      "Maintain complete micronutrient supply and calibrated root-zone monitoring.",
+      "Avoid diagnosing micronutrients from internet deficiency charts without measurements."
+    ],
+    "warnings": [
+      "The controlled study used one cultivar and complete boron withholding.",
+      "Boron has a narrow adequacy-to-toxicity margin in many crops; do not add boron from visual suspicion alone."
+    ],
+    "sources": [
+      {
+        "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+        "organization": "Applied Sciences (Cockson et al.)",
+        "url": "https://doi.org/10.3390/app9204432",
+        "authors": [
+          "Paul Cockson",
+          "Hunter Landis",
+          "Turner Smith",
+          "Kristin Hicks",
+          "Brian E. Whipker"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2019-10-18",
+        "year": 2019,
+        "accessedDate": "2026-08-17",
+        "doi": "10.3390/app9204432",
+        "supportedClaims": [
+          "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+          "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+          "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+          "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+        ]
+      }
+    ],
+    "media": []
   },
   {
     "id": "nut-def-ca",
@@ -3486,6 +5011,90 @@
     ]
   },
   {
+    "id": "nut-def-mo-analytical",
+    "slug": "molybdenum-low-analytical-no-visual-phenotype",
+    "name": "Low molybdenum analytical state — no validated visual phenotype",
+    "category": "Nutrient deficiency",
+    "severity": "low",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.05,
+    "summary": "A deliberate abstention class: Cannabis grown without molybdenum for nine weeks had a 96% lower foliar Mo concentration but no visual symptoms and no significant dry-weight reduction. Image-only “molybdenum deficiency” should therefore be rejected by the diagnostic engine.",
+    "affectedParts": [
+      "most-recent mature leaf for tissue testing",
+      "whole plant for comparison"
+    ],
+    "stages": [
+      "vegetative",
+      "nine-week controlled withholding context"
+    ],
+    "indicators": [
+      "Laboratory tissue analysis documents very low molybdenum relative to an appropriate healthy comparison",
+      "No stable Cannabis-specific visual symptom pattern is required or validated"
+    ],
+    "exclusions": [
+      "A diagnosis is based only on yellow, orange, pink, curled, or narrow leaves from a generic internet chart",
+      "Another measured nutrient, pH, EC, root, pest, or pathogen condition explains visible symptoms"
+    ],
+    "progression": [
+      {
+        "stage": "Controlled observation",
+        "description": "No visible symptom progression developed during nine weeks of complete Mo withholding in Cannabis sativa T1 despite strongly reduced tissue Mo."
+      }
+    ],
+    "lookAlikes": [
+      "Nitrogen deficiency",
+      "Sulfur deficiency",
+      "Magnesium deficiency",
+      "Root-zone pH stress",
+      "Any generic chlorosis syndrome"
+    ],
+    "confirmation": [
+      "Use calibrated tissue analysis and nutrition history; a photograph cannot confirm low molybdenum in Cannabis.",
+      "Keep photo-only confidence near zero unless future Cannabis-specific controlled evidence establishes a reproducible phenotype."
+    ],
+    "immediateActions": [
+      "Do not apply molybdenum based on image color alone.",
+      "Review complete fertilizer composition and laboratory results."
+    ],
+    "correctivePlan": [
+      "Correct only a laboratory-supported under-supply using a measured nutrition plan."
+    ],
+    "prevention": [
+      "Use complete micronutrient formulations and periodic analytical monitoring when warranted."
+    ],
+    "warnings": [
+      "The best controlled Cannabis evidence currently contradicts popular image charts that assign a distinctive Mo-deficiency leaf appearance.",
+      "This record exists partly to prevent false-positive model predictions."
+    ],
+    "sources": [
+      {
+        "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+        "organization": "Applied Sciences (Cockson et al.)",
+        "url": "https://doi.org/10.3390/app9204432",
+        "authors": [
+          "Paul Cockson",
+          "Hunter Landis",
+          "Turner Smith",
+          "Kristin Hicks",
+          "Brian E. Whipker"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2019-10-18",
+        "year": 2019,
+        "accessedDate": "2026-08-17",
+        "doi": "10.3390/app9204432",
+        "supportedClaims": [
+          "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+          "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+          "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+          "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "nut-def-n",
     "slug": "nitrogen-deficiency",
     "name": "Nitrogen deficiency",
@@ -4519,6 +6128,119 @@
     ]
   },
   {
+    "id": "nut-tox-mn",
+    "slug": "manganese-toxicity",
+    "name": "Manganese toxicity / high-manganese response",
+    "category": "Nutrient toxicity",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.45,
+    "summary": "A Cannabis high-manganese treatment response reported as lower-leaf marginal chlorosis progressing inward to necrosis. The published treatment did not establish a universal toxic tissue threshold, so analytical context is required.",
+    "affectedParts": [
+      "lower and older leaves",
+      "leaf margins",
+      "interveinal tissue",
+      "whole canopy secondarily"
+    ],
+    "stages": [
+      "vegetative",
+      "all"
+    ],
+    "indicators": [
+      "Marginal yellowing begins on lower leaves",
+      "Yellowing expands inward toward the midrib",
+      "Advanced leaves become severely chlorotic with necrotic margins and may abscise",
+      "Root-zone or tissue evidence supports elevated manganese exposure"
+    ],
+    "exclusions": [
+      "No elevated manganese exposure or tissue evidence exists",
+      "Boron toxicity, potassium deficiency, salinity, or root stress better explains marginal injury",
+      "Lesions are discrete and pathogen-like rather than exposure-distributed"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Lower-leaf margins become yellow."
+      },
+      {
+        "stage": "Intermediate",
+        "description": "Chlorosis moves inward across the leaf surface."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Margins become necrotic, severe chlorosis develops, and some affected leaves may fall."
+      }
+    ],
+    "lookAlikes": [
+      "Boron toxicity",
+      "Potassium deficiency",
+      "Salinity / high EC",
+      "Low-pH micronutrient stress",
+      "Normal senescence"
+    ],
+    "confirmation": [
+      "Measure root-zone pH and manganese exposure and use tissue analysis when possible.",
+      "Do not use the 47.88 mg/kg value from one cultivar as a universal toxicity threshold; the authors specifically noted it fell within a prior survey range."
+    ],
+    "immediateActions": [
+      "Verify pH, EC, fertilizer composition, source water, and tissue manganese before correction."
+    ],
+    "correctivePlan": [
+      "Correct the measured manganese source or pH condition rather than treating leaf color alone.",
+      "Follow new growth and analytical values after correction."
+    ],
+    "prevention": [
+      "Track micronutrient formulation and root-zone pH.",
+      "Use cultivar- and system-aware tissue interpretation."
+    ],
+    "warnings": [
+      "The 2019 study found no significant biomass difference at the reported treatment and called for higher-concentration work to refine toxicity thresholds.",
+      "Visual marginal chlorosis is not manganese-specific."
+    ],
+    "sources": [
+      {
+        "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+        "organization": "Applied Sciences (Cockson et al.)",
+        "url": "https://doi.org/10.3390/app9204432",
+        "authors": [
+          "Paul Cockson",
+          "Hunter Landis",
+          "Turner Smith",
+          "Kristin Hicks",
+          "Brian E. Whipker"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2019-10-18",
+        "year": 2019,
+        "accessedDate": "2026-08-17",
+        "doi": "10.3390/app9204432",
+        "supportedClaims": [
+          "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+          "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+          "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+          "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+        ]
+      },
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+          "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+          "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+          "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "nut-tox-n",
     "slug": "nitrogen-toxicity",
     "name": "Nitrogen toxicity",
@@ -4759,6 +6481,107 @@
     ]
   },
   {
+    "id": "oomycete-downy-mildew",
+    "slug": "downy-mildew-pseudoperonospora",
+    "name": "Downy mildew",
+    "scientificName": "Pseudoperonospora cannabina",
+    "category": "Oomycete pathogen",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A foliar oomycete disease of Cannabis grouped under the current fungal-pathogen UI bucket for compatibility. Angular chlorotic-to-brown lesions and dark underside sporulation are stronger clues than top-surface discoloration alone.",
+    "affectedParts": [
+      "leaves",
+      "leaf undersides",
+      "inflorescences in severe disease",
+      "whole plant"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Angular chlorotic or brown lesions develop on leaves",
+      "Dark sporulation is visible on the underside of corresponding lesions under conducive humidity",
+      "Leaves may curl and defoliate as severity increases",
+      "Severe field disease can extend to inflorescence tissue and reduce marketable yield"
+    ],
+    "exclusions": [
+      "White superficial colonies wipe or scrape away and fit powdery mildew better",
+      "Sooty conidial masses are identified as Pseudocercospora",
+      "No underside sporulation or pathogen evidence is present and nutrient or chemical injury explains the pattern"
+    ],
+    "progression": [
+      {
+        "stage": "Early",
+        "description": "Angular chlorotic lesions appear."
+      },
+      {
+        "stage": "Sporulation",
+        "description": "Dark oomycete sporulation develops on lesion undersides under humid conditions."
+      },
+      {
+        "stage": "Advanced",
+        "description": "Lesions become necrotic, leaves curl or drop, and severe plants can lose substantial healthy foliage."
+      }
+    ],
+    "lookAlikes": [
+      "Pseudocercospora olive leaf spot",
+      "Septoria leaf spot",
+      "Powdery mildew",
+      "Nutrient chlorosis",
+      "Spray injury"
+    ],
+    "confirmation": [
+      "Inspect the underside of fresh lesions under magnification and submit tissue to a plant diagnostic laboratory when confirmation matters.",
+      "Treat Pseudoperonospora as an oomycete, not a true fungus; laboratory morphology or molecular testing is preferred for organism-level labels."
+    ],
+    "immediateActions": [
+      "Separate heavily symptomatic material and reduce avoidable prolonged leaf wetness while preserving a diagnostic sample."
+    ],
+    "correctivePlan": [
+      "Use an oomycete-appropriate disease management program allowed for the crop and production setting."
+    ],
+    "prevention": [
+      "Scout undersides during humid periods and improve foliage drying/air movement where appropriate."
+    ],
+    "warnings": [
+      "The category label “Fungal pathogen” is a temporary UI grouping; Pseudoperonospora is biologically an oomycete.",
+      "Cultivar susceptibility varies widely, so severity cannot be generalized from one cultivar."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Downy Mildew Caused by Pseudoperonospora cannabina on Cannabis sativa in New York",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-08-22-1930-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2023-05-16",
+        "year": 2023,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-08-22-1930-PDN",
+        "supportedClaims": [
+          "Downy mildew on hemp was documented with chlorotic and necrotic lesions and sporangiophore production under humid conditions, affecting leaves and inflorescences in severe field cases.",
+          "The causal agent is the oomycete Pseudoperonospora cannabina; it is not a true fungus despite the mildew name."
+        ]
+      },
+      {
+        "title": "Evaluation of downy mildew resistance in the USDA Hemp Germplasm Repository using high-throughput and traditional phenotyping methods",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-09-25-1916-RE",
+        "publisher": "American Phytopathological Society",
+        "year": 2026,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-09-25-1916-RE",
+        "supportedClaims": [
+          "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides, often with curling and defoliation.",
+          "A 108-entry hemp resistance study documented wide susceptibility variation, reinforcing that severity is genotype-dependent and not a universal image threshold."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "pest-cannabis-aphid",
     "slug": "cannabis-aphid",
     "name": "Cannabis aphid",
@@ -4858,7 +6681,39 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-cannabis-aphid-figure-2",
+        "url": "https://mdpi-res.com/d_attachment/plants/plants-14-00931/article_deploy/html/images/plants-14-00931-g002.png",
+        "alt": "Cannabis plants infested with cannabis aphids alongside magnified adult and winged Phorodon cannabis.",
+        "caption": "Cannabis plants of the Congo Durban variety infested with Phorodon cannabis, with adult and winged adult aphids shown under a stereo microscope at 20× magnification (Lopez Restrepo and Kovalchuk 2025, Figure 2).",
+        "creator": "Daniel Lopez Restrepo and Igor Kovalchuk",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3390/plants14060931",
+        "mediaType": "image",
+        "requiredAttribution": "Lopez Restrepo D, Kovalchuk I. 2025. Investigating the Effects of Entomopathogenic Fungi on Mortality of Phorodon cannabis Populations in Cannabis Plants. Plants 14(6):931. CC BY 4.0.",
+        "diagnosticLabel": "cannabis-aphid — Phorodon cannabis infestation and adult morphology on Cannabis sativa",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Multi-panel plant-and-organism figure; reference-only as a whole image.",
+          "Do not infer cannabis aphid from yellowing, wilting, or leaf distortion without directly observing aphids or other insect evidence.",
+          "Keep training-ineligible until panel-level source grouping and crop review are complete."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "8b207dc0bc39fbfb7efd8e0356f2a4edeccdcf4028980d1544fc71e753c529d9",
+        "perceptualHash": "dhash64:6444daa9ad9b989a",
+        "width": 1623,
+        "height": 1724,
+        "view": "diagram",
+        "stage": "all",
+        "severity": "moderate",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "pest-fungus-gnats",
@@ -5040,11 +6895,11 @@
       {
         "title": "Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America",
         "organization": "Journal of Integrated Pest Management",
-        "url": "https://doi.org/10.1093/jipm/pmaa014",
-        "publicationDate": "2020-07-21",
+        "url": "https://doi.org/10.1093/jipm/pmaa008",
+        "publicationDate": "2020-07-20",
         "year": 2020,
         "accessedDate": "2026-08-16",
-        "doi": "10.1093/jipm/pmaa014",
+        "doi": "10.1093/jipm/pmaa008",
         "supportedClaims": [
           "Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.",
           "On Cannabis this aphid is found primarily in association with plant roots, and winged adults may emerge from soil in large numbers as plants approach maturity.",
@@ -5052,7 +6907,39 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-rice-root-aphid-cannabis-figure-2",
+        "url": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/jipm/11/1/10.1093_jipm_pmaa008/2/m_pmaa008f0002.jpeg?Expires=2147483647&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&Signature=EPhu~pO~64p7GWKwLaeesO7JYfmMa8VpG5vqYu3ZxcGNwF4RdNFDEDOKBStsTpzEbph7z24JZxLSMtGslR7jMlrIlILt1UcCGx-Fnyt19QbE7xHClKmKI~qCVKVkjbXTWnBnVEtu9oUVGZdiWWD4SAO9ncgBncMgG1~Qh3cKeT6LT65KkdLoqRRDtwc0UU6riQgTj77ZsnuPdaXALAY5kAPxOwv1fVEZjnWJEcrAw3qygYI3bvDiIg0vF1UfSWUkiufo5KMGNkW1chR9j4IMsHkkoB6tE9ypcaSyRmoYdX5sKbjjeJmarUMy5LQJZGUSSqEQeOD7781Q5oWjw8UsXA__",
+        "alt": "Rice root aphids visible at the base and roots of aeroponically grown Cannabis sativa.",
+        "caption": "Rice root aphids living on the roots of aeroponically grown Cannabis sativa (Cranshaw and Wainwright-Evans 2020, Figure 2).",
+        "creator": "Whitney Cranshaw and Suzanne Wainwright-Evans; figure photographer not separately stated in the caption",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.1093/jipm/pmaa008",
+        "mediaType": "image",
+        "requiredAttribution": "Cranshaw W, Wainwright-Evans S. 2020. Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America. Journal of Integrated Pest Management 11(1):15. CC BY 4.0.",
+        "diagnosticLabel": "rice-root-aphid — Rice root aphid (Rhopalosiphum rufiabdominale) on Cannabis roots",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-only until source-group and panel-level training review are complete.",
+          "The presence of rice root aphids is visible; generalized canopy decline is not uniquely diagnostic of this pest.",
+          "Do not use this asset to infer root disease, nutrient status, or above-ground symptom severity."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "3fb068bfe723ed06c654bfcc96f990bfabdfa2e976a7770242325c7ae311dea4",
+        "perceptualHash": "dhash64:19191b1a4e595b6b",
+        "width": 520,
+        "height": 403,
+        "view": "root-crown",
+        "stage": "all",
+        "severity": "moderate",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "phytoplasma-hemp-witches-broom",
@@ -5304,6 +7191,97 @@
     ]
   },
   {
+    "id": "root-binding-container-stress",
+    "slug": "root-binding-container-stress",
+    "name": "Root binding / container-restriction stress",
+    "category": "Water / root-zone",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.35,
+    "summary": "A physical root-zone restriction documented in hemp transplants. Canopy stunting or stress is nonspecific; confirmation requires seeing the root system and separating mechanical restriction from drought, salinity, hypoxia, and root pathogens.",
+    "affectedParts": [
+      "root ball",
+      "container edge",
+      "root tips",
+      "whole plant secondarily"
+    ],
+    "stages": [
+      "seedling",
+      "transplant",
+      "vegetative"
+    ],
+    "indicators": [
+      "Roots densely circle or mat along the container boundary with limited free substrate volume",
+      "Plant growth is restricted relative to matched plants despite otherwise reasonable nutrition and irrigation",
+      "Stress persists around transplant establishment and root architecture remains constrained"
+    ],
+    "exclusions": [
+      "Root system is not physically congested",
+      "Roots are brown, slimy, necrotic, or lesioned enough to support disease",
+      "Measured drought, salinity, or hypoxia explains the response",
+      "Stem girdling or transplant damage is the dominant mechanical problem"
+    ],
+    "progression": [
+      {
+        "stage": "Container filling",
+        "description": "Roots occupy most available container volume."
+      },
+      {
+        "stage": "Restriction",
+        "description": "Circling and dense matting increase while water and nutrient buffering become less stable."
+      },
+      {
+        "stage": "Post-transplant risk",
+        "description": "A severely bound root system may establish poorly and can coexist with secondary root pathogens."
+      }
+    ],
+    "lookAlikes": [
+      "Drought / water-deficit stress",
+      "Salinity / high EC",
+      "Pythium root rot",
+      "Fusarium crown/root rot",
+      "Overwatering / hypoxia"
+    ],
+    "confirmation": [
+      "Remove or expose the root ball and document root density, circling, root color, odor, and substrate condition.",
+      "Measure moisture and EC and inspect for disease because root binding can coexist with pathogens."
+    ],
+    "immediateActions": [
+      "Document the intact root ball before disturbing it when diagnosis matters.",
+      "Check irrigation uniformity and root health rather than assuming every small container is root-bound."
+    ],
+    "correctivePlan": [
+      "Relieve confirmed physical restriction using transplant/root-management practices appropriate to crop stage and system.",
+      "Monitor new root expansion and canopy recovery while screening for secondary disease."
+    ],
+    "prevention": [
+      "Match container volume and transplant timing to growth rate.",
+      "Inspect purchased transplants before integration."
+    ],
+    "warnings": [
+      "Small container size alone does not prove pathological root binding.",
+      "Root binding and Fusarium/Pythium can coexist, so finding circling roots does not exclude disease."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+          "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+          "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+          "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
     "id": "root-fusarium-crown-rot",
     "slug": "fusarium-crown-root-rot",
     "name": "Fusarium crown and root rot / wilt complex",
@@ -5410,7 +7388,40 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-fusarium-cannabis-figure-4",
+        "url": "https://www.frontiersin.org/files/Articles/796062/xml-images/fagro-03-796062-g0004.webp",
+        "alt": "Multi-panel reference figure showing Fusarium-associated disease signs and pathogen evidence on greenhouse-grown Cannabis plants.",
+        "caption": "Infection of greenhouse-grown Cannabis plants by Fusarium species, including yellowing, crown infection and decay, pith necrosis, crown rot, diseased cuttings, flower infection, cultures, and pathogenicity-test symptoms (Gwinn et al. 2022, Figure 4).",
+        "creator": "Zamir Punja (photographs), published in Gwinn et al. 2022",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3389/fagro.2021.796062",
+        "mediaType": "image",
+        "requiredAttribution": "Gwinn KD, Hansen Z, Kelly H, Ownley BH. 2022. Diseases of Cannabis sativa Caused by Diverse Fusarium Species. Frontiers in Agronomy 3:796062. Figure photographs courtesy of Zamir Punja. CC BY 4.0.",
+        "diagnosticLabel": "fusarium-crown-root-rot — Fusarium-associated Cannabis crown/root/wilt disease composite",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Multi-panel and multi-species composite: reference-only as a whole figure.",
+          "Do not treat the full composite as one single-class training example.",
+          "Do not visually confirm a Fusarium species in an unknown plant from resemblance to this figure.",
+          "Use the source article and laboratory confirmation guidance for causal identification."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "a02abbebd496081013d34deb188640f3fc134a1ce3b0a77526ddd2babb576ebf",
+        "perceptualHash": "dhash64:a7cd13d159c9cfcd",
+        "width": 1417,
+        "height": 1748,
+        "view": "diagram",
+        "stage": "all",
+        "severity": "high",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "root-ph-extreme",
@@ -5549,7 +7560,9 @@
         ]
       }
     ],
-    "media": []
+    "media": [],
+    "canonicalId": "CAN-STRESS-006",
+    "responsePolicyId": "POL-PH-LOCKOUT"
   },
   {
     "id": "root-pythium",
@@ -5625,6 +7638,139 @@
         "accessedDate": "2026-08-13",
         "supportedClaims": [
           "Multiple Pythium species cause crown and root rot in greenhouse cannabis, and pathogen identity cannot be resolved reliably from above-ground symptoms alone."
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": "media-pythium-hemp-pathogenicity-figure-7",
+        "url": "https://www.frontiersin.org/files/Articles/706138/xml-images/fagro-03-706138-g0007.webp",
+        "alt": "Hemp plants from a controlled pathogenicity trial comparing Pythium, Globisporangium, Fusarium, and uninoculated treatments.",
+        "caption": "Hemp 'Wife' plants 14 days after inoculation with pathogenic Pythium myriotylum, Globisporangium irregulare, or Fusarium oxysporum isolates, plus the uninoculated control (McGehee and Raudales 2021, Figure 7).",
+        "creator": "Cora S. McGehee and Rosa E. Raudales",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3389/fagro.2021.706138",
+        "mediaType": "image",
+        "requiredAttribution": "McGehee CS, Raudales RE. 2021. First Report of Pathogens Associated With Root Rot and Wilt of Cannabis sativa in Connecticut. Frontiers in Agronomy 3:706138. CC BY 4.0.",
+        "diagnosticLabel": "pythium-root-rot — controlled hemp root-pathogen pathogenicity comparison including Pythium myriotylum",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Multi-pathogen treatment composite; reference-only as a whole figure.",
+          "Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific.",
+          "Do not use this figure to visually confirm Pythium in an unknown plant; root/crown evidence and laboratory identification remain required."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "54267dc0fe3eccabaa8f5bd87cae3394beece60a21134bac7d765c0d1817d47b",
+        "perceptualHash": "dhash64:e949555123865373",
+        "width": 2008,
+        "height": 1501,
+        "view": "whole-plant",
+        "stage": "vegetative",
+        "severity": "high",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ],
+    "canonicalId": "CAN-ROOT-002",
+    "responsePolicyId": "POL-PYTHIUM"
+  },
+  {
+    "id": "root-rhizoctonia",
+    "slug": "rhizoctonia-sore-shin-root-rot",
+    "name": "Rhizoctonia sore shin / root and crown rot",
+    "scientificName": "Rhizoctonia solani",
+    "category": "Root pathogen",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.45,
+    "summary": "A Cannabis root/crown disease documented as wilting with necrotic lesions at the plant base just above the soil line. Characteristic right-angle branching hyphae and laboratory identification are needed because the canopy response overlaps other root diseases.",
+    "affectedParts": [
+      "roots",
+      "crown",
+      "lower stem just above soil line",
+      "whole plant"
+    ],
+    "stages": [
+      "seedling",
+      "transplant",
+      "vegetative",
+      "reproductive"
+    ],
+    "indicators": [
+      "Plants wilt while necrotic lesions develop at the stem base near the soil line",
+      "Roots/crown show compatible necrotic disease",
+      "Pigmented septate hyphae from lesions branch at roughly 90 degrees with basal constriction",
+      "ITS/18S or other laboratory evidence supports Rhizoctonia solani"
+    ],
+    "exclusions": [
+      "White cottony basal mycelium with round brown sclerotia strongly supports southern blight",
+      "Soft/slimy roots and oomycete evidence support Pythium",
+      "Vascular discoloration and Fusarium evidence support Fusarium wilt/crown disease",
+      "No basal/root lesions exist and water-status measurements explain wilt"
+    ],
+    "progression": [
+      {
+        "stage": "Basal infection",
+        "description": "Necrotic lesions develop around crown/lower stem or roots."
+      },
+      {
+        "stage": "Root/crown impairment",
+        "description": "Root function declines and above-ground wilt becomes more evident."
+      }
+    ],
+    "lookAlikes": [
+      "Southern blight",
+      "Pythium root rot",
+      "Fusarium crown/root rot",
+      "Root binding",
+      "Drought / water-deficit stress"
+    ],
+    "confirmation": [
+      "Inspect and photograph roots/crown and lower-stem lesions; submit lesion tissue for fungal morphology and molecular identification.",
+      "Do not confirm Rhizoctonia from wilted foliage alone."
+    ],
+    "immediateActions": [
+      "Separate suspect root-zone material and preserve a fresh lesion sample.",
+      "Check irrigation/moisture and root binding concurrently."
+    ],
+    "correctivePlan": [
+      "Use confirmed root-disease sanitation and crop-appropriate management.",
+      "Correct measured root-zone stressors that may worsen disease."
+    ],
+    "prevention": [
+      "Use clean media/containers and avoid moving contaminated soil.",
+      "Inspect transplants for crown lesions and bound/diseased roots."
+    ],
+    "warnings": [
+      "Rhizoctonia can coexist with other root stresses/pathogens.",
+      "Canopy wilt is not organism-specific."
+    ],
+    "sources": [
+      {
+        "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+        "organization": "Plant Health Progress",
+        "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+        "authors": [
+          "Lindsey D. Thiessen",
+          "Tyler Schappe",
+          "Sarah Cochran",
+          "Kristin Hicks",
+          "Angela R. Post"
+        ],
+        "publisher": "American Phytopathological Society",
+        "year": 2020,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PHP-03-20-0017-RS",
+        "supportedClaims": [
+          "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+          "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+          "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+          "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+          "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+          "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
         ]
       }
     ],
@@ -5916,7 +8062,41 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-hlvd-cannabis-figure-1",
+        "url": "https://mdpi-res.com/d_attachment/plants/plants-14-00830/article_deploy/html/images/plants-14-00830-g001.png",
+        "alt": "Cannabis stock plants shown with molecular HLVd detection results from matched leaf and root samples.",
+        "caption": "Cannabis stock plants and HLVd detection results from leaf and root tissues, with HLVd bands confirmed by sequence analysis (Punja et al. 2025, Figure 1).",
+        "creator": "Zamir K. Punja, Cameron Scott, Heather H. Tso, Jack Munz, and Liam Buirs; figure photographer not separately stated",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3390/plants14050830",
+        "mediaType": "image",
+        "requiredAttribution": "Punja ZK, Scott C, Tso HH, Munz J, Buirs L. 2025. Hop Latent Viroid in Cannabis sativa: Root Distribution and Transmission in Production Systems. Plants 14(5):830. CC BY 4.0.",
+        "diagnosticLabel": "hop-latent-viroid — molecularly anchored Cannabis HLVd reference composite",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "HLVd is laboratory-bounded; the image is a molecularly anchored reference, not a visual confirmation tool.",
+          "Stunting, small leaves, weak roots, yellowing, and reduced flowering overlap many non-HLVd causes.",
+          "Keep the full composite training-ineligible because it mixes plant appearance and molecular-assay panels."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "843e7d7421152fb9cc8a0b35c62610a2a5933367dbe2105ea2edacb2119f90d8",
+        "perceptualHash": "dhash64:9e3ab2dad2b8ba9c",
+        "width": 2262,
+        "height": 2713,
+        "view": "diagram",
+        "stage": "all",
+        "severity": "moderate",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ],
+    "canonicalId": "CAN-DIS-011",
+    "responsePolicyId": "POL-HLVD"
   },
   {
     "id": "virus-bctv",
@@ -6122,6 +8302,37 @@
         "stage": "detached symptomatic leaves",
         "severity": "symptomatic",
         "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-bctv-cannabis-figure-19",
+        "url": "https://mdpi-res.com/d_attachment/ijms/ijms-25-00014/article_deploy/html/images/ijms-25-00014-g019.png",
+        "alt": "Indoor- and outdoor-grown Cannabis plants with genotype-dependent Beet curly top virus symptoms that were confirmed by molecular diagnostics.",
+        "caption": "Indoor- and outdoor-grown Cannabis plants with symptoms attributed to Beet curly top virus across multiple genotypes; BCTV presence was confirmed by RT-PCR (Punja et al. 2024, Figure 19).",
+        "creator": "Zamir K. Punja, Dieter Kahl, Ron Reade, Yu Xiang, Jack Munz, and Punya Nachappa; visualization credited to Zamir K. Punja",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3390/ijms25010014",
+        "mediaType": "image",
+        "requiredAttribution": "Punja ZK, Kahl D, Reade R, Xiang Y, Munz J, Nachappa P. 2024. Challenges to Cannabis sativa Production from Pathogens and Microbes—The Role of Molecular Diagnostics and Bioinformatics. International Journal of Molecular Sciences 25(1):14. CC BY 4.0.",
+        "diagnosticLabel": "beet-curly-top-virus — RT-PCR-confirmed Cannabis BCTV symptom composite",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "BCTV is laboratory-bounded and the visible syndrome varies among Cannabis genotypes.",
+          "Do not identify BCTV from leaf curl, stunting, mosaic/discoloration, or distorted growth alone.",
+          "Keep the full composite training-ineligible because it contains multiple genotypes and symptom presentations."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "25decd9424d09359794823ac2357bb6b13e99d9f34247f4f1acfca6016343e90",
+        "perceptualHash": "dhash64:1c9892b2985a7ab3",
+        "width": 2686,
+        "height": 1811,
+        "view": "diagram",
+        "stage": "all",
+        "severity": "high",
+        "confirmation": "lab-confirmed",
         "trainingEligible": false
       }
     ]

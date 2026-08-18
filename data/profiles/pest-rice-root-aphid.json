@@ -74,11 +74,11 @@
     {
       "title": "Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America",
       "organization": "Journal of Integrated Pest Management",
-      "url": "https://doi.org/10.1093/jipm/pmaa014",
-      "publicationDate": "2020-07-21",
+      "url": "https://doi.org/10.1093/jipm/pmaa008",
+      "publicationDate": "2020-07-20",
       "year": 2020,
       "accessedDate": "2026-08-16",
-      "doi": "10.1093/jipm/pmaa014",
+      "doi": "10.1093/jipm/pmaa008",
       "supportedClaims": [
         "Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.",
         "On Cannabis this aphid is found primarily in association with plant roots, and winged adults may emerge from soil in large numbers as plants approach maturity.",
@@ -86,5 +86,37 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-rice-root-aphid-cannabis-figure-2",
+      "url": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/jipm/11/1/10.1093_jipm_pmaa008/2/m_pmaa008f0002.jpeg?Expires=2147483647&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&Signature=EPhu~pO~64p7GWKwLaeesO7JYfmMa8VpG5vqYu3ZxcGNwF4RdNFDEDOKBStsTpzEbph7z24JZxLSMtGslR7jMlrIlILt1UcCGx-Fnyt19QbE7xHClKmKI~qCVKVkjbXTWnBnVEtu9oUVGZdiWWD4SAO9ncgBncMgG1~Qh3cKeT6LT65KkdLoqRRDtwc0UU6riQgTj77ZsnuPdaXALAY5kAPxOwv1fVEZjnWJEcrAw3qygYI3bvDiIg0vF1UfSWUkiufo5KMGNkW1chR9j4IMsHkkoB6tE9ypcaSyRmoYdX5sKbjjeJmarUMy5LQJZGUSSqEQeOD7781Q5oWjw8UsXA__",
+      "alt": "Rice root aphids visible at the base and roots of aeroponically grown Cannabis sativa.",
+      "caption": "Rice root aphids living on the roots of aeroponically grown Cannabis sativa (Cranshaw and Wainwright-Evans 2020, Figure 2).",
+      "creator": "Whitney Cranshaw and Suzanne Wainwright-Evans; figure photographer not separately stated in the caption",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.1093/jipm/pmaa008",
+      "mediaType": "image",
+      "requiredAttribution": "Cranshaw W, Wainwright-Evans S. 2020. Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America. Journal of Integrated Pest Management 11(1):15. CC BY 4.0.",
+      "diagnosticLabel": "rice-root-aphid — Rice root aphid (Rhopalosiphum rufiabdominale) on Cannabis roots",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-only until source-group and panel-level training review are complete.",
+        "The presence of rice root aphids is visible; generalized canopy decline is not uniquely diagnostic of this pest.",
+        "Do not use this asset to infer root disease, nutrient status, or above-ground symptom severity."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "3fb068bfe723ed06c654bfcc96f990bfabdfa2e976a7770242325c7ae311dea4",
+      "perceptualHash": "dhash64:19191b1a4e595b6b",
+      "width": 520,
+      "height": 403,
+      "view": "root-crown",
+      "stage": "all",
+      "severity": "moderate",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

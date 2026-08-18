@@ -1,36 +1,55 @@
-id,slug,name,category,recordType,sourceFile
-nut-def-n,nitrogen-deficiency,Nitrogen deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-p,phosphorus-deficiency,Phosphorus deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-ca,calcium-deficiency,Calcium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-fe,iron-deficiency,Iron deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-zn,zinc-deficiency,Zinc deficiency / low-zinc treatment response,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-s,sulfur-deficiency,Sulfur deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-mn,manganese-deficiency,Manganese deficiency / low-manganese treatment response,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-cu,copper-deficiency,Copper deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-mg,magnesium-deficiency,Magnesium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-def-k,potassium-deficiency,Potassium deficiency,Nutrient deficiency,diagnostic-profile,src/data/issues.ts
-nut-tox-n,nitrogen-toxicity,Nitrogen toxicity,Nutrient toxicity,diagnostic-profile,src/data/issues.ts
-nut-tox-b,boron-toxicity,Boron toxicity,Nutrient toxicity,diagnostic-profile,src/data/issues.ts
-mite-spider,two-spotted-spider-mites,Two-spotted spider mites,Mite,diagnostic-profile,src/data/issues.ts
-mite-hemp-russet,hemp-russet-mite,Hemp russet mite,Mite,diagnostic-profile,src/data/issues.ts
-mite-broad,broad-mite,Broad mite,Mite,diagnostic-profile,src/data/issues.ts
-insect-thrips,thrips,Thrips feeding injury,Insect,diagnostic-profile,src/data/issues.ts
-fungal-pm,powdery-mildew,Powdery mildew,Fungal pathogen,diagnostic-profile,src/data/issues.ts
-fungal-botrytis-bud-rot,botrytis-gray-mold-bud-rot,Botrytis gray mold and bud rot,Fungal pathogen,diagnostic-profile,src/data/issues.ts
-bacterial-xanthomonas-leaf-spot,xanthomonas-bacterial-leaf-spot,Xanthomonas bacterial leaf spot,Bacterial pathogen,diagnostic-profile,src/data/issues.ts
-root-pythium,pythium-root-rot,Pythium root rot,Root pathogen,diagnostic-profile,src/data/issues.ts
-virus-bctv,beet-curly-top-virus,Beet curly top virus disease,Virus,diagnostic-profile,src/data/issues.ts
-phytoplasma-hemp-witches-broom,hemp-witches-broom-phytoplasma,Hemp witches’ broom (phytoplasma-associated),Phytoplasma / Spiroplasma,diagnostic-profile,src/data/issues.ts
-viroid-hplvd,hop-latent-viroid,Hop latent viroid,Viroid,diagnostic-profile,src/data/issues.ts
-gen-variegation,genetic-variegation,Stable chlorotic sectoring / suspected genetic variegation,Genetic / developmental,diagnostic-profile,src/data/issues.ts
-env-heat,heat-light-stress,High-temperature or high-light exposure,Environmental stress,diagnostic-profile,src/data/issues.ts
-water-over,overwatering-root-hypoxia,Waterlogging or root-zone hypoxia,Water / root-zone,diagnostic-profile,src/data/issues.ts
-root-ph-extreme,acidic-extreme-substrate-ph-stress,Acidic or extreme substrate-pH root stress,Water / root-zone,diagnostic-profile,src/data/issues.ts
-normal-sex-expression,cannabis-reproductive-sex-expression,Cannabis reproductive sex expression,Normal development,diagnostic-profile,src/data/issues.ts
-normal-fade,normal-late-flower-fade,Late-cycle leaf aging / senescence context,Normal development,diagnostic-profile,src/data/issues.ts
-pest-cannabis-aphid,cannabis-aphid,Cannabis aphid,Insect,diagnostic-profile,src/data/supplemental-issues.ts
-pest-rice-root-aphid,rice-root-aphid,Rice root aphid on cannabis,Insect,diagnostic-profile,src/data/supplemental-issues.ts
-pest-fungus-gnats,fungus-gnats-root-feeding,Fungus gnats / root-feeding Bradysia larvae,Insect,diagnostic-profile,src/data/supplemental-issues.ts
-root-fusarium-crown-rot,fusarium-crown-root-rot,Fusarium crown and root rot / wilt complex,Root pathogen,diagnostic-profile,src/data/supplemental-issues.ts
-stress-salinity-high-ec,salinity-high-ec-stress,Salinity / elevated root-zone EC stress,Water / root-zone,diagnostic-profile,src/data/supplemental-issues.ts
-stress-drought-water-deficit,drought-water-deficit-stress,Drought / water-deficit stress,Water / root-zone,diagnostic-profile,src/data/supplemental-issues.ts
+"id","slug","name","category","severity","reviewStatus","sourceLayer","recordType","path"
+"bacterial-serratia-leaf-spot","serratia-marcescens-leaf-spot","Serratia bacterial leaf spot","Bacterial pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/bacterial-serratia-leaf-spot.json"
+"bacterial-xanthomonas-leaf-spot","xanthomonas-bacterial-leaf-spot","Xanthomonas bacterial leaf spot","Bacterial pathogen","moderate","reviewed","core","diagnostic-profile","data/profiles/bacterial-xanthomonas-leaf-spot.json"
+"env-heat","heat-light-stress","High-temperature or high-light exposure","Environmental stress","moderate","reviewed","core","diagnostic-profile","data/profiles/env-heat.json"
+"env-herbicide-clomazone","herbicide-clomazone-bleaching-injury","Herbicide injury — clomazone-type bleaching","Environmental stress","high","reviewed","supplemental","diagnostic-profile","data/profiles/env-herbicide-clomazone.json"
+"fungal-alternaria-leaf-spot","alternaria-leaf-spot","Alternaria leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-alternaria-leaf-spot.json"
+"fungal-anthracnose-leaf-spot","anthracnose-colletotrichum-leaf-spot","Anthracnose leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-anthracnose-leaf-spot.json"
+"fungal-bipolaris-leaf-spot","bipolaris-leaf-spot","Bipolaris leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-bipolaris-leaf-spot.json"
+"fungal-botrytis-bud-rot","botrytis-gray-mold-bud-rot","Botrytis gray mold and bud rot","Fungal pathogen","critical","reviewed","core","diagnostic-profile","data/profiles/fungal-botrytis-bud-rot.json"
+"fungal-cercospora-leaf-spot","cercospora-leaf-spot","Cercospora leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-cercospora-leaf-spot.json"
+"fungal-exserohilum-leaf-blight","exserohilum-helminthosporium-leaf-blight","Exserohilum / Helminthosporium leaf blight","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-exserohilum-leaf-blight.json"
+"fungal-fusarium-foliar-flower-blight","fusarium-foliar-flower-head-blight","Fusarium foliar, flower and head blight complex","Fungal pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-fusarium-foliar-flower-blight.json"
+"fungal-pm","powdery-mildew","Powdery mildew","Fungal pathogen","high","reviewed","core","diagnostic-profile","data/profiles/fungal-pm.json"
+"fungal-pseudocercospora-leaf-spot","pseudocercospora-olive-sooty-leaf-spot","Pseudocercospora olive / sooty leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-pseudocercospora-leaf-spot.json"
+"fungal-sclerotinia-white-mold","sclerotinia-white-mold","Sclerotinia white mold","Fungal pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-sclerotinia-white-mold.json"
+"fungal-septoria-leaf-spot","septoria-leaf-spot","Septoria leaf spot complex","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-septoria-leaf-spot.json"
+"fungal-southern-blight","southern-blight-athelia-rolfsii","Southern blight","Root pathogen","critical","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-southern-blight.json"
+"gen-variegation","genetic-variegation","Stable chlorotic sectoring / suspected genetic variegation","Genetic / developmental","low","reviewed","core","diagnostic-profile","data/profiles/gen-variegation.json"
+"insect-thrips","thrips","Thrips feeding injury","Insect","moderate","reviewed","core","diagnostic-profile","data/profiles/insect-thrips.json"
+"mite-broad","broad-mite","Broad mite","Mite","high","reviewed","core","diagnostic-profile","data/profiles/mite-broad.json"
+"mite-hemp-russet","hemp-russet-mite","Hemp russet mite","Mite","high","reviewed","core","diagnostic-profile","data/profiles/mite-hemp-russet.json"
+"mite-spider","two-spotted-spider-mites","Two-spotted spider mites","Mite","high","reviewed","core","diagnostic-profile","data/profiles/mite-spider.json"
+"nematode-root-knot","root-knot-nematodes","Root-knot nematodes","Nematode","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/nematode-root-knot.json"
+"normal-fade","normal-late-flower-fade","Late-cycle leaf aging / senescence context","Normal development","low","reviewed","core","diagnostic-profile","data/profiles/normal-fade.json"
+"normal-sex-expression","cannabis-reproductive-sex-expression","Cannabis reproductive sex expression","Normal development","low","reviewed","core","diagnostic-profile","data/profiles/normal-sex-expression.json"
+"nut-def-b","boron-deficiency","Boron deficiency","Nutrient deficiency","high","reviewed","supplemental","diagnostic-profile","data/profiles/nut-def-b.json"
+"nut-def-ca","calcium-deficiency","Calcium deficiency","Nutrient deficiency","high","reviewed","core","diagnostic-profile","data/profiles/nut-def-ca.json"
+"nut-def-cu","copper-deficiency","Copper deficiency","Nutrient deficiency","high","reviewed","core","diagnostic-profile","data/profiles/nut-def-cu.json"
+"nut-def-fe","iron-deficiency","Iron deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-fe.json"
+"nut-def-k","potassium-deficiency","Potassium deficiency","Nutrient deficiency","high","reviewed","core","diagnostic-profile","data/profiles/nut-def-k.json"
+"nut-def-mg","magnesium-deficiency","Magnesium deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-mg.json"
+"nut-def-mn","manganese-deficiency","Manganese deficiency / low-manganese treatment response","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-mn.json"
+"nut-def-mo-analytical","molybdenum-low-analytical-no-visual-phenotype","Low molybdenum analytical state — no validated visual phenotype","Nutrient deficiency","low","reviewed","supplemental","diagnostic-profile","data/profiles/nut-def-mo-analytical.json"
+"nut-def-n","nitrogen-deficiency","Nitrogen deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-n.json"
+"nut-def-p","phosphorus-deficiency","Phosphorus deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-p.json"
+"nut-def-s","sulfur-deficiency","Sulfur deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-s.json"
+"nut-def-zn","zinc-deficiency","Zinc deficiency / low-zinc treatment response","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-zn.json"
+"nut-tox-b","boron-toxicity","Boron toxicity","Nutrient toxicity","high","reviewed","core","diagnostic-profile","data/profiles/nut-tox-b.json"
+"nut-tox-mn","manganese-toxicity","Manganese toxicity / high-manganese response","Nutrient toxicity","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/nut-tox-mn.json"
+"nut-tox-n","nitrogen-toxicity","Nitrogen toxicity","Nutrient toxicity","high","reviewed","core","diagnostic-profile","data/profiles/nut-tox-n.json"
+"oomycete-downy-mildew","downy-mildew-pseudoperonospora","Downy mildew","Oomycete pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/oomycete-downy-mildew.json"
+"pest-cannabis-aphid","cannabis-aphid","Cannabis aphid","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/pest-cannabis-aphid.json"
+"pest-fungus-gnats","fungus-gnats-root-feeding","Fungus gnats / root-feeding Bradysia larvae","Insect","low","reviewed","supplemental","diagnostic-profile","data/profiles/pest-fungus-gnats.json"
+"pest-rice-root-aphid","rice-root-aphid","Rice root aphid on cannabis","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/pest-rice-root-aphid.json"
+"phytoplasma-hemp-witches-broom","hemp-witches-broom-phytoplasma","Hemp witches’ broom (phytoplasma-associated)","Phytoplasma / Spiroplasma","high","reviewed","core","diagnostic-profile","data/profiles/phytoplasma-hemp-witches-broom.json"
+"root-binding-container-stress","root-binding-container-stress","Root binding / container-restriction stress","Water / root-zone","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/root-binding-container-stress.json"
+"root-fusarium-crown-rot","fusarium-crown-root-rot","Fusarium crown and root rot / wilt complex","Root pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/root-fusarium-crown-rot.json"
+"root-ph-extreme","acidic-extreme-substrate-ph-stress","Acidic or extreme substrate-pH root stress","Water / root-zone","moderate","reviewed","core","diagnostic-profile","data/profiles/root-ph-extreme.json"
+"root-pythium","pythium-root-rot","Pythium root rot","Root pathogen","critical","reviewed","core","diagnostic-profile","data/profiles/root-pythium.json"
+"root-rhizoctonia","rhizoctonia-sore-shin-root-rot","Rhizoctonia sore shin / root and crown rot","Root pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/root-rhizoctonia.json"
+"stress-drought-water-deficit","drought-water-deficit-stress","Drought / water-deficit stress","Water / root-zone","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/stress-drought-water-deficit.json"
+"stress-salinity-high-ec","salinity-high-ec-stress","Salinity / elevated root-zone EC stress","Water / root-zone","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/stress-salinity-high-ec.json"
+"viroid-hplvd","hop-latent-viroid","Hop latent viroid","Viroid","critical","reviewed","core","diagnostic-profile","data/profiles/viroid-hplvd.json"
+"virus-bctv","beet-curly-top-virus","Beet curly top virus disease","Virus","high","reviewed","core","diagnostic-profile","data/profiles/virus-bctv.json"
+"water-over","overwatering-root-hypoxia","Waterlogging or root-zone hypoxia","Water / root-zone","high","reviewed","core","diagnostic-profile","data/profiles/water-over.json"

@@ -98,5 +98,37 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-cannabis-aphid-figure-2",
+      "url": "https://mdpi-res.com/d_attachment/plants/plants-14-00931/article_deploy/html/images/plants-14-00931-g002.png",
+      "alt": "Cannabis plants infested with cannabis aphids alongside magnified adult and winged Phorodon cannabis.",
+      "caption": "Cannabis plants of the Congo Durban variety infested with Phorodon cannabis, with adult and winged adult aphids shown under a stereo microscope at 20× magnification (Lopez Restrepo and Kovalchuk 2025, Figure 2).",
+      "creator": "Daniel Lopez Restrepo and Igor Kovalchuk",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3390/plants14060931",
+      "mediaType": "image",
+      "requiredAttribution": "Lopez Restrepo D, Kovalchuk I. 2025. Investigating the Effects of Entomopathogenic Fungi on Mortality of Phorodon cannabis Populations in Cannabis Plants. Plants 14(6):931. CC BY 4.0.",
+      "diagnosticLabel": "cannabis-aphid — Phorodon cannabis infestation and adult morphology on Cannabis sativa",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Multi-panel plant-and-organism figure; reference-only as a whole image.",
+        "Do not infer cannabis aphid from yellowing, wilting, or leaf distortion without directly observing aphids or other insect evidence.",
+        "Keep training-ineligible until panel-level source grouping and crop review are complete."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "8b207dc0bc39fbfb7efd8e0356f2a4edeccdcf4028980d1544fc71e753c529d9",
+      "perceptualHash": "dhash64:6444daa9ad9b989a",
+      "width": 1623,
+      "height": 1724,
+      "view": "diagram",
+      "stage": "all",
+      "severity": "moderate",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

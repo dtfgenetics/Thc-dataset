@@ -75,5 +75,39 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-powdery-mildew-cannabis-figure-2",
+      "url": "https://www.frontiersin.org/files/Articles/720215/xml-images/fagro-03-720215-g0002.webp",
+      "alt": "Cannabis powdery mildew experiment comparing a susceptible plant with dense powdery mycelial growth and a resistant phenotype without visible colonies.",
+      "caption": "Cannabis powdery mildew resistance experiment showing a susceptible phenotype with dense mycelial growth beside a resistant phenotype without visible powdery mildew colonies (Mihalyov and Garfinkel 2021, Figure 2).",
+      "creator": "Paul D. Mihalyov and Andrea R. Garfinkel",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fagro.2021.720215",
+      "mediaType": "image",
+      "requiredAttribution": "Mihalyov PD, Garfinkel AR. 2021. Discovery and Genetic Mapping of PM1, a Powdery Mildew Resistance Gene in Cannabis sativa L. Frontiers in Agronomy 3:720215. CC BY 4.0.",
+      "diagnosticLabel": "powdery-mildew — Cannabis powdery mildew susceptible/resistant phenotype comparison",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-only phenotype comparison from a controlled disease-resistance experiment.",
+        "Dense white mycelial growth can strongly support powdery mildew, but organism identification remains separate when the causal species matters.",
+        "Do not use the resistant panel as a negative training control without source-group and experimental-context review."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "7690fd41440735591b9e4562b00fdc58274577cbb3ea38f305f98c27474e6046",
+      "perceptualHash": "dhash64:69accecc8edb638e",
+      "width": 1535,
+      "height": 1027,
+      "view": "whole-plant",
+      "stage": "vegetative",
+      "severity": "moderate",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ],
+  "canonicalId": "CAN-DIS-001",
+  "responsePolicyId": "POL-PM"
 }

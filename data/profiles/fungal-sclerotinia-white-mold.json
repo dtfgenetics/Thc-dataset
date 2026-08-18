@@ -1,0 +1,90 @@
+{
+  "id": "fungal-sclerotinia-white-mold",
+  "slug": "sclerotinia-white-mold",
+  "name": "Sclerotinia white mold",
+  "scientificName": "Sclerotinia sclerotiorum",
+  "category": "Fungal pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.4,
+  "summary": "A confirmed Cannabis fungal disease that can contribute to white-mold, wilt, and yellowing syndromes. Because Botrytis, Fusarium, Pythium, and other molds can overlap visually, white growth alone is not species-level evidence.",
+  "affectedParts": [
+    "stems",
+    "crown",
+    "leaves",
+    "whole plant",
+    "flowering tissue depending on infection site"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "all"
+  ],
+  "indicators": [
+    "White fungal growth occurs on symptomatic Cannabis tissue with associated wilt or yellowing",
+    "Affected tissue declines in a pattern consistent with an active stem/crown or aerial infection",
+    "Laboratory isolation or DNA evidence identifies Sclerotinia sclerotiorum"
+  ],
+  "exclusions": [
+    "Gray mold and laboratory evidence identify Botrytis",
+    "Root/crown testing identifies Fusarium or Pythium instead",
+    "White residue is nonliving spray/mineral material",
+    "No organism evidence accompanies nonspecific wilt"
+  ],
+  "progression": [
+    {
+      "stage": "Local infection",
+      "description": "Affected tissue develops mold and localized decline."
+    },
+    {
+      "stage": "Systemic impact",
+      "description": "Stem or crown involvement can contribute to yellowing and wilt."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Tissue collapse can become extensive; appearance overlaps other mold diseases."
+    }
+  ],
+  "lookAlikes": [
+    "Botrytis gray mold",
+    "Fusarium wilt / crown rot",
+    "Pythium root rot",
+    "Powdery mildew",
+    "Nonliving spray residue"
+  ],
+  "confirmation": [
+    "Use culture and molecular identification for Sclerotinia confirmation.",
+    "Photograph infection site, internal stem/crown condition when available, and whole-plant distribution."
+  ],
+  "immediateActions": [
+    "Isolate strongly affected plants and preserve diagnostic tissue before disposal."
+  ],
+  "correctivePlan": [
+    "Use laboratory-confirmed disease management and sanitation appropriate to the setting."
+  ],
+  "prevention": [
+    "Limit carryover of infected plant debris and conditions that keep susceptible tissue wet for extended periods."
+  ],
+  "warnings": [
+    "White mold appearance is not specific to Sclerotinia.",
+    "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification."
+  ],
+  "sources": [
+    {
+      "title": "Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation",
+      "organization": "Journal of Phytopathology",
+      "url": "https://doi.org/10.1111/jph.70196",
+      "publisher": "Wiley",
+      "publicationDate": "2025-11-16",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1111/jph.70196",
+      "supportedClaims": [
+        "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
+        "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
+        "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+      ]
+    }
+  ],
+  "media": []
+}

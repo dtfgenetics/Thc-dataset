@@ -135,5 +135,7 @@
       ]
     }
   ],
-  "media": []
+  "media": [],
+  "canonicalId": "CAN-STRESS-006",
+  "responsePolicyId": "POL-PH-LOCKOUT"
 }

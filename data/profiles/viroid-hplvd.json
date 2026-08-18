@@ -76,5 +76,39 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-hlvd-cannabis-figure-1",
+      "url": "https://mdpi-res.com/d_attachment/plants/plants-14-00830/article_deploy/html/images/plants-14-00830-g001.png",
+      "alt": "Cannabis stock plants shown with molecular HLVd detection results from matched leaf and root samples.",
+      "caption": "Cannabis stock plants and HLVd detection results from leaf and root tissues, with HLVd bands confirmed by sequence analysis (Punja et al. 2025, Figure 1).",
+      "creator": "Zamir K. Punja, Cameron Scott, Heather H. Tso, Jack Munz, and Liam Buirs; figure photographer not separately stated",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3390/plants14050830",
+      "mediaType": "image",
+      "requiredAttribution": "Punja ZK, Scott C, Tso HH, Munz J, Buirs L. 2025. Hop Latent Viroid in Cannabis sativa: Root Distribution and Transmission in Production Systems. Plants 14(5):830. CC BY 4.0.",
+      "diagnosticLabel": "hop-latent-viroid — molecularly anchored Cannabis HLVd reference composite",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "HLVd is laboratory-bounded; the image is a molecularly anchored reference, not a visual confirmation tool.",
+        "Stunting, small leaves, weak roots, yellowing, and reduced flowering overlap many non-HLVd causes.",
+        "Keep the full composite training-ineligible because it mixes plant appearance and molecular-assay panels."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "843e7d7421152fb9cc8a0b35c62610a2a5933367dbe2105ea2edacb2119f90d8",
+      "perceptualHash": "dhash64:9e3ab2dad2b8ba9c",
+      "width": 2262,
+      "height": 2713,
+      "view": "diagram",
+      "stage": "all",
+      "severity": "moderate",
+      "confirmation": "lab-confirmed",
+      "trainingEligible": false
+    }
+  ],
+  "canonicalId": "CAN-DIS-011",
+  "responsePolicyId": "POL-HLVD"
 }

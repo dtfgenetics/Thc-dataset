@@ -1,0 +1,105 @@
+{
+  "id": "fungal-bipolaris-leaf-spot",
+  "slug": "bipolaris-leaf-spot",
+  "name": "Bipolaris leaf spot",
+  "scientificName": "Bipolaris gigantea",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.45,
+  "summary": "A confirmed hemp leaf-spot and blight disease caused by Bipolaris gigantea. Necrosis can become severe, but lesion appearance overlaps Septoria, Cercospora, Alternaria, anthracnose, and abiotic damage.",
+  "affectedParts": [
+    "leaves",
+    "canopy",
+    "buds secondarily when blight is severe"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Necrotic leaf spots expand and can contribute to broader leaf blight",
+    "Disease can become widespread in outdoor hemp",
+    "Compatible lesions occur with Bipolaris conidia or molecular evidence from affected tissue"
+  ],
+  "exclusions": [
+    "Pycnidia dominate lesions",
+    "Cercospora-type conidiophores and white-centered round spots dominate",
+    "A chemical or physical injury pattern follows an exposure boundary",
+    "Laboratory testing identifies a different leaf-spot pathogen"
+  ],
+  "progression": [
+    {
+      "stage": "Leaf spot",
+      "description": "Localized necrotic lesions develop."
+    },
+    {
+      "stage": "Increasing disease",
+      "description": "Lesion number and necrotic area increase across foliage."
+    },
+    {
+      "stage": "Blight",
+      "description": "Severe cases can involve broad tissue necrosis and canopy loss."
+    }
+  ],
+  "lookAlikes": [
+    "Septoria leaf spot",
+    "Cercospora leaf spot",
+    "Alternaria leaf spot",
+    "Anthracnose",
+    "Herbicide or contact injury"
+  ],
+  "confirmation": [
+    "Use fungal morphology and molecular identification from representative lesions for organism-level confirmation.",
+    "Record field distribution and lesion progression; one photograph is insufficient for B. gigantea."
+  ],
+  "immediateActions": [
+    "Preserve symptomatic tissue for diagnosis before discarding representative samples.",
+    "Separate diseased material from clean propagation stock."
+  ],
+  "correctivePlan": [
+    "Apply confirmed leaf-spot disease management appropriate to local rules and production conditions."
+  ],
+  "prevention": [
+    "Reduce infected crop residue and prolonged leaf wetness where feasible.",
+    "Scout field plantings for early leaf spots."
+  ],
+  "warnings": [
+    "Bipolaris leaf spot can look like several other Cannabis leaf-spot diseases.",
+    "Yield impact varies by cultivar, season, and disease complex."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Hemp Leaf Spot Caused by a Bipolaris Species on Hemp (Cannabis sativa) in Kentucky",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-01-20-0004-BR",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2020-03-20",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-01-20-0004-BR",
+      "supportedClaims": [
+        "Outdoor hemp in Kentucky developed severe necrotic leaf spot and blight associated with a Bipolaris lineage corresponding to Drechslera gigantea/Bipolaris gigantea.",
+        "Inoculated hemp leaves developed symptoms while noninoculated controls remained symptomless, and molecular loci supported placement in Bipolaris.",
+        "The report supports Bipolaris leaf spot as a Cannabis-specific disease but requires pathogen evidence for species-level confirmation."
+      ]
+    },
+    {
+      "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2024-05-18",
+      "year": 2024,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-11-23-2483-RE",
+      "supportedClaims": [
+        "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+        "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+        "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+      ]
+    }
+  ],
+  "media": []
+}

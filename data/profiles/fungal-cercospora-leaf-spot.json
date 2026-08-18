@@ -1,0 +1,104 @@
+{
+  "id": "fungal-cercospora-leaf-spot",
+  "slug": "cercospora-leaf-spot",
+  "name": "Cercospora leaf spot",
+  "scientificName": "Cercospora cf. flagellaris",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A Cannabis leaf-spot disease that often begins on older lower leaves as yellow flecks and develops into round lesions with pale centers, dark borders, and yellow halos. Conidiophore and laboratory evidence are needed because several pathogens make similar spots.",
+  "affectedParts": [
+    "older lower-canopy leaves",
+    "leaf lesions",
+    "whole canopy as disease spreads"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "late reproductive"
+  ],
+  "indicators": [
+    "Small yellow flecks appear first on older lower foliage",
+    "Lesions become round, approximately 2 to 6 mm, with tan-to-white centers",
+    "Dark brown to purplish raised borders and yellow halos may develop",
+    "Melanized conidiophores can become visible in lesion centers"
+  ],
+  "exclusions": [
+    "Dark pycnidia support Septoria",
+    "Sooty underside masses support Pseudocercospora",
+    "Shot-hole lesions with Colletotrichum evidence support anthracnose",
+    "Laboratory testing identifies another pathogen"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Small yellow flecks appear on older lower leaves."
+    },
+    {
+      "stage": "Developing",
+      "description": "Round lesions enlarge and centers pale while dark borders and halos become clearer."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Spots can coalesce and lesion centers may break down."
+    }
+  ],
+  "lookAlikes": [
+    "Septoria leaf spot",
+    "Anthracnose",
+    "Alternaria leaf spot",
+    "Bipolaris leaf spot",
+    "Pseudocercospora olive leaf spot"
+  ],
+  "confirmation": [
+    "Inspect lesion centers with magnification and submit tissue for fungal identification.",
+    "Use morphology and/or molecular testing before assigning Cercospora cf. flagellaris at species level."
+  ],
+  "immediateActions": [
+    "Document early lower-canopy distribution and preserve representative lesions."
+  ],
+  "correctivePlan": [
+    "Use confirmed leaf-spot disease management and sanitation appropriate to the setting."
+  ],
+  "prevention": [
+    "Scout older foliage and reduce avoidable leaf wetness.",
+    "Avoid moving symptomatic material into clean areas."
+  ],
+  "warnings": [
+    "Round pale-centered lesions are not unique to Cercospora.",
+    "Cercospora often appears as part of a multi-pathogen field leaf-spot complex."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Cercospora cf. flagellaris on Industrial Hemp (Cannabis sativa) in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-01-19-0135-PDN",
+      "publisher": "American Phytopathological Society",
+      "year": 2019,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-01-19-0135-PDN",
+      "supportedClaims": [
+        "Cercospora leaf spot began on older lower-canopy hemp leaves as small yellow flecks and progressed to round 2 to 6 mm lesions with tan-to-white centers, dark brown-to-purplish borders, and yellow halos.",
+        "Melanized conidiophores could become visible in lesion centers before centers disintegrated.",
+        "Whole-plant inoculation reproduced similar symptoms and the fungus was recovered again, supporting pathogenicity rather than visual association alone."
+      ]
+    },
+    {
+      "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2024-05-18",
+      "year": 2024,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-11-23-2483-RE",
+      "supportedClaims": [
+        "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+        "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+        "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+      ]
+    }
+  ],
+  "media": []
+}

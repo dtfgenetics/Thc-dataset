@@ -1,0 +1,91 @@
+{
+  "id": "root-binding-container-stress",
+  "slug": "root-binding-container-stress",
+  "name": "Root binding / container-restriction stress",
+  "category": "Water / root-zone",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.35,
+  "summary": "A physical root-zone restriction documented in hemp transplants. Canopy stunting or stress is nonspecific; confirmation requires seeing the root system and separating mechanical restriction from drought, salinity, hypoxia, and root pathogens.",
+  "affectedParts": [
+    "root ball",
+    "container edge",
+    "root tips",
+    "whole plant secondarily"
+  ],
+  "stages": [
+    "seedling",
+    "transplant",
+    "vegetative"
+  ],
+  "indicators": [
+    "Roots densely circle or mat along the container boundary with limited free substrate volume",
+    "Plant growth is restricted relative to matched plants despite otherwise reasonable nutrition and irrigation",
+    "Stress persists around transplant establishment and root architecture remains constrained"
+  ],
+  "exclusions": [
+    "Root system is not physically congested",
+    "Roots are brown, slimy, necrotic, or lesioned enough to support disease",
+    "Measured drought, salinity, or hypoxia explains the response",
+    "Stem girdling or transplant damage is the dominant mechanical problem"
+  ],
+  "progression": [
+    {
+      "stage": "Container filling",
+      "description": "Roots occupy most available container volume."
+    },
+    {
+      "stage": "Restriction",
+      "description": "Circling and dense matting increase while water and nutrient buffering become less stable."
+    },
+    {
+      "stage": "Post-transplant risk",
+      "description": "A severely bound root system may establish poorly and can coexist with secondary root pathogens."
+    }
+  ],
+  "lookAlikes": [
+    "Drought / water-deficit stress",
+    "Salinity / high EC",
+    "Pythium root rot",
+    "Fusarium crown/root rot",
+    "Overwatering / hypoxia"
+  ],
+  "confirmation": [
+    "Remove or expose the root ball and document root density, circling, root color, odor, and substrate condition.",
+    "Measure moisture and EC and inspect for disease because root binding can coexist with pathogens."
+  ],
+  "immediateActions": [
+    "Document the intact root ball before disturbing it when diagnosis matters.",
+    "Check irrigation uniformity and root health rather than assuming every small container is root-bound."
+  ],
+  "correctivePlan": [
+    "Relieve confirmed physical restriction using transplant/root-management practices appropriate to crop stage and system.",
+    "Monitor new root expansion and canopy recovery while screening for secondary disease."
+  ],
+  "prevention": [
+    "Match container volume and transplant timing to growth rate.",
+    "Inspect purchased transplants before integration."
+  ],
+  "warnings": [
+    "Small container size alone does not prove pathological root binding.",
+    "Root binding and Fusarium/Pythium can coexist, so finding circling roots does not exclude disease."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+        "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+        "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+        "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+      ]
+    }
+  ],
+  "media": []
+}

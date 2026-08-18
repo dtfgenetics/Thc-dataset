@@ -105,5 +105,38 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-fusarium-cannabis-figure-4",
+      "url": "https://www.frontiersin.org/files/Articles/796062/xml-images/fagro-03-796062-g0004.webp",
+      "alt": "Multi-panel reference figure showing Fusarium-associated disease signs and pathogen evidence on greenhouse-grown Cannabis plants.",
+      "caption": "Infection of greenhouse-grown Cannabis plants by Fusarium species, including yellowing, crown infection and decay, pith necrosis, crown rot, diseased cuttings, flower infection, cultures, and pathogenicity-test symptoms (Gwinn et al. 2022, Figure 4).",
+      "creator": "Zamir Punja (photographs), published in Gwinn et al. 2022",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fagro.2021.796062",
+      "mediaType": "image",
+      "requiredAttribution": "Gwinn KD, Hansen Z, Kelly H, Ownley BH. 2022. Diseases of Cannabis sativa Caused by Diverse Fusarium Species. Frontiers in Agronomy 3:796062. Figure photographs courtesy of Zamir Punja. CC BY 4.0.",
+      "diagnosticLabel": "fusarium-crown-root-rot — Fusarium-associated Cannabis crown/root/wilt disease composite",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Multi-panel and multi-species composite: reference-only as a whole figure.",
+        "Do not treat the full composite as one single-class training example.",
+        "Do not visually confirm a Fusarium species in an unknown plant from resemblance to this figure.",
+        "Use the source article and laboratory confirmation guidance for causal identification."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "a02abbebd496081013d34deb188640f3fc134a1ce3b0a77526ddd2babb576ebf",
+      "perceptualHash": "dhash64:a7cd13d159c9cfcd",
+      "width": 1417,
+      "height": 1748,
+      "view": "diagram",
+      "stage": "all",
+      "severity": "high",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

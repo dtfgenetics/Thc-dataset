@@ -1,0 +1,99 @@
+{
+  "id": "root-rhizoctonia",
+  "slug": "rhizoctonia-sore-shin-root-rot",
+  "name": "Rhizoctonia sore shin / root and crown rot",
+  "scientificName": "Rhizoctonia solani",
+  "category": "Root pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.45,
+  "summary": "A Cannabis root/crown disease documented as wilting with necrotic lesions at the plant base just above the soil line. Characteristic right-angle branching hyphae and laboratory identification are needed because the canopy response overlaps other root diseases.",
+  "affectedParts": [
+    "roots",
+    "crown",
+    "lower stem just above soil line",
+    "whole plant"
+  ],
+  "stages": [
+    "seedling",
+    "transplant",
+    "vegetative",
+    "reproductive"
+  ],
+  "indicators": [
+    "Plants wilt while necrotic lesions develop at the stem base near the soil line",
+    "Roots/crown show compatible necrotic disease",
+    "Pigmented septate hyphae from lesions branch at roughly 90 degrees with basal constriction",
+    "ITS/18S or other laboratory evidence supports Rhizoctonia solani"
+  ],
+  "exclusions": [
+    "White cottony basal mycelium with round brown sclerotia strongly supports southern blight",
+    "Soft/slimy roots and oomycete evidence support Pythium",
+    "Vascular discoloration and Fusarium evidence support Fusarium wilt/crown disease",
+    "No basal/root lesions exist and water-status measurements explain wilt"
+  ],
+  "progression": [
+    {
+      "stage": "Basal infection",
+      "description": "Necrotic lesions develop around crown/lower stem or roots."
+    },
+    {
+      "stage": "Root/crown impairment",
+      "description": "Root function declines and above-ground wilt becomes more evident."
+    }
+  ],
+  "lookAlikes": [
+    "Southern blight",
+    "Pythium root rot",
+    "Fusarium crown/root rot",
+    "Root binding",
+    "Drought / water-deficit stress"
+  ],
+  "confirmation": [
+    "Inspect and photograph roots/crown and lower-stem lesions; submit lesion tissue for fungal morphology and molecular identification.",
+    "Do not confirm Rhizoctonia from wilted foliage alone."
+  ],
+  "immediateActions": [
+    "Separate suspect root-zone material and preserve a fresh lesion sample.",
+    "Check irrigation/moisture and root binding concurrently."
+  ],
+  "correctivePlan": [
+    "Use confirmed root-disease sanitation and crop-appropriate management.",
+    "Correct measured root-zone stressors that may worsen disease."
+  ],
+  "prevention": [
+    "Use clean media/containers and avoid moving contaminated soil.",
+    "Inspect transplants for crown lesions and bound/diseased roots."
+  ],
+  "warnings": [
+    "Rhizoctonia can coexist with other root stresses/pathogens.",
+    "Canopy wilt is not organism-specific."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+      ]
+    }
+  ],
+  "media": []
+}

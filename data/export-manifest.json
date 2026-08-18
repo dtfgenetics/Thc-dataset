@@ -1,20 +1,25 @@
 {
   "schemaVersion": "2.0.0",
   "deterministic": true,
-  "compiler": "project tsc CLI",
+  "compiler": "TypeScript 7-compatible tsc CommonJS emit; repository TypeScript validation runs independently",
   "sourceFiles": [
+    "src/data/catalog.ts",
     "src/data/issues.ts",
-    "src/data/supplemental-issues.ts"
+    "src/data/supplemental-issues.ts",
+    "src/data/expanded-issues.ts",
+    "src/data/expanded-issues-batch2.ts"
   ],
   "counts": {
     "primaryDiagnosticProfiles": 29,
-    "supplementalDiagnosticProfiles": 6,
-    "diagnosticProfiles": 35,
-    "sources": 58,
-    "profileReferenceMedia": 31,
+    "supplementalDiagnosticProfiles": 25,
+    "diagnosticProfiles": 54,
+    "sources": 74,
+    "profileReferenceMedia": 40,
     "trainingEligibleMedia": 0
   },
   "files": {
+    "diagnosticIndex": "data/diagnostic-index.json",
+    "diagnosticIndexCsv": "data/diagnostic-index.csv",
     "diagnosticProfiles": "data/diagnostic-profiles.json",
     "diagnosticProfilesJsonl": "data/diagnostic-profiles.jsonl",
     "diagnosticProfilesCsv": "data/diagnostic-profiles.csv",
@@ -25,10 +30,14 @@
     "trainingEligibleMedia": "data/training-eligible-media.json"
   },
   "safeguards": [
+    "The application catalog is the only export boundary; raw source modules cannot bypass catalog-level errata normalization.",
     "Generated output does not overwrite curated data/reference-media.json.",
     "Generated output does not overwrite curated data/manifest.json.",
+    "Diagnostic index JSON and CSV are generated from the same profile set rather than maintained manually.",
     "Duplicate profile ids and slugs fail closed.",
-    "Conflicting duplicate source or media metadata fails closed.",
-    "A partial export below the established 35-profile baseline fails closed."
+    "Duplicate evidence sources are merged only when identity metadata agrees; claim and author lists are unioned deterministically.",
+    "Conflicting duplicate media metadata fails closed.",
+    "A partial export below the established 54-profile baseline fails closed.",
+    "The full repository TypeScript check remains a separate required CI gate from dataset materialization."
   ]
 }

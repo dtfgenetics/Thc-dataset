@@ -1,0 +1,95 @@
+{
+  "id": "fungal-exserohilum-leaf-blight",
+  "slug": "exserohilum-helminthosporium-leaf-blight",
+  "name": "Exserohilum / Helminthosporium leaf blight",
+  "scientificName": "Exserohilum rostratum (syn. Setosphaeria rostrata)",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.45,
+  "summary": "A confirmed outdoor hemp leaf and stem spot disease. Round brown-to-black lesions with dark margins are compatible, but abundant conidia and laboratory identification are needed because the lesion appearance overlaps other leaf spots.",
+  "affectedParts": [
+    "leaves",
+    "stems",
+    "canopy"
+  ],
+  "stages": [
+    "post-transplant",
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Round brown-to-black lesions develop on leaves or stems",
+    "Lesions have distinctly darkened margins",
+    "Abundant large conidia can be observed within compatible lesions",
+    "ITS/RPB2 or equivalent fungal identification supports Exserohilum/Setosphaeria"
+  ],
+  "exclusions": [
+    "Pycnidia strongly support Septoria",
+    "Pale-centered lesions with Cercospora structures support Cercospora",
+    "Sooty underside masses support Pseudocercospora",
+    "No fungal evidence exists and chemical or mechanical injury follows an exposure pattern"
+  ],
+  "progression": [
+    {
+      "stage": "Spot",
+      "description": "Round dark lesions appear on foliage or stems."
+    },
+    {
+      "stage": "Blight",
+      "description": "Lesion burden and necrotic tissue increase and can contribute to leaf distortion or blight."
+    }
+  ],
+  "lookAlikes": [
+    "Bipolaris leaf spot",
+    "Septoria leaf spot",
+    "Cercospora leaf spot",
+    "Alternaria leaf spot",
+    "Bacterial leaf spot"
+  ],
+  "confirmation": [
+    "Examine lesion structures microscopically and use culture plus molecular identification for organism-level confirmation.",
+    "Photograph both surfaces and stem lesions before sampling."
+  ],
+  "immediateActions": [
+    "Preserve representative lesions and reduce transfer of symptomatic debris into clean areas."
+  ],
+  "correctivePlan": [
+    "Use confirmed leaf-blight management and sanitation appropriate to the production system."
+  ],
+  "prevention": [
+    "Scout field foliage and stems and reduce prolonged leaf wetness where practical."
+  ],
+  "warnings": [
+    "“Helminthosporium” is a historical/common disease name and does not by itself identify the modern fungal taxon.",
+    "Dark round spots are not Exserohilum-specific."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+      ]
+    }
+  ],
+  "media": []
+}

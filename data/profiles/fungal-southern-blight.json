@@ -1,0 +1,117 @@
+{
+  "id": "fungal-southern-blight",
+  "slug": "southern-blight-athelia-rolfsii",
+  "name": "Southern blight",
+  "scientificName": "Athelia rolfsii (Sclerotium rolfsii)",
+  "category": "Root pathogen",
+  "severity": "critical",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A warm-condition soilborne Cannabis disease centered at the soil line, crown and taproot. White cottony mycelium plus tan-to-brown spherical sclerotia at the plant base are strong signs, but wilt alone is nonspecific.",
+  "affectedParts": [
+    "lower stem at soil line",
+    "crown",
+    "taproot",
+    "root surface",
+    "whole plant"
+  ],
+  "stages": [
+    "vegetative",
+    "reproductive",
+    "warm field conditions"
+  ],
+  "indicators": [
+    "Dark brown-to-tan discoloration develops near the soil line",
+    "Rot extends into crown or taproot while foliage yellows and the plant wilts/collapses",
+    "White cottony mycelium develops on basal tissue or adjacent soil",
+    "Numerous spherical tan-to-dark-brown sclerotia occur with compatible basal rot"
+  ],
+  "exclusions": [
+    "No basal rot, mycelium or sclerotia are present and measured drought explains wilt",
+    "Laboratory evidence identifies Rhizoctonia, Fusarium, Pythium or another root/crown pathogen",
+    "White growth is confined to leaves/flowers without basal disease"
+  ],
+  "progression": [
+    {
+      "stage": "Basal lesion",
+      "description": "Dark tan-brown discoloration appears at the soil line."
+    },
+    {
+      "stage": "Crown/root rot",
+      "description": "Rot moves into crown and taproot as foliage yellows."
+    },
+    {
+      "stage": "Collapse",
+      "description": "Whole plants can wilt and collapse while white mycelium and brown sclerotia accumulate at the base."
+    }
+  ],
+  "lookAlikes": [
+    "Rhizoctonia root rot / sore shin",
+    "Fusarium crown/root rot",
+    "Pythium root rot",
+    "Sclerotinia white mold",
+    "Severe root-zone hypoxia"
+  ],
+  "confirmation": [
+    "Inspect the soil line/crown/root surface for characteristic mycelium and sclerotia and submit tissue/culture for organism confirmation.",
+    "Record temperature/moisture context, but do not use hot wet conditions as diagnostic proof."
+  ],
+  "immediateActions": [
+    "Isolate affected root-zone material and prevent movement of contaminated soil or debris to clean areas.",
+    "Preserve basal tissue and sclerotia for diagnostic testing."
+  ],
+  "correctivePlan": [
+    "Use confirmed soilborne-disease sanitation and crop-legal management appropriate to the setting.",
+    "Address excess moisture where measured without assuming moisture correction eliminates established pathogen inoculum."
+  ],
+  "prevention": [
+    "Avoid moving contaminated soil or plant debris between production areas.",
+    "Monitor crown/root health during warm wet periods."
+  ],
+  "warnings": [
+    "Whole-plant wilt alone cannot identify southern blight.",
+    "Sclerotia and laboratory evidence are substantially stronger than canopy appearance."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+      ]
+    },
+    {
+      "title": "First Report of Southern Blight Caused by Sclerotium rolfsii on Hemp (Cannabis sativa) in Sicily and Southern Italy",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-91-5-0636A",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2007-04-20",
+      "year": 2007,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-91-5-0636A",
+      "supportedClaims": [
+        "Infected hemp developed dark brown-to-tan discoloration at the soil line, crown and taproot rot, foliar yellowing, whole-plant collapse, white cottony mycelium, and tan-to-dark-brown spherical sclerotia.",
+        "Pathogenicity was reproduced on hemp and Sclerotium rolfsii was reisolated while noninoculated controls remained symptomless.",
+        "High summer temperatures and high soil moisture were associated with the reported outbreak but are risk context, not diagnostic proof."
+      ]
+    }
+  ],
+  "media": []
+}

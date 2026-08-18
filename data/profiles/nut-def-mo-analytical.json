@@ -1,0 +1,84 @@
+{
+  "id": "nut-def-mo-analytical",
+  "slug": "molybdenum-low-analytical-no-visual-phenotype",
+  "name": "Low molybdenum analytical state — no validated visual phenotype",
+  "category": "Nutrient deficiency",
+  "severity": "low",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.05,
+  "summary": "A deliberate abstention class: Cannabis grown without molybdenum for nine weeks had a 96% lower foliar Mo concentration but no visual symptoms and no significant dry-weight reduction. Image-only “molybdenum deficiency” should therefore be rejected by the diagnostic engine.",
+  "affectedParts": [
+    "most-recent mature leaf for tissue testing",
+    "whole plant for comparison"
+  ],
+  "stages": [
+    "vegetative",
+    "nine-week controlled withholding context"
+  ],
+  "indicators": [
+    "Laboratory tissue analysis documents very low molybdenum relative to an appropriate healthy comparison",
+    "No stable Cannabis-specific visual symptom pattern is required or validated"
+  ],
+  "exclusions": [
+    "A diagnosis is based only on yellow, orange, pink, curled, or narrow leaves from a generic internet chart",
+    "Another measured nutrient, pH, EC, root, pest, or pathogen condition explains visible symptoms"
+  ],
+  "progression": [
+    {
+      "stage": "Controlled observation",
+      "description": "No visible symptom progression developed during nine weeks of complete Mo withholding in Cannabis sativa T1 despite strongly reduced tissue Mo."
+    }
+  ],
+  "lookAlikes": [
+    "Nitrogen deficiency",
+    "Sulfur deficiency",
+    "Magnesium deficiency",
+    "Root-zone pH stress",
+    "Any generic chlorosis syndrome"
+  ],
+  "confirmation": [
+    "Use calibrated tissue analysis and nutrition history; a photograph cannot confirm low molybdenum in Cannabis.",
+    "Keep photo-only confidence near zero unless future Cannabis-specific controlled evidence establishes a reproducible phenotype."
+  ],
+  "immediateActions": [
+    "Do not apply molybdenum based on image color alone.",
+    "Review complete fertilizer composition and laboratory results."
+  ],
+  "correctivePlan": [
+    "Correct only a laboratory-supported under-supply using a measured nutrition plan."
+  ],
+  "prevention": [
+    "Use complete micronutrient formulations and periodic analytical monitoring when warranted."
+  ],
+  "warnings": [
+    "The best controlled Cannabis evidence currently contradicts popular image charts that assign a distinctive Mo-deficiency leaf appearance.",
+    "This record exists partly to prevent false-positive model predictions."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-17",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+        "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+        "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+        "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+        "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+      ]
+    }
+  ],
+  "media": []
+}

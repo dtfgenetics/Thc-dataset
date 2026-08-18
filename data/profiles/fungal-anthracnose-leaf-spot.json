@@ -1,0 +1,88 @@
+{
+  "id": "fungal-anthracnose-leaf-spot",
+  "slug": "anthracnose-colletotrichum-leaf-spot",
+  "name": "Anthracnose leaf spot",
+  "scientificName": "Colletotrichum fioriniae",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A confirmed Cannabis anthracnose leaf-spot disease. Tan-centered lesions can crack or drop out into shot-hole symptoms and coalesce into necrotic blotches, but those features still overlap other leaf-spot diseases.",
+  "affectedParts": [
+    "leaves",
+    "lower canopy",
+    "leaf margins"
+  ],
+  "stages": [
+    "reproductive",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Light-green specks become round or angular spots with tan centers, darker brown margins, and yellow halos",
+    "Lesion centers may crack or drop out, producing shot-hole or frog-eye appearance",
+    "Coalescing lesions can form larger necrotic regions and marginal lesions can cause scorching, puckering, or twisting"
+  ],
+  "exclusions": [
+    "Sooty underside conidial masses support Pseudocercospora",
+    "Pycnidia support Septoria",
+    "Laboratory testing identifies another leaf-spot pathogen",
+    "Physical holes occur without surrounding lesion development or pathogen evidence"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Scattered light-green specks appear."
+    },
+    {
+      "stage": "Developing",
+      "description": "Spots become tan-centered with darker margins and halos."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Centers can crack or drop out and lesions may coalesce into larger necrotic areas."
+    }
+  ],
+  "lookAlikes": [
+    "Cercospora leaf spot",
+    "Septoria leaf spot",
+    "Alternaria leaf spot",
+    "Bacterial leaf spot",
+    "Mechanical injury"
+  ],
+  "confirmation": [
+    "Use culture plus morphology and molecular identification when assigning Colletotrichum fioriniae.",
+    "Do not use shot-hole appearance alone as confirmation."
+  ],
+  "immediateActions": [
+    "Preserve representative lesions for diagnosis and isolate heavily affected propagation material."
+  ],
+  "correctivePlan": [
+    "Use pathogen-confirmed sanitation and disease management appropriate to the production system."
+  ],
+  "prevention": [
+    "Reduce carryover of diseased debris and avoid prolonged foliage wetness where practical."
+  ],
+  "warnings": [
+    "Shot-hole and frog-eye lesions are not species-specific.",
+    "The first report does not establish nationwide prevalence or a universal symptom sequence."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Anthracnose Leaf Spot Caused by Colletotrichum fioriniae on Hemp (Cannabis sativa)",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-10-19-2216-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2020-02-23",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-10-19-2216-PDN",
+      "supportedClaims": [
+        "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
+        "Colletotrichum fioriniae was identified by morphology and four gene sequences, and inoculation reproduced characteristic leaf spots while controls remained symptomless.",
+        "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots."
+      ]
+    }
+  ],
+  "media": []
+}

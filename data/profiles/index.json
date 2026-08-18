@@ -1,7 +1,18 @@
 {
-  "schemaVersion": "1.0.0",
-  "recordCount": 35,
+  "schemaVersion": "1.1.0",
+  "recordCount": 54,
   "records": [
+    {
+      "id": "bacterial-serratia-leaf-spot",
+      "slug": "serratia-marcescens-leaf-spot",
+      "name": "Serratia bacterial leaf spot",
+      "category": "Bacterial pathogen",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/bacterial-serratia-leaf-spot.json"
+    },
     {
       "id": "bacterial-xanthomonas-leaf-spot",
       "slug": "xanthomonas-bacterial-leaf-spot",
@@ -25,6 +36,50 @@
       "path": "data/profiles/env-heat.json"
     },
     {
+      "id": "env-herbicide-clomazone",
+      "slug": "herbicide-clomazone-bleaching-injury",
+      "name": "Herbicide injury — clomazone-type bleaching",
+      "category": "Environmental stress",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/env-herbicide-clomazone.json"
+    },
+    {
+      "id": "fungal-alternaria-leaf-spot",
+      "slug": "alternaria-leaf-spot",
+      "name": "Alternaria leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-alternaria-leaf-spot.json"
+    },
+    {
+      "id": "fungal-anthracnose-leaf-spot",
+      "slug": "anthracnose-colletotrichum-leaf-spot",
+      "name": "Anthracnose leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-anthracnose-leaf-spot.json"
+    },
+    {
+      "id": "fungal-bipolaris-leaf-spot",
+      "slug": "bipolaris-leaf-spot",
+      "name": "Bipolaris leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-bipolaris-leaf-spot.json"
+    },
+    {
       "id": "fungal-botrytis-bud-rot",
       "slug": "botrytis-gray-mold-bud-rot",
       "name": "Botrytis gray mold and bud rot",
@@ -36,6 +91,39 @@
       "path": "data/profiles/fungal-botrytis-bud-rot.json"
     },
     {
+      "id": "fungal-cercospora-leaf-spot",
+      "slug": "cercospora-leaf-spot",
+      "name": "Cercospora leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-cercospora-leaf-spot.json"
+    },
+    {
+      "id": "fungal-exserohilum-leaf-blight",
+      "slug": "exserohilum-helminthosporium-leaf-blight",
+      "name": "Exserohilum / Helminthosporium leaf blight",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-exserohilum-leaf-blight.json"
+    },
+    {
+      "id": "fungal-fusarium-foliar-flower-blight",
+      "slug": "fusarium-foliar-flower-head-blight",
+      "name": "Fusarium foliar, flower and head blight complex",
+      "category": "Fungal pathogen",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 3,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-fusarium-foliar-flower-blight.json"
+    },
+    {
       "id": "fungal-pm",
       "slug": "powdery-mildew",
       "name": "Powdery mildew",
@@ -43,8 +131,52 @@
       "severity": "high",
       "reviewStatus": "reviewed",
       "sourceCount": 1,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/fungal-pm.json"
+    },
+    {
+      "id": "fungal-pseudocercospora-leaf-spot",
+      "slug": "pseudocercospora-olive-sooty-leaf-spot",
+      "name": "Pseudocercospora olive / sooty leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-pseudocercospora-leaf-spot.json"
+    },
+    {
+      "id": "fungal-sclerotinia-white-mold",
+      "slug": "sclerotinia-white-mold",
+      "name": "Sclerotinia white mold",
+      "category": "Fungal pathogen",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-sclerotinia-white-mold.json"
+    },
+    {
+      "id": "fungal-septoria-leaf-spot",
+      "slug": "septoria-leaf-spot",
+      "name": "Septoria leaf spot complex",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 3,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-septoria-leaf-spot.json"
+    },
+    {
+      "id": "fungal-southern-blight",
+      "slug": "southern-blight-athelia-rolfsii",
+      "name": "Southern blight",
+      "category": "Root pathogen",
+      "severity": "critical",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/fungal-southern-blight.json"
     },
     {
       "id": "gen-variegation",
@@ -65,7 +197,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 2,
+      "mediaCount": 3,
       "path": "data/profiles/insect-thrips.json"
     },
     {
@@ -98,8 +230,19 @@
       "severity": "high",
       "reviewStatus": "reviewed",
       "sourceCount": 1,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/mite-spider.json"
+    },
+    {
+      "id": "nematode-root-knot",
+      "slug": "root-knot-nematodes",
+      "name": "Root-knot nematodes",
+      "category": "Nematode",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/nematode-root-knot.json"
     },
     {
       "id": "normal-fade",
@@ -122,6 +265,17 @@
       "sourceCount": 3,
       "mediaCount": 3,
       "path": "data/profiles/normal-sex-expression.json"
+    },
+    {
+      "id": "nut-def-b",
+      "slug": "boron-deficiency",
+      "name": "Boron deficiency",
+      "category": "Nutrient deficiency",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/nut-def-b.json"
     },
     {
       "id": "nut-def-ca",
@@ -190,6 +344,17 @@
       "path": "data/profiles/nut-def-mn.json"
     },
     {
+      "id": "nut-def-mo-analytical",
+      "slug": "molybdenum-low-analytical-no-visual-phenotype",
+      "name": "Low molybdenum analytical state — no validated visual phenotype",
+      "category": "Nutrient deficiency",
+      "severity": "low",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/nut-def-mo-analytical.json"
+    },
+    {
       "id": "nut-def-n",
       "slug": "nitrogen-deficiency",
       "name": "Nitrogen deficiency",
@@ -245,6 +410,17 @@
       "path": "data/profiles/nut-tox-b.json"
     },
     {
+      "id": "nut-tox-mn",
+      "slug": "manganese-toxicity",
+      "name": "Manganese toxicity / high-manganese response",
+      "category": "Nutrient toxicity",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/nut-tox-mn.json"
+    },
+    {
       "id": "nut-tox-n",
       "slug": "nitrogen-toxicity",
       "name": "Nitrogen toxicity",
@@ -256,6 +432,17 @@
       "path": "data/profiles/nut-tox-n.json"
     },
     {
+      "id": "oomycete-downy-mildew",
+      "slug": "downy-mildew-pseudoperonospora",
+      "name": "Downy mildew",
+      "category": "Oomycete pathogen",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 0,
+      "path": "data/profiles/oomycete-downy-mildew.json"
+    },
+    {
       "id": "pest-cannabis-aphid",
       "slug": "cannabis-aphid",
       "name": "Cannabis aphid",
@@ -263,7 +450,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 2,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/pest-cannabis-aphid.json"
     },
     {
@@ -285,7 +472,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 1,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/pest-rice-root-aphid.json"
     },
     {
@@ -300,6 +487,17 @@
       "path": "data/profiles/phytoplasma-hemp-witches-broom.json"
     },
     {
+      "id": "root-binding-container-stress",
+      "slug": "root-binding-container-stress",
+      "name": "Root binding / container-restriction stress",
+      "category": "Water / root-zone",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/root-binding-container-stress.json"
+    },
+    {
       "id": "root-fusarium-crown-rot",
       "slug": "fusarium-crown-root-rot",
       "name": "Fusarium crown and root rot / wilt complex",
@@ -307,7 +505,7 @@
       "severity": "high",
       "reviewStatus": "reviewed",
       "sourceCount": 2,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/root-fusarium-crown-rot.json"
     },
     {
@@ -329,8 +527,19 @@
       "severity": "critical",
       "reviewStatus": "reviewed",
       "sourceCount": 1,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/root-pythium.json"
+    },
+    {
+      "id": "root-rhizoctonia",
+      "slug": "rhizoctonia-sore-shin-root-rot",
+      "name": "Rhizoctonia sore shin / root and crown rot",
+      "category": "Root pathogen",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 0,
+      "path": "data/profiles/root-rhizoctonia.json"
     },
     {
       "id": "stress-drought-water-deficit",
@@ -362,7 +571,7 @@
       "severity": "critical",
       "reviewStatus": "reviewed",
       "sourceCount": 1,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/viroid-hplvd.json"
     },
     {
@@ -373,7 +582,7 @@
       "severity": "high",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 2,
+      "mediaCount": 3,
       "path": "data/profiles/virus-bctv.json"
     },
     {

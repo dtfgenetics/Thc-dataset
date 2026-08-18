@@ -1,0 +1,87 @@
+{
+  "id": "fungal-pseudocercospora-leaf-spot",
+  "slug": "pseudocercospora-olive-sooty-leaf-spot",
+  "name": "Pseudocercospora olive / sooty leaf spot",
+  "scientificName": "Pseudocercospora cannabina",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A molecularly documented Cannabis leaf-spot disease characterized in one report by olive-to-pale lesions and sooty sporulation on the lower leaf surface. The underside view is important because upper-surface spots alone overlap many pathogens.",
+  "affectedParts": [
+    "leaves",
+    "lower leaf surface",
+    "vein-limited tissue"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "all"
+  ],
+  "indicators": [
+    "Olive or pale yellowish leaf spots are present",
+    "Lesions can be vein-limited, irregular to subcircular, and several millimeters across",
+    "Lower leaf surfaces develop grey-brown to sooty conidial masses associated with lesions"
+  ],
+  "exclusions": [
+    "No underside sporulation is present and a different leaf-spot pathogen is confirmed",
+    "Pycnidia support Septoria",
+    "White-centered round lesions with Cercospora structures support Cercospora"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Olive or pale discoloration develops in leaf tissue."
+    },
+    {
+      "stage": "Developing",
+      "description": "Irregular or subcircular lesions expand along vein-limited areas."
+    },
+    {
+      "stage": "Sporulating",
+      "description": "Sooty conidial masses become visible on the lower leaf surface."
+    }
+  ],
+  "lookAlikes": [
+    "Septoria leaf spot",
+    "Cercospora leaf spot",
+    "Alternaria leaf spot",
+    "Downy mildew",
+    "Powdery mildew residue"
+  ],
+  "confirmation": [
+    "Photograph both leaf surfaces and inspect underside growth with magnification.",
+    "Use fungal morphology plus multilocus molecular identification for species-level confirmation."
+  ],
+  "immediateActions": [
+    "Preserve sporulating tissue for diagnosis and reduce movement of symptomatic leaves."
+  ],
+  "correctivePlan": [
+    "Use confirmed fungal leaf-spot management appropriate to the production system."
+  ],
+  "prevention": [
+    "Scout both leaf surfaces and reduce prolonged foliage wetness."
+  ],
+  "warnings": [
+    "Olive spots alone are not diagnostic.",
+    "The strongest modern Cannabis evidence is regional and species identification depends on morpho-molecular methods."
+  ],
+  "sources": [
+    {
+      "title": "First Molecular Phylogenetic Identification and Report of Pseudocercospora cannabina Causing Leaf Spot Disease on Cannabis sativa in Thailand",
+      "organization": "Horticulturae",
+      "url": "https://doi.org/10.3390/horticulturae9121261",
+      "publisher": "MDPI AG",
+      "publicationDate": "2023-11-23",
+      "year": 2023,
+      "accessedDate": "2026-08-17",
+      "doi": "10.3390/horticulturae9121261",
+      "supportedClaims": [
+        "Cannabis in Thailand developed olive leaf spot associated with Pseudocercospora cannabina.",
+        "Lesions were vein-limited to irregular or subcircular, pale yellowish, approximately 2 to 6 mm, with sooty conidial masses especially on the lower surface.",
+        "Morphology, multilocus phylogeny, pathogenicity testing, re-isolation, and identification fulfilled a molecularly supported disease report."
+      ]
+    }
+  ],
+  "media": []
+}

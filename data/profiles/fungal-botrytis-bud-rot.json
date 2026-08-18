@@ -289,5 +289,7 @@
       "confirmation": "expert-reviewed",
       "trainingEligible": false
     }
-  ]
+  ],
+  "canonicalId": "CAN-DIS-002",
+  "responsePolicyId": "POL-BOTRYTIS"
 }

@@ -1,0 +1,96 @@
+{
+  "id": "bacterial-serratia-leaf-spot",
+  "slug": "serratia-marcescens-leaf-spot",
+  "name": "Serratia bacterial leaf spot",
+  "scientificName": "Serratia marcescens",
+  "category": "Bacterial pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A pathogenicity-confirmed Cannabis bacterial disease producing small vein-limited angular lesions that can coalesce across leaves, stems and flower parts. Red bacterial ooze is useful supporting evidence but species confirmation requires laboratory identification.",
+  "affectedParts": [
+    "leaves",
+    "stems",
+    "flower parts"
+  ],
+  "stages": [
+    "seedling",
+    "vegetative",
+    "flower",
+    "greenhouse production"
+  ],
+  "indicators": [
+    "Small dark-brown 1–3 mm lesions are angular or vein-limited",
+    "Lesions coalesce into larger necrotic regions as disease advances",
+    "Red bacterial ooze streams from affected plant tissue",
+    "Laboratory culture and 16S/rpoB or equivalent evidence supports Serratia marcescens"
+  ],
+  "exclusions": [
+    "No bacterial ooze or lab evidence exists and lesions fit a fungal leaf spot better",
+    "Xanthomonas or another bacterial pathogen is identified",
+    "Chemical/contact injury follows a spray or exposure boundary"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Small dark vein-limited lesions develop."
+    },
+    {
+      "stage": "Coalescing",
+      "description": "Lesions merge into larger necrotic regions on leaves and other aerial tissues."
+    },
+    {
+      "stage": "Severe",
+      "description": "Large tissue areas can be lost and whole plants were lost in the original production observations."
+    }
+  ],
+  "lookAlikes": [
+    "Xanthomonas bacterial leaf spot",
+    "Septoria leaf spot",
+    "Cercospora leaf spot",
+    "Anthracnose",
+    "Contact spray injury"
+  ],
+  "confirmation": [
+    "Collect fresh lesion-margin tissue for bacterial isolation and molecular identification.",
+    "Treat red ooze as a strong clue, not a substitute for organism confirmation."
+  ],
+  "immediateActions": [
+    "Separate strongly affected propagation material and avoid moving wet symptomatic tissue through clean areas.",
+    "Preserve a fresh sample before sanitation."
+  ],
+  "correctivePlan": [
+    "Use laboratory-confirmed bacterial-disease sanitation and management appropriate to the production system."
+  ],
+  "prevention": [
+    "Sanitize tools/contact surfaces and minimize splash movement from symptomatic plants.",
+    "Use clean propagation material."
+  ],
+  "warnings": [
+    "Serratia includes strains of human-health relevance; use appropriate hygiene and diagnostic-lab handling.",
+    "Angular necrotic lesions alone are not Serratia-specific."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Serratia marcescens Causing a Leaf Spot Disease on Industrial Hemp (Cannabis sativa)",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-04-19-0782-PDN",
+      "authors": [
+        "T. Schappe",
+        "D. F. Ritchie",
+        "L. D. Thiessen"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2020-02-10",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-04-19-0782-PDN",
+      "supportedClaims": [
+        "Greenhouse-grown hemp developed small dark-brown 1–3 mm vein-limited angular lesions on leaves, stems, and flower parts; lesions coalesced into larger necrotic regions and red bacterial ooze was observed.",
+        "Serratia marcescens was supported by colony/microscopic traits and 16S rRNA plus rpoB sequence evidence.",
+        "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone."
+      ]
+    }
+  ],
+  "media": []
+}

@@ -1,0 +1,122 @@
+{
+  "id": "fungal-septoria-leaf-spot",
+  "slug": "septoria-leaf-spot",
+  "name": "Septoria leaf spot complex",
+  "scientificName": "Septoria cannabis / Septoria cannabicola",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A lower- and inner-canopy hemp leaf-spot syndrome caused by Septoria species. Dark pycnidia within expanding brown-gray lesions are useful evidence, but modern work shows more than one Septoria species can infect Cannabis.",
+  "affectedParts": [
+    "older lower leaves",
+    "inner canopy leaves",
+    "leaf lesions"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Disease often begins on lower or inner-canopy leaves",
+    "Small irregular brown-to-gray spots expand to several millimeters",
+    "Dark round pycnidia can be visible within lesions",
+    "Older leaves may defoliate as disease advances"
+  ],
+  "exclusions": [
+    "Sooty conidial masses on the underside support Pseudocercospora",
+    "White-centered round lesions with a pronounced dark border support Cercospora as a differential",
+    "Shot-hole lesions and Colletotrichum evidence support anthracnose",
+    "No fungal structures or lab evidence are present and an abiotic exposure fits the distribution better"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Small discolored spots appear on older or inner leaves."
+    },
+    {
+      "stage": "Developing",
+      "description": "Brown-to-gray lesions enlarge and reproductive structures may become visible."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Lesions multiply and older foliage can yellow and drop."
+    }
+  ],
+  "lookAlikes": [
+    "Cercospora leaf spot",
+    "Bipolaris leaf spot",
+    "Alternaria leaf spot",
+    "Pseudocercospora olive leaf spot",
+    "Anthracnose"
+  ],
+  "confirmation": [
+    "Examine lesions for pycnidia and submit representative tissue for fungal identification when species matters.",
+    "Use morphology and molecular sequence data for species-level Septoria classification because S. cannabis and S. cannabicola cannot be separated by a generic spot photo."
+  ],
+  "immediateActions": [
+    "Document lower-versus-upper canopy distribution and both leaf surfaces.",
+    "Limit movement of symptomatic foliage into clean production areas."
+  ],
+  "correctivePlan": [
+    "Use confirmed-disease sanitation and environmental management appropriate to the system.",
+    "Track new lesion development after intervention."
+  ],
+  "prevention": [
+    "Scout lower and inner canopy foliage early.",
+    "Reduce prolonged leaf wetness and carryover of infected debris where practical."
+  ],
+  "warnings": [
+    "Septoria species taxonomy on Cannabis is not reducible to visual symptoms.",
+    "Do not train a species classifier from mixed Septoria figures without organism-confirmed labels."
+  ],
+  "sources": [
+    {
+      "title": "Reemergence of Septoria Leaf Spot Caused by Septoria cannabis on Hemp in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-12-20-2620-SC",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2021-10-17",
+      "year": 2021,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-12-20-2620-SC",
+      "supportedClaims": [
+        "Septoria leaf spot was documented on hemp primarily on lower leaves and inner canopy, with small irregular brown-to-gray lesions expanding to roughly 5 to 7.5 mm and dark pycnidia in lesions.",
+        "Eight isolates were tested for pathogenicity on greenhouse-grown hemp and diagnostic loci were sequenced; morphology and sequence evidence supported Septoria cannabis in the Kentucky material.",
+        "Visual lesion appearance alone cannot separate Septoria from other hemp leaf-spot pathogens."
+      ]
+    },
+    {
+      "title": "Septoria cannabicola, a new species on Cannabis sativa from Japan",
+      "organization": "Mycoscience",
+      "url": "https://doi.org/10.47371/mycosci.2023.1.004",
+      "publisher": "Mycological Society of Japan",
+      "year": 2024,
+      "accessedDate": "2026-08-17",
+      "supportedClaims": [
+        "Molecular phylogeny and morphology demonstrated that Cannabis leaf spot historically attributed to Septoria cannabis can involve a distinct species, Septoria cannabicola.",
+        "Natural symptoms began as indistinct yellow spots on lower leaves and progressed to brown irregular lesions and premature defoliation of older leaves.",
+        "Species-level Septoria naming therefore requires laboratory evidence rather than lesion appearance alone."
+      ],
+      "doi": "10.47371/mycosci.2023.1.004",
+      "publicationDate": "2024-03-02"
+    },
+    {
+      "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2024-05-18",
+      "year": 2024,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-11-23-2483-RE",
+      "supportedClaims": [
+        "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
+        "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
+        "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+      ]
+    }
+  ],
+  "media": []
+}

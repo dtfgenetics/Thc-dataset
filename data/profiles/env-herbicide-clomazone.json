@@ -1,0 +1,89 @@
+{
+  "id": "env-herbicide-clomazone",
+  "slug": "herbicide-clomazone-bleaching-injury",
+  "name": "Herbicide injury — clomazone-type bleaching",
+  "category": "Environmental stress",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.35,
+  "summary": "A documented hemp chemical-injury differential in which soil-residual clomazone caused severe bleaching of newly formed tissue. The image pattern is not enough to identify the active ingredient; exposure history is essential.",
+  "affectedParts": [
+    "newly formed leaves",
+    "shoot tips",
+    "whole plant depending on exposure"
+  ],
+  "stages": [
+    "seedling",
+    "vegetative",
+    "post-transplant field establishment"
+  ],
+  "indicators": [
+    "Newly formed tissue becomes markedly bleached after a plausible herbicide carryover or drift event",
+    "Multiple plants share an exposure-pattern distribution in the field or production area",
+    "Symptoms begin after a documented chemical application, carryover, contaminated medium, or drift event"
+  ],
+  "exclusions": [
+    "No plausible chemical exposure exists",
+    "Iron or sulfur deficiency is analytically supported and follows a root-zone pattern",
+    "Mites or systemic pathogens explain deformation and discoloration better",
+    "Bleaching maps tightly to high-light exposure rather than chemical distribution"
+  ],
+  "progression": [
+    {
+      "stage": "Exposure",
+      "description": "Plants encounter residual or drifted herbicide."
+    },
+    {
+      "stage": "New-growth expression",
+      "description": "New tissue loses normal pigmentation and becomes bleached."
+    },
+    {
+      "stage": "Severe injury",
+      "description": "Growth can remain strongly impaired; the documented clomazone field case did not recover."
+    }
+  ],
+  "lookAlikes": [
+    "Iron deficiency",
+    "Sulfur deficiency",
+    "High-light bleaching",
+    "Broad mite injury",
+    "Genetic variegation"
+  ],
+  "confirmation": [
+    "Reconstruct spray, carryover, neighboring-field, substrate, and water-treatment history.",
+    "Use field pattern, timing, and where available laboratory residue analysis; do not identify clomazone from color alone."
+  ],
+  "immediateActions": [
+    "Stop further suspected exposure and preserve records of all recent chemical applications.",
+    "Separate exposure investigation from nutrient correction so evidence is not erased."
+  ],
+  "correctivePlan": [
+    "Address the confirmed exposure source and follow crop-specific professional guidance for affected plants and contaminated media/soil."
+  ],
+  "prevention": [
+    "Maintain chemical-use records and review previous-crop residual restrictions before planting hemp.",
+    "Protect production areas from drift and contaminated equipment."
+  ],
+  "warnings": [
+    "Bleached new growth is not clomazone-specific.",
+    "This profile does not recommend herbicide use; it is an injury-identification differential."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+        "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+        "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+        "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis."
+      ]
+    }
+  ],
+  "media": []
+}

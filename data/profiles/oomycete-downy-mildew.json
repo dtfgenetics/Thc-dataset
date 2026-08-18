@@ -1,0 +1,101 @@
+{
+  "id": "oomycete-downy-mildew",
+  "slug": "downy-mildew-pseudoperonospora",
+  "name": "Downy mildew",
+  "scientificName": "Pseudoperonospora cannabina",
+  "category": "Oomycete pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A foliar oomycete disease of Cannabis grouped under the current fungal-pathogen UI bucket for compatibility. Angular chlorotic-to-brown lesions and dark underside sporulation are stronger clues than top-surface discoloration alone.",
+  "affectedParts": [
+    "leaves",
+    "leaf undersides",
+    "inflorescences in severe disease",
+    "whole plant"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Angular chlorotic or brown lesions develop on leaves",
+    "Dark sporulation is visible on the underside of corresponding lesions under conducive humidity",
+    "Leaves may curl and defoliate as severity increases",
+    "Severe field disease can extend to inflorescence tissue and reduce marketable yield"
+  ],
+  "exclusions": [
+    "White superficial colonies wipe or scrape away and fit powdery mildew better",
+    "Sooty conidial masses are identified as Pseudocercospora",
+    "No underside sporulation or pathogen evidence is present and nutrient or chemical injury explains the pattern"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Angular chlorotic lesions appear."
+    },
+    {
+      "stage": "Sporulation",
+      "description": "Dark oomycete sporulation develops on lesion undersides under humid conditions."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Lesions become necrotic, leaves curl or drop, and severe plants can lose substantial healthy foliage."
+    }
+  ],
+  "lookAlikes": [
+    "Pseudocercospora olive leaf spot",
+    "Septoria leaf spot",
+    "Powdery mildew",
+    "Nutrient chlorosis",
+    "Spray injury"
+  ],
+  "confirmation": [
+    "Inspect the underside of fresh lesions under magnification and submit tissue to a plant diagnostic laboratory when confirmation matters.",
+    "Treat Pseudoperonospora as an oomycete, not a true fungus; laboratory morphology or molecular testing is preferred for organism-level labels."
+  ],
+  "immediateActions": [
+    "Separate heavily symptomatic material and reduce avoidable prolonged leaf wetness while preserving a diagnostic sample."
+  ],
+  "correctivePlan": [
+    "Use an oomycete-appropriate disease management program allowed for the crop and production setting."
+  ],
+  "prevention": [
+    "Scout undersides during humid periods and improve foliage drying/air movement where appropriate."
+  ],
+  "warnings": [
+    "The category label “Fungal pathogen” is a temporary UI grouping; Pseudoperonospora is biologically an oomycete.",
+    "Cultivar susceptibility varies widely, so severity cannot be generalized from one cultivar."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Downy Mildew Caused by Pseudoperonospora cannabina on Cannabis sativa in New York",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-08-22-1930-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2023-05-16",
+      "year": 2023,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-08-22-1930-PDN",
+      "supportedClaims": [
+        "Downy mildew on hemp was documented with chlorotic and necrotic lesions and sporangiophore production under humid conditions, affecting leaves and inflorescences in severe field cases.",
+        "The causal agent is the oomycete Pseudoperonospora cannabina; it is not a true fungus despite the mildew name."
+      ]
+    },
+    {
+      "title": "Evaluation of downy mildew resistance in the USDA Hemp Germplasm Repository using high-throughput and traditional phenotyping methods",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-09-25-1916-RE",
+      "publisher": "American Phytopathological Society",
+      "year": 2026,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-09-25-1916-RE",
+      "supportedClaims": [
+        "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides, often with curling and defoliation.",
+        "A 108-entry hemp resistance study documented wide susceptibility variation, reinforcing that severity is genotype-dependent and not a universal image threshold."
+      ]
+    }
+  ],
+  "media": []
+}

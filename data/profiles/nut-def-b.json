@@ -1,0 +1,101 @@
+{
+  "id": "nut-def-b",
+  "slug": "boron-deficiency",
+  "name": "Boron deficiency",
+  "category": "Nutrient deficiency",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A controlled Cannabis boron-withholding disorder centered on growing tips, expanding leaves, and root tips. Severe new-growth distortion is useful supporting evidence, but diagnosis should be tied to nutrition and root-zone measurements rather than leaf shape alone.",
+  "affectedParts": [
+    "growing tips",
+    "new and expanding leaves",
+    "leaf margins",
+    "root tips",
+    "whole plant in advanced cases"
+  ],
+  "stages": [
+    "vegetative",
+    "all"
+  ],
+  "indicators": [
+    "Growing tips become stunted before older foliage shows a dominant pattern",
+    "New leaflets are distorted, smaller, and narrow near the leaflet base",
+    "Advanced new growth curls inward, downward, or at irregular angles and develops marginal necrosis",
+    "Severe deficiency can kill growing tips and root tips and lead to whole-plant wilting"
+  ],
+  "exclusions": [
+    "Distorted tips contain broad mites or hemp russet mites",
+    "Root-zone boron supply and tissue analysis are adequate while another exposure explains the distortion",
+    "Damage is localized to a spray, heat, or mechanical event",
+    "Only old leaves are affected while new growth remains normal"
+  ],
+  "progression": [
+    {
+      "stage": "Early",
+      "description": "Slight stunting develops from the growing tips."
+    },
+    {
+      "stage": "Intermediate",
+      "description": "New leaves become narrower and increasingly distorted."
+    },
+    {
+      "stage": "Advanced",
+      "description": "Margins become necrotic, apical tissue can die, root-tip loss can become severe, and the whole plant may wilt."
+    }
+  ],
+  "lookAlikes": [
+    "Calcium deficiency",
+    "Broad mite",
+    "Hemp russet mite",
+    "Herbicide or growth-regulator injury",
+    "Root disease"
+  ],
+  "confirmation": [
+    "Review fertilizer and source-water boron and measure root-zone pH/EC before assigning the cause.",
+    "Use representative tissue analysis when the diagnosis is consequential; the published Cannabis values are experiment-specific, not universal thresholds."
+  ],
+  "immediateActions": [
+    "Preserve pre-correction root-zone and tissue measurements.",
+    "Inspect distorted growth under magnification for mites before changing nutrition."
+  ],
+  "correctivePlan": [
+    "Correct a confirmed boron under-supply gradually with a crop-appropriate nutrition plan.",
+    "Track new meristem and root growth; damaged leaves and dead tips will not reverse."
+  ],
+  "prevention": [
+    "Maintain complete micronutrient supply and calibrated root-zone monitoring.",
+    "Avoid diagnosing micronutrients from internet deficiency charts without measurements."
+  ],
+  "warnings": [
+    "The controlled study used one cultivar and complete boron withholding.",
+    "Boron has a narrow adequacy-to-toxicity margin in many crops; do not add boron from visual suspicion alone."
+  ],
+  "sources": [
+    {
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "organization": "Applied Sciences (Cockson et al.)",
+      "url": "https://doi.org/10.3390/app9204432",
+      "authors": [
+        "Paul Cockson",
+        "Hunter Landis",
+        "Turner Smith",
+        "Kristin Hicks",
+        "Brian E. Whipker"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2019-10-18",
+      "year": 2019,
+      "accessedDate": "2026-08-17",
+      "doi": "10.3390/app9204432",
+      "supportedClaims": [
+        "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
+        "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+        "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+        "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
+        "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+      ]
+    }
+  ],
+  "media": []
+}

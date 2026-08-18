@@ -1,0 +1,130 @@
+{
+  "id": "fungal-fusarium-foliar-flower-blight",
+  "slug": "fusarium-foliar-flower-head-blight",
+  "name": "Fusarium foliar, flower and head blight complex",
+  "scientificName": "Fusarium equiseti / Fusarium graminearum",
+  "category": "Fungal pathogen",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.4,
+  "summary": "A Cannabis Fusarium disease complex affecting leaves, flowers, drying floral material, stems and grain heads. It must be separated from Fusarium root/crown rot because infection site, symptom pattern and confirmation evidence differ.",
+  "affectedParts": [
+    "leaves",
+    "flowers",
+    "grain heads",
+    "drying floral material",
+    "stems"
+  ],
+  "stages": [
+    "flower",
+    "reproductive",
+    "postharvest drying context"
+  ],
+  "indicators": [
+    "Floral surfaces develop abundant hyphae with light-brown necrotic tips",
+    "Leaves develop roughly circular light-brown lesions with darker brown margins and gray-brown aging centers",
+    "Blight is centered on floral/head tissue rather than beginning as root decay",
+    "Fusarium macroconidia, culture, sequence or species-specific molecular evidence accompanies compatible tissue"
+  ],
+  "exclusions": [
+    "Root/crown rot and vascular wilt dominate without foliar or floral lesions",
+    "Gray fuzzy sporulation and diagnostic evidence identify Botrytis",
+    "White mold and sclerotia identify a Sclerotinia or southern-blight differential",
+    "No Fusarium evidence is present and drying/heat/mechanical injury explains floral browning"
+  ],
+  "progression": [
+    {
+      "stage": "Foliar/floral onset",
+      "description": "Localized leaf lesions or necrotic flower tips develop and surface hyphae may become visible."
+    },
+    {
+      "stage": "Blight",
+      "description": "Necrosis expands through affected foliar or floral tissue."
+    },
+    {
+      "stage": "Latent-infection caveat",
+      "description": "F. graminearum may be detectable before obvious blight, especially around flowering, so visual absence is not proof of absence."
+    }
+  ],
+  "lookAlikes": [
+    "Botrytis gray mold / bud rot",
+    "Sclerotinia white mold",
+    "Alternaria leaf spot",
+    "Bipolaris leaf spot",
+    "Fusarium crown/root rot"
+  ],
+  "confirmation": [
+    "Submit representative fresh lesion/flower tissue for culture and molecular identification when Fusarium species matters.",
+    "For suspected F. graminearum, species-specific molecular assays can detect infection that is not yet visually obvious."
+  ],
+  "immediateActions": [
+    "Separate suspect floral material from clean material and preserve diagnostic samples before treatment or disposal.",
+    "Inspect roots/crowns separately so root Fusarium is not conflated with foliar/flower blight."
+  ],
+  "correctivePlan": [
+    "Use laboratory-supported disease management and sanitation appropriate to the production stage and local crop rules."
+  ],
+  "prevention": [
+    "Use clean propagation/seed sources where applicable and reduce movement of symptomatic plant debris.",
+    "Track humidity, rainfall/leaf wetness, and flower-stage disease development without treating environment as proof of pathogen identity."
+  ],
+  "warnings": [
+    "Fusarium flower browning is not visually species-specific.",
+    "The 2020 survey identified both F. equiseti and F. graminearum in the foliar/flower blight complex; do not collapse every lesion into F. graminearum.",
+    "Image-only absence cannot exclude latent F. graminearum infection."
+  ],
+  "sources": [
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+      ]
+    },
+    {
+      "title": "First Report of Fusarium graminearum Causing Head Blight on Hemp (Cannabis sativa) in Wisconsin",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-10-25-2036-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2026-02-16",
+      "year": 2026,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-10-25-2036-PDN",
+      "supportedClaims": [
+        "Fusarium graminearum was reported causing blight of hemp grain heads, strengthening evidence that Fusarium flower/head disease is a distinct Cannabis diagnostic target from Fusarium root/crown rot.",
+        "The disease note used isolation and pathogen identification from symptomatic grain heads rather than relying on flower appearance alone."
+      ]
+    },
+    {
+      "title": "Detection and Quantification of Latent Infection by Fusarium graminearum, Causal Agent of Fusarium Head Blight on Hemp (Cannabis sativa) Fields in Kentucky",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-04-25-0774-RE",
+      "publisher": "American Phytopathological Society",
+      "year": 2026,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-04-25-0774-RE",
+      "supportedClaims": [
+        "A multi-site hemp field study used species-specific qPCR to detect and quantify F. graminearum in asymptomatic and symptomatic tissues.",
+        "Latent infection occurred before visible disease and infection was more prominent during flowering, so absence of visible blight cannot exclude infection and image-only confirmation is unsafe."
+      ]
+    }
+  ],
+  "media": []
+}
