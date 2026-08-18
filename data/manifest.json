@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.7.0",
-  "releaseStatus": "accuracy-and-coverage-61-profile-release-candidate",
+  "schemaVersion": "2.8.0",
+  "releaseStatus": "61-profile-main-persistence-trigger",
   "diagnosticProfileCount": 61,
   "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -55,14 +55,14 @@
     {"path": "src/data/expanded-issues-batch3.ts", "profileCount": 7},
     {"path": "src/data/evidence-augmentations.ts", "profileCount": 0, "role": "additional reviewed evidence for existing complex profiles"}
   ],
-  "candidateExpectedCounts": {
+  "measuredCandidateCounts": {
     "diagnosticProfiles": 61,
     "coreProfiles": 29,
     "supplementalAndExpandedProfiles": 32,
     "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
     "trainingEligibleMedia": 0,
-    "status": "must be confirmed by PR exporter before merge"
+    "status": "confirmed by successful pull-request exporter and regenerated release validator"
   },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
@@ -82,8 +82,8 @@
   "verificationStatus": {
     "previous54ProfileRelease": "PR-export-validated-and-main-persisted",
     "coverageExpansionPassesRequired": 3,
-    "coverageExpansionPassesCompleted": 0,
-    "coverageExpansionResult": "pending-pr-validation",
+    "coverageExpansionPassesCompleted": 1,
+    "coverageExpansionResult": "pull-request-export-release-validation-and-full-app-suite-passed",
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
     "referenceCropResult": "66-crops-validated-hashed-and-persisted",
     "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
@@ -96,7 +96,7 @@
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
-    "The 61-profile catalog is a release candidate until exporter, release validator, regression tests, source checks and production build pass.",
+    "The 61-profile catalog passed pull-request export, regenerated release validation, source/acquisition/transfer validation, TypeScript checks, regression tests, crop-geometry validation, and production build; main generated-data read-back is still required before release-final status.",
     "Ninety-one reference images remain insufficient for a statistically defensible supervised Cannabis diagnosis model.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
@@ -106,13 +106,14 @@
     "completed": [
       "add seven additional evidence-backed pest/root-disease differentials",
       "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
-      "remove obsolete fungal-bucket wording from downy mildew"
+      "remove obsolete fungal-bucket wording from downy mildew",
+      "confirm 61 profiles, 84 unique sources and 40 profile-linked media in pull-request exporter",
+      "pass all pull-request release and application gates"
     ],
     "required": [
-      "confirm actual source count and profile-linked media count from exporter",
-      "pass all PR release and application gates",
       "persist generated 61-profile data on main",
-      "perform main read-back and independent clean-room verification",
+      "perform main read-back verification",
+      "perform independent clean-room verification",
       "continue independent confirmed Cannabis image/video acquisition"
     ]
   }
