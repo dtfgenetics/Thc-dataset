@@ -6,6 +6,7 @@ export type IssueCategory =
   | 'Insect'
   | 'Mite'
   | 'Fungal pathogen'
+  | 'Oomycete pathogen'
   | 'Bacterial pathogen'
   | 'Root pathogen'
   | 'Viroid'
