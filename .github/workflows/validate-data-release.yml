@@ -4,6 +4,9 @@ on:
   push:
     branches: [main]
     paths:
+      - 'src/data/**'
+      - 'src/types.ts'
+      - 'dataset/schema/issue.schema.json'
       - 'data/**'
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
@@ -17,6 +20,9 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'src/data/**'
+      - 'src/types.ts'
+      - 'dataset/schema/issue.schema.json'
       - 'data/**'
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
@@ -52,6 +58,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Materialize current reviewed catalog release
+        run: npm run export:data
+
       - name: Validate profiles sources media bytes crops and training gate
         run: npm run validate:data-release
 
@@ -63,16 +72,19 @@ jobs:
           node - <<'NODE'
           const fs = require('node:fs')
           const manifest = JSON.parse(fs.readFileSync('data/manifest.json', 'utf8'))
+          const generated = JSON.parse(fs.readFileSync('data/export-manifest.json', 'utf8'))
           console.log(JSON.stringify({
-            diagnosticProfiles: manifest.diagnosticProfileCount,
-            standaloneProfiles: manifest.standaloneDetailedProfileCount,
-            evidenceSources: manifest.evidenceSourceCount,
+            diagnosticProfiles: generated.counts.diagnosticProfiles,
+            coreProfiles: generated.counts.primaryDiagnosticProfiles,
+            supplementalAndExpandedProfiles: generated.counts.supplementalDiagnosticProfiles,
+            evidenceSources: generated.counts.sources,
+            profileLinkedMedia: generated.counts.profileReferenceMedia,
             referenceOriginals: manifest.localReferenceImageBinaryCount,
             unavailableReferences: manifest.referenceUnavailableCount,
             referenceCrops: manifest.referencePanelCropCount,
             referenceCropSourceGroups: manifest.referencePanelCropSourceGroupCount,
             totalReferenceImages: manifest.totalPersistedReferenceImageFiles,
-            trainingEligible: manifest.trainingEligibleMediaCount,
+            trainingEligible: generated.counts.trainingEligibleMedia,
             supervisedTrainingReady: manifest.supervisedTrainingReady,
           }, null, 2))
           NODE
