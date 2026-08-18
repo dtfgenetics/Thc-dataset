@@ -8,6 +8,13 @@ on:
       - 'images/reference/manifest.json'
       - 'images/reference/original/**'
       - '.github/workflows/package-reference-lanes.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/package-reference-lanes.py'
+      - 'images/reference/manifest.json'
+      - 'images/reference/original/**'
+      - '.github/workflows/package-reference-lanes.yml'
   workflow_dispatch:
 
 permissions:
