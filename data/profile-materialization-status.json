@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.2.0",
-  "status": "61-profile-release-candidate-generated-and-validated",
+  "schemaVersion": "2.3.0",
+  "status": "61-profile-main-release-verified-two-passes",
   "targetProfileCount": 61,
   "materializedProfileCount": 61,
   "pendingProfileCount": 0,
@@ -20,12 +20,14 @@
     "sources": "data/sources.json",
     "exportManifest": "data/export-manifest.json"
   },
-  "measuredCandidateCounts": {
+  "measuredReleaseCounts": {
     "diagnosticProfiles": 61,
     "coreProfiles": 29,
     "supplementalAndExpandedProfiles": 32,
     "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
+    "referenceOriginals": 25,
+    "referenceCrops": 66,
     "trainingEligibleMedia": 0
   },
   "verification": [
@@ -38,14 +40,14 @@
     {
       "pass": 2,
       "method": "Main-branch read-back after merge and generated-data commit",
-      "result": "pending",
-      "details": "Will verify the committed main index, standalone profile count, evidence-source count, media count, representative corrected profiles, and blocked training gate."
+      "result": "passed",
+      "details": "Committed main index and export manifest read 61 profiles, 84 sources, and 40 profile-linked media. Pythium contains the five added species reports; Fusarium root/crown includes F. falciforme and F. commune evidence; Sclerotinia is stored as an S. sclerotiorum/S. minor complex; downy mildew is consistently Oomycete; Dematophora white root rot is present; training splits remain zero and blocked."
     },
     {
       "pass": 3,
       "method": "Independent clean-room PR against the merged generated release",
       "result": "pending",
-      "details": "Will rerun regenerated release validation and the full application/source/test/build suite without merging the verification marker."
+      "details": "Will rerun regenerated release validation, cross-file metadata consistency, crop geometry, and the full application/source/test/build suite without merging the verification marker."
     }
   ],
   "accuracyCorrections": [
@@ -57,7 +59,8 @@
     "Fusarium foliar/flower/head blight remains separate from Fusarium root/crown disease.",
     "Pythium, Fusarium, and Sclerotinia receive newer species-level evidence without creating visually unjustified species classifiers.",
     "Issue JSON Schema media field matches structured MediaRecord objects used by the application and release.",
-    "Exporter and release-validator workflows regenerate current catalog output before validation and watch all src/data modules."
+    "Training-readiness and split metadata now derive from the 61-profile release instead of stale 35-profile text.",
+    "Cross-file release metadata consistency is now enforced as a separate validation gate."
   ],
   "coverageExpansion": [
     "spotted cucumber beetle feeding injury",
@@ -68,5 +71,5 @@
     "armyworm caterpillar feeding complex",
     "Dematophora/Rosellinia white root rot"
   ],
-  "pending": ["main read-back verification", "independent clean-room verification"]
+  "pending": ["independent clean-room verification"]
 }
