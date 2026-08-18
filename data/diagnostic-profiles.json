@@ -6489,7 +6489,7 @@
     "severity": "high",
     "reviewStatus": "reviewed",
     "photoOnlyMaxConfidence": 0.55,
-    "summary": "A foliar oomycete disease of Cannabis grouped under the current fungal-pathogen UI bucket for compatibility. Angular chlorotic-to-brown lesions and dark underside sporulation are stronger clues than top-surface discoloration alone.",
+    "summary": "A foliar oomycete disease of Cannabis. Angular chlorotic-to-brown lesions and dark underside sporulation are stronger clues than top-surface discoloration alone.",
     "affectedParts": [
       "leaves",
       "leaf undersides",
@@ -6547,7 +6547,7 @@
       "Scout undersides during humid periods and improve foliage drying/air movement where appropriate."
     ],
     "warnings": [
-      "The category label “Fungal pathogen” is a temporary UI grouping; Pseudoperonospora is biologically an oomycete.",
+      "Pseudoperonospora is an oomycete, not a true fungus; disease-management and diagnostic interpretation should preserve that distinction.",
       "Cultivar susceptibility varies widely, so severity cannot be generalized from one cultivar."
     ],
     "sources": [
