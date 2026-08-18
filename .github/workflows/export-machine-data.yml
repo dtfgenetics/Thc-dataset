@@ -4,8 +4,15 @@ on:
   push:
     branches: [main]
     paths:
+      - 'src/data/catalog.ts'
+      - 'src/data/categories.ts'
       - 'src/data/issues.ts'
       - 'src/data/supplemental-issues.ts'
+      - 'src/data/expanded-issues.ts'
+      - 'src/data/expanded-issues-batch2.ts'
+      - 'src/data/verified-reference-media*.ts'
+      - 'src/types.ts'
+      - 'dataset/schema/issue.schema.json'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/validate-data-release.mjs'
       - 'package.json'
@@ -14,8 +21,15 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - 'src/data/catalog.ts'
+      - 'src/data/categories.ts'
       - 'src/data/issues.ts'
       - 'src/data/supplemental-issues.ts'
+      - 'src/data/expanded-issues.ts'
+      - 'src/data/expanded-issues-batch2.ts'
+      - 'src/data/verified-reference-media*.ts'
+      - 'src/types.ts'
+      - 'dataset/schema/issue.schema.json'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/validate-data-release.mjs'
       - 'package.json'
@@ -71,4 +85,4 @@ jobs:
           git commit -m 'Generate validated machine-readable dataset exports'
           git push origin HEAD:${{ github.head_ref || github.ref_name }}
 
-# PR verification trigger: full export + validator must pass before merge.
+# Pull requests run the same exporter and validator without committing generated files.
