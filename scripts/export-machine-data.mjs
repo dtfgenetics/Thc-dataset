@@ -15,7 +15,7 @@ const root = process.cwd()
 const outDir = path.join(root, 'data')
 const profilesDir = path.join(outDir, 'profiles')
 const tempDir = path.join(root, '.dataset-export-tmp')
-const minimumExpectedProfiles = 48
+const minimumExpectedProfiles = 54
 const requiredProfileFields = [
   'id', 'slug', 'name', 'category', 'severity', 'reviewStatus', 'summary',
   'affectedParts', 'stages', 'indicators', 'exclusions', 'progression',
@@ -189,10 +189,10 @@ try {
   }
 
   const exportManifest = {
-    schemaVersion: '2.1.0',
+    schemaVersion: '2.0.0',
     deterministic: true,
     compiler: 'project tsc CLI / CommonJS temporary catalog build',
-    sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts'],
+    sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts', 'src/data/expanded-issues-batch2.ts'],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
       supplementalDiagnosticProfiles: supplementalIssues.length,
