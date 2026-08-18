@@ -1,0 +1,10 @@
+{
+  "purpose": "verification-only trigger",
+  "expectedProfiles": 61,
+  "expectedSources": 84,
+  "expectedProfileMedia": 40,
+  "expectedReferenceOriginals": 25,
+  "expectedReferenceCrops": 66,
+  "expectedTrainingEligible": 0,
+  "merge": false
+}
