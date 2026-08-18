@@ -1,0 +1,168 @@
+name: Bulk acquire open diagnostic datasets
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/package-acquisition-tree.py'
+      - '.github/workflows/bulk-acquire-open-datasets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  plantvillage:
+    name: DS-005 PlantVillage color
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Download maintained PlantVillage archive
+        shell: bash
+        run: |
+          set -euxo pipefail
+          mkdir -p acquisition/pv/meta
+          curl -L --fail --retry 5 --retry-delay 5 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/data.zip?download=true' -o acquisition/pv/data.zip
+          test $(stat -c%s acquisition/pv/data.zip) -gt 1000000000
+          unzip -tq acquisition/pv/data.zip >/dev/null
+          unzip -q acquisition/pv/data.zip 'raw/color/*' -d acquisition/pv/extracted
+          curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/README.md?download=true' -o acquisition/pv/meta/README.md
+          curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/leaf_grouping/leaf-map.json?download=true' -o acquisition/pv/meta/leaf-map.json
+          curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/splits/color_train.txt?download=true' -o acquisition/pv/meta/color_train.txt
+          curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/splits/color_test.txt?download=true' -o acquisition/pv/meta/color_test.txt
+      - name: Create balanced raw color shards and manifest
+        shell: bash
+        run: |
+          python scripts/package-acquisition-tree.py --root acquisition/pv/extracted/raw/color --output-dir acquisition/pv/packages --prefix DS-005-PlantVillage-color --shards 6 --dataset-id DS-005 --source-url 'https://huggingface.co/datasets/mohanty/PlantVillage' --source-revision main --license 'CC BY-SA 3.0' --notes 'Controlled-background disease transfer/pretraining corpus; preserve leaf grouping and never treat as Cannabis causal ground truth.'
+          cp acquisition/pv/packages/DS-005-PlantVillage-color-manifest.json acquisition/pv/meta/
+          sha256sum acquisition/pv/data.zip > acquisition/pv/meta/source-data.zip.sha256
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-01, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-02, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-03, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-04, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-05, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-05.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-color-shard-06, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-06.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-005-PlantVillage-metadata, path: acquisition/pv/meta/, retention-days: 30}
+
+  plantdoc-classification:
+    name: DS-007 PlantDoc classification
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Clone PlantDoc classification source
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone --depth=1 https://github.com/pratikkayal/PlantDoc-Dataset.git acquisition/plantdoc-class
+          git -C acquisition/plantdoc-class rev-parse HEAD > acquisition/plantdoc-class/SOURCE_COMMIT.txt
+          rm -rf acquisition/plantdoc-class/.git
+      - name: Package PlantDoc classification source
+        shell: bash
+        run: |
+          mkdir -p acquisition/plantdoc-class/packages acquisition/plantdoc-class/meta
+          rev="$(cat acquisition/plantdoc-class/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/train --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/test --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
+          cp acquisition/plantdoc-class/README.md acquisition/plantdoc-class/LICENSE.txt acquisition/plantdoc-class/SOURCE_COMMIT.txt acquisition/plantdoc-class/meta/
+          cp acquisition/plantdoc-class/packages/*manifest.json acquisition/plantdoc-class/meta/
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-03, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-train-04, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-test-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-test-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-class-metadata, path: acquisition/plantdoc-class/meta/, retention-days: 30}
+
+  plantdoc-detection:
+    name: DS-007 PlantDoc object detection
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Clone PlantDoc detection source
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone --depth=1 https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset.git acquisition/plantdoc-det
+          git -C acquisition/plantdoc-det rev-parse HEAD > acquisition/plantdoc-det/SOURCE_COMMIT.txt
+          rm -rf acquisition/plantdoc-det/.git
+      - name: Package detection images and labels
+        shell: bash
+        run: |
+          mkdir -p acquisition/plantdoc-det/packages acquisition/plantdoc-det/meta
+          rev="$(cat acquisition/plantdoc-det/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TRAIN --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TEST --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
+          cp acquisition/plantdoc-det/README.md acquisition/plantdoc-det/LICENSE.txt acquisition/plantdoc-det/SOURCE_COMMIT.txt acquisition/plantdoc-det/train_labels.csv acquisition/plantdoc-det/test_labels.csv acquisition/plantdoc-det/meta/
+          cp acquisition/plantdoc-det/packages/*manifest.json acquisition/plantdoc-det/meta/
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-03, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-03.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-train-04, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-04.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-test-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-test-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-007-PlantDoc-det-metadata, path: acquisition/plantdoc-det/meta/, retention-days: 30}
+
+  hemp-water-stress:
+    name: DS-090 industrial hemp water stress
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Clone author-provided alternate data repository
+        shell: bash
+        run: |
+          set -euxo pipefail
+          git clone --depth=1 https://github.com/fearro/IoT_monitoring_hemp.git acquisition/hemp-water
+          git -C acquisition/hemp-water rev-parse HEAD > acquisition/hemp-water/SOURCE_COMMIT.txt
+          rm -rf acquisition/hemp-water/.git
+      - name: Package growth and water-stress bytes
+        shell: bash
+        run: |
+          mkdir -p acquisition/hemp-water/packages acquisition/hemp-water/meta
+          rev="$(cat acquisition/hemp-water/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_growth --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-growth --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Five hemp plants, hourly early-growth sequence; regroup by plant/time for leakage-safe use.'
+          python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_water_stress --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-water-stress --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Healthy / 3-day / 6-day / 9-day water-stress classes. Source train/test split is not authoritative for our benchmark.'
+          cp acquisition/hemp-water/README.md acquisition/hemp-water/SOURCE_COMMIT.txt acquisition/hemp-water/meta/
+          cp acquisition/hemp-water/packages/*manifest.json acquisition/hemp-water/meta/
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-growth-01, path: acquisition/hemp-water/packages/DS-090-Hemp-growth-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-growth-02, path: acquisition/hemp-water/packages/DS-090-Hemp-growth-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-water-stress-01, path: acquisition/hemp-water/packages/DS-090-Hemp-water-stress-shard-01.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-water-stress-02, path: acquisition/hemp-water/packages/DS-090-Hemp-water-stress-shard-02.tar, compression-level: 0, retention-days: 30}
+      - uses: actions/upload-artifact@v4
+        with: {name: DS-090-Hemp-metadata, path: acquisition/hemp-water/meta/, retention-days: 30}
