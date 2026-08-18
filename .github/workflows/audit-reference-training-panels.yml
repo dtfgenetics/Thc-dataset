@@ -2,7 +2,7 @@ name: Audit reference panels for training admission
 
 on:
   push:
-    branches: [training-panel-audit]
+    branches: [main, training-panel-audit]
     paths:
       - 'scripts/audit-reference-crops-for-training.py'
       - 'images/reference/crops-manifest.json'
@@ -19,13 +19,19 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: audit-reference-training-panels-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -46,6 +52,20 @@ jobs:
           assert d['summary']['panelCropCount'] == 66
           print(d['summary'])
           PY
+
+      - name: Commit generated audit on non-PR runs
+        if: github.event_name != 'pull_request'
+        shell: bash
+        run: |
+          git add dataset/training/reference-panel-admission-audit.json
+          if git diff --cached --quiet -- dataset/training/reference-panel-admission-audit.json; then
+            echo 'Training-admission audit already current.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update reference panel training-admission audit'
+            git push origin HEAD:${{ github.ref_name }}
+          fi
 
       - name: Upload admission audit
         uses: actions/upload-artifact@v4
