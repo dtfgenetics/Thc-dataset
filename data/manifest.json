@@ -1,10 +1,10 @@
 {
-  "schemaVersion": "2.6.0",
-  "releaseStatus": "accuracy-audit-54-profile-release-candidate",
-  "diagnosticProfileCount": 54,
-  "standaloneDetailedProfileCount": 54,
+  "schemaVersion": "2.7.0",
+  "releaseStatus": "accuracy-and-coverage-61-profile-release-candidate",
+  "diagnosticProfileCount": 61,
+  "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 74,
+  "evidenceSourceCount": 84,
   "profileReferenceMediaCount": 40,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
@@ -51,89 +51,69 @@
     {"path": "src/data/issues.ts", "profileCount": 29},
     {"path": "src/data/supplemental-issues.ts", "profileCount": 6},
     {"path": "src/data/expanded-issues.ts", "profileCount": 13},
-    {"path": "src/data/expanded-issues-batch2.ts", "profileCount": 6}
+    {"path": "src/data/expanded-issues-batch2.ts", "profileCount": 6},
+    {"path": "src/data/expanded-issues-batch3.ts", "profileCount": 7},
+    {"path": "src/data/evidence-augmentations.ts", "profileCount": 0, "role": "additional reviewed evidence for existing complex profiles"}
   ],
-  "measuredCandidateExport": {
-    "workflowRun": 32098183519,
-    "diagnosticProfiles": 54,
+  "candidateExpectedCounts": {
+    "diagnosticProfiles": 61,
     "coreProfiles": 29,
-    "supplementalAndExpandedProfiles": 25,
-    "uniqueEvidenceSources": 74,
+    "supplementalAndExpandedProfiles": 32,
+    "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
     "trainingEligibleMedia": 0,
-    "releaseValidatorResult": "passed"
+    "status": "must be confirmed by PR exporter before merge"
   },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
     "artifactId": 9305073118,
     "artifactZipSha256": "0da03e15ffde7c7dd8fbe6c53fcd18e2cee1b393c0f01d0007b5538c63ed8b77",
     "restoredRecordCount": 25,
-    "unavailableCount": 0,
-    "policy": "The persisted 25-image original corpus was restored from the already verified PR artifact and every file SHA-256 was recomputed before commit."
+    "unavailableCount": 0
   },
   "tooling": {
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
     "validateCommand": "npm run validate:data-release",
-    "referenceBinaryScript": "scripts/persist-open-reference-media.py",
-    "referenceRecoveryScript": "scripts/recover-reference-media.py",
     "referenceCropBuilder": "scripts/build-reference-crops.py",
     "profileWorkflow": ".github/workflows/export-machine-data.yml",
-    "referenceBinaryWorkflow": ".github/workflows/persist-open-reference-media.yml",
-    "referenceArtifactRestoreWorkflow": ".github/workflows/restore-verified-reference-artifact.yml",
-    "referenceCropWorkflow": ".github/workflows/build-reference-crops.yml",
     "continuousReleaseValidationWorkflow": ".github/workflows/validate-data-release.yml"
   },
   "verificationStatus": {
-    "previous35ProfileRelease": "passed-three-way-and-clean-room-verified",
-    "accuracyExpansionPassesRequired": 3,
-    "accuracyExpansionPassesCompleted": 1,
-    "accuracyExpansionResult": "candidate-export-and-generated-release-validation-passed",
+    "previous54ProfileRelease": "PR-export-validated-and-main-persisted",
+    "coverageExpansionPassesRequired": 3,
+    "coverageExpansionPassesCompleted": 0,
+    "coverageExpansionResult": "pending-pr-validation",
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
-    "referenceBinaryCount": 25,
-    "referenceUnavailableCount": 0,
     "referenceCropResult": "66-crops-validated-hashed-and-persisted",
-    "referenceCropCount": 66,
-    "referenceManualCropCount": 12,
-    "referenceGridDerivedCropCount": 54,
-    "referenceCropSourceGroups": 9,
     "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
   },
   "dataLayerPolicy": {
-    "dataDirectory": "Consumable machine-readable release data and model-facing metadata.",
-    "datasetDirectory": "Source acquisition, provenance, permissions, schemas, registries, and research-control records.",
-    "typescriptSources": "The reviewed application catalog is canonical. The deterministic exporter materializes all 54 catalog profiles as standalone JSON plus aggregate JSON, JSONL and CSV, and regenerates the diagnostic index from that same catalog.",
-    "sourceErrata": "Known source errata are normalized at the catalog boundary so the app and downloadable release cannot disagree on corrected DOI or publication metadata.",
-    "referenceBinaries": "All 25 currently approved rights-cleared original references are persisted under images/reference/original with SHA-256, perceptual hash, dimensions, license, attribution and source provenance.",
-    "referenceCrops": "Sixty-six reference panel derivatives are persisted under images/reference/crops. Twelve were manually bounded and fifty-four were expanded from reviewed scientific grid geometry. Every crop retains parent/source-group linkage, hashes, diagnosis or treatment context and trainingEligible=false.",
-    "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate and coverage requirements."
+    "typescriptSources": "The reviewed application catalog is canonical. Generated JSON, JSONL, CSV and diagnostic index must be materialized from the same catalog used by the app.",
+    "sourceErrata": "Known source errata and taxonomy corrections are normalized before app use and export.",
+    "complexLabels": "Pythium, Fusarium and Sclerotinia remain syndrome/complex labels where visual evidence cannot reliably resolve species; new literature augments those profiles instead of creating false species-level image classes.",
+    "referenceBinaries": "Twenty-five rights-cleared original references and sixty-six source-grouped panel derivatives remain reference evidence, not supervised model ground truth.",
+    "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
-    "This 54-profile expansion is a release candidate until the full application tests/build, main-branch generated-data persistence, and independent clean-room verification pass.",
-    "The 91 source-controlled images remain a reference corpus, not a statistically sufficient supervised Cannabis training corpus.",
-    "No current sample is marked trainingEligible, so Cannabis-only train/validation/test/holdout splits remain intentionally empty and blocked.",
-    "Several new disease classes require culture, microscopy, molecular testing or analytical measurements for high-confidence confirmation; their photo-only confidence caps are deliberately conservative.",
-    "Copyright-restricted or rights-unknown institutional images remain excluded from the public training layer.",
-    "External plant-disease datasets are registered only for transfer learning and robustness work; they are not Cannabis ground truth."
+    "The 61-profile catalog is a release candidate until exporter, release validator, regression tests, source checks and production build pass.",
+    "Ninety-one reference images remain insufficient for a statistically defensible supervised Cannabis diagnosis model.",
+    "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
+    "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
+    "New insect profiles require organism evidence because feeding damage alone is generally not species-specific."
   ],
   "nextReleaseGate": {
     "completed": [
-      "expand authored diagnostic taxonomy from 35 to 54 evidence-backed profiles",
-      "fix application-versus-export source-normalization architecture",
-      "replace hand-maintained diagnostic index generation with deterministic catalog export",
-      "correct the rice-root-aphid DOI path and Septoria cannabicola DOI",
-      "represent downy mildew as an oomycete and root-knot nematodes as nematodes",
-      "correct the JSON Schema media type from strings to structured media records",
-      "measure candidate release at 54 profiles, 74 unique sources and 40 profile-linked media records",
-      "persist all 25 approved rights-cleared originals and 66 source-grouped panel crops"
+      "add seven additional evidence-backed pest/root-disease differentials",
+      "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
+      "remove obsolete fungal-bucket wording from downy mildew"
     ],
     "required": [
-      "pass the corrected regression test suite and production build",
-      "merge only after current PR gates are green",
-      "persist the generated 54-profile machine release on main",
-      "read back all 54 standalone profile files and regenerated index from main",
-      "run an independent clean-room verification against the merged 54-profile release",
-      "continue acquiring independent confirmed Cannabis photographs/videos, healthy controls and look-alike negatives"
+      "confirm actual source count and profile-linked media count from exporter",
+      "pass all PR release and application gates",
+      "persist generated 61-profile data on main",
+      "perform main read-back and independent clean-room verification",
+      "continue independent confirmed Cannabis image/video acquisition"
     ]
   }
 }

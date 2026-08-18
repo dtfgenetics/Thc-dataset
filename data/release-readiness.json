@@ -1,5 +1,5 @@
 {
-  "schemaVersion":"1.1.0",
+  "schemaVersion":"1.2.0",
   "purpose":"Coverage targets for turning the diagnostic taxonomy into a defensible Cannabis image/video dataset.",
   "globalTargets":{
     "minimumConfirmedCannabisImagesPerCoreClass":50,
@@ -69,6 +69,13 @@
     {"id":"bacterial-serratia-leaf-spot","priority":"P1","needs":["vein-limited lesion progression","bacterial ooze macros","culture/molecular confirmation"]},
     {"id":"fungal-southern-blight","priority":"P0","needs":["soil-line/crown progression","mycelium and sclerotia macros","Rhizoctonia/Fusarium/Pythium negatives"]},
     {"id":"root-rhizoctonia","priority":"P0","needs":["crown/lower-stem lesions","root images","hyphal/lab confirmation","southern-blight controls"]},
-    {"id":"nematode-root-knot","priority":"P1","needs":["washed-root gall images","female/egg-mass microscopy","molecularly identified Meloidogyne cases"]}
+    {"id":"nematode-root-knot","priority":"P1","needs":["washed-root gall images","female/egg-mass microscopy","molecularly identified Meloidogyne cases"]},
+    {"id":"insect-spotted-cucumber-beetle","priority":"P1","needs":["adult-on-hemp images","rootworm/root injury pairs","other chewing-beetle negatives"]},
+    {"id":"insect-tarnished-plant-bug","priority":"P1","needs":["adult/nymph-on-hemp images","terminal feeding progression","mite/herbicide negatives"]},
+    {"id":"insect-dectes-stem-borer","priority":"P1","needs":["split-stem gallery series","larva/adult identification","vascular-disease negatives"]},
+    {"id":"insect-cabbage-looper","priority":"P1","needs":["larva-plus-fresh-damage pairs","lower-leaf and bud feeding","armyworm negatives"]},
+    {"id":"insect-japanese-beetle","priority":"P1","needs":["adult aggregation on hemp","skeletonization progression","other defoliator negatives"]},
+    {"id":"insect-armyworm-complex","priority":"P1","needs":["identified larval series","leaf-to-bud feeding progression","looper/other noctuid negatives"]},
+    {"id":"root-white-root-rot","priority":"P1","needs":["white root mycelium and fan-like bark signs","lab-confirmed independent cases","southern-blight/Sclerotinia negatives"]}
   ]
 }

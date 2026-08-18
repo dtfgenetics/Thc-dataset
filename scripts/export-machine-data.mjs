@@ -8,18 +8,16 @@ const execFileAsync = promisify(execFile)
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
 // The application catalog is the single reviewed source boundary. This keeps
-// source errata, controlled IDs, category normalization and verified-media
-// enrichment identical between the UI and machine-readable release.
-//
-// TypeScript 7 removed the legacy `moduleResolution=node/node10` option. For a
-// CommonJS emit, the compiler now applies modern bundler-like resolution, so the
-// exporter deliberately does not force the removed legacy option.
+// source errata, controlled IDs, category normalization, evidence augmentation,
+// and verified-media enrichment identical between the UI and machine release.
+// TypeScript 7 removed legacy moduleResolution=node/node10; a CommonJS emit no
+// longer needs that removed option.
 
 const root = process.cwd()
 const outDir = path.join(root, 'data')
 const profilesDir = path.join(outDir, 'profiles')
 const tempDir = path.join(root, '.dataset-export-tmp')
-const minimumExpectedProfiles = 54
+const minimumExpectedProfiles = 61
 const requiredProfileFields = [
   'id', 'slug', 'name', 'category', 'severity', 'reviewStatus', 'summary',
   'affectedParts', 'stages', 'indicators', 'exclusions', 'progression',
@@ -188,7 +186,7 @@ try {
     schemaVersion: '2.0.0',
     status: 'generated-from-reviewed-catalog',
     recordCount: diagnosticIndexRecords.length,
-    description: 'Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata and category normalization are applied before export.',
+    description: 'Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata, evidence augmentation, and category normalization are applied before export.',
     records: diagnosticIndexRecords,
   }
 
@@ -196,7 +194,15 @@ try {
     schemaVersion: '2.0.0',
     deterministic: true,
     compiler: 'TypeScript 7-compatible tsc CommonJS emit; repository TypeScript validation runs independently',
-    sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts', 'src/data/expanded-issues-batch2.ts'],
+    sourceFiles: [
+      'src/data/catalog.ts',
+      'src/data/issues.ts',
+      'src/data/supplemental-issues.ts',
+      'src/data/expanded-issues.ts',
+      'src/data/expanded-issues-batch2.ts',
+      'src/data/expanded-issues-batch3.ts',
+      'src/data/evidence-augmentations.ts',
+    ],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
       supplementalDiagnosticProfiles: supplementalIssues.length,
@@ -218,7 +224,7 @@ try {
       trainingEligibleMedia: 'data/training-eligible-media.json',
     },
     safeguards: [
-      'The application catalog is the only export boundary; raw source modules cannot bypass catalog-level errata normalization.',
+      'The application catalog is the only export boundary; raw source modules cannot bypass catalog-level corrections or evidence augmentation.',
       'Generated output does not overwrite curated data/reference-media.json.',
       'Generated output does not overwrite curated data/manifest.json.',
       'Diagnostic index JSON and CSV are generated from the same profile set rather than maintained manually.',

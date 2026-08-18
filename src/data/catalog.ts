@@ -2,6 +2,8 @@ import { issues as rawCoreIssues } from './issues'
 import { supplementalIssues as rawSupplementalIssues } from './supplemental-issues'
 import { expandedIssues as rawExpandedIssues } from './expanded-issues'
 import { expandedIssuesBatch2 as rawExpandedIssuesBatch2 } from './expanded-issues-batch2'
+import { expandedIssuesBatch3 as rawExpandedIssuesBatch3 } from './expanded-issues-batch3'
+import { evidenceAugmentationsBySlug } from './evidence-augmentations'
 import { categoryOrder } from './categories'
 import { verifiedReferenceMediaBySlug } from './verified-reference-media'
 import { verifiedReferenceMediaBatch2BySlug } from './verified-reference-media-batch2'
@@ -67,6 +69,34 @@ const normalizeKnownErrata = (issue: IssueRecord): IssueRecord => {
   }
 }
 
+const applyEvidenceAugmentations = (issue: IssueRecord): IssueRecord => {
+  const augmentation = evidenceAugmentationsBySlug[issue.slug]
+  if (!augmentation) return issue
+
+  const byKey = new Map<string, SourceRecord>()
+  for (const source of [...issue.sources, ...augmentation.sources].map(normalizeSourceErrata)) {
+    const key = source.doi || source.url || `${source.title}|${source.organization}`
+    const previous = byKey.get(key)
+    if (!previous) {
+      byKey.set(key, source)
+      continue
+    }
+    byKey.set(key, {
+      ...previous,
+      ...source,
+      authors: [...new Set([...(previous.authors ?? []), ...(source.authors ?? [])])],
+      supportedClaims: [...new Set([...previous.supportedClaims, ...source.supportedClaims])],
+    })
+  }
+
+  return {
+    ...issue,
+    ...(augmentation.patch ?? {}),
+    sources: [...byKey.values()],
+    warnings: [...new Set([...issue.warnings, ...(augmentation.appendWarnings ?? [])])],
+  }
+}
+
 const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
   const verifiedMedia = [
     ...(verifiedReferenceMediaBySlug[issue.slug] ?? []),
@@ -83,10 +113,12 @@ const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
 export const coreIssues = rawCoreIssues
   .map(attachControlledCoreIds)
   .map(normalizeKnownErrata)
+  .map(applyEvidenceAugmentations)
   .map(enrichVerifiedReferenceMedia)
 
-export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues, ...rawExpandedIssuesBatch2]
+export const supplementalIssues = [...rawSupplementalIssues, ...rawExpandedIssues, ...rawExpandedIssuesBatch2, ...rawExpandedIssuesBatch3]
   .map(normalizeKnownErrata)
+  .map(applyEvidenceAugmentations)
   .map(enrichVerifiedReferenceMedia)
 
 export const issues = [...coreIssues, ...supplementalIssues]

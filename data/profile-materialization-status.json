@@ -1,14 +1,16 @@
 {
-  "schemaVersion": "2.1.0",
-  "status": "release-candidate-generated-and-validated",
-  "targetProfileCount": 54,
-  "materializedProfileCount": 54,
+  "schemaVersion": "2.2.0",
+  "status": "61-profile-release-candidate-generated-and-validated",
+  "targetProfileCount": 61,
+  "materializedProfileCount": 61,
   "pendingProfileCount": 0,
   "canonicalSources": [
     {"path":"src/data/issues.ts","profileCount":29},
     {"path":"src/data/supplemental-issues.ts","profileCount":6},
     {"path":"src/data/expanded-issues.ts","profileCount":13},
-    {"path":"src/data/expanded-issues-batch2.ts","profileCount":6}
+    {"path":"src/data/expanded-issues-batch2.ts","profileCount":6},
+    {"path":"src/data/expanded-issues-batch3.ts","profileCount":7},
+    {"path":"src/data/evidence-augmentations.ts","profileCount":0,"role":"additional evidence for existing complex profiles"}
   ],
   "generatedRelease": {
     "profileIndex": "data/profiles/index.json",
@@ -19,39 +21,52 @@
     "exportManifest": "data/export-manifest.json"
   },
   "measuredCandidateCounts": {
-    "diagnosticProfiles": 54,
-    "uniqueEvidenceSources": 74,
+    "diagnosticProfiles": 61,
+    "coreProfiles": 29,
+    "supplementalAndExpandedProfiles": 32,
+    "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
     "trainingEligibleMedia": 0
   },
   "verification": [
     {
       "pass": 1,
-      "method": "Pull-request deterministic exporter from reviewed src/data/catalog.ts followed immediately by scripts/validate-data-release.mjs",
+      "method": "Pull-request exporter plus independent regenerated-release validator plus full application/source/test/build suite",
       "result": "passed",
-      "details": "29 core plus 25 supplemental/expanded records materialized to 54 standalone profiles; generated release validation passed with 74 unique evidence sources and 40 profile-linked media records."
+      "details": "The reviewed catalog materialized 61 unique profiles, 84 unique evidence sources, and 40 profile-linked media records. Export validation, source/acquisition/transfer validation, TypeScript checks, regression tests, crop geometry validation, and production build all passed."
     },
     {
       "pass": 2,
       "method": "Main-branch read-back after merge and generated-data commit",
       "result": "pending",
-      "details": "Will verify persisted index/profile/source/media counts from main rather than PR workspace output."
+      "details": "Will verify the committed main index, standalone profile count, evidence-source count, media count, representative corrected profiles, and blocked training gate."
     },
     {
       "pass": 3,
       "method": "Independent clean-room PR against the merged generated release",
       "result": "pending",
-      "details": "Will rerun release validation, regression tests, source/acquisition/transfer checks and production build without changing production data."
+      "details": "Will rerun regenerated release validation and the full application/source/test/build suite without merging the verification marker."
     }
   ],
   "accuracyCorrections": [
-    "Machine exporter now reads the reviewed application catalog rather than bypassing catalog-level source corrections.",
-    "Diagnostic index is regenerated from the exact same 54-profile catalog instead of being maintained as a stale bootstrap list.",
-    "Rice root aphid DOI normalization is shared by app and export.",
-    "Septoria cannabicola DOI corrected to 10.47371/mycosci.2023.1.004.",
-    "Downy mildew is categorized as an oomycete and root-knot nematodes as nematodes.",
-    "Molybdenum low-status record explicitly blocks confident image-only deficiency diagnosis because the controlled Cannabis study produced no visual phenotype during the experiment.",
-    "Issue JSON Schema media field now matches structured MediaRecord objects used by the application and release."
+    "Machine exporter reads the reviewed application catalog rather than bypassing catalog-level source corrections and evidence augmentations.",
+    "Diagnostic index is regenerated from the exact same catalog instead of being manually maintained.",
+    "Rice root aphid and Septoria cannabicola source metadata are normalized before both app use and export.",
+    "Downy mildew is represented consistently as an oomycete; root-knot nematodes are represented as nematodes.",
+    "Molybdenum low-status is an explicit analytical abstention class rather than a fabricated visual deficiency phenotype.",
+    "Fusarium foliar/flower/head blight remains separate from Fusarium root/crown disease.",
+    "Pythium, Fusarium, and Sclerotinia receive newer species-level evidence without creating visually unjustified species classifiers.",
+    "Issue JSON Schema media field matches structured MediaRecord objects used by the application and release.",
+    "Exporter and release-validator workflows regenerate current catalog output before validation and watch all src/data modules."
+  ],
+  "coverageExpansion": [
+    "spotted cucumber beetle feeding injury",
+    "tarnished plant bug feeding injury",
+    "Dectes stem-borer injury",
+    "cabbage looper feeding injury",
+    "Japanese beetle feeding injury",
+    "armyworm caterpillar feeding complex",
+    "Dematophora/Rosellinia white root rot"
   ],
   "pending": ["main read-back verification", "independent clean-room verification"]
 }
