@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import json
-import os
 import shutil
 from pathlib import Path
 
@@ -26,7 +25,7 @@ NUTRIENT = (
 )
 PEST = ("mite", "aphid", "thrip", "whitefly", "caterpillar", "earworm", "leafhopper", "lygus", "stink", "beetle", "gnat", "arthropod")
 PATHOGEN = ("fusarium", "botrytis", "powdery", "mildew", "pythium", "septoria", "cercospora", "curvularia", "bipolaris", "rust", "sclerot", "diaporthe", "xanthomon", "damping", "rot", "mold", "pathogen")
-VIRUS = ("hlvd", "viroid", "virus", "bctv", "curly-top", "mosaic")
+VIRUS = ("hlvd", "viroid", "virus", "bctv", "curly-top", "curly top", "mosaic")
 SEX = ("sex", "male", "female", "intersex", "hermaph", "flower-morph", "reproductive")
 HEALTHY = ("healthy", "senescence", "varieg", "reveget", "foxtail", "fasciat", "polyploid", "development", "trichome", "maturity", "normal")
 ABIOTIC = ("light", "heat", "cold", "drought", "waterlog", "underwater", "overwater", "wind", "edema", "phytotoxic", "herbicide", "mechanical", "vpd", "environment")
@@ -34,21 +33,32 @@ ABIOTIC = ("light", "heat", "cold", "drought", "waterlog", "underwater", "overwa
 
 def text_blob(record):
     vals = [
-        record.get("issue_slug", ""), record.get("diagnostic_label", ""), record.get("caption", ""),
-        record.get("host_context", ""), record.get("host_species", ""), record.get("stage", "")
+        record.get("id", ""), record.get("issue_slug", ""), record.get("diagnostic_label", ""),
+        record.get("caption", ""), record.get("host_context", ""), record.get("host_species", ""),
+        record.get("stage", ""), record.get("source_article", "")
     ]
     return " ".join(str(v).lower() for v in vals)
 
 
 def classify(record):
     blob = text_blob(record)
-    host = str(record.get("host_context", "")).lower()
-    species = str(record.get("host_species", "")).lower()
+    host = str(record.get("host_context", "")).lower().strip()
+    species = str(record.get("host_species", "")).lower().strip()
 
-    if "cross-crop" in host or ("cannabis" not in host and "cannabis" not in species and host not in {"", "organism-only"}):
+    # Cannabis/hemp identity is inferred from the complete provenance record, not only optional host fields.
+    # This matters for explicit scientific candidates that predate host_context/host_species fields.
+    cannabis_domain = any(term in blob for term in ("cannabis", "hemp"))
+
+    if "cross-crop" in host:
         return "CROSS_CROP_TRANSFER"
-    if host == "organism-only" or ("cannabis" not in host and "cannabis" not in species):
+    if host == "organism-only":
         return "EXPERT_ITEM_GATED"
+    if not cannabis_domain:
+        # Known non-Cannabis host records are transfer data; metadata-poor unknowns remain expert-gated.
+        if host or species:
+            return "CROSS_CROP_TRANSFER"
+        return "EXPERT_ITEM_GATED"
+
     if any(k in blob for k in VIRUS):
         return "04_VIRUS_VIROID_MOLECULAR"
     if any(k in blob for k in SEX):
@@ -78,6 +88,10 @@ def main():
 
     for rec in records:
         lane = classify(rec)
+        blob = text_blob(rec)
+        if lane == "CROSS_CROP_TRANSFER" and any(term in blob for term in ("cannabis", "hemp")):
+            raise SystemExit(f"Cannabis/hemp reference misrouted to cross-crop lane: {rec.get('id')}")
+
         src = ROOT / rec["repository_path"]
         if not src.exists():
             missing.append(rec["repository_path"])
@@ -96,9 +110,9 @@ def main():
         raise SystemExit("Missing persisted reference files: " + ", ".join(missing))
 
     summary = {
-        "schemaVersion": "1.0.0",
+        "schemaVersion": "1.1.0",
         "sourceManifest": str(MANIFEST.relative_to(ROOT)),
-        "policy": "Storage routing does not promote reference-only media to training ground truth. Cannabis-host confirmation, item rights, panel review, source grouping and leakage-safe split assignment remain separate gates.",
+        "policy": "Storage routing does not promote reference-only media to training ground truth. Cannabis/hemp references are recognized from complete provenance text when legacy records lack explicit host fields. Item rights, panel review, source grouping and leakage-safe split assignment remain separate gates.",
         "lanes": {},
     }
 
