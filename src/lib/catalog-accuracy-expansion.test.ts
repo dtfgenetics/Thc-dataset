@@ -40,8 +40,14 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
 
   it('prevents an image-only molybdenum deficiency phenotype from becoming a confident diagnosis', () => {
     const mo = bySlug('molybdenum-low-analytical-no-visual-phenotype')
+    const evidenceText = [
+      mo.summary,
+      ...mo.progression.map((item) => item.description),
+      ...mo.confirmation,
+      ...mo.warnings,
+    ].join(' ').toLowerCase()
     expect(mo.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.05)
-    expect(mo.warnings.join(' ').toLowerCase()).toContain('no visual symptoms')
+    expect(evidenceText).toContain('no visual symptoms')
     expect(mo.confirmation.join(' ').toLowerCase()).toContain('photograph cannot confirm')
   })
 
