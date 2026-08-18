@@ -48,11 +48,24 @@ const normalizeSourceErrata = (source: SourceRecord): SourceRecord => {
   return source
 }
 
-const normalizeKnownErrata = (issue: IssueRecord): IssueRecord => ({
-  ...issue,
-  category: issue.slug === 'downy-mildew-pseudoperonospora' ? 'Oomycete pathogen' : issue.category,
-  sources: issue.sources.map(normalizeSourceErrata),
-})
+const normalizeKnownErrata = (issue: IssueRecord): IssueRecord => {
+  if (issue.slug === 'downy-mildew-pseudoperonospora') {
+    return {
+      ...issue,
+      category: 'Oomycete pathogen',
+      summary: 'A foliar oomycete disease of Cannabis. Angular chlorotic-to-brown lesions and dark underside sporulation are stronger clues than top-surface discoloration alone.',
+      warnings: issue.warnings.map((warning) => warning.includes('temporary UI grouping')
+        ? 'Pseudoperonospora is an oomycete, not a true fungus; disease-management and diagnostic interpretation should preserve that distinction.'
+        : warning),
+      sources: issue.sources.map(normalizeSourceErrata),
+    }
+  }
+
+  return {
+    ...issue,
+    sources: issue.sources.map(normalizeSourceErrata),
+  }
+}
 
 const enrichVerifiedReferenceMedia = (issue: IssueRecord): IssueRecord => {
   const verifiedMedia = [
