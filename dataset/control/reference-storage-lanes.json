@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "1.1.0",
+  "asOf": "2026-08-17",
+  "authority": {
+    "editableSourceOfTruth": "Google Drive controlled registry and reference workspace",
+    "githubRole": "Versioned code/schema/audit snapshot and persisted reference binary mirror",
+    "referenceWorkspaceFolderId": "1jq5fesypNbiBgnSLeDKqOVkKTttRSueL",
+    "cannabisConfirmedParentFolderId": "12XWWPBhGLVddrjAEg0OJm9WJ3Bqd8RUd",
+    "expertItemGatedFolderId": "1VWezS96TGQiEi6QhEvb5szTbbLDLqB2z",
+    "crossCropTransferFolderId": "1I4TIgUBvZWL5BD34gja3vOSiiywbzPvI",
+    "datasetManifestFolderId": "13GjZUttGQnD7ln12cx2LPAtFEyoZ5hZd"
+  },
+  "routingPolicy": {
+    "cannabisConfirmed": "Only Cannabis/hemp-host evidence with appropriate scientific confirmation and item rights belongs in Cannabis-confirmed reference lanes.",
+    "legacyHostInference": "Some verified scientific candidates predate explicit host_context/host_species fields. Cannabis/hemp identity is inferred from the complete provenance record and is guarded by a CI assertion that forbids Cannabis/hemp records in the cross-crop lane.",
+    "expertItemGated": "Organism-only or expert images without Cannabis-host symptom ground truth stay item-gated and may support recognition/differentials only.",
+    "crossCropTransfer": "Non-Cannabis plant imagery is transfer evidence only and must never silently become Cannabis causal ground truth.",
+    "training": "All current persisted scientific reference binaries remain trainingEligible=false until panel/object review, source grouping, deduplication and leakage-safe split assignment are separately approved.",
+    "virusViroid": "HLVd/BCTV visual references remain molecularly bounded; persisted figures are reference evidence and never authorize definitive image-only etiologic diagnosis."
+  },
+  "lanes": [
+    {"lane":"01_NUTRIENT_AND_ROOTZONE","driveFolderId":"1NoX6gYRctyV7H1k2Aq4YyiMtfVXe6gwU","recordCount":6,"bundleDriveFileId":"1Wtk6A5UgQInAi_rry4nLyJSXpgAzMXDe","bundleName":"01_NUTRIENT_AND_ROOTZONE_2026-08-17.zip"},
+    {"lane":"02_PESTS_AND_ARTHROPODS","driveFolderId":"184t2G6PDUUtEJFUUQUB4qqURF7as4t7q","recordCount":6,"bundleDriveFileId":"1CNEdBvU0Z1ua6HJLa11je5QDu7wGx1JZ","bundleName":"02_PESTS_AND_ARTHROPODS_2026-08-17.zip"},
+    {"lane":"03_PATHOGENS_AND_DISEASE","driveFolderId":"1D31hFZj14My_JdLRpzaJd40u75rK12sm","recordCount":7,"bundleDriveFileId":"1AWMd_h10HzrO2JkuSjCsJuQTrFEJ7Pzr","bundleName":"03_PATHOGENS_AND_DISEASE_2026-08-17.zip"},
+    {"lane":"04_VIRUS_VIROID_MOLECULAR","driveFolderId":"1I-bGiPmYFgVdU4Ut8fivLnd_pI8lURDN","recordCount":2,"bundleDriveFileId":"1oGCmSSlUVPYlJQ-knKUbhuhuURyZqedt","bundleName":"04_VIRUS_VIROID_MOLECULAR_2026-08-17.zip","diagnosticCeiling":"Molecular confirmation remains required for etiologic confirmation."},
+    {"lane":"05_SEX_REPRODUCTIVE_MORPHOLOGY","driveFolderId":"1kCqcY_PLigK00I0wSeJyjYS8UqPucMy5","recordCount":1,"bundleDriveFileId":"17Nj9NGBxvQXgUrvclgdMy6pXKtCU4SaV","bundleName":"05_SEX_REPRODUCTIVE_MORPHOLOGY_2026-08-17.zip"},
+    {"lane":"06_HEALTHY_DEVELOPMENTAL_HARD_NEGATIVES","driveFolderId":"1TvqWHq7grqIu651t5N5uirYvadpETKV2","recordCount":1,"bundleDriveFileId":"1Al6-TeYSBjh8AuTNmaYxKF63lyAzCiCW","bundleName":"06_HEALTHY_DEVELOPMENTAL_HARD_NEGATIVES_2026-08-17.zip"},
+    {"lane":"07_ABIOTIC_ENVIRONMENTAL_STRESS","driveFolderId":"1cnaZxslVBFPglRJKfc0_Z73dXMP6pMzi","recordCount":1,"bundleDriveFileId":"1nANBB8cG-wCDpd1p03jMakZHJ6ZbpwtL","bundleName":"07_ABIOTIC_ENVIRONMENTAL_STRESS_2026-08-17.zip"},
+    {"lane":"EXPERT_ITEM_GATED","driveFolderId":"1VWezS96TGQiEi6QhEvb5szTbbLDLqB2z","recordCount":1,"bundleDriveFileId":"1zb_0a7gOGVAP7WwIYDdxtlkdhbYgvr3x","bundleName":"EXPERT_ITEM_GATED_2026-08-17.zip"},
+    {"lane":"CROSS_CROP_TRANSFER","driveFolderId":"1I4TIgUBvZWL5BD34gja3vOSiiywbzPvI","recordCount":0,"bundleDriveFileId":"12zkJVG7sB4DwrVa46r2TQ2rNwkuAoFLR","bundleName":"CROSS_CROP_TRANSFER_EMPTY_CURRENT_2026-08-17.zip"}
+  ],
+  "routingSummary": {
+    "totalPersistedReferenceRecords": 25,
+    "cannabisConfirmedPersistedRecords": 24,
+    "expertItemGatedRecords": 1,
+    "crossCropTransferRecords": 0,
+    "virusViroidPersistedRecords": 2,
+    "routingSummaryDriveFileId": "1unZl32uIOSdyJewdQIHoXLnGJUSlrjvW",
+    "githubWorkflowRunId": 32093046020,
+    "githubRoutingCommit": "6e700922c04defdb045198f8c781e8ba6d12a388",
+    "verifiedLaneCounts": {"nutrientRootzone":6,"pestsArthropods":6,"pathogensDisease":7,"virusViroidMolecular":2,"sexReproductive":1,"healthyDevelopmental":1,"abioticEnvironmental":1,"expertItemGated":1,"crossCropTransfer":0}
+  }
+}
