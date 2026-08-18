@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.9.0",
-  "releaseStatus": "61-profile-release-verified-two-passes",
+  "schemaVersion": "3.0.0",
+  "releaseStatus": "61-profile-release-triple-verified",
   "diagnosticProfileCount": 61,
   "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -62,7 +62,7 @@
     "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
     "trainingEligibleMedia": 0,
-    "status": "confirmed by pull-request exporter and persisted main-branch read-back"
+    "status": "confirmed independently by PR export, main read-back, and clean-room revalidation"
   },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
@@ -83,40 +83,44 @@
   "verificationStatus": {
     "previous54ProfileRelease": "PR-export-validated-and-main-persisted",
     "coverageExpansionPassesRequired": 3,
-    "coverageExpansionPassesCompleted": 2,
-    "coverageExpansionResult": "pr-validation-and-main-readback-passed",
+    "coverageExpansionPassesCompleted": 3,
+    "coverageExpansionResult": "triple-verified",
+    "cleanRoomVerificationPullRequest": 26,
+    "cleanRoomVerificationMerged": false,
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
     "referenceCropResult": "66-crops-validated-hashed-and-persisted",
     "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
   },
   "dataLayerPolicy": {
-    "typescriptSources": "The reviewed application catalog is canonical. Generated JSON, JSONL, CSV and diagnostic index must be materialized from the same catalog used by the app.",
+    "typescriptSources": "The reviewed application catalog is canonical. Generated JSON, JSONL, CSV and diagnostic index are materialized from the same catalog used by the app.",
     "sourceErrata": "Known source errata and taxonomy corrections are normalized before app use and export.",
     "complexLabels": "Pythium, Fusarium and Sclerotinia remain syndrome/complex labels where visual evidence cannot reliably resolve species; new literature augments those profiles instead of creating false species-level image classes.",
     "referenceBinaries": "Twenty-five rights-cleared original references and sixty-six source-grouped panel derivatives remain reference evidence, not supervised model ground truth.",
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
-    "The 61-profile catalog has passed pull-request validation and permanent main-branch read-back; one independent clean-room verification remains before final release status.",
-    "Ninety-one reference images remain insufficient for a statistically defensible supervised Cannabis diagnosis model.",
+    "The 61-profile diagnostic knowledge release is triple-verified, but the image corpus is still not statistically sufficient for supervised Cannabis diagnosis training.",
+    "Ninety-one source-controlled reference images are evidence/context images, not 91 independent training samples; many are related scientific panels and must stay source-grouped.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
     "New insect profiles require organism evidence because feeding damage alone is generally not species-specific."
   ],
   "nextReleaseGate": {
     "completed": [
+      "expand diagnostic taxonomy to 61 evidence-backed profiles",
+      "increase normalized evidence base to 84 unique sources",
       "add seven additional evidence-backed pest/root-disease differentials",
       "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
       "remove obsolete fungal-bucket wording from downy mildew",
-      "confirm 61 profiles, 84 unique sources and 40 profile-linked media in pull-request exporter",
-      "pass all pull-request release and application gates",
       "persist and read back generated 61-profile data from main",
       "align model-training and split metadata with the 61-profile release",
-      "add cross-file release metadata consistency validation"
+      "add cross-file release metadata consistency validation",
+      "complete three independent verification passes including clean-room PR #26"
     ],
     "required": [
-      "perform independent clean-room verification",
-      "continue independent confirmed Cannabis image/video acquisition"
+      "continue independent confirmed Cannabis image/video acquisition",
+      "add healthy controls and hard look-alike negatives across cultivars and stages",
+      "promote samples to trainingEligible only after rights, confirmation, duplicate, source-group, and human-review gates pass"
     ]
   }
 }
