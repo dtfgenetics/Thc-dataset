@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.8.0",
-  "releaseStatus": "61-profile-main-persistence-trigger",
+  "schemaVersion": "2.9.0",
+  "releaseStatus": "61-profile-release-verified-two-passes",
   "diagnosticProfileCount": 61,
   "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -55,14 +55,14 @@
     {"path": "src/data/expanded-issues-batch3.ts", "profileCount": 7},
     {"path": "src/data/evidence-augmentations.ts", "profileCount": 0, "role": "additional reviewed evidence for existing complex profiles"}
   ],
-  "measuredCandidateCounts": {
+  "measuredReleaseCounts": {
     "diagnosticProfiles": 61,
     "coreProfiles": 29,
     "supplementalAndExpandedProfiles": 32,
     "uniqueEvidenceSources": 84,
     "profileLinkedMedia": 40,
     "trainingEligibleMedia": 0,
-    "status": "confirmed by successful pull-request exporter and regenerated release validator"
+    "status": "confirmed by pull-request exporter and persisted main-branch read-back"
   },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
@@ -74,6 +74,7 @@
   "tooling": {
     "exporter": "scripts/export-machine-data.mjs",
     "validator": "scripts/validate-data-release.mjs",
+    "metadataValidator": "scripts/validate-release-metadata.mjs",
     "validateCommand": "npm run validate:data-release",
     "referenceCropBuilder": "scripts/build-reference-crops.py",
     "profileWorkflow": ".github/workflows/export-machine-data.yml",
@@ -82,8 +83,8 @@
   "verificationStatus": {
     "previous54ProfileRelease": "PR-export-validated-and-main-persisted",
     "coverageExpansionPassesRequired": 3,
-    "coverageExpansionPassesCompleted": 1,
-    "coverageExpansionResult": "pull-request-export-release-validation-and-full-app-suite-passed",
+    "coverageExpansionPassesCompleted": 2,
+    "coverageExpansionResult": "pr-validation-and-main-readback-passed",
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
     "referenceCropResult": "66-crops-validated-hashed-and-persisted",
     "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
@@ -96,7 +97,7 @@
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
-    "The 61-profile catalog passed pull-request export, regenerated release validation, source/acquisition/transfer validation, TypeScript checks, regression tests, crop-geometry validation, and production build; main generated-data read-back is still required before release-final status.",
+    "The 61-profile catalog has passed pull-request validation and permanent main-branch read-back; one independent clean-room verification remains before final release status.",
     "Ninety-one reference images remain insufficient for a statistically defensible supervised Cannabis diagnosis model.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
@@ -108,11 +109,12 @@
       "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
       "remove obsolete fungal-bucket wording from downy mildew",
       "confirm 61 profiles, 84 unique sources and 40 profile-linked media in pull-request exporter",
-      "pass all pull-request release and application gates"
+      "pass all pull-request release and application gates",
+      "persist and read back generated 61-profile data from main",
+      "align model-training and split metadata with the 61-profile release",
+      "add cross-file release metadata consistency validation"
     ],
     "required": [
-      "persist generated 61-profile data on main",
-      "perform main read-back verification",
       "perform independent clean-room verification",
       "continue independent confirmed Cannabis image/video acquisition"
     ]
