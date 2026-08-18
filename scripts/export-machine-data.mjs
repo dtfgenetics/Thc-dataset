@@ -2,20 +2,20 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { execFile } from 'node:child_process'
 import { promisify } from 'node:util'
-import { pathToFileURL } from 'node:url'
+import { createRequire } from 'node:module'
 
 const execFileAsync = promisify(execFile)
 
 // Canonical deterministic exporter for machine-readable diagnostic release files.
-// The project TypeScript CLI performs source compilation. This avoids relying on
-// unstable runtime exports from the TypeScript package itself.
-// Generated files never overwrite manually reviewed reference-media.json or manifest.json.
+// The application catalog is the single reviewed source boundary. This keeps
+// source errata, controlled IDs, category normalization and verified-media
+// enrichment identical between the UI and machine-readable release.
 
 const root = process.cwd()
 const outDir = path.join(root, 'data')
 const profilesDir = path.join(outDir, 'profiles')
 const tempDir = path.join(root, '.dataset-export-tmp')
-const minimumExpectedProfiles = 35
+const minimumExpectedProfiles = 48
 const requiredProfileFields = [
   'id', 'slug', 'name', 'category', 'severity', 'reviewStatus', 'summary',
   'affectedParts', 'stages', 'indicators', 'exclusions', 'progression',
@@ -27,15 +27,14 @@ await fs.mkdir(outDir, { recursive: true })
 await fs.rm(tempDir, { recursive: true, force: true })
 await fs.mkdir(tempDir, { recursive: true })
 
-async function compileCanonicalSources() {
+async function compileCanonicalCatalog() {
   const args = [
     '--no-install', 'tsc',
     '--ignoreConfig',
-    'src/data/issues.ts',
-    'src/data/supplemental-issues.ts',
+    'src/data/catalog.ts',
     '--target', 'ES2022',
-    '--module', 'ES2022',
-    '--moduleResolution', 'Bundler',
+    '--module', 'CommonJS',
+    '--moduleResolution', 'Node',
     '--rootDir', 'src',
     '--outDir', tempDir,
     '--skipLibCheck',
@@ -44,11 +43,7 @@ async function compileCanonicalSources() {
     '--noEmitOnError', 'true',
   ]
   await execFileAsync('npx', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
-}
-
-async function loadCompiledModule(relativePath) {
-  const compiledPath = path.join(tempDir, relativePath)
-  return import(`${pathToFileURL(compiledPath).href}?v=${Date.now()}`)
+  await fs.writeFile(path.join(tempDir, 'package.json'), '{"type":"commonjs"}\n', 'utf8')
 }
 
 function stableJson(value) {
@@ -64,13 +59,37 @@ function canonicalKey(value) {
   return JSON.stringify(value)
 }
 
-try {
-  await compileCanonicalSources()
-  const mainModule = await loadCompiledModule('data/issues.js')
-  const supplementalModule = await loadCompiledModule('data/supplemental-issues.js')
+function uniqueStrings(values = []) {
+  return [...new Set(values.filter(Boolean))]
+}
 
-  const primaryIssues = Array.isArray(mainModule.issues) ? mainModule.issues : []
-  const supplementalIssues = Array.isArray(supplementalModule.supplementalIssues) ? supplementalModule.supplementalIssues : []
+function mergeSourceRecords(previous, incoming, key) {
+  if (!previous) return incoming
+
+  for (const field of ['title', 'url', 'doi', 'organization', 'publisher', 'publicationDate', 'year']) {
+    const a = previous[field]
+    const b = incoming[field]
+    if (a != null && b != null && a !== b) {
+      throw new Error(`Conflicting source metadata for ${key}: ${field} differs (${a} vs ${b})`)
+    }
+  }
+
+  return {
+    ...previous,
+    ...Object.fromEntries(Object.entries(incoming).filter(([, value]) => value != null)),
+    accessedDate: [previous.accessedDate, incoming.accessedDate].filter(Boolean).sort().at(-1),
+    authors: uniqueStrings([...(previous.authors ?? []), ...(incoming.authors ?? [])]),
+    supportedClaims: uniqueStrings([...(previous.supportedClaims ?? []), ...(incoming.supportedClaims ?? [])]),
+  }
+}
+
+try {
+  await compileCanonicalCatalog()
+  const requireFromTemp = createRequire(path.join(tempDir, 'package.json'))
+  const catalog = requireFromTemp(path.join(tempDir, 'data', 'catalog.js'))
+
+  const primaryIssues = Array.isArray(catalog.coreIssues) ? catalog.coreIssues : []
+  const supplementalIssues = Array.isArray(catalog.supplementalIssues) ? catalog.supplementalIssues : []
   const diagnosticProfiles = [...primaryIssues, ...supplementalIssues]
     .sort((a, b) => String(a.id).localeCompare(String(b.id)))
 
@@ -90,6 +109,7 @@ try {
     for (const field of ['affectedParts','stages','indicators','exclusions','progression','lookAlikes','confirmation','immediateActions','correctivePlan','prevention','warnings','sources','media']) {
       if (!Array.isArray(profile[field])) throw new Error(`${profile.id}: ${field} must be an array`)
     }
+    if (!profile.sources.length) throw new Error(`${profile.id}: reviewed profile has no evidence source`)
   }
 
   const sourceMap = new Map()
@@ -97,9 +117,7 @@ try {
   for (const issue of diagnosticProfiles) {
     for (const source of issue.sources ?? []) {
       const key = source.doi || source.url || `${source.title}|${source.organization || ''}`
-      const previous = sourceMap.get(key)
-      if (previous && canonicalKey(previous) !== canonicalKey(source)) throw new Error(`Conflicting source metadata for ${key}`)
-      if (!previous) sourceMap.set(key, source)
+      sourceMap.set(key, mergeSourceRecords(sourceMap.get(key), source, key))
     }
 
     for (const media of issue.media ?? []) {
@@ -115,6 +133,7 @@ try {
   const profileReferenceMedia = [...mediaMap.values()].sort((a, b) => String(a.id).localeCompare(String(b.id)))
   const trainingEligibleMedia = profileReferenceMedia.filter((item) => item.trainingEligible === true && item.trainingPermission === 'permitted')
 
+  const coreIds = new Set(primaryIssues.map((item) => item.id))
   const profileIndex = diagnosticProfiles.map((profile) => ({
     id: profile.id,
     slug: profile.slug,
@@ -124,6 +143,19 @@ try {
     reviewStatus: profile.reviewStatus,
     sourceCount: profile.sources.length,
     mediaCount: profile.media.length,
+    path: `data/profiles/${profile.id}.json`,
+  }))
+
+  const diagnosticIndexRecords = diagnosticProfiles.map((profile) => ({
+    id: profile.id,
+    slug: profile.slug,
+    name: profile.name,
+    category: profile.category,
+    severity: profile.severity,
+    reviewStatus: profile.reviewStatus,
+    recordType: 'diagnostic-profile',
+    sourceLayer: coreIds.has(profile.id) ? 'core' : 'supplemental',
+    sourceFile: 'src/data/catalog.ts',
     path: `data/profiles/${profile.id}.json`,
   }))
 
@@ -140,16 +172,27 @@ try {
     return csvHeaders.map((key) => csvCell(row[key])).join(',')
   })
 
+  const indexCsvHeaders = ['id','slug','name','category','severity','reviewStatus','sourceLayer','recordType','path']
+  const indexCsvRows = diagnosticIndexRecords.map((record) => indexCsvHeaders.map((key) => csvCell(record[key])).join(','))
+
   await fs.rm(profilesDir, { recursive: true, force: true })
   await fs.mkdir(profilesDir, { recursive: true })
   for (const profile of diagnosticProfiles) await fs.writeFile(path.join(profilesDir, `${profile.id}.json`), stableJson(profile), 'utf8')
-  await fs.writeFile(path.join(profilesDir, 'index.json'), stableJson({ schemaVersion: '1.0.0', recordCount: profileIndex.length, records: profileIndex }), 'utf8')
+  await fs.writeFile(path.join(profilesDir, 'index.json'), stableJson({ schemaVersion: '1.1.0', recordCount: profileIndex.length, records: profileIndex }), 'utf8')
+
+  const diagnosticIndex = {
+    schemaVersion: '2.0.0',
+    status: 'generated-from-reviewed-catalog',
+    recordCount: diagnosticIndexRecords.length,
+    description: 'Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata and category normalization are applied before export.',
+    records: diagnosticIndexRecords,
+  }
 
   const exportManifest = {
-    schemaVersion: '2.0.0',
+    schemaVersion: '2.1.0',
     deterministic: true,
-    compiler: 'project tsc CLI',
-    sourceFiles: ['src/data/issues.ts', 'src/data/supplemental-issues.ts'],
+    compiler: 'project tsc CLI / CommonJS temporary catalog build',
+    sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts'],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
       supplementalDiagnosticProfiles: supplementalIssues.length,
@@ -159,6 +202,8 @@ try {
       trainingEligibleMedia: trainingEligibleMedia.length,
     },
     files: {
+      diagnosticIndex: 'data/diagnostic-index.json',
+      diagnosticIndexCsv: 'data/diagnostic-index.csv',
       diagnosticProfiles: 'data/diagnostic-profiles.json',
       diagnosticProfilesJsonl: 'data/diagnostic-profiles.jsonl',
       diagnosticProfilesCsv: 'data/diagnostic-profiles.csv',
@@ -169,15 +214,20 @@ try {
       trainingEligibleMedia: 'data/training-eligible-media.json',
     },
     safeguards: [
+      'The application catalog is the only export boundary; raw source modules cannot bypass catalog-level errata normalization.',
       'Generated output does not overwrite curated data/reference-media.json.',
       'Generated output does not overwrite curated data/manifest.json.',
+      'Diagnostic index JSON and CSV are generated from the same profile set rather than maintained manually.',
       'Duplicate profile ids and slugs fail closed.',
-      'Conflicting duplicate source or media metadata fails closed.',
-      'A partial export below the established 35-profile baseline fails closed.',
+      'Duplicate evidence sources are merged only when identity metadata agrees; claim and author lists are unioned deterministically.',
+      'Conflicting duplicate media metadata fails closed.',
+      `A partial export below the established ${minimumExpectedProfiles}-profile baseline fails closed.`,
     ],
   }
 
   await Promise.all([
+    fs.writeFile(path.join(outDir, 'diagnostic-index.json'), stableJson(diagnosticIndex)),
+    fs.writeFile(path.join(outDir, 'diagnostic-index.csv'), `${indexCsvHeaders.map(csvCell).join(',')}\n${indexCsvRows.join('\n')}\n`),
     fs.writeFile(path.join(outDir, 'diagnostic-profiles.json'), stableJson(diagnosticProfiles)),
     fs.writeFile(path.join(outDir, 'diagnostic-profiles.jsonl'), `${diagnosticProfiles.map((item) => JSON.stringify(item)).join('\n')}\n`),
     fs.writeFile(path.join(outDir, 'diagnostic-profiles.csv'), `${csvHeaders.map(csvCell).join(',')}\n${csvRows.join('\n')}\n`),
