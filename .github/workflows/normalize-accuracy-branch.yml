@@ -1,0 +1,48 @@
+name: Normalize accuracy expansion branch
+
+on:
+  push:
+    branches: [accuracy-expansion-2026-08-17]
+    paths:
+      - '.github/workflows/normalize-accuracy-branch.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: accuracy-expansion-2026-08-17
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply deterministic corrections
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          p = Path('src/data/expanded-issues.ts')
+          text = p.read_text()
+          text = text.replace('10.47371/mycosci.2024.03.001', '10.47371/mycosci.2023.1.004')
+          text = text.replace("organization: 'Applied Sciences',", "organization: 'Applied Sciences (Cockson et al.)',", 1)
+          text = text.replace("name: 'Downy mildew', scientificName: 'Pseudoperonospora cannabina', category: 'Fungal pathogen'", "name: 'Downy mildew', scientificName: 'Pseudoperonospora cannabina', category: 'Oomycete pathogen'")
+          p.write_text(text)
+
+          p = Path('scripts/export-machine-data.mjs')
+          text = p.read_text()
+          text = text.replace('const minimumExpectedProfiles = 48', 'const minimumExpectedProfiles = 54')
+          text = text.replace("schemaVersion: '2.1.0',", "schemaVersion: '2.0.0',")
+          text = text.replace("'src/data/expanded-issues.ts']", "'src/data/expanded-issues.ts', 'src/data/expanded-issues-batch2.ts']")
+          p.write_text(text)
+          PY
+      - name: Commit normalized source
+        run: |
+          git add src/data/expanded-issues.ts scripts/export-machine-data.mjs
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Normalize verified source metadata and 54-profile exporter baseline'
+          git push origin accuracy-expansion-2026-08-17
