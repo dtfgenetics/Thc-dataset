@@ -1,0 +1,63 @@
+{
+  "audit_id": "AUD-036-037",
+  "date": "2026-08-17",
+  "authority": {
+    "editable_source_of_truth": "Google Drive controlled spreadsheets",
+    "registry_spreadsheet_id": "1-PK8twQQgFB60IbhKubVofEC4-6bqNoxgywW66S3q-k",
+    "confirmed_case_spreadsheet_id": "192u6YIvp0yC-s89ejj6pnVlbKyFRl2_HmD89KUbhEe4",
+    "acquisition_manifest_spreadsheet_id": "1YXKBRRH55NrslMinqAO5V_AMRQ61Td-3lAlgE-U9HHA",
+    "github_role": "versioned audit/code/schema snapshot only"
+  },
+  "status": "PASS_WITH_HISTORICAL_GAP",
+  "verified_repairs": [
+    {
+      "table": "Unified_Taxonomy",
+      "id": "CAN-HEALTH-002",
+      "change": "Added missing canonical healthy/normal-variation class normal_late_flower_senescence."
+    },
+    {
+      "table": "Coverage_Matrix",
+      "id": "COV-032",
+      "change": "Added dedicated normal_late_flower_senescence coverage record linked to CAM-018."
+    },
+    {
+      "table": "Hard_Differentials",
+      "id": "DIFF-011",
+      "change": "Normalized old alias normal_late_flower_fade to normal_late_flower_senescence."
+    },
+    {
+      "table": "Coverage_Matrix",
+      "id": "COV-033",
+      "change": "Replaced unrelated late-flower-fade next action with beneficial/non-pest arthropod collection action."
+    },
+    {
+      "table": "Collection_Campaigns",
+      "ids": ["CAM-031", "CAM-032", "CAM-033"],
+      "change": "Restored campaign definitions already referenced by active coverage records for beneficial arthropod hard negatives, mechanical injury, and molecularly grounded virus-like syndromes."
+    },
+    {
+      "table": "Hard_Differentials",
+      "ids": ["DIFF-021", "DIFF-022", "DIFF-023", "DIFF-024", "DIFF-025"],
+      "change": "Added evidence-grounded hard differentials for N-vs-S deficiency, rice-root-aphid-vs-fungus-gnat, light-stress-vs-iron-deficiency, phosphorus-deficiency-vs-leaf-spot, and intersex-vs-normal-female-flower structure."
+    }
+  ],
+  "historical_gap": {
+    "missing_ids": "CAM-019..030",
+    "finding": "Before repair, Collection_Campaigns contained only CAM-001..018. AUD-030 says campaigns 023-030 were added, but surviving spreadsheet revisions checked do not contain CAM-023 or CAM-030 and no exact historical row definitions were recoverable.",
+    "decision": "Do not reconstruct historical campaigns from guesses. Preserve the discrepancy as an audit gap and create/restore campaigns only from current controlled coverage requirements or a recovered archived source."
+  },
+  "remaining_primary_training_gaps": [
+    "Physically acquired, hashed and rights-cleared public cannabis reference-image objects remain the largest controlled asset gap.",
+    "Large real cannabis phone-image corpora remain weak for root disease, abiotic stress, pests, healthy controls and multi-label cases.",
+    "PCR/lab-paired HLVd and virus-like positive/negative/mixed cases remain required for etiologic validation.",
+    "Locked real-world cannabis benchmark population remains incomplete.",
+    "Same-plant diagnosis-to-intervention-to-recovery/failure temporal sequences remain sparse."
+  ],
+  "training_policy": [
+    "Publicly viewable media is not automatically reusable training media.",
+    "Preserve item-level license, attribution, source family and hash for every acquired asset.",
+    "Do not convert reference-only or lab-dependent evidence into a definitive image-only class.",
+    "Keep healthy, normal-variation, beneficial/non-pest, OOD and unusable-image hard negatives in evaluation and training design.",
+    "Prevent plant/session/source-family leakage across train, validation and locked benchmark partitions."
+  ]
+}
