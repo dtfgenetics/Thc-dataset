@@ -1,0 +1,54 @@
+name: Audit reference panels for training admission
+
+on:
+  push:
+    branches: [training-panel-audit]
+    paths:
+      - 'scripts/audit-reference-crops-for-training.py'
+      - 'images/reference/crops-manifest.json'
+      - 'images/reference/manifest.json'
+      - '.github/workflows/audit-reference-training-panels.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/audit-reference-crops-for-training.py'
+      - 'images/reference/crops-manifest.json'
+      - 'images/reference/manifest.json'
+      - 'dataset/training/reference-panel-admission-audit.json'
+      - '.github/workflows/audit-reference-training-panels.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build training-admission audit
+        run: python scripts/audit-reference-crops-for-training.py
+
+      - name: Verify audit has no accidental training promotion
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = Path('dataset/training/reference-panel-admission-audit.json')
+          d = json.loads(p.read_text())
+          assert d['summary']['trainingEligibleCount'] == 0
+          assert all(not row['trainingEligible'] for row in d['panels'])
+          print(d['summary'])
+          PY
+
+      - name: Upload admission audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-panel-admission-audit
+          path: dataset/training/reference-panel-admission-audit.json
+          if-no-files-found: error
