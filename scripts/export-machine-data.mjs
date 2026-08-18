@@ -10,6 +10,9 @@ const execFileAsync = promisify(execFile)
 // The application catalog is the single reviewed source boundary. This keeps
 // source errata, controlled IDs, category normalization and verified-media
 // enrichment identical between the UI and machine-readable release.
+// esbuild is already installed through Vite and bundles the reviewed catalog into
+// one temporary CommonJS module. The repository's normal `npm run check` remains
+// the independent TypeScript type-safety gate.
 
 const root = process.cwd()
 const outDir = path.join(root, 'data')
@@ -28,22 +31,19 @@ await fs.rm(tempDir, { recursive: true, force: true })
 await fs.mkdir(tempDir, { recursive: true })
 
 async function compileCanonicalCatalog() {
+  const output = path.join(tempDir, 'catalog.cjs')
   const args = [
-    '--no-install', 'tsc',
-    '--ignoreConfig',
+    '--no-install', 'esbuild',
     'src/data/catalog.ts',
-    '--target', 'ES2022',
-    '--module', 'CommonJS',
-    '--moduleResolution', 'Node',
-    '--rootDir', 'src',
-    '--outDir', tempDir,
-    '--skipLibCheck',
-    '--declaration', 'false',
-    '--sourceMap', 'false',
-    '--noEmitOnError', 'true',
+    '--bundle',
+    '--platform=node',
+    '--format=cjs',
+    '--target=node22',
+    `--outfile=${output}`,
+    '--log-level=warning',
   ]
   await execFileAsync('npx', args, { cwd: root, maxBuffer: 16 * 1024 * 1024 })
-  await fs.writeFile(path.join(tempDir, 'package.json'), '{"type":"commonjs"}\n', 'utf8')
+  return output
 }
 
 function stableJson(value) {
@@ -84,9 +84,9 @@ function mergeSourceRecords(previous, incoming, key) {
 }
 
 try {
-  await compileCanonicalCatalog()
-  const requireFromTemp = createRequire(path.join(tempDir, 'package.json'))
-  const catalog = requireFromTemp(path.join(tempDir, 'data', 'catalog.js'))
+  const bundledCatalog = await compileCanonicalCatalog()
+  const requireFromTemp = createRequire(import.meta.url)
+  const catalog = requireFromTemp(bundledCatalog)
 
   const primaryIssues = Array.isArray(catalog.coreIssues) ? catalog.coreIssues : []
   const supplementalIssues = Array.isArray(catalog.supplementalIssues) ? catalog.supplementalIssues : []
@@ -191,7 +191,7 @@ try {
   const exportManifest = {
     schemaVersion: '2.0.0',
     deterministic: true,
-    compiler: 'project tsc CLI / CommonJS temporary catalog build',
+    compiler: 'esbuild bundled reviewed catalog; repository TypeScript validation runs independently',
     sourceFiles: ['src/data/catalog.ts', 'src/data/issues.ts', 'src/data/supplemental-issues.ts', 'src/data/expanded-issues.ts', 'src/data/expanded-issues-batch2.ts'],
     counts: {
       primaryDiagnosticProfiles: primaryIssues.length,
@@ -222,6 +222,7 @@ try {
       'Duplicate evidence sources are merged only when identity metadata agrees; claim and author lists are unioned deterministically.',
       'Conflicting duplicate media metadata fails closed.',
       `A partial export below the established ${minimumExpectedProfiles}-profile baseline fails closed.`,
+      'The full repository TypeScript check remains a separate required CI gate from dataset materialization.',
     ],
   }
 
