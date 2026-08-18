@@ -1,11 +1,11 @@
 {
-  "schemaVersion": "2.5.0",
+  "schemaVersion": "2.6.0",
   "releaseStatus": "accuracy-audit-54-profile-release-candidate",
   "diagnosticProfileCount": 54,
   "standaloneDetailedProfileCount": 54,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 58,
-  "profileReferenceMediaCount": 31,
+  "evidenceSourceCount": 74,
+  "profileReferenceMediaCount": 40,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
@@ -53,6 +53,16 @@
     {"path": "src/data/expanded-issues.ts", "profileCount": 13},
     {"path": "src/data/expanded-issues-batch2.ts", "profileCount": 6}
   ],
+  "measuredCandidateExport": {
+    "workflowRun": 32098183519,
+    "diagnosticProfiles": 54,
+    "coreProfiles": 29,
+    "supplementalAndExpandedProfiles": 25,
+    "uniqueEvidenceSources": 74,
+    "profileLinkedMedia": 40,
+    "trainingEligibleMedia": 0,
+    "releaseValidatorResult": "passed"
+  },
   "referenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
     "artifactId": 9305073118,
@@ -77,8 +87,8 @@
   "verificationStatus": {
     "previous35ProfileRelease": "passed-three-way-and-clean-room-verified",
     "accuracyExpansionPassesRequired": 3,
-    "accuracyExpansionPassesCompleted": 0,
-    "accuracyExpansionResult": "pending-pr-validation",
+    "accuracyExpansionPassesCompleted": 1,
+    "accuracyExpansionResult": "candidate-export-and-generated-release-validation-passed",
     "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
     "referenceBinaryCount": 25,
     "referenceUnavailableCount": 0,
@@ -99,7 +109,7 @@
     "trainingGate": "Reference evidence is not model ground truth. Supervised Cannabis training stays blocked until independently reviewed samples satisfy rights, confirmation, source-group, duplicate and coverage requirements."
   },
   "limitations": [
-    "This 54-profile expansion is a release candidate until pull-request export, validator, source-quality tests and clean-room read-back all pass.",
+    "This 54-profile expansion is a release candidate until the full application tests/build, main-branch generated-data persistence, and independent clean-room verification pass.",
     "The 91 source-controlled images remain a reference corpus, not a statistically sufficient supervised Cannabis training corpus.",
     "No current sample is marked trainingEligible, so Cannabis-only train/validation/test/holdout splits remain intentionally empty and blocked.",
     "Several new disease classes require culture, microscopy, molecular testing or analytical measurements for high-confidence confirmation; their photo-only confidence caps are deliberately conservative.",
@@ -114,12 +124,14 @@
       "correct the rice-root-aphid DOI path and Septoria cannabicola DOI",
       "represent downy mildew as an oomycete and root-knot nematodes as nematodes",
       "correct the JSON Schema media type from strings to structured media records",
+      "measure candidate release at 54 profiles, 74 unique sources and 40 profile-linked media records",
       "persist all 25 approved rights-cleared originals and 66 source-grouped panel crops"
     ],
     "required": [
-      "pass PR exporter, data-release validator, source/acquisition/transfer validation, tests and production build",
-      "read back all 54 generated standalone profile files and regenerated index from main",
-      "update evidenceSourceCount and profileReferenceMediaCount from the generated export manifest rather than estimates",
+      "pass the corrected regression test suite and production build",
+      "merge only after current PR gates are green",
+      "persist the generated 54-profile machine release on main",
+      "read back all 54 standalone profile files and regenerated index from main",
       "run an independent clean-room verification against the merged 54-profile release",
       "continue acquiring independent confirmed Cannabis photographs/videos, healthy controls and look-alike negatives"
     ]
