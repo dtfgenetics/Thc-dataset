@@ -1,8 +1,8 @@
 name: Bulk acquire open diagnostic datasets
 
 on:
-  push:
-    branches: [bulk-open-acquisition-1]
+  pull_request:
+    branches: [main]
     paths:
       - 'scripts/package-acquisition-tree.py'
       - '.github/workflows/bulk-acquire-open-datasets.yml'
@@ -19,17 +19,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Download maintained PlantVillage source archive
+        with: {python-version: '3.12'}
+      - name: Download maintained PlantVillage archive
         shell: bash
         run: |
           set -euxo pipefail
           mkdir -p acquisition/pv/meta
-          curl -L --fail --retry 5 --retry-delay 5 \
-            'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/data.zip?download=true' \
-            -o acquisition/pv/data.zip
+          curl -L --fail --retry 5 --retry-delay 5 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/data.zip?download=true' -o acquisition/pv/data.zip
           test $(stat -c%s acquisition/pv/data.zip) -gt 1000000000
           unzip -tq acquisition/pv/data.zip >/dev/null
           unzip -q acquisition/pv/data.zip 'raw/color/*' -d acquisition/pv/extracted
@@ -37,43 +33,21 @@ jobs:
           curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/leaf_grouping/leaf-map.json?download=true' -o acquisition/pv/meta/leaf-map.json
           curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/splits/color_train.txt?download=true' -o acquisition/pv/meta/color_train.txt
           curl -L --fail --retry 4 'https://huggingface.co/datasets/mohanty/PlantVillage/resolve/main/splits/color_test.txt?download=true' -o acquisition/pv/meta/color_test.txt
-
-      - name: Package six balanced raw color shards
+      - name: Create balanced raw color shards and manifest
+        shell: bash
         run: |
-          python scripts/package-acquisition-tree.py \
-            --root acquisition/pv/extracted/raw/color \
-            --output-dir acquisition/pv/packages \
-            --prefix DS-005-PlantVillage-color \
-            --shards 6 \
-            --dataset-id DS-005 \
-            --source-url 'https://huggingface.co/datasets/mohanty/PlantVillage' \
-            --source-revision main \
-            --license 'CC BY-SA 3.0' \
-            --notes '54,306-image controlled-background plant disease corpus. Transfer/pretraining lane only; preserve leaf grouping and do not treat as Cannabis causal ground truth.'
+          python scripts/package-acquisition-tree.py --root acquisition/pv/extracted/raw/color --output-dir acquisition/pv/packages --prefix DS-005-PlantVillage-color --shards 6 --dataset-id DS-005 --source-url 'https://huggingface.co/datasets/mohanty/PlantVillage' --source-revision main --license 'CC BY-SA 3.0' --notes 'Controlled-background disease transfer/pretraining corpus; preserve leaf grouping and never treat as Cannabis causal ground truth.'
           cp acquisition/pv/packages/DS-005-PlantVillage-color-manifest.json acquisition/pv/meta/
           sha256sum acquisition/pv/data.zip > acquisition/pv/meta/source-data.zip.sha256
-
-      - name: Upload PlantVillage shard 01
+      - name: Upload PlantVillage raw package
         uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-01, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-01.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage shard 02
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-02, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-02.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage shard 03
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-03, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-03.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage shard 04
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-04, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-04.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage shard 05
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-05, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-05.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage shard 06
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-color-06, path: acquisition/pv/packages/DS-005-PlantVillage-color-shard-06.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantVillage metadata
-        uses: actions/upload-artifact@v4
-        with: {name: DS-005-PlantVillage-metadata, path: acquisition/pv/meta/, retention-days: 30}
+        with:
+          name: DS-005-PlantVillage-color-raw
+          path: |
+            acquisition/pv/packages/
+            acquisition/pv/meta/
+          compression-level: 0
+          retention-days: 30
 
   plantdoc-classification:
     name: DS-007 PlantDoc classification
@@ -90,34 +64,24 @@ jobs:
           git clone --depth=1 https://github.com/pratikkayal/PlantDoc-Dataset.git acquisition/plantdoc-class
           git -C acquisition/plantdoc-class rev-parse HEAD > acquisition/plantdoc-class/SOURCE_COMMIT.txt
           rm -rf acquisition/plantdoc-class/.git
-      - name: Package PlantDoc train and test shards
+      - name: Package PlantDoc classification source
+        shell: bash
         run: |
           mkdir -p acquisition/plantdoc-class/packages acquisition/plantdoc-class/meta
-          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/train --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$(cat acquisition/plantdoc-class/SOURCE_COMMIT.txt)" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease classification transfer source.'
-          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/test --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$(cat acquisition/plantdoc-class/SOURCE_COMMIT.txt)" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease classification transfer source.'
+          rev="$(cat acquisition/plantdoc-class/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/train --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/test --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
           cp acquisition/plantdoc-class/README.md acquisition/plantdoc-class/LICENSE.txt acquisition/plantdoc-class/SOURCE_COMMIT.txt acquisition/plantdoc-class/meta/
           cp acquisition/plantdoc-class/packages/*manifest.json acquisition/plantdoc-class/meta/
-      - name: Upload PlantDoc train 01
+      - name: Upload PlantDoc classification raw package
         uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-train-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-01.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc train 02
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-train-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-02.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc train 03
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-train-03, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-03.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc train 04
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-train-04, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-04.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc test 01
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-test-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-01.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc test 02
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-test-02, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-test-shard-02.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc classification metadata
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-classification-metadata, path: acquisition/plantdoc-class/meta/, retention-days: 30}
+        with:
+          name: DS-007-PlantDoc-classification-raw
+          path: |
+            acquisition/plantdoc-class/packages/
+            acquisition/plantdoc-class/meta/
+          compression-level: 0
+          retention-days: 30
 
   plantdoc-detection:
     name: DS-007 PlantDoc object detection
@@ -135,33 +99,23 @@ jobs:
           git -C acquisition/plantdoc-det rev-parse HEAD > acquisition/plantdoc-det/SOURCE_COMMIT.txt
           rm -rf acquisition/plantdoc-det/.git
       - name: Package detection images and labels
+        shell: bash
         run: |
           mkdir -p acquisition/plantdoc-det/packages acquisition/plantdoc-det/meta
-          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TRAIN --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$(cat acquisition/plantdoc-det/SOURCE_COMMIT.txt)" --license 'CC BY 4.0' --notes 'Object-detection variant with source bounding-box CSV labels; same source family as PlantDoc and must be source-deduplicated against classification copy.'
-          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TEST --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$(cat acquisition/plantdoc-det/SOURCE_COMMIT.txt)" --license 'CC BY 4.0' --notes 'Object-detection variant with source bounding-box CSV labels; same source family as PlantDoc and must be source-deduplicated against classification copy.'
+          rev="$(cat acquisition/plantdoc-det/SOURCE_COMMIT.txt)"
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TRAIN --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
+          python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TEST --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
           cp acquisition/plantdoc-det/README.md acquisition/plantdoc-det/LICENSE.txt acquisition/plantdoc-det/SOURCE_COMMIT.txt acquisition/plantdoc-det/train_labels.csv acquisition/plantdoc-det/test_labels.csv acquisition/plantdoc-det/meta/
           cp acquisition/plantdoc-det/packages/*manifest.json acquisition/plantdoc-det/meta/
-      - name: Upload detection train 01
+      - name: Upload PlantDoc detection raw package
         uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-train-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-01.tar, compression-level: 0, retention-days: 30}
-      - name: Upload detection train 02
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-train-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-02.tar, compression-level: 0, retention-days: 30}
-      - name: Upload detection train 03
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-train-03, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-03.tar, compression-level: 0, retention-days: 30}
-      - name: Upload detection train 04
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-train-04, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-04.tar, compression-level: 0, retention-days: 30}
-      - name: Upload detection test 01
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-test-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-01.tar, compression-level: 0, retention-days: 30}
-      - name: Upload detection test 02
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-test-02, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-test-shard-02.tar, compression-level: 0, retention-days: 30}
-      - name: Upload PlantDoc detection metadata
-        uses: actions/upload-artifact@v4
-        with: {name: DS-007-PlantDoc-detection-metadata, path: acquisition/plantdoc-det/meta/, retention-days: 30}
+        with:
+          name: DS-007-PlantDoc-detection-raw
+          path: |
+            acquisition/plantdoc-det/packages/
+            acquisition/plantdoc-det/meta/
+          compression-level: 0
+          retention-days: 30
 
   hemp-water-stress:
     name: DS-090 industrial hemp water stress
@@ -172,79 +126,56 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
-      - name: Discover and download Mendeley public dataset files
+      - name: Discover and download Mendeley public files
         shell: bash
         run: |
           python - <<'PY'
-          import json, os, re, sys, urllib.request, urllib.error
+          import json, re, urllib.request
           from pathlib import Path
           dataset='3md2tbx74c'; version='1'
           out=Path('acquisition/hemp-water'); out.mkdir(parents=True, exist_ok=True)
           headers={'User-Agent':'DTF-THC-Dataset-Acquisition/1.0','Accept':'application/json'}
-          candidates=[
-            f'https://api.data.mendeley.com/datasets/{dataset}?version={version}',
-            f'https://api.mendeley.com/datasets/{dataset}?version={version}',
-          ]
           meta=None; errors=[]
-          for url in candidates:
+          for url in [f'https://api.data.mendeley.com/datasets/{dataset}?version={version}', f'https://api.mendeley.com/datasets/{dataset}?version={version}']:
             try:
-              req=urllib.request.Request(url, headers=headers)
-              with urllib.request.urlopen(req, timeout=45) as r:
-                body=r.read()
-              meta=json.loads(body)
-              (out/'api-metadata.json').write_bytes(body)
-              print('METADATA_OK', url)
-              break
-            except Exception as e:
-              errors.append(f'{url}: {e!r}')
+              req=urllib.request.Request(url,headers=headers)
+              with urllib.request.urlopen(req,timeout=45) as r: body=r.read()
+              meta=json.loads(body); (out/'api-metadata.json').write_bytes(body); print('METADATA_OK',url); break
+            except Exception as e: errors.append(f'{url}: {e!r}')
           if meta is None:
-            # Browser page fallback: retain HTML for debugging and attempt to extract file UUIDs/download URLs.
             page=f'https://data.mendeley.com/datasets/{dataset}/{version}'
             try:
-              req=urllib.request.Request(page, headers={'User-Agent':'Mozilla/5.0'})
-              with urllib.request.urlopen(req, timeout=45) as r:
-                html=r.read().decode('utf-8','replace')
-              (out/'dataset-page.html').write_text(html, encoding='utf-8')
-              urls=sorted(set(re.findall(r'https://[^"\\s]+(?:file_downloaded|files/[^"\\s]+)', html)))
-              (out/'discovered-urls.json').write_text(json.dumps(urls, indent=2), encoding='utf-8')
-            except Exception as e:
-              errors.append(f'{page}: {e!r}')
-            (out/'acquisition-errors.json').write_text(json.dumps(errors, indent=2), encoding='utf-8')
-            raise SystemExit('Mendeley public file metadata could not be resolved automatically')
-
+              req=urllib.request.Request(page,headers={'User-Agent':'Mozilla/5.0'})
+              with urllib.request.urlopen(req,timeout=45) as r: html=r.read().decode('utf-8','replace')
+              (out/'dataset-page.html').write_text(html,encoding='utf-8')
+            except Exception as e: errors.append(f'{page}: {e!r}')
+            (out/'acquisition-errors.json').write_text(json.dumps(errors,indent=2),encoding='utf-8')
+            raise SystemExit('Could not resolve Mendeley public file metadata')
           files=meta.get('files') or []
-          if isinstance(files, dict): files=files.get('results') or []
-          if not files:
-            raise SystemExit('Mendeley metadata returned no files')
+          if isinstance(files,dict): files=files.get('results') or []
           rows=[]
           for f in files:
-            fid=f.get('id') or f.get('file_id') or f.get('uuid')
-            name=f.get('filename') or f.get('file_name') or fid
+            fid=f.get('id') or f.get('file_id') or f.get('uuid'); name=f.get('filename') or f.get('file_name') or fid
             if not fid: continue
             safe=re.sub(r'[^A-Za-z0-9._-]+','_',name or fid)
-            download=f'https://api.data.mendeley.com/datasets/{dataset}/files/{fid}/file_downloaded?version={version}'
-            req=urllib.request.Request(download, headers={'User-Agent':'DTF-THC-Dataset-Acquisition/1.0'})
+            url=f'https://api.data.mendeley.com/datasets/{dataset}/files/{fid}/file_downloaded?version={version}'
             try:
-              with urllib.request.urlopen(req, timeout=120) as r:
-                data=r.read()
-              (out/safe).write_bytes(data)
-              rows.append({'id':fid,'name':safe,'bytes':len(data),'source':download})
-              print('DOWNLOADED', safe, len(data))
-            except Exception as e:
-              rows.append({'id':fid,'name':safe,'error':repr(e),'source':download})
-          (out/'download-manifest.json').write_text(json.dumps(rows, indent=2), encoding='utf-8')
-          if not any('bytes' in r for r in rows):
-            raise SystemExit('No Mendeley files downloaded')
+              req=urllib.request.Request(url,headers={'User-Agent':'DTF-THC-Dataset-Acquisition/1.0'})
+              with urllib.request.urlopen(req,timeout=180) as r: data=r.read()
+              (out/safe).write_bytes(data); rows.append({'id':fid,'name':safe,'bytes':len(data),'source':url}); print('DOWNLOADED',safe,len(data))
+            except Exception as e: rows.append({'id':fid,'name':safe,'error':repr(e),'source':url})
+          (out/'download-manifest.json').write_text(json.dumps(rows,indent=2),encoding='utf-8')
+          if not any('bytes' in r for r in rows): raise SystemExit('No Mendeley files downloaded')
           PY
-      - name: Package hemp dataset as raw archive
+      - name: Package hemp source
         shell: bash
         run: |
           tar -cf acquisition/DS-090-Hemp-WaterStress-Growth.tar -C acquisition/hemp-water .
           sha256sum acquisition/DS-090-Hemp-WaterStress-Growth.tar > acquisition/DS-090-Hemp-WaterStress-Growth.sha256
-      - name: Upload hemp water-stress dataset
+      - name: Upload hemp water-stress raw package
         uses: actions/upload-artifact@v4
         with:
-          name: DS-090-Hemp-WaterStress-Growth
+          name: DS-090-Hemp-WaterStress-Growth-raw
           path: |
             acquisition/DS-090-Hemp-WaterStress-Growth.tar
             acquisition/DS-090-Hemp-WaterStress-Growth.sha256
