@@ -5,6 +5,7 @@ on:
     branches: [main, training-panel-audit]
     paths:
       - 'scripts/audit-reference-crops-for-training.py'
+      - 'scripts/audit-unpanelized-reference-originals.py'
       - 'images/reference/crops-manifest.json'
       - 'images/reference/manifest.json'
       - '.github/workflows/audit-reference-training-panels.yml'
@@ -12,9 +13,11 @@ on:
     branches: [main]
     paths:
       - 'scripts/audit-reference-crops-for-training.py'
+      - 'scripts/audit-unpanelized-reference-originals.py'
       - 'images/reference/crops-manifest.json'
       - 'images/reference/manifest.json'
       - 'dataset/training/reference-panel-admission-audit.json'
+      - 'dataset/training/unpanelized-reference-originals.json'
       - '.github/workflows/audit-reference-training-panels.yml'
   workflow_dispatch:
 
@@ -39,39 +42,47 @@ jobs:
       - name: Build training-admission audit
         run: python scripts/audit-reference-crops-for-training.py
 
+      - name: Audit persisted originals missing panel crops
+        run: python scripts/audit-unpanelized-reference-originals.py
+
       - name: Verify audit has no accidental training promotion
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p = Path('dataset/training/reference-panel-admission-audit.json')
-          d = json.loads(p.read_text())
-          assert d['summary']['trainingEligibleCount'] == 0
-          assert all(not row['trainingEligible'] for row in d['panels'])
-          assert d['summary']['panelCropCount'] == 66
-          print(d['summary'])
+          admission = json.loads(Path('dataset/training/reference-panel-admission-audit.json').read_text())
+          pending = json.loads(Path('dataset/training/unpanelized-reference-originals.json').read_text())
+          assert admission['summary']['trainingEligibleCount'] == 0
+          assert all(not row['trainingEligible'] for row in admission['panels'])
+          assert admission['summary']['panelCropCount'] == 66
+          assert pending['summary']['persistedOriginalCount'] == 25
+          assert all(not row['trainingEligible'] for row in pending['records'])
+          print('admission', admission['summary'])
+          print('unpanelized', pending['summary'])
           PY
 
-      - name: Commit generated audit on non-PR runs
+      - name: Commit generated audits on non-PR runs
         if: github.event_name != 'pull_request'
         shell: bash
         run: |
-          git add dataset/training/reference-panel-admission-audit.json
-          if git diff --cached --quiet -- dataset/training/reference-panel-admission-audit.json; then
-            echo 'Training-admission audit already current.'
+          git add dataset/training/reference-panel-admission-audit.json dataset/training/unpanelized-reference-originals.json
+          if git diff --cached --quiet -- dataset/training; then
+            echo 'Training audits already current.'
           else
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-            git commit -m 'Update reference panel training-admission audit'
+            git commit -m 'Update reference training-admission audits'
             git push origin HEAD:${{ github.ref_name }}
           fi
 
-      - name: Upload admission audit
+      - name: Upload admission audits
         uses: actions/upload-artifact@v4
         with:
           name: reference-panel-admission-audit
-          path: dataset/training/reference-panel-admission-audit.json
+          path: |
+            dataset/training/reference-panel-admission-audit.json
+            dataset/training/unpanelized-reference-originals.json
           if-no-files-found: error
 
       - name: Package normalized panel review candidates
@@ -82,5 +93,6 @@ jobs:
             images/reference/crops/
             images/reference/crops-manifest.json
             dataset/training/reference-panel-admission-audit.json
+            dataset/training/unpanelized-reference-originals.json
           if-no-files-found: error
           retention-days: 30
