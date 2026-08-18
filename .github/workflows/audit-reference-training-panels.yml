@@ -1,0 +1,98 @@
+name: Audit reference panels for training admission
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit-reference-crops-for-training.py'
+      - 'scripts/audit-unpanelized-reference-originals.py'
+      - 'images/reference/crops-manifest.json'
+      - 'images/reference/manifest.json'
+      - '.github/workflows/audit-reference-training-panels.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/audit-reference-crops-for-training.py'
+      - 'scripts/audit-unpanelized-reference-originals.py'
+      - 'images/reference/crops-manifest.json'
+      - 'images/reference/manifest.json'
+      - 'dataset/training/reference-panel-admission-audit.json'
+      - 'dataset/training/unpanelized-reference-originals.json'
+      - '.github/workflows/audit-reference-training-panels.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-reference-training-panels-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build training-admission audit
+        run: python scripts/audit-reference-crops-for-training.py
+
+      - name: Audit persisted originals missing panel crops
+        run: python scripts/audit-unpanelized-reference-originals.py
+
+      - name: Verify audit has no accidental training promotion
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          admission = json.loads(Path('dataset/training/reference-panel-admission-audit.json').read_text())
+          pending = json.loads(Path('dataset/training/unpanelized-reference-originals.json').read_text())
+          assert admission['summary']['trainingEligibleCount'] == 0
+          assert all(not row['trainingEligible'] for row in admission['panels'])
+          assert admission['summary']['panelCropCount'] == 66
+          assert pending['summary']['persistedOriginalCount'] == 25
+          assert all(not row['trainingEligible'] for row in pending['records'])
+          print('admission', admission['summary'])
+          print('unpanelized', pending['summary'])
+          PY
+
+      - name: Commit generated audits on main
+        if: github.event_name == 'push' && github.ref_name == 'main'
+        shell: bash
+        run: |
+          git add dataset/training/reference-panel-admission-audit.json dataset/training/unpanelized-reference-originals.json
+          if git diff --cached --quiet -- dataset/training; then
+            echo 'Training audits already current.'
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update reference training-admission audits'
+            git push origin HEAD:main
+          fi
+
+      - name: Upload admission audits
+        uses: actions/upload-artifact@v4
+        with:
+          name: reference-panel-admission-audit
+          path: |
+            dataset/training/reference-panel-admission-audit.json
+            dataset/training/unpanelized-reference-originals.json
+          if-no-files-found: error
+
+      - name: Package normalized panel review candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: normalized-reference-panel-candidates
+          path: |
+            images/reference/crops/
+            images/reference/crops-manifest.json
+            dataset/training/reference-panel-admission-audit.json
+            dataset/training/unpanelized-reference-originals.json
+          if-no-files-found: error
+          retention-days: 30
