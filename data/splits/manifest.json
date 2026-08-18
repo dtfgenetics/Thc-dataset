@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "status": "blocked-no-training-eligible-samples",
   "datasetScope": "Cannabis-only supervised diagnostic vision data",
   "ready": false,
@@ -13,6 +13,13 @@
   "sourceOfTruth": "data/training-eligible-media.json",
   "splitPolicy": "data/split-policy.json",
   "readinessGate": "data/model-training-readiness.json",
+  "knowledgeLayerSnapshot": {
+    "diagnosticProfiles": 61,
+    "evidenceSources": 84,
+    "profileLinkedReferenceMedia": 40,
+    "referenceOriginals": 25,
+    "referenceCrops": 66
+  },
   "rules": [
     "Do not populate any supervised split from reference-only samples.",
     "All frames, panels, crops, serial observations, and near-duplicates from one sourceGroupId stay in the same split.",
@@ -27,5 +34,5 @@
     "test": 0.15,
     "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
   },
-  "reasonBlocked": "The current corpus contains a completed 35-profile knowledge base plus rights-cleared reference originals and derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+  "reasonBlocked": "The current corpus contains a 61-profile, 84-source diagnostic knowledge layer plus 25 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
 }
