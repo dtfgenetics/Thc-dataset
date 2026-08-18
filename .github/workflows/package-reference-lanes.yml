@@ -1,0 +1,96 @@
+name: Package diagnostic reference lanes
+
+on:
+  push:
+    branches: [organize-reference-lanes]
+    paths:
+      - 'scripts/package-reference-lanes.py'
+      - 'images/reference/manifest.json'
+      - 'images/reference/original/**'
+      - '.github/workflows/package-reference-lanes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Route persisted references into controlled diagnostic lanes
+        run: python scripts/package-reference-lanes.py
+
+      - name: Upload nutrient/root-zone lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 01_NUTRIENT_AND_ROOTZONE
+          path: build/reference-lanes/01_NUTRIENT_AND_ROOTZONE/
+          if-no-files-found: error
+
+      - name: Upload pest/arthropod lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 02_PESTS_AND_ARTHROPODS
+          path: build/reference-lanes/02_PESTS_AND_ARTHROPODS/
+          if-no-files-found: error
+
+      - name: Upload pathogen/disease lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 03_PATHOGENS_AND_DISEASE
+          path: build/reference-lanes/03_PATHOGENS_AND_DISEASE/
+          if-no-files-found: error
+
+      - name: Upload virus/viroid lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 04_VIRUS_VIROID_MOLECULAR
+          path: build/reference-lanes/04_VIRUS_VIROID_MOLECULAR/
+          if-no-files-found: error
+
+      - name: Upload sex/reproductive morphology lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 05_SEX_REPRODUCTIVE_MORPHOLOGY
+          path: build/reference-lanes/05_SEX_REPRODUCTIVE_MORPHOLOGY/
+          if-no-files-found: error
+
+      - name: Upload healthy/developmental hard-negative lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 06_HEALTHY_DEVELOPMENTAL_HARD_NEGATIVES
+          path: build/reference-lanes/06_HEALTHY_DEVELOPMENTAL_HARD_NEGATIVES/
+          if-no-files-found: warn
+
+      - name: Upload abiotic/environmental lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: 07_ABIOTIC_ENVIRONMENTAL_STRESS
+          path: build/reference-lanes/07_ABIOTIC_ENVIRONMENTAL_STRESS/
+          if-no-files-found: warn
+
+      - name: Upload expert item-gated lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: EXPERT_ITEM_GATED
+          path: build/reference-lanes/EXPERT_ITEM_GATED/
+          if-no-files-found: warn
+
+      - name: Upload cross-crop transfer lane
+        uses: actions/upload-artifact@v4
+        with:
+          name: CROSS_CROP_TRANSFER
+          path: build/reference-lanes/CROSS_CROP_TRANSFER/
+          if-no-files-found: warn
+
+      - name: Upload routing summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: ROUTING_SUMMARY
+          path: build/reference-lanes/routing-summary.json
+          if-no-files-found: error
