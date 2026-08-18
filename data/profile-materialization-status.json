@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "2.3.0",
-  "status": "61-profile-main-release-verified-two-passes",
+  "schemaVersion": "2.4.0",
+  "status": "61-profile-release-triple-verified",
   "targetProfileCount": 61,
   "materializedProfileCount": 61,
   "pendingProfileCount": 0,
@@ -28,6 +28,7 @@
     "profileLinkedMedia": 40,
     "referenceOriginals": 25,
     "referenceCrops": 66,
+    "totalReferenceImages": 91,
     "trainingEligibleMedia": 0
   },
   "verification": [
@@ -46,8 +47,8 @@
     {
       "pass": 3,
       "method": "Independent clean-room PR against the merged generated release",
-      "result": "pending",
-      "details": "Will rerun regenerated release validation, cross-file metadata consistency, crop geometry, and the full application/source/test/build suite without merging the verification marker."
+      "result": "passed",
+      "details": "Verification-only PR #26 regenerated the current catalog and passed data-release validation, byte-level original/crop hash checks, 66-crop geometry reconstruction, cross-file metadata consistency, source/acquisition/transfer validation, TypeScript checks, regression tests, PHP proxy validation, and production build. The PR was closed without merging its marker."
     }
   ],
   "accuracyCorrections": [
@@ -59,8 +60,8 @@
     "Fusarium foliar/flower/head blight remains separate from Fusarium root/crown disease.",
     "Pythium, Fusarium, and Sclerotinia receive newer species-level evidence without creating visually unjustified species classifiers.",
     "Issue JSON Schema media field matches structured MediaRecord objects used by the application and release.",
-    "Training-readiness and split metadata now derive from the 61-profile release instead of stale 35-profile text.",
-    "Cross-file release metadata consistency is now enforced as a separate validation gate."
+    "Training-readiness and split metadata derive from the 61-profile release instead of stale 35-profile text.",
+    "Cross-file release metadata consistency is enforced as a separate validation gate."
   ],
   "coverageExpansion": [
     "spotted cucumber beetle feeding injury",
@@ -71,5 +72,5 @@
     "armyworm caterpillar feeding complex",
     "Dematophora/Rosellinia white root rot"
   ],
-  "pending": ["independent clean-room verification"]
+  "pending": []
 }
