@@ -43,6 +43,7 @@ jobs:
           d = json.loads(p.read_text())
           assert d['summary']['trainingEligibleCount'] == 0
           assert all(not row['trainingEligible'] for row in d['panels'])
+          assert d['summary']['panelCropCount'] == 66
           print(d['summary'])
           PY
 
@@ -52,3 +53,14 @@ jobs:
           name: reference-panel-admission-audit
           path: dataset/training/reference-panel-admission-audit.json
           if-no-files-found: error
+
+      - name: Package normalized panel review candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: normalized-reference-panel-candidates
+          path: |
+            images/reference/crops/
+            images/reference/crops-manifest.json
+            dataset/training/reference-panel-admission-audit.json
+          if-no-files-found: error
+          retention-days: 30
