@@ -1,5 +1,5 @@
 {
-  "audit_id": "AUD-036-037",
+  "audit_id": "AUD-036-038",
   "date": "2026-08-17",
   "authority": {
     "editable_source_of_truth": "Google Drive controlled spreadsheets",
@@ -39,16 +39,21 @@
       "table": "Hard_Differentials",
       "ids": ["DIFF-021", "DIFF-022", "DIFF-023", "DIFF-024", "DIFF-025"],
       "change": "Added evidence-grounded hard differentials for N-vs-S deficiency, rice-root-aphid-vs-fungus-gnat, light-stress-vs-iron-deficiency, phosphorus-deficiency-vs-leaf-spot, and intersex-vs-normal-female-flower structure."
+    },
+    {
+      "tables": ["Gap_Register", "Coverage_Matrix", "Collection_Campaigns", "Hard_Differentials"],
+      "ids": ["GAP-034", "COV-037", "CAM-034", "DIFF-026"],
+      "change": "Added a benign/developmental morphology hard-negative lane for stable variegation, revegetation, foxtailing, fasciation, seeded flowers, normal bract variation and related nonpathological variants, plus a variegation-vs-virus-like guardrail."
     }
   ],
   "historical_gap": {
     "missing_ids": "CAM-019..030",
-    "finding": "Before repair, Collection_Campaigns contained only CAM-001..018. AUD-030 says campaigns 023-030 were added, but surviving spreadsheet revisions checked do not contain CAM-023 or CAM-030 and no exact historical row definitions were recoverable.",
+    "finding": "Before repair, Collection_Campaigns contained only CAM-001..018. AUD-030 says campaigns 023-030 were added, but surviving spreadsheet revisions 155 and 188 and the pre-repair current state do not contain CAM-023 or CAM-030; no exact historical definitions were recoverable.",
     "decision": "Do not reconstruct historical campaigns from guesses. Preserve the discrepancy as an audit gap and create/restore campaigns only from current controlled coverage requirements or a recovered archived source."
   },
   "remaining_primary_training_gaps": [
-    "Physically acquired, hashed and rights-cleared public cannabis reference-image objects remain the largest controlled asset gap.",
-    "Large real cannabis phone-image corpora remain weak for root disease, abiotic stress, pests, healthy controls and multi-label cases.",
+    "Physically acquired, hashed and rights-cleared public cannabis reference-image objects remain the largest controlled asset gap; the registry currently tracks candidates but production display/training admission still requires binary acquisition and item-level rights/quality/hash gates.",
+    "Large real cannabis phone-image corpora remain weak for root disease, abiotic stress, pests, healthy controls, benign developmental morphology and multi-label cases.",
     "PCR/lab-paired HLVd and virus-like positive/negative/mixed cases remain required for etiologic validation.",
     "Locked real-world cannabis benchmark population remains incomplete.",
     "Same-plant diagnosis-to-intervention-to-recovery/failure temporal sequences remain sparse."
@@ -57,7 +62,7 @@
     "Publicly viewable media is not automatically reusable training media.",
     "Preserve item-level license, attribution, source family and hash for every acquired asset.",
     "Do not convert reference-only or lab-dependent evidence into a definitive image-only class.",
-    "Keep healthy, normal-variation, beneficial/non-pest, OOD and unusable-image hard negatives in evaluation and training design.",
+    "Keep healthy, normal-variation, benign developmental morphology, beneficial/non-pest, OOD and unusable-image hard negatives in evaluation and training design.",
     "Prevent plant/session/source-family leakage across train, validation and locked benchmark partitions."
   ]
 }
