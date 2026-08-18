@@ -1614,13 +1614,13 @@
   {
     "id": "fungal-sclerotinia-white-mold",
     "slug": "sclerotinia-white-mold",
-    "name": "Sclerotinia white mold",
-    "scientificName": "Sclerotinia sclerotiorum",
+    "name": "Sclerotinia white mold / crown rot complex",
+    "scientificName": "Sclerotinia sclerotiorum / Sclerotinia minor",
     "category": "Fungal pathogen",
     "severity": "high",
     "reviewStatus": "reviewed",
     "photoOnlyMaxConfidence": 0.4,
-    "summary": "A confirmed Cannabis fungal disease that can contribute to white-mold, wilt, and yellowing syndromes. Because Botrytis, Fusarium, Pythium, and other molds can overlap visually, white growth alone is not species-level evidence.",
+    "summary": "A confirmed Cannabis Sclerotinia disease complex that can involve white-mold, crown-rot, wilt, and yellowing syndromes. S. sclerotiorum and S. minor are both documented on Cannabis/hemp; organism-level evidence is required because Botrytis, Fusarium, southern blight, and other molds overlap visually.",
     "affectedParts": [
       "stems",
       "crown",
@@ -1680,7 +1680,8 @@
     ],
     "warnings": [
       "White mold appearance is not specific to Sclerotinia.",
-      "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification."
+      "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification.",
+      "Sclerotinia sclerotiorum and S. minor should not be separated by canopy appearance alone; crown signs, sclerotia, culture, and molecular evidence carry more weight."
     ],
     "sources": [
       {
@@ -1696,6 +1697,20 @@
           "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
           "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
           "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+        ]
+      },
+      {
+        "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-01-19-0088-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2019-05-16",
+        "year": 2019,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-01-19-0088-PDN",
+        "supportedClaims": [
+          "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
+          "The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label."
         ]
       }
     ],
@@ -2135,6 +2150,609 @@
         "trainingEligible": false
       }
     ]
+  },
+  {
+    "id": "insect-armyworm-complex",
+    "slug": "armyworm-caterpillar-feeding",
+    "name": "Armyworm caterpillar feeding complex",
+    "scientificName": "Spodoptera spp. / Mythimna unipuncta",
+    "category": "Insect",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A late-season caterpillar feeding differential for hemp. Armyworm larvae can defoliate foliage and enter buds or flowers, but species-level identification requires larval morphology rather than damage pattern alone.",
+    "affectedParts": [
+      "leaves",
+      "leaf midribs",
+      "buds",
+      "flowers"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "late season"
+    ],
+    "indicators": [
+      "Caterpillar larvae are present with fresh irregular chewing injury",
+      "Severe feeding skeletonizes or strips leaves toward the midribs",
+      "Larvae entering buds or flowers leave feeding injury together with silk and frass",
+      "Larval head/body markings support fall armyworm, true armyworm, or another armyworm identification"
+    ],
+    "exclusions": [
+      "No larvae or fresh frass are found and damage is old",
+      "Characteristic looping larvae support cabbage looper",
+      "Adult Japanese beetles are actively skeletonizing tissue"
+    ],
+    "progression": [
+      {
+        "stage": "Leaf feeding",
+        "description": "Larvae chew irregular holes and remove expanding leaf area."
+      },
+      {
+        "stage": "Heavy defoliation",
+        "description": "High feeding pressure can skeletonize leaves or strip tissue to major veins."
+      },
+      {
+        "stage": "Bud/flower feeding",
+        "description": "Later larvae can enter reproductive tissue, leaving silk, frass, and damaged floral material."
+      }
+    ],
+    "lookAlikes": [
+      "Cabbage looper",
+      "Corn-earworm-like caterpillar injury",
+      "Japanese beetle",
+      "Other noctuid larvae"
+    ],
+    "confirmation": [
+      "Collect or clearly photograph representative larvae and use morphology for species-level assignment.",
+      "Treat frass plus an active larva as stronger evidence than holes alone."
+    ],
+    "immediateActions": [
+      "Inspect fresh feeding fronts, buds, and flowers for larvae and frass.",
+      "Record larval size and density because damage potential changes with instar and population."
+    ],
+    "correctivePlan": [
+      "Use an IPM response based on confirmed caterpillar identity, population, crop stage, and locally legal hemp options."
+    ],
+    "prevention": [
+      "Scout late-season foliage and reproductive tissue for egg masses and young larvae.",
+      "Use monitoring and beneficial-conservation practices where appropriate."
+    ],
+    "warnings": [
+      "Armyworm damage overlaps other caterpillar feeding.",
+      "Do not identify species from leaf holes or frass alone."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "insect-cabbage-looper",
+    "slug": "cabbage-looper-hemp",
+    "name": "Cabbage looper feeding injury",
+    "scientificName": "Trichoplusia ni",
+    "category": "Insect",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.6,
+    "summary": "A caterpillar chewing pest documented on hemp foliage and floral buds. Irregular holes are low-specificity; the looping green larva and fresh feeding site make the diagnosis substantially stronger.",
+    "affectedParts": [
+      "leaf undersides",
+      "lower leaves",
+      "upper foliage as feeding progresses",
+      "floral buds"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "late season"
+    ],
+    "indicators": [
+      "Green caterpillars with pale side striping move in a characteristic looping gait on hemp",
+      "Large irregular chewing holes begin on leaf tissue, often from lower-leaf undersides",
+      "Severe feeding strips foliage or damages/deforms floral buds"
+    ],
+    "exclusions": [
+      "No larvae, frass, or active chewing are found",
+      "Larval morphology supports armyworm or another caterpillar",
+      "Skeletonization occurs with aggregating adult Japanese beetles"
+    ],
+    "progression": [
+      {
+        "stage": "Early feeding",
+        "description": "Larvae chew localized holes, often from leaf undersides."
+      },
+      {
+        "stage": "Increasing defoliation",
+        "description": "Irregular holes enlarge and feeding moves upward."
+      },
+      {
+        "stage": "Flower injury",
+        "description": "Late feeding can deform or destroy portions of marketable flower heads."
+      }
+    ],
+    "lookAlikes": [
+      "Armyworm feeding",
+      "Japanese beetle",
+      "Spotted cucumber beetle",
+      "Other caterpillars"
+    ],
+    "confirmation": [
+      "Find and document the larva on or near fresh damage and use morphology/behavior for identification.",
+      "Use chewing pattern only as supporting evidence."
+    ],
+    "immediateActions": [
+      "Inspect undersides and flowers for larvae, eggs, frass, and fresh chewing.",
+      "Record larval density rather than treating one old hole as an active infestation."
+    ],
+    "correctivePlan": [
+      "Use threshold-aware IPM and locally legal hemp controls for confirmed active feeding."
+    ],
+    "prevention": [
+      "Scout lower foliage and reproductive tissue during late-season moth activity.",
+      "Conserve beneficial predators and parasitoids where compatible with the IPM program."
+    ],
+    "warnings": [
+      "Irregular holes are shared by many chewing insects.",
+      "Old feeding damage can remain after the pest is gone."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "insect-dectes-stem-borer",
+    "slug": "dectes-stem-borer",
+    "name": "Dectes stem-borer injury",
+    "scientificName": "Dectes texanus",
+    "category": "Insect",
+    "severity": "high",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A stem-boring beetle differential for hemp. Internal pith galleries plus a compatible larva or adult are much stronger evidence than wilting or stem breakage alone.",
+    "affectedParts": [
+      "main stems",
+      "pith",
+      "stem nodes",
+      "whole shoot secondarily"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Internal stem or pith galleries are present",
+      "Cream-colored longhorn-beetle larvae occur inside affected stems or compatible gray long-antenna adults are found nearby",
+      "Infested stems may swell, split, wilt, die back, or break where internal tunneling weakens them"
+    ],
+    "exclusions": [
+      "Stem interior lacks galleries and a vascular/root pathogen explains wilt",
+      "Boring is produced by another identified stem-boring insect",
+      "Breakage is purely mechanical with healthy intact pith"
+    ],
+    "progression": [
+      {
+        "stage": "Entry and boring",
+        "description": "Larvae enter stems and tunnel through internal pith."
+      },
+      {
+        "stage": "Structural injury",
+        "description": "Transport and structural integrity decline as galleries expand."
+      },
+      {
+        "stage": "Dieback/breakage",
+        "description": "Affected stems can wilt, die back, split, or break under stress."
+      }
+    ],
+    "lookAlikes": [
+      "Fusarium stem/crown disease",
+      "Mechanical stem splitting",
+      "Other stem borers",
+      "Drought-related wilt"
+    ],
+    "confirmation": [
+      "Split a representative symptomatic stem lengthwise and document galleries and larvae.",
+      "Identify the insect when species-level attribution matters."
+    ],
+    "immediateActions": [
+      "Flag and inspect affected stems before disposal so internal evidence is preserved.",
+      "Scout adjacent plants for adults, entry sites, or galleries."
+    ],
+    "correctivePlan": [
+      "Use an IPM plan appropriate to confirmed stem-borer pressure and locally legal hemp practices."
+    ],
+    "prevention": [
+      "Scout stems for swelling, entry injury, and adults during the relevant field season.",
+      "Remove or manage infested residues when locally appropriate."
+    ],
+    "warnings": [
+      "Wilt and stem breakage are nonspecific.",
+      "A gallery without an identified insect should remain a generic stem-borer diagnosis."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "insect-japanese-beetle",
+    "slug": "japanese-beetle-hemp",
+    "name": "Japanese beetle feeding injury",
+    "scientificName": "Popillia japonica",
+    "category": "Insect",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.65,
+    "summary": "A conspicuous adult beetle pest of hemp. Skeletonized leaves are compatible with feeding, but the metallic green-and-bronze adult and aggregated active feeding provide the strongest field evidence.",
+    "affectedParts": [
+      "leaves",
+      "flowers",
+      "tender shoots"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "late season"
+    ],
+    "indicators": [
+      "Metallic green adults with bronze wing covers are actively feeding on hemp",
+      "Leaf tissue between veins is consumed, leaving a lace-like or skeletonized appearance",
+      "Beetles may aggregate on exposed foliage or reproductive tissue"
+    ],
+    "exclusions": [
+      "No beetles are present and another defoliator is actively feeding",
+      "Damage is mined within leaf tissue rather than skeletonized from the surface",
+      "Skeletonization is old and no current infestation can be established"
+    ],
+    "progression": [
+      {
+        "stage": "Aggregation/feeding",
+        "description": "Adults gather and chew exposed foliage or floral tissue."
+      },
+      {
+        "stage": "Skeletonization",
+        "description": "Interveinal tissue is removed and veins remain as feeding intensifies."
+      },
+      {
+        "stage": "Heavy defoliation",
+        "description": "Large aggregations can substantially reduce leaf area."
+      }
+    ],
+    "lookAlikes": [
+      "Other scarab beetles",
+      "Caterpillar defoliation",
+      "Spotted cucumber beetle"
+    ],
+    "confirmation": [
+      "Photograph adults with fresh damage and verify the characteristic adult morphology.",
+      "Do not assign Japanese beetle from skeletonization alone."
+    ],
+    "immediateActions": [
+      "Count active beetles and estimate fresh defoliation rather than using cumulative old injury.",
+      "Scout nearby sun-exposed foliage and flowers."
+    ],
+    "correctivePlan": [
+      "Use IPM appropriate to verified beetle pressure and locally legal hemp options."
+    ],
+    "prevention": [
+      "Scout during seasonal adult emergence and record aggregation patterns.",
+      "Avoid assuming pheromone traps reduce damage; trapping can alter local beetle aggregation."
+    ],
+    "warnings": [
+      "Skeletonization is not unique to Japanese beetle.",
+      "Economic thresholds established for other crops should not be copied directly to hemp without hemp-specific validation."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "insect-spotted-cucumber-beetle",
+    "slug": "spotted-cucumber-beetle",
+    "name": "Spotted cucumber beetle feeding injury",
+    "scientificName": "Diabrotica undecimpunctata",
+    "category": "Insect",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "A documented industrial-hemp chewing pest. Adult beetles can damage foliage and floral tissue while larvae can injure root hairs and root tips; organism evidence is needed because ragged holes and weak roots are not species-specific.",
+    "affectedParts": [
+      "leaves",
+      "leaf margins",
+      "flowers",
+      "pollen-bearing tissue",
+      "root hairs",
+      "root tips"
+    ],
+    "stages": [
+      "vegetative",
+      "early flower",
+      "field production"
+    ],
+    "indicators": [
+      "Yellow-green adult beetles with twelve dark spots are present on hemp",
+      "Leaves or floral tissue show fresh holes and ragged chewing edges while adults are feeding",
+      "Root injury or weak anchorage occurs together with compatible rootworm larvae in the root zone"
+    ],
+    "exclusions": [
+      "No compatible beetles or larvae are found and another chewing pest is present",
+      "Damage consists mainly of stippling, silvering, mining, or sap-feeding distortion rather than chewing",
+      "Root decline occurs without root-feeding larvae and a pathogen or irrigation disorder is better supported"
+    ],
+    "progression": [
+      {
+        "stage": "Adult feeding",
+        "description": "Adults chew foliage and reproductive tissue, leaving holes and ragged margins."
+      },
+      {
+        "stage": "Root-larval injury",
+        "description": "Where larvae are present, root-hair and root-tip feeding can reduce anchorage and contribute to stunting."
+      }
+    ],
+    "lookAlikes": [
+      "Japanese beetle",
+      "Armyworm / caterpillar feeding",
+      "Cabbage looper",
+      "Mechanical tearing",
+      "Root disease"
+    ],
+    "confirmation": [
+      "Photograph or collect the beetle/larva with the damaged tissue; identify the organism rather than assigning species from holes alone.",
+      "Inspect roots only when root symptoms or lodging are present."
+    ],
+    "immediateActions": [
+      "Scout nearby plants for adults and fresh feeding damage.",
+      "Document root-zone larvae separately from above-ground beetles."
+    ],
+    "correctivePlan": [
+      "Use an IPM response appropriate to confirmed pest pressure, crop stage, and locally legal hemp options."
+    ],
+    "prevention": [
+      "Scout field margins and foliage during vegetative to early flowering growth.",
+      "Reduce weed or alternate-host reservoirs where agronomically appropriate."
+    ],
+    "warnings": [
+      "Chewing holes are not diagnostic of spotted cucumber beetle.",
+      "Root damage can coexist with root pathogens; finding beetle larvae does not exclude disease."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "insect-tarnished-plant-bug",
+    "slug": "tarnished-plant-bug",
+    "name": "Tarnished plant bug feeding injury",
+    "scientificName": "Lygus lineolaris",
+    "category": "Insect",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A piercing-sucking hemp pest that can injure expanding leaves, shoots, buds, and flowers. Terminal distortion and chlorotic spotting overlap mites and abiotic injury, so a compatible Lygus insect should be observed before assigning this diagnosis.",
+    "affectedParts": [
+      "young leaves",
+      "shoot tips",
+      "stems",
+      "buds",
+      "flowers"
+    ],
+    "stages": [
+      "vegetative",
+      "early flower",
+      "flower"
+    ],
+    "indicators": [
+      "Fast-moving mottled brown bugs with a pale or yellow triangular marking are present on symptomatic hemp",
+      "Young tissue develops chlorotic feeding spots, curling, or distorted terminal growth",
+      "Developing buds are malformed or abort while compatible plant bugs are feeding"
+    ],
+    "exclusions": [
+      "No compatible insects are found after repeated scouting",
+      "Microscopy confirms broad or russet mites",
+      "Distortion follows a chemical, heat, or mechanical exposure pattern",
+      "Chewing holes dominate rather than piercing-sucking injury"
+    ],
+    "progression": [
+      {
+        "stage": "Feeding",
+        "description": "Adults or nymphs feed on young vegetative or reproductive tissues."
+      },
+      {
+        "stage": "Growth response",
+        "description": "Expanding leaves or terminals can curl or stunt and buds may become misshapen."
+      }
+    ],
+    "lookAlikes": [
+      "Broad mite",
+      "Hemp russet mite",
+      "Boron deficiency",
+      "Herbicide injury",
+      "Stink bug feeding"
+    ],
+    "confirmation": [
+      "Capture or clearly photograph the insect on symptomatic tissue and use morphology for species-level identification.",
+      "Treat terminal distortion alone as low-specificity evidence."
+    ],
+    "immediateActions": [
+      "Scout young leaves, terminals, and buds for nymphs/adults.",
+      "Record whether injury is clustered along field edges or alternate-host vegetation."
+    ],
+    "correctivePlan": [
+      "Use confirmed-pest IPM and locally legal hemp controls only when population and injury justify intervention."
+    ],
+    "prevention": [
+      "Monitor weeds and field margins that can harbor plant bugs.",
+      "Scout during rapid terminal and bud development."
+    ],
+    "warnings": [
+      "Curling and distorted buds are not Lygus-specific.",
+      "Do not infer this pest from one deformed leaf without organism evidence."
+    ],
+    "sources": [
+      {
+        "title": "Insect Pests of Industrial Hemp in Missouri",
+        "organization": "University of Missouri Extension",
+        "url": "https://extension.missouri.edu/publications/mx83",
+        "authors": [
+          "Anjeeta Nain",
+          "Kelly A. Nelson",
+          "Gurbir Singh",
+          "Peng Tian",
+          "Emily Althoff",
+          "Ivair Valmorbida",
+          "Gurpreet Kaur"
+        ],
+        "publisher": "University of Missouri Extension",
+        "publicationDate": "2025-10-01",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "supportedClaims": [
+          "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+          "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+          "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+          "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+          "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+          "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+          "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      }
+    ],
+    "media": []
   },
   {
     "id": "insect-thrips",
@@ -7356,7 +7974,8 @@
     ],
     "warnings": [
       "A photograph of yellowing or wilt cannot confirm Fusarium.",
-      "Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence."
+      "Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence.",
+      "The Fusarium species list on Cannabis continues to expand; a model should rank a Fusarium syndrome separately from a laboratory-confirmed species label."
     ],
     "sources": [
       {
@@ -7385,6 +8004,33 @@
         "supportedClaims": [
           "Multiple Fusarium species are associated with Cannabis root, crown, stem, wilt, and flower disease syndromes.",
           "Reported Cannabis Fusarium diagnoses use culture and sequence-based or other laboratory identification together with pathogenicity evidence; symptom appearance is not species-level confirmation."
+        ]
+      },
+      {
+        "title": "First Report of Fusarium falciforme (FSSC 3 + 4) Causing Rot of Industrial Hemp (Cannabis sativa) in California",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-08-21-1640-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2022-04-21",
+        "year": 2022,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-08-21-1640-PDN",
+        "supportedClaims": [
+          "Fusarium falciforme isolates caused internal hemp stem rot in pathogenicity work and were reisolated from inoculated stems.",
+          "Field root rot was associated with the same organism, but the report specifically confirmed stem-rot ability more directly than root-rot ability."
+        ]
+      },
+      {
+        "title": "First Report of Fusarium commune Causing Damping Off and Wilt in Cannabis sativa in Pennsylvania",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-10-24-2067-PDN",
+        "publisher": "American Phytopathological Society",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-10-24-2067-PDN",
+        "supportedClaims": [
+          "Fusarium commune was reported from indoor Cannabis with wilted yellowing foliage, browning stems and roots, and withering, expanding the documented Fusarium species associated with Cannabis wilt/root disease.",
+          "The case supports maintaining a Fusarium complex label unless laboratory work resolves the causal species."
         ]
       }
     ],
@@ -7627,7 +8273,8 @@
       "Control water temperature, sanitation, oxygen, and irrigation duration."
     ],
     "warnings": [
-      "Visual symptoms cannot reliably identify Pythium to species."
+      "Visual symptoms cannot reliably identify Pythium to species.",
+      "Pythium species differ in temperature and production-system ecology; do not treat one environmental threshold as universal for the entire complex."
     ],
     "sources": [
       {
@@ -7638,6 +8285,76 @@
         "accessedDate": "2026-08-13",
         "supportedClaims": [
           "Multiple Pythium species cause crown and root rot in greenhouse cannabis, and pathogen identity cannot be resolved reliably from above-ground symptoms alone."
+        ]
+      },
+      {
+        "title": "First Report of Pythium ultimum Crown and Root Rot of Industrial Hemp in the United States",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-12-17-1999-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2018-08-08",
+        "year": 2018,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-12-17-1999-PDN",
+        "supportedClaims": [
+          "Pythium ultimum was pathogenic to industrial hemp in replicated inoculation work; symptoms began within about one week and the organism was reisolated and PCR-confirmed.",
+          "Cool early planting, low-lying/flood-prone conditions, and soil crusting after intense rainfall were risk context in the report, not species-level visual identifiers."
+        ]
+      },
+      {
+        "title": "First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-09-16-1249-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2017-03-20",
+        "year": 2017,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-09-16-1249-PDN",
+        "supportedClaims": [
+          "Industrial hemp with Pythium aphanidermatum crown/root rot showed chlorosis, stunting, wilt, brown root lesions, feeder-root loss, and sometimes brown water-soaked stem lesions.",
+          "The above-ground syndrome overlaps other root diseases and water stress, reinforcing the need for cleaned-root and laboratory evidence."
+        ]
+      },
+      {
+        "title": "First Report of Pythium myriotylum Causing Root Rot in Cannabis sativa in California",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-02-21-0336-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2021-11-15",
+        "year": 2021,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-02-21-0336-PDN",
+        "supportedClaims": [
+          "Greenhouse medical Cannabis with Pythium myriotylum root rot showed stunting, chlorosis, senescence, reduced root mass and root-hair density, and necrotic root lesions.",
+          "The Cannabis-specific phenotype does not make canopy appearance species-specific."
+        ]
+      },
+      {
+        "title": "First Report of Pythium aphanidermatum Causing Crown and Root Rot in Cannabis sativa in Florida",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-02-25-0435-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2025-07-24",
+        "year": 2025,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-02-25-0435-PDN",
+        "supportedClaims": [
+          "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
+          "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species."
+        ]
+      },
+      {
+        "title": "First Report of Pythium myriotylum Causing Damping off and Root Rot in Cannabis sativa in Florida",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-07-25-1413-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2026-03-03",
+        "year": 2026,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-07-25-1413-PDN",
+        "supportedClaims": [
+          "Pythium myriotylum was confirmed causing damping-off and root rot in indoor Cannabis cuttings from five cultivars in Florida.",
+          "The expanded cultivar evidence supports propagation-stage scouting and reinforces that Pythium disease can occur before a mature-plant canopy syndrome is available."
         ]
       }
     ],
@@ -7771,6 +8488,99 @@
           "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
           "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
           "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting."
+        ]
+      }
+    ],
+    "media": []
+  },
+  {
+    "id": "root-white-root-rot",
+    "slug": "white-root-rot-dematophora-necatrix",
+    "name": "White root rot",
+    "scientificName": "Dematophora necatrix (Rosellinia necatrix)",
+    "category": "Root pathogen",
+    "severity": "critical",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.5,
+    "summary": "A pathogenicity-confirmed hemp root disease characterized by declining canopy tissue together with white root-surface mycelium and fan-like mycelial growth beneath root bark. Root signs are essential because yellowing and wilt are nonspecific.",
+    "affectedParts": [
+      "roots",
+      "root bark",
+      "root crown secondarily",
+      "whole canopy"
+    ],
+    "stages": [
+      "vegetative",
+      "flower",
+      "field production"
+    ],
+    "indicators": [
+      "Roots are covered by conspicuous white fungal mycelium",
+      "Fan-like mycelial growth occurs beneath root bark",
+      "Canopy yellowing and apical wilt progress rapidly in a plant with compatible root signs",
+      "Laboratory morphology and molecular evidence identify Dematophora/Rosellinia necatrix"
+    ],
+    "exclusions": [
+      "No white or fan-like root mycelium is present and another root pathogen is confirmed",
+      "White cottony growth and spherical basal sclerotia support southern blight",
+      "Small black crown sclerotia support Sclerotinia crown rot",
+      "Wilt occurs with physically healthy roots and a measured water deficit explains symptoms"
+    ],
+    "progression": [
+      {
+        "stage": "Root colonization",
+        "description": "White mycelium develops on affected roots and beneath bark."
+      },
+      {
+        "stage": "Canopy decline",
+        "description": "Yellowing and apical wilt appear as root function deteriorates."
+      },
+      {
+        "stage": "Death",
+        "description": "In the reported hemp outbreak, affected plants could die within weeks after visible decline began."
+      }
+    ],
+    "lookAlikes": [
+      "Southern blight",
+      "Sclerotinia crown rot",
+      "Pythium root rot",
+      "Fusarium crown/root rot",
+      "Rhizoctonia root rot"
+    ],
+    "confirmation": [
+      "Expose and photograph roots before cleaning, then inspect beneath bark for fan-like mycelium.",
+      "Use culture and molecular identification for organism-level confirmation."
+    ],
+    "immediateActions": [
+      "Isolate affected root-zone soil, tools, and debris from clean production areas.",
+      "Preserve representative colonized roots for laboratory diagnosis."
+    ],
+    "correctivePlan": [
+      "Base sanitation, culling, soil/root-zone management, and crop-protection decisions on confirmed disease and locally legal options."
+    ],
+    "prevention": [
+      "Avoid moving contaminated soil and infected root debris.",
+      "Inspect planting sites with a history of susceptible perennial crops or unexplained root-rot mortality."
+    ],
+    "warnings": [
+      "Canopy wilt or chlorosis cannot diagnose white root rot.",
+      "White fungal growth must be interpreted at the root/crown location and distinguished from other soilborne fungi."
+    ],
+    "sources": [
+      {
+        "title": "First Report of White Root Rot of Hemp (Cannabis sativa) Caused by Dematophora necatrix in Campania Region (Southern Italy)",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-07-20-1521-PDN",
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2021-10-22",
+        "year": 2021,
+        "accessedDate": "2026-08-17",
+        "doi": "10.1094/PDIS-07-20-1521-PDN",
+        "supportedClaims": [
+          "Affected hemp developed yellowing, apical wilt, root rot, white mycelium covering roots, and fan-like mycelium beneath root bark before death.",
+          "In the reported field, death generally occurred within two to three weeks after first symptoms and about 10% of plants were affected.",
+          "Inoculated hemp reproduced chlorosis, apical wilt, and death while controls remained healthy; the fungus was reisolated and confirmed by morphology and molecular analysis.",
+          "Root signs and laboratory confirmation are required because canopy yellowing and wilt overlap many Cannabis root-zone disorders."
         ]
       }
     ],

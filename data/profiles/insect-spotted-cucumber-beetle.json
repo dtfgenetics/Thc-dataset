@@ -1,0 +1,100 @@
+{
+  "id": "insect-spotted-cucumber-beetle",
+  "slug": "spotted-cucumber-beetle",
+  "name": "Spotted cucumber beetle feeding injury",
+  "scientificName": "Diabrotica undecimpunctata",
+  "category": "Insect",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A documented industrial-hemp chewing pest. Adult beetles can damage foliage and floral tissue while larvae can injure root hairs and root tips; organism evidence is needed because ragged holes and weak roots are not species-specific.",
+  "affectedParts": [
+    "leaves",
+    "leaf margins",
+    "flowers",
+    "pollen-bearing tissue",
+    "root hairs",
+    "root tips"
+  ],
+  "stages": [
+    "vegetative",
+    "early flower",
+    "field production"
+  ],
+  "indicators": [
+    "Yellow-green adult beetles with twelve dark spots are present on hemp",
+    "Leaves or floral tissue show fresh holes and ragged chewing edges while adults are feeding",
+    "Root injury or weak anchorage occurs together with compatible rootworm larvae in the root zone"
+  ],
+  "exclusions": [
+    "No compatible beetles or larvae are found and another chewing pest is present",
+    "Damage consists mainly of stippling, silvering, mining, or sap-feeding distortion rather than chewing",
+    "Root decline occurs without root-feeding larvae and a pathogen or irrigation disorder is better supported"
+  ],
+  "progression": [
+    {
+      "stage": "Adult feeding",
+      "description": "Adults chew foliage and reproductive tissue, leaving holes and ragged margins."
+    },
+    {
+      "stage": "Root-larval injury",
+      "description": "Where larvae are present, root-hair and root-tip feeding can reduce anchorage and contribute to stunting."
+    }
+  ],
+  "lookAlikes": [
+    "Japanese beetle",
+    "Armyworm / caterpillar feeding",
+    "Cabbage looper",
+    "Mechanical tearing",
+    "Root disease"
+  ],
+  "confirmation": [
+    "Photograph or collect the beetle/larva with the damaged tissue; identify the organism rather than assigning species from holes alone.",
+    "Inspect roots only when root symptoms or lodging are present."
+  ],
+  "immediateActions": [
+    "Scout nearby plants for adults and fresh feeding damage.",
+    "Document root-zone larvae separately from above-ground beetles."
+  ],
+  "correctivePlan": [
+    "Use an IPM response appropriate to confirmed pest pressure, crop stage, and locally legal hemp options."
+  ],
+  "prevention": [
+    "Scout field margins and foliage during vegetative to early flowering growth.",
+    "Reduce weed or alternate-host reservoirs where agronomically appropriate."
+  ],
+  "warnings": [
+    "Chewing holes are not diagnostic of spotted cucumber beetle.",
+    "Root damage can coexist with root pathogens; finding beetle larvae does not exclude disease."
+  ],
+  "sources": [
+    {
+      "title": "Insect Pests of Industrial Hemp in Missouri",
+      "organization": "University of Missouri Extension",
+      "url": "https://extension.missouri.edu/publications/mx83",
+      "authors": [
+        "Anjeeta Nain",
+        "Kelly A. Nelson",
+        "Gurbir Singh",
+        "Peng Tian",
+        "Emily Althoff",
+        "Ivair Valmorbida",
+        "Gurpreet Kaur"
+      ],
+      "publisher": "University of Missouri Extension",
+      "publicationDate": "2025-10-01",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "supportedClaims": [
+        "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+        "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+        "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+        "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+        "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+        "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+        "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

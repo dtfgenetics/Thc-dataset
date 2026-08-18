@@ -1,13 +1,13 @@
 {
   "id": "fungal-sclerotinia-white-mold",
   "slug": "sclerotinia-white-mold",
-  "name": "Sclerotinia white mold",
-  "scientificName": "Sclerotinia sclerotiorum",
+  "name": "Sclerotinia white mold / crown rot complex",
+  "scientificName": "Sclerotinia sclerotiorum / Sclerotinia minor",
   "category": "Fungal pathogen",
   "severity": "high",
   "reviewStatus": "reviewed",
   "photoOnlyMaxConfidence": 0.4,
-  "summary": "A confirmed Cannabis fungal disease that can contribute to white-mold, wilt, and yellowing syndromes. Because Botrytis, Fusarium, Pythium, and other molds can overlap visually, white growth alone is not species-level evidence.",
+  "summary": "A confirmed Cannabis Sclerotinia disease complex that can involve white-mold, crown-rot, wilt, and yellowing syndromes. S. sclerotiorum and S. minor are both documented on Cannabis/hemp; organism-level evidence is required because Botrytis, Fusarium, southern blight, and other molds overlap visually.",
   "affectedParts": [
     "stems",
     "crown",
@@ -67,7 +67,8 @@
   ],
   "warnings": [
     "White mold appearance is not specific to Sclerotinia.",
-    "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification."
+    "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification.",
+    "Sclerotinia sclerotiorum and S. minor should not be separated by canopy appearance alone; crown signs, sclerotia, culture, and molecular evidence carry more weight."
   ],
   "sources": [
     {
@@ -83,6 +84,20 @@
         "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
         "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
         "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+      ]
+    },
+    {
+      "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-01-19-0088-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2019-05-16",
+      "year": 2019,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-01-19-0088-PDN",
+      "supportedClaims": [
+        "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
+        "The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label."
       ]
     }
   ],

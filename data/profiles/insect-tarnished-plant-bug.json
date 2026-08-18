@@ -1,0 +1,100 @@
+{
+  "id": "insect-tarnished-plant-bug",
+  "slug": "tarnished-plant-bug",
+  "name": "Tarnished plant bug feeding injury",
+  "scientificName": "Lygus lineolaris",
+  "category": "Insect",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A piercing-sucking hemp pest that can injure expanding leaves, shoots, buds, and flowers. Terminal distortion and chlorotic spotting overlap mites and abiotic injury, so a compatible Lygus insect should be observed before assigning this diagnosis.",
+  "affectedParts": [
+    "young leaves",
+    "shoot tips",
+    "stems",
+    "buds",
+    "flowers"
+  ],
+  "stages": [
+    "vegetative",
+    "early flower",
+    "flower"
+  ],
+  "indicators": [
+    "Fast-moving mottled brown bugs with a pale or yellow triangular marking are present on symptomatic hemp",
+    "Young tissue develops chlorotic feeding spots, curling, or distorted terminal growth",
+    "Developing buds are malformed or abort while compatible plant bugs are feeding"
+  ],
+  "exclusions": [
+    "No compatible insects are found after repeated scouting",
+    "Microscopy confirms broad or russet mites",
+    "Distortion follows a chemical, heat, or mechanical exposure pattern",
+    "Chewing holes dominate rather than piercing-sucking injury"
+  ],
+  "progression": [
+    {
+      "stage": "Feeding",
+      "description": "Adults or nymphs feed on young vegetative or reproductive tissues."
+    },
+    {
+      "stage": "Growth response",
+      "description": "Expanding leaves or terminals can curl or stunt and buds may become misshapen."
+    }
+  ],
+  "lookAlikes": [
+    "Broad mite",
+    "Hemp russet mite",
+    "Boron deficiency",
+    "Herbicide injury",
+    "Stink bug feeding"
+  ],
+  "confirmation": [
+    "Capture or clearly photograph the insect on symptomatic tissue and use morphology for species-level identification.",
+    "Treat terminal distortion alone as low-specificity evidence."
+  ],
+  "immediateActions": [
+    "Scout young leaves, terminals, and buds for nymphs/adults.",
+    "Record whether injury is clustered along field edges or alternate-host vegetation."
+  ],
+  "correctivePlan": [
+    "Use confirmed-pest IPM and locally legal hemp controls only when population and injury justify intervention."
+  ],
+  "prevention": [
+    "Monitor weeds and field margins that can harbor plant bugs.",
+    "Scout during rapid terminal and bud development."
+  ],
+  "warnings": [
+    "Curling and distorted buds are not Lygus-specific.",
+    "Do not infer this pest from one deformed leaf without organism evidence."
+  ],
+  "sources": [
+    {
+      "title": "Insect Pests of Industrial Hemp in Missouri",
+      "organization": "University of Missouri Extension",
+      "url": "https://extension.missouri.edu/publications/mx83",
+      "authors": [
+        "Anjeeta Nain",
+        "Kelly A. Nelson",
+        "Gurbir Singh",
+        "Peng Tian",
+        "Emily Althoff",
+        "Ivair Valmorbida",
+        "Gurpreet Kaur"
+      ],
+      "publisher": "University of Missouri Extension",
+      "publicationDate": "2025-10-01",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "supportedClaims": [
+        "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+        "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+        "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+        "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+        "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+        "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+        "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

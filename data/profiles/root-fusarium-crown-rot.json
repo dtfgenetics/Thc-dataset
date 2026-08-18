@@ -73,7 +73,8 @@
   ],
   "warnings": [
     "A photograph of yellowing or wilt cannot confirm Fusarium.",
-    "Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence."
+    "Multiple Fusarium species and Pythium can occur in similar Cannabis crown/root disease complexes; do not make species-level claims without laboratory evidence.",
+    "The Fusarium species list on Cannabis continues to expand; a model should rank a Fusarium syndrome separately from a laboratory-confirmed species label."
   ],
   "sources": [
     {
@@ -102,6 +103,33 @@
       "supportedClaims": [
         "Multiple Fusarium species are associated with Cannabis root, crown, stem, wilt, and flower disease syndromes.",
         "Reported Cannabis Fusarium diagnoses use culture and sequence-based or other laboratory identification together with pathogenicity evidence; symptom appearance is not species-level confirmation."
+      ]
+    },
+    {
+      "title": "First Report of Fusarium falciforme (FSSC 3 + 4) Causing Rot of Industrial Hemp (Cannabis sativa) in California",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-08-21-1640-PDN",
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2022-04-21",
+      "year": 2022,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-08-21-1640-PDN",
+      "supportedClaims": [
+        "Fusarium falciforme isolates caused internal hemp stem rot in pathogenicity work and were reisolated from inoculated stems.",
+        "Field root rot was associated with the same organism, but the report specifically confirmed stem-rot ability more directly than root-rot ability."
+      ]
+    },
+    {
+      "title": "First Report of Fusarium commune Causing Damping Off and Wilt in Cannabis sativa in Pennsylvania",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-10-24-2067-PDN",
+      "publisher": "American Phytopathological Society",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "doi": "10.1094/PDIS-10-24-2067-PDN",
+      "supportedClaims": [
+        "Fusarium commune was reported from indoor Cannabis with wilted yellowing foliage, browning stems and roots, and withering, expanding the documented Fusarium species associated with Cannabis wilt/root disease.",
+        "The case supports maintaining a Fusarium complex label unless laboratory work resolves the causal species."
       ]
     }
   ],

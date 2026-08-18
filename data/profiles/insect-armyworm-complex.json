@@ -1,0 +1,102 @@
+{
+  "id": "insect-armyworm-complex",
+  "slug": "armyworm-caterpillar-feeding",
+  "name": "Armyworm caterpillar feeding complex",
+  "scientificName": "Spodoptera spp. / Mythimna unipuncta",
+  "category": "Insect",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.5,
+  "summary": "A late-season caterpillar feeding differential for hemp. Armyworm larvae can defoliate foliage and enter buds or flowers, but species-level identification requires larval morphology rather than damage pattern alone.",
+  "affectedParts": [
+    "leaves",
+    "leaf midribs",
+    "buds",
+    "flowers"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "late season"
+  ],
+  "indicators": [
+    "Caterpillar larvae are present with fresh irregular chewing injury",
+    "Severe feeding skeletonizes or strips leaves toward the midribs",
+    "Larvae entering buds or flowers leave feeding injury together with silk and frass",
+    "Larval head/body markings support fall armyworm, true armyworm, or another armyworm identification"
+  ],
+  "exclusions": [
+    "No larvae or fresh frass are found and damage is old",
+    "Characteristic looping larvae support cabbage looper",
+    "Adult Japanese beetles are actively skeletonizing tissue"
+  ],
+  "progression": [
+    {
+      "stage": "Leaf feeding",
+      "description": "Larvae chew irregular holes and remove expanding leaf area."
+    },
+    {
+      "stage": "Heavy defoliation",
+      "description": "High feeding pressure can skeletonize leaves or strip tissue to major veins."
+    },
+    {
+      "stage": "Bud/flower feeding",
+      "description": "Later larvae can enter reproductive tissue, leaving silk, frass, and damaged floral material."
+    }
+  ],
+  "lookAlikes": [
+    "Cabbage looper",
+    "Corn-earworm-like caterpillar injury",
+    "Japanese beetle",
+    "Other noctuid larvae"
+  ],
+  "confirmation": [
+    "Collect or clearly photograph representative larvae and use morphology for species-level assignment.",
+    "Treat frass plus an active larva as stronger evidence than holes alone."
+  ],
+  "immediateActions": [
+    "Inspect fresh feeding fronts, buds, and flowers for larvae and frass.",
+    "Record larval size and density because damage potential changes with instar and population."
+  ],
+  "correctivePlan": [
+    "Use an IPM response based on confirmed caterpillar identity, population, crop stage, and locally legal hemp options."
+  ],
+  "prevention": [
+    "Scout late-season foliage and reproductive tissue for egg masses and young larvae.",
+    "Use monitoring and beneficial-conservation practices where appropriate."
+  ],
+  "warnings": [
+    "Armyworm damage overlaps other caterpillar feeding.",
+    "Do not identify species from leaf holes or frass alone."
+  ],
+  "sources": [
+    {
+      "title": "Insect Pests of Industrial Hemp in Missouri",
+      "organization": "University of Missouri Extension",
+      "url": "https://extension.missouri.edu/publications/mx83",
+      "authors": [
+        "Anjeeta Nain",
+        "Kelly A. Nelson",
+        "Gurbir Singh",
+        "Peng Tian",
+        "Emily Althoff",
+        "Ivair Valmorbida",
+        "Gurpreet Kaur"
+      ],
+      "publisher": "University of Missouri Extension",
+      "publicationDate": "2025-10-01",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "supportedClaims": [
+        "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+        "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+        "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+        "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+        "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+        "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+        "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

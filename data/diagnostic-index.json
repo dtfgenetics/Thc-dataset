@@ -1,8 +1,8 @@
 {
   "schemaVersion": "2.0.0",
   "status": "generated-from-reviewed-catalog",
-  "recordCount": 54,
-  "description": "Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata and category normalization are applied before export.",
+  "recordCount": 61,
+  "description": "Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata, evidence augmentation, and category normalization are applied before export.",
   "records": [
     {
       "id": "bacterial-serratia-leaf-spot",
@@ -163,7 +163,7 @@
     {
       "id": "fungal-sclerotinia-white-mold",
       "slug": "sclerotinia-white-mold",
-      "name": "Sclerotinia white mold",
+      "name": "Sclerotinia white mold / crown rot complex",
       "category": "Fungal pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
@@ -207,6 +207,78 @@
       "sourceLayer": "core",
       "sourceFile": "src/data/catalog.ts",
       "path": "data/profiles/gen-variegation.json"
+    },
+    {
+      "id": "insect-armyworm-complex",
+      "slug": "armyworm-caterpillar-feeding",
+      "name": "Armyworm caterpillar feeding complex",
+      "category": "Insect",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-armyworm-complex.json"
+    },
+    {
+      "id": "insect-cabbage-looper",
+      "slug": "cabbage-looper-hemp",
+      "name": "Cabbage looper feeding injury",
+      "category": "Insect",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-cabbage-looper.json"
+    },
+    {
+      "id": "insect-dectes-stem-borer",
+      "slug": "dectes-stem-borer",
+      "name": "Dectes stem-borer injury",
+      "category": "Insect",
+      "severity": "high",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-dectes-stem-borer.json"
+    },
+    {
+      "id": "insect-japanese-beetle",
+      "slug": "japanese-beetle-hemp",
+      "name": "Japanese beetle feeding injury",
+      "category": "Insect",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-japanese-beetle.json"
+    },
+    {
+      "id": "insect-spotted-cucumber-beetle",
+      "slug": "spotted-cucumber-beetle",
+      "name": "Spotted cucumber beetle feeding injury",
+      "category": "Insect",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-spotted-cucumber-beetle.json"
+    },
+    {
+      "id": "insect-tarnished-plant-bug",
+      "slug": "tarnished-plant-bug",
+      "name": "Tarnished plant bug feeding injury",
+      "category": "Insect",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/insect-tarnished-plant-bug.json"
     },
     {
       "id": "insect-thrips",
@@ -591,6 +663,18 @@
       "sourceLayer": "supplemental",
       "sourceFile": "src/data/catalog.ts",
       "path": "data/profiles/root-rhizoctonia.json"
+    },
+    {
+      "id": "root-white-root-rot",
+      "slug": "white-root-rot-dematophora-necatrix",
+      "name": "White root rot",
+      "category": "Root pathogen",
+      "severity": "critical",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/root-white-root-rot.json"
     },
     {
       "id": "stress-drought-water-deficit",

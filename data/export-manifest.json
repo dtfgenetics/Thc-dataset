@@ -7,13 +7,15 @@
     "src/data/issues.ts",
     "src/data/supplemental-issues.ts",
     "src/data/expanded-issues.ts",
-    "src/data/expanded-issues-batch2.ts"
+    "src/data/expanded-issues-batch2.ts",
+    "src/data/expanded-issues-batch3.ts",
+    "src/data/evidence-augmentations.ts"
   ],
   "counts": {
     "primaryDiagnosticProfiles": 29,
-    "supplementalDiagnosticProfiles": 25,
-    "diagnosticProfiles": 54,
-    "sources": 74,
+    "supplementalDiagnosticProfiles": 32,
+    "diagnosticProfiles": 61,
+    "sources": 84,
     "profileReferenceMedia": 40,
     "trainingEligibleMedia": 0
   },
@@ -30,14 +32,14 @@
     "trainingEligibleMedia": "data/training-eligible-media.json"
   },
   "safeguards": [
-    "The application catalog is the only export boundary; raw source modules cannot bypass catalog-level errata normalization.",
+    "The application catalog is the only export boundary; raw source modules cannot bypass catalog-level corrections or evidence augmentation.",
     "Generated output does not overwrite curated data/reference-media.json.",
     "Generated output does not overwrite curated data/manifest.json.",
     "Diagnostic index JSON and CSV are generated from the same profile set rather than maintained manually.",
     "Duplicate profile ids and slugs fail closed.",
     "Duplicate evidence sources are merged only when identity metadata agrees; claim and author lists are unioned deterministically.",
     "Conflicting duplicate media metadata fails closed.",
-    "A partial export below the established 54-profile baseline fails closed.",
+    "A partial export below the established 61-profile baseline fails closed.",
     "The full repository TypeScript check remains a separate required CI gate from dataset materialization."
   ]
 }

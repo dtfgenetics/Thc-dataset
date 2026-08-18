@@ -1,0 +1,101 @@
+{
+  "id": "insect-dectes-stem-borer",
+  "slug": "dectes-stem-borer",
+  "name": "Dectes stem-borer injury",
+  "scientificName": "Dectes texanus",
+  "category": "Insect",
+  "severity": "high",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.55,
+  "summary": "A stem-boring beetle differential for hemp. Internal pith galleries plus a compatible larva or adult are much stronger evidence than wilting or stem breakage alone.",
+  "affectedParts": [
+    "main stems",
+    "pith",
+    "stem nodes",
+    "whole shoot secondarily"
+  ],
+  "stages": [
+    "vegetative",
+    "flower",
+    "field production"
+  ],
+  "indicators": [
+    "Internal stem or pith galleries are present",
+    "Cream-colored longhorn-beetle larvae occur inside affected stems or compatible gray long-antenna adults are found nearby",
+    "Infested stems may swell, split, wilt, die back, or break where internal tunneling weakens them"
+  ],
+  "exclusions": [
+    "Stem interior lacks galleries and a vascular/root pathogen explains wilt",
+    "Boring is produced by another identified stem-boring insect",
+    "Breakage is purely mechanical with healthy intact pith"
+  ],
+  "progression": [
+    {
+      "stage": "Entry and boring",
+      "description": "Larvae enter stems and tunnel through internal pith."
+    },
+    {
+      "stage": "Structural injury",
+      "description": "Transport and structural integrity decline as galleries expand."
+    },
+    {
+      "stage": "Dieback/breakage",
+      "description": "Affected stems can wilt, die back, split, or break under stress."
+    }
+  ],
+  "lookAlikes": [
+    "Fusarium stem/crown disease",
+    "Mechanical stem splitting",
+    "Other stem borers",
+    "Drought-related wilt"
+  ],
+  "confirmation": [
+    "Split a representative symptomatic stem lengthwise and document galleries and larvae.",
+    "Identify the insect when species-level attribution matters."
+  ],
+  "immediateActions": [
+    "Flag and inspect affected stems before disposal so internal evidence is preserved.",
+    "Scout adjacent plants for adults, entry sites, or galleries."
+  ],
+  "correctivePlan": [
+    "Use an IPM plan appropriate to confirmed stem-borer pressure and locally legal hemp practices."
+  ],
+  "prevention": [
+    "Scout stems for swelling, entry injury, and adults during the relevant field season.",
+    "Remove or manage infested residues when locally appropriate."
+  ],
+  "warnings": [
+    "Wilt and stem breakage are nonspecific.",
+    "A gallery without an identified insect should remain a generic stem-borer diagnosis."
+  ],
+  "sources": [
+    {
+      "title": "Insect Pests of Industrial Hemp in Missouri",
+      "organization": "University of Missouri Extension",
+      "url": "https://extension.missouri.edu/publications/mx83",
+      "authors": [
+        "Anjeeta Nain",
+        "Kelly A. Nelson",
+        "Gurbir Singh",
+        "Peng Tian",
+        "Emily Althoff",
+        "Ivair Valmorbida",
+        "Gurpreet Kaur"
+      ],
+      "publisher": "University of Missouri Extension",
+      "publicationDate": "2025-10-01",
+      "year": 2025,
+      "accessedDate": "2026-08-17",
+      "supportedClaims": [
+        "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+        "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+        "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+        "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+        "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+        "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+        "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+      ]
+    }
+  ],
+  "media": []
+}

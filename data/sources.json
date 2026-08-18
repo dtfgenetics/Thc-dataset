@@ -242,6 +242,21 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-01-19-0088-PDN",
+    "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-01-19-0088-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2019-05-16",
+    "year": 2019,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-01-19-0088-PDN",
+    "supportedClaims": [
+      "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
+      "The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-01-19-0098-PDN",
     "title": "First Report of ‘Candidatus Phytoplasma trifolii’ Associated with a Witches’ Broom Disease in Cannabis sativa in Nevada, U.S.A",
     "organization": "Plant Disease",
@@ -292,6 +307,36 @@
       "Industrial hemp leaf spots began as small spots and developed into brown irregular lesions with light yellow halos; lesion centers could perforate as disease advanced.",
       "The isolate was identified as Alternaria alternata by morphology and multilocus molecular evidence, and inoculated healthy hemp developed similar lesions while controls remained asymptomatic.",
       "Re-isolation from inoculated plants fulfilled Koch postulates, so the record supports an organism-confirmed Cannabis leaf-spot diagnosis rather than visual similarity alone."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-02-21-0336-PDN",
+    "title": "First Report of Pythium myriotylum Causing Root Rot in Cannabis sativa in California",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-02-21-0336-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2021-11-15",
+    "year": 2021,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-02-21-0336-PDN",
+    "supportedClaims": [
+      "Greenhouse medical Cannabis with Pythium myriotylum root rot showed stunting, chlorosis, senescence, reduced root mass and root-hair density, and necrotic root lesions.",
+      "The Cannabis-specific phenotype does not make canopy appearance species-specific."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-02-25-0435-PDN",
+    "title": "First Report of Pythium aphanidermatum Causing Crown and Root Rot in Cannabis sativa in Florida",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-02-25-0435-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2025-07-24",
+    "year": 2025,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-02-25-0435-PDN",
+    "supportedClaims": [
+      "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
+      "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species."
     ]
   },
   {
@@ -353,6 +398,53 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-07-20-1521-PDN",
+    "title": "First Report of White Root Rot of Hemp (Cannabis sativa) Caused by Dematophora necatrix in Campania Region (Southern Italy)",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-07-20-1521-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2021-10-22",
+    "year": 2021,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-07-20-1521-PDN",
+    "supportedClaims": [
+      "Affected hemp developed yellowing, apical wilt, root rot, white mycelium covering roots, and fan-like mycelium beneath root bark before death.",
+      "In the reported field, death generally occurred within two to three weeks after first symptoms and about 10% of plants were affected.",
+      "Inoculated hemp reproduced chlorosis, apical wilt, and death while controls remained healthy; the fungus was reisolated and confirmed by morphology and molecular analysis.",
+      "Root signs and laboratory confirmation are required because canopy yellowing and wilt overlap many Cannabis root-zone disorders."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-07-25-1413-PDN",
+    "title": "First Report of Pythium myriotylum Causing Damping off and Root Rot in Cannabis sativa in Florida",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-07-25-1413-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2026-03-03",
+    "year": 2026,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-07-25-1413-PDN",
+    "supportedClaims": [
+      "Pythium myriotylum was confirmed causing damping-off and root rot in indoor Cannabis cuttings from five cultivars in Florida.",
+      "The expanded cultivar evidence supports propagation-stage scouting and reinforces that Pythium disease can occur before a mature-plant canopy syndrome is available."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-08-21-1640-PDN",
+    "title": "First Report of Fusarium falciforme (FSSC 3 + 4) Causing Rot of Industrial Hemp (Cannabis sativa) in California",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-08-21-1640-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2022-04-21",
+    "year": 2022,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-08-21-1640-PDN",
+    "supportedClaims": [
+      "Fusarium falciforme isolates caused internal hemp stem rot in pathogenicity work and were reisolated from inoculated stems.",
+      "Field root rot was associated with the same organism, but the report specifically confirmed stem-rot ability more directly than root-rot ability."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-08-22-1930-PDN",
     "title": "First Report of Downy Mildew Caused by Pseudoperonospora cannabina on Cannabis sativa in New York",
     "organization": "Plant Disease",
@@ -365,6 +457,21 @@
     "supportedClaims": [
       "Downy mildew on hemp was documented with chlorotic and necrotic lesions and sporangiophore production under humid conditions, affecting leaves and inflorescences in severe field cases.",
       "The causal agent is the oomycete Pseudoperonospora cannabina; it is not a true fungus despite the mildew name."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-09-16-1249-PDN",
+    "title": "First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-09-16-1249-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2017-03-20",
+    "year": 2017,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-09-16-1249-PDN",
+    "supportedClaims": [
+      "Industrial hemp with Pythium aphanidermatum crown/root rot showed chlorosis, stunting, wilt, brown root lesions, feeder-root loss, and sometimes brown water-soaked stem lesions.",
+      "The above-ground syndrome overlaps other root diseases and water stress, reinforcing the need for cleaned-root and laboratory evidence."
     ]
   },
   {
@@ -398,6 +505,20 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-10-24-2067-PDN",
+    "title": "First Report of Fusarium commune Causing Damping Off and Wilt in Cannabis sativa in Pennsylvania",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-10-24-2067-PDN",
+    "publisher": "American Phytopathological Society",
+    "year": 2025,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-10-24-2067-PDN",
+    "supportedClaims": [
+      "Fusarium commune was reported from indoor Cannabis with wilted yellowing foliage, browning stems and roots, and withering, expanding the documented Fusarium species associated with Cannabis wilt/root disease.",
+      "The case supports maintaining a Fusarium complex label unless laboratory work resolves the causal species."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-10-25-2036-PDN",
     "title": "First Report of Fusarium graminearum Causing Head Blight on Hemp (Cannabis sativa) in Wisconsin",
     "organization": "Plant Disease",
@@ -428,6 +549,21 @@
       "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
     ],
     "authors": []
+  },
+  {
+    "sourceKey": "10.1094/PDIS-12-17-1999-PDN",
+    "title": "First Report of Pythium ultimum Crown and Root Rot of Industrial Hemp in the United States",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-12-17-1999-PDN",
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2018-08-08",
+    "year": 2018,
+    "accessedDate": "2026-08-17",
+    "doi": "10.1094/PDIS-12-17-1999-PDN",
+    "supportedClaims": [
+      "Pythium ultimum was pathogenic to industrial hemp in replicated inoculation work; symptoms began within about one week and the organism was reisolated and PCR-confirmed.",
+      "Cool early planting, low-lying/flood-prone conditions, and soil crusting after intense rainfall were risk context in the report, not species-level visual identifiers."
+    ]
   },
   {
     "sourceKey": "10.1094/PDIS-12-20-2620-SC",
@@ -1197,6 +1333,34 @@
     "supportedClaims": [
       "Across greenhouse ornamental hosts, bacterial and fungal leaf spots can be visually confounded; bacterial streaming can support suspicion but may be absent, and diagnosis by a plant disease clinic is recommended.",
       "As general bacterial-leaf-spot precautions rather than cannabis-specific epidemiology, splashing water and handling wet plants can spread bacteria, so suspect plants should be handled dry and separately."
+    ]
+  },
+  {
+    "sourceKey": "https://extension.missouri.edu/publications/mx83",
+    "title": "Insect Pests of Industrial Hemp in Missouri",
+    "organization": "University of Missouri Extension",
+    "url": "https://extension.missouri.edu/publications/mx83",
+    "authors": [
+      "Anjeeta Nain",
+      "Kelly A. Nelson",
+      "Gurbir Singh",
+      "Peng Tian",
+      "Emily Althoff",
+      "Ivair Valmorbida",
+      "Gurpreet Kaur"
+    ],
+    "publisher": "University of Missouri Extension",
+    "publicationDate": "2025-10-01",
+    "year": 2025,
+    "accessedDate": "2026-08-17",
+    "supportedClaims": [
+      "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
+      "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+      "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
+      "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
+      "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
+      "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
+      "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
     ]
   },
   {
