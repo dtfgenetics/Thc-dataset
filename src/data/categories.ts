@@ -5,6 +5,7 @@ export const categoryOrder: readonly IssueCategory[] = [
   'Nutrient toxicity',
   'Insect',
   'Mite',
+  'Nematode',
   'Fungal pathogen',
   'Oomycete pathogen',
   'Bacterial pathogen',
