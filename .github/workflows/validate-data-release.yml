@@ -11,6 +11,7 @@ on:
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
       - 'scripts/validate-reference-crop-geometry.mjs'
+      - 'scripts/validate-release-metadata.mjs'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/persist-open-reference-media.py'
       - 'scripts/build-reference-crops.py'
@@ -27,6 +28,7 @@ on:
       - 'images/reference/**'
       - 'scripts/validate-data-release.mjs'
       - 'scripts/validate-reference-crop-geometry.mjs'
+      - 'scripts/validate-release-metadata.mjs'
       - 'scripts/export-machine-data.mjs'
       - 'scripts/persist-open-reference-media.py'
       - 'scripts/build-reference-crops.py'
@@ -66,6 +68,9 @@ jobs:
 
       - name: Validate manual and grid crop geometry
         run: npm run validate:crop-geometry
+
+      - name: Validate cross-file release metadata consistency
+        run: npm run validate:release-metadata
 
       - name: Summarize release counts
         run: |
