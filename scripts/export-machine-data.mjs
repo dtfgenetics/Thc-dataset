@@ -191,7 +191,7 @@ try {
   }
 
   const exportManifest = {
-    schemaVersion: '2.1.0',
+    schemaVersion: '2.0.0',
     deterministic: true,
     compiler: 'TypeScript 7-compatible tsc CommonJS emit; repository TypeScript validation runs independently',
     sourceFiles: [
