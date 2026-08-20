@@ -3423,72 +3423,146 @@
     "category": "Mite",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "summary": "Sap-feeding mites cause fine stippling from the leaf underside and visible webbing as populations increase.",
+    "photoOnlyMaxConfidence": 0.55,
+    "summary": "Twospotted spider mites feed mainly from leaf undersides, producing upper-surface stippling that can progress to chlorosis, necrosis, leaf loss, and silk webbing. Injury alone is nonspecific and can persist after mites leave, so an active label requires direct organism evidence.",
     "affectedParts": [
-      "leaf underside",
+      "lower leaf surface",
+      "upper leaf surface",
       "canopy",
       "flower"
     ],
     "stages": [
-      "all"
+      "all",
+      "vegetative",
+      "flower"
     ],
     "indicators": [
-      "Tiny yellow or white stipples",
-      "Fine webbing",
-      "Visible mites or eggs under magnification"
+      "Paired-leaf view: fine pale stippling or speckling on the upper surface corresponds to a colony, eggs, cast skins, or debris on the lower surface.",
+      "Adults are tiny, oval, pale yellowish to greenish mites whose two dark body spots may be visible in a sharp macro view; round translucent eggs occur near veins and webbing below the leaf.",
+      "Damage can expand from localized stippled leaves to bronze or yellow tissue, dry brown margins or whole leaves, premature leaf drop, and reduced vigor or flower growth.",
+      "Fine silk first appears in protected leaf regions and can bridge leaves, stems, or flowers when populations are high; visible webbing generally indicates an established infestation.",
+      "Hot, dry, dusty, or water-stressed zones can develop faster or denser hotspots, including field edges near dusty paths, but this spatial association is contextual evidence only."
     ],
     "exclusions": [
-      "Silver scraped streaks with black specks",
-      "No organisms after careful underside inspection",
-      "Damage follows a nutrient-mobility pattern"
+      "Silvery scraped streaks with black fecal specks and slender insects support thrips rather than spider mites.",
+      "Distorted newest growth with no webbing and mites too small for a hand lens supports hemp russet or broad-mite triage, not a two-spotted spider-mite label.",
+      "Fast-moving, long-legged, pear-shaped mites may be beneficial predators; do not label every visible mite as Tetranychus urticae.",
+      "Spray or mineral residue may wipe away and lacks eggs, moving life stages, cast skins, and silk anchored to the leaf.",
+      "Nutrient, root-zone, or water stress can produce chlorosis or necrosis but should not produce a matched underside colony or mite webbing.",
+      "Leafhopper injury can cause pale stippling without an underside mite colony; inspect for hoppers and the distribution of feeding marks."
     ],
     "progression": [
       {
-        "stage": "Early",
-        "description": "Fine pale stippling appears on individual leaves."
+        "stage": "Reference grade 0",
+        "description": "In the two-cultivar flowering-hemp study scale, no visible stippling, chlorosis, or webbing was present."
       },
       {
-        "stage": "Moderate",
-        "description": "Bronzing spreads and mites or eggs are visible below."
+        "stage": "Reference grades 1–2",
+        "description": "Slight stippling on a few leaves increased to moderate stippling across multiple leaves."
       },
       {
-        "stage": "Advanced",
-        "description": "Webbing spans leaves or flowers and plants decline."
+        "stage": "Reference grade 3",
+        "description": "Heavy stippling was accompanied by early chlorosis."
+      },
+      {
+        "stage": "Reference grade 4",
+        "description": "Extensive chlorosis developed with patchy webbing."
+      },
+      {
+        "stage": "Reference grade 5",
+        "description": "Severe chlorosis and necrosis occurred with dense silk webbing."
       }
     ],
     "lookAlikes": [
       "Thrips",
       "Hemp russet mites",
-      "Spray residue"
+      "Broad mite injury",
+      "Predatory mites",
+      "Leafhopper feeding",
+      "Spray or mineral residue",
+      "Nutrient or root-zone stress"
     ],
     "confirmation": [
-      "Inspect undersides with 30–60× magnification.",
-      "Look for round eggs and moving mites."
+      "Do not confirm an active infestation or species from stippling, chlorosis, or webbing in an image or video alone; capture the whole-canopy distribution plus paired upper- and lower-leaf views.",
+      "Inspect several symptomatic and adjacent apparently healthy leaf undersides with at least 10x magnification; record eggs, larvae or nymphs, adults, cast skins, fecal debris, and silk with a scale reference.",
+      "Tap suspect leaves or stems over clean white paper and record close video of moving organisms; distinguish slow plant-feeding mites from faster, longer-legged predatory mites.",
+      "For species-level ground truth, retain a specimen and obtain qualified entomologist or diagnostic-laboratory identification when morphology is not resolved by the capture.",
+      "Record cultivar, growth stage, canopy position, site or room, first-observed date, repeat counts from fixed leaves, temperature, humidity, dust, and water-stress context."
     ],
     "immediateActions": [
-      "Isolate affected plants.",
-      "Inspect nearby plants and remove heavily infested material safely."
+      "Separate or clearly flag affected plants and inspect neighboring plants before moving people, tools, or plant material through the area.",
+      "Preserve representative leaves or specimens for confirmation and record the pre-intervention organism count and visual distribution."
     ],
     "correctivePlan": [
-      "Use a legal crop- and stage-appropriate IPM rotation.",
-      "Repeat monitoring between treatments."
+      "Use a legal, crop- and stage-appropriate integrated pest-management plan selected for the production system; protect beneficial predators and follow all label restrictions.",
+      "Reinspect the same marked leaves and nearby plants at fixed intervals; use live-organism counts rather than persistent old stippling to judge whether the active population changed.",
+      "Reduce avoidable dust and water stress and examine weeds or adjacent host plants where relevant, while treating these as risk factors rather than diagnostic proof."
     ],
     "prevention": [
-      "Quarantine incoming plants.",
-      "Scout leaf undersides weekly."
+      "Quarantine and inspect incoming plants, especially leaf undersides, before they enter production.",
+      "Scout fixed leaves across canopy zones and field edges consistently, documenting both direct organisms and injury over time."
     ],
     "warnings": [
-      "Avoid spraying unsuitable products on flowers.",
-      "Webbing indicates an established population, not an early case."
+      "The published 0-to-5 visual scale came from one evaluator, two hemp cultivars, naturally occurring background mite populations, and flowering plants; it is an observational study reference, not a universal severity or treatment threshold.",
+      "No research-based action threshold has been established for North Carolina hemp across fiber, seed, and cannabinoid markets.",
+      "Injury-only imagery is not species-level ground truth: stippling is nonspecific, webbing is usually a later sign, and old injury can remain after mites have left.",
+      "Cultivar, canopy, environment, and production system can alter visible severity, and predatory mites or other pest mites can be confused with Tetranychus urticae in low-resolution media.",
+      "The linked CC BY 4.0 damage-scale figure is a mixed-grade composite; it remains training-ineligible and its panels are not independent samples without crop geometry, source-group, and label review.",
+      "Avoid applying any product unless it is legal for the crop, site, growth stage, and jurisdiction, especially on flowers."
     ],
     "sources": [
+      {
+        "title": "Cultivar Identity and Spider Mite Herbivory Shape Rhizosphere Bacteria in Hemp (Cannabis sativa L.)",
+        "organization": "Agronomy (Thweatt et al.)",
+        "url": "https://doi.org/10.3390/agronomy16060651",
+        "authors": [
+          "Ivy N. Thweatt",
+          "Muhammad Saleem",
+          "Junhuan Xu",
+          "Simon Zebelo",
+          "Olufemi S. Ajayi"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2026-03-19",
+        "year": 2026,
+        "accessedDate": "2026-08-20",
+        "doi": "10.3390/agronomy16060651",
+        "supportedClaims": [
+          "A trained evaluator scored naturally occurring Tetranychus urticae injury on flowering BaOx and Cherry Citrus hemp under the same greenhouse conditions with a standardized 0-to-5 scale: 0, no visible stippling, chlorosis, or webbing; 1, slight stippling on a few leaves; 2, moderate stippling across multiple leaves; 3, heavy stippling with early chlorosis; 4, extensive chlorosis with patchy webbing; and 5, severe chlorosis and necrosis with dense silk webbing.",
+          "Cherry Citrus had significantly less visual damage than BaOx despite similar measured growth traits, showing that cultivar identity can alter symptom severity and limiting generalization of a single image progression.",
+          "The study used background mite populations rather than experimentally manipulating herbivore pressure and reported associations rather than proof of causality; its two-cultivar flowering-stage score is a study-specific reference, not a universal diagnostic or intervention threshold.",
+          "Figure 1 is a CC BY 4.0 composite reference for the 0-to-5 visual damage scale and should not be split into independent training examples without panel-level cropping, source grouping, and label review."
+        ]
+      },
+      {
+        "title": "Twospotted Spider Mite in Industrial Hemp",
+        "organization": "NC State Extension",
+        "url": "https://content.ces.ncsu.edu/twospotted-spider-mite-in-industrial-hemp",
+        "authors": [
+          "Melissa Pulkoski",
+          "Hannah Burrack"
+        ],
+        "publisher": "North Carolina State University Extension",
+        "publicationDate": "2020-08-05",
+        "year": 2020,
+        "accessedDate": "2026-08-20",
+        "supportedClaims": [
+          "Twospotted spider mites occur on greenhouse and field hemp; at least 10x magnification is recommended because mites and eggs occur mainly on leaf undersides while feeding injury appears as pale speckling on the upper surface.",
+          "High infestations can produce yellow, dry leaves, premature leaf drop, reduced flower growth, and webbing that can cover much of a plant; hot, low-humidity conditions can shorten a generation to roughly one to two weeks.",
+          "Water-stressed or dusty plants and field edges near dusty paths can have greater risk, but exposure context is not proof of the causal organism.",
+          "No research-based action threshold was established for North Carolina hemp across fiber, seed, and cannabinoid production, so visible damage grades or mite counts must not be presented as universal treatment thresholds."
+        ]
+      },
       {
         "title": "Spider Mites",
         "organization": "University of California Statewide IPM Program",
         "url": "https://ipm.ucanr.edu/home-and-landscape/spider-mites/",
-        "accessedDate": "2026-08-13",
+        "publisher": "University of California Agriculture and Natural Resources",
+        "accessedDate": "2026-08-20",
         "supportedClaims": [
-          "Spider-mite feeding causes stippling and established populations can produce webbing; leaf-underside inspection is required."
+          "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
+          "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
+          "Predatory mites are typically more active and have longer legs than plant-feeding spider mites, so visible mite-like organisms are not automatically pests."
         ]
       }
     ],

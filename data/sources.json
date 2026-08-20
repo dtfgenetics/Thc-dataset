@@ -998,6 +998,30 @@
     ]
   },
   {
+    "sourceKey": "10.3390/agronomy16060651",
+    "title": "Cultivar Identity and Spider Mite Herbivory Shape Rhizosphere Bacteria in Hemp (Cannabis sativa L.)",
+    "organization": "Agronomy (Thweatt et al.)",
+    "url": "https://doi.org/10.3390/agronomy16060651",
+    "authors": [
+      "Ivy N. Thweatt",
+      "Muhammad Saleem",
+      "Junhuan Xu",
+      "Simon Zebelo",
+      "Olufemi S. Ajayi"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2026-03-19",
+    "year": 2026,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3390/agronomy16060651",
+    "supportedClaims": [
+      "A trained evaluator scored naturally occurring Tetranychus urticae injury on flowering BaOx and Cherry Citrus hemp under the same greenhouse conditions with a standardized 0-to-5 scale: 0, no visible stippling, chlorosis, or webbing; 1, slight stippling on a few leaves; 2, moderate stippling across multiple leaves; 3, heavy stippling with early chlorosis; 4, extensive chlorosis with patchy webbing; and 5, severe chlorosis and necrosis with dense silk webbing.",
+      "Cherry Citrus had significantly less visual damage than BaOx despite similar measured growth traits, showing that cultivar identity can alter symptom severity and limiting generalization of a single image progression.",
+      "The study used background mite populations rather than experimentally manipulating herbivore pressure and reported associations rather than proof of causality; its two-cultivar flowering-stage score is a study-specific reference, not a universal diagnostic or intervention threshold.",
+      "Figure 1 is a CC BY 4.0 composite reference for the 0-to-5 visual damage scale and should not be split into independent training examples without panel-level cropping, source grouping, and label review."
+    ]
+  },
+  {
     "sourceKey": "10.3390/app9204432",
     "title": "Characterization of Nutrient Disorders of Cannabis sativa",
     "organization": "Applied Sciences (Cockson et al.)",
@@ -1339,6 +1363,26 @@
     ]
   },
   {
+    "sourceKey": "https://content.ces.ncsu.edu/twospotted-spider-mite-in-industrial-hemp",
+    "title": "Twospotted Spider Mite in Industrial Hemp",
+    "organization": "NC State Extension",
+    "url": "https://content.ces.ncsu.edu/twospotted-spider-mite-in-industrial-hemp",
+    "authors": [
+      "Melissa Pulkoski",
+      "Hannah Burrack"
+    ],
+    "publisher": "North Carolina State University Extension",
+    "publicationDate": "2020-08-05",
+    "year": 2020,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Twospotted spider mites occur on greenhouse and field hemp; at least 10x magnification is recommended because mites and eggs occur mainly on leaf undersides while feeding injury appears as pale speckling on the upper surface.",
+      "High infestations can produce yellow, dry leaves, premature leaf drop, reduced flower growth, and webbing that can cover much of a plant; hot, low-humidity conditions can shorten a generation to roughly one to two weeks.",
+      "Water-stressed or dusty plants and field edges near dusty paths can have greater risk, but exposure context is not proof of the causal organism.",
+      "No research-based action threshold was established for North Carolina hemp across fiber, seed, and cannabinoid production, so visible damage grades or mite counts must not be presented as universal treatment thresholds."
+    ]
+  },
+  {
     "sourceKey": "https://extension.missouri.edu/publications/mx83",
     "title": "Insect Pests of Industrial Hemp in Missouri",
     "organization": "University of Missouri Extension",
@@ -1480,9 +1524,12 @@
     "title": "Spider Mites",
     "organization": "University of California Statewide IPM Program",
     "url": "https://ipm.ucanr.edu/home-and-landscape/spider-mites/",
-    "accessedDate": "2026-08-13",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-08-20",
     "supportedClaims": [
-      "Spider-mite feeding causes stippling and established populations can produce webbing; leaf-underside inspection is required."
+      "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
+      "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
+      "Predatory mites are typically more active and have longer legs than plant-feeding spider mites, so visible mite-like organisms are not automatically pests."
     ]
   },
   {

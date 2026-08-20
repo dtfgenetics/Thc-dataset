@@ -313,6 +313,27 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps twospotted spider-mite labels organism-confirmed and study-scale bounded', () => {
+    const record = issues.find((issue) => issue.slug === 'two-spotted-spider-mites')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.scientificName).toBe('Tetranychus urticae')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.55)
+    expect(confirmation).toMatch(/do not confirm.*image or video alone/)
+    expect(confirmation).toContain('lower-leaf')
+    expect(confirmation).toContain('10x')
+    expect(confirmation).toContain('white paper')
+    expect(confirmation).toMatch(/entomologist|diagnostic-laboratory/)
+    expect(warnings).toContain('two hemp cultivars')
+    expect(warnings).toContain('observational study reference')
+    expect(warnings).toContain('no research-based action threshold')
+    expect(warnings).toContain('not species-level ground truth')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Thrips', 'Hemp russet mites', 'Predatory mites', 'Nutrient or root-zone stress']))
+    expect(record?.sources.some((source) => source.doi === '10.3390/agronomy16060651')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('ncsu.edu/twospotted-spider-mite'))).toBe(true)
+  })
+
   it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
     const record = issues.find((issue) => issue.slug === 'genetic-variegation')
     expect(record?.reviewStatus).toBe('reviewed')

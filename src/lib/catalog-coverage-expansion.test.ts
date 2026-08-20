@@ -78,4 +78,15 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(manganese.lookAlikes).toEqual(expect.arrayContaining(['Boron toxicity', 'Potassium deficiency', 'Salinity / high EC', 'Leaf-spot disease']))
     expect(manganese.media).toHaveLength(0)
   })
+
+  it('keeps the hemp spider-mite scale licensed, composite-bounded, and out of training', () => {
+    const mites = bySlug('two-spotted-spider-mites')
+    const reference = mites.media.find((item) => item.id === 'media-two-spotted-spider-mite-hemp-figure-1')
+    expect(reference).toBeDefined()
+    expect(reference?.license).toContain('CC BY 4.0')
+    expect(reference?.trainingPermission).toBe('permitted')
+    expect(reference?.trainingEligible).toBe(false)
+    expect(reference?.diagnosticLabel).toContain('Tetranychus urticae damage severity scale')
+    expect(reference?.useLimitations.join(' ').toLowerCase()).toMatch(/composite|panels/)
+  })
 })
