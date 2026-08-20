@@ -203,6 +203,42 @@
     ]
   },
   {
+    "sourceKey": "10.1093/jipm/pmag032",
+    "title": "Profile of the Dectes stem borer (Coleoptera: Cerambycidae) in sunflower and soybean",
+    "organization": "Journal of Integrated Pest Management (Varenhorst et al.)",
+    "url": "https://doi.org/10.1093/jipm/pmag032",
+    "authors": [
+      "Adam J. Varenhorst",
+      "Govinda Shrestha",
+      "Ivair Valmorbida",
+      "Zachary D. Loomis",
+      "Khuma K. Bhusal",
+      "Eric A. L. Jones",
+      "Philip A. Rozeboom",
+      "Bradley L. McManus",
+      "Patrick M. Wagner",
+      "Anthony J. McMechan",
+      "Erin W. Hodgson",
+      "Janet J. Knodel",
+      "Nicholas J. Seiter",
+      "Brian P. McCornack",
+      "J. P. Michaud"
+    ],
+    "publisher": "Oxford University Press for the Entomological Society of America",
+    "publicationDate": "2026-07-24",
+    "year": 2026,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1093/jipm/pmag032",
+    "supportedClaims": [
+      "In sunflower and soybean, adults are dark brown to black under dense light-gray pubescence, measure 6 to 11 mm long, and normally hold curved antennae forward with the tips directed downward.",
+      "Larvae are legless, have an orange-red head capsule and accordion-like body tapering toward the rear, and range from approximately 1.5 mm in early instars to 12.5 mm when mature.",
+      "The reviewed non-Cannabis sequence is egg deposition in petiole tissue, larval pith tunneling, movement toward the stem base, internal girdling, a frass-plugged overwintering chamber, and possible lodging; Cannabis timing and frequencies have not been established.",
+      "Adult abundance does not reliably predict the percentage of infested stems, and internal feeding requires stem dissection for confirmation.",
+      "Dectes adults may be confused with ashgray blister beetle, while historical Dectes texanus versus Dectes sayi species boundaries contain morphological ambiguity that may require molecular analysis.",
+      "Management timing and efficacy vary by geography and season, and the review does not establish a hemp economic threshold or a hemp-labeled treatment."
+    ]
+  },
+  {
     "sourceKey": "10.1093/jipm/pmz023",
     "title": "Developing Insect Pest Management Systems for Hemp in the United States: A Work in Progress",
     "organization": "Journal of Integrated Pest Management (Cranshaw et al.)",
@@ -1505,6 +1541,24 @@
     ]
   },
   {
+    "sourceKey": "https://entomology.k-state.edu/extension/crop-protection/soybeans/sbsb/",
+    "title": "Dectes Stem Borer (Dectes texanus)",
+    "organization": "Kansas State University Department of Entomology",
+    "url": "https://entomology.k-state.edu/extension/crop-protection/soybeans/sbsb/",
+    "authors": [
+      "J. P. Michaud"
+    ],
+    "publisher": "Kansas State University Research and Extension",
+    "publicationDate": "2013-11-01",
+    "year": 2013,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "In soybean, eggs are usually laid in mid-canopy leaf petioles; larvae tunnel down the petiole into the stem and generally move downward.",
+      "An individual wilted or drying leaf above the normal lower-canopy senescence zone is a useful scouting cue but is not diagnostic without stem tunneling and a larva.",
+      "Representative confirmation requires carefully splitting stems from several field locations and documenting tunnels and live larvae."
+    ]
+  },
+  {
     "sourceKey": "https://extension.missouri.edu/publications/mx83",
     "title": "Insect Pests of Industrial Hemp in Missouri",
     "organization": "University of Missouri Extension",
@@ -1530,6 +1584,26 @@
       "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
       "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
       "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+    ]
+  },
+  {
+    "sourceKey": "https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196",
+    "title": "Dectes Stem Borer Management in Soybeans (FS-1196)",
+    "organization": "University of Maryland Extension",
+    "url": "https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196",
+    "authors": [
+      "Kelly Hamby",
+      "Alan Leslie",
+      "David Owens"
+    ],
+    "publisher": "University of Maryland Extension",
+    "publicationDate": "2022-06-01",
+    "year": 2022,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "The peer-reviewed soybean factsheet describes gray adults with black-and-gray banded antennae and creamy white to yellow, legless, accordion-like larvae.",
+      "Petiole pith feeding can produce a single wilted leaf before larvae tunnel into the main stem; later internal girdling can predispose mature plants to basal breakage and lodging.",
+      "Regional occurrence and lodging losses are variable, so soybean severity, yield, and management values must not be transferred directly to Cannabis."
     ]
   },
   {

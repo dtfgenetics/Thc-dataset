@@ -78,6 +78,58 @@ const japaneseBeetleIdentification = source({
   ],
 })
 
+const dectesProfile2026 = source({
+  title: 'Profile of the Dectes stem borer (Coleoptera: Cerambycidae) in sunflower and soybean',
+  organization: 'Journal of Integrated Pest Management (Varenhorst et al.)',
+  url: 'https://doi.org/10.1093/jipm/pmag032',
+  authors: ['Adam J. Varenhorst', 'Govinda Shrestha', 'Ivair Valmorbida', 'Zachary D. Loomis', 'Khuma K. Bhusal', 'Eric A. L. Jones', 'Philip A. Rozeboom', 'Bradley L. McManus', 'Patrick M. Wagner', 'Anthony J. McMechan', 'Erin W. Hodgson', 'Janet J. Knodel', 'Nicholas J. Seiter', 'Brian P. McCornack', 'J. P. Michaud'],
+  publisher: 'Oxford University Press for the Entomological Society of America',
+  publicationDate: '2026-07-24',
+  year: 2026,
+  accessedDate: '2026-08-20',
+  doi: '10.1093/jipm/pmag032',
+  supportedClaims: [
+    'In sunflower and soybean, adults are dark brown to black under dense light-gray pubescence, measure 6 to 11 mm long, and normally hold curved antennae forward with the tips directed downward.',
+    'Larvae are legless, have an orange-red head capsule and accordion-like body tapering toward the rear, and range from approximately 1.5 mm in early instars to 12.5 mm when mature.',
+    'The reviewed non-Cannabis sequence is egg deposition in petiole tissue, larval pith tunneling, movement toward the stem base, internal girdling, a frass-plugged overwintering chamber, and possible lodging; Cannabis timing and frequencies have not been established.',
+    'Adult abundance does not reliably predict the percentage of infested stems, and internal feeding requires stem dissection for confirmation.',
+    'Dectes adults may be confused with ashgray blister beetle, while historical Dectes texanus versus Dectes sayi species boundaries contain morphological ambiguity that may require molecular analysis.',
+    'Management timing and efficacy vary by geography and season, and the review does not establish a hemp economic threshold or a hemp-labeled treatment.',
+  ],
+})
+
+const dectesMarylandExtension = source({
+  title: 'Dectes Stem Borer Management in Soybeans (FS-1196)',
+  organization: 'University of Maryland Extension',
+  url: 'https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196',
+  authors: ['Kelly Hamby', 'Alan Leslie', 'David Owens'],
+  publisher: 'University of Maryland Extension',
+  publicationDate: '2022-06-01',
+  year: 2022,
+  accessedDate: '2026-08-20',
+  supportedClaims: [
+    'The peer-reviewed soybean factsheet describes gray adults with black-and-gray banded antennae and creamy white to yellow, legless, accordion-like larvae.',
+    'Petiole pith feeding can produce a single wilted leaf before larvae tunnel into the main stem; later internal girdling can predispose mature plants to basal breakage and lodging.',
+    'Regional occurrence and lodging losses are variable, so soybean severity, yield, and management values must not be transferred directly to Cannabis.',
+  ],
+})
+
+const dectesKansasState = source({
+  title: 'Dectes Stem Borer (Dectes texanus)',
+  organization: 'Kansas State University Department of Entomology',
+  url: 'https://entomology.k-state.edu/extension/crop-protection/soybeans/sbsb/',
+  authors: ['J. P. Michaud'],
+  publisher: 'Kansas State University Research and Extension',
+  publicationDate: '2013-11-01',
+  year: 2013,
+  accessedDate: '2026-08-20',
+  supportedClaims: [
+    'In soybean, eggs are usually laid in mid-canopy leaf petioles; larvae tunnel down the petiole into the stem and generally move downward.',
+    'An individual wilted or drying leaf above the normal lower-canopy senescence zone is a useful scouting cue but is not diagnostic without stem tunneling and a larva.',
+    'Representative confirmation requires carefully splitting stems from several field locations and documenting tunnels and live larvae.',
+  ],
+})
+
 const whiteRootRot = source({
   title: 'First Report of White Root Rot of Hemp (Cannabis sativa) Caused by Dematophora necatrix in Campania Region (Southern Italy)',
   organization: 'Plant Disease',
@@ -120,14 +172,69 @@ export const expandedIssuesBatch3: IssueRecord[] = [
   },
   {
     id: 'insect-dectes-stem-borer', slug: 'dectes-stem-borer', name: 'Dectes stem-borer injury', scientificName: 'Dectes texanus', category: 'Insect', severity: 'high', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.55,
-    summary: 'A stem-boring beetle differential for hemp. Internal pith galleries plus a compatible larva or adult are much stronger evidence than wilting or stem breakage alone.',
-    affectedParts: ['main stems', 'pith', 'stem nodes', 'whole shoot secondarily'], stages: ['vegetative', 'flower', 'field production'],
-    indicators: ['Internal stem or pith galleries are present', 'Cream-colored longhorn-beetle larvae occur inside affected stems or compatible gray long-antenna adults are found nearby', 'Infested stems may swell, split, wilt, die back, or break where internal tunneling weakens them'],
-    exclusions: ['Stem interior lacks galleries and a vascular/root pathogen explains wilt', 'Boring is produced by another identified stem-boring insect', 'Breakage is purely mechanical with healthy intact pith'],
-    progression: [{stage:'Entry and boring',description:'Larvae enter stems and tunnel through internal pith.'},{stage:'Structural injury',description:'Transport and structural integrity decline as galleries expand.'},{stage:'Dieback/breakage',description:'Affected stems can wilt, die back, split, or break under stress.'}],
-    lookAlikes: ['Fusarium stem/crown disease', 'Mechanical stem splitting', 'Other stem borers', 'Drought-related wilt'],
-    confirmation: ['Split a representative symptomatic stem lengthwise and document galleries and larvae.', 'Identify the insect when species-level attribution matters.'],
-    immediateActions: ['Flag and inspect affected stems before disposal so internal evidence is preserved.', 'Scout adjacent plants for adults, entry sites, or galleries.'], correctivePlan: ['Use an IPM plan appropriate to confirmed stem-borer pressure and locally legal hemp practices.'], prevention: ['Scout stems for swelling, entry injury, and adults during the relevant field season.', 'Remove or manage infested residues when locally appropriate.'], warnings: ['Wilt and stem breakage are nonspecific.', 'A gallery without an identified insect should remain a generic stem-borer diagnosis.'], sources: [hempPestsMissouri], media: [],
+    summary: 'A documented industrial-hemp stem-borer differential. Hemp evidence supports pith galleries, wilt, dieback, swollen or split stems, and breakage; species-level confidence requires a compatible larva or identified adult linked to the affected plant because those injury signs overlap disease, other borers, and mechanical failure.',
+    affectedParts: ['leaf petiole as an early scouting location', 'main stem exterior', 'central pith and internal stem gallery', 'stem base and crown region', 'individual leaf or branch above the entry site', 'whole plant secondarily after structural failure'],
+    stages: ['outdoor vegetative hemp', 'outdoor flowering hemp', 'maturing field crop', 'post-harvest stem residue'],
+    indicators: [
+      'A symptomatic hemp stem contains a longitudinal gallery through the central pith rather than only superficial bark injury',
+      'A legless cream to yellow larva with an orange-red head and accordion-like, rear-tapering body is recovered within the gallery',
+      'A dark-bodied adult covered by dense gray pubescence has very long, black-and-gray banded antennae and is linked to the affected plant or local infestation',
+      'One leaf or branch wilts or dies while surrounding canopy tissue remains initially greener, prompting inspection of its petiole and connected stem',
+      'The hemp stem is locally swollen, split, weakened, or broken and the internal gallery continues through the damaged region',
+      'Serial stem dissections show pith tunneling progressing toward lower stem tissue rather than a static wound cavity',
+    ],
+    exclusions: [
+      'No internal pith gallery is present and wilt follows measured drought, waterlogging, heat, or root-zone failure',
+      'Vascular discoloration, crown lesions, root rot, or laboratory evidence supports Fusarium, Rhizoctonia, Pythium, or another vascular/root pathogen without a compatible larva',
+      'A clean fracture, training wound, wind split, or equipment injury has healthy intact pith on both sides and no tunnel, frass, or insect',
+      'The recovered larva has legs or morphology inconsistent with a cerambycid stem borer',
+      'The adult is an ashgray blister beetle or another gray beetle and lacks compatible longhorn morphology',
+      'A hollow or senescent stem is labeled from appearance alone without an active gallery, larva, adult association, or expert identification',
+      'Soybean-only basal girdling, frass-plug, field-edge, seasonal, or lodging patterns are transferred to hemp without Cannabis observations',
+      'Adult presence alone is used to infer that a photographed Cannabis stem is internally infested',
+    ],
+    progression: [
+      {stage:'Adult and oviposition window',description:'Adults may be observed on vegetation, but published Cannabis evidence does not establish a universal hemp emergence or oviposition calendar. Record local date, geography, weather, plant stage, and direct plant association.'},
+      {stage:'Localized petiole or stem entry',description:'A single leaf, petiole, or branch may wilt while nearby canopy tissue remains greener. This sequence is characterized in soybean and is a hemp scouting hypothesis, not Cannabis ground truth until the connected tissue is dissected.'},
+      {stage:'Internal pith tunneling',description:'Larvae feed within the central pith. On hemp, document gallery direction, length, fresh frass, larval position, stem diameter, and the external tissue directly connected to the tunnel.'},
+      {stage:'Transport and structural decline',description:'Hemp stems may swell or split and connected tissue may wilt or die back as boring disrupts internal tissues and weakens the stem.'},
+      {stage:'Breakage or residual gallery',description:'Affected hemp stems can break under mechanical stress. Mature-stem basal girdling and overwintering chambers are well described in soybean and sunflower but require direct Cannabis documentation before being used as hemp labels.'},
+    ],
+    lookAlikes: ['Fusarium stem or crown disease', 'Rhizoctonia crown or lower-stem rot', 'Pythium or other root-zone wilt', 'Mechanical training split or wind breakage', 'Drought or hydraulic wilt', 'Other stem-boring beetle or moth larva', 'Ashgray blister beetle adult', 'Normal mature hollow-stem or post-harvest decay'],
+    confirmation: [
+      'Capture a whole-plant and row view before cutting, showing affected and unaffected plants and the precise canopy position of wilt or breakage.',
+      'Record a continuous video from the external symptom to the connected petiole or stem, then split the stem lengthwise on camera so the gallery-to-symptom relationship is preserved.',
+      'Photograph the intact stem exterior, entry or swelling site, cross-section, full longitudinal gallery, frass if present, and larva in situ with a metric scale and color reference.',
+      'Obtain dorsal, lateral, antenna, head-capsule, and full-body macro views of recovered adults or larvae; do not identify Dectes from a damaged stem alone.',
+      'Sample several symptomatic and asymptomatic stems across several field locations because one adult, one wilted leaf, or one gallery cannot establish field distribution.',
+      'Submit the organism and connected stem section to an Extension entomologist or diagnostic laboratory when morphology is incomplete or another borer/blister beetle is plausible.',
+      'Pair insect confirmation with vascular and root-zone inspection when wilt, dieback, or crown decline could represent a co-occurring pathogen.',
+    ],
+    immediateActions: [
+      'Flag affected plants and preserve the symptom-to-stem connection before pruning, disposal, or destructive sampling.',
+      'Quarantine removed stem material from clean production areas until the insect and any co-occurring disease are evaluated.',
+      'Map plants with fresh wilt, stem swelling, galleries, larvae, adults, and breakage as separate observations rather than one combined severity label.',
+    ],
+    correctivePlan: [
+      'Base any response on confirmed Cannabis infestation, local Extension guidance, crop stage, and products or cultural practices currently legal for hemp in the jurisdiction.',
+      'Remove or manage confirmed infested residues only when compatible with local agronomic, sanitation, erosion, and regulatory requirements.',
+      'Continue fixed-plant monitoring after intervention because existing galleries, wilted leaves, and broken stems will not reverse and cannot alone measure current control.',
+    ],
+    prevention: [
+      'Add stem exterior, petiole, split-stem, larva/adult macro, and whole-row views to routine outdoor scouting records.',
+      'Record adjacent soybean, sunflower, ragweed, and cocklebur context as potential regional reservoirs without assuming those host relationships predict Cannabis infestation.',
+      'Retain specimens and source-grouped sequences so future expert review can keep plants, stems, organisms, dates, and field locations together.',
+    ],
+    warnings: [
+      'Wilt, dieback, swollen stems, splits, galleries, and breakage are not independently species-specific; Dectes ground truth requires organism evidence linked to the affected hemp stem.',
+      'Published Cannabis evidence is currently much thinner than soybean and sunflower evidence. Non-Cannabis leaf-age, canopy, seasonal, girdling, lodging, yield, and management claims are transfer context only.',
+      'An organism-only adult image teaches morphology but cannot establish Cannabis host use, an internal larva, active injury, severity, or field distribution.',
+      'The Dectes texanus versus historical Dectes sayi boundary includes ambiguous morphology; incomplete adult views require expert or molecular review rather than a forced species label.',
+      'Adult counts do not reliably predict infested-stem frequency in soybean and no validated hemp action threshold or symptom-to-yield relationship was found.',
+      'The institutional video is soybean-focused and has no verified reusable license; it is reference metadata only and must not enter Cannabis training or evaluation splits.',
+      'All damage-only, gallery-only, organism-only, unlinked specimen/stem, non-Cannabis, and unresolved-taxonomy samples require human review.',
+    ],
+    sources: [hempPestsMissouri, dectesProfile2026, dectesMarylandExtension, dectesKansasState], media: [],
   },
   {
     id: 'insect-cabbage-looper', slug: 'cabbage-looper-hemp', name: 'Cabbage looper feeding injury', scientificName: 'Trichoplusia ni', category: 'Insect', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.6,

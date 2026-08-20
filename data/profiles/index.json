@@ -218,8 +218,8 @@
       "category": "Insect",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 4,
+      "mediaCount": 2,
       "path": "data/profiles/insect-dectes-stem-borer.json"
     },
     {

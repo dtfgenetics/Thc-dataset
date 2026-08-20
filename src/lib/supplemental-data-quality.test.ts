@@ -48,6 +48,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
         continue
       }
+      if (issue.slug === 'dectes-stem-borer') {
+        expect(issue.media).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.find((item) => item.mediaType === 'image')?.hostContext).toBe('organism-only')
+        expect(issue.media.find((item) => item.mediaType === 'video')?.hostContext).toBe('non-cannabis')
+        expect(issue.media.find((item) => item.mediaType === 'video')?.reviewStatus).toBe('license-review')
+        expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
+        continue
+      }
       if (!permittedMediaSlugs.has(issue.slug)) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
         continue
@@ -94,6 +103,27 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media).toHaveLength(2)
     expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
     expect(record?.media.find((item) => item.reviewStatus === 'license-review')?.displayPermission).toBe('unknown')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
+  it('keeps Dectes labels organism-linked and non-Cannabis transfer evidence bounded', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'dectes-stem-borer')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.55)
+    expect(confirmation).toMatch(/split the stem lengthwise on camera/)
+    expect(confirmation).toMatch(/do not identify dectes from a damaged stem alone/)
+    expect(confirmation).toMatch(/several symptomatic and asymptomatic stems across several field locations/)
+    expect(warnings).toContain('non-cannabis leaf-age, canopy, seasonal, girdling, lodging, yield, and management claims are transfer context only')
+    expect(warnings).toContain('no validated hemp action threshold')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Fusarium stem or crown disease', 'Mechanical training split or wind breakage', 'Other stem-boring beetle or moth larva', 'Ashgray blister beetle adult']))
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmag032')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.umd.edu/resource/dectes'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('entomology.k-state.edu'))).toBe(true)
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media.find((item) => item.mediaType === 'video')?.trainingPermission).toBe('unknown')
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 

@@ -121,4 +121,13 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
     expect(record?.media.find((item) => item.reviewStatus === 'license-review')?.trainingEligible).toBe(false)
   })
+
+  it('counts only the licensed Dectes specimen as displayable', () => {
+    const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
+    expect(record).toBeTruthy()
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media.find((item) => item.mediaType === 'video')?.reviewStatus).toBe('license-review')
+    expect(record?.media.find((item) => item.mediaType === 'video')?.trainingEligible).toBe(false)
+  })
 })
