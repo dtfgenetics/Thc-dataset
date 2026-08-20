@@ -100,4 +100,15 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(reference?.sourceUrl).toBe('https://doi.org/10.3389/fagro.2021.720215')
     expect(reference?.useLimitations.join(' ').toLowerCase()).toMatch(/resistant panel.*negative training control/)
   })
+
+  it('keeps the flowering nitrogen-deficiency sequence licensed and out of automated training', () => {
+    const nitrogen = bySlug('nitrogen-deficiency')
+    const reference = nitrogen.media.find((item) => item.id === 'mdpi-cannabis-nitrogen-deficiency-figure-2-flowering')
+    expect(reference).toBeDefined()
+    expect(reference?.license).toBe('CC BY 4.0')
+    expect(reference?.trainingPermission).toBe('permitted')
+    expect(reference?.trainingEligible).toBe(false)
+    expect(reference?.sourceUrl).toBe('https://doi.org/10.3390/plants12030422')
+    expect(reference?.useLimitations.join(' ').toLowerCase()).toMatch(/four panels.*separate view, tissue, stage, and severity annotation/)
+  })
 })

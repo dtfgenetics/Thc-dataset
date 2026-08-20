@@ -105,6 +105,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.1094/PDIS-01-19-0049-PDN', '10.1094/PHYTOFR-07-23-0099-R', '10.3389/fagro.2021.720215', '10.3389/fpls.2025.1543229']))
   })
 
+  it('keeps nitrogen deficiency stage-aware, analytically bounded, and senescence-safe', () => {
+    const record = issues.find((issue) => issue.slug === 'nitrogen-deficiency')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.6)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.3390/app9204432', '10.3390/plants12030422']))
+    expect(confirmation).toMatch(/upper- and lower-canopy|upper.*lower.*canopy/)
+    expect(confirmation).toMatch(/root-zone.*ph.*ec/)
+    expect(confirmation).toContain('do not use one tissue number as a universal threshold')
+    expect(warnings).toContain('late-cycle yellowing is not nitrogen-deficiency ground truth')
+    expect(warnings).toContain('all symptom-only')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Normal late-flower leaf aging or senescence', 'Magnesium deficiency', 'Sulfur deficiency']))
+  })
+
   it('keeps phosphorus deficiency tissue-confirmed, root-zone bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'phosphorus-deficiency')
     expect(record?.reviewStatus).toBe('reviewed')

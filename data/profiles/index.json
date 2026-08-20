@@ -427,8 +427,8 @@
       "category": "Nutrient deficiency",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 2,
+      "mediaCount": 1,
       "path": "data/profiles/nut-def-n.json"
     },
     {
