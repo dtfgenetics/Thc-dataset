@@ -647,8 +647,8 @@
       "category": "Viroid",
       "severity": "critical",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 1,
+      "sourceCount": 4,
+      "mediaCount": 3,
       "path": "data/profiles/viroid-hplvd.json"
     },
     {

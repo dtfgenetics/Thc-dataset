@@ -149,6 +149,30 @@
     ]
   },
   {
+    "sourceKey": "10.1080/07060661.2023.2279184",
+    "title": "Symptomology, Prevalence, and Impact of Hop Latent Viroid on Greenhouse-Grown Cannabis (Cannabis sativa L.) Plants in Canada",
+    "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
+    "url": "https://doi.org/10.1080/07060661.2023.2279184",
+    "authors": [
+      "Zamir K. Punja",
+      "Keri Wang",
+      "Samantha Lung",
+      "Liam Buirs"
+    ],
+    "publisher": "Informa UK Limited (Taylor & Francis)",
+    "publicationDate": "2023-11-27",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1080/07060661.2023.2279184",
+    "supportedClaims": [
+      "Across greenhouse production samples, symptom expression varied with growth stage and genotype: stock and vegetative plants ranged from asymptomatic to mild leaf curl and mottling, while flowering plants could show extreme stunting and reduced inflorescence development.",
+      "HLVd was detected in upper, middle, and lower canopy leaves and in roots, but its distribution varied among plant tissues and genotypes; one leaf position is therefore not a universal sampling rule or a reliable negative control.",
+      "Under the study conditions, infected flowering plants showed genotype-dependent reductions of 12–42% in inflorescence stem length, fresh weight, and plant height compared with noninfected plants, and diseased inflorescences had lower THC and terpene levels.",
+      "Glandular trichomes on affected plants had shorter stalks and smaller heads and appeared shrivelled after inflorescences were dried; these group-level measurements do not make sparse trichomes or reduced resin a visually specific HLVd sign.",
+      "The article is CC BY 4.0, but its stage, genotype, and tissue comparisons must remain source-grouped and laboratory-bounded if individual figures are later evaluated for training."
+    ]
+  },
+  {
     "sourceKey": "10.1093/ee/nvad044",
     "title": "Assessing the impact of piercing-sucking pests on greenhouse-grown industrial hemp (Cannabis sativa L.)",
     "organization": "Environmental Entomology",
@@ -1343,6 +1367,31 @@
     ]
   },
   {
+    "sourceKey": "10.3390/plants14050830",
+    "title": "Transmission, Spread, Longevity and Management of Hop Latent Viroid, a Widespread and Destructive Pathogen Affecting Cannabis (Cannabis sativa L.) Plants in North America",
+    "organization": "Plants (Punja et al.)",
+    "url": "https://doi.org/10.3390/plants14050830",
+    "authors": [
+      "Zamir K. Punja",
+      "Cameron Scott",
+      "Heather H. Tso",
+      "Jack Munz",
+      "Liam Buirs"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2025-03-06",
+    "year": 2025,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3390/plants14050830",
+    "supportedClaims": [
+      "RT-PCR/RT-qPCR detected HLVd in asymptomatic stock plants and rooted vegetative cuttings; in the stock genotypes tested, roots were the most consistent positive tissue while individual upper or lower leaf samples were not consistently positive.",
+      "After stem inoculation with infectious sap, HLVd was detected in roots within 2–3 weeks and foliage within 4–6 weeks, and spread was faster under a flowering-inducing 12:12 photoperiod than under 24-hour lighting in that experiment.",
+      "The study detected HLVd in inflorescence tissue, glandular trichomes, dried flowers, pollen, seeds, and other production-system materials, supporting plant-part and propagation context but not image-only confirmation.",
+      "Figure 1 combines stock and flowering plant appearance with tissue-specific RT-PCR results and sequence-confirmed bands; it is a molecularly anchored CC BY 4.0 reference but not a single-class visual training sample.",
+      "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol."
+    ]
+  },
+  {
     "sourceKey": "10.3390/plants14243840",
     "title": "Genotypic Variation in Photosynthesis and Biomass Partitioning Underlies Agronomic Performance and Cannabinoid Profile in Cannabis sativa Under Drought",
     "organization": "Plants",
@@ -1377,6 +1426,27 @@
       "Hemp leaves at three crown positions were followed from full expansion for 42 days; photosynthetic capacity declined with leaf age regardless of crown position, light intensity, or photoperiod.",
       "The measured leaves remained green while photosynthetic capacity declined, demonstrating that physiological aging is not equivalent to visible yellowing.",
       "The experiment evaluated aging leaves before abscission in hemp crowns and did not establish a drug-type Cannabis harvest cue, a cultivar-independent color sequence, or proof that visible chlorosis is normal."
+    ]
+  },
+  {
+    "sourceKey": "10.3390/v15030681",
+    "title": "Hop Latent Viroid: A Hidden Threat to the Cannabis Industry",
+    "organization": "Viruses (Adkar-Purushothama et al.)",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053334/",
+    "authors": [
+      "Charith Raj Adkar-Purushothama",
+      "Teruo Sano",
+      "Jean-Pierre Perreault"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2023-03-04",
+    "year": 2023,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3390/v15030681",
+    "supportedClaims": [
+      "Published Cannabis reports associate HLVd with dudding symptoms that can include stunting, shortened internodes, brittle stems, smaller or malformed leaves, weak rooting, and reduced inflorescence quality, while some infected plants remain asymptomatic.",
+      "Because symptom expression can vary with genotype, growth stage, environment, and viroid concentration, molecular testing rather than visual appearance is required to establish an HLVd label.",
+      "This article is a review and must not be used as a substitute for the plant-linked molecular evidence or study-specific limits in the primary sources attached to this profile."
     ]
   },
   {
@@ -1587,6 +1657,26 @@
     ]
   },
   {
+    "sourceKey": "https://extension.oregonstate.edu/catalog/em-9570-hop-latent-viroid-hemp",
+    "title": "Hop Latent Viroid in Hemp",
+    "organization": "Oregon State University Extension Service",
+    "url": "https://extension.oregonstate.edu/catalog/em-9570-hop-latent-viroid-hemp",
+    "authors": [
+      "Cynthia M. Ocamb"
+    ],
+    "publisher": "Oregon State University Extension Service",
+    "publicationDate": "2024-08-22",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Visual recognition is unreliable because infected hemp can remain asymptomatic or show subtle, variable symptoms influenced by viroid strain, plant genetics, environment, and viroid concentration.",
+      "The institutional hemp field and survey context includes yellow patterning or generalized yellowing, brittle branches, misshapen or smaller leaves, shorter internodes, stunting, and small buds, with foliar symptoms and stunting often more apparent from mid-season onward in the Pacific Northwest.",
+      "Cuttings from infected mother plants can root poorly while young plants may show no obvious above-ground symptoms; roots can test positive about two weeks after cuttings are made and may be more reliable than leaves for testing young plants.",
+      "The page recommends tested stock, separation and testing of propagation material, removal of confirmed infected plants, and cleaning tools, surfaces, and equipment that contact sap; it also states that no method reliably guarantees complete HLVd inactivation on contaminated tools.",
+      "The page credits the detached-leaf survey composite to Cynthia M. Ocamb and the two-stage field composite to K. Frost but states no explicit reusable-media license, so both assets are metadata-only license-review references."
+    ]
+  },
+  {
     "sourceKey": "https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196",
     "title": "Dectes Stem Borer Management in Soybeans (FS-1196)",
     "organization": "University of Maryland Extension",
@@ -1765,17 +1855,6 @@
     "supportedClaims": [
       "Twelve discrete patches of short white hairs around the abdomen distinguish adult Japanese beetle from similar-looking beetles.",
       "The institutional specimen image is credited to Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org, and is licensed CC BY 3.0 US."
-    ]
-  },
-  {
-    "sourceKey": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053334/",
-    "title": "Hop Latent Viroid: A Hidden Threat to the Cannabis Industry",
-    "organization": "Viruses (Adkar-Purushothama et al.)",
-    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053334/",
-    "year": 2023,
-    "accessedDate": "2026-08-13",
-    "supportedClaims": [
-      "Hop latent viroid can be asymptomatic or associated with reduced vigor, shortened internodes, brittle growth, poor rooting, and reduced yield or quality; molecular testing is needed for confirmation."
     ]
   },
   {

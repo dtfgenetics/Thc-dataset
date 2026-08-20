@@ -9632,73 +9632,201 @@
     "category": "Viroid",
     "severity": "critical",
     "reviewStatus": "reviewed",
-    "summary": "A systemic viroid that may remain asymptomatic or produce stunting, brittle stems, short internodes, weak rooting, and reduced reproductive performance.",
+    "photoOnlyMaxConfidence": 0.25,
+    "summary": "A systemic viroid whose Cannabis expression ranges from asymptomatic infection to genotype- and stage-dependent dudding, poor rooting, stunting, abnormal foliage, and reduced inflorescence or trichome development. Appearance is neither necessary nor sufficient for diagnosis: a ground-truth HLVd label requires a validated molecular result linked to the sampled plant.",
     "affectedParts": [
-      "whole plant",
-      "stem",
-      "roots",
-      "flower"
+      "rooted cuttings and adventitious roots",
+      "root system",
+      "stems, branches, and internodes",
+      "young and expanded foliage across the canopy",
+      "whole-plant architecture",
+      "inflorescence stems and flower tissues",
+      "glandular trichomes",
+      "propagation stock and reproductive material"
     ],
     "stages": [
-      "all"
+      "asymptomatic stock or mother plant",
+      "propagation and rooting",
+      "vegetative growth",
+      "flowering and inflorescence development",
+      "field growth with symptoms potentially clearer from mid-season onward"
     ],
     "indicators": [
       "Short internodes",
       "Brittle stems or leaves",
       "Stunted growth",
-      "Weak flower production"
+      "No visible abnormality: infected stock plants and young rooted cuttings can be asymptomatic, so a normal-looking frame is not an HLVd-negative label.",
+      "Poor or delayed root emergence in cuttings taken from an infected mother, evaluated against same-age clean comparators; weak rooting is nonspecific and requires root-zone and pathogen exclusions.",
+      "Whole-plant stunting or reduced vigor relative to genetically matched, same-age plants under the same environment rather than an isolated small plant without context.",
+      "Shorter internodes, smaller leaves, or compact architecture distributed across new growth; severity can vary by genotype and must not be confused with stable genetic stature or deliberate training.",
+      "Mild leaf curl, mottling, yellow patterning, generalized yellowing, or misshapen leaves; no single color or leaf-shape pattern is consistently present or specific to HLVd.",
+      "Brittle stems or branches affecting otherwise intact shoots; a single snapped or trained branch is not evidence of systemic infection.",
+      "During flowering, reduced inflorescence-stem growth, smaller or poorly developed flowers, and yellowing or darkening of leaves surrounding flowers can occur in susceptible genotypes.",
+      "Reduced glandular-trichome development may appear as lower resin coverage at matched magnification and maturity, but trichome density or head size alone cannot distinguish HLVd from genetics, maturity, lighting, temperature, handling, or imaging differences."
     ],
     "exclusions": [
-      "Symptoms resolve after correcting a measured root-zone problem",
-      "One branch alone is mechanically damaged",
-      "No comparison with a healthy clone exists"
+      "Do not assign HLVd from stunting, short internodes, yellowing, leaf curl, brittle growth, poor roots, small flowers, low resin, or any combination of visible signs without a plant-linked validated molecular result.",
+      "Measured root-zone pH, EC, moisture, oxygenation, or nutrient correction explains the change and the suspect plant is molecularly negative on appropriately collected and timed samples.",
+      "Root and crown examination plus laboratory work identifies Pythium, Fusarium, Rhizoctonia, root aphids, fungus-gnat larvae, root binding, or another cause of poor rooting and decline without HLVd detection.",
+      "Magnified inspection confirms broad mites, hemp russet mites, thrips, or spider mites that account for distorted or mottled new growth, with no supporting HLVd assay.",
+      "Compact stature, short internodes, or low trichome coverage remains stable in a molecularly negative clonal lineage under healthy measured conditions, supporting a genetic or developmental trait rather than infection.",
+      "Yellowing follows the older-to-younger distribution and timing expected for measured nitrogen deficiency or normal late-cycle senescence, and properly sampled tissue is HLVd-negative.",
+      "A single branch is brittle, wilted, or undersized after topping, wind, abrasion, constriction, or another documented mechanical event while the rest of the plant and new growth remain normal.",
+      "One negative leaf sample is not a universal exclusion when sampling timing, tissue distribution, extraction quality, or inhibition is uncertain; use the laboratory sampling plan and retest roots or multiple positions when advised."
     ],
     "progression": [
       {
-        "stage": "Latent",
-        "description": "Plant may show no reliable visual symptoms."
+        "stage": "Latent or visually silent",
+        "description": "Stock plants, mother plants, seedlings, and young cuttings can carry detectable HLVd without reliable above-ground symptoms. Image or video alone cannot establish either positive or negative status."
       },
       {
-        "stage": "Expression",
-        "description": "Reduced vigor, short internodes, brittle growth, or poor rooting develops."
+        "stage": "Propagation expression",
+        "description": "Cuttings from infected mothers may root slowly or poorly. Capture matched clean and suspect clones from the same lineage, including root emergence and root-zone conditions, but retain a nonspecific weak-rooting label until molecular testing."
       },
       {
-        "stage": "Advanced",
-        "description": "Yield and quality decline; secondary stress may intensify."
+        "stage": "Vegetative expression",
+        "description": "Depending on genotype, plants may remain asymptomatic or develop mild curl, mottling, smaller or misshapen leaves, short internodes, brittle growth, and reduced stature. There is no universal visual order."
+      },
+      {
+        "stage": "Flowering expression",
+        "description": "Susceptible plants can show more obvious stunting, reduced inflorescence-stem and flower development, altered leaves around flowers, and reduced trichome development. Compare the same genotype, age, environment, and flower position."
+      },
+      {
+        "stage": "Field or later-season expression",
+        "description": "Institutional Pacific Northwest observations report that foliar symptoms and stunting may become more obvious from mid-season onward, but environment and genotype alter expression; record serial change rather than inferring infection age from one frame."
       }
     ],
     "lookAlikes": [
-      "Genetic dwarfism",
-      "Root disease",
-      "Chronic environmental stress"
+      "Genetic dwarfism, compact architecture, or cultivar-specific low vigor",
+      "Normal late-flowering senescence or cultivar-specific fade",
+      "Nitrogen, sulfur, iron, magnesium, or other nutrient deficiency",
+      "Excess fertilizer, salinity, or root-zone pH stress",
+      "Pythium, Fusarium, Rhizoctonia, or other root/crown disease",
+      "Root binding, waterlogging, drought, or low root-zone oxygen",
+      "Broad mite or hemp russet mite injury",
+      "Thrips or spider-mite feeding injury",
+      "Beet curly top virus, phytoplasma, or another systemic pathogen",
+      "Heat, high light, photoperiod, or plant-growth-regulator injury",
+      "Mechanical damage, topping, or training response",
+      "Normal genetic or maturity-driven differences in flower and trichome development"
     ],
     "confirmation": [
-      "Use a validated RT-PCR or equivalent laboratory test.",
-      "Retest representative tissue when timing or sampling may affect detection."
+      "Submit plant-linked samples to a qualified plant diagnostic laboratory for a validated HLVd RT-PCR, RT-qPCR, or equivalent sequence-specific assay; a photo, video, growth pattern, or trichome image cannot confirm infection.",
+      "Follow the laboratory’s current sampling instructions. Because HLVd distribution can vary across leaves and roots, record the tissue type and canopy position and consider paired root plus upper, middle, or lower foliage samples when the laboratory recommends them.",
+      "For young rooted cuttings, roots may provide a more consistent testing target than leaves; Oregon State reports that roots can test positive about two weeks after cuttings are made, while young plants may remain visually normal above ground.",
+      "Retest when an assay is negative but sample timing, tissue choice, extraction quality, inhibition, chain of custody, or symptoms remain concerning; do not reinterpret one poorly contextualized negative leaf as proof that the whole plant is clean.",
+      "Pair molecular testing with same-genotype, same-age, same-environment clean controls and serial whole-plant measurements so reductions in height, internode length, root emergence, flower development, or trichome appearance are not attributed across unmatched plants.",
+      "Inspect and document roots, crown, leaf undersides, growing tips, root-zone pH/EC/moisture, irrigation history, light/temperature, and recent training or chemical exposure to evaluate common non-HLVd causes and possible mixed problems.",
+      "For image/video ground truth, preserve the plant ID, cultivar or genotype, sample date, sampled tissue and position, assay method and result, symptom date, and source group. Keep unlinked, symptom-only, detached-leaf-only, and assay-panel-only captures out of the confirmed class."
     ],
     "immediateActions": [
-      "Quarantine suspect plants and stop sharing tools or propagation material."
+      "Flag and physically segregate suspect propagation material while results are pending; stop taking or distributing cuttings, pollen, seed, or tools from the suspect plant.",
+      "Use separate or decontaminated cutting tools and handling equipment according to a validated facility protocol, and avoid moving sap from suspect plants to clean stock.",
+      "Capture matched whole-plant, canopy, growing-tip, root, and flower views before destructive sampling, but label the observation “HLVd suspect” rather than confirmed."
     ],
     "correctivePlan": [
-      "Base culling and sanitation decisions on validated testing and facility protocol."
+      "Base removal, retention, retesting, and sanitation decisions on the confirmed laboratory result and a written facility disease protocol.",
+      "If HLVd is not detected, continue the differential workup for root pathogens, mites, nutrient and root-zone problems, systemic viruses or phytoplasmas, genetic traits, and maturity.",
+      "Do not promise that a visible recovery, treatment, or single cleaning product eradicates HLVd; verify clean status through the testing and sanitation program."
     ],
     "prevention": [
-      "Test mother stock and incoming clones.",
-      "Disinfect tools between plants with a validated viroid protocol."
+      "Use traceable mother stock, incoming clones, pollen, and seed that have been tested under an appropriate sampling program.",
+      "Separate untested propagation material from clean stock and maintain plant IDs linking mothers, cuttings, assay results, dates, and work areas.",
+      "Clean sap and plant debris from tools, benches, irrigation components, and equipment, then apply a viroid protocol validated for the specific surface, product concentration, contact time, and workflow."
     ],
     "warnings": [
-      "HLVd cannot be confirmed from a photograph.",
-      "Do not label a plant infected without laboratory evidence."
+      "HLVd cannot be confirmed or excluded from visible symptoms; infected plants may be asymptomatic and visually abnormal plants may have many other causes.",
+      "Growth reduction, flower loss, THC or terpene change, and trichome effects are genotype- and experiment-dependent; do not apply study percentages to an individual plant or cultivar.",
+      "One tissue or canopy position may test negative while another tests positive, so sampling context and assay quality must remain attached to every laboratory label.",
+      "An RT-PCR signal establishes target RNA in the sampled material; sanitation experiments based on loss of an amplifiable band do not automatically prove every treated surface or plant material is noninfectious.",
+      "The two Oregon State hemp figures below are metadata-only references. Their creators are credited, but no explicit reuse license is stated; do not display, copy, modify, or use them for automated training without written permission.",
+      "Keep every symptom-only, unlinked assay, detached-leaf-only, unmatched-comparator, low-resolution trichome, or uncertain-tissue sample flagged for human review."
     ],
     "sources": [
       {
         "title": "Hop Latent Viroid: A Hidden Threat to the Cannabis Industry",
         "organization": "Viruses (Adkar-Purushothama et al.)",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10053334/",
+        "authors": [
+          "Charith Raj Adkar-Purushothama",
+          "Teruo Sano",
+          "Jean-Pierre Perreault"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2023-03-04",
         "year": 2023,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-08-20",
+        "doi": "10.3390/v15030681",
         "supportedClaims": [
-          "Hop latent viroid can be asymptomatic or associated with reduced vigor, shortened internodes, brittle growth, poor rooting, and reduced yield or quality; molecular testing is needed for confirmation."
+          "Published Cannabis reports associate HLVd with dudding symptoms that can include stunting, shortened internodes, brittle stems, smaller or malformed leaves, weak rooting, and reduced inflorescence quality, while some infected plants remain asymptomatic.",
+          "Because symptom expression can vary with genotype, growth stage, environment, and viroid concentration, molecular testing rather than visual appearance is required to establish an HLVd label.",
+          "This article is a review and must not be used as a substitute for the plant-linked molecular evidence or study-specific limits in the primary sources attached to this profile."
+        ]
+      },
+      {
+        "title": "Symptomology, Prevalence, and Impact of Hop Latent Viroid on Greenhouse-Grown Cannabis (Cannabis sativa L.) Plants in Canada",
+        "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
+        "url": "https://doi.org/10.1080/07060661.2023.2279184",
+        "authors": [
+          "Zamir K. Punja",
+          "Keri Wang",
+          "Samantha Lung",
+          "Liam Buirs"
+        ],
+        "publisher": "Informa UK Limited (Taylor & Francis)",
+        "publicationDate": "2023-11-27",
+        "year": 2024,
+        "accessedDate": "2026-08-20",
+        "doi": "10.1080/07060661.2023.2279184",
+        "supportedClaims": [
+          "Across greenhouse production samples, symptom expression varied with growth stage and genotype: stock and vegetative plants ranged from asymptomatic to mild leaf curl and mottling, while flowering plants could show extreme stunting and reduced inflorescence development.",
+          "HLVd was detected in upper, middle, and lower canopy leaves and in roots, but its distribution varied among plant tissues and genotypes; one leaf position is therefore not a universal sampling rule or a reliable negative control.",
+          "Under the study conditions, infected flowering plants showed genotype-dependent reductions of 12–42% in inflorescence stem length, fresh weight, and plant height compared with noninfected plants, and diseased inflorescences had lower THC and terpene levels.",
+          "Glandular trichomes on affected plants had shorter stalks and smaller heads and appeared shrivelled after inflorescences were dried; these group-level measurements do not make sparse trichomes or reduced resin a visually specific HLVd sign.",
+          "The article is CC BY 4.0, but its stage, genotype, and tissue comparisons must remain source-grouped and laboratory-bounded if individual figures are later evaluated for training."
+        ]
+      },
+      {
+        "title": "Transmission, Spread, Longevity and Management of Hop Latent Viroid, a Widespread and Destructive Pathogen Affecting Cannabis (Cannabis sativa L.) Plants in North America",
+        "organization": "Plants (Punja et al.)",
+        "url": "https://doi.org/10.3390/plants14050830",
+        "authors": [
+          "Zamir K. Punja",
+          "Cameron Scott",
+          "Heather H. Tso",
+          "Jack Munz",
+          "Liam Buirs"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2025-03-06",
+        "year": 2025,
+        "accessedDate": "2026-08-20",
+        "doi": "10.3390/plants14050830",
+        "supportedClaims": [
+          "RT-PCR/RT-qPCR detected HLVd in asymptomatic stock plants and rooted vegetative cuttings; in the stock genotypes tested, roots were the most consistent positive tissue while individual upper or lower leaf samples were not consistently positive.",
+          "After stem inoculation with infectious sap, HLVd was detected in roots within 2–3 weeks and foliage within 4–6 weeks, and spread was faster under a flowering-inducing 12:12 photoperiod than under 24-hour lighting in that experiment.",
+          "The study detected HLVd in inflorescence tissue, glandular trichomes, dried flowers, pollen, seeds, and other production-system materials, supporting plant-part and propagation context but not image-only confirmation.",
+          "Figure 1 combines stock and flowering plant appearance with tissue-specific RT-PCR results and sequence-confirmed bands; it is a molecularly anchored CC BY 4.0 reference but not a single-class visual training sample.",
+          "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol."
+        ]
+      },
+      {
+        "title": "Hop Latent Viroid in Hemp",
+        "organization": "Oregon State University Extension Service",
+        "url": "https://extension.oregonstate.edu/catalog/em-9570-hop-latent-viroid-hemp",
+        "authors": [
+          "Cynthia M. Ocamb"
+        ],
+        "publisher": "Oregon State University Extension Service",
+        "publicationDate": "2024-08-22",
+        "year": 2024,
+        "accessedDate": "2026-08-20",
+        "supportedClaims": [
+          "Visual recognition is unreliable because infected hemp can remain asymptomatic or show subtle, variable symptoms influenced by viroid strain, plant genetics, environment, and viroid concentration.",
+          "The institutional hemp field and survey context includes yellow patterning or generalized yellowing, brittle branches, misshapen or smaller leaves, shorter internodes, stunting, and small buds, with foliar symptoms and stunting often more apparent from mid-season onward in the Pacific Northwest.",
+          "Cuttings from infected mother plants can root poorly while young plants may show no obvious above-ground symptoms; roots can test positive about two weeks after cuttings are made and may be more reliable than leaves for testing young plants.",
+          "The page recommends tested stock, separation and testing of propagation material, removal of confirmed infected plants, and cleaning tools, surfaces, and equipment that contact sap; it also states that no method reliably guarantees complete HLVd inactivation on contaminated tools.",
+          "The page credits the detached-leaf survey composite to Cynthia M. Ocamb and the two-stage field composite to K. Frost but states no explicit reusable-media license, so both assets are metadata-only license-review references."
         ]
       }
     ],
@@ -9732,6 +9860,72 @@
         "stage": "all",
         "severity": "moderate",
         "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-hlvd-osu-positive-hemp-leaves-license-review",
+        "url": "https://extension.oregonstate.edu/sites/extd8/files/images/2024-08/picture1.png",
+        "thumbnailUrl": "https://extension.oregonstate.edu/sites/extd8/files/styles/full/public/images/2024-08/picture1.png?itok=FiI7MsBJ",
+        "alt": "Four-panel composite of detached hemp leaves from Oregon State disease surveys that tested positive for HLVd, showing variable yellow patterning, marginal injury, and generalized chlorosis.",
+        "caption": "Metadata-only institutional reference: detached leaves from 2021–2022 Oregon State hemp disease surveys that tested positive for HLVd. The variable and nonspecific appearances cannot confirm HLVd without the linked assay context.",
+        "creator": "Cynthia M. Ocamb, Oregon State University Extension Service",
+        "license": "Copyright © Oregon State University; no explicit reusable-media license stated on the landing page",
+        "sourceUrl": "https://extension.oregonstate.edu/catalog/em-9570-hop-latent-viroid-hemp",
+        "mediaType": "image",
+        "requiredAttribution": "Cynthia M. Ocamb, Oregon State University Extension Service, 2024. Obtain written permission from Oregon State University before display, copying, modification, or automated training use.",
+        "diagnosticLabel": "hop-latent-viroid — assay-positive detached hemp leaf symptom diversity, license review",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored in the repository.",
+          "Do not display, copy, modify, or use for automated training without documented permission.",
+          "Detached leaves omit plant architecture, canopy position, timing, root condition, and cultivar context.",
+          "The leaves tested positive for HLVd, but positive status does not prove every visible lesion, color, or margin pattern was caused by HLVd."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "3d23e038ae781b11da3fd0da810738b555f2d8dda47119df172aadc23fccd8d5",
+        "perceptualHash": "dhash64:3635352b2bad6969",
+        "width": 2147,
+        "height": 537,
+        "view": "diagram",
+        "stage": "field survey, detached leaves",
+        "severity": "variable symptomatic leaves",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-hlvd-osu-hemp-field-progression-license-review",
+        "url": "https://extension.oregonstate.edu/sites/extd8/files/images/2024-08/screenshot-2024-08-22-071358.png",
+        "thumbnailUrl": "https://extension.oregonstate.edu/sites/extd8/files/styles/full/public/images/2024-08/screenshot-2024-08-22-071358.png?itok=ZZcwpsOJ",
+        "alt": "Two-panel Oregon field-hemp composite labeled A and B and described by Oregon State as early and later-stage HLVd symptoms.",
+        "caption": "Metadata-only institutional reference: field hemp in the Hermiston, Oregon area shown at early (A) and later (B) symptom stages attributed to HLVd by Oregon State Extension. Low resolution and unstated reuse rights prevent display and training use.",
+        "creator": "K. Frost, Oregon State University Extension Service",
+        "license": "Copyright © Oregon State University; no explicit reusable-media license stated on the landing page",
+        "sourceUrl": "https://extension.oregonstate.edu/catalog/em-9570-hop-latent-viroid-hemp",
+        "mediaType": "image",
+        "requiredAttribution": "K. Frost, Oregon State University Extension Service, 2024. Obtain written permission from Oregon State University before display, copying, modification, or automated training use.",
+        "diagnosticLabel": "hop-latent-viroid — institutional hemp field early/later symptom context, license review",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored in the repository.",
+          "Do not display, copy, modify, or use for automated training without documented permission.",
+          "The two-panel image is low resolution and does not provide a controlled same-plant time series or visible molecular-assay panel.",
+          "Use the institutional caption as field context only; do not infer HLVd from plant stature, leaf color, or canopy form in an unknown field plant."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "beca7fdd70ffff5f28a8e0397c301aafac1be21b79381fd26de49c0fd36764b6",
+        "perceptualHash": "dhash64:af185b5327e53571",
+        "width": 548,
+        "height": 237,
+        "view": "diagram",
+        "stage": "field growth, early and later symptom context",
+        "severity": "institutional early/later comparison",
+        "confirmation": "expert-reviewed",
         "trainingEligible": false
       }
     ],

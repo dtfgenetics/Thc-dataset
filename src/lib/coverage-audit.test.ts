@@ -130,4 +130,31 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.find((item) => item.mediaType === 'video')?.reviewStatus).toBe('license-review')
     expect(record?.media.find((item) => item.mediaType === 'video')?.trainingEligible).toBe(false)
   })
+
+  it('keeps HLVd molecularly bounded and unlicensed field references out of display and training', () => {
+    const record = issues.find((issue) => issue.slug === 'hop-latent-viroid')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record?.sources.some((source) => source.doi === '10.1080/07060661.2023.2279184')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3390/plants14050830')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.oregonstate.edu/catalog/em-9570'))).toBe(true)
+    expect(confirmation).toContain('validated hlvd rt-pcr')
+    expect(confirmation).toContain('paired root plus upper, middle, or lower foliage samples')
+    expect(confirmation).toContain('keep unlinked, symptom-only, detached-leaf-only, and assay-panel-only captures out of the confirmed class')
+    expect(warnings).toContain('infected plants may be asymptomatic')
+    expect(warnings).toContain('one tissue or canopy position may test negative while another tests positive')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Normal late-flowering senescence or cultivar-specific fade',
+      'Pythium, Fusarium, Rhizoctonia, or other root/crown disease',
+      'Broad mite or hemp russet mite injury',
+      'Beet curly top virus, phytoplasma, or another systemic pathogen',
+    ]))
+    expect(record?.media).toHaveLength(3)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media.filter((item) => item.reviewStatus === 'license-review')).toHaveLength(2)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
 })
