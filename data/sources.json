@@ -459,19 +459,20 @@
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-04-19-0782-PDN",
     "authors": [
-      "T. Schappe",
-      "D. F. Ritchie",
-      "L. D. Thiessen"
+      "Tyler Schappe",
+      "David F. Ritchie",
+      "Lindsey D. Thiessen"
     ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-02-10",
     "year": 2020,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/PDIS-04-19-0782-PDN",
     "supportedClaims": [
       "Greenhouse-grown hemp developed small dark-brown 1–3 mm vein-limited angular lesions on leaves, stems, and flower parts; lesions coalesced into larger necrotic regions and red bacterial ooze was observed.",
       "Serratia marcescens was supported by colony/microscopic traits and 16S rRNA plus rpoB sequence evidence.",
-      "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone."
+      "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone.",
+      "The original observation and pathogenicity work were greenhouse-bound and included Cannabis sativa cultivar Carmagnola, so they do not establish universal field, cultivar, age, severity, or timing labels."
     ]
   },
   {
@@ -772,24 +773,25 @@
       "Angela R. Post"
     ],
     "publisher": "American Phytopathological Society",
-    "publicationDate": "2020-12-05",
     "year": 2020,
     "accessedDate": "2026-08-20",
     "doi": "10.1094/PHP-03-20-0017-RS",
     "supportedClaims": [
-      "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
-      "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
-      "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
-      "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis.",
       "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
       "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
       "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
       "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
       "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
       "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting.",
+      "The survey documented Serratia-associated, vein-limited angular hemp lesions and red bacterial ooze emerging from punctured lesions, while emphasizing that hemp leaf diseases overlap visually and require diagnostic separation.",
+      "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
+      "Root-bound transplants were commonly reported and affected plants did not reliably overcome the bound root system after field transplanting; secondary Fusarium and Pythium infections were also observed.",
+      "Clomazone carryover caused bleaching of newly formed hemp tissue in a documented commercial field case and the plants did not recover.",
+      "Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis.",
       "A 2017–2018 North Carolina survey based on 572 agronomic and 117 plant-clinic hemp submissions attributed common environmental disorders to excessive rainfall flooding roots and to poor root development in transplanted clones.",
       "The same diagnostic survey found Pythium diseases in greenhouse hemp, supporting explicit separation of abiotic flooding injury from root-pathogen diagnoses."
-    ]
+    ],
+    "publicationDate": "2020-12-05"
   },
   {
     "sourceKey": "10.1094/PHYTOFR-05-23-0064-SC",
@@ -1969,6 +1971,24 @@
     ]
   },
   {
+    "sourceKey": "https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/",
+    "title": "Exserohilum Leaf Spot Causing Problems in NC Hemp",
+    "organization": "NC State Extension Plant Pathology",
+    "url": "https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/",
+    "authors": [
+      "Lindsey D. Thiessen"
+    ],
+    "publisher": "North Carolina State University Extension",
+    "publicationDate": "2019-08-16",
+    "year": 2019,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "NC State Extension states that hemp leaf spots can look similar and accurate diagnosis is important; its industrial-hemp bacterial leaf spot/blight reference is characterized only as angular lesions and is not presented as species-confirmed Serratia ground truth.",
+      "The same institutional differential describes Exserohilum lesions as small, round spots with dark-brown margins and gray-brown centers that may develop pepper-like spores as they age, helping separate a fungal leaf-spot pattern from vein-limited bacterial-compatible injury.",
+      "The page identifies bacterial, Fusarium, and Septoria leaf spots as visual alternatives to Exserohilum, supporting a multi-pathogen differential rather than an image-only bacterial species label."
+    ]
+  },
+  {
     "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-brown-blight-alternaria-diseases",
     "title": "Hemp (Cannabis sativa)-Brown Blight (Alternaria Diseases)",
     "organization": "Pacific Northwest Plant Disease Management Handbook",
@@ -2084,6 +2104,24 @@
       "Broad mites prefer young, protected tissue and may no longer be present on the most damaged tissue because visible injury can persist after feeding.",
       "Clear oval broad-mite eggs have raised pale dots, while cyclamen-mite eggs are smooth and russet mites have a narrow, conical body form.",
       "Broad-mite injury can resemble plant-growth-regulator herbicide injury, nutrient problems, and other abiotic disorders; inspection at about 20× or by microscope is recommended."
+    ]
+  },
+  {
+    "sourceKey": "https://www.canada.ca/en/public-health/services/laboratory-biosafety-biosecurity/pathogen-safety-data-sheets-risk-assessment/serratia.html",
+    "title": "Pathogen Safety Data Sheets: Infectious Substances – Serratia spp.",
+    "organization": "Public Health Agency of Canada",
+    "url": "https://www.canada.ca/en/public-health/services/laboratory-biosafety-biosecurity/pathogen-safety-data-sheets-risk-assessment/serratia.html",
+    "authors": [
+      "Pathogen Regulation Directorate, Public Health Agency of Canada"
+    ],
+    "publisher": "Government of Canada",
+    "publicationDate": "2011-12-01",
+    "year": 2011,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "The Public Health Agency of Canada identifies Serratia species as Gram-negative rods and notes that many, but not all, species or strains produce a red-to-pink pigment; pigment therefore cannot be required for or used alone as species confirmation.",
+      "The agency describes Serratia species as opportunistic pathogens, classifies the genus as Risk Group 2 while noting that the classification may not apply to every species, and specifies Containment Level 2 practices for potentially infectious material or cultures.",
+      "For work with infected material or cultures, the sheet calls for protective clothing, gloves where direct contact is unavoidable, eye protection where splashes are possible, and controls for aerosol-producing procedures."
     ]
   },
   {

@@ -6,69 +6,105 @@
   "category": "Bacterial pathogen",
   "severity": "high",
   "reviewStatus": "reviewed",
-  "photoOnlyMaxConfidence": 0.5,
-  "summary": "A pathogenicity-confirmed Cannabis bacterial disease producing small vein-limited angular lesions that can coalesce across leaves, stems and flower parts. Red bacterial ooze is useful supporting evidence but species confirmation requires laboratory identification.",
+  "photoOnlyMaxConfidence": 0.3,
+  "summary": "A pathogenicity-confirmed Cannabis bacterial disease producing small vein-limited angular lesions that can coalesce across leaves, stems and flower parts. Red bacterial ooze is useful supporting evidence, but neither lesion shape nor red material is species-confirmatory; plant-linked isolation and molecular identification are required.",
   "affectedParts": [
     "leaves",
+    "leaf veins and interveinal tissue",
     "stems",
-    "flower parts"
+    "flower parts",
+    "whole aerial plant in severe greenhouse observations"
   ],
   "stages": [
-    "seedling",
     "vegetative",
     "flower",
-    "greenhouse production"
+    "greenhouse production; original report",
+    "field or other production context not established"
   ],
   "indicators": [
-    "Small dark-brown 1–3 mm lesions are angular or vein-limited",
-    "Lesions coalesce into larger necrotic regions as disease advances",
-    "Red bacterial ooze streams from affected plant tissue",
-    "Laboratory culture and 16S/rpoB or equivalent evidence supports Serratia marcescens"
+    "Small dark-brown 1–3 mm lesions are angular or vein-limited on hemp leaves",
+    "Early lesions are localized around veins rather than uniformly circular",
+    "Lesions coalesce into larger irregular necrotic regions as disease advances",
+    "Compatible injury can extend from leaves to stems and flower parts",
+    "Red bacterial ooze or streaming can emerge from affected tissue, including after a lesion is punctured",
+    "Dark-pink raised colonies and Gram-negative bacilli were part of the original isolate description",
+    "16S rRNA plus rpoB sequence evidence supports Serratia marcescens rather than a visual bacterial-leaf-spot label",
+    "Reproduction of compatible lesions after inoculation, symptomless controls, and reisolation provide pathogenicity support"
   ],
   "exclusions": [
-    "No bacterial ooze or lab evidence exists and lesions fit a fungal leaf spot better",
-    "Xanthomonas or another bacterial pathogen is identified",
-    "Chemical/contact injury follows a spray or exposure boundary"
+    "Angular or vein-limited lesions are present without plant-linked bacterial isolation or molecular evidence",
+    "Red, pink, or sap-like material is present without microscopy, culture, and plant linkage",
+    "Round dark-margined lesions with gray-brown centers and pepper-like fungal sporulation support Exserohilum",
+    "Pycnidia or another fungal fruiting structure support Septoria or another fungal leaf spot",
+    "Xanthomonas or another bacterial pathogen is identified from the same lesions",
+    "Lesions remain confined to an exposure edge or spray/contact pattern and no organism is recovered",
+    "Mite or thrips organisms and feeding signs explain stippling, silvering, bronzing, or scarring",
+    "Only detached, stock, vendor, forum, generated, or low-resolution imagery is available without collection and laboratory metadata"
   ],
   "progression": [
     {
-      "stage": "Early",
-      "description": "Small dark vein-limited lesions develop."
+      "stage": "Early focal lesions",
+      "description": "Small 1–3 mm dark-brown lesions develop along or between veins; a still image may resemble several bacterial, fungal, or contact-injury classes."
     },
     {
-      "stage": "Coalescing",
-      "description": "Lesions merge into larger necrotic regions on leaves and other aerial tissues."
+      "stage": "Vein-limited expansion",
+      "description": "Angular lesion margins become more evident as necrosis is bounded by venation and multiple lesions accumulate."
     },
     {
-      "stage": "Severe",
-      "description": "Large tissue areas can be lost and whole plants were lost in the original production observations."
+      "stage": "Coalescence",
+      "description": "Adjacent lesions merge into larger irregular necrotic regions; capture the same marked leaf over time rather than inferring progression from unrelated plants."
+    },
+    {
+      "stage": "Multi-organ extension",
+      "description": "Compatible lesions may occur on stems and flower parts as well as leaves; document each affected part and retain plant linkage."
+    },
+    {
+      "stage": "Severe greenhouse outcome",
+      "description": "Large tissue areas and whole plants were lost in the original greenhouse observations, but that report does not establish a universal severity timeline or field outcome."
     }
   ],
   "lookAlikes": [
     "Xanthomonas bacterial leaf spot",
+    "Other bacterial leaf spot or blight",
+    "Exserohilum / Helminthosporium leaf blight",
     "Septoria leaf spot",
     "Cercospora leaf spot",
+    "Alternaria leaf spot",
     "Anthracnose",
-    "Contact spray injury"
+    "Downy mildew / Pseudoperonospora",
+    "Thrips or mite feeding injury",
+    "Contact spray, droplet, or mechanical injury",
+    "Marginal or interveinal nutrient injury",
+    "Mixed-pathogen leaf spot"
   ],
   "confirmation": [
-    "Collect fresh lesion-margin tissue for bacterial isolation and molecular identification.",
-    "Treat red ooze as a strong clue, not a substitute for organism confirmation."
+    "Capture the intact plant, canopy distribution, affected organs, both leaf surfaces, lesion scale, vein relationship, and a close-up of any ooze before sampling.",
+    "Sample several fresh, active lesion margins with intact plant identifiers; retain matched asymptomatic tissue and environmental/exposure history as controls.",
+    "Use aseptic bacterial isolation and record colony morphology, but do not identify Serratia from pink or red pigment alone.",
+    "Use Gram reaction/microscopy plus validated molecular identification; the original report used 16S rRNA and rpoB sequence evidence.",
+    "When causal ground truth is required, link the same plant and lesion sample to pathogenicity evidence or an equivalent qualified plant-diagnostic conclusion, not merely an environmental isolate.",
+    "Investigate fungal fruiting structures/spores and other recovered organisms because hemp leaf diseases overlap and mixed infections can occur.",
+    "Keep symptom-only, angular-lesion-only, red-ooze-only, detached-leaf, mixed-pathogen, unlinked-laboratory, low-resolution, stock, forum, vendor, or generated captures out of the confirmed Serratia class and route them to human review."
   ],
   "immediateActions": [
     "Separate strongly affected propagation material and avoid moving wet symptomatic tissue through clean areas.",
-    "Preserve a fresh sample before sanitation."
+    "Preserve fresh, plant-linked lesion samples before sanitation or treatment and photograph sampling locations.",
+    "Avoid manipulating or puncturing suspect lesions outside an appropriate diagnostic workflow."
   ],
   "correctivePlan": [
-    "Use laboratory-confirmed bacterial-disease sanitation and management appropriate to the production system."
+    "Use laboratory-confirmed bacterial-disease sanitation and management appropriate to the production system; visual appearance alone does not justify a Serratia-specific intervention.",
+    "Correct documented splash, sanitation, or leaf-wetness risks without treating those conditions as proof of pathogen identity."
   ],
   "prevention": [
-    "Sanitize tools/contact surfaces and minimize splash movement from symptomatic plants.",
-    "Use clean propagation material."
+    "Sanitize tools and contact surfaces between plant groups and minimize splash movement from symptomatic plants.",
+    "Use clean propagation material and retain lot/plant identifiers through diagnostic sampling.",
+    "Scout leaves, stems, and flower parts together so multi-organ progression is documented rather than reconstructed from isolated close-ups."
   ],
   "warnings": [
-    "Serratia includes strains of human-health relevance; use appropriate hygiene and diagnostic-lab handling.",
-    "Angular necrotic lesions alone are not Serratia-specific."
+    "Serratia includes strains of human-health relevance; use appropriate hygiene and qualified diagnostic-laboratory handling.",
+    "Angular necrotic lesions, red ooze, and pink-red colonies are supporting observations, not species-specific ground truth.",
+    "The original report was greenhouse-bound and included cultivar Carmagnola; do not generalize its timing, severity, distribution, or cultivar response.",
+    "The NC State hemp image is a generic bacterial leaf spot/blight differential with no explicit species-level caption, item-level creator credit, reusable license, or linked laboratory record; it must remain hidden from display and training."
   ],
   "sources": [
     {
@@ -76,21 +112,115 @@
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-04-19-0782-PDN",
       "authors": [
-        "T. Schappe",
-        "D. F. Ritchie",
-        "L. D. Thiessen"
+        "Tyler Schappe",
+        "David F. Ritchie",
+        "Lindsey D. Thiessen"
       ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2020-02-10",
       "year": 2020,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-20",
       "doi": "10.1094/PDIS-04-19-0782-PDN",
       "supportedClaims": [
         "Greenhouse-grown hemp developed small dark-brown 1–3 mm vein-limited angular lesions on leaves, stems, and flower parts; lesions coalesced into larger necrotic regions and red bacterial ooze was observed.",
         "Serratia marcescens was supported by colony/microscopic traits and 16S rRNA plus rpoB sequence evidence.",
-        "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone."
+        "Inoculated hemp developed similar lesions, controls remained symptomless, and the organism was reisolated, providing pathogenicity evidence rather than visual association alone.",
+        "The original observation and pathogenicity work were greenhouse-bound and included Cannabis sativa cultivar Carmagnola, so they do not establish universal field, cultivar, age, severity, or timing labels."
+      ]
+    },
+    {
+      "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
+      "organization": "Plant Health Progress",
+      "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+      "authors": [
+        "Lindsey D. Thiessen",
+        "Tyler Schappe",
+        "Sarah Cochran",
+        "Kristin Hicks",
+        "Angela R. Post"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2020,
+      "accessedDate": "2026-08-20",
+      "doi": "10.1094/PHP-03-20-0017-RS",
+      "supportedClaims": [
+        "A North Carolina 2017–2018 hemp diagnostic survey identified 16 diseases caused by fungi, bacteria, oomycetes, and nematodes; the study used clinic diagnostics, morphology, sequence data for representative organisms, and pathogenicity testing for its confirmed disease set.",
+        "Fusarium foliar and flower blight was common in submitted samples and involved F. equiseti and F. graminearum; flowers developed surface hyphae and light-brown necrotic tips while leaves developed circular light-brown lesions about 1 cm wide with dark margins and gray-brown aging centers.",
+        "Exserohilum rostratum leaf spot occurred on leaves and stems as round brown-to-black lesions with darkened margins and abundant conidia, with ITS1/RPB2 evidence supporting the identification.",
+        "Rhizoctonia solani was found on roots and crowns with plant wilting and necrotic lesions just above the soil line; pigmented septate hyphae showed characteristic right-angle branching and sequence evidence supported R. solani.",
+        "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
+        "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting.",
+        "The survey documented Serratia-associated, vein-limited angular hemp lesions and red bacterial ooze emerging from punctured lesions, while emphasizing that hemp leaf diseases overlap visually and require diagnostic separation."
+      ]
+    },
+    {
+      "title": "Exserohilum Leaf Spot Causing Problems in NC Hemp",
+      "organization": "NC State Extension Plant Pathology",
+      "url": "https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/",
+      "authors": [
+        "Lindsey D. Thiessen"
+      ],
+      "publisher": "North Carolina State University Extension",
+      "publicationDate": "2019-08-16",
+      "year": 2019,
+      "accessedDate": "2026-08-20",
+      "supportedClaims": [
+        "NC State Extension states that hemp leaf spots can look similar and accurate diagnosis is important; its industrial-hemp bacterial leaf spot/blight reference is characterized only as angular lesions and is not presented as species-confirmed Serratia ground truth.",
+        "The same institutional differential describes Exserohilum lesions as small, round spots with dark-brown margins and gray-brown centers that may develop pepper-like spores as they age, helping separate a fungal leaf-spot pattern from vein-limited bacterial-compatible injury.",
+        "The page identifies bacterial, Fusarium, and Septoria leaf spots as visual alternatives to Exserohilum, supporting a multi-pathogen differential rather than an image-only bacterial species label."
+      ]
+    },
+    {
+      "title": "Pathogen Safety Data Sheets: Infectious Substances – Serratia spp.",
+      "organization": "Public Health Agency of Canada",
+      "url": "https://www.canada.ca/en/public-health/services/laboratory-biosafety-biosecurity/pathogen-safety-data-sheets-risk-assessment/serratia.html",
+      "authors": [
+        "Pathogen Regulation Directorate, Public Health Agency of Canada"
+      ],
+      "publisher": "Government of Canada",
+      "publicationDate": "2011-12-01",
+      "year": 2011,
+      "accessedDate": "2026-08-20",
+      "supportedClaims": [
+        "The Public Health Agency of Canada identifies Serratia species as Gram-negative rods and notes that many, but not all, species or strains produce a red-to-pink pigment; pigment therefore cannot be required for or used alone as species confirmation.",
+        "The agency describes Serratia species as opportunistic pathogens, classifies the genus as Risk Group 2 while noting that the classification may not apply to every species, and specifies Containment Level 2 practices for potentially infectious material or cultures.",
+        "For work with infected material or cultures, the sheet calls for protective clothing, gloves where direct contact is unavoidable, eye protection where splashes are possible, and controls for aerosol-producing procedures."
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-hemp-bacterial-leaf-spot-ncsu-license-review",
+      "url": "https://eit-wagpress-prod.s3.amazonaws.com/media/images/2019-08-Hemp-Serratia-Leaf-Spot.max-700x1200.jpg",
+      "alt": "Detached industrial-hemp leaf with angular necrotic lesions, presented by NC State Extension as bacterial leaf spot and blight.",
+      "caption": "NC State Extension Figure 2 generic bacterial leaf spot/blight differential. The page characterizes angular lesions but does not provide a species-level caption, plant-linked laboratory result, individual creator credit, or reusable license.",
+      "creator": "NC State Extension Plant Pathology; individual image creator not stated",
+      "license": "Copyright/reuse and automated-training terms not stated on the NC State Extension landing page",
+      "sourceUrl": "https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/",
+      "mediaType": "image",
+      "requiredAttribution": "NC State Extension Plant Pathology, Figure 2 in “Exserohilum Leaf Spot Causing Problems in NC Hemp” by Lindsey D. Thiessen, published August 16, 2019. Obtain documented rights-holder permission and species-level provenance before display, copying, modification, or automated training.",
+      "diagnosticLabel": "serratia-marcescens-leaf-spot — generic industrial-hemp bacterial leaf spot/blight differential, not Serratia ground truth",
+      "hostSpecies": "Cannabis sativa industrial hemp",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no media file is copied into the repository.",
+        "Do not display, copy, modify, or use for automated training until reusable rights are documented.",
+        "The landing page labels the figure only as bacterial leaf spot and blight with angular lesions; do not convert the asset filename into a Serratia species label.",
+        "Detached-leaf close-up lacks whole-plant distribution, matched opposite surface, progression, scale, collection metadata, and plant-linked culture or molecular confirmation.",
+        "Angular lesions overlap Xanthomonas and other bacterial diseases, downy mildew, fungal leaf spots, and contact injury."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "72708024736bedbcd0dfd34d81c262b463bd6dd878d253b38b61fd8b3438afc8",
+      "perceptualHash": "dhash64:c0849c4c408c4000",
+      "width": 624,
+      "height": 864,
+      "view": "close-up",
+      "stage": "detached industrial-hemp leaf; production stage not stated",
+      "severity": "moderate lesion coverage; causal severity not established",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

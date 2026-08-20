@@ -239,4 +239,34 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
     expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
   })
+
+  it('keeps Serratia species labels laboratory-linked and generic bacterial imagery out of display and training', () => {
+    const record = issues.find((issue) => issue.slug === 'serratia-marcescens-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-04-19-0782-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PHP-03-20-0017-RS')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('plantpathology.ces.ncsu.edu/news/exserohilum'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('canada.ca/en/public-health/services/laboratory-biosafety'))).toBe(true)
+    expect(confirmation).toContain('16s rrna and rpob')
+    expect(confirmation).toContain('do not identify serratia from pink or red pigment alone')
+    expect(confirmation).toContain('keep symptom-only, angular-lesion-only, red-ooze-only, detached-leaf, mixed-pathogen, unlinked-laboratory, low-resolution, stock, forum, vendor, or generated captures out of the confirmed serratia class')
+    expect(warnings).toContain('greenhouse-bound and included cultivar carmagnola')
+    expect(warnings).toContain('generic bacterial leaf spot/blight differential')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Xanthomonas bacterial leaf spot',
+      'Exserohilum / Helminthosporium leaf blight',
+      'Septoria leaf spot',
+      'Downy mildew / Pseudoperonospora',
+      'Contact spray, droplet, or mechanical injury',
+    ]))
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
+    expect(record?.media[0].reviewStatus).toBe('license-review')
+    expect(record?.media[0].trainingPermission).toBe('not-permitted')
+    expect(record?.media[0].trainingEligible).toBe(false)
+  })
 })
