@@ -618,9 +618,17 @@
     "title": "Surveying for Potential Diseases and Abiotic Disorders of Industrial Hemp (Cannabis sativa) Production",
     "organization": "Plant Health Progress",
     "url": "https://doi.org/10.1094/PHP-03-20-0017-RS",
+    "authors": [
+      "Lindsey D. Thiessen",
+      "Tyler Schappe",
+      "Sarah Cochran",
+      "Kristin Hicks",
+      "Angela R. Post"
+    ],
     "publisher": "American Phytopathological Society",
+    "publicationDate": "2020-12-05",
     "year": 2020,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/PHP-03-20-0017-RS",
     "supportedClaims": [
       "North Carolina hemp diagnostic submissions included root binding, excess water, nutrient disorders, and herbicide injury as important abiotic differentials.",
@@ -635,13 +643,6 @@
       "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting.",
       "A 2017–2018 North Carolina survey based on 572 agronomic and 117 plant-clinic hemp submissions attributed common environmental disorders to excessive rainfall flooding roots and to poor root development in transplanted clones.",
       "The same diagnostic survey found Pythium diseases in greenhouse hemp, supporting explicit separation of abiotic flooding injury from root-pathogen diagnoses."
-    ],
-    "authors": [
-      "Lindsey D. Thiessen",
-      "Tyler Schappe",
-      "Sarah Cochran",
-      "Kristin Hicks",
-      "Angela R. Post"
     ]
   },
   {
@@ -1011,12 +1012,14 @@
     "publisher": "MDPI AG",
     "publicationDate": "2019-10-18",
     "year": 2019,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.3390/app9204432",
     "supportedClaims": [
       "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
       "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
-      "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+      "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
+      "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
+      "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
       "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
       "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds.",
       "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",

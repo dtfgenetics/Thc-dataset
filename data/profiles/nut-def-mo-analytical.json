@@ -69,12 +69,14 @@
       "publisher": "MDPI AG",
       "publicationDate": "2019-10-18",
       "year": 2019,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-20",
       "doi": "10.3390/app9204432",
       "supportedClaims": [
         "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
         "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
-        "Manganese-toxicity plants developed marginal yellowing of lower leaves progressing inward, marginal necrosis, severe chlorosis, and occasional abscission, but the measured Mn concentration remained within a previously published survey range and biomass did not differ significantly from controls.",
+        "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
+        "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
+        "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
         "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
         "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
       ]
