@@ -318,7 +318,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2022-09-13",
     "year": 2022,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/9780890546284.03.05.1",
     "supportedClaims": [
       "Infection of hemp by root-knot nematodes (Meloidogyne spp.) is established, although the extent of Cannabis yield loss is not well quantified.",
@@ -950,6 +950,52 @@
     ]
   },
   {
+    "sourceKey": "10.21307/jofnem-2021-052",
+    "title": "First Report of Meloidogyne incognita Infecting Cannabis sativa in Alabama",
+    "organization": "Journal of Nematology",
+    "url": "https://doi.org/10.21307/jofnem-2021-052",
+    "authors": [
+      "Bisho R. Lawaju",
+      "William Groover",
+      "Jessica Kelton",
+      "Kassie Conner",
+      "Edward Sikora",
+      "Kathy S. Lawrence"
+    ],
+    "publisher": "Society of Nematologists",
+    "publicationDate": "2021-06-14",
+    "year": 2021,
+    "accessedDate": "2026-08-20",
+    "doi": "10.21307/jofnem-2021-052",
+    "supportedClaims": [
+      "Field-grown Alabama hemp in symptomatic areas showed stunted growth, poor root development, and numerous root galls, with Meloidogyne recovered from associated soil.",
+      "The nematode was identified as M. incognita using morphology and species-specific PCR; a greenhouse host-differential assay supported Race 3.",
+      "A modified Koch-postulates test reproduced galling and nematode reproduction on hemp, providing plant-linked pathogenicity evidence rather than a symptom-only association."
+    ]
+  },
+  {
+    "sourceKey": "10.21307/jofnem-2022-002",
+    "title": "Review of Nematode Interactions with Hemp (Cannabis sativa)",
+    "organization": "Journal of Nematology",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8975275/",
+    "authors": [
+      "Ernest C. Bernard",
+      "Angel G. Chaffin",
+      "Kimberly D. Gwinn"
+    ],
+    "publisher": "Society of Nematologists",
+    "publicationDate": "2022-02-18",
+    "year": 2022,
+    "accessedDate": "2026-08-20",
+    "doi": "10.21307/jofnem-2022-002",
+    "supportedClaims": [
+      "The review found that Meloidogyne is the most frequently reported plant-parasitic nematode genus on hemp, while stressing that only a small primary literature supports hemp-specific host and damage conclusions.",
+      "Galls induced on hemp by M. hapla, M. incognita, and M. javanica are described as small, whitish, and hard, generally not exceeding about 4 mm in diameter; M. enterolobii can form both small and large galls.",
+      "Its Figure 2 shows a controlled M. incognita inoculation on Cannabis sativa cultivar Cherry as an entire root system and close-up of small white galls with a 5 mm scale.",
+      "Hemp susceptibility and nematode reproduction vary substantially with cultivar, Meloidogyne species or isolate, inoculum, pot size, and evaluation time, so gall burden or canopy severity must not be generalized across cultivars or studies."
+    ]
+  },
+  {
     "sourceKey": "10.3389/fagro.2021.720215",
     "title": "Discovery and Genetic Mapping of PM1, a Powdery Mildew Resistance Gene in Cannabis sativa L.",
     "organization": "Frontiers in Agronomy (Mihalyov and Garfinkel)",
@@ -1441,6 +1487,34 @@
       "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
       "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
       "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+    ]
+  },
+  {
+    "sourceKey": "10.3390/plants14020227",
+    "title": "Virulence of Five Root-Knot Nematodes (Meloidogyne spp.) on Nine Industrial Hemp (Cannabis sativa L.) Varieties and Nematicidal Potential of Hemp Seed Extracts Against Meloidogyne javanica",
+    "organization": "Plants",
+    "url": "https://doi.org/10.3390/plants14020227",
+    "authors": [
+      "Dionysios Ntinokas",
+      "Ioannis Roussis",
+      "Antonios Mavroeidis",
+      "Panteleimon Stavropoulos",
+      "Antigolena Folina",
+      "Ioanna Kakabouki",
+      "Emmanuel A. Tzortzakakis",
+      "Dimitrios Bilalis",
+      "Ioannis O. Giannakou"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2025-01-15",
+    "year": 2025,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3390/plants14020227",
+    "supportedClaims": [
+      "A controlled greenhouse experiment found M. javanica, M. incognita, M. arenaria, M. hapla, and M. luci pathogenic across nine tested industrial-hemp varieties, with all inoculated treatments showing reduced shoot weight relative to controls.",
+      "M. incognita produced the lowest mean root weight among the tested species, while M. javanica and M. luci produced the lowest mean shoot weights, demonstrating that root and canopy effects differ by species.",
+      "Females per gram of root, egg masses per gram of root, and fecundity differed by both hemp variety and Meloidogyne species; Futura 75 carried the lowest overall nematode numbers, whereas USO 31, Fedora 17, Ferimon 12, and Zenit were among the more susceptible varieties in this experiment.",
+      "The article figures concern laboratory seed-extract effects on juvenile mobility and egg hatch rather than visual diagnosis of infected Cannabis roots, so those graphs are not symptom ground truth."
     ]
   },
   {

@@ -1,6 +1,39 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'root-knot-nematodes': [
+    {
+      id: 'media-root-knot-m-incognita-cherry-figure2-ccby4',
+      url: 'https://zenodo.org/api/records/11644653/files/figure.png/content',
+      alt: 'Two-panel controlled reference showing an entire Cannabis sativa Cherry root system and a close-up of small white Meloidogyne incognita galls with a 5 mm scale.',
+      caption: 'Figure 2 from Bernard, Chaffin, and Gwinn: controlled M. incognita galling on Cannabis sativa cultivar Cherry after an initial inoculum of 10,000 eggs. Panel A shows the full root system; panel B shows small white galls.',
+      creator: 'Angel G. Chaffin, University of Tennessee (image credit); Ernest C. Bernard and Kimberly D. Gwinn (figure coauthors)',
+      license: 'CC BY 4.0',
+      sourceUrl: 'https://doi.org/10.5281/zenodo.11644653',
+      mediaType: 'image',
+      requiredAttribution: 'Bernard, Ernest C.; Chaffin, Angel G.; Gwinn, Kimberly D. (2021), Figure 2 in Review of nematode interactions with hemp (Cannabis sativa), Zenodo, https://doi.org/10.5281/zenodo.11644653. Licensed under CC BY 4.0.',
+      diagnosticLabel: 'root-knot-nematodes — controlled M. incognita galling on Cannabis sativa Cherry, whole-root and close-up composite',
+      hostSpecies: 'Cannabis sativa cultivar Cherry',
+      hostContext: 'cannabis',
+      useLimitations: [
+        'Two-panel composite from one cultivar and a controlled initial inoculum of 10,000 eggs; it is not a panel-level training sample or a universal severity reference.',
+        'The image supports small white Cannabis root-gall morphology but does not establish species from appearance alone; retain the article-linked M. incognita inoculation context.',
+        'Do not crop away the scale, panel relationship, cultivar, inoculum, or source metadata; expert panel separation and label review are required before any automated training use.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '5fa94b0dcd841bbbff0307b76d816d656da6e913b6df98a28e762f7d5cb45751',
+      perceptualHash: 'dhash64:a325725756064303',
+      width: 1404,
+      height: 826,
+      view: 'root-crown',
+      stage: 'controlled root-system endpoint',
+      severity: 'not transferable; Pi = 10,000 eggs',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
   thrips: [
     {
       id: 'media-thrips-hemp-bugwood-5569060',

@@ -306,8 +306,8 @@
       "category": "Nematode",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 1,
       "path": "data/profiles/nematode-root-knot.json"
     },
     {

@@ -42,6 +42,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['rice-root-aphid', 1],
       ['fusarium-crown-root-rot', 1],
       ['cannabis-aphid', 1],
+      ['root-knot-nematodes', 1],
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
     ])
     for (const issue of supplementalIssues) {

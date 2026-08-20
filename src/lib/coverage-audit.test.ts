@@ -182,6 +182,38 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toHaveLength(0)
   })
 
+  it('keeps root-knot species labels organism-linked and the composite root reference out of training', () => {
+    const record = issues.find((issue) => issue.slug === 'root-knot-nematodes')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.4)
+    expect(record?.sources.some((source) => source.doi === '10.21307/jofnem-2022-002')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.21307/jofnem-2021-052')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3390/plants14020227')).toBe(true)
+    expect(confirmation).toContain('adult-female and juvenile morphology')
+    expect(confirmation).toContain('species-specific pcr or sequence assay')
+    expect(confirmation).toContain('keep canopy-only, symptom-only, detached-root-only, unlinked soil/root assay, species-from-gall, low-resolution, stock, forum, vendor, or generated captures out of the confirmed root-knot class')
+    expect(warnings).toContain('do not identify species or race')
+    expect(warnings).toContain('seed-extract bioassays rather than infected-root symptoms')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Normal lateral-root branch points or root primordia',
+      'Root binding / circling roots',
+      'Pythium or other oomycete root rot',
+      'Rhizoctonia root rot / sore shin',
+      'Fusarium root or crown disease',
+      'Root-zone hypoxia / overwatering',
+      'High EC / fertilizer salt injury',
+    ]))
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media[0].license).toBe('CC BY 4.0')
+    expect(record?.media[0].sourceUrl).toBe('https://doi.org/10.5281/zenodo.11644653')
+    expect(record?.media[0].trainingPermission).toBe('permitted')
+    expect(record?.media[0].trainingEligible).toBe(false)
+  })
+
   it('keeps Pseudocercospora lab-bounded and mixed CC BY figures out of training', () => {
     const record = issues.find((issue) => issue.slug === 'pseudocercospora-olive-sooty-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''

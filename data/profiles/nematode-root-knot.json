@@ -6,64 +6,103 @@
   "category": "Nematode",
   "severity": "moderate",
   "reviewStatus": "reviewed",
-  "photoOnlyMaxConfidence": 0.55,
-  "summary": "A confirmed Cannabis root-parasitic nematode problem. Root galling with females/egg masses is far more discriminating than above-ground stunting or chlorosis, which overlap nearly every root-zone disorder.",
+  "photoOnlyMaxConfidence": 0.4,
+  "summary": "A Cannabis root-parasitic nematode complex in which small, firm, whitish root galls are the strongest visible cue. Gall morphology can support a root-knot differential, but species, race, burden, and causality require plant-linked root/soil nematode evidence because canopy effects and cultivar responses are nonspecific.",
   "affectedParts": [
-    "roots",
-    "root galls",
+    "fine and lateral roots",
+    "complete root system",
+    "root galls and feeding sites",
+    "surrounding root-zone soil",
     "whole plant secondarily"
   ],
   "stages": [
+    "post-establishment",
     "vegetative",
     "flower",
-    "field production"
+    "field or container production"
   ],
   "indicators": [
-    "Roots develop characteristic localized galls or knots",
-    "Females can be present inside galled root tissue with egg masses associated with roots",
-    "Plants may be stunted or chlorotic secondarily",
-    "Nematode morphology or molecular testing identifies Meloidogyne"
+    "Small, firm, whitish localized galls are integrated into Cannabis root tissue; M. hapla, M. incognita, and M. javanica galls are often no more than about 4 mm",
+    "An intact washed root system shows the distribution and burden of true galls rather than an isolated swelling",
+    "Adult females within roots, associated egg masses, extracted juveniles, or quantified eggs accompany compatible galling",
+    "Root systems may show reduced development, lateral-root growth, or root weight as burden increases",
+    "Above-ground growth may become stunted or chlorotic, but no consistent leaf-age or canopy-position pattern is established",
+    "Morphology plus validated species-specific PCR or sequence evidence identifies Meloidogyne when a species-level label is required"
   ],
   "exclusions": [
-    "Root enlargements are normal lateral-root structures rather than galls",
-    "No galls/nematodes are found and a different root disease or abiotic condition is confirmed",
-    "Only canopy stunting/chlorosis is available without root inspection"
+    "Root swellings are normal lateral-root branch points or other root anatomy rather than firm integrated galls",
+    "Circling, matted roots and container-wall geometry support root binding without plant-linked nematode recovery",
+    "Soft, water-soaked or sloughed roots plus oomycete evidence support Pythium or another water mold",
+    "Necrotic root or crown lesions plus fungal isolation or molecular evidence support Rhizoctonia, Fusarium, or another root pathogen",
+    "No galls or nematodes are found and measured drought, hypoxia, salinity, pH, or nutrient conditions explain the canopy response",
+    "Only canopy stunting, yellowing, wilt, or low vigor is visible without an intact root-system inspection",
+    "A detached or cropped gall close-up cannot be linked to the sampled Cannabis plant and surrounding soil",
+    "Root-knot species or race is inferred from gall size, color, cultivar response, or geography without organism-level testing"
   ],
   "progression": [
     {
-      "stage": "Root infection",
-      "description": "Nematodes establish feeding sites and root galls develop."
+      "stage": "Early root establishment",
+      "description": "Root-knot juveniles establish feeding sites; early infection may have little or no discriminating canopy signal."
     },
     {
-      "stage": "Increasing burden",
-      "description": "Gall number and root disruption increase; above-ground growth may become stunted or chlorotic."
+      "stage": "Visible galling",
+      "description": "Small, firm, whitish galls become visible on fine and lateral roots; record their distribution across the intact washed root system."
+    },
+    {
+      "stage": "Reproduction",
+      "description": "Females, egg masses, eggs, or juveniles can accompany galling and provide stronger organism-linked evidence than root shape alone."
+    },
+    {
+      "stage": "Root-system impairment",
+      "description": "Root development, lateral roots, or root weight may decline, with magnitude varying by species, isolate, cultivar, inoculum, and time."
+    },
+    {
+      "stage": "Secondary canopy response",
+      "description": "Stunting, chlorosis, poor growth, or wilt may appear across the plant, but these responses are not leaf-age-specific and remain nonspecific."
     }
   ],
   "lookAlikes": [
-    "Rhizoctonia root rot",
-    "Fusarium root/crown disease",
-    "Root binding",
-    "Nutrient deficiency",
-    "Drought / water-deficit stress"
+    "Normal lateral-root branch points or root primordia",
+    "Root binding / circling roots",
+    "Pythium or other oomycete root rot",
+    "Rhizoctonia root rot / sore shin",
+    "Fusarium root or crown disease",
+    "Root-zone hypoxia / overwatering",
+    "Drought / water-deficit stress",
+    "High EC / fertilizer salt injury",
+    "Root-zone pH-driven nutrient unavailability",
+    "Nitrogen or other nutrient deficiency"
   ],
   "confirmation": [
-    "Wash and inspect the complete root system for true galls and collect roots/soil for nematode analysis.",
-    "Use adult/juvenile morphology and/or validated molecular assays when Meloidogyne species matters."
+    "Capture the same plant at whole-canopy scale, then recover and gently wash the complete root system; photograph the intact root architecture and gall distribution with a scale before making close-ups or sections.",
+    "Collect representative galled roots and surrounding soil under the same plant identifier; keep canopy, root, soil, date, cultivar, substrate, and treatment metadata linked.",
+    "Extract and quantify juveniles or eggs from a defined soil volume and females or egg masses per defined root mass; absence from one cropped close-up does not establish absence from the root system.",
+    "Use adult-female and juvenile morphology together with a validated species-specific PCR or sequence assay when assigning a Meloidogyne species; gall appearance alone supports at most a root-knot complex label.",
+    "For high-confidence causal ground truth, require a plant-linked diagnostic result and compatible root signs; controlled pathogenicity or a documented reproduction factor is stronger than field association alone.",
+    "Record cultivar, nematode species or isolate, inoculum or starting population where known, sampling interval, and root-washing method because all can change visible burden and reproduction.",
+    "Keep canopy-only, symptom-only, detached-root-only, unlinked soil/root assay, species-from-gall, low-resolution, stock, forum, vendor, or generated captures out of the confirmed root-knot class."
   ],
   "immediateActions": [
-    "Prevent movement of potentially infested soil/root debris into clean production areas.",
-    "Preserve representative galled roots and surrounding soil for diagnosis."
+    "Quarantine the sampled root-zone material and prevent movement of potentially infested soil, roots, runoff, tools, or containers into clean production areas.",
+    "Preserve representative galled roots and paired surrounding soil for nematode analysis before destructive treatment or disposal.",
+    "Measure root-zone moisture, pH, and EC and inspect for root binding and rot concurrently so a coincident abiotic or pathogen problem is not missed."
   ],
   "correctivePlan": [
-    "Base management on confirmed nematode identification, production system, and locally legal options."
+    "Base any intervention on confirmed nematode identity, burden, crop stage, production system, and locally legal options; this record does not convert laboratory hemp-seed-extract assays into field treatment guidance.",
+    "Track response with repeated plant-linked canopy, root, and nematode-count observations rather than assuming visual recovery proves eradication."
   ],
   "prevention": [
-    "Use clean planting material/media and avoid moving infested soil on tools/equipment.",
-    "Inspect roots when unexplained stunting occurs in field/container production."
+    "Use clean planting material and media and avoid moving infested soil or root debris on tools, footwear, containers, or equipment.",
+    "When unexplained patches of poor growth occur, compare complete root systems and paired soil samples from affected and nearby apparently healthy plants.",
+    "Retain cultivar and source-lot metadata because susceptibility and reproduction vary materially among hemp cultivars and Meloidogyne species or isolates."
   ],
   "warnings": [
-    "Above-ground chlorosis and stunting are nonspecific and should have very low diagnostic weight without root evidence.",
-    "Cannabis yield-loss thresholds for root-knot nematodes remain incompletely defined."
+    "Above-ground chlorosis, wilt, and stunting are nonspecific and should receive very low diagnostic weight without linked root and organism evidence.",
+    "Small white hard galls support a root-knot differential but do not identify species or race; M. enterolobii can also produce larger galls.",
+    "Cultivar, Meloidogyne species or isolate, inoculum, pot size, and observation interval can alter gall burden, reproduction, and growth effects, so one image cannot define universal severity.",
+    "The Alabama field evidence was region-, cultivar-, and race-specific; do not generalize M. incognita Race 3 to every Cannabis root-knot case.",
+    "The 2025 article figures plot seed-extract bioassays rather than infected-root symptoms and are not diagnostic image ground truth.",
+    "Cannabis yield-loss thresholds and clean, cultivar-diverse, laboratory-linked image or video sequences remain incomplete."
   ],
   "sources": [
     {
@@ -98,13 +137,116 @@
       "publisher": "American Phytopathological Society",
       "publicationDate": "2022-09-13",
       "year": 2022,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-20",
       "doi": "10.1094/9780890546284.03.05.1",
       "supportedClaims": [
         "Infection of hemp by root-knot nematodes (Meloidogyne spp.) is established, although the extent of Cannabis yield loss is not well quantified.",
         "Organism confirmation and root signs are required; above-ground stunting or chlorosis alone is nonspecific."
       ]
+    },
+    {
+      "title": "Review of Nematode Interactions with Hemp (Cannabis sativa)",
+      "organization": "Journal of Nematology",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8975275/",
+      "authors": [
+        "Ernest C. Bernard",
+        "Angel G. Chaffin",
+        "Kimberly D. Gwinn"
+      ],
+      "publisher": "Society of Nematologists",
+      "publicationDate": "2022-02-18",
+      "year": 2022,
+      "accessedDate": "2026-08-20",
+      "doi": "10.21307/jofnem-2022-002",
+      "supportedClaims": [
+        "The review found that Meloidogyne is the most frequently reported plant-parasitic nematode genus on hemp, while stressing that only a small primary literature supports hemp-specific host and damage conclusions.",
+        "Galls induced on hemp by M. hapla, M. incognita, and M. javanica are described as small, whitish, and hard, generally not exceeding about 4 mm in diameter; M. enterolobii can form both small and large galls.",
+        "Its Figure 2 shows a controlled M. incognita inoculation on Cannabis sativa cultivar Cherry as an entire root system and close-up of small white galls with a 5 mm scale.",
+        "Hemp susceptibility and nematode reproduction vary substantially with cultivar, Meloidogyne species or isolate, inoculum, pot size, and evaluation time, so gall burden or canopy severity must not be generalized across cultivars or studies."
+      ]
+    },
+    {
+      "title": "First Report of Meloidogyne incognita Infecting Cannabis sativa in Alabama",
+      "organization": "Journal of Nematology",
+      "url": "https://doi.org/10.21307/jofnem-2021-052",
+      "authors": [
+        "Bisho R. Lawaju",
+        "William Groover",
+        "Jessica Kelton",
+        "Kassie Conner",
+        "Edward Sikora",
+        "Kathy S. Lawrence"
+      ],
+      "publisher": "Society of Nematologists",
+      "publicationDate": "2021-06-14",
+      "year": 2021,
+      "accessedDate": "2026-08-20",
+      "doi": "10.21307/jofnem-2021-052",
+      "supportedClaims": [
+        "Field-grown Alabama hemp in symptomatic areas showed stunted growth, poor root development, and numerous root galls, with Meloidogyne recovered from associated soil.",
+        "The nematode was identified as M. incognita using morphology and species-specific PCR; a greenhouse host-differential assay supported Race 3.",
+        "A modified Koch-postulates test reproduced galling and nematode reproduction on hemp, providing plant-linked pathogenicity evidence rather than a symptom-only association."
+      ]
+    },
+    {
+      "title": "Virulence of Five Root-Knot Nematodes (Meloidogyne spp.) on Nine Industrial Hemp (Cannabis sativa L.) Varieties and Nematicidal Potential of Hemp Seed Extracts Against Meloidogyne javanica",
+      "organization": "Plants",
+      "url": "https://doi.org/10.3390/plants14020227",
+      "authors": [
+        "Dionysios Ntinokas",
+        "Ioannis Roussis",
+        "Antonios Mavroeidis",
+        "Panteleimon Stavropoulos",
+        "Antigolena Folina",
+        "Ioanna Kakabouki",
+        "Emmanuel A. Tzortzakakis",
+        "Dimitrios Bilalis",
+        "Ioannis O. Giannakou"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2025-01-15",
+      "year": 2025,
+      "accessedDate": "2026-08-20",
+      "doi": "10.3390/plants14020227",
+      "supportedClaims": [
+        "A controlled greenhouse experiment found M. javanica, M. incognita, M. arenaria, M. hapla, and M. luci pathogenic across nine tested industrial-hemp varieties, with all inoculated treatments showing reduced shoot weight relative to controls.",
+        "M. incognita produced the lowest mean root weight among the tested species, while M. javanica and M. luci produced the lowest mean shoot weights, demonstrating that root and canopy effects differ by species.",
+        "Females per gram of root, egg masses per gram of root, and fecundity differed by both hemp variety and Meloidogyne species; Futura 75 carried the lowest overall nematode numbers, whereas USO 31, Fedora 17, Ferimon 12, and Zenit were among the more susceptible varieties in this experiment.",
+        "The article figures concern laboratory seed-extract effects on juvenile mobility and egg hatch rather than visual diagnosis of infected Cannabis roots, so those graphs are not symptom ground truth."
+      ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-root-knot-m-incognita-cherry-figure2-ccby4",
+      "url": "https://zenodo.org/api/records/11644653/files/figure.png/content",
+      "alt": "Two-panel controlled reference showing an entire Cannabis sativa Cherry root system and a close-up of small white Meloidogyne incognita galls with a 5 mm scale.",
+      "caption": "Figure 2 from Bernard, Chaffin, and Gwinn: controlled M. incognita galling on Cannabis sativa cultivar Cherry after an initial inoculum of 10,000 eggs. Panel A shows the full root system; panel B shows small white galls.",
+      "creator": "Angel G. Chaffin, University of Tennessee (image credit); Ernest C. Bernard and Kimberly D. Gwinn (figure coauthors)",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.5281/zenodo.11644653",
+      "mediaType": "image",
+      "requiredAttribution": "Bernard, Ernest C.; Chaffin, Angel G.; Gwinn, Kimberly D. (2021), Figure 2 in Review of nematode interactions with hemp (Cannabis sativa), Zenodo, https://doi.org/10.5281/zenodo.11644653. Licensed under CC BY 4.0.",
+      "diagnosticLabel": "root-knot-nematodes — controlled M. incognita galling on Cannabis sativa Cherry, whole-root and close-up composite",
+      "hostSpecies": "Cannabis sativa cultivar Cherry",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Two-panel composite from one cultivar and a controlled initial inoculum of 10,000 eggs; it is not a panel-level training sample or a universal severity reference.",
+        "The image supports small white Cannabis root-gall morphology but does not establish species from appearance alone; retain the article-linked M. incognita inoculation context.",
+        "Do not crop away the scale, panel relationship, cultivar, inoculum, or source metadata; expert panel separation and label review are required before any automated training use."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "5fa94b0dcd841bbbff0307b76d816d656da6e913b6df98a28e762f7d5cb45751",
+      "perceptualHash": "dhash64:a325725756064303",
+      "width": 1404,
+      "height": 826,
+      "view": "root-crown",
+      "stage": "controlled root-system endpoint",
+      "severity": "not transferable; Pi = 10,000 eggs",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }
