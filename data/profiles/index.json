@@ -141,8 +141,8 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 2,
+      "mediaCount": 2,
       "path": "data/profiles/fungal-pseudocercospora-leaf-spot.json"
     },
     {

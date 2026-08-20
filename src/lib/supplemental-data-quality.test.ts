@@ -38,7 +38,12 @@ describe('supplemental diagnostic catalog quality gates', () => {
   })
 
   it('admits only fully verified reference media into supplemental profiles', () => {
-    const permittedMediaSlugs = new Set(['rice-root-aphid', 'fusarium-crown-root-rot', 'cannabis-aphid'])
+    const permittedMediaCounts = new Map([
+      ['rice-root-aphid', 1],
+      ['fusarium-crown-root-rot', 1],
+      ['cannabis-aphid', 1],
+      ['pseudocercospora-olive-sooty-leaf-spot', 2],
+    ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'japanese-beetle-hemp') {
         expect(issue.media).toHaveLength(2)
@@ -57,31 +62,33 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
         continue
       }
-      if (!permittedMediaSlugs.has(issue.slug)) {
+      const expectedMediaCount = permittedMediaCounts.get(issue.slug)
+      if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
         continue
       }
 
-      expect(issue.media.length, `${issue.slug} should have one verified promoted reference`).toBe(1)
-      const media = issue.media[0]
-      expect(media.sourceUrl).toMatch(/^https:\/\//)
-      expect(media.url ?? media.thumbnailUrl).toMatch(/^https:\/\//)
-      expect(media.creator).toBeTruthy()
-      expect(media.license).toMatch(/CC BY/i)
-      expect(media.requiredAttribution).toBeTruthy()
-      expect(media.diagnosticLabel).toContain(issue.slug)
-      expect(media.hostSpecies.toLowerCase()).toContain('cannabis')
-      expect(media.hostContext).toBe('cannabis')
-      expect(media.useLimitations.length).toBeGreaterThan(1)
-      expect(media.displayPermission).toBe('permitted')
-      expect(media.reviewStatus).toBe('approved-reference')
-      expect(media.trainingPermission).toBe('permitted')
-      expect(media.trainingEligible).toBe(false)
-      expect(media.sha256).toMatch(/^[a-f0-9]{64}$/)
-      expect(media.perceptualHash).toMatch(/^dhash64:[a-f0-9]{16}$/)
-      expect(media.width).toBeGreaterThan(0)
-      expect(media.height).toBeGreaterThan(0)
-      expect(isDisplayableMedia(media)).toBe(true)
+      expect(issue.media.length, `${issue.slug} should have the verified promoted reference count`).toBe(expectedMediaCount)
+      for (const media of issue.media) {
+        expect(media.sourceUrl).toMatch(/^https:\/\//)
+        expect(media.url ?? media.thumbnailUrl).toMatch(/^https:\/\//)
+        expect(media.creator).toBeTruthy()
+        expect(media.license).toMatch(/CC BY/i)
+        expect(media.requiredAttribution).toBeTruthy()
+        expect(media.diagnosticLabel).toContain(issue.slug)
+        expect(media.hostSpecies.toLowerCase()).toContain('cannabis')
+        expect(media.hostContext).toBe('cannabis')
+        expect(media.useLimitations.length).toBeGreaterThan(1)
+        expect(media.displayPermission).toBe('permitted')
+        expect(media.reviewStatus).toBe('approved-reference')
+        expect(media.trainingPermission).toBe('permitted')
+        expect(media.trainingEligible).toBe(false)
+        expect(media.sha256).toMatch(/^[a-f0-9]{64}$/)
+        expect(media.perceptualHash).toMatch(/^dhash64:[a-f0-9]{16}$/)
+        expect(media.width).toBeGreaterThan(0)
+        expect(media.height).toBeGreaterThan(0)
+        expect(isDisplayableMedia(media)).toBe(true)
+      }
     }
   })
 

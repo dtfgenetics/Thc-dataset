@@ -181,4 +181,32 @@ describe('diagnostic coverage audit', () => {
     ]))
     expect(record?.media).toHaveLength(0)
   })
+
+  it('keeps Pseudocercospora lab-bounded and mixed CC BY figures out of training', () => {
+    const record = issues.find((issue) => issue.slug === 'pseudocercospora-olive-sooty-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.4)
+    expect(record?.sources.some((source) => source.doi === '10.3390/horticulturae9121261')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)
+    expect(confirmation).toContain('its plus act, tef1, and rpb2')
+    expect(confirmation).toContain('keep symptom-only, upper-surface-only, detached-leaf-only, mixed-pathogen, unlinked-laboratory, low-resolution, and stock/vendor/forum/generated captures out of the confirmed pseudocercospora class')
+    expect(warnings).toContain('twenty symptomatic leaves and two isolates from one thailand plantation')
+    expect(warnings).toContain('mixed composites')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Cercospora leaf spot',
+      'Septoria leaf spot',
+      'Downy mildew / Pseudoperonospora',
+      'Two-spotted spider mite injury',
+      'Spray, contact, or light injury',
+    ]))
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.every((item) => item.license === 'CC BY 4.0')).toBe(true)
+    expect(record?.media.every((item) => item.trainingPermission === 'permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
+    expect(record?.media.every((item) => item.confirmation === 'lab-confirmed')).toBe(true)
+  })
 })

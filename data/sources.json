@@ -1289,15 +1289,30 @@
     "title": "First Molecular Phylogenetic Identification and Report of Pseudocercospora cannabina Causing Leaf Spot Disease on Cannabis sativa in Thailand",
     "organization": "Horticulturae",
     "url": "https://doi.org/10.3390/horticulturae9121261",
+    "authors": [
+      "Dulanjalee Lakmali Harishchandra",
+      "Sukanya Haituk",
+      "Patchareeya Withee",
+      "Nisachon Tamakaew",
+      "Nittaya Nokum",
+      "Chaorai Kanchanomai",
+      "Tonapha Pusadee",
+      "Chiharu Nakashima",
+      "Ratchadawan Cheewangkoon"
+    ],
     "publisher": "MDPI AG",
     "publicationDate": "2023-11-23",
     "year": 2023,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.3390/horticulturae9121261",
     "supportedClaims": [
-      "Cannabis in Thailand developed olive leaf spot associated with Pseudocercospora cannabina.",
-      "Lesions were vein-limited to irregular or subcircular, pale yellowish, approximately 2 to 6 mm, with sooty conidial masses especially on the lower surface.",
-      "Morphology, multilocus phylogeny, pathogenicity testing, re-isolation, and identification fulfilled a molecularly supported disease report."
+      "Twenty symptomatic Cannabis leaves were collected from one plantation in Chiang Rai, Thailand, in February 2022; field symptoms were circular-to-elliptical olive leaf spots with gray centers and dark brown-to-black margins, and severely affected plants defoliated.",
+      "Upper-surface lesions were initially inconspicuous to slightly discolored and vein-limited, later becoming pale yellowish, irregular to subcircular, approximately 2 to 6 mm, without a distinct margin, and capable of covering the leaf.",
+      "Lower-surface lesions were indistinct to pale yellowish and bore hypophyllous, vein-limited, grayish-to-pale-brown, velvety or sooty conidial patches.",
+      "In the pathogenicity experiment, hyphae entered through lower-surface stomata within 24 hours, inoculated leaves developed leaf spots at 5 days, water controls remained symptomless, and the reisolate matched the inoculum by morphology and ITS sequence.",
+      "Two isolates were identified as Pseudocercospora cannabina using morphology plus ITS, act, tef1, and rpb2 sequence evidence; the authors note missing type-material sequence data and a weakly supported broader phylogenetic clade, limiting visual or single-locus species claims.",
+      "Figure 1 is a mixed natural-symptom, whole-canopy, upper/underside, culture, cross-section, conidiophore, and conidium composite; Figure 2 combines controlled lower-surface penetration microscopy with symptom reproduction at 5 days post-inoculation.",
+      "The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training."
     ]
   },
   {
@@ -1904,6 +1919,27 @@
       "OSU surveys in 2021 observed hemp leaf spots about 0.1 inch or smaller, while higher relative humidity can be associated with larger spots; lesion size is therefore context-dependent.",
       "The institutional guidance emphasizes improving air circulation, minimizing leaf wetness, and removing infected leaves; these are risk-reduction measures and do not substitute for diagnosis.",
       "The page is institutionally copyrighted and exposes no explicit reusable license for disease media; no page graphic was copied or indexed as training ground truth."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-cercospora-leaf-spot-olive-leaf-spot",
+    "title": "Hemp (Cannabis sativa)-Cercospora Leaf Spot (Olive Leaf Spot)",
+    "organization": "Pacific Northwest Plant Disease Management Handbook",
+    "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-cercospora-leaf-spot-olive-leaf-spot",
+    "authors": [
+      "N. K. Osterbauer",
+      "C. M. Ocamb"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho",
+    "publicationDate": "2026-03",
+    "year": 2026,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "The institutional handbook lists both Cercospora cannabis and Pseudocercospora cannabina as Cannabis olive-leaf-spot causes that can overwinter on infected crop residue at the soil surface.",
+      "Olive leaf spot is reported more commonly in field-grown hemp; greenhouse observations are most common near open doors or vents, making location and exposure context useful but non-confirmatory metadata.",
+      "Pseudocercospora cannabina can cause complete defoliation, while the page distinguishes the gray-centered, dark-bordered circular-to-elliptical spots described for Cercospora cannabis.",
+      "The handbook recommends improving air circulation, minimizing leaf wetness, and removing infected leaves as cultural risk-reduction measures; these practices do not establish the causal species.",
+      "The institutional page does not provide an item-level reusable Pseudocercospora image license, so no page media were copied or indexed for training."
     ]
   },
   {
