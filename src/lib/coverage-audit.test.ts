@@ -113,4 +113,12 @@ describe('diagnostic coverage audit', () => {
     expect(resolvedDisplayMediaForIssue(nitrogen!, issues)).toHaveLength(2)
     expect(resolvedDisplayMediaForIssue(copper!, issues)).toHaveLength(1)
   })
+
+  it('counts only the licensed Japanese beetle morphology reference as displayable', () => {
+    const record = issues.find((issue) => issue.slug === 'japanese-beetle-hemp')
+    expect(record).toBeTruthy()
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media.find((item) => item.reviewStatus === 'license-review')?.trainingEligible).toBe(false)
+  })
 })

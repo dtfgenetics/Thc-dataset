@@ -2612,64 +2612,101 @@
     "severity": "moderate",
     "reviewStatus": "reviewed",
     "photoOnlyMaxConfidence": 0.65,
-    "summary": "A conspicuous adult beetle pest of hemp. Skeletonized leaves are compatible with feeding, but the metallic green-and-bronze adult and aggregated active feeding provide the strongest field evidence.",
+    "summary": "A documented outdoor-hemp defoliator and flower feeder. Fresh skeletonization plus an adult with metallic-green head/thorax, copper-bronze wing covers, and twelve white abdominal hair patches is strong field evidence; feeding damage without the adult is only a low-specificity chewing-injury label.",
     "affectedParts": [
-      "leaves",
-      "flowers",
+      "upper and lower leaf surfaces",
+      "interveinal leaf blade",
+      "major and minor veins left after feeding",
+      "developing flowers",
       "tender shoots"
     ],
     "stages": [
-      "vegetative",
-      "flower",
-      "late season"
+      "vegetative outdoor hemp",
+      "developing flower",
+      "late-season outdoor crop"
     ],
     "indicators": [
-      "Metallic green adults with bronze wing covers are actively feeding on hemp",
-      "Leaf tissue between veins is consumed, leaving a lace-like or skeletonized appearance",
-      "Beetles may aggregate on exposed foliage or reproductive tissue"
+      "Adults on hemp have a metallic-green head and thorax with copper-bronze wing covers",
+      "Five white hair patches along each abdominal side plus two posterior patches form twelve visible tufts when the adult is photographed from above and slightly behind",
+      "Fresh chewing removes interveinal leaf tissue while leaving a lace-like network of veins",
+      "Adults are present on the same leaf, shoot, or developing flower as fresh feeding injury",
+      "Multiple adults and newly expanding damage occur in a localized plant or field cluster",
+      "Flower feeding is directly observed rather than inferred from missing or browned floral tissue"
     ],
     "exclusions": [
-      "No beetles are present and another defoliator is actively feeding",
-      "Damage is mined within leaf tissue rather than skeletonized from the surface",
-      "Skeletonization is old and no current infestation can be established"
+      "No adult or specimen is recovered after repeat scouting and another defoliator is found at the fresh feeding front",
+      "The beetle lacks the twelve discrete white abdominal hair patches or morphology supports green June beetle, another scarab, or a metallic beetle",
+      "Holes contain caterpillars, silk, or frass and do not preserve the characteristic interveinal lace pattern",
+      "Small round shot holes with flea beetles support flea-beetle injury",
+      "Irregular holes or ragged margins occur with spotted cucumber beetles rather than Japanese beetles",
+      "Damage is mined within intact epidermis rather than removed from the leaf surface",
+      "Skeletonization is old, dry, and unchanged across serial observations, with no active organism established",
+      "Root decline is attributed to Japanese beetle solely because adults occur above ground; hemp-root grub feeding has not been confirmed"
     ],
     "progression": [
       {
-        "stage": "Aggregation/feeding",
-        "description": "Adults gather and chew exposed foliage or floral tissue."
+        "stage": "Adult arrival and fresh feeding",
+        "description": "One or more adults occupy exposed foliage or developing flowers; small fresh interveinal feeding windows begin near the occupied tissue."
       },
       {
-        "stage": "Skeletonization",
-        "description": "Interveinal tissue is removed and veins remain as feeding intensifies."
+        "stage": "Localized skeletonization",
+        "description": "Interveinal tissue is progressively removed and intact veins create a lace-like pattern; neighboring leaves or flowers should be checked to map whether injury is clustered."
+      },
+      {
+        "stage": "Expanding aggregation",
+        "description": "More adults and fresh injury may accumulate on a subset of plants or canopy positions. Record actual adult counts and new injury because a single frame cannot establish temporal growth."
       },
       {
         "stage": "Heavy defoliation",
-        "description": "Large aggregations can substantially reduce leaf area."
+        "description": "Large populations can remove substantial leaf area or completely defoliate plants, but serious hemp defoliation was rare in the early multi-state literature and no universal loss threshold was established."
+      },
+      {
+        "stage": "Residual injury after departure",
+        "description": "Skeletonized tissue persists after adults leave. Old lace-like leaves without adults or newly expanding injury must not be labeled as a current Japanese beetle infestation."
       }
     ],
     "lookAlikes": [
-      "Other scarab beetles",
-      "Caterpillar defoliation",
-      "Spotted cucumber beetle"
+      "Green June beetle or another scarab beetle",
+      "Spotted cucumber beetle",
+      "Flea beetle feeding",
+      "Cabbage looper",
+      "Armyworm or another caterpillar",
+      "Grasshopper feeding",
+      "Leafminer injury",
+      "Hail or mechanical tearing"
     ],
     "confirmation": [
-      "Photograph adults with fresh damage and verify the characteristic adult morphology.",
-      "Do not assign Japanese beetle from skeletonization alone."
+      "Capture a whole-plant or row view to show the distribution of affected and unaffected plants, then record upper, middle, and lower canopy zones separately; published hemp sources do not establish a preferred leaf age or canopy position.",
+      "Photograph fresh injury and the adult together before disturbance, then obtain dorsal, lateral, and posterior macro views with a scale reference.",
+      "Verify the metallic-green head/thorax, copper-bronze wing covers, and twelve discrete white abdominal hair patches; preserve a representative adult when morphology is unclear.",
+      "Revisit marked leaves or plants and record new feeding and adult counts so old residual skeletonization is separated from an active infestation.",
+      "For image/video datasets, require an organism-level frame linked to the damage sequence; do not use skeletonization-only frames as species-level ground truth.",
+      "Submit an intact adult to an Extension entomologist or diagnostic laboratory when a similar scarab, green June beetle, or incomplete view prevents confident identification.",
+      "Do not infer larval root injury from adult canopy presence; confirm grubs in the root zone and identify them separately if root damage is suspected."
     ],
     "immediateActions": [
-      "Count active beetles and estimate fresh defoliation rather than using cumulative old injury.",
-      "Scout nearby sun-exposed foliage and flowers."
+      "Mark sampled plants, count adults, estimate current defoliation, and record whether flowers are being fed on before choosing an intervention.",
+      "Scout several plants across several locations so one conspicuous aggregation is not treated as a field-wide population estimate.",
+      "Preserve pre-intervention photographs and a representative specimen when the diagnosis or future label review depends on species identity."
     ],
     "correctivePlan": [
-      "Use IPM appropriate to verified beetle pressure and locally legal hemp options."
+      "Use an IPM response based on confirmed adults, fresh injury, crop stage, local pressure, and products currently legal for hemp in the jurisdiction.",
+      "Track new injury and adult counts at fixed plants; old skeletonized tissue will not recover and should not be used alone to judge control.",
+      "Protect pollinators and flowering-crop quality when evaluating any response on developing flowers."
     ],
     "prevention": [
-      "Scout during seasonal adult emergence and record aggregation patterns.",
-      "Avoid assuming pheromone traps reduce damage; trapping can alter local beetle aggregation."
+      "Include adult-morphology and fresh-damage views in routine outdoor scouting records.",
+      "Map clusters and repeat counts through the adult activity period instead of relying on cumulative season-long damage.",
+      "Treat pheromone traps as monitoring tools only after evaluating placement; attraction near the crop can confound local abundance and damage."
     ],
     "warnings": [
-      "Skeletonization is not unique to Japanese beetle.",
-      "Economic thresholds established for other crops should not be copied directly to hemp without hemp-specific validation."
+      "Skeletonization, irregular holes, or flower injury alone are not Japanese beetle ground truth; species-level image labels require the adult and diagnostic morphology.",
+      "A close-up adult specimen image can teach organism morphology but cannot establish Cannabis host association, active feeding, severity, canopy distribution, or yield impact.",
+      "Published hemp observations do not establish a preferred leaf age or canopy position, so those fields must be recorded from the sampled plant rather than imputed.",
+      "The 2019 multi-state synthesis called Japanese beetle potentially significant but also reported serious defoliation as rare across the broader defoliator complex; apparent severity must remain case-specific.",
+      "No universal hemp economic threshold, symptom-to-yield conversion, or cultivar response is established by these sources.",
+      "The UNH hemp photograph is institutional and creator-credited but has no explicit reuse license on its landing page; store only its reference metadata unless permission is obtained.",
+      "All damage-only, incomplete-morphology, unlinked specimen/damage, and root-injury samples require human review."
     ],
     "sources": [
       {
@@ -2698,9 +2735,132 @@
           "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
           "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
         ]
+      },
+      {
+        "title": "Developing Insect Pest Management Systems for Hemp in the United States: A Work in Progress",
+        "organization": "Journal of Integrated Pest Management (Cranshaw et al.)",
+        "url": "https://doi.org/10.1093/jipm/pmz023",
+        "authors": [
+          "Whitney Cranshaw",
+          "Melissa Schreiner",
+          "Kadie Britt",
+          "Thomas P. Kuhar",
+          "John McPartland",
+          "Jerome Grant"
+        ],
+        "publisher": "Oxford University Press for the Entomological Society of America",
+        "publicationDate": "2019-08-28",
+        "year": 2019,
+        "accessedDate": "2026-08-20",
+        "doi": "10.1093/jipm/pmz023",
+        "supportedClaims": [
+          "Japanese beetle was observed on hemp east of the Mississippi as a highly visible, potentially significant defoliator that also feeds readily on hemp flowers; Figure 4 documents an adult on hemp.",
+          "Across the broader hemp defoliator complex, serious defoliation had only rarely been observed and experiments were still needed to connect defoliation with seed, fiber, cannabinoid, and biomass outcomes.",
+          "The 2019 profile was an early synthesis based mainly on Colorado, Virginia, and Tennessee observations through the end of 2018, so it does not establish a universal hemp action threshold or cultivar response."
+        ]
+      },
+      {
+        "title": "Hemp Pests in New Hampshire",
+        "organization": "University of New Hampshire Cooperative Extension",
+        "url": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
+        "publisher": "University of New Hampshire Cooperative Extension",
+        "accessedDate": "2026-08-20",
+        "supportedClaims": [
+          "Adult Japanese beetles feed on hemp leaves and developing flowers; leaf feeding produces skeletonization, and large populations may completely defoliate plants.",
+          "Japanese beetle grubs may damage roots, but turfgrass is their preferred larval habitat; an adult observed on hemp should not be used to infer that hemp roots contain grubs.",
+          "Representative field scouting should cover multiple plants and locations and record the pest, plant injury, crop context, and collected specimens rather than relying on one image."
+        ]
+      },
+      {
+        "title": "An adult Japanese beetle, Popillia japonica",
+        "organization": "University of California Statewide Integrated Pest Management Program",
+        "url": "https://ipm.ucanr.edu/PMG/P/I-CO-PJAP-AD.005.html",
+        "publisher": "University of California Agriculture and Natural Resources",
+        "accessedDate": "2026-08-20",
+        "supportedClaims": [
+          "Twelve discrete patches of short white hairs around the abdomen distinguish adult Japanese beetle from similar-looking beetles.",
+          "The institutional specimen image is credited to Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org, and is licensed CC BY 3.0 US."
+        ]
+      },
+      {
+        "title": "Japanese beetles in yards and gardens",
+        "organization": "University of Minnesota Extension",
+        "url": "https://extension.umn.edu/yard-and-garden-insects/japanese-beetles",
+        "publisher": "University of Minnesota Extension",
+        "year": 2024,
+        "accessedDate": "2026-08-20",
+        "supportedClaims": [
+          "Adult Japanese beetles are approximately one-third to one-half inch long, with a metallic-green head and thorax, copper-brown wing covers, five white hair patches along each abdominal side, and two patches at the abdominal tip.",
+          "In Minnesota, adults primarily feed during July and August and can persist into September; damaged leaves emit odors that attract other beetles, producing concentrated clusters while neighboring suitable plants may remain lightly infested.",
+          "The seasonal timing is regional context rather than a universal Cannabis calendar, and the larval white-grub stage requires separate ventral-spine examination for positive identification."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-japanese-beetle-adult-ucipm-ccby3",
+        "url": "https://ipm.ucanr.edu/PMG/IMAGES/P/I-CO-PJAP-AD.005.jpg",
+        "alt": "Dorsal close-up of an adult Japanese beetle showing metallic coloration and white abdominal hair patches.",
+        "caption": "Organism-only adult morphology reference. The twelve white abdominal hair patches distinguish Japanese beetle from similar-looking beetles, but this image does not show hemp or feeding injury.",
+        "creator": "Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org",
+        "license": "CC BY 3.0 US",
+        "sourceUrl": "https://ipm.ucanr.edu/PMG/P/I-CO-PJAP-AD.005.html",
+        "mediaType": "image",
+        "requiredAttribution": "Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org. Licensed under CC BY 3.0 US. Landing page: UC Statewide IPM Program.",
+        "diagnosticLabel": "japanese-beetle-hemp — adult Popillia japonica morphology, organism-only reference",
+        "hostSpecies": "No host shown; Popillia japonica adult specimen",
+        "hostContext": "organism-only",
+        "useLimitations": [
+          "Organism-only reference; no Cannabis host, feeding event, damage distribution, crop stage, or severity is shown.",
+          "Do not use this image alone as causal ground truth for a damaged Cannabis plant.",
+          "Keep organism-only media outside Cannabis condition training and evaluation splits."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "d0561325a787e5082ab8c56d303470f8940a7fa02d4299eaa3ac6501f83d2b77",
+        "perceptualHash": "dhash64:f1f9f8cee4f0f076",
+        "width": 490,
+        "height": 490,
+        "view": "close-up",
+        "stage": "adult insect",
+        "severity": "not applicable",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-japanese-beetle-on-hemp-unh-license-review",
+        "url": "https://extension.unh.edu/sites/default/files/media/2025-05/5_japanesebeetle.jpg",
+        "thumbnailUrl": "https://extension.unh.edu/sites/default/files/styles/max_width_480px/public/media/2025-05/5_japanesebeetle.jpg?itok=NQ88fHWn",
+        "alt": "Adult Japanese beetle documented on a Cannabis sativa hemp plant by University of New Hampshire Extension.",
+        "caption": "Metadata-only hemp-host reference credited to Whitney Cranshaw and Bugwood.org. The landing page does not state a reusable license for this asset.",
+        "creator": "Whitney Cranshaw, Colorado State University, Bugwood.org",
+        "license": "Copyright status/reuse license not stated on the UNH landing page",
+        "sourceUrl": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
+        "mediaType": "image",
+        "requiredAttribution": "Whitney Cranshaw, Colorado State University, Bugwood.org; obtain documented permission or the original Bugwood license record before display, copying, modification, or training use.",
+        "diagnosticLabel": "japanese-beetle-hemp — adult on Cannabis sativa, license-review reference",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no media file is copied into the repository.",
+          "Do not display, copy, modify, or use for automated training until the original Bugwood record or rights holder establishes reusable terms.",
+          "A single adult-on-hemp frame does not quantify active feeding, distribution, progression, severity, or crop loss."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "unknown",
+        "sha256": "df443a4dc3cbbed2920439dd911d02066e7575b3aa9eb75c11726c4aa92f1c9b",
+        "perceptualHash": "dhash64:f7fa7b73727278f9",
+        "width": 1031,
+        "height": 579,
+        "view": "close-up",
+        "stage": "outdoor hemp",
+        "severity": "organism present; severity not established",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "insect-spotted-cucumber-beetle",

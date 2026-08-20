@@ -40,6 +40,14 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('admits only fully verified reference media into supplemental profiles', () => {
     const permittedMediaSlugs = new Set(['rice-root-aphid', 'fusarium-crown-root-rot', 'cannabis-aphid'])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'japanese-beetle-hemp') {
+        expect(issue.media).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.find((item) => item.reviewStatus === 'approved-reference')?.hostContext).toBe('organism-only')
+        expect(issue.media.find((item) => item.reviewStatus === 'license-review')?.displayPermission).toBe('unknown')
+        expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
+        continue
+      }
       if (!permittedMediaSlugs.has(issue.slug)) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
         continue
@@ -66,6 +74,27 @@ describe('supplemental diagnostic catalog quality gates', () => {
       expect(media.height).toBeGreaterThan(0)
       expect(isDisplayableMedia(media)).toBe(true)
     }
+  })
+
+  it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'japanese-beetle-hemp')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.65)
+    expect(confirmation).toMatch(/twelve discrete white abdominal hair patches/)
+    expect(confirmation).toMatch(/upper, middle, and lower canopy/)
+    expect(confirmation).toMatch(/do not use skeletonization-only frames as species-level ground truth/)
+    expect(confirmation).toMatch(/do not infer larval root injury/)
+    expect(warnings).toContain('no universal hemp economic threshold')
+    expect(warnings).toContain('no explicit reuse license')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Green June beetle or another scarab beetle', 'Cabbage looper', 'Grasshopper feeding', 'Hail or mechanical tearing']))
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmz023')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.unh.edu/resource/hemp-pests'))).toBe(true)
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media.find((item) => item.reviewStatus === 'license-review')?.displayPermission).toBe('unknown')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
   it('keeps promoted supplemental media hashes unique', () => {

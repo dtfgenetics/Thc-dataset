@@ -218,9 +218,12 @@
     "publisher": "Oxford University Press for the Entomological Society of America",
     "publicationDate": "2019-08-28",
     "year": 2019,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-08-20",
     "doi": "10.1093/jipm/pmz023",
     "supportedClaims": [
+      "Japanese beetle was observed on hemp east of the Mississippi as a highly visible, potentially significant defoliator that also feeds readily on hemp flowers; Figure 4 documents an adult on hemp.",
+      "Across the broader hemp defoliator complex, serious defoliation had only rarely been observed and experiments were still needed to connect defoliation with seed, fiber, cannabinoid, and biomass outcomes.",
+      "The 2019 profile was an early synthesis based mainly on Colorado, Virginia, and Tennessee observations through the end of 2018, so it does not establish a universal hemp action threshold or cultivar response.",
       "Onion thrips was the species commonly found on hemp foliage in eastern Colorado and could cause serious foliage damage during indoor production, while outdoor populations generally failed to reach damaging levels.",
       "Western flower thrips was also identified on Colorado hemp but was associated mainly with flowers and pollen; tobacco thrips was reported on young plants in an earlier Mississippi survey.",
       "Thrips on hemp remained incompletely characterized, so visual injury cannot safely assign species or predict economic impact without organism sampling and production context."
@@ -1530,6 +1533,20 @@
     ]
   },
   {
+    "sourceKey": "https://extension.umn.edu/yard-and-garden-insects/japanese-beetles",
+    "title": "Japanese beetles in yards and gardens",
+    "organization": "University of Minnesota Extension",
+    "url": "https://extension.umn.edu/yard-and-garden-insects/japanese-beetles",
+    "publisher": "University of Minnesota Extension",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Adult Japanese beetles are approximately one-third to one-half inch long, with a metallic-green head and thorax, copper-brown wing covers, five white hair patches along each abdominal side, and two patches at the abdominal tip.",
+      "In Minnesota, adults primarily feed during July and August and can persist into September; damaged leaves emit odors that attract other beetles, producing concentrated clusters while neighboring suitable plants may remain lightly infested.",
+      "The seasonal timing is regional context rather than a universal Cannabis calendar, and the larval white-grub stage requires separate ventral-spine examination for positive identification."
+    ]
+  },
+  {
     "sourceKey": "https://extension.unh.edu/resource/fungus-gnats-fact-sheet",
     "title": "Fungus Gnats fact sheet",
     "organization": "University of New Hampshire Extension",
@@ -1539,6 +1556,19 @@
     "supportedClaims": [
       "Greenhouse fungus-gnat larvae can feed on roots or inside stems and may be associated with poor plant growth, yellowing, and stunting.",
       "Adults around moist growing media are a useful inspection cue, but above-ground plant symptoms remain nonspecific."
+    ]
+  },
+  {
+    "sourceKey": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
+    "title": "Hemp Pests in New Hampshire",
+    "organization": "University of New Hampshire Cooperative Extension",
+    "url": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
+    "publisher": "University of New Hampshire Cooperative Extension",
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Adult Japanese beetles feed on hemp leaves and developing flowers; leaf feeding produces skeletonization, and large populations may completely defoliate plants.",
+      "Japanese beetle grubs may damage roots, but turfgrass is their preferred larval habitat; an adult observed on hemp should not be used to infer that hemp roots contain grubs.",
+      "Representative field scouting should cover multiple plants and locations and record the pest, plant injury, crop context, and collected specimens rather than relying on one image."
     ]
   },
   {
@@ -1649,6 +1679,18 @@
       "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
       "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
       "Predatory mites are typically more active and have longer legs than plant-feeding spider mites, so visible mite-like organisms are not automatically pests."
+    ]
+  },
+  {
+    "sourceKey": "https://ipm.ucanr.edu/PMG/P/I-CO-PJAP-AD.005.html",
+    "title": "An adult Japanese beetle, Popillia japonica",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/PMG/P/I-CO-PJAP-AD.005.html",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Twelve discrete patches of short white hairs around the abdomen distinguish adult Japanese beetle from similar-looking beetles.",
+      "The institutional specimen image is credited to Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org, and is licensed CC BY 3.0 US."
     ]
   },
   {

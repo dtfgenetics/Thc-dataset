@@ -4,8 +4,8 @@
   "diagnosticProfileCount": 61,
   "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 90,
-  "profileReferenceMediaCount": 41,
+  "evidenceSourceCount": 93,
+  "profileReferenceMediaCount": 43,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
@@ -59,8 +59,8 @@
     "diagnosticProfiles": 61,
     "coreProfiles": 29,
     "supplementalAndExpandedProfiles": 32,
-    "uniqueEvidenceSources": 84,
-    "profileLinkedMedia": 40,
+    "uniqueEvidenceSources": 93,
+    "profileLinkedMedia": 43,
     "trainingEligibleMedia": 0,
     "status": "confirmed independently by PR export, main read-back, and clean-room revalidation"
   },
@@ -108,7 +108,7 @@
   "nextReleaseGate": {
     "completed": [
       "expand diagnostic taxonomy to 61 evidence-backed profiles",
-      "increase normalized evidence base to 84 unique sources",
+      "increase normalized evidence base to 93 unique sources",
       "add seven additional evidence-backed pest/root-disease differentials",
       "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
       "remove obsolete fungal-bucket wording from downy mildew",
