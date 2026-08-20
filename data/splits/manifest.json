@@ -15,8 +15,8 @@
   "readinessGate": "data/model-training-readiness.json",
   "knowledgeLayerSnapshot": {
     "diagnosticProfiles": 61,
-    "evidenceSources": 102,
-    "profileLinkedReferenceMedia": 49,
+    "evidenceSources": 104,
+    "profileLinkedReferenceMedia": 51,
     "referenceOriginals": 25,
     "referenceCrops": 66
   },

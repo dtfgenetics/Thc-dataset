@@ -563,14 +563,31 @@
     "title": "First Report of Downy Mildew Caused by Pseudoperonospora cannabina on Cannabis sativa in New York",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-08-22-1930-PDN",
+    "authors": [
+      "Garrett Giles",
+      "Elizabeth J. Indermaur",
+      "Juan L. Gonzalez-Giron",
+      "Taylere Q. Herrmann",
+      "Savanna S. Shelnutt",
+      "Jennifer K. Starr",
+      "Kevin Myers",
+      "Sandra L. Jensen",
+      "Gary C. Bergstrom",
+      "Jamie L. Crawford",
+      "Julie L. Hansen",
+      "Lawrence B. Smart",
+      "Christine D. Smart"
+    ],
     "publisher": "American Phytopathological Society",
-    "publicationDate": "2023-05-16",
+    "publicationDate": "2023-05-01",
     "year": 2023,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/PDIS-08-22-1930-PDN",
     "supportedClaims": [
-      "Downy mildew on hemp was documented with chlorotic and necrotic lesions and sporangiophore production under humid conditions, affecting leaves and inflorescences in severe field cases.",
-      "The causal agent is the oomycete Pseudoperonospora cannabina; it is not a true fungus despite the mildew name."
+      "In an August 2020 Ithaca, New York field trial, downy-mildew-like symptoms affected leaves and inflorescences of multiple hemp cultivars, including Auto CBD.",
+      "ITS and cox2 sequences were 100% identical to Pseudoperonospora cannabina references and ypt1 was 97.95% identical; the representative isolate was deposited as CUP-070922.",
+      "Whole-plant pathogenicity testing used ten four-week-old Anka plants and water controls; sporangia and the previously described symptoms occurred seven days after inoculation, controls remained asymptomatic, and the reisolate was confirmed by morphology plus ITS, cox2, and ypt1 sequencing.",
+      "The New York report establishes Pseudoperonospora cannabina as a causal oomycete on Cannabis, but field symptoms or dark underside material alone are not equivalent to its morpho-molecular confirmation."
     ]
   },
   {
@@ -593,13 +610,28 @@
     "title": "Evaluation of downy mildew resistance in the USDA Hemp Germplasm Repository using high-throughput and traditional phenotyping methods",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-09-25-1916-RE",
+    "authors": [
+      "Taylere Quinn Herrmann",
+      "Kerik Cox",
+      "Tyler Gordon",
+      "Zachary Stansell",
+      "Lance Cadle-Davidson",
+      "Anna Underhill",
+      "Arlyn Ackerman",
+      "Craig Beil",
+      "Moira J. Sheehan",
+      "Christine D. Smart"
+    ],
     "publisher": "American Phytopathological Society",
+    "publicationDate": "2026-03-29",
     "year": 2026,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/PDIS-09-25-1916-RE",
     "supportedClaims": [
-      "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides, often with curling and defoliation.",
-      "A 108-entry hemp resistance study documented wide susceptibility variation, reinforcing that severity is genotype-dependent and not a universal image threshold."
+      "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides and can be associated with leaf curling, defoliation, and yield loss.",
+      "The study evaluated 108 hemp entries by robotic convolutional-neural-network leaf-disc analysis, visual scoring of the same discs, and detached-leaf assays; susceptibility ranged from 0 to 100%.",
+      "G 33532 and Santhica 27 had 0% severity across all three methods, while detached-leaf, CNN, and visual methods produced systematically different severity estimates; cultivar and assay context must therefore remain attached to image labels.",
+      "The CNN method consistently underestimated severity relative to visual assessment, so experimental machine scores are not a universal field or production-image threshold."
     ]
   },
   {
@@ -1544,6 +1576,22 @@
     ]
   },
   {
+    "sourceKey": "https://ag.purdue.edu/hemp-project/diseases/index.html",
+    "title": "Most Prevalent Diseases",
+    "organization": "Purdue Industrial Hemp Project",
+    "url": "https://ag.purdue.edu/hemp-project/diseases/index.html",
+    "publisher": "Purdue University College of Agriculture",
+    "publicationDate": "2024-06-26",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Purdue describes upper-surface yellow-green spots that become angular and brown, with heavily lesioned leaves becoming distorted and plants defoliating.",
+      "Gray-to-black down-like growth on corresponding leaf undersides during wet periods is a crucial sign, while chemical damage and other leaf spots are important visual confounders.",
+      "High humidity and free water on leaves are conducive conditions; environmental context supports a differential but does not confirm the organism.",
+      "The institutional page lists images but retains Purdue copyright and does not state item-level reusable or automated-training terms, so no Purdue media were copied or admitted."
+    ]
+  },
+  {
     "sourceKey": "https://agsci.colostate.edu/agbio/ipm-pests/cannabis-aphid/",
     "title": "Cannabis aphid, Phorodon cannabis",
     "organization": "Colorado State University Agricultural Biology",
@@ -1898,6 +1946,26 @@
     "supportedClaims": [
       "Twelve discrete patches of short white hairs around the abdomen distinguish adult Japanese beetle from similar-looking beetles.",
       "The institutional specimen image is credited to Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org, and is licensed CC BY 3.0 US."
+    ]
+  },
+  {
+    "sourceKey": "https://onspecialtycrops.ca/2021/07/21/foliar-diseases-of-outdoor-hemp-cannabis-sativa-and-their-management-2021/",
+    "title": "Foliar Diseases of Outdoor Hemp (Cannabis sativa) and Their Management 2021",
+    "organization": "Ontario Specialty Crops",
+    "url": "https://onspecialtycrops.ca/2021/07/21/foliar-diseases-of-outdoor-hemp-cannabis-sativa-and-their-management-2021/",
+    "authors": [
+      "Sean Westerveld"
+    ],
+    "publisher": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+    "publicationDate": "2021-07-21",
+    "year": 2021,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "In Ontario field hemp, downy mildew risk increased as canopies closed, humidity accumulated in the canopy center, and extended leaf wetness occurred.",
+      "Symptoms began as small reddish-brown irregular spots with irregular yellow halos, expanded into roughly circular patches, and became elongated and confined by leaf veins.",
+      "Purplish-gray fuzz could appear on the lower surface beneath lesions in the morning and disappear after spores dispersed in the first winds of the day, making capture time a critical negative-evidence limitation.",
+      "Unlike Septoria lesions, the documented downy-mildew lesions lacked black pycnidia; unlike powdery mildew, the causal organism is an oomycete rather than a surface-growing fungus.",
+      "Figures 4 and 5 are Cannabis symptom photographs credited to Amy Fang Shi, OGGA, but the page states no reusable image or automated-training license; they are indexed only as rights-restricted reference metadata."
     ]
   },
   {

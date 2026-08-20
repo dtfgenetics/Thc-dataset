@@ -62,6 +62,16 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
         continue
       }
+      if (issue.slug === 'downy-mildew-pseudoperonospora') {
+        expect(issue.media).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media.every((item) => item.hostContext === 'cannabis')).toBe(true)
+        expect(issue.media.every((item) => item.reviewStatus === 'license-review')).toBe(true)
+        expect(issue.media.every((item) => item.displayPermission === 'unknown')).toBe(true)
+        expect(issue.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
+        expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])

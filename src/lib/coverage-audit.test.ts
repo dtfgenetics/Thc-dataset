@@ -209,4 +209,34 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
     expect(record?.media.every((item) => item.confirmation === 'lab-confirmed')).toBe(true)
   })
+
+  it('keeps downy mildew organism-linked and rights-unclear symptom references out of display and training', () => {
+    const record = issues.find((issue) => issue.slug === 'downy-mildew-pseudoperonospora')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.35)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-08-22-1930-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-09-25-1916-RE')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('onspecialtycrops.ca/2021/07/21'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('ag.purdue.edu/hemp-project/diseases'))).toBe(true)
+    expect(confirmation).toContain('its, cox2, and ypt1')
+    expect(confirmation).toContain('midday negative')
+    expect(confirmation).toContain('keep symptom-only, upper-surface-only, midday-underside-only, detached-stock-photo, mixed-pathogen, unlinked-laboratory, low-resolution, forum, vendor, or generated captures out of the confirmed downy-mildew class')
+    expect(warnings).toContain('leaf-disc, detached-leaf, visual, and cnn phenotyping methods')
+    expect(warnings).toContain('lack explicit reusable or automated-training rights')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Septoria leaf spot',
+      'Pseudocercospora olive or sooty leaf spot',
+      'Rust',
+      'Powdery mildew',
+      'Spray, contact, or droplet injury',
+    ]))
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
+    expect(record?.media.every((item) => item.reviewStatus === 'license-review')).toBe(true)
+    expect(record?.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
+  })
 })
