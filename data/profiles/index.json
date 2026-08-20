@@ -53,7 +53,7 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 3,
       "mediaCount": 0,
       "path": "data/profiles/fungal-alternaria-leaf-spot.json"
     },

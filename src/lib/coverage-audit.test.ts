@@ -157,4 +157,28 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.filter((item) => item.reviewStatus === 'license-review')).toHaveLength(2)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
+
+  it('keeps Alternaria species labels organism-linked and records the open-media gap', () => {
+    const record = issues.find((issue) => issue.slug === 'alternaria-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.45)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-01-21-0130-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1080/07060661.2021.1988712')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)
+    expect(confirmation).toContain('validated molecular identification from the sampled plant')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, unlinked culture, mixed-organism, low-resolution, and stock/vendor/generated captures out of the confirmed alternaria class')
+    expect(warnings).toContain('no image or video was added in this batch')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Septoria leaf spot',
+      'Cercospora leaf spot',
+      'Bipolaris leaf spot or blight',
+      'Anthracnose / Colletotrichum leaf spot',
+      'Bacterial leaf spot',
+      'Spray or contact injury',
+    ]))
+    expect(record?.media).toHaveLength(0)
+  })
 })

@@ -7,82 +7,173 @@
   "severity": "moderate",
   "reviewStatus": "reviewed",
   "photoOnlyMaxConfidence": 0.45,
-  "summary": "A laboratory-confirmed Cannabis leaf-spot disease. Brown lesions with yellow halos are compatible with Alternaria, but that appearance overlaps several hemp pathogens and must not be treated as species-level image ground truth.",
+  "summary": "A Cannabis brown-blight and leaf-spot differential supported by pathogenicity studies. Small dark or yellow spots, brown-to-gray lesions, halos, concentric rings, perforated centers, and black sporulation are compatible with Alternaria, but none is species-specific. Confirmed labels require plant-linked culture or validated molecular evidence; photo or video alone is capped at moderate-low confidence.",
   "affectedParts": [
-    "leaves",
-    "leaf surface",
-    "whole canopy when severe"
+    "upper and lower leaf surfaces",
+    "leaf lesion centers and margins",
+    "petioles",
+    "stems",
+    "flower parts and buds",
+    "inflorescences",
+    "seed and propagation material as possible pathogen reservoirs",
+    "whole canopy for distribution context"
   ],
   "stages": [
+    "seed and propagation material",
+    "rooted cutting",
     "vegetative",
-    "flower",
-    "all"
+    "flowering",
+    "mature plant",
+    "field or controlled-environment production"
   ],
   "indicators": [
-    "Small spots enlarge into brown irregular lesions with light yellow halos",
-    "Lesion centers may become fragile or perforated as disease advances",
-    "Multiple lesions can expand and merge on affected foliage"
+    "Small dark or yellow spots develop on Cannabis leaves and enlarge into brown-to-gray lesions; the Chinese pathogenicity report described irregular brown lesions with light-yellow halos.",
+    "Compatible lesions may be circular or irregular, may have dark black-to-purple borders or yellow halos, and may show concentric rings, but any one of these patterns can be absent.",
+    "Lesion centers can become fragile or perforated as disease advances, creating a shot-hole appearance that is not unique to Alternaria.",
+    "Sooty black spore masses can develop in lesion centers, and affected leaf or bud surfaces can darken from brown toward brown-black as sporulation develops.",
+    "OSU field observations found some hemp spots about 0.1 inch or smaller, while more humid conditions can be associated with larger spots; size is contextual rather than a diagnostic threshold.",
+    "Alternaria-associated disease can involve leaves, petioles, stems, buds, inflorescences, or propagation material, so a whole-plant and organ-level sequence is more informative than a detached-leaf crop.",
+    "Repeated lesions associated with wet foliage, affected residue, or a wind/water spread pattern support a foliar pathogen pathway but do not identify Alternaria by themselves."
   ],
   "exclusions": [
-    "Pycnidia strongly support a Septoria differential",
-    "Sooty underside conidial masses support Pseudocercospora",
-    "Round white-centered lesions with melanized conidiophores support Cercospora",
-    "No pathogen evidence is present and spray or contact injury maps to the lesion distribution"
+    "Dark pycnidia embedded in lesions and laboratory evidence support Septoria rather than Alternaria.",
+    "Gray-brown sooty growth concentrated on corresponding lower-leaf lesions and Pseudocercospora morphology or sequence evidence support Pseudocercospora.",
+    "Round pale-centered lesions with melanized conidiophores and laboratory evidence support Cercospora.",
+    "Bipolaris, Colletotrichum, Exserohilum, Fusarium, Stemphylium, a bacterial pathogen, or another organism is recovered and linked to the sampled lesion.",
+    "Spots follow a spray boundary, droplet pattern, abrasion, heat/light exposure, or mechanical contact and do not continue to develop like an infectious lesion.",
+    "Chlorosis or necrosis follows a symmetric canopy/leaf-age pattern and measured pH, EC, moisture, or tissue data support an abiotic cause.",
+    "Punctures, stippling, frass, webbing, larvae, mites, or thrips account for the visible damage.",
+    "The only evidence is an unlinked detached leaf, stock image, generated image, vendor chart, or symptom description without a traceable sampled plant."
   ],
   "progression": [
     {
-      "stage": "Early",
-      "description": "Small leaf spots appear."
+      "stage": "Exposure and latent interval",
+      "description": "Conidia associated with infected crop or weed residue can move by wind or water; no visible lesion is required immediately after exposure."
     },
     {
-      "stage": "Developing",
-      "description": "Spots enlarge into irregular brown lesions with pale yellow halos."
+      "stage": "Early spots",
+      "description": "Small dark or yellow spots appear on leaf tissue; the first-report material began with small upper-surface spots."
     },
     {
-      "stage": "Advanced",
-      "description": "Lesions expand, coalesce, and centers may perforate."
+      "stage": "Expanding lesions",
+      "description": "Spots enlarge into brown-to-gray circular or irregular lesions, sometimes with dark borders, yellow halos, or concentric rings."
+    },
+    {
+      "stage": "Sporulating lesions",
+      "description": "Compatible lesion centers or affected outer surfaces may darken and develop sooty black spore masses under conducive conditions."
+    },
+    {
+      "stage": "Advanced injury",
+      "description": "Lesions can merge, centers may break or perforate, and disease may involve petioles, stems, buds, or other Cannabis tissues; the sequence is not universal across tissue types."
     }
   ],
   "lookAlikes": [
     "Septoria leaf spot",
     "Cercospora leaf spot",
-    "Bipolaris leaf spot",
-    "Anthracnose leaf spot",
-    "Bacterial leaf spot"
+    "Bipolaris leaf spot or blight",
+    "Anthracnose / Colletotrichum leaf spot",
+    "Exserohilum leaf blight",
+    "Pseudocercospora olive or sooty leaf spot",
+    "Fusarium foliar or flower blight",
+    "Stemphylium leaf spot",
+    "Bacterial leaf spot",
+    "Spray or contact injury",
+    "Thrips or mite feeding",
+    "Nutrient, pH, salinity, or water-stress necrosis"
   ],
   "confirmation": [
-    "For species-level diagnosis use culture and/or validated molecular identification from representative lesions.",
-    "Photograph both surfaces and lesion distribution and preserve a sample before treatment."
+    "Capture a traceable series from the same plant: whole canopy, upper/middle/lower canopy, both leaf surfaces, lesion-center macro with a scale, and any petiole, stem, bud, or inflorescence involvement.",
+    "Record plant ID, cultivar, stage, production setting, symptom-onset date, leaf or node age, recent wetness or irrigation events, nearby residue, environmental conditions, and any spray or mechanical exposure.",
+    "Before treatment, submit fresh representative lesion margins and, when relevant, affected petiole, stem, bud, or inflorescence tissue to a qualified plant diagnostic laboratory.",
+    "Use culture and fungal morphology plus validated molecular identification from the sampled plant for an Alternaria organism label; preserve isolate and locus details when species-level resolution matters.",
+    "When multiple fungi or bacteria are recovered, require lesion linkage or pathogenicity evidence and keep the sample multi-label or unresolved rather than choosing the visually closest name.",
+    "Compare lesion progression with matched healthy plants from the same cultivar, stage, source group, and environment; absence of symptoms in appropriate controls strengthens but does not replace organism evidence.",
+    "Keep symptom-only, detached-leaf-only, unlinked culture, mixed-organism, low-resolution, and stock/vendor/generated captures out of the confirmed Alternaria class and route them to human review."
   ],
   "immediateActions": [
-    "Separate heavily affected propagation material and reduce avoidable leaf wetness while diagnosis is pending."
+    "Preserve representative untreated tissue and traceable photographs before removing heavily affected material.",
+    "Separate symptomatic propagation material from clean stock and reduce avoidable prolonged leaf wetness while diagnosis is pending.",
+    "Map affected plants against irrigation zones, airflow, cultivar blocks, incoming plant lots, and residue sources."
   ],
   "correctivePlan": [
-    "Use a disease-management plan appropriate to the confirmed pathogen and production setting.",
-    "Remove heavily diseased debris when appropriate and monitor new lesions."
+    "Use a disease-management plan appropriate to the organism confirmed by the diagnostic laboratory and the production setting.",
+    "Remove or contain confirmed diseased material and residue as locally appropriate, then monitor tagged plants for new lesions.",
+    "Evaluate response with new-growth and lesion-count records; old necrotic tissue will not become healthy after correction."
   ],
   "prevention": [
-    "Avoid moving symptomatic plant material between clean areas.",
-    "Use sanitation and irrigation practices that limit prolonged leaf wetness."
+    "Use clean propagation material and do not move symptomatic plants, tools, or debris into clean areas.",
+    "Improve air circulation, limit avoidable leaf wetness, and manage infected crop or weed residue where feasible.",
+    "Scout both leaf surfaces and multiple canopy levels with consistent plant IDs so early spots can be followed over time."
   ],
   "warnings": [
-    "Brown spots with yellow halos are not Alternaria-specific.",
-    "The primary report was one regional disease occurrence; prevalence varies by environment and production system."
+    "Brown lesions, yellow halos, concentric rings, shot holes, and black sporulation are not individually specific to Alternaria.",
+    "Alternaria alternata and potentially other Alternaria species can affect Cannabis; a generic image cannot resolve species.",
+    "The two primary studies are regional and used specific isolates, tissues, and production contexts; prevalence, severity, and timing are not universal.",
+    "Alternaria can be recovered from seed or inflorescence material, but recovery alone does not prove it caused every visible lesion.",
+    "No image or video was added in this batch because no stable, item-level, panel-resolved Cannabis Alternaria asset with sufficiently clear reuse and training rights was verified.",
+    "All symptom-only, mixed-organism, detached, unlinked-laboratory, and low-resolution samples require human review."
   ],
   "sources": [
     {
       "title": "First Report of Leaf Spot on Industrial Hemp (Cannabis sativa) Caused by Alternaria alternata in China",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-01-21-0130-PDN",
+      "authors": [
+        "Lili Tang",
+        "Xixia Song",
+        "Liguo Zhang",
+        "Jing Wang",
+        "Shuquan Zhang"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2021-10-26",
       "year": 2021,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-20",
       "doi": "10.1094/PDIS-01-21-0130-PDN",
       "supportedClaims": [
         "Industrial hemp leaf spots began as small spots and developed into brown irregular lesions with light yellow halos; lesion centers could perforate as disease advanced.",
         "The isolate was identified as Alternaria alternata by morphology and multilocus molecular evidence, and inoculated healthy hemp developed similar lesions while controls remained asymptomatic.",
         "Re-isolation from inoculated plants fulfilled Koch postulates, so the record supports an organism-confirmed Cannabis leaf-spot diagnosis rather than visual similarity alone."
+      ]
+    },
+    {
+      "title": "Pathogenicity of seedborne Alternaria and Stemphylium species and stem-infecting Neofusicoccum and Lasiodiplodia species to cannabis (Cannabis sativa L., marijuana) plants",
+      "organization": "Canadian Journal of Plant Pathology",
+      "url": "https://doi.org/10.1080/07060661.2021.1988712",
+      "authors": [
+        "Alastair J. Roberts",
+        "Zamir K. Punja"
+      ],
+      "publisher": "Informa UK Limited / Taylor & Francis",
+      "publicationDate": "2021-11-25",
+      "year": 2022,
+      "accessedDate": "2026-08-20",
+      "doi": "10.1080/07060661.2021.1988712",
+      "supportedClaims": [
+        "Alternaria alternata was recovered from Cannabis inflorescences and surface-sterilized hemp seed in Canadian production material, extending the diagnostic context beyond leaf lesions alone.",
+        "The study confirmed pathogenicity of recovered fungi by inoculating Cannabis leaves, stems, buds, rooted cuttings, and mature plants; disease ratings varied with tissue type and pathogen.",
+        "Alternaria, Stemphylium, Neofusicoccum, and Lasiodiplodia were evaluated in the same work, so a lesion or blight photograph cannot assign Alternaria without plant-linked organism evidence.",
+        "The article is licensed CC BY-NC-ND 4.0; no figure was admitted as media because a stable item-level original asset URL and panel-resolved Cannabis Alternaria label were not verified in this review."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-Brown Blight (Alternaria Diseases)",
+      "organization": "Pacific Northwest Plant Disease Management Handbook",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-brown-blight-alternaria-diseases",
+      "authors": [
+        "Cynthia M. Ocamb"
+      ],
+      "publisher": "Oregon State University, Washington State University, and University of Idaho",
+      "publicationDate": "2026-03",
+      "year": 2026,
+      "accessedDate": "2026-08-20",
+      "supportedClaims": [
+        "Alternaria alternata and potentially other Alternaria species can infect Cannabis leaves, petioles, stems, and flower parts; infected crop and weed residue can produce conidia that move by wind and water.",
+        "Compatible Cannabis symptoms include small dark or yellow leaf spots that enlarge into brown-to-gray circular lesions, sometimes with concentric rings, dark borders, yellow halos, or sooty black spore masses in lesion centers.",
+        "Cannabis leaves and buds can begin brown and darken toward brown-black as sporulation develops; these organ and temporal observations are compatible signs, not species confirmation.",
+        "OSU surveys in 2021 observed hemp leaf spots about 0.1 inch or smaller, while higher relative humidity can be associated with larger spots; lesion size is therefore context-dependent.",
+        "The institutional guidance emphasizes improving air circulation, minimizing leaf wetness, and removing infected leaves; these are risk-reduction measures and do not substitute for diagnosis.",
+        "The page is institutionally copyrighted and exposes no explicit reusable license for disease media; no page graphic was copied or indexed as training ground truth."
       ]
     }
   ],

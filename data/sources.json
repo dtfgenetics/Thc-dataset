@@ -149,6 +149,27 @@
     ]
   },
   {
+    "sourceKey": "10.1080/07060661.2021.1988712",
+    "title": "Pathogenicity of seedborne Alternaria and Stemphylium species and stem-infecting Neofusicoccum and Lasiodiplodia species to cannabis (Cannabis sativa L., marijuana) plants",
+    "organization": "Canadian Journal of Plant Pathology",
+    "url": "https://doi.org/10.1080/07060661.2021.1988712",
+    "authors": [
+      "Alastair J. Roberts",
+      "Zamir K. Punja"
+    ],
+    "publisher": "Informa UK Limited / Taylor & Francis",
+    "publicationDate": "2021-11-25",
+    "year": 2022,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1080/07060661.2021.1988712",
+    "supportedClaims": [
+      "Alternaria alternata was recovered from Cannabis inflorescences and surface-sterilized hemp seed in Canadian production material, extending the diagnostic context beyond leaf lesions alone.",
+      "The study confirmed pathogenicity of recovered fungi by inoculating Cannabis leaves, stems, buds, rooted cuttings, and mature plants; disease ratings varied with tissue type and pathogen.",
+      "Alternaria, Stemphylium, Neofusicoccum, and Lasiodiplodia were evaluated in the same work, so a lesion or blight photograph cannot assign Alternaria without plant-linked organism evidence.",
+      "The article is licensed CC BY-NC-ND 4.0; no figure was admitted as media because a stable item-level original asset URL and panel-resolved Cannabis Alternaria label were not verified in this review."
+    ]
+  },
+  {
     "sourceKey": "10.1080/07060661.2023.2279184",
     "title": "Symptomology, Prevalence, and Impact of Hop Latent Viroid on Greenhouse-Grown Cannabis (Cannabis sativa L.) Plants in Canada",
     "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
@@ -384,10 +405,17 @@
     "title": "First Report of Leaf Spot on Industrial Hemp (Cannabis sativa) Caused by Alternaria alternata in China",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-01-21-0130-PDN",
+    "authors": [
+      "Lili Tang",
+      "Xixia Song",
+      "Liguo Zhang",
+      "Jing Wang",
+      "Shuquan Zhang"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2021-10-26",
     "year": 2021,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-20",
     "doi": "10.1094/PDIS-01-21-0130-PDN",
     "supportedClaims": [
       "Industrial hemp leaf spots began as small spots and developed into brown irregular lesions with light yellow halos; lesion centers could perforate as disease advanced.",
@@ -1855,6 +1883,27 @@
     "supportedClaims": [
       "Twelve discrete patches of short white hairs around the abdomen distinguish adult Japanese beetle from similar-looking beetles.",
       "The institutional specimen image is credited to Clemson University–USDA Cooperative Extension Slide Series, Bugwood.org, and is licensed CC BY 3.0 US."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-brown-blight-alternaria-diseases",
+    "title": "Hemp (Cannabis sativa)-Brown Blight (Alternaria Diseases)",
+    "organization": "Pacific Northwest Plant Disease Management Handbook",
+    "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-brown-blight-alternaria-diseases",
+    "authors": [
+      "Cynthia M. Ocamb"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho",
+    "publicationDate": "2026-03",
+    "year": 2026,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Alternaria alternata and potentially other Alternaria species can infect Cannabis leaves, petioles, stems, and flower parts; infected crop and weed residue can produce conidia that move by wind and water.",
+      "Compatible Cannabis symptoms include small dark or yellow leaf spots that enlarge into brown-to-gray circular lesions, sometimes with concentric rings, dark borders, yellow halos, or sooty black spore masses in lesion centers.",
+      "Cannabis leaves and buds can begin brown and darken toward brown-black as sporulation develops; these organ and temporal observations are compatible signs, not species confirmation.",
+      "OSU surveys in 2021 observed hemp leaf spots about 0.1 inch or smaller, while higher relative humidity can be associated with larger spots; lesion size is therefore context-dependent.",
+      "The institutional guidance emphasizes improving air circulation, minimizing leaf wetness, and removing infected leaves; these are risk-reduction measures and do not substitute for diagnosis.",
+      "The page is institutionally copyrighted and exposes no explicit reusable license for disease media; no page graphic was copied or indexed as training ground truth."
     ]
   },
   {
