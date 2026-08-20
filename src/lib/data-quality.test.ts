@@ -87,6 +87,24 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.filter((item) => item.displayPermission !== 'permitted').every((item) => item.reviewStatus === 'license-review')).toBe(true)
   })
 
+  it('keeps powdery mildew disease-class labels species-bounded and taxonomy-corrected', () => {
+    const record = issues.find((issue) => issue.slug === 'powdery-mildew')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.6)
+    expect(record?.scientificName).toMatch(/Golovinomyces ambrosiae.*Podosphaera macularis/)
+    expect(confirmation).toContain('do not assign a powdery-mildew species')
+    expect(confirmation).toMatch(/upper- and lower-surface|upper.*lower.*surface/)
+    expect(confirmation).toMatch(/microscopy.*molecular testing/)
+    expect(confirmation).toContain('symptom-negative')
+    expect(warnings).toMatch(/spadiceus.*ambrosiae/)
+    expect(warnings).toContain('not species-level ground truth')
+    expect(warnings).toContain('not a universal field severity')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Foliar spray residue', 'Glandular trichomes on floral tissue', 'Spider-mite webbing', 'Botrytis gray mold or bud rot', 'Downy mildew']))
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.1094/PDIS-01-19-0049-PDN', '10.1094/PHYTOFR-07-23-0099-R', '10.3389/fagro.2021.720215', '10.3389/fpls.2025.1543229']))
+  })
+
   it('keeps phosphorus deficiency tissue-confirmed, root-zone bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'phosphorus-deficiency')
     expect(record?.reviewStatus).toBe('reviewed')

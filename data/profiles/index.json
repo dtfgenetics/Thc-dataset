@@ -130,7 +130,7 @@
       "category": "Fungal pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 5,
       "mediaCount": 1,
       "path": "data/profiles/fungal-pm.json"
     },

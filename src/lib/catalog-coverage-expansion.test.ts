@@ -89,4 +89,15 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(reference?.diagnosticLabel).toContain('Tetranychus urticae damage severity scale')
     expect(reference?.useLimitations.join(' ').toLowerCase()).toMatch(/composite|panels/)
   })
+
+  it('keeps the Cannabis powdery-mildew comparison licensed and source-group bounded', () => {
+    const powdery = bySlug('powdery-mildew')
+    const reference = powdery.media.find((item) => item.id === 'media-powdery-mildew-cannabis-figure-2')
+    expect(reference).toBeDefined()
+    expect(reference?.license).toBe('CC BY 4.0')
+    expect(reference?.trainingPermission).toBe('permitted')
+    expect(reference?.trainingEligible).toBe(false)
+    expect(reference?.sourceUrl).toBe('https://doi.org/10.3389/fagro.2021.720215')
+    expect(reference?.useLimitations.join(' ').toLowerCase()).toMatch(/resistant panel.*negative training control/)
+  })
 })

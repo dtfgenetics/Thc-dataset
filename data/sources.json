@@ -242,6 +242,29 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-01-19-0049-PDN",
+    "title": "First Report of Powdery Mildew Caused by Golovinomyces spadiceus on Industrial Hemp (Cannabis sativa) in Kentucky",
+    "organization": "Plant Disease (Szarka et al.)",
+    "url": "https://doi.org/10.1094/PDIS-01-19-0049-PDN",
+    "authors": [
+      "Desiree Szarka",
+      "Lydia Tymon",
+      "Bernadette Amsden",
+      "Ed Dixon",
+      "Josh Judy",
+      "Nicole Gauthier"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2019-05-10",
+    "year": 2019,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1094/PDIS-01-19-0049-PDN",
+    "supportedClaims": [
+      "The Kentucky report identified a powdery mildew on industrial hemp as Golovinomyces spadiceus using fungal morphology and ITS plus 28S sequence evidence.",
+      "The historical G. spadiceus name in this report is now generally treated within the amended G. ambrosiae concept; the DOI must not be cited as though its original title named G. ambrosiae."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-01-19-0088-PDN",
     "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
     "organization": "Plant Disease",
@@ -666,6 +689,31 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PHYTOFR-07-23-0099-R",
+    "title": "Characterization of Powdery Mildew Fungi Affecting Hemp in the Pacific Northwest",
+    "organization": "PhytoFrontiers (Rivedal et al.)",
+    "url": "https://doi.org/10.1094/PHYTOFR-07-23-0099-R",
+    "authors": [
+      "Hannah M. Rivedal",
+      "Michele S. Wiseman",
+      "Briana J. Richardson",
+      "Stephen T. Massie",
+      "Andrea R. Garfinkel",
+      "Cynthia M. Ocamb",
+      "David H. Gent"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2024-01-24",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1094/PHYTOFR-07-23-0099-R",
+    "supportedClaims": [
+      "Surveys of 74 hemp fields in Oregon and Washington across three time points in 2021 and 2022 found powdery mildew later in the season in Oregon but not at the early survey point.",
+      "Diagnostic PCR detected both Golovinomyces ambrosiae and Podosphaera macularis on hemp, so a white powdery-mildew phenotype does not resolve the causal species.",
+      "Among assayed survey samples, G. ambrosiae was much more frequent than P. macularis, but the regional and seasonal sample does not establish a universal species prior for other production systems."
+    ]
+  },
+  {
     "sourceKey": "10.1111/gcbb.12667",
     "title": "Development and validation of genetic markers for sex and cannabinoid chemotype in Cannabis sativa L.",
     "organization": "GCB Bioenergy",
@@ -774,6 +822,27 @@
       "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
       "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
       "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+    ]
+  },
+  {
+    "sourceKey": "10.3389/fagro.2021.720215",
+    "title": "Discovery and Genetic Mapping of PM1, a Powdery Mildew Resistance Gene in Cannabis sativa L.",
+    "organization": "Frontiers in Agronomy (Mihalyov and Garfinkel)",
+    "url": "https://doi.org/10.3389/fagro.2021.720215",
+    "authors": [
+      "Paul D. Mihalyov",
+      "Andrea R. Garfinkel"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2021-08-27",
+    "year": 2021,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3389/fagro.2021.720215",
+    "supportedClaims": [
+      "Patchy white mycelial colonies developed on Cannabis foliage and flowers and were associated with reduced vigor, but colony presence did not by itself identify every possible powdery-mildew species.",
+      "In two segregating Cannabis populations, susceptible plants developed white colonies on leaves and stems within 45 days of germination under continuous inoculum pressure, while PM1-bearing plants showed complete resistance to the tested Pacific Northwest G. ambrosiae isolate.",
+      "Plants were followed through flowering, and 55 clonal replicates were reinfected to validate scores; resistance or absence of visible colonies in this experiment is genotype- and isolate-specific rather than a universal negative control.",
+      "Figure 2 is a CC BY 4.0 susceptible-versus-resistant Cannabis comparison; its panels share experimental source context and must not be treated as independent training samples without source grouping and review."
     ]
   },
   {
@@ -995,6 +1064,34 @@
       "Fiber hemp exposed to NaCl irrigation at 2, 4, and 6 dS/m was compared with a tap-water control.",
       "The 4 and 6 dS/m saline treatments significantly reduced biomass and were associated with altered leaf mineral profiles, showing that measured salinity can create broad growth and nutrient-balance effects.",
       "The experimental EC values are treatment conditions, not universal Cannabis toxicity thresholds for every genotype, medium, fertilizer, or irrigation strategy."
+    ]
+  },
+  {
+    "sourceKey": "10.3389/fpls.2025.1543229",
+    "title": "Mapping and Characterization of a Novel Powdery Mildew Resistance Locus (PM2) in Cannabis sativa L.",
+    "organization": "Frontiers in Plant Science (Seifi et al.)",
+    "url": "https://doi.org/10.3389/fpls.2025.1543229",
+    "authors": [
+      "Soren Seifi",
+      "Keegan M. Leckie",
+      "Ingrid Giles",
+      "Taylor O’Brien",
+      "John O. MacKenzie",
+      "Marco Todesco",
+      "Loren H. Rieseberg",
+      "Gregory J. Baute",
+      "Jose M. Celedon"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2025-03-13",
+    "year": 2025,
+    "accessedDate": "2026-08-20",
+    "doi": "10.3389/fpls.2025.1543229",
+    "supportedClaims": [
+      "The study used a leaf-area severity scale of 0 for no symptoms, 1 for less than 25% coverage with few restricted nonspreading colonies, 2 for 25–50%, 3 for 50–75%, and 4 for 75–100% powdery-mildew coverage.",
+      "Under severe adult-plant disease pressure, susceptible genotypes could show colonization of flower sugar leaves, petioles, and stem tissue; adult susceptibility sometimes exceeded the earlier clone-assay result.",
+      "PM2 resistance strongly suppressed conidia generation and involved a localized microscopic hypersensitive response without macroscopic chlorotic spots, so symptom-negative or visually clean tissue is not proof that all pathogen interaction is absent.",
+      "The scale and response were generated in controlled inoculation and resistance-mapping experiments and are not universal field severity, yield-loss, or intervention thresholds."
     ]
   },
   {
@@ -1295,14 +1392,24 @@
     ]
   },
   {
-    "sourceKey": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-01-19-0049-PDN",
-    "title": "First Report of Powdery Mildew Caused by Golovinomyces ambrosiae on Cannabis sativa in North America",
-    "organization": "Plant Disease (Pépin et al.)",
-    "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-01-19-0049-PDN",
-    "year": 2019,
-    "accessedDate": "2026-08-13",
+    "sourceKey": "https://ask.ifas.ufl.edu/publication/PP379",
+    "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+    "organization": "UF/IFAS Extension",
+    "url": "https://ask.ifas.ufl.edu/publication/PP379",
+    "authors": [
+      "Kevin Korus",
+      "Wael Elwakil",
+      "Nicholas Dufault",
+      "Zachary Eldred"
+    ],
+    "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+    "publicationDate": "2024-11-01",
+    "year": 2024,
+    "accessedDate": "2026-08-20",
     "supportedClaims": [
-      "Golovinomyces ambrosiae causes powdery mildew on Cannabis sativa and produces superficial white colonies on susceptible tissue."
+      "On hemp, powdery fungal mycelium and spores can appear as whitish spots or patches on both leaf surfaces and can spread across leaves, petioles, stems, flower bracts, and buds within about a week under favorable conditions.",
+      "Increasing severity can lead to leaf necrosis and defoliation, while high humidity favors infection even though free leaf wetness is not required.",
+      "The guide recommends diagnostic-center confirmation for hemp diseases; its powdery-mildew image is credited to Nicole Gauthier and does not carry an explicit reusable-media license on the page, so it is not copied or indexed as training media here."
     ]
   },
   {
