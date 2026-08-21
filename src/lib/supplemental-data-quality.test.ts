@@ -46,6 +46,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
     ])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'tarnished-plant-bug') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].hostContext).toBe('organism-only')
+        expect(issue.media[0].license).toMatch(/public domain/i)
+        expect(issue.media[0].trainingPermission).toBe('permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       if (issue.slug === 'japanese-beetle-hemp') {
         expect(issue.media).toHaveLength(2)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
@@ -112,6 +121,36 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(isDisplayableMedia(media)).toBe(true)
       }
     }
+  })
+
+  it('keeps tarnished plant bug labels organism-linked, source-conflicted, and threshold-free', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'tarnished-plant-bug')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(confirmation).toContain('upper/middle/lower canopy')
+    expect(confirmation).toContain('keep triangular-mark-only, low-resolution, nymph-only, and genus-only observations out of the lygus lineolaris confirmed class')
+    expect(confirmation).toContain('retain a source-conflict flag')
+    expect(confirmation).toContain('keep symptom-only, insect-only, detached-tissue-only, stock, vendor, generated, unverified, and rights-unclear captures out of automated training')
+    expect(warnings).toContain('authoritative hemp sources conflict on foliar injury')
+    expect(warnings).toContain('no validated hemp economic or treatment threshold')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Western tarnished plant bug (Lygus hesperus)',
+      'Pale legume bug (Lygus elisus)',
+      'Big-eyed bug (Geocoris spp., beneficial predator)',
+      'False chinch bug or another seed bug',
+      'Broad mite',
+      'Hemp russet mite',
+      'Boron deficiency or another root-zone nutrient disorder',
+    ]))
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmz023')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.usu.edu/planthealth/ipm/notes_ag/hemp-lygus-bug'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/agronomic/hemp/hemp-lygus-bug'))).toBe(true)
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].hostContext).toBe('organism-only')
+    expect(record?.media[0].diagnosticLabel).toContain('laboratory-reared Lygus lineolaris nymph morphology')
+    expect(record?.media[0].trainingEligible).toBe(false)
   })
 
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {

@@ -21,7 +21,7 @@
 "insect-dectes-stem-borer","dectes-stem-borer","Dectes stem-borer injury","Insect","high","reviewed","supplemental","diagnostic-profile","data/profiles/insect-dectes-stem-borer.json"
 "insect-japanese-beetle","japanese-beetle-hemp","Japanese beetle feeding injury","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/insect-japanese-beetle.json"
 "insect-spotted-cucumber-beetle","spotted-cucumber-beetle","Spotted cucumber beetle feeding injury","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/insect-spotted-cucumber-beetle.json"
-"insect-tarnished-plant-bug","tarnished-plant-bug","Tarnished plant bug feeding injury","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/insect-tarnished-plant-bug.json"
+"insect-tarnished-plant-bug","tarnished-plant-bug","Tarnished plant bug occurrence and possible feeding injury","Insect","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/insect-tarnished-plant-bug.json"
 "insect-thrips","thrips","Thrips feeding injury","Insect","moderate","reviewed","core","diagnostic-profile","data/profiles/insect-thrips.json"
 "mite-broad","broad-mite","Broad mite","Mite","high","reviewed","core","diagnostic-profile","data/profiles/mite-broad.json"
 "mite-hemp-russet","hemp-russet-mite","Hemp russet mite","Mite","high","reviewed","core","diagnostic-profile","data/profiles/mite-hemp-russet.json"

@@ -120,10 +120,10 @@
       "publisher": "University of Missouri Extension",
       "publicationDate": "2025-10-01",
       "year": 2025,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-20",
       "supportedClaims": [
         "Spotted cucumber beetle adults feed on hemp foliage and floral tissue, producing holes and ragged edges, while larvae can feed on root hairs and root tips.",
-        "Tarnished plant bug feeding on young hemp leaves, stems, buds, and flowers can produce chlorotic spots, leaf curling, terminal stunting, distorted buds, and bud abortion.",
+        "The Missouri Extension guide lists chlorotic spots, curling, terminal stunting, distorted buds, and bud abortion as possible tarnished plant bug injury on hemp; these institutional symptom claims conflict with earlier hemp literature that had not documented foliar symptoms and therefore require organism-linked human review.",
         "Dectes texanus larvae can bore inside hemp stems and pith, producing internal galleries, wilting, dieback, swollen or split stems, and increased breakage risk.",
         "Cabbage looper larvae feed on hemp leaves, often from lower-leaf undersides upward, producing large irregular holes and potentially damaging floral buds.",
         "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
@@ -149,6 +149,9 @@
       "accessedDate": "2026-08-20",
       "doi": "10.1093/jipm/pmz023",
       "supportedClaims": [
+        "Lygus species were among the insects most commonly encountered on hemp, at least tarnished plant bug and pale legume bug bred on the crop, and Lygus lineolaris occurred from emergence to harvest in Virginia observations.",
+        "The 2019 hemp synthesis reported that no visible leaf injury by Lygus species had yet been observed, while seed-feeding injury potential remained unclear.",
+        "Lygus numbers could be higher after flowering, but flower-bud abscission, seed abortion, and seed deformity were effects known from other crops and hemp data were then absent to establish significance for seed production or quality.",
         "Japanese beetle was observed on hemp east of the Mississippi as a highly visible, potentially significant defoliator that also feeds readily on hemp flowers; Figure 4 documents an adult on hemp.",
         "Across the broader hemp defoliator complex, serious defoliation had only rarely been observed and experiments were still needed to connect defoliation with seed, fiber, cannabinoid, and biomass outcomes.",
         "The 2019 profile was an early synthesis based mainly on Colorado, Virginia, and Tennessee observations through the end of 2018, so it does not establish a universal hemp action threshold or cultivar response."

@@ -122,6 +122,20 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.find((item) => item.reviewStatus === 'license-review')?.trainingEligible).toBe(false)
   })
 
+  it('counts tarnished plant bug morphology media without promoting it to Cannabis ground truth', () => {
+    const record = issues.find((issue) => issue.slug === 'tarnished-plant-bug')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record).toBeTruthy()
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
+    expect(record?.media[0].hostContext).toBe('organism-only')
+    expect(record?.media[0].trainingEligible).toBe(false)
+    expect(confirmation).toContain('identify a captured adult or diagnostic later instar with an entomologist or validated regional key')
+    expect(warnings).toContain('no licensed, plant-linked cannabis lygus injury image or verified diagnostic video was located for this batch')
+  })
+
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
     expect(record).toBeTruthy()

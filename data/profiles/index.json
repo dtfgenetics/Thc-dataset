@@ -247,12 +247,12 @@
     {
       "id": "insect-tarnished-plant-bug",
       "slug": "tarnished-plant-bug",
-      "name": "Tarnished plant bug feeding injury",
+      "name": "Tarnished plant bug occurrence and possible feeding injury",
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 4,
+      "mediaCount": 1,
       "path": "data/profiles/insect-tarnished-plant-bug.json"
     },
     {

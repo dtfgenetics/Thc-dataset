@@ -1,6 +1,39 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'tarnished-plant-bug': [
+    {
+      id: 'media-tarnished-plant-bug-nymph-usda-ars-public-domain',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/2/2d/Lygus_lineolaris_2.jpg',
+      alt: 'Dorsal-oblique close-up of a laboratory-reared tarnished plant bug nymph with a green rounded body, dark dorsal markings, long antennae, and developing wing pads.',
+      caption: 'USDA Agricultural Research Service organism-only morphology reference, image K4186-11. The nymph is laboratory-reared and photographed on a non-Cannabis plant; it does not document hemp feeding injury.',
+      creator: 'Scott Bauer, USDA Agricultural Research Service',
+      license: 'Public domain — work of the U.S. federal government (USDA Agricultural Research Service)',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Lygus_lineolaris_2.jpg',
+      mediaType: 'image',
+      requiredAttribution: 'Scott Bauer, USDA Agricultural Research Service, image K4186-11. Public domain U.S. federal government work. Wikimedia Commons landing page retained for provenance.',
+      diagnosticLabel: 'tarnished-plant-bug — laboratory-reared Lygus lineolaris nymph morphology, organism-only reference',
+      hostSpecies: 'Non-Cannabis plant; laboratory-reared Lygus lineolaris nymph',
+      hostContext: 'organism-only',
+      useLimitations: [
+        'Organism-only laboratory reference; no Cannabis host, active feeding event, injury, crop stage, field distribution, progression, or severity is shown.',
+        'The image supports nymph morphology only and must not be used to label foliar distortion, flower injury, seed injury, or a Cannabis infestation.',
+        'Keep organism-only media outside Cannabis condition training and evaluation splits even though the U.S. federal-work license permits reuse.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: 'd85e220089d8d11c1e65d8c19eed037915fdbf470ce6efbb25dace6895971ff7',
+      perceptualHash: 'dhash64:29034cb8326ed2b0',
+      width: 640,
+      height: 443,
+      view: 'close-up',
+      stage: 'laboratory-reared nymph',
+      severity: 'not applicable',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
   'root-knot-nematodes': [
     {
       id: 'media-root-knot-m-incognita-cherry-figure2-ccby4',
