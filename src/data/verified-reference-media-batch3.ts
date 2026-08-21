@@ -1,6 +1,39 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'cabbage-looper-hemp': [
+    {
+      id: 'media-cabbage-looper-larva-bugwood-1327034-ccby3us',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/ef/Trichoplusia_ni_larva.jpg',
+      alt: 'Close-up of a pale-green Trichoplusia ni larva with thin pale longitudinal stripes and a body that broadens toward the rear on a non-Cannabis leaf.',
+      caption: 'University of Georgia Bugwood organism-only morphology reference, image 1327034. The larva is on a non-Cannabis leaf and is not linked to hemp feeding injury.',
+      creator: 'Alton N. Sparks, Jr., University of Georgia, Bugwood Network',
+      license: 'CC BY 3.0 US',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Trichoplusia_ni_larva.jpg',
+      mediaType: 'image',
+      requiredAttribution: 'Alton N. Sparks, Jr., University of Georgia, Bugwood Network, image 1327034. Licensed under CC BY 3.0 US; link the license and indicate modifications.',
+      diagnosticLabel: 'cabbage-looper-hemp — Trichoplusia ni larval morphology on a non-Cannabis leaf, organism-only reference',
+      hostSpecies: 'Non-Cannabis leaf; Trichoplusia ni larva',
+      hostContext: 'organism-only',
+      useLimitations: [
+        'Organism-only non-Cannabis reference; it does not document Cannabis host use, a feeding event, leaf or flower injury, canopy location, crop stage, distribution, progression, or severity.',
+        'The oblique dorsal view does not fully document the ventral proleg pattern or a looping gait and cannot by itself exclude soybean looper or another plusiine in a new observation.',
+        'Keep organism-only media outside Cannabis condition training and evaluation splits even though the license permits reuse; require a plant-linked diagnostic sequence and human label review.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '8141b5267664d9d156422db069129bc5d71362a04833dd41c882cc0bc5bd78dd',
+      perceptualHash: 'dhash64:399c5aacb6b18d2d',
+      width: 3072,
+      height: 2048,
+      view: 'close-up',
+      stage: 'larva',
+      severity: 'not applicable',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
   'tarnished-plant-bug': [
     {
       id: 'media-tarnished-plant-bug-nymph-usda-ars-public-domain',

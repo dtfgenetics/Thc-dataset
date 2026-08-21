@@ -308,6 +308,39 @@
     ]
   },
   {
+    "sourceKey": "10.1093/hr/uhad207",
+    "title": "Cannabinoids function in defense against chewing herbivores in Cannabis sativa L.",
+    "organization": "Horticulture Research (Stack et al.)",
+    "url": "https://doi.org/10.1093/hr/uhad207",
+    "authors": [
+      "George M. Stack",
+      "Stephen I. Snyder",
+      "Jacob A. Toth",
+      "Michael A. Quade",
+      "Jamie L. Crawford",
+      "John K. McKay",
+      "John Nicholas Jackowetz",
+      "Ping Wang",
+      "Glenn Philippe",
+      "Julie L. Hansen",
+      "Virginia M. Moore",
+      "Jocelyn K. C. Rose",
+      "Lawrence B. Smart"
+    ],
+    "publisher": "Oxford University Press on behalf of Nanjing Agricultural University",
+    "publicationDate": "2023-10-13",
+    "year": 2023,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1093/hr/uhad207",
+    "supportedClaims": [
+      "In a controlled detached-leaf assay, single Trichoplusia ni neonates fed for six days on leaves from 12 cutting-propagated Cannabis sativa F2 genotypes: six CBD-dominant and six cannabinoid-free genotypes.",
+      "Trichoplusia ni larvae consumed more leaf area and reached greater final mass on cannabinoid-free Cannabis genotypes than on CBD-dominant genotypes in the detached-leaf assay.",
+      "The detached-leaf assay establishes that Trichoplusia ni can consume Cannabis leaf tissue, but the species was not observed in the study field plots and was used as a model generalist herbivore; the experiment therefore does not establish field prevalence, canopy distribution, progression, injury thresholds, or yield loss on hemp.",
+      "Larvae in the detached-leaf assay were more often observed on the abaxial surface of cannabinoid-free leaves, but this laboratory behavior must not be converted into a universal field location or diagnostic threshold.",
+      "Cannabinoid chemotype, genotype, and trichome morphology affected feeding context, so severity or susceptibility observed in this limited F2 population must not be generalized across Cannabis cultivars."
+    ]
+  },
+  {
     "sourceKey": "10.1093/jee/toad004",
     "title": "Novel Approach to Tally Aculops cannabicola (Acari: Eriophyidae) Using Photographs of Hemp Leaves",
     "organization": "Journal of Economic Entomology (Falcon-Brindis et al.)",
@@ -1839,6 +1872,24 @@
     ]
   },
   {
+    "sourceKey": "https://ask.ifas.ufl.edu/publication/IN273",
+    "title": "Cabbage Looper, Trichoplusia ni (Hübner) (Insecta: Lepidoptera: Noctuidae)",
+    "organization": "University of Florida IFAS Extension",
+    "url": "https://ask.ifas.ufl.edu/publication/IN273",
+    "authors": [
+      "John L. Capinera"
+    ],
+    "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Institutional morphology guidance describes mature larvae as predominantly green, usually with a distinct white stripe on each side and faint dorsal white stripes, with a narrower anterior and broader posterior body that loops during movement.",
+      "Cabbage looper can be confused with soybean looper; dark thoracic legs and microscopic body microspines favor soybean looper, so a dorsal photograph or looping gait alone is insufficient for species confirmation.",
+      "Eggs are small, ridged, yellowish-white to green, and can occur on either leaf surface; eggs alone require rearing or expert identification because their appearance is not a Cannabis injury label.",
+      "A thin white fragile cocoon can occur under foliage or in debris, and the gray-brown adult has a central silvery U-shaped mark and dot that may be connected; an adult or cocoon not linked to a damaged Cannabis plant does not prove larval injury.",
+      "Geographic activity, generation time, host suitability, and crop management vary substantially; non-Cannabis timing, host, threshold, and treatment statements are transfer context only."
+    ]
+  },
+  {
     "sourceKey": "https://ask.ifas.ufl.edu/publication/PP379",
     "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
     "organization": "UF/IFAS Extension",
@@ -2393,6 +2444,26 @@
       "Cannabis witches’ broom expression varies with the phytoplasma involved; typical plants are stunted with highly branched stems, axillary shoot proliferation, and small, distorted, chlorotic leaves.",
       "Phytoplasmas are leafhopper-transmitted, regional pathogen types vary, and vector presence or symptoms alone do not identify the phytoplasma involved.",
       "The three cannabis symptom photographs are credited to C. M. Ocamb, Oregon State University, 2022; the landing page states copyright but supplies no reuse license."
+    ]
+  },
+  {
+    "sourceKey": "https://pubs.ext.vt.edu/3104/3104-1544/3104-1544.html",
+    "title": "Cabbage Looper",
+    "organization": "Virginia Cooperative Extension",
+    "url": "https://pubs.ext.vt.edu/3104/3104-1544/3104-1544.html",
+    "authors": [
+      "Kyle M. B. Bekelja",
+      "Eric R. Day"
+    ],
+    "publisher": "Virginia Tech and Virginia State University",
+    "publicationDate": "2022-10-04",
+    "year": 2022,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Cross-crop identification guidance describes cabbage looper larvae as pale green, relatively smooth, thinly white-striped caterpillars that arch or loop while crawling and can reach approximately 1.5 inches long.",
+      "Two pairs of abdominal prolegs on abdominal segments five and six help distinguish cabbage looper larvae from imported cabbageworm larvae, which have four pairs; incomplete or obscured ventral views cannot support that exclusion.",
+      "In non-Cannabis crops, early instars feed from leaf undersides and may leave the opposite epidermis intact, while later instars chew through leaves and sticky frass can occur near feeding sites.",
+      "Virginia cabbage, broccoli, and cauliflower thresholds are crop-specific and must not be transferred to Cannabis or hemp."
     ]
   },
   {

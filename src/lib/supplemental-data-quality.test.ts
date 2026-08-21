@@ -46,6 +46,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
     ])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'cabbage-looper-hemp') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].hostContext).toBe('organism-only')
+        expect(issue.media[0].license).toBe('CC BY 3.0 US')
+        expect(issue.media[0].trainingPermission).toBe('permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       if (issue.slug === 'herbicide-clomazone-bleaching-injury') {
         expect(issue.media).toHaveLength(2)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(2)
@@ -334,6 +343,40 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
     expect(record?.media.find((item) => item.mediaType === 'video')?.trainingPermission).toBe('unknown')
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
+  it('keeps cabbage looper labels larva-linked and laboratory evidence bounded', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'cabbage-looper-hemp')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.35)
+    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources.some((source) => source.doi === '10.1093/hr/uhad207')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pubs.ext.vt.edu/3104/3104-1544'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('ask.ifas.ufl.edu/publication/IN273'))).toBe(true)
+    expect(confirmation).toContain('two abdominal proleg pairs on segments five and six')
+    expect(confirmation).toContain('same uninterrupted sequence')
+    expect(confirmation).toContain('did not observe trichoplusia ni in its field plots')
+    expect(confirmation).toContain('keep damage-only, frass-only, egg-only, adult-only, cocoon-only, non-cannabis, detached-leaf-only, generated, vendor, anecdotal, unverified, low-resolution, and organism/injury-unlinked samples out')
+    expect(exclusions).toContain('dark thoracic legs or microscopic body microspines support soybean looper')
+    expect(warnings).toContain('model generalist in detached-leaf assays')
+    expect(warnings).toContain('no validated hemp economic or treatment threshold')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Soybean looper or another plusiine looper',
+      'Imported cabbageworm',
+      'Armyworm or fall armyworm',
+      'Japanese beetle',
+      'Slug or snail feeding',
+      'Hail, wind, handling, or training tear',
+    ]))
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].hostContext).toBe('organism-only')
+    expect(record?.media[0].sourceUrl).toBe('https://commons.wikimedia.org/wiki/File:Trichoplusia_ni_larva.jpg')
+    expect(record?.media[0].sha256).toBe('8141b5267664d9d156422db069129bc5d71362a04833dd41c882cc0bc5bd78dd')
+    expect(record?.media[0].trainingEligible).toBe(false)
   })
 
   it('keeps promoted supplemental media hashes unique', () => {
