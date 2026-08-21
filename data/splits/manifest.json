@@ -15,7 +15,7 @@
   "readinessGate": "data/model-training-readiness.json",
   "knowledgeLayerSnapshot": {
     "diagnosticProfiles": 61,
-    "evidenceSources": 114,
+    "evidenceSources": 116,
     "profileLinkedReferenceMedia": 56,
     "referenceOriginals": 25,
     "referenceCrops": 66
@@ -34,5 +34,5 @@
     "test": 0.15,
     "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
   },
-  "reasonBlocked": "The current corpus contains a 61-profile, 114-source diagnostic knowledge layer plus 25 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+  "reasonBlocked": "The current corpus contains a 61-profile, 116-source diagnostic knowledge layer plus 25 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
 }

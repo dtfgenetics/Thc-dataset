@@ -150,6 +150,24 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('transfer references for color and field-edge context only')
   })
 
+  it('keeps root-binding as a root-inspection diagnosis with an explicit media gap', () => {
+    const record = issues.find((issue) => issue.slug === 'root-binding-container-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record).toBeTruthy()
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources).toHaveLength(3)
+    expect(record?.indicators.length).toBeGreaterThanOrEqual(6)
+    expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(record?.media).toEqual([])
+    expect(confirmation).toContain('extract the root ball intact')
+    expect(confirmation).toContain('plant identity linked across dates')
+    expect(warnings).toContain('media remains an explicit gap')
+  })
+
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
     expect(record).toBeTruthy()

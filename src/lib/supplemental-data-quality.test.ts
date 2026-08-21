@@ -195,6 +195,37 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps root-binding labels root-ball-linked and non-Cannabis transfer evidence bounded', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'root-binding-container-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PHP-03-20-0017-RS')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1071/FP12049')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.umd.edu/resource/pot-bound-indoor-plants'))).toBe(true)
+    expect(confirmation).toContain('top, bottom, and at least four side quadrants')
+    expect(confirmation).toContain('matched same-cultivar, same-age, same-substrate, same-irrigation comparison')
+    expect(confirmation).toContain('center and perimeter immediately before and after a documented irrigation event')
+    expect(confirmation).toContain('keep canopy-only, detached-root-only, non-cannabis transfer, unmatched, generated, vendor, anecdotal, unverified, and rights-unclear samples out')
+    expect(exclusions).toContain('roots visible at drainage holes')
+    expect(exclusions).toContain('root-zone ec')
+    expect(exclusions).toContain('culture or molecular testing')
+    expect(warnings).toContain('non-cannabis transfer evidence')
+    expect(warnings).toContain('diagnostic survey rather than a controlled container-size trial')
+    expect(warnings).toContain('no licensed, plant-linked cannabis root-binding progression image or verified diagnostic video')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Normal cohesive nursery root ball or vigorous roots at drainage holes',
+      'Irrigation channeling or hydrophobic substrate without mechanical root restriction',
+      'Pythium root rot',
+      'Root-knot nematodes',
+      'Container-side heat injury',
+    ]))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'japanese-beetle-hemp')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''

@@ -157,6 +157,29 @@
     ]
   },
   {
+    "sourceKey": "10.1071/FP12049",
+    "title": "Pot size matters: a meta-analysis of the effects of rooting volume on plant growth",
+    "organization": "Functional Plant Biology (Poorter et al.)",
+    "url": "https://doi.org/10.1071/FP12049",
+    "authors": [
+      "Hendrik Poorter",
+      "Jonas Bühler",
+      "Dagmar van Dusschoten",
+      "José Climent",
+      "Johannes A. Postma"
+    ],
+    "publisher": "CSIRO Publishing",
+    "publicationDate": "2012-06-15",
+    "year": 2012,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1071/FP12049",
+    "supportedClaims": [
+      "A meta-analysis of 65 plant studies found that doubling pot size increased biomass by 43% on average and that reduced growth in smaller pots was associated mainly with lower photosynthesis per unit leaf area.",
+      "The analysis establishes that rooting volume can materially alter plant growth, but it is not Cannabis-specific and does not validate a universal Cannabis container size, root-density threshold, visual symptom, or field diagnosis.",
+      "The authors caution that appropriate pot size depends on plant size; the paper's experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis."
+    ]
+  },
+  {
     "sourceKey": "10.1080/07060661.2018.1535470",
     "title": "Root and crown rot pathogens causing wilt symptoms on field-grown marijuana (Cannabis sativa L.) plants",
     "organization": "Canadian Journal of Plant Pathology",
@@ -1909,6 +1932,24 @@
       "The peer-reviewed soybean factsheet describes gray adults with black-and-gray banded antennae and creamy white to yellow, legless, accordion-like larvae.",
       "Petiole pith feeding can produce a single wilted leaf before larvae tunnel into the main stem; later internal girdling can predispose mature plants to basal breakage and lodging.",
       "Regional occurrence and lodging losses are variable, so soybean severity, yield, and management values must not be transferred directly to Cannabis."
+    ]
+  },
+  {
+    "sourceKey": "https://extension.umd.edu/resource/pot-bound-indoor-plants",
+    "title": "Pot-Bound Indoor Plants",
+    "organization": "University of Maryland Extension, Home & Garden Information Center",
+    "url": "https://extension.umd.edu/resource/pot-bound-indoor-plants",
+    "authors": [
+      "University of Maryland Extension Home & Garden Information Center"
+    ],
+    "publisher": "University of Maryland Extension",
+    "publicationDate": "2023-03-13",
+    "year": 2023,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "The institutional guide describes pot-bound morphology in non-Cannabis indoor plants as roots encircling the pot perimeter and forming a tight mass that can fill the pot or extend over its edge.",
+      "It also reports that water can pass through a pot-bound root mass too quickly while the root-ball center remains dry, and that resulting desiccation can produce tip dieback or marginal browning.",
+      "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis."
     ]
   },
   {
