@@ -379,6 +379,28 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media[0].trainingEligible).toBe(false)
   })
 
+  it('keeps anthracnose labels lesion-linked, multilocus-confirmed, and media-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-10-19-2216-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('Science-of-Hemp-Conference-Proceedings'))).toBe(true)
+    expect(confirmation).toContain('same intact early lesions through center cracking or loss')
+    expect(confirmation).toContain('plant-linked multilocus sequence evidence')
+    expect(confirmation).toContain('symptom reproduction, reisolation, and symptomless controls')
+    expect(confirmation).toContain('keep symptom-only, shot-hole-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, generated, vendor, anecdotal, forum, unverified, and low-resolution samples out')
+    expect(exclusions).toContain('physical holes, chewing, hail tears, handling damage, or training injury')
+    expect(warnings).toContain('does not establish national prevalence, cultivar susceptibility, universal canopy or leaf-age preference, infection timing, yield loss, or action thresholds')
+    expect(warnings).toContain('no image or video was indexed')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Cercospora leaf spot', 'Septoria leaf spot complex', 'Alternaria leaf spot', 'Bacterial leaf spot', 'Caterpillar, beetle, slug, or snail feeding', 'Hail, wind, handling, or training tear']))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps promoted supplemental media hashes unique', () => {
     const media = supplementalIssues.flatMap((issue) => issue.media)
     expect(new Set(media.map((item) => item.id)).size).toBe(media.length)

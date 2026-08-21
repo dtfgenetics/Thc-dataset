@@ -771,10 +771,18 @@
     "title": "First Report of Anthracnose Leaf Spot Caused by Colletotrichum fioriniae on Hemp (Cannabis sativa)",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-10-19-2216-PDN",
+    "authors": [
+      "Desiree Szarka",
+      "Madison J. McCulloch",
+      "Julie Beale",
+      "Sara Long",
+      "Emily Dixon",
+      "Nicole Ward Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-02-23",
     "year": 2020,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-21",
     "doi": "10.1094/PDIS-10-19-2216-PDN",
     "supportedClaims": [
       "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
@@ -1841,6 +1849,26 @@
     "supportedClaims": [
       "Xanthomonas cannabis (ex Severin 1978) McKnight et al. 2026 is the validly published correct species name.",
       "The historical names Xanthomonas campestris pv. cannabis and the 2015 proposed name “Xanthomonas cannabis” are homotypic synonyms; type strain identifiers include ICMP 6570, LMG 9042, and NCPPB 2877."
+    ]
+  },
+  {
+    "sourceKey": "https://aaes.auburn.edu/wp-content/uploads/sites/2/sites/2/2022/05/Science-of-Hemp-Conference-Proceedings-20210401.pdf",
+    "title": "Observations of Insect and Disease Pests on Field Grown Hemp in Kentucky",
+    "organization": "Science of Hemp: Production and Pest Management Conference Proceedings",
+    "url": "https://aaes.auburn.edu/wp-content/uploads/sites/2/sites/2/2022/05/Science-of-Hemp-Conference-Proceedings-20210401.pdf",
+    "authors": [
+      "Maria Magdalena Ricciardi",
+      "Raúl Villanueva",
+      "Nicole Gauthier",
+      "Robert Pearce"
+    ],
+    "publisher": "Auburn University College of Agriculture and Alabama Agricultural Experiment Station",
+    "year": 2021,
+    "accessedDate": "2026-08-21",
+    "supportedClaims": [
+      "A 2021 University of Kentucky survey at the Spindletop Farm and Robinson Center observed separate cases of anthracnose identified as Colletotrichum fioriniae in field-grown hemp research plantings.",
+      "The survey covered hemp grown for cannabinoid, grain, and fiber purposes and documented multiple fungal diseases in the same season, so field context does not make a photographed lesion specific to anthracnose.",
+      "The conference report explicitly described its results as preliminary and called for additional research; it does not establish prevalence, cultivar susceptibility, symptom timing, yield impact, or a visual decision threshold for anthracnose."
     ]
   },
   {

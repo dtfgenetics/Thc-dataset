@@ -64,7 +64,7 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 2,
       "mediaCount": 0,
       "path": "data/profiles/fungal-anthracnose-leaf-spot.json"
     },
