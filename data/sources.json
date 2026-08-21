@@ -1048,6 +1048,28 @@
     ]
   },
   {
+    "sourceKey": "10.17660/ActaHortic.2023.1377.97",
+    "title": "Salinity effects on yield and nutrient uptake in Cannabis sativa L.",
+    "organization": "Acta Horticulturae",
+    "url": "https://doi.org/10.17660/ActaHortic.2023.1377.97",
+    "authors": [
+      "R. Baas",
+      "D. Wijnen"
+    ],
+    "publisher": "International Society for Horticultural Science",
+    "publicationDate": "2023",
+    "year": 2023,
+    "accessedDate": "2026-08-20",
+    "doi": "10.17660/ActaHortic.2023.1377.97",
+    "supportedClaims": [
+      "Early Haze Cannabis was grown hydroponically in rockwool at 1.8, 3, 6, 9, or 12 mS/cm, with EC raised either by increasing N, P, K, Ca, Mg, and S together or by adding NaCl to the 1.8 mS/cm nutrient solution.",
+      "Shoot and bud weight declined under both EC-raising pathways, but the response boundaries differed, demonstrating that equal EC does not identify the salt composition or a single causal ion.",
+      "Visible leaf necrosis occurred only in the 9 and 12 mS/cm NaCl treatments; absence of necrosis did not exclude yield effects, and necrosis at those extreme study treatments is not a universal field threshold.",
+      "Low leaf phosphorus in some low-EC treatments was associated with root-zone pH above 7.5, showing why pH and tissue chemistry must be checked rather than treating EC or leaf appearance as a single-nutrient diagnosis.",
+      "The trial used one cultivar, rockwool, hydroponic nutrient solutions, and deliberately constructed EC treatments; transfer to other cultivars, media, salt mixtures, and irrigation systems requires human review."
+    ]
+  },
+  {
     "sourceKey": "10.21273/HORTSCI13510-18",
     "title": "Increasing Inflorescence Dry Weight and Cannabinoid Content in Medical Cannabis Using Controlled Drought Stress",
     "organization": "HortScience (Caplan, Dixon, and Zheng)",
@@ -1225,14 +1247,21 @@
     "title": "Aquaponic and Hydroponic Solutions Modulate NaCl-Induced Stress in Drug-Type Cannabis sativa L.",
     "organization": "Frontiers in Plant Science",
     "url": "https://doi.org/10.3389/fpls.2020.01169",
+    "authors": [
+      "Brandon Yep",
+      "Nigel V. Gale",
+      "Youbin Zheng"
+    ],
     "publisher": "Frontiers Media SA",
-    "publicationDate": "2020-08-27",
+    "publicationDate": "2020-08-05",
     "year": 2020,
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-20",
     "doi": "10.3389/fpls.2020.01169",
     "supportedClaims": [
-      "A controlled indoor flowering experiment tested increasing NaCl concentrations in hydroponic and aquaponic solutions and measured growth, gas exchange, water-use physiology, solution pH/EC, yield, and cannabinoids.",
-      "Response to salinity depends on production-system and treatment context, so image appearance alone cannot establish that elevated EC or sodium is the primary cause."
+      "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
+      "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
+      "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
+      "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
     ]
   },
   {
@@ -1347,15 +1376,24 @@
     "title": "Effect of saline irrigation and plant-based biostimulant application on fiber hemp (Cannabis sativa L.) growth and phytocannabinoid composition",
     "organization": "Frontiers in Plant Science",
     "url": "https://doi.org/10.3389/fpls.2024.1293184",
+    "authors": [
+      "Carmen Formisano",
+      "Nunzio Fiorentino",
+      "Ida Di Mola",
+      "Nunzia Iaccarino",
+      "Ernesto Gargiulo",
+      "Giuseppina Chianese"
+    ],
     "publisher": "Frontiers Media SA",
-    "publicationDate": "2024-03-26",
+    "publicationDate": "2024-03-15",
     "year": 2024,
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-20",
     "doi": "10.3389/fpls.2024.1293184",
     "supportedClaims": [
-      "Fiber hemp exposed to NaCl irrigation at 2, 4, and 6 dS/m was compared with a tap-water control.",
-      "The 4 and 6 dS/m saline treatments significantly reduced biomass and were associated with altered leaf mineral profiles, showing that measured salinity can create broad growth and nutrient-balance effects.",
-      "The experimental EC values are treatment conditions, not universal Cannabis toxicity thresholds for every genotype, medium, fertilizer, or irrigation strategy."
+      "Felina 32 fiber hemp in an outdoor mesocosm was irrigated with NaCl solutions at 2, 4, and 6 dS/m and compared with a 0.4 dS/m tap-water control.",
+      "The 2, 4, and 6 dS/m irrigation treatments limited crop growth by 7%, 30%, and 48%, respectively; biomass effects followed measured salinity rather than a diagnostic leaf-color class.",
+      "The experiment documented altered sodium, chloride, phosphate, nitrate, potassium, and calcium assimilation in leaves, supporting broad mineral imbalance as a measured consequence rather than proof of a single-element deficiency.",
+      "Because the study used one fiber cultivar, NaCl-defined irrigation treatments, an outdoor mesocosm, and a biostimulant factor, its EC values are treatment conditions rather than universal Cannabis thresholds."
     ]
   },
   {

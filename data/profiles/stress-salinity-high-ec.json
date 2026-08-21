@@ -5,98 +5,174 @@
   "category": "Water / root-zone",
   "severity": "moderate",
   "reviewStatus": "reviewed",
-  "summary": "A measured root-zone stress state in which elevated dissolved salts can reduce Cannabis growth, alter water relations, and create secondary nutrient imbalance. Visual symptoms are nonspecific; diagnosis requires EC and source/root-zone chemistry context.",
+  "photoOnlyMaxConfidence": 0.2,
+  "summary": "Salinity/high-EC stress is an exposure-response diagnosis in which measured dissolved salts coincide with impaired Cannabis growth, physiology, or yield. EC reports total ionic conductivity but not which ions caused it: direct Cannabis experiments produced different responses when EC was raised with NaCl, concentrated nutrients, hydroponic solution, or aquaponic solution. Brown tips, chlorosis, wilt, and necrosis are therefore nonspecific and require plant-linked EC trends, solution composition, pH, moisture, roots, and matched controls.",
   "affectedParts": [
-    "roots",
-    "older and newer foliage depending on severity and formulation",
-    "whole canopy",
-    "inflorescences secondarily"
+    "irrigation water, nutrient solution, substrate, or root zone",
+    "root system",
+    "sampled leaves of documented age and canopy position",
+    "shoot tips and whole canopy",
+    "stems, leaves, inflorescences, biomass, and yield secondarily"
   ],
   "stages": [
+    "seedling",
     "vegetative",
     "flower",
-    "all"
+    "all production stages with a measured saline or concentrated-nutrient exposure"
   ],
   "indicators": [
     "Measured irrigation or root-zone EC is elevated relative to the established crop baseline while growth declines",
     "Growth suppression occurs together with a documented saline or high-salt root-zone exposure",
-    "Leaf nutrient imbalance appears after a measured salinity increase rather than an isolated single-element withholding pattern"
+    "Leaf nutrient imbalance appears after a measured salinity increase rather than an isolated single-element withholding pattern",
+    "Repeated plant-linked measurements show EC rising before or with reduced canopy expansion, leaf chlorophyll index, biomass accumulation, or yield relative to a matched same-cultivar control.",
+    "The affected distribution follows a documented solution, tank, irrigation zone, emitter, recirculation loop, container, or substrate-extraction pattern rather than a random lesion pattern.",
+    "Water, nutrient-solution, substrate-extract, or tissue chemistry identifies the ions or fertilizer concentration that produced the conductivity; EC alone does not identify sodium, chloride, or any single nutrient.",
+    "Visible leaf necrosis may appear under severe NaCl exposure, but one Early Haze rockwool trial observed it only at its two highest NaCl EC treatments while growth or yield effects occurred without that sign.",
+    "Direct studies show that production system and salt composition alter the response: hydroponic and aquaponic solutions differed under the same NaCl treatments, and nutrient-raised EC differed from NaCl-raised EC."
   ],
   "exclusions": [
-    "EC is stable within the crop baseline and no saline/high-salt exposure is documented",
-    "Symptoms map cleanly to a single nutrient deficiency with tissue and root-zone measurements supporting that diagnosis",
-    "Wilt is explained by a dry root zone without elevated EC",
-    "Root decay or pest evidence explains the plant decline better"
+    "Do not label salinity or “nutrient burn” from brown tips, marginal necrosis, chlorosis, curl, wilt, dark foliage, or stunting without a plant-linked EC measurement and exposure history.",
+    "If EC is stable within the established crop baseline and no saline, concentrated-fertilizer, source-water, recirculation, or accumulation pathway is documented, investigate another cause.",
+    "Measure root-zone water content across representative center, edge, and depth positions because simple drought, preferential wetting, or a failed emitter can resemble osmotic stress.",
+    "Exclude overwatering and hypoxia with irrigation history, drainage, aeration, odor, and root color and firmness; a wet root zone does not prove salts are causal.",
+    "Measure root-zone pH and review tissue or solution chemistry because abnormal pH or a verified single-element deficiency or toxicity can create a similar canopy pattern.",
+    "Inspect intact roots and crown for brown, slimy, sloughed, galled, sunken, or internally discolored tissue and obtain organism confirmation when root disease or nematodes remain plausible.",
+    "Record air and leaf temperature, relative humidity, VPD, PPFD, airflow, and recent spray history to exclude heat, light, high atmospheric demand, droplet, and contact injury.",
+    "Check root-ball geometry, substrate compaction, container temperature, and root restriction because small or uneven root volume can produce localized water and nutrient stress without primary salinity."
   ],
   "progression": [
     {
-      "stage": "Exposure",
-      "description": "Root-zone osmotic load rises after saline irrigation, fertilizer concentration, recirculation, or salt accumulation."
+      "stage": "Baseline and exposure",
+      "description": "A source-water, fertilizer, recirculation, evaporation, drainage, or salt-addition event changes the measured input or root-zone EC; no reliable visible sign may yet be present."
     },
     {
-      "stage": "Physiological stress",
-      "description": "Water relations and nutrient balance become disrupted and growth slows."
+      "stage": "Early response",
+      "description": "Plant water relations, chlorophyll index, gas exchange, nutrient uptake, or canopy expansion may diverge from matched controls before a specific color or morphology appears."
     },
     {
-      "stage": "Sustained stress",
-      "description": "Biomass and yield can decline; exact symptom appearance depends on genotype, medium, nutrient formulation, and salt composition."
+      "stage": "Growth suppression",
+      "description": "Repeated whole-plant views may show reduced height, width, leaf production, biomass, or inflorescence growth, but the pattern depends on cultivar, stage, medium, solution type, and ion mixture."
+    },
+    {
+      "stage": "Severe or sustained injury",
+      "description": "Necrosis or broader decline may develop under severe exposure; direct Early Haze evidence limits visible necrosis to extreme NaCl treatments in that study and does not validate brown tips as a general threshold."
+    },
+    {
+      "stage": "Correction and reassessment",
+      "description": "After the documented salt source and root-zone conditions are corrected, compare EC and new growth over time; old necrotic tissue does not reverse, and absent recovery triggers pH, moisture, root, vascular, and pathogen investigation."
     }
   ],
   "lookAlikes": [
-    "Potassium deficiency",
-    "Nitrogen toxicity",
     "Drought / water-deficit stress",
-    "Root disease",
-    "General nutrient lockout from abnormal pH"
+    "Root-zone hypoxia / overwatering",
+    "Abnormal root-zone pH or mixed nutrient lockout",
+    "Potassium deficiency",
+    "Magnesium deficiency",
+    "Nitrogen toxicity or excessive ammonium",
+    "Boron, manganese, or other nutrient toxicity",
+    "Pythium or Fusarium root/crown disease",
+    "Root-knot nematodes",
+    "Root binding / container-restriction stress",
+    "High-temperature or high-VPD stress",
+    "Light or lamp-proximity injury",
+    "Foliar spray, disinfectant, or contact injury",
+    "Normal late-flowering senescence"
   ],
   "confirmation": [
-    "Measure input and representative root-zone/runoff EC using a method appropriate to the medium and compare with the crop baseline.",
-    "Review fertilizer concentration, source-water chemistry, sodium/chloride exposure, irrigation volume, and recirculation history; use tissue or water analysis when the salt source is uncertain."
+    "Calibrate the EC and pH meters and record input water, mixed solution, and representative root-zone or leachate values with the extraction method, temperature compensation, units, date, and plant or irrigation-zone identity.",
+    "Sample multiple center, perimeter, and depth positions or multiple emitters and containers; compare the trend with the established production baseline and a matched same-cultivar unaffected control.",
+    "Document fertilizer products, mixing order and concentration, source-water analysis, sodium and chloride inputs, irrigation volume, drainage fraction, recirculation history, evaporation, and any tank or dosing fault.",
+    "When the salt source is uncertain, obtain solution, substrate-extract, and tissue analysis for sodium, chloride, and relevant macro- and micronutrients; do not infer ion composition from EC.",
+    "Measure root-zone moisture, pH, and temperature and record air and leaf temperature, relative humidity, VPD, PPFD, and airflow at the same time as each visual capture.",
+    "Inspect and photograph the intact root ball, crown, drainage pattern, emitter placement, and root color and firmness; use diagnostic testing when disease, nematodes, or vascular injury remains plausible.",
+    "Capture fixed whole-plant front and side views plus top, upper-leaf, lower-leaf, margin, underside, root-zone, meter-display, and source-label views at the same time of day before exposure, during the EC rise, before correction, and during recovery.",
+    "Keep symptom-only, detached-leaf-only, single-timepoint, unmatched, meter-unlinked, composition-unknown, generated, vendor, anecdotal, forum, unverified, and rights-unclear captures out of the confirmed salinity class and route them to human review."
   ],
   "immediateActions": [
-    "Verify EC with a calibrated meter before making a large corrective change.",
-    "Check root-zone moisture and drainage so osmotic stress is not confused with simple drought or hypoxia."
+    "Verify the reading with a calibrated meter and a medium-appropriate sampling method before changing fertilizer or irrigation.",
+    "Record moisture, pH, roots, solution composition, and the affected irrigation zone before corrective actions erase the exposure evidence."
   ],
   "correctivePlan": [
-    "Correct the documented salt source and root-zone chemistry gradually using a medium-appropriate plan rather than adding another nutrient by symptom color.",
-    "Trend EC and new growth after correction; old necrotic tissue will not recover."
+    "Correct the documented salt source, dosing fault, source-water problem, recirculation accumulation, or root-zone concentration with a crop- and medium-specific plan; this record does not prescribe a universal flush volume or target EC.",
+    "Trend input and root-zone EC, moisture, pH, new growth, and matched controls after correction; investigate coexisting root or environmental injury if recovery does not follow."
   ],
   "prevention": [
-    "Track input and root-zone EC over time.",
-    "Account for source-water salts, fertilizer formulation, irrigation frequency, and recirculation when setting a crop baseline."
+    "Trend calibrated input and root-zone EC with consistent sampling methods, units, temperature handling, crop stage, and irrigation-zone identity.",
+    "Account separately for source-water ions, fertilizer formulation, drainage, recirculation, evaporation, substrate, container size, cultivar, and crop stage when establishing baselines and alerts."
   ],
   "warnings": [
-    "The EC values used in published salinity experiments are experimental treatment levels, not universal Cannabis toxicity thresholds.",
-    "Do not diagnose “nutrient burn” from brown tips alone; elevated EC must be measured in context."
+    "EC is a conductivity measurement, not an ion identity: the same EC can be produced by NaCl or by different nutrient mixtures with different Cannabis responses.",
+    "The published 1.8 to 12 mS/cm, 1 to 40 mM NaCl, and 0.4 to 6 dS/m treatments are study-specific exposures, not universal safe, toxic, correction, or training-label thresholds.",
+    "Do not diagnose “nutrient burn” or salinity from brown tips, marginal necrosis, chlorosis, curl, wilt, dark foliage, or stunting alone; photo/video-only confidence is capped at 0.20.",
+    "Visible necrosis was restricted to the highest NaCl treatments in one Early Haze rockwool experiment, while other measured effects occurred without that sign; absence or presence of necrosis is not decisive.",
+    "The evidence spans one drug-type chemovar, Early Haze, and Felina 32 fiber hemp under distinct hydroponic, aquaponic, rockwool, mesocosm, nutrient, NaCl, and biostimulant conditions; cultivar and system transfer requires human review.",
+    "No licensed, plant-linked Cannabis salinity progression image or verified diagnostic video met the acquisition standard, so media remains an explicit gap and automated training eligibility remains false."
   ],
   "sources": [
     {
       "title": "Effect of saline irrigation and plant-based biostimulant application on fiber hemp (Cannabis sativa L.) growth and phytocannabinoid composition",
       "organization": "Frontiers in Plant Science",
       "url": "https://doi.org/10.3389/fpls.2024.1293184",
+      "authors": [
+        "Carmen Formisano",
+        "Nunzio Fiorentino",
+        "Ida Di Mola",
+        "Nunzia Iaccarino",
+        "Ernesto Gargiulo",
+        "Giuseppina Chianese"
+      ],
       "publisher": "Frontiers Media SA",
-      "publicationDate": "2024-03-26",
+      "publicationDate": "2024-03-15",
       "year": 2024,
-      "accessedDate": "2026-08-16",
+      "accessedDate": "2026-08-20",
       "doi": "10.3389/fpls.2024.1293184",
       "supportedClaims": [
-        "Fiber hemp exposed to NaCl irrigation at 2, 4, and 6 dS/m was compared with a tap-water control.",
-        "The 4 and 6 dS/m saline treatments significantly reduced biomass and were associated with altered leaf mineral profiles, showing that measured salinity can create broad growth and nutrient-balance effects.",
-        "The experimental EC values are treatment conditions, not universal Cannabis toxicity thresholds for every genotype, medium, fertilizer, or irrigation strategy."
+        "Felina 32 fiber hemp in an outdoor mesocosm was irrigated with NaCl solutions at 2, 4, and 6 dS/m and compared with a 0.4 dS/m tap-water control.",
+        "The 2, 4, and 6 dS/m irrigation treatments limited crop growth by 7%, 30%, and 48%, respectively; biomass effects followed measured salinity rather than a diagnostic leaf-color class.",
+        "The experiment documented altered sodium, chloride, phosphate, nitrate, potassium, and calcium assimilation in leaves, supporting broad mineral imbalance as a measured consequence rather than proof of a single-element deficiency.",
+        "Because the study used one fiber cultivar, NaCl-defined irrigation treatments, an outdoor mesocosm, and a biostimulant factor, its EC values are treatment conditions rather than universal Cannabis thresholds."
       ]
     },
     {
       "title": "Aquaponic and Hydroponic Solutions Modulate NaCl-Induced Stress in Drug-Type Cannabis sativa L.",
       "organization": "Frontiers in Plant Science",
       "url": "https://doi.org/10.3389/fpls.2020.01169",
+      "authors": [
+        "Brandon Yep",
+        "Nigel V. Gale",
+        "Youbin Zheng"
+      ],
       "publisher": "Frontiers Media SA",
-      "publicationDate": "2020-08-27",
+      "publicationDate": "2020-08-05",
       "year": 2020,
-      "accessedDate": "2026-08-16",
+      "accessedDate": "2026-08-20",
       "doi": "10.3389/fpls.2020.01169",
       "supportedClaims": [
-        "A controlled indoor flowering experiment tested increasing NaCl concentrations in hydroponic and aquaponic solutions and measured growth, gas exchange, water-use physiology, solution pH/EC, yield, and cannabinoids.",
-        "Response to salinity depends on production-system and treatment context, so image appearance alone cannot establish that elevated EC or sodium is the primary cause."
+        "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
+        "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
+        "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
+        "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
+      ]
+    },
+    {
+      "title": "Salinity effects on yield and nutrient uptake in Cannabis sativa L.",
+      "organization": "Acta Horticulturae",
+      "url": "https://doi.org/10.17660/ActaHortic.2023.1377.97",
+      "authors": [
+        "R. Baas",
+        "D. Wijnen"
+      ],
+      "publisher": "International Society for Horticultural Science",
+      "publicationDate": "2023",
+      "year": 2023,
+      "accessedDate": "2026-08-20",
+      "doi": "10.17660/ActaHortic.2023.1377.97",
+      "supportedClaims": [
+        "Early Haze Cannabis was grown hydroponically in rockwool at 1.8, 3, 6, 9, or 12 mS/cm, with EC raised either by increasing N, P, K, Ca, Mg, and S together or by adding NaCl to the 1.8 mS/cm nutrient solution.",
+        "Shoot and bud weight declined under both EC-raising pathways, but the response boundaries differed, demonstrating that equal EC does not identify the salt composition or a single causal ion.",
+        "Visible leaf necrosis occurred only in the 9 and 12 mS/cm NaCl treatments; absence of necrosis did not exclude yield effects, and necrosis at those extreme study treatments is not a universal field threshold.",
+        "Low leaf phosphorus in some low-EC treatments was associated with root-zone pH above 7.5, showing why pH and tissue chemistry must be checked rather than treating EC or leaf appearance as a single-nutrient diagnosis.",
+        "The trial used one cultivar, rockwool, hydroponic nutrient solutions, and deliberately constructed EC treatments; transfer to other cultivars, media, salt mixtures, and irrigation systems requires human review."
       ]
     }
   ],

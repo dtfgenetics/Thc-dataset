@@ -187,6 +187,25 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('publisher figures remain citations only and media stays empty')
   })
 
+  it('keeps salinity as a measured composition-aware diagnosis with an explicit media gap', () => {
+    const record = issues.find((issue) => issue.slug === 'salinity-high-ec-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record).toBeTruthy()
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources).toHaveLength(3)
+    expect(record?.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(record?.confirmation.length).toBeGreaterThanOrEqual(8)
+    expect(record?.media).toEqual([])
+    expect(confirmation).toContain('source-water analysis, sodium and chloride inputs')
+    expect(confirmation).toContain('solution, substrate-extract, and tissue analysis')
+    expect(warnings).toContain('same ec can be produced by nacl or by different nutrient mixtures')
+    expect(warnings).toContain('media remains an explicit gap')
+  })
+
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
     expect(record).toBeTruthy()

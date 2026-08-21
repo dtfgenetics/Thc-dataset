@@ -260,6 +260,40 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('keeps salinity labels chemistry-linked, composition-aware, and threshold-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'salinity-high-ec-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources).toHaveLength(3)
+    expect(record?.sources.some((source) => source.doi === '10.3389/fpls.2024.1293184')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3389/fpls.2020.01169')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.17660/ActaHortic.2023.1377.97')).toBe(true)
+    expect(confirmation).toContain('temperature compensation, units, date, and plant or irrigation-zone identity')
+    expect(confirmation).toContain('matched same-cultivar unaffected control')
+    expect(confirmation).toContain('do not infer ion composition from ec')
+    expect(confirmation).toContain('before exposure, during the ec rise, before correction, and during recovery')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, single-timepoint, unmatched, meter-unlinked, composition-unknown, generated, vendor, anecdotal, forum, unverified, and rights-unclear captures out')
+    expect(exclusions).toContain('overwatering and hypoxia')
+    expect(exclusions).toContain('root-zone ph')
+    expect(exclusions).toContain('root-ball geometry, substrate compaction, container temperature, and root restriction')
+    expect(warnings).toContain('ec is a conductivity measurement, not an ion identity')
+    expect(warnings).toContain('not universal safe, toxic, correction, or training-label thresholds')
+    expect(warnings).toContain('no licensed, plant-linked cannabis salinity progression image or verified diagnostic video')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Drought / water-deficit stress',
+      'Root-zone hypoxia / overwatering',
+      'Potassium deficiency',
+      'Nitrogen toxicity or excessive ammonium',
+      'Pythium or Fusarium root/crown disease',
+      'Normal late-flowering senescence',
+    ]))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'japanese-beetle-hemp')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
