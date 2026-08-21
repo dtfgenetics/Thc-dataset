@@ -226,6 +226,40 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('keeps drought labels measurement-linked, genotype-bounded, and threshold-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'drought-water-deficit-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources.some((source) => source.doi === '10.21273/HORTSCI13510-18')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1080/15427528.2021.1883175')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1016/j.indcrop.2022.115331')).toBe(true)
+    expect(confirmation).toContain('multiple center, perimeter, and depth positions')
+    expect(confirmation).toContain('same time of day and camera geometry')
+    expect(confirmation).toContain('matched same-cultivar irrigated plant')
+    expect(confirmation).toContain('air and leaf temperature, relative humidity, vpd, ppfd, and airflow')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, single-timepoint, unmatched, sensor-unlinked, generated, vendor, anecdotal, unverified, and rights-unclear captures out')
+    expect(exclusions).toContain('root-zone ec')
+    expect(exclusions).toContain('overwatering or hypoxia')
+    expect(exclusions).toContain('root binding, hydrophobic substrate, preferential flow, blocked emitters')
+    expect(warnings).toContain('must not be used as universal thresholds')
+    expect(warnings).toContain('does not recommend intentional drought stress')
+    expect(warnings).toContain('no licensed, plant-linked cannabis drought progression image or verified diagnostic video')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Normal cultivar-specific or circadian leaf posture',
+      'High-temperature or high-VPD midday depression',
+      'Salinity / elevated root-zone EC stress',
+      'Pythium root rot',
+      'Root binding / container-restriction stress',
+      'Camera angle, lens perspective, or time-of-day mismatch',
+    ]))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'japanese-beetle-hemp')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''

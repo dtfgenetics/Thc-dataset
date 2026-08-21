@@ -136,6 +136,31 @@
     ]
   },
   {
+    "sourceKey": "10.1016/j.indcrop.2022.115331",
+    "title": "Physiological and morphological responses of industrial hemp (Cannabis sativa L.) to water deficit",
+    "organization": "Industrial Crops and Products (Gill et al.)",
+    "url": "https://doi.org/10.1016/j.indcrop.2022.115331",
+    "authors": [
+      "Alison R. Gill",
+      "Beth R. Loveys",
+      "James M. Cowley",
+      "Tony Hall",
+      "Timothy R. Cavagnaro",
+      "Rachel A. Burton"
+    ],
+    "publisher": "Elsevier B.V.",
+    "publicationDate": "2022-11-01",
+    "year": 2022,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1016/j.indcrop.2022.115331",
+    "supportedClaims": [
+      "An 85-day greenhouse experiment on industrial hemp cultivar Black Label compared moderate and extreme water deficit with a control and measured morphological, physiological, and biochemical responses.",
+      "Water deficit reduced total biomass and total seed yield, reduced stomatal opening and transpiration, increased water-use efficiency and proline accumulation, and still allowed plants to survive and produce filled seed under the tested conditions.",
+      "These single-cultivar endpoint responses support drought as a growth and yield stress but do not validate a universal visible severity scale, mortality expectation, or cannabinoid-production response for other Cannabis genotypes and stages.",
+      "The article is marked in copyright by its institutional repository; no image, figure, or video is indexed or copied as reusable media."
+    ]
+  },
+  {
     "sourceKey": "10.1038/s41598-021-96311-w",
     "title": "Dioecious hemp (Cannabis sativa L.) plants do not express significant sexually dimorphic morphology in the seedling stage",
     "organization": "Scientific Reports",
@@ -237,6 +262,30 @@
       "Under the study conditions, infected flowering plants showed genotype-dependent reductions of 12–42% in inflorescence stem length, fresh weight, and plant height compared with noninfected plants, and diseased inflorescences had lower THC and terpene levels.",
       "Glandular trichomes on affected plants had shorter stalks and smaller heads and appeared shrivelled after inflorescences were dried; these group-level measurements do not make sparse trichomes or reduced resin a visually specific HLVd sign.",
       "The article is CC BY 4.0, but its stage, genotype, and tissue comparisons must remain source-grouped and laboratory-bounded if individual figures are later evaluated for training."
+    ]
+  },
+  {
+    "sourceKey": "10.1080/15427528.2021.1883175",
+    "title": "Physiological screening for drought-tolerance traits among hemp (Cannabis sativa L.) cultivars in controlled environments and in field",
+    "organization": "Journal of Crop Improvement (Sheldon et al.)",
+    "url": "https://doi.org/10.1080/15427528.2021.1883175",
+    "authors": [
+      "Kendall Sheldon",
+      "Avat Shekoofa",
+      "Eric Walker",
+      "Heather Kelly"
+    ],
+    "publisher": "Taylor & Francis Group",
+    "publicationDate": "2021-02-08",
+    "year": 2021,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1080/15427528.2021.1883175",
+    "supportedClaims": [
+      "Progressive soil-drying trials found substantial cultivar differences in the fraction-of-transpirable-soil-water point at which hemp transpiration declined; five of thirteen cultivars closed stomata comparatively early.",
+      "A separate high-VPD screen found cultivar-specific limited-transpiration responses, with fitted VPD breakpoints ranging from 1.2 to 2.6 kPa among four responsive cultivars.",
+      "In a rainfed field comparison of six cultivars, wilting scores and relative water content differed among cultivars; Ha3ze, Carolina, and topped T1 had the lowest wilting scores during the reported midday observation period.",
+      "Wilting posture therefore depends on genotype, soil drying, atmospheric demand, observation time, and acclimation; the study does not establish one image-only drought threshold for Cannabis.",
+      "The publisher PDF and its plots do not provide verified reusable item-level media rights for this dataset, so no figure or frame is indexed as training or display media."
     ]
   },
   {
@@ -996,6 +1045,29 @@
       "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
       "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
       "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+    ]
+  },
+  {
+    "sourceKey": "10.21273/HORTSCI13510-18",
+    "title": "Increasing Inflorescence Dry Weight and Cannabinoid Content in Medical Cannabis Using Controlled Drought Stress",
+    "organization": "HortScience (Caplan, Dixon, and Zheng)",
+    "url": "https://doi.org/10.21273/HORTSCI13510-18",
+    "authors": [
+      "Deron Caplan",
+      "Mike Dixon",
+      "Youbin Zheng"
+    ],
+    "publisher": "American Society for Horticultural Science",
+    "publicationDate": "2019-05-01",
+    "year": 2019,
+    "accessedDate": "2026-08-20",
+    "doi": "10.21273/HORTSCI13510-18",
+    "supportedClaims": [
+      "In one controlled container-grown drug-type Cannabis experiment, fertigation was withheld during flowering week 7 until midday plant water potential reached approximately -1.5 MPa after 11 days; substrate volumetric moisture, plant water potential, photosynthesis, and leaf angle were measured against irrigated controls.",
+      "At the treatment endpoint, plants were visibly wilted and the measured indicator-leaf angle was approximately 52% greater than its initial angle; veinal chlorosis had appeared after about nine days, first on older leaves and to a lesser extent on newly formed leaves across the plant.",
+      "The day after re-fertigation, mean midday plant water potential recovered to the control level while net photosynthesis had only partially recovered, showing that response variables and recovery timing need not move together.",
+      "The timing, -1.5 MPa endpoint, leaf-angle change, chlorosis, and cannabinoid results come from one chemovar and one controlled flowering protocol; none is a universal Cannabis drought threshold, visual signature, or production recommendation.",
+      "The article figures are publisher-hosted copyrighted scientific content without a verified item-level reusable asset license, so they are citation evidence only and are not indexed as dataset media."
     ]
   },
   {

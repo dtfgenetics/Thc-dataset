@@ -168,6 +168,25 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('media remains an explicit gap')
   })
 
+  it('keeps drought as a measured temporal diagnosis with an explicit media gap', () => {
+    const record = issues.find((issue) => issue.slug === 'drought-water-deficit-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record).toBeTruthy()
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.indicators.length).toBeGreaterThanOrEqual(7)
+    expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(record?.media).toEqual([])
+    expect(confirmation).toContain('before deficit, during the suspected event, immediately before rehydration, and after rehydration')
+    expect(confirmation).toContain('root-zone ec and ph')
+    expect(warnings).toContain('drought remains an exposure-linked diagnosis')
+    expect(warnings).toContain('publisher figures remain citations only and media stays empty')
+  })
+
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
     expect(record).toBeTruthy()

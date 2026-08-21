@@ -625,7 +625,7 @@
       "category": "Water / root-zone",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 5,
       "mediaCount": 0,
       "path": "data/profiles/stress-drought-water-deficit.json"
     },
