@@ -22,6 +22,55 @@ const hempPestsMissouri = source({
   ],
 })
 
+const spottedCucumberBeetleProfile = source({
+  title: 'Spotted cucumber beetle/southern corn rootworm: profile of a polyphagous native pest',
+  organization: 'Journal of Integrated Pest Management',
+  url: 'https://doi.org/10.1093/jipm/pmad016',
+  authors: ['Ariela I. Haber', 'Kyle Bekelja', 'Anders S. Huseth', 'G. David Buntin', 'Fred Musser', 'Jasmin P. Ramirez Bonilla', 'Sally V. Taylor', 'Daniel Wilczek', 'Ian M. Grettenberger', 'Donald C. Weber'],
+  publisher: 'Oxford University Press for the Entomological Society of America',
+  publicationDate: '2023-09-04',
+  year: 2023,
+  accessedDate: '2026-08-21',
+  doi: '10.1093/jipm/pmad016',
+  supportedClaims: [
+    'Adults are 5.2 to 7.5 mm long, yellow to yellowish green, with a black head, dark antennae longer than half the body, and 12 black elytral spots; eastern and western subspecies differ in leg and abdominal coloration.',
+    'Larvae are soil-dwelling, yellowish-white and wormlike with brown legs and dark head, thoracic, and anal plates, but their economically important root feeding is documented on non-Cannabis crops rather than hemp.',
+    'The species feeds on more than 200 plant species and can occur on hemp, but damage on many hosts is cosmetic or inconsequential and action thresholds are not well developed.',
+    'Adults are mobile and populations can increase into late summer, but geography, subspecies, climate, host, and crop context prevent a universal Cannabis timing or severity rule.',
+    'General species biology and non-Cannabis injury examples are identification and transfer context only; they do not prove that a photographed hemp root, leaf, or flower was injured by this beetle.',
+  ],
+})
+
+const spottedCucumberBeetlePnw = source({
+  title: 'Hemp-Cucumber beetle',
+  organization: 'Pacific Northwest Pest Management Handbooks',
+  url: 'https://pnwhandbooks.org/insect/agronomic/hemp/hemp-cucumber-beetle',
+  authors: ['Govinda Shrestha'],
+  publisher: 'Oregon State University, Washington State University, and University of Idaho Extension',
+  accessedDate: '2026-08-21',
+  supportedClaims: [
+    'The Pacific Northwest hemp guide describes the western spotted cucumber beetle as yellowish green, approximately 0.25 inch long, and bearing 11 black spots on the wing covers.',
+    'Adults eat small holes in leaves and flowers and are commonly found feeding on hemp.',
+    'Damage to mature hemp is usually minor, and the regional guide states that scouting thresholds are unnecessary because it treats the beetle as a minor hemp pest.',
+    'This western regional description and management conclusion must not be generalized to other subspecies, seedling stages, climates, or production systems.',
+  ],
+})
+
+const spottedCucumberBeetleUtah = source({
+  title: 'Spotted Cucumber Beetle',
+  organization: 'Utah State University Extension Integrated Pest Management',
+  url: 'https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle',
+  authors: ['Utah State University Extension Integrated Pest Management Program'],
+  publisher: 'Utah State University Extension',
+  accessedDate: '2026-08-21',
+  supportedClaims: [
+    'Utah hemp guidance describes adults as ovoid yellow-green beetles with a black head, legs, antennae, and 12 black wing spots; listed look-alikes include western and northern corn rootworms and other yellow-and-black chrysomelids.',
+    'On hemp, the damaging life stage is the adult, which chews irregular holes in leaves; damage is characterized as minor and adults can also be scouted on stems and flowers.',
+    'The guide explicitly states that soil larvae are not known to feed on hemp roots, conflicting with a Missouri Extension statement that larvae can feed on hemp root hairs and tips.',
+    'The reported Utah seasonality, low threat rating, and numeric treatment trigger are regional guidance rather than validated universal Cannabis thresholds.',
+  ],
+})
+
 const cannabisCabbageLooperBioassay = source({
   title: 'Cannabinoids function in defense against chewing herbivores in Cannabis sativa L.',
   organization: 'Horticulture Research (Stack et al.)',
@@ -85,6 +134,7 @@ const hempPestSystems2019 = source({
   accessedDate: '2026-08-20',
   doi: '10.1093/jipm/pmz023',
   supportedClaims: [
+    'The southern corn rootworm or spotted cucumber beetle, Diabrotica undecimpunctata howardi, was frequently observed on hemp east of the Rockies; adults fed on leaves but appeared to prefer flowers.',
     'Lygus species were among the insects most commonly encountered on hemp, at least tarnished plant bug and pale legume bug bred on the crop, and Lygus lineolaris occurred from emergence to harvest in Virginia observations.',
     'The 2019 hemp synthesis reported that no visible leaf injury by Lygus species had yet been observed, while seed-feeding injury potential remained unclear.',
     'Lygus numbers could be higher after flowering, but flower-bud abscission, seed abortion, and seed deformity were effects known from other crops and hemp data were then absent to establish significance for seed production or quality.',
@@ -236,15 +286,60 @@ const whiteRootRot = source({
 
 export const expandedIssuesBatch3: IssueRecord[] = [
   {
-    id: 'insect-spotted-cucumber-beetle', slug: 'spotted-cucumber-beetle', name: 'Spotted cucumber beetle feeding injury', scientificName: 'Diabrotica undecimpunctata', category: 'Insect', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.55,
-    summary: 'A documented industrial-hemp chewing pest. Adult beetles can damage foliage and floral tissue while larvae can injure root hairs and root tips; organism evidence is needed because ragged holes and weak roots are not species-specific.',
-    affectedParts: ['leaves', 'leaf margins', 'flowers', 'pollen-bearing tissue', 'root hairs', 'root tips'], stages: ['vegetative', 'early flower', 'field production'],
-    indicators: ['Yellow-green adult beetles with twelve dark spots are present on hemp', 'Leaves or floral tissue show fresh holes and ragged chewing edges while adults are feeding', 'Root injury or weak anchorage occurs together with compatible rootworm larvae in the root zone'],
-    exclusions: ['No compatible beetles or larvae are found and another chewing pest is present', 'Damage consists mainly of stippling, silvering, mining, or sap-feeding distortion rather than chewing', 'Root decline occurs without root-feeding larvae and a pathogen or irrigation disorder is better supported'],
-    progression: [{stage:'Adult feeding',description:'Adults chew foliage and reproductive tissue, leaving holes and ragged margins.'},{stage:'Root-larval injury',description:'Where larvae are present, root-hair and root-tip feeding can reduce anchorage and contribute to stunting.'}],
-    lookAlikes: ['Japanese beetle', 'Armyworm / caterpillar feeding', 'Cabbage looper', 'Mechanical tearing', 'Root disease'],
-    confirmation: ['Photograph or collect the beetle/larva with the damaged tissue; identify the organism rather than assigning species from holes alone.', 'Inspect roots only when root symptoms or lodging are present.'],
-    immediateActions: ['Scout nearby plants for adults and fresh feeding damage.', 'Document root-zone larvae separately from above-ground beetles.'], correctivePlan: ['Use an IPM response appropriate to confirmed pest pressure, crop stage, and locally legal hemp options.'], prevention: ['Scout field margins and foliage during vegetative to early flowering growth.', 'Reduce weed or alternate-host reservoirs where agronomically appropriate.'], warnings: ['Chewing holes are not diagnostic of spotted cucumber beetle.', 'Root damage can coexist with root pathogens; finding beetle larvae does not exclude disease.'], sources: [hempPestsMissouri], media: [],
+    id: 'insect-spotted-cucumber-beetle',
+    slug: 'spotted-cucumber-beetle',
+    name: 'Spotted cucumber beetle feeding injury',
+    scientificName: 'Diabrotica undecimpunctata species and subspecies complex',
+    category: 'Insect',
+    severity: 'moderate',
+    reviewStatus: 'reviewed',
+    photoOnlyMaxConfidence: 0.35,
+    summary: 'A documented adult chewing pest of field hemp. Adults can make irregular holes in leaves and flowers and may prefer floral tissue, but damage is usually reported as minor. Authoritative hemp sources conflict on larval root feeding, so roots and soil larvae are excluded from confirmed Cannabis injury unless future plant-linked evidence resolves the conflict.',
+    affectedParts: ['leaf blades and margins', 'stems as adult scouting surfaces', 'flowers and pollen-bearing tissue', 'whole-plant and field distribution', 'soil and roots only as a disputed differential, not confirmed hemp injury'],
+    stages: ['small field plants', 'vegetative field growth', 'flowering field growth', 'adult arrival and active feeding', 'post-feeding follow-up', 'expert organism identification'],
+    indicators: [
+      'A compatible adult is photographed or collected on the same hemp plant and date as fresh chewing injury; an organism from an unrelated trap, crop, weed, or date is occurrence evidence only.',
+      'The general species profile describes adults as 5.2 to 7.5 mm long, yellow to yellowish green, with a black head, long dark antennae, and black elytral spots.',
+      'Eastern and western subspecies differ in leg and abdominal coloration, and institutional sources describe 11 or 12 wing spots; spot count alone is not a safe subspecies or species label.',
+      'Hemp leaf injury consists of small or irregular holes and ragged chewing margins while an adult is actively feeding; hole morphology without the beetle is nonspecific.',
+      'Adults can occupy and feed on hemp flowers, and the 2019 hemp synthesis reported an apparent flower preference, but one beetle on a flower does not establish reproductive loss.',
+      'A useful capture set includes the whole plant, upper/middle/lower canopy, intact damaged organ, dorsal and lateral adult macros, metric scale, and a short video linking the insect to active feeding.',
+      'Repeat observations distinguish fresh expanding injury from old static holes, weather damage, or an incidental beetle resting after damage occurred.',
+      'Pacific Northwest and Utah guidance characterize mature-hemp or field injury as minor; severity must be measured locally rather than inferred from non-Cannabis crops.',
+    ],
+    exclusions: [
+      'No beetle is linked to fresh injury and another caterpillar, beetle, slug, snail, grasshopper, or earwig is present with compatible feeding signs.',
+      'The adult is metallic green with copper-brown wing covers and abdominal white hair patches, supporting Japanese beetle rather than spotted cucumber beetle.',
+      'The yellow-and-black adult has striping, different spot geometry, or morphology consistent with striped cucumber beetle, western corn rootworm, northern corn rootworm, or another chrysomelid.',
+      'Silk, frass, caterpillar body or proleg evidence, or edge-to-interior skeletonization supports caterpillar feeding.',
+      'Damage consists mainly of stippling, silvering, mines, galls, rasping scars, honeydew, sooty mold, or sap-feeding distortion rather than fresh chewing holes.',
+      'Torn tissue follows hail, wind, training, handling, equipment, or contact points and lacks missing tissue associated with an observed feeding event.',
+      'Root decline, weak anchorage, wilt, or stunting occurs without direct Cannabis-specific larval feeding evidence; inspect drought, hypoxia, compaction, root binding, nematodes, and pathogens instead.',
+      'An adult is present but serial images show no new injury, or injury continues after the beetle is absent and another causal pathway is better supported.',
+    ],
+    progression: [
+      {stage: 'Baseline', description: 'Record cultivar, plant stage, field position, canopy level, nearby hosts, recent weather and injury-free comparison plants before assigning a beetle label.'},
+      {stage: 'Adult arrival', description: 'Capture dorsal, lateral, head, antenna, leg, abdomen, and elytral views with a scale; record whether the beetle is feeding, resting, or flying away.'},
+      {stage: 'Fresh feeding', description: 'Video the adult contacting the exact leaf or flower and photograph the intact organ before and after feeding so new missing tissue remains plant-linked.'},
+      {stage: 'Follow-up', description: 'Reinspect tagged plants and matched controls to quantify new holes, affected organs, beetle counts, and whether injury remains minor or progresses.'},
+      {stage: 'Identification resolution', description: 'Retain the adult or diagnostic images for expert or validated-key identification; keep root-larval and subspecies conclusions separate from adult hemp feeding.'},
+    ],
+    lookAlikes: ['Japanese beetle', 'Striped cucumber beetle', 'Western corn rootworm adult', 'Northern corn rootworm adult', 'Other spotted or striped leaf beetle', 'Armyworm or fall armyworm', 'Cabbage looper', 'Grasshopper or katydid feeding', 'Slug, snail, or earwig feeding', 'Hail, wind, handling, equipment, or training tear', 'Leaf-spot center loss or shot hole', 'Root disease, root-zone stress, or nematode injury'],
+    confirmation: [
+      'Record a linked evidence sequence: whole plant and row, affected organ, both leaf surfaces when applicable, dorsal and lateral adult macros, metric scale, and video of the insect on the exact injury site.',
+      'Sample multiple affected and unaffected plants across field edge and interior on at least two dates; record adults, fresh holes, flowers, crop stage, and neighboring hosts separately.',
+      'Identify a collected adult or complete diagnostic image set with an entomologist or validated regional key; do not assign species or subspecies from yellow-green color or spot count alone.',
+      'Require active feeding or temporally linked new injury on the same hemp plant for a Cannabis injury label; an organism-only image supports morphology, not Cannabis causation.',
+      'Treat soil larvae and root symptoms as unresolved because Utah guidance says larvae are not known to feed on hemp roots while Missouri Extension states they can; require future Cannabis-specific plant linkage before confirming root injury.',
+      'Do not transfer bacterial-wilt vector status, root-feeding injury, thresholds, severity, or yield effects from cucurbits, corn, peanut, beans, or sweet potato to Cannabis.',
+      'Keep damage-only, organism-only, trap-only, root-only, larva-only, incomplete-morphology, low-resolution, generated, vendor, anecdotal, forum, and unverified samples out of confirmed ground truth and route them to human review.',
+    ],
+    immediateActions: ['Preserve linked organism and plant-injury evidence before removing beetles or damaged tissue.', 'Scout nearby hemp plants, field edges, flowers, leaves, and alternate hosts with a repeatable method while recording adults and fresh injury separately.', 'Avoid species-specific treatment or root-injury claims until the organism, plant linkage, severity, crop stage, and local legal options are established.'],
+    correctivePlan: ['Use an integrated pest-management response only when locally confirmed adult pressure and measured Cannabis injury justify action; follow current hemp labels and local regulations.', 'Do not transfer numeric triggers from Utah or non-Cannabis crops as universal thresholds, and account for flowering-stage pollinators and beneficial insects before intervention.', 'Reinspect tagged plants after any response and evaluate new injury rather than expecting old holes to repair.'],
+    prevention: ['Maintain consistent field-edge and interior scouting records from small-plant through flowering stages.', 'Track nearby cucurbits, corn, legumes, grasses, weeds, crop harvest, and adult movement without treating proximity as proof of source.', 'Retain paired healthy and affected plant sequences plus identified adult vouchers so future review can separate occurrence, feeding, and consequential injury.'],
+    warnings: ['Chewing holes and a yellow-green spotted beetle are not individually diagnostic of Diabrotica undecimpunctata.', 'Hemp sources conflict on root feeding: Missouri Extension lists larval root-hair and root-tip feeding, while Utah State says larvae are not known to feed on hemp roots; root injury remains unconfirmed and requires human review.', 'Pacific Northwest and Utah minor-pest conclusions, seasonality, morphology descriptions, and numeric guidance are regional and must not become universal Cannabis thresholds.', 'The peer-reviewed species profile is primarily cross-crop biology; its larval injury, disease-vector, timing, and management claims do not establish Cannabis ground truth.', 'The CC BY-SA 4.0 adult image is organism-only, non-Cannabis, visually identified media and requires scientific review; it is excluded from Cannabis condition training.', 'No licensed, plant-linked hemp feeding progression or verified diagnostic video was found for this batch.'],
+    sources: [hempPestsMissouri, hempPestSystems2019, spottedCucumberBeetleProfile, spottedCucumberBeetlePnw, spottedCucumberBeetleUtah],
+    media: [],
   },
   {
     id: 'insect-tarnished-plant-bug',

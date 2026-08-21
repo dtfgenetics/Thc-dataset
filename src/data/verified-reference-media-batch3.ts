@@ -1,6 +1,40 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'spotted-cucumber-beetle': [
+    {
+      id: 'media-spotted-cucumber-beetle-rhododendrites-72669-ccbysa4',
+      url: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Spotted_cucumber_beetle_%2872669%29.jpg',
+      alt: 'Close-up dorsal-oblique photograph of a yellow-green spotted cucumber beetle with a black head, dark antennae, and black spots on its wing covers on non-Cannabis vegetation.',
+      caption: 'Organism-only morphology reference photographed in Tennessee. The beetle is not on Cannabis, is not linked to plant injury, and has not been admitted as species-confirmed training ground truth.',
+      creator: 'Rhododendrites',
+      license: 'CC BY-SA 4.0',
+      sourceUrl: 'https://commons.wikimedia.org/wiki/File:Spotted_cucumber_beetle_(72669).jpg',
+      mediaType: 'image',
+      requiredAttribution: 'Rhododendrites, “Spotted cucumber beetle (72669),” Wikimedia Commons, CC BY-SA 4.0. Link the license, indicate modifications, and distribute adaptations under the same or a compatible license.',
+      diagnosticLabel: 'spotted-cucumber-beetle — visually identified adult morphology on non-Cannabis vegetation, organism-only scientific-review reference',
+      hostSpecies: 'Non-Cannabis vegetation; visually identified Diabrotica undecimpunctata adult',
+      hostContext: 'organism-only',
+      useLimitations: [
+        'Organism-only non-Cannabis reference; it does not document Cannabis host use, active feeding, injury, crop stage, canopy location, field distribution, progression, severity, or yield effect.',
+        'The Commons identification and quality-image assessment do not substitute for a retained specimen or expert/key-based species and subspecies determination in a new observation.',
+        'The dorsal-oblique view does not fully resolve ventral abdomen and leg characters and must not be used to separate eastern and western subspecies or similar chrysomelids by spot count alone.',
+        'Keep this media outside Cannabis condition training and evaluation splits; a plant-linked feeding sequence and scientific label review remain required.',
+      ],
+      displayPermission: 'permitted',
+      reviewStatus: 'scientific-review',
+      trainingPermission: 'permitted',
+      sha256: 'f8d038c6885ef1d26b7170ab16f1705a41bda7156051547db63918209d949f6b',
+      perceptualHash: 'dhash64:3333c86868e0695c',
+      width: 3302,
+      height: 2330,
+      view: 'close-up',
+      stage: 'adult',
+      severity: 'not applicable',
+      confirmation: 'visual',
+      trainingEligible: false,
+    },
+  ],
   'cabbage-looper-hemp': [
     {
       id: 'media-cabbage-looper-larva-bugwood-1327034-ccby3us',

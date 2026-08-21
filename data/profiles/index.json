@@ -240,8 +240,8 @@
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 1,
       "path": "data/profiles/insect-spotted-cucumber-beetle.json"
     },
     {

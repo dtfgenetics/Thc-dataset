@@ -46,6 +46,16 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
     ])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'spotted-cucumber-beetle') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('organism-only')
+        expect(issue.media[0].license).toBe('CC BY-SA 4.0')
+        expect(issue.media[0].reviewStatus).toBe('scientific-review')
+        expect(issue.media[0].trainingPermission).toBe('permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       if (issue.slug === 'cabbage-looper-hemp') {
         expect(issue.media).toHaveLength(1)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
@@ -139,6 +149,35 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(isDisplayableMedia(media)).toBe(true)
       }
     }
+  })
+
+  it('keeps spotted cucumber beetle labels adult-linked, root-conflicted, and media-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'spotted-cucumber-beetle')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.35)
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmz023')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad016')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/agronomic/hemp/hemp-cucumber-beetle'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle'))).toBe(true)
+    expect(confirmation).toContain('do not assign species or subspecies from yellow-green color or spot count alone')
+    expect(confirmation).toContain('require active feeding or temporally linked new injury on the same hemp plant')
+    expect(confirmation).toContain('utah guidance says larvae are not known to feed on hemp roots while missouri extension states they can')
+    expect(confirmation).toContain('do not transfer bacterial-wilt vector status, root-feeding injury, thresholds, severity, or yield effects')
+    expect(confirmation).toContain('keep damage-only, organism-only, trap-only, root-only, larva-only, incomplete-morphology, low-resolution, generated, vendor, anecdotal, forum, and unverified samples out')
+    expect(warnings).toContain('hemp sources conflict on root feeding')
+    expect(warnings).toContain('no licensed, plant-linked hemp feeding progression or verified diagnostic video')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Japanese beetle', 'Striped cucumber beetle', 'Western corn rootworm adult', 'Northern corn rootworm adult', 'Armyworm or fall armyworm', 'Hail, wind, handling, equipment, or training tear']))
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].sourceUrl).toBe('https://commons.wikimedia.org/wiki/File:Spotted_cucumber_beetle_(72669).jpg')
+    expect(record?.media[0].sha256).toBe('f8d038c6885ef1d26b7170ab16f1705a41bda7156051547db63918209d949f6b')
+    expect(record?.media[0].perceptualHash).toBe('dhash64:3333c86868e0695c')
+    expect(record?.media[0].confirmation).toBe('visual')
+    expect(record?.media[0].reviewStatus).toBe('scientific-review')
+    expect(record?.media[0].trainingEligible).toBe(false)
   })
 
   it('keeps tarnished plant bug labels organism-linked, source-conflicted, and threshold-free', () => {

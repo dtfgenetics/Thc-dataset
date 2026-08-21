@@ -399,6 +399,36 @@
     ]
   },
   {
+    "sourceKey": "10.1093/jipm/pmad016",
+    "title": "Spotted cucumber beetle/southern corn rootworm: profile of a polyphagous native pest",
+    "organization": "Journal of Integrated Pest Management",
+    "url": "https://doi.org/10.1093/jipm/pmad016",
+    "authors": [
+      "Ariela I. Haber",
+      "Kyle Bekelja",
+      "Anders S. Huseth",
+      "G. David Buntin",
+      "Fred Musser",
+      "Jasmin P. Ramirez Bonilla",
+      "Sally V. Taylor",
+      "Daniel Wilczek",
+      "Ian M. Grettenberger",
+      "Donald C. Weber"
+    ],
+    "publisher": "Oxford University Press for the Entomological Society of America",
+    "publicationDate": "2023-09-04",
+    "year": 2023,
+    "accessedDate": "2026-08-21",
+    "doi": "10.1093/jipm/pmad016",
+    "supportedClaims": [
+      "Adults are 5.2 to 7.5 mm long, yellow to yellowish green, with a black head, dark antennae longer than half the body, and 12 black elytral spots; eastern and western subspecies differ in leg and abdominal coloration.",
+      "Larvae are soil-dwelling, yellowish-white and wormlike with brown legs and dark head, thoracic, and anal plates, but their economically important root feeding is documented on non-Cannabis crops rather than hemp.",
+      "The species feeds on more than 200 plant species and can occur on hemp, but damage on many hosts is cosmetic or inconsequential and action thresholds are not well developed.",
+      "Adults are mobile and populations can increase into late summer, but geography, subspecies, climate, host, and crop context prevent a universal Cannabis timing or severity rule.",
+      "General species biology and non-Cannabis injury examples are identification and transfer context only; they do not prove that a photographed hemp root, leaf, or flower was injured by this beetle."
+    ]
+  },
+  {
     "sourceKey": "10.1093/jipm/pmag032",
     "title": "Profile of the Dectes stem borer (Coleoptera: Cerambycidae) in sunflower and soybean",
     "organization": "Journal of Integrated Pest Management (Varenhorst et al.)",
@@ -453,6 +483,7 @@
     "accessedDate": "2026-08-20",
     "doi": "10.1093/jipm/pmz023",
     "supportedClaims": [
+      "The southern corn rootworm or spotted cucumber beetle, Diabrotica undecimpunctata howardi, was frequently observed on hemp east of the Rockies; adults fed on leaves but appeared to prefer flowers.",
       "Lygus species were among the insects most commonly encountered on hemp, at least tarnished plant bug and pale legume bug bred on the crop, and Lygus lineolaris occurred from emergence to harvest in Virginia observations.",
       "The 2019 hemp synthesis reported that no visible leaf injury by Lygus species had yet been observed, while seed-feeding injury potential remained unclear.",
       "Lygus numbers could be higher after flowering, but flower-bud abscission, seed abortion, and seed deformity were effects known from other crops and hemp data were then absent to establish significance for seed production or quality.",
@@ -2302,6 +2333,23 @@
     "authors": []
   },
   {
+    "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle",
+    "title": "Spotted Cucumber Beetle",
+    "organization": "Utah State University Extension Integrated Pest Management",
+    "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle",
+    "authors": [
+      "Utah State University Extension Integrated Pest Management Program"
+    ],
+    "publisher": "Utah State University Extension",
+    "accessedDate": "2026-08-21",
+    "supportedClaims": [
+      "Utah hemp guidance describes adults as ovoid yellow-green beetles with a black head, legs, antennae, and 12 black wing spots; listed look-alikes include western and northern corn rootworms and other yellow-and-black chrysomelids.",
+      "On hemp, the damaging life stage is the adult, which chews irregular holes in leaves; damage is characterized as minor and adults can also be scouted on stems and flowers.",
+      "The guide explicitly states that soil larvae are not known to feed on hemp roots, conflicting with a Missouri Extension statement that larvae can feed on hemp root hairs and tips.",
+      "The reported Utah seasonality, low threat rating, and numeric treatment trigger are regional guidance rather than validated universal Cannabis thresholds."
+    ]
+  },
+  {
     "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-thrips",
     "title": "Thrips",
     "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
@@ -2403,6 +2451,23 @@
       "NC State Extension states that hemp leaf spots can look similar and accurate diagnosis is important; its industrial-hemp bacterial leaf spot/blight reference is characterized only as angular lesions and is not presented as species-confirmed Serratia ground truth.",
       "The same institutional differential describes Exserohilum lesions as small, round spots with dark-brown margins and gray-brown centers that may develop pepper-like spores as they age, helping separate a fungal leaf-spot pattern from vein-limited bacterial-compatible injury.",
       "The page identifies bacterial, Fusarium, and Septoria leaf spots as visual alternatives to Exserohilum, supporting a multi-pathogen differential rather than an image-only bacterial species label."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-cucumber-beetle",
+    "title": "Hemp-Cucumber beetle",
+    "organization": "Pacific Northwest Pest Management Handbooks",
+    "url": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-cucumber-beetle",
+    "authors": [
+      "Govinda Shrestha"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+    "accessedDate": "2026-08-21",
+    "supportedClaims": [
+      "The Pacific Northwest hemp guide describes the western spotted cucumber beetle as yellowish green, approximately 0.25 inch long, and bearing 11 black spots on the wing covers.",
+      "Adults eat small holes in leaves and flowers and are commonly found feeding on hemp.",
+      "Damage to mature hemp is usually minor, and the regional guide states that scouting thresholds are unnecessary because it treats the beetle as a minor hemp pest.",
+      "This western regional description and management conclusion must not be generalized to other subspecies, seedling stages, climates, or production systems."
     ]
   },
   {
