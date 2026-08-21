@@ -88,15 +88,31 @@
       "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+      "authors": [
+        "Misbakhul Munir",
+        "Henry Smith",
+        "Tara Valentine",
+        "Kim Leonberger",
+        "Desiree Szarka",
+        "Ed Dixon",
+        "Noah Anthony",
+        "Magdalena Ricciardi",
+        "Toni Adedokun",
+        "Tom Keene",
+        "Robert Pearce",
+        "Nicole Gauthier"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2024-05-18",
       "year": 2024,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-21",
       "doi": "10.1094/PDIS-11-23-2483-RE",
       "supportedClaims": [
-        "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
-        "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
-        "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
+        "Two Kentucky field experiments in 2020 and 2021 evaluated Bipolaris, Cercospora, and Septoria leaf spots across four essential-oil hemp cultivar groups.",
+        "In those experiments Bipolaris was first observed seven to eight weeks after planting and increased through the end of the season; this is a study observation, not a universal onset rule.",
+        "All three evaluated leaf spots were more severe in the middle canopy than the upper canopy, and susceptibility differed among cultivar groups; neither pattern is a universal diagnostic threshold.",
+        "Reported yield associations concerned the combined leaf-spot disease complex under the tested cultivars, sites, and seasons and must not be attributed to Bipolaris alone.",
+        "Overlapping leaf-spot syndromes mean paired canopy observations, temporal follow-up, fungal morphology, culture, and molecular diagnostics are more reliable than one lesion photograph."
       ]
     }
   ],

@@ -75,7 +75,7 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 3,
       "mediaCount": 0,
       "path": "data/profiles/fungal-bipolaris-leaf-spot.json"
     },

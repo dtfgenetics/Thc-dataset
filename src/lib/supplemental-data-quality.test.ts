@@ -401,6 +401,29 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'bipolaris-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.sources).toHaveLength(3)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining([
+      '10.1094/PHP-01-20-0004-BR',
+      '10.1094/PDIS-11-23-2483-RE',
+      '10.1080/00275514.2023.2224699',
+    ]))
+    expect(confirmation).toContain('use lesion-linked fungal morphology and validated molecular evidence')
+    expect(confirmation).toContain('require validated multilocus evidence')
+    expect(confirmation).toContain('symptom reproduction, recovery of the same organism, and symptomless appropriate controls')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, its-only, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and unverified samples out')
+    expect(warnings).toContain('study-specific observations, not universal bipolaris timing, distribution, susceptibility, yield, or action thresholds')
+    expect(warnings).toContain('no image or video was indexed')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Septoria leaf spot complex', 'Cercospora leaf spot', 'Pseudocercospora olive leaf spot', 'Alternaria leaf spot', 'Anthracnose leaf spot', 'Bacterial leaf spot', 'Caterpillar, beetle, slug, or snail feeding', 'Hail, wind, handling, or training tear']))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps promoted supplemental media hashes unique', () => {
     const media = supplementalIssues.flatMap((issue) => issue.media)
     expect(new Set(media.map((item) => item.id)).size).toBe(media.length)

@@ -205,6 +205,29 @@
     ]
   },
   {
+    "sourceKey": "10.1080/00275514.2023.2224699",
+    "title": "Seeing double on Cannabis: Haploids and heteroploids of Bipolaris gigantea on hemp and other dicots",
+    "organization": "Mycologia",
+    "url": "https://doi.org/10.1080/00275514.2023.2224699",
+    "authors": [
+      "Desiree Szarka",
+      "Nicole A. Gauthier",
+      "Mostafa Rahnama",
+      "Christopher L. Schardl"
+    ],
+    "publisher": "Taylor & Francis on behalf of the Mycological Society of America",
+    "publicationDate": "2023-07-18",
+    "year": 2023,
+    "accessedDate": "2026-08-21",
+    "doi": "10.1080/00275514.2023.2224699",
+    "supportedClaims": [
+      "The study examined Bipolaris gigantea isolates from hemp leaf-spot lesions and nearby weeds collected across 11 Kentucky counties.",
+      "Twenty-three isolates were analyzed by multilocus phylogenetics and seven were also whole-genome sequenced, revealing multiple genotypes and both haploid and apparently heteroploid isolates.",
+      "Haploid and heteroploid isolates caused similar disease on hemp, so lesion appearance cannot resolve ploidy, genotype, or the source host.",
+      "Species- and genotype-level labels therefore require lesion-linked laboratory evidence; a symptom photograph or single recovered isolate cannot establish population structure or transmission direction."
+    ]
+  },
+  {
     "sourceKey": "10.1080/07060661.2018.1535470",
     "title": "Root and crown rot pathogens causing wilt symptoms on field-grown marijuana (Cannabis sativa L.) plants",
     "organization": "Canadian Journal of Plant Pathology",
@@ -824,17 +847,32 @@
     "title": "Leaf Spot Disease Development and Its Effect on Yield of Essential Oil-Producing Hemp Cultivars in Kentucky",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-11-23-2483-RE",
+    "authors": [
+      "Misbakhul Munir",
+      "Henry Smith",
+      "Tara Valentine",
+      "Kim Leonberger",
+      "Desiree Szarka",
+      "Ed Dixon",
+      "Noah Anthony",
+      "Magdalena Ricciardi",
+      "Toni Adedokun",
+      "Tom Keene",
+      "Robert Pearce",
+      "Nicole Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2024-05-18",
     "year": 2024,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-21",
     "doi": "10.1094/PDIS-11-23-2483-RE",
     "supportedClaims": [
-      "Bipolaris, Cercospora, and Septoria were the prevalent hemp leaf-spot diseases evaluated in Kentucky field trials.",
-      "Septoria generally appeared first, followed by Bipolaris, while Cercospora developed later in reproductive stages; cultivar susceptibility varied.",
-      "Overlapping leaf-spot syndromes mean distribution, timing, microscopy, culture, and molecular diagnostics are more reliable than one lesion photograph."
-    ],
-    "authors": []
+      "Two Kentucky field experiments in 2020 and 2021 evaluated Bipolaris, Cercospora, and Septoria leaf spots across four essential-oil hemp cultivar groups.",
+      "In those experiments Bipolaris was first observed seven to eight weeks after planting and increased through the end of the season; this is a study observation, not a universal onset rule.",
+      "All three evaluated leaf spots were more severe in the middle canopy than the upper canopy, and susceptibility differed among cultivar groups; neither pattern is a universal diagnostic threshold.",
+      "Reported yield associations concerned the combined leaf-spot disease complex under the tested cultivars, sites, and seasons and must not be attributed to Bipolaris alone.",
+      "Overlapping leaf-spot syndromes mean paired canopy observations, temporal follow-up, fungal morphology, culture, and molecular diagnostics are more reliable than one lesion photograph."
+    ]
   },
   {
     "sourceKey": "10.1094/PDIS-12-17-1999-PDN",
@@ -888,15 +926,24 @@
     "title": "First Report of Hemp Leaf Spot Caused by a Bipolaris Species on Hemp (Cannabis sativa) in Kentucky",
     "organization": "Plant Health Progress",
     "url": "https://doi.org/10.1094/PHP-01-20-0004-BR",
+    "authors": [
+      "Desiree Szarka",
+      "Bernadette Amsden",
+      "Julie Beale",
+      "Ed Dixon",
+      "Christopher L. Schardl",
+      "Nicole Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-03-20",
     "year": 2020,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-21",
     "doi": "10.1094/PHP-01-20-0004-BR",
     "supportedClaims": [
-      "Outdoor hemp in Kentucky developed severe necrotic leaf spot and blight associated with a Bipolaris lineage corresponding to Drechslera gigantea/Bipolaris gigantea.",
-      "Inoculated hemp leaves developed symptoms while noninoculated controls remained symptomless, and molecular loci supported placement in Bipolaris.",
-      "The report supports Bipolaris leaf spot as a Cannabis-specific disease but requires pathogen evidence for species-level confirmation."
+      "Outdoor hemp in Kentucky developed severe necrotic leaf spot and blight associated with a lineage identified morphologically as Drechslera gigantea and placed within Bipolaris by ITS and partial 28S sequence analysis.",
+      "Inoculated hemp leaves developed symptoms while noninoculated controls remained symptomless, supporting pathogenicity rather than visual association alone.",
+      "The fungus was also associated with symptomatic dicot and monocot weeds in affected fields, but co-occurrence does not establish the direction or source of transmission.",
+      "This regional first report supports a Cannabis-specific Bipolaris disease; it does not establish universal lesion morphology, canopy preference, timing, prevalence, cultivar susceptibility, yield loss, or action thresholds."
     ]
   },
   {
