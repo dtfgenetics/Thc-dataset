@@ -46,6 +46,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
     ])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'herbicide-clomazone-bleaching-injury') {
+        expect(issue.media).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(2)
+        expect(issue.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
+        expect(issue.media.every((item) => item.license === 'CC BY-NC-SA 4.0')).toBe(true)
+        expect(issue.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
+        expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
+        continue
+      }
       if (issue.slug === 'tarnished-plant-bug') {
         expect(issue.media).toHaveLength(1)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
@@ -151,6 +160,39 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media[0].hostContext).toBe('organism-only')
     expect(record?.media[0].diagnosticLabel).toContain('laboratory-reared Lygus lineolaris nymph morphology')
     expect(record?.media[0].trainingEligible).toBe(false)
+  })
+
+  it('keeps clomazone labels exposure-linked and non-Cannabis media transfer-only', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'herbicide-clomazone-bleaching-injury')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PHP-03-20-0017-RS')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1002/csc2.20055')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('ucanr.edu/blog/uc-weed-science'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('content.ces.ncsu.edu/carotenoid-pigments'))).toBe(true)
+    expect(confirmation).toContain('map affected and unaffected cannabis plants')
+    expect(confirmation).toContain('susceptible weeds and other plant species')
+    expect(confirmation).toContain('laboratory chain of custody')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, non-cannabis, generated, vendor, anecdotal, unverified, and exposure-unlinked samples out')
+    expect(warnings).toContain('cannot identify clomazone')
+    expect(warnings).toContain('one hemp cultivar, one greenhouse soil system, and one pre-emergence rate')
+    expect(warnings).toContain('no licensed, plant-linked cannabis clomazone progression image or verified diagnostic video')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Severe iron deficiency',
+      'High-light or heat bleaching',
+      'Genetic or chimeric variegation',
+      'Broad mite or hemp russet mite injury',
+      'Contact-herbicide injury',
+      'Camera white-balance or exposure artifact',
+    ]))
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
+    expect(record?.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {

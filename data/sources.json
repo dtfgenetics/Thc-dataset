@@ -28,6 +28,29 @@
     ]
   },
   {
+    "sourceKey": "10.1002/csc2.20055",
+    "title": "Evaluating herbicide tolerance of industrial hemp (Cannabis sativa L.)",
+    "organization": "Crop Science",
+    "url": "https://doi.org/10.1002/csc2.20055",
+    "authors": [
+      "Michael L. Flessner",
+      "Jabari Bryd",
+      "Kevin W. Bamber",
+      "John H. Fike"
+    ],
+    "publisher": "Wiley on behalf of the Crop Science Society of America",
+    "publicationDate": "2020-03-09",
+    "year": 2020,
+    "accessedDate": "2026-08-20",
+    "doi": "10.1002/csc2.20055",
+    "supportedClaims": [
+      "In a randomized greenhouse pre-emergence screen using Cannabis sativa cultivar Felina 32, clomazone at 1.4 kg active ingredient per hectare produced only two surviving plants per pot, 8 cm mean plant height, and 0.6 g mean biomass at eight weeks, versus seven plants, 49 cm, and 13.5 g in the untreated check.",
+      "Across the greenhouse screen, clomazone was among treatments that reduced stand count 43–71%, height 47–84%, and biomass 73–96% relative to the untreated check; the paper groups clomazone and norflurazon as highly injurious pigment inhibitors.",
+      "Clomazone was screened pre-emergence in the greenhouse but was not advanced into the field study, so the experiment supports severe hemp sensitivity under its tested rate and conditions rather than a universal field threshold or a visual diagnosis.",
+      "The authors reported that hemp responses varied across environments, years, and cultivars for tested herbicides and called for corroboration before commercial recommendations."
+    ]
+  },
+  {
     "sourceKey": "10.1002/tpg2.20169",
     "title": "Accumulation of somatic mutations leads to genetic mosaicism in cannabis",
     "organization": "The Plant Genome (Adamek et al.)",
@@ -1704,6 +1727,28 @@
     ]
   },
   {
+    "sourceKey": "https://content.ces.ncsu.edu/carotenoid-pigments",
+    "title": "Carotenoid Pigments",
+    "organization": "NC State Extension Publications",
+    "url": "https://content.ces.ncsu.edu/carotenoid-pigments",
+    "authors": [
+      "Joe Neal",
+      "Doug Goodale",
+      "Katie Jennings",
+      "Wayne Mitchem"
+    ],
+    "publisher": "North Carolina Cooperative Extension",
+    "publicationDate": "2015-09-10",
+    "year": 2015,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "Carotenoid-pigment-inhibitor injury can produce white, pale-yellow, or pale-green new shoot tips and leaves, occasional pink-to-purple margins, reduced growth, and later necrosis; resumed green growth can appear above older bleached foliage in less-sensitive plants.",
+      "The guide identifies clomazone as a soil-absorbed Group 13 pigment inhibitor with high vapor-drift potential and recommends inspecting susceptible weeds and other plants along field edges for a shared exposure pattern.",
+      "Severe iron deficiency, bleaching infections, contact-herbicide injury, PPO-inhibitor bronzing, air pollution, and insect-growth-regulator exposure can overlap visually and require contextual exclusion.",
+      "The grape and pokeweed photographs are explicitly credited to J. Neal under CC BY-NC-SA 4.0, but they are non-Cannabis transfer references and do not establish clomazone injury in hemp."
+    ]
+  },
+  {
     "sourceKey": "https://content.ces.ncsu.edu/gray-mold-of-industrial-hemp",
     "title": "Gray Mold of Industrial Hemp",
     "organization": "NC State Extension",
@@ -2217,6 +2262,26 @@
       "Broad mites prefer young, protected tissue and may no longer be present on the most damaged tissue because visible injury can persist after feeding.",
       "Clear oval broad-mite eggs have raised pale dots, while cyclamen-mite eggs are smooth and russet mites have a narrow, conical body form.",
       "Broad-mite injury can resemble plant-growth-regulator herbicide injury, nutrient problems, and other abiotic disorders; inspection at about 20× or by microscope is recommended."
+    ]
+  },
+  {
+    "sourceKey": "https://ucanr.edu/blog/uc-weed-science-weed-control-management-ecology-and-minutia/article/herbicide-damage-symptoms",
+    "title": "Herbicide Damage Symptoms on Hemp",
+    "organization": "University of California Agriculture and Natural Resources, UC Weed Science",
+    "url": "https://ucanr.edu/blog/uc-weed-science-weed-control-management-ecology-and-minutia/article/herbicide-damage-symptoms",
+    "authors": [
+      "Brad Hanson",
+      "Sarah E. Light"
+    ],
+    "publisher": "Regents of the University of California",
+    "publicationDate": "2020-03-09",
+    "year": 2020,
+    "accessedDate": "2026-08-20",
+    "supportedClaims": [
+      "The institutional hemp demonstration exposed plants to herbicides used near hemp production to document injury expected from specific active ingredients or related modes of action.",
+      "Its clomazone example identifies carotenoid-biosynthesis inhibition: bleaching ranges from yellow to almost pure white, begins in newly formed tissue, may progress to older tissue as existing carotenoids turn over, and can advance to necrosis.",
+      "The guide distinguishes potentially dramatic but rarely lethal established-plant drift injury from more damaging soil-carryover injury to seedlings or young transplants; these are contextual patterns, not dose-independent outcome guarantees.",
+      "The source PDF contains mixed herbicide-treatment photographs without a verified reusable asset license or panel-level training labels, so those figures are citation evidence only and are not indexed as reusable media."
     ]
   },
   {

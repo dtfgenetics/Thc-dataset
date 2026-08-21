@@ -136,6 +136,20 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('no licensed, plant-linked cannabis lygus injury image or verified diagnostic video was located for this batch')
   })
 
+  it('counts licensed clomazone transfer references without promoting them to Cannabis ground truth', () => {
+    const record = issues.find((issue) => issue.slug === 'herbicide-clomazone-bleaching-injury')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record).toBeTruthy()
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+    expect(confirmation).toContain('map affected and unaffected cannabis plants')
+    expect(warnings).toContain('transfer references for color and field-edge context only')
+  })
+
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
     expect(record).toBeTruthy()
