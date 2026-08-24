@@ -6,53 +6,97 @@
   "severity": "low",
   "reviewStatus": "reviewed",
   "photoOnlyMaxConfidence": 0.05,
-  "summary": "A deliberate abstention class: Cannabis grown without molybdenum for nine weeks had a 96% lower foliar Mo concentration but no visual symptoms and no significant dry-weight reduction. Image-only “molybdenum deficiency” should therefore be rejected by the diagnostic engine.",
+  "summary": "A deliberate analytical abstention class: Cannabis grown without molybdenum for nine weeks had 96% lower foliar Mo than controls but no visual symptoms and no significant dry-weight reduction. Yellow, red, pink, orange, curled, rolled, or narrow leaves must not be labeled as Cannabis molybdenum deficiency from images or video.",
   "affectedParts": [
-    "most-recent mature leaf for tissue testing",
-    "whole plant for comparison"
+    "defined-age recently mature leaf for tissue analysis",
+    "matched upper, middle, and lower canopy for negative visual documentation",
+    "root zone and fertilizer inputs for causal context",
+    "whole plant for matched comparison"
   ],
   "stages": [
     "vegetative",
-    "nine-week controlled withholding context"
+    "nine-week controlled withholding context",
+    "any production stage only as an analytically unresolved differential"
   ],
   "indicators": [
-    "Laboratory tissue analysis documents very low molybdenum relative to an appropriate healthy comparison",
-    "No stable Cannabis-specific visual symptom pattern is required or validated"
+    "A laboratory reports molybdenum from a traceable, defined-age Cannabis tissue sample using an appropriate analytical method and reporting limit.",
+    "The abnormal result is interpreted against a same-cultivar, same-stage, same-tissue healthy comparison or a Cannabis-specific laboratory framework rather than a threshold copied from another crop.",
+    "Fertilizer formulation, batch, dilution, injector settings, source water, substrate, and irrigation records establish a plausible molybdenum under-supply or availability problem.",
+    "Matched root-zone pH and EC measurements are retained because nutrient supply and uptake context cannot be inferred from leaf color.",
+    "Standardized upper-, middle-, and lower-canopy images may document the absence or presence of nonspecific symptoms but cannot supply a positive molybdenum label.",
+    "The direct Cannabis withholding experiment provides a negative visual result: no reproducible phenotype appeared during nine weeks despite a 96% reduction in foliar molybdenum.",
+    "A defensible analytical label preserves cultivar, physiological leaf age, crop stage, sampling date, laboratory, method, units, reporting limit, and chain of custody.",
+    "Any visible injury is diagnosed independently; low tissue molybdenum and a colored or curled leaf are not automatically causally linked."
   ],
   "exclusions": [
-    "A diagnosis is based only on yellow, orange, pink, curled, or narrow leaves from a generic internet chart",
-    "Another measured nutrient, pH, EC, root, pest, or pathogen condition explains visible symptoms"
+    "Reject diagnoses based only on yellow, orange, pink, red, purple, curled, rolled, narrow, spotted, or necrotic leaves from a vendor, forum, anecdotal, generated, or generic deficiency chart.",
+    "Exclude nitrogen or sulfur deficiency with complete fertilizer history, canopy-age distribution, and representative tissue analysis.",
+    "Exclude magnesium, potassium, phosphorus, iron, manganese, boron, and other nutrient disorders using root-zone and tissue evidence rather than color resemblance.",
+    "Exclude acidic or alkaline root-zone stress, salinity or high EC, drought, hypoxia, root binding, and damaged roots with matched measurements and root inspection.",
+    "Exclude mites, thrips, aphids, caterpillars, and other arthropods with both-surface magnified inspection and organism evidence.",
+    "Exclude leaf-spot, vascular, and root pathogens when lesions spread independently of nutrition zones or organism evidence is recovered.",
+    "Reject unmatched tissue results from different cultivars, growth stages, leaf ages, plant organs, laboratories, or analytical methods.",
+    "Reject contaminated or poorly handled samples, including tissue carrying foliar micronutrient sprays, fertilizer dust, soil, decomposition, or unrecorded washing and storage."
   ],
   "progression": [
     {
-      "stage": "Controlled observation",
-      "description": "No visible symptom progression developed during nine weeks of complete Mo withholding in Cannabis sativa T1 despite strongly reduced tissue Mo."
+      "stage": "Direct Cannabis baseline",
+      "description": "Control and complete-molybdenum-withholding T1 plants began without a validated visual distinction in the controlled study."
+    },
+    {
+      "stage": "Analytical divergence",
+      "description": "After nine weeks, withheld plants had 96% lower foliar molybdenum than controls, establishing an analytical difference without establishing a camera-visible syndrome."
+    },
+    {
+      "stage": "Negative visual endpoint",
+      "description": "No visual symptoms and no significant dry-weight difference developed by the study endpoint; there is therefore no supported Cannabis color, morphology, canopy location, or temporal sequence for model training."
+    },
+    {
+      "stage": "Future-evidence gate",
+      "description": "A positive visual class should remain closed unless replicated Cannabis studies link a reproducible phenotype to defined tissue values, cultivars, stages, root-zone conditions, and recovery or causal testing."
     }
   ],
   "lookAlikes": [
     "Nitrogen deficiency",
     "Sulfur deficiency",
     "Magnesium deficiency",
+    "Potassium deficiency",
+    "Phosphorus deficiency or genetic anthocyanin",
+    "Iron or manganese disorder",
+    "Boron or calcium-related distortion",
     "Root-zone pH stress",
-    "Any generic chlorosis syndrome"
+    "Salinity / high EC",
+    "Drought or root hypoxia",
+    "Pest feeding or mite injury",
+    "Leaf-spot or root disease"
   ],
   "confirmation": [
-    "Use calibrated tissue analysis and nutrition history; a photograph cannot confirm low molybdenum in Cannabis.",
-    "Keep photo-only confidence near zero unless future Cannabis-specific controlled evidence establishes a reproducible phenotype."
+    "A photograph cannot confirm low molybdenum in Cannabis, and neither can video; retain visual media only as standardized context or negative evidence.",
+    "Before changing nutrition, preserve fertilizer labels and batch, mixing calculations, injector settings, source-water analysis, substrate, irrigation history, and matched root-zone pH and EC.",
+    "Collect defined-age tissue from multiple comparable plants under laboratory guidance and submit a separately labeled same-cultivar, same-stage healthy comparison.",
+    "Record plant IDs, cultivar, stage, node or leaf position, sample count, collection time, cleaning, storage, laboratory, analytical method, units, detection or reporting limit, and any foliar sprays that could contaminate tissue.",
+    "Interpret molybdenum alongside nitrogen, sulfur, magnesium, potassium, phosphorus, micronutrients, pH, EC, moisture, roots, pests, and disease evidence; a low number does not prove that visible injury has the same cause.",
+    "Do not import vegetable-crop symptom descriptions or sufficiency ranges as Cannabis thresholds; use them only to define confounders and sampling safeguards.",
+    "Route single-plant, unmatched, visually assigned, residue-contaminated, method-unknown, threshold-transferred, or analytically discordant samples to human review and keep them out of training."
   ],
   "immediateActions": [
-    "Do not apply molybdenum based on image color alone.",
-    "Review complete fertilizer composition and laboratory results."
+    "Do not apply molybdenum based on image color or leaf shape alone.",
+    "Preserve pre-correction nutrient, root-zone, tissue, pest, and disease evidence and compare affected plants with matched normal plants."
   ],
   "correctivePlan": [
-    "Correct only a laboratory-supported under-supply using a measured nutrition plan."
+    "Correct only a laboratory-supported and contextually plausible under-supply using a measured, crop-appropriate nutrition plan.",
+    "Track newly sampled defined-age tissue and plant performance; do not claim visual recovery of a phenotype that has not been validated in Cannabis."
   ],
   "prevention": [
-    "Use complete micronutrient formulations and periodic analytical monitoring when warranted."
+    "Use complete micronutrient formulations, verified stock-tank math, calibrated injectors, and periodic analytical monitoring when warranted.",
+    "Maintain paired input, root-zone, tissue, cultivar, stage, and image records so future evidence can be interpreted without relying on deficiency-chart colors."
   ],
   "warnings": [
-    "The best controlled Cannabis evidence currently contradicts popular image charts that assign a distinctive Mo-deficiency leaf appearance.",
-    "This record exists partly to prevent false-positive model predictions."
+    "The only direct controlled Cannabis evidence in this record used one T1 cultivar and complete withholding for nine weeks; it supports visual abstention but does not establish a universal tissue sufficiency threshold.",
+    "Cross-crop descriptions of chlorosis, rolling, necrosis, or acidic-soil association are confounder context only and are not Cannabis image ground truth.",
+    "The best controlled Cannabis evidence currently contradicts popular image charts that assign a distinctive molybdenum-deficiency leaf appearance.",
+    "No image or video is labeled as positive ground truth, no reference media is attached, and automated training eligibility remains false.",
+    "Human review is mandatory for any proposed molybdenum diagnosis, especially when it is image-led, unmatched, contaminated, method-unknown, threshold-transferred, or analytically discordant."
   ],
   "sources": [
     {
@@ -79,6 +123,44 @@
         "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
         "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
         "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+      ]
+    },
+    {
+      "title": "Sampling for Plant Tissue Analysis",
+      "organization": "New Mexico State University Extension, Guide A-123",
+      "url": "https://pubs.nmsu.edu/_a/A123/",
+      "authors": [
+        "Robert Flynn",
+        "Shane T. Ball",
+        "R. D. Baker"
+      ],
+      "publisher": "New Mexico State University College of Agricultural, Consumer and Environmental Sciences",
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "Plant tissue analysis can detect nutrient deficiencies before visible symptoms occur and can help confirm suspected visual deficiencies; abnormal appearance alone does not establish a nutrient cause.",
+        "Diagnostic sampling should compare physiologically similar abnormal and normal plants from the same area, exclude unrelated pest, disease, moisture, and mechanical stress, and retain crop, variety, fertilizer, irrigation, appearance, insect, and disease context for interpretation.",
+        "Where crop-specific instructions are unavailable, the guide recommends recently mature leaves below the growing point from multiple plants and warns that residues, unsuitable leaf age, diseased tissue, poor handling, and unmatched single plants can invalidate interpretation.",
+        "The guide includes molybdenum among elements available by tissue analysis but does not provide a Cannabis-specific sufficiency or deficiency threshold."
+      ]
+    },
+    {
+      "title": "Plant Tissue Analysis and Interpretation for Vegetable Crops in Florida",
+      "organization": "UF/IFAS Extension, HS964/EP081",
+      "url": "https://ask.ifas.ufl.edu/publication/EP081",
+      "authors": [
+        "George J. Hochmuth",
+        "Edward A. Hanlon"
+      ],
+      "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+      "publicationDate": "2022-11-01",
+      "year": 2022,
+      "accessedDate": "2026-08-24",
+      "doi": "10.32473/edis-ep081-2004",
+      "supportedClaims": [
+        "For vegetable crops, nutrient symptoms can be masked by other nutritional disorders, unfavorable environments, or pests, so tissue analysis is used to complement rather than replace contextual diagnosis.",
+        "The publication describes cross-crop molybdenum deficiency as chlorosis and rolling or necrosis of intermediate-age and older leaves and associates it with acidic conditions, but those descriptions are not Cannabis validation and must not be transferred into Cannabis image ground truth.",
+        "The publication recommends matched disorder and normal samples of the same cultivar and physiological age, with corresponding soil or root-zone context, and notes that foliar nutrient residues can make tissue results misleading.",
+        "Its vegetable critical-value tables do not establish a Cannabis molybdenum threshold; crop, tissue, stage, and analytical method must be interpreted specifically."
       ]
     }
   ],

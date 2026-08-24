@@ -1352,6 +1352,27 @@
     ]
   },
   {
+    "sourceKey": "10.32473/edis-ep081-2004",
+    "title": "Plant Tissue Analysis and Interpretation for Vegetable Crops in Florida",
+    "organization": "UF/IFAS Extension, HS964/EP081",
+    "url": "https://ask.ifas.ufl.edu/publication/EP081",
+    "authors": [
+      "George J. Hochmuth",
+      "Edward A. Hanlon"
+    ],
+    "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+    "publicationDate": "2022-11-01",
+    "year": 2022,
+    "accessedDate": "2026-08-24",
+    "doi": "10.32473/edis-ep081-2004",
+    "supportedClaims": [
+      "For vegetable crops, nutrient symptoms can be masked by other nutritional disorders, unfavorable environments, or pests, so tissue analysis is used to complement rather than replace contextual diagnosis.",
+      "The publication describes cross-crop molybdenum deficiency as chlorosis and rolling or necrosis of intermediate-age and older leaves and associates it with acidic conditions, but those descriptions are not Cannabis validation and must not be transferred into Cannabis image ground truth.",
+      "The publication recommends matched disorder and normal samples of the same cultivar and physiological age, with corresponding soil or root-zone context, and notes that foliar nutrient residues can make tissue results misleading.",
+      "Its vegetable critical-value tables do not establish a Cannabis molybdenum threshold; crop, tissue, stage, and analytical method must be interpreted specifically."
+    ]
+  },
+  {
     "sourceKey": "10.3389/fagro.2021.706138",
     "title": "Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production",
     "organization": "Frontiers in Agronomy",
@@ -2775,6 +2796,25 @@
       "Broad mites prefer young, protected tissue and may no longer be present on the most damaged tissue because visible injury can persist after feeding.",
       "Clear oval broad-mite eggs have raised pale dots, while cyclamen-mite eggs are smooth and russet mites have a narrow, conical body form.",
       "Broad-mite injury can resemble plant-growth-regulator herbicide injury, nutrient problems, and other abiotic disorders; inspection at about 20× or by microscope is recommended."
+    ]
+  },
+  {
+    "sourceKey": "https://pubs.nmsu.edu/_a/A123/",
+    "title": "Sampling for Plant Tissue Analysis",
+    "organization": "New Mexico State University Extension, Guide A-123",
+    "url": "https://pubs.nmsu.edu/_a/A123/",
+    "authors": [
+      "Robert Flynn",
+      "Shane T. Ball",
+      "R. D. Baker"
+    ],
+    "publisher": "New Mexico State University College of Agricultural, Consumer and Environmental Sciences",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "Plant tissue analysis can detect nutrient deficiencies before visible symptoms occur and can help confirm suspected visual deficiencies; abnormal appearance alone does not establish a nutrient cause.",
+      "Diagnostic sampling should compare physiologically similar abnormal and normal plants from the same area, exclude unrelated pest, disease, moisture, and mechanical stress, and retain crop, variety, fertilizer, irrigation, appearance, insect, and disease context for interpretation.",
+      "Where crop-specific instructions are unavailable, the guide recommends recently mature leaves below the growing point from multiple plants and warns that residues, unsuitable leaf age, diseased tissue, poor handling, and unmatched single plants can invalidate interpretation.",
+      "The guide includes molybdenum among elements available by tissue analysis but does not provide a Cannabis-specific sufficiency or deficiency threshold."
     ]
   },
   {

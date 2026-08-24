@@ -49,6 +49,16 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(mo.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.05)
     expect(evidenceText).toContain('no visual symptoms')
     expect(mo.confirmation.join(' ').toLowerCase()).toContain('photograph cannot confirm')
+    expect(mo.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(mo.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(mo.progression.length).toBeGreaterThanOrEqual(4)
+    expect(mo.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(mo.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(mo.sources).toHaveLength(3)
+    expect(mo.sources.some((source) => source.url === 'https://pubs.nmsu.edu/_a/A123/')).toBe(true)
+    expect(mo.sources.some((source) => source.url === 'https://ask.ifas.ufl.edu/publication/EP081')).toBe(true)
+    expect(mo.warnings.join(' ').toLowerCase()).toContain('human review')
+    expect(mo.media).toHaveLength(0)
   })
 
   it('keeps Fusarium flower/head disease separate from the root/crown profile', () => {
