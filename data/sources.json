@@ -708,14 +708,26 @@
     "title": "First Report of Cercospora cf. flagellaris on Industrial Hemp (Cannabis sativa) in Kentucky",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-01-19-0135-PDN",
+    "authors": [
+      "Vinson P. Doyle",
+      "Hannah T. Tonry",
+      "Bernadette Amsden",
+      "Julie Beale",
+      "Emily Dixon",
+      "Huai Li",
+      "Desiree Szarka",
+      "Nicole Ward Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
+    "publicationDate": "2019-05-18",
     "year": 2019,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-01-19-0135-PDN",
     "supportedClaims": [
       "Cercospora leaf spot began on older lower-canopy hemp leaves as small yellow flecks and progressed to round 2 to 6 mm lesions with tan-to-white centers, dark brown-to-purplish borders, and yellow halos.",
       "Melanized conidiophores could become visible in lesion centers before centers disintegrated.",
-      "Whole-plant inoculation reproduced similar symptoms and the fungus was recovered again, supporting pathogenicity rather than visual association alone."
+      "Whole-plant inoculation reproduced similar symptoms and the fungus was recovered again, supporting pathogenicity rather than visual association alone.",
+      "The Kentucky observations and lesion dimensions are report-specific and do not establish a universal onset date, canopy position, lesion size, or severity threshold."
     ]
   },
   {
@@ -833,6 +845,28 @@
     "supportedClaims": [
       "A multi-site hemp field study used species-specific qPCR to detect and quantify F. graminearum in asymptomatic and symptomatic tissues.",
       "Latent infection occurred before visible disease and infection was more prominent during flowering, so absence of visible blight cannot exclude infection and image-only confirmation is unsafe."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-05-25-0946-PDN",
+    "title": "First Report of Cercospora Leaf Spot Caused by Cercospora cf. flagellaris on Industrial Hemp (Cannabis sativa) in Arkansas and Oklahoma",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-05-25-0946-PDN",
+    "authors": [
+      "Kona B. Swift",
+      "Burton H. Bluhm"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2025-09-12",
+    "year": 2025,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1094/PDIS-05-25-0946-PDN",
+    "supportedClaims": [
+      "Field lesions in Arkansas and Oklahoma began on older lower-canopy hemp leaves as yellow-green specks and developed into round 2 to 4 mm necrotic lesions with white, tan, or gray centers and brown borders.",
+      "Five single-spored isolates produced melanized erumpent conidiophores and hyaline, needle-shaped conidia and were evaluated with ITS, tef1, histone H3, calmodulin, and actin sequence evidence.",
+      "A multilocus phylogeny grouped all five isolates with Cercospora cf. flagellaris, while the cf. designation still communicates bounded taxonomic resolution rather than an image-resolvable species label.",
+      "Whole-plant inoculations of Sour Space Candy and Red Kross reproduced lesions, left water-treated controls healthy, and yielded the same organism; the experiment was repeated with the same result.",
+      "Seven- and fourteen-day symptom observations followed a defined spore concentration, 72-hour moist chamber, growth-chamber regime, two cultivars, and four plants per treatment and are not universal field timelines."
     ]
   },
   {
@@ -1071,6 +1105,29 @@
     "supportedClaims": [
       "Fusarium graminearum was reported causing blight of hemp grain heads, strengthening evidence that Fusarium flower/head disease is a distinct Cannabis diagnostic target from Fusarium root/crown rot.",
       "The disease note used isolation and pathogen identification from symptomatic grain heads rather than relying on flower appearance alone."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-11-19-2287-PDN",
+    "title": "First Report of Cercospora Leaf Spot Caused by Cercospora cf. flagellaris on Industrial Hemp in Florida",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-11-19-2287-PDN",
+    "authors": [
+      "Marcus Vinícius Marin",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2020-03-17",
+    "year": 2020,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1094/PDIS-11-19-2287-PDN",
+    "supportedClaims": [
+      "A 2019 Florida greenhouse and field report described small yellow flecks on older leaves progressing through the canopy to pale tan or white, yellow-haloed lesions with central conidiophore fascicles.",
+      "Severe disease in the reported plants included chlorosis and premature defoliation, but the observed incidence and foliage involvement are trial-specific rather than universal severity thresholds.",
+      "Three single-spored isolates were identified using morphology plus ITS and actin sequences, and pathogenicity testing reproduced symptoms and recovered the organism from inoculated plants.",
+      "The report explicitly identified epidemiology, cultivar response, fungicide sensitivity, and management as evidence gaps; its observations do not validate visual-only cultivar susceptibility or treatment rules."
     ]
   },
   {

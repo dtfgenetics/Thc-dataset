@@ -266,6 +266,38 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toHaveLength(0)
   })
 
+  it('keeps Cercospora labels multilocus-bounded, causal, and free of unlicensed media', () => {
+    const record = issues.find((issue) => issue.slug === 'cercospora-leaf-spot')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(10)
+    expect(record?.progression).toHaveLength(5)
+    expect(record?.lookAlikes).toHaveLength(14)
+    expect(record?.confirmation).toHaveLength(7)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-01-19-0135-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-11-19-2287-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-05-25-0946-PDN')).toBe(true)
+    expect(confirmation).toContain('use validated multilocus evidence')
+    expect(confirmation).toContain('symptom reproduction on cannabis, recovery of the same organism, and symptomless matched controls')
+    expect(confirmation).toContain('keep symptom-only, detached-leaf-only, upper-surface-only, culture-unlinked, its-only, single-locus-only, mixed-pathogen, low-resolution, stock, vendor, forum, generated, and rights-unclear samples out')
+    expect(warnings).toContain('study-specific observations, not universal timing, severity, cultivar, yield, or action thresholds')
+    expect(warnings).toContain('no image or video was added')
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Septoria leaf spot complex',
+      'Pseudocercospora olive or sooty leaf spot',
+      'Curvularia leaf spot',
+      'Bipolaris leaf spot or blight',
+      'Anthracnose / Colletotrichum leaf spot',
+      'Bacterial leaf spot or blight',
+      'Spray, droplet, light, nutrient, salinity, or water-stress injury',
+    ]))
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps root-knot species labels organism-linked and the composite root reference out of training', () => {
     const record = issues.find((issue) => issue.slug === 'root-knot-nematodes')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
