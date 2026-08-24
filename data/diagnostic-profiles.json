@@ -10384,54 +10384,92 @@
     "category": "Insect",
     "severity": "moderate",
     "reviewStatus": "reviewed",
-    "summary": "A Cannabis-adapted aphid found on hemp leaves and stems indoors and outdoors. Confirm by observing and identifying the insect; generalized curling, yellowing, or reduced vigor is not species-level evidence.",
+    "photoOnlyMaxConfidence": 0.35,
+    "summary": "An above-ground, Cannabis-associated aphid whose colonies occur on leaves, petioles, stems, and shoots. Plant-linked aphids support an aphid infestation, but yellowing, curling, honeydew, color, one winged adult, or a root-zone colony cannot confirm Phorodon cannabis. Species-level confirmation requires suitable intact specimens and microscope-level morphology or another validated identification method.",
     "affectedParts": [
-      "leaf undersides",
+      "leaf undersides and blades",
       "petioles",
-      "stems",
-      "shoot tips",
-      "whole canopy when populations are heavy"
+      "stems and stem bases above the substrate",
+      "shoot tips and new growth",
+      "flower and seed-head tissues",
+      "whole canopy for nonspecific secondary response"
     ],
     "stages": [
+      "propagation and mother stock",
       "vegetative",
-      "flower",
-      "all"
+      "flowering",
+      "pre-harvest and harvest",
+      "indoor or greenhouse Cannabis",
+      "outdoor hemp"
     ],
     "indicators": [
-      "Colonies of small soft-bodied aphids are visible on cannabis leaves or stems",
-      "Wingless aphids show pale abdominal striping while winged forms may show dark spotting",
-      "Aphid cast skins or sticky honeydew occur near an active colony",
-      "New growth is stressed in the same areas where aphids are actively feeding"
+      "Multiple life stages of small, soft-bodied aphids form a plant-linked colony on Cannabis leaves, petioles, stems, shoots, or reproductive tissues",
+      "Intact aphids show long antennae and paired abdominal siphunculi consistent with Aphididae when examined with suitable magnification",
+      "Wingless colony members may show pale abdominal striping, while winged forms may show dark dorsal markings; both patterns are supportive only after the organism is established as an aphid",
+      "Cream, yellow, pale green, pink, or light-brown individuals can occur across season and life stage, so a mixed color range does not contradict the diagnosis",
+      "Cast skins and fresh sticky honeydew are spatially linked to living aphids rather than occurring alone elsewhere in the canopy",
+      "Repeated inspection documents persistent or increasing numbers, nymphs, and adults at the same above-ground feeding sites",
+      "On suitable wingless specimens, microscope examination finds the Phorodon character set, including antennal-tubercle projections, flabellate or bulb-tipped setae, and slightly swollen siphunculi",
+      "Plant stress, if present, is strongest near active colonies and is recorded as secondary evidence rather than the identifying feature"
     ],
     "exclusions": [
-      "No aphids, cast skins, or honeydew are found after repeated underside and stem inspection",
-      "Only roots contain aphids while foliage and stems are free of colonies",
-      "Fine stippling, webbing, mites, or eggs dominate the underside evidence",
-      "Silvery feeding scars with dark fecal specks support thrips instead"
+      "Repeated inspection of leaf undersides, petioles, stems, shoots, and reproductive tissues finds no living aphids or plant-linked colony",
+      "Only roots or growing medium contain a sustained aphid colony while above-ground aphids are absent or transient, supporting the rice-root-aphid pathway instead",
+      "Only a sticky-card capture, trapped winged aphid, or unlinked flying adult is available; dispersing alates do not prove a colony on the photographed plant",
+      "The sample is labeled Phorodon cannabis from color, abdominal markings, or host association alone without excluding hop aphid and other aphids",
+      "Fine stippling, webbing, mites, or mite eggs dominate the underside evidence rather than aphids with siphunculi",
+      "Silvery feeding scars, rasped tissue, and dark fecal specks dominate, supporting thrips rather than aphids",
+      "White wings, whitefly adults, scale-like whitefly immatures, or whitefly exuviae account for the observed insects or residue",
+      "Cottony wax, fixed scale covers, or segmented mealybugs without aphid morphology account for the colony-like material",
+      "Honeydew, sooty mold, ants, cast-skin-like debris, or leaf stickiness occurs without intact aphids and cannot identify the producing organism",
+      "Yellowing, wilting, curling, stunting, reduced vigor, or poor yield is the only evidence; these responses are nonspecific and may be absent even with large field populations"
     ],
     "progression": [
       {
-        "stage": "Early",
-        "description": "Small colonies establish on stems, petioles, or leaves and may be missed without close inspection."
+        "stage": "Introduction or dispersal",
+        "description": "One or a few winged or wingless aphids may be found on propagation material or a plant surface; an isolated individual is a scouting trigger, not proof of an established species-level infestation."
       },
       {
-        "stage": "Increasing population",
-        "description": "More aphids, cast skins, and honeydew become visible and feeding stress may affect nearby growth."
+        "stage": "Early plant-linked colony",
+        "description": "Small clusters with adults and nymphs establish on leaves, petioles, stems, or shoots and can be missed without underside and node inspection."
       },
       {
-        "stage": "Heavy infestation",
-        "description": "Dense colonies can contribute to broader canopy stress, but plant symptoms remain nonspecific without the insects."
+        "stage": "Expanding population",
+        "description": "Multiple life stages, cast skins, and honeydew become easier to map across adjacent feeding sites; plant appearance may still remain normal."
+      },
+      {
+        "stage": "Heavy or late-season infestation",
+        "description": "Dense colonies and abundant honeydew may spread through the canopy or reproductive tissues. Wilting, yellowing, slowed growth, sooty mold, or ant activity may occur but do not scale reliably with aphid abundance."
+      },
+      {
+        "stage": "After decline or intervention",
+        "description": "Old cast skins, honeydew, sooty mold, and damaged tissue can persist after living populations fall; treatment response cannot retrospectively prove species identity."
       }
     ],
     "lookAlikes": [
       "Rice root aphid",
+      "Hop aphid",
+      "Green peach aphid",
+      "Cotton or melon aphid",
+      "Bean aphid",
+      "Other unidentified aphids",
+      "Whiteflies",
       "Thrips",
-      "Two-spotted spider mites",
-      "Whitefly or another phloem-feeding insect"
+      "Two-spotted spider mite",
+      "Hemp russet mite or broad mite",
+      "Mealybugs or soft scales",
+      "Leafhoppers or planthoppers",
+      "Fungus-gnat or other small-fly adults",
+      "Honeydew, sooty mold, mineral residue, or debris without an intact insect"
     ],
     "confirmation": [
-      "Inspect leaf undersides, petioles, stems, and shoot tips with magnification and document intact aphids.",
-      "Use morphological identification or an entomology reference when species-level identification matters; body color alone is not diagnostic."
+      "Map the evidence to the same plant: inspect leaf undersides, petioles, stems, shoot tips, flower or seed-head tissues, and the stem base with magnification, and document living aphids in place.",
+      "Inspect the roots and growing medium when root aphid is plausible; do not relabel a root-associated colony from a transient canopy alate.",
+      "Record colony distribution, life stages, date, production setting, host stage, and repeated counts; preserve pre-treatment close-ups with a scale and the plant-to-colony link.",
+      "Confirm Aphididae on intact specimens using body form, antennae, legs, cauda, and paired siphunculi; cast skins, honeydew, or plant symptoms alone are insufficient.",
+      "For a Phorodon cannabis label, have a qualified identifier examine suitable wingless specimens for the combined head, setal, siphuncular, and antennal characters and explicitly exclude Phorodon humuli.",
+      "Treat winged specimens, damaged material, low-resolution photographs, and trap captures as lower-confidence evidence because alate Phorodon species are more difficult to separate.",
+      "Reserve confirmed or training labels for plant-linked, source-preserved, expert-reviewed specimens or a validated molecular identification; keep symptom-only, colony-unlinked, root-only, trap-only, alate-only, mixed-aphid, generated, stock, anecdotal, and unverified samples out."
     ],
     "immediateActions": [
       "Separate heavily infested material from clean propagation stock and inspect neighboring plants.",
@@ -10446,19 +10484,66 @@
       "Use routine underside and stem scouting so small colonies are detected before they spread."
     ],
     "warnings": [
-      "Do not identify Phorodon cannabis from leaf yellowing, curling, or aphid color alone.",
-      "Do not assume every aphid found around the root zone is cannabis aphid; rice root aphid is a distinct Cannabis-associated pest."
+      "Human review is mandatory for symptom-only, honeydew-only, cast-skin-only, root-only, trap-only, alate-only, damaged, mixed-aphid, low-resolution, plant-unlinked, stock, generated, or unverified samples.",
+      "Do not identify Phorodon cannabis from leaf yellowing, curling, wilting, reduced vigor, aphid color, dorsal markings, honeydew, ants, or host association alone.",
+      "Do not assume every aphid found around the root zone is cannabis aphid; rice root aphid is a distinct Cannabis-associated pest and transient alates can occur above ground.",
+      "Hop aphid is visually similar. Species-level separation requires an intact suitable specimen and microscope-level characters; ordinary photographs should not be treated as definitive.",
+      "Large late-season hemp colonies have been observed without obvious wilting or yellowing, so visible damage is not a reliable proxy for population size or causal severity.",
+      "Cultivar-specific performance, three-variety greenhouse response, and extension observations are study- or setting-specific, not universal susceptibility, injury, economic, or treatment thresholds.",
+      "The existing CC BY 4.0 Figure 2 is a mixed-scale, multi-panel reference and remains excluded from automated training without panel-resolved labels and crop review."
     ],
     "sources": [
+      {
+        "title": "Phorodon cannabis Passerini (Hemiptera: Aphididae), a newly recognized pest in North America found on industrial hemp",
+        "organization": "Insecta Mundi",
+        "url": "https://doi.org/10.5281/zenodo.3710022",
+        "authors": [
+          "Whitney S. Cranshaw",
+          "Susan E. Halbert",
+          "Colin Favret",
+          "Kadie E. Britt",
+          "Gary L. Miller"
+        ],
+        "publisher": "Center for Systematic Entomology",
+        "publicationDate": "2018-09-28",
+        "year": 2018,
+        "accessedDate": "2026-08-24",
+        "doi": "10.5281/zenodo.3710022",
+        "supportedClaims": [
+          "Voucher-backed Phorodon cannabis records were confirmed from industrial-hemp fields in Colorado and Virginia and from indoor or greenhouse Cannabis in multiple North American locations.",
+          "Large late-season field populations produced abundant honeydew without obvious wilting or yellowing in the observed mature, irrigated plants, demonstrating that aphid abundance and visible plant injury do not have a fixed relationship.",
+          "Wingless P. cannabis can be separated from hop aphid by a combination of microscopic characters including flabellate body setae, slightly swollen siphunculi, and antennal-tubercle morphology; winged forms are more difficult to separate.",
+          "Rice root aphid was the other aphid confirmed from indoor Cannabis in the Colorado observations, so above-ground and root-colony evidence must remain distinct."
+        ]
+      },
       {
         "title": "Cannabis aphid, Phorodon cannabis",
         "organization": "Colorado State University Agricultural Biology",
         "url": "https://agsci.colostate.edu/agbio/ipm-pests/cannabis-aphid/",
         "publisher": "Colorado State University",
-        "accessedDate": "2026-08-16",
+        "accessedDate": "2026-08-24",
         "supportedClaims": [
           "Cannabis aphids are small, soft-bodied, long-antennaed aphids with piercing-sucking mouthparts and occur on leaves and stems of hemp plants grown indoors and outdoors.",
           "Cannabis aphids may be pale to light green or light brown; winged forms have dark spotting and wingless forms often show pale abdominal stripes, so body color alone is not a reliable species identifier."
+        ]
+      },
+      {
+        "title": "Cannabis Aphid in Industrial Hemp",
+        "organization": "NC State Extension",
+        "url": "https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp",
+        "authors": [
+          "Melissa Pulkoski",
+          "Hannah Burrack"
+        ],
+        "publisher": "North Carolina State University",
+        "publicationDate": "2020-07-03",
+        "year": 2020,
+        "accessedDate": "2026-08-24",
+        "supportedClaims": [
+          "Cannabis aphids occur on hemp leaves and stems, vary from cream or yellow through green, pink, and brown, and may produce winged forms and overwintering eggs; color and life stage therefore cannot establish the species alone.",
+          "The guide describes cannabis aphid as very similar to hop aphid and requires microscope examination of the head region, including antennal-base projections and bulb-tipped setae, for morphological separation.",
+          "Honeydew, cast skins, sooty mold, ants, wilting, yellowing, and slowed growth are compatible infestation cues but are not species-specific evidence.",
+          "No hemp action threshold had been established in the guide, so colony counts or symptom severity must not be converted into a universal treatment threshold."
         ]
       },
       {
@@ -10466,13 +10551,43 @@
         "organization": "Frontiers in Plant Science",
         "url": "https://doi.org/10.3389/fpls.2023.1223894",
         "publisher": "Frontiers Media SA",
-        "publicationDate": "2023-10-24",
+        "authors": [
+          "Jacob MacWilliams",
+          "Erika Peirce",
+          "William Jacob Pitt",
+          "Melissa Schreiner",
+          "Tierra Matthews",
+          "Linxing Yao",
+          "Corey Broeckling",
+          "Punya Nachappa"
+        ],
+        "publicationDate": "2023-10-17",
         "year": 2023,
-        "accessedDate": "2026-08-16",
+        "accessedDate": "2026-08-24",
         "doi": "10.3389/fpls.2023.1223894",
         "supportedClaims": [
           "Phorodon cannabis is a Cannabis-adapted aphid and was studied directly on Cannabis sativa hemp in whole-plant assays.",
-          "The study supports cannabis aphid as a biologically relevant hemp pest but does not make generic leaf yellowing or curling species-level ground truth."
+          "Aphid performance differed between the tested high- and low-cannabinoid cultivars in whole-plant assays, so cultivar-specific performance cannot be converted into a universal visual severity rule.",
+          "Aphid feeding changed measured defense-related phytohormones, but the study did not validate yellowing, curling, cannabinoid content, or any other plant-only feature as species-level ground truth."
+        ]
+      },
+      {
+        "title": "Entomopathogenic Fungi Effectively Control Phorodon cannabis Aphid Population in Cannabis sativa Plants",
+        "organization": "Plants",
+        "url": "https://doi.org/10.3390/plants14060931",
+        "authors": [
+          "Daniel Lopez Restrepo",
+          "Igor Kovalchuk"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2025-03-16",
+        "year": 2025,
+        "accessedDate": "2026-08-24",
+        "doi": "10.3390/plants14060931",
+        "supportedClaims": [
+          "A greenhouse experiment followed Phorodon cannabis populations on three Cannabis sativa varieties and provides direct crop-linked evidence for sustained colonies under controlled conditions.",
+          "Population response differed among the three tested varieties and treatments over nine weeks, so study-specific susceptibility and treatment results are not universal diagnostic, severity, or management thresholds.",
+          "Figure 2 combines infested Congo Durban plants with stereo-microscope views of adult and winged aphids; the whole composite is useful as a reference but does not supply panel-resolved training labels."
         ]
       }
     ],
@@ -10486,14 +10601,15 @@
         "license": "CC BY 4.0",
         "sourceUrl": "https://doi.org/10.3390/plants14060931",
         "mediaType": "image",
-        "requiredAttribution": "Lopez Restrepo D, Kovalchuk I. 2025. Investigating the Effects of Entomopathogenic Fungi on Mortality of Phorodon cannabis Populations in Cannabis Plants. Plants 14(6):931. CC BY 4.0.",
+        "requiredAttribution": "Lopez Restrepo D, Kovalchuk I. 2025. Entomopathogenic Fungi Effectively Control Phorodon cannabis Aphid Population in Cannabis sativa Plants. Plants 14(6):931. CC BY 4.0.",
         "diagnosticLabel": "cannabis-aphid — Phorodon cannabis infestation and adult morphology on Cannabis sativa",
         "hostSpecies": "Cannabis sativa",
         "hostContext": "cannabis",
         "useLimitations": [
-          "Multi-panel plant-and-organism figure; reference-only as a whole image.",
+          "Mixed-scale, multi-panel plant-and-organism figure; reference-only as a whole image.",
+          "The two plant panels and two stereo-microscope organism panels do not provide panel-resolved crop geometry or class boundaries.",
           "Do not infer cannabis aphid from yellowing, wilting, or leaf distortion without directly observing aphids or other insect evidence.",
-          "Keep training-ineligible until panel-level source grouping and crop review are complete."
+          "Keep training-ineligible until panel-level source grouping, labels, and crop review are complete."
         ],
         "displayPermission": "permitted",
         "reviewStatus": "approved-reference",

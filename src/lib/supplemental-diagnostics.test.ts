@@ -37,9 +37,9 @@ describe('supplemental diagnostic ranking', () => {
     const results = rankDifferentials(
       supplementalIssues,
       context([
-        'Colonies of small soft-bodied aphids are visible on cannabis leaves or stems',
-        'Aphid cast skins or sticky honeydew occur near an active colony',
-        'New growth is stressed in the same areas where aphids are actively feeding',
+        'Multiple life stages of small, soft-bodied aphids form a plant-linked colony on Cannabis leaves, petioles, stems, shoots, or reproductive tissues',
+        'Cast skins and fresh sticky honeydew are spatially linked to living aphids rather than occurring alone elsewhere in the canopy',
+        'Repeated inspection documents persistent or increasing numbers, nymphs, and adults at the same above-ground feeding sites',
       ]),
       [],
     )

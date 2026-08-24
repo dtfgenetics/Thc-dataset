@@ -515,7 +515,7 @@
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 5,
       "mediaCount": 1,
       "path": "data/profiles/pest-cannabis-aphid.json"
     },

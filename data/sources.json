@@ -1758,13 +1758,24 @@
     "organization": "Frontiers in Plant Science",
     "url": "https://doi.org/10.3389/fpls.2023.1223894",
     "publisher": "Frontiers Media SA",
-    "publicationDate": "2023-10-24",
+    "authors": [
+      "Jacob MacWilliams",
+      "Erika Peirce",
+      "William Jacob Pitt",
+      "Melissa Schreiner",
+      "Tierra Matthews",
+      "Linxing Yao",
+      "Corey Broeckling",
+      "Punya Nachappa"
+    ],
+    "publicationDate": "2023-10-17",
     "year": 2023,
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-24",
     "doi": "10.3389/fpls.2023.1223894",
     "supportedClaims": [
       "Phorodon cannabis is a Cannabis-adapted aphid and was studied directly on Cannabis sativa hemp in whole-plant assays.",
-      "The study supports cannabis aphid as a biologically relevant hemp pest but does not make generic leaf yellowing or curling species-level ground truth."
+      "Aphid performance differed between the tested high- and low-cannabinoid cultivars in whole-plant assays, so cultivar-specific performance cannot be converted into a universal visual severity rule.",
+      "Aphid feeding changed measured defense-related phytohormones, but the study did not validate yellowing, curling, cannabinoid content, or any other plant-only feature as species-level ground truth."
     ]
   },
   {
@@ -2103,6 +2114,26 @@
     ]
   },
   {
+    "sourceKey": "10.3390/plants14060931",
+    "title": "Entomopathogenic Fungi Effectively Control Phorodon cannabis Aphid Population in Cannabis sativa Plants",
+    "organization": "Plants",
+    "url": "https://doi.org/10.3390/plants14060931",
+    "authors": [
+      "Daniel Lopez Restrepo",
+      "Igor Kovalchuk"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2025-03-16",
+    "year": 2025,
+    "accessedDate": "2026-08-24",
+    "doi": "10.3390/plants14060931",
+    "supportedClaims": [
+      "A greenhouse experiment followed Phorodon cannabis populations on three Cannabis sativa varieties and provides direct crop-linked evidence for sustained colonies under controlled conditions.",
+      "Population response differed among the three tested varieties and treatments over nine weeks, so study-specific susceptibility and treatment results are not universal diagnostic, severity, or management thresholds.",
+      "Figure 2 combines infested Congo Durban plants with stereo-microscope views of adult and winged aphids; the whole composite is useful as a reference but does not supply panel-resolved training labels."
+    ]
+  },
+  {
     "sourceKey": "10.3390/plants14243840",
     "title": "Genotypic Variation in Photosynthesis and Biomass Partitioning Underlies Agronomic Performance and Cannabinoid Profile in Cannabis sativa Under Drought",
     "organization": "Plants",
@@ -2175,6 +2206,30 @@
     ],
     "doi": "10.47371/mycosci.2023.1.004",
     "publicationDate": "2024-03-02"
+  },
+  {
+    "sourceKey": "10.5281/zenodo.3710022",
+    "title": "Phorodon cannabis Passerini (Hemiptera: Aphididae), a newly recognized pest in North America found on industrial hemp",
+    "organization": "Insecta Mundi",
+    "url": "https://doi.org/10.5281/zenodo.3710022",
+    "authors": [
+      "Whitney S. Cranshaw",
+      "Susan E. Halbert",
+      "Colin Favret",
+      "Kadie E. Britt",
+      "Gary L. Miller"
+    ],
+    "publisher": "Center for Systematic Entomology",
+    "publicationDate": "2018-09-28",
+    "year": 2018,
+    "accessedDate": "2026-08-24",
+    "doi": "10.5281/zenodo.3710022",
+    "supportedClaims": [
+      "Voucher-backed Phorodon cannabis records were confirmed from industrial-hemp fields in Colorado and Virginia and from indoor or greenhouse Cannabis in multiple North American locations.",
+      "Large late-season field populations produced abundant honeydew without obvious wilting or yellowing in the observed mature, irrigated plants, demonstrating that aphid abundance and visible plant injury do not have a fixed relationship.",
+      "Wingless P. cannabis can be separated from hop aphid by a combination of microscopic characters including flabellate body setae, slightly swollen siphunculi, and antennal-tubercle morphology; winged forms are more difficult to separate.",
+      "Rice root aphid was the other aphid confirmed from indoor Cannabis in the Colorado observations, so above-ground and root-colony evidence must remain distinct."
+    ]
   },
   {
     "sourceKey": "10.7202/1076365ar",
@@ -2268,7 +2323,7 @@
     "organization": "Colorado State University Agricultural Biology",
     "url": "https://agsci.colostate.edu/agbio/ipm-pests/cannabis-aphid/",
     "publisher": "Colorado State University",
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-24",
     "supportedClaims": [
       "Cannabis aphids are small, soft-bodied, long-antennaed aphids with piercing-sucking mouthparts and occur on leaves and stems of hemp plants grown indoors and outdoors.",
       "Cannabis aphids may be pale to light green or light brown; winged forms have dark spotting and wingless forms often show pale abdominal stripes, so body color alone is not a reliable species identifier."
@@ -2314,6 +2369,26 @@
       "The institutional hemp field guide describes white mold as white cottony mycelium on stems with hard dark sclerotia that form on the mycelium and turn black as they mature.",
       "Sclerotia can persist in plant debris, seed, or soil, and wet foliage favors infection; these contextual factors support scouting and confirmation but do not identify an unknown lesion by themselves.",
       "The guide places white mold among overlapping hemp diseases, supporting comparison with gray mold, southern blight, root disease, and noninfectious injury rather than symptom-only ground truth."
+    ]
+  },
+  {
+    "sourceKey": "https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp",
+    "title": "Cannabis Aphid in Industrial Hemp",
+    "organization": "NC State Extension",
+    "url": "https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp",
+    "authors": [
+      "Melissa Pulkoski",
+      "Hannah Burrack"
+    ],
+    "publisher": "North Carolina State University",
+    "publicationDate": "2020-07-03",
+    "year": 2020,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "Cannabis aphids occur on hemp leaves and stems, vary from cream or yellow through green, pink, and brown, and may produce winged forms and overwintering eggs; color and life stage therefore cannot establish the species alone.",
+      "The guide describes cannabis aphid as very similar to hop aphid and requires microscope examination of the head region, including antennal-base projections and bulb-tipped setae, for morphological separation.",
+      "Honeydew, cast skins, sooty mold, ants, wilting, yellowing, and slowed growth are compatible infestation cues but are not species-specific evidence.",
+      "No hemp action threshold had been established in the guide, so colony counts or symptom severity must not be converted into a universal treatment threshold."
     ]
   },
   {
