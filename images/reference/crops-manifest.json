@@ -27,7 +27,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -70,7 +70,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -113,7 +113,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -544,7 +544,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -586,7 +586,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -628,7 +628,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -922,7 +922,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"
@@ -964,7 +964,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"
@@ -1006,7 +1006,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"
