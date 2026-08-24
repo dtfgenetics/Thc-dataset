@@ -173,7 +173,7 @@
     "publisher": "Springer Nature",
     "publicationDate": "2021-08-19",
     "year": 2021,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-08-24",
     "doi": "10.1038/s41598-021-96311-w",
     "supportedClaims": [
       "In a study of 112 dioecious hemp plants, seedling morphology did not consistently distinguish male, female, and co-sexual plants across cultivars.",
@@ -1225,7 +1225,7 @@
     "publisher": "Wiley",
     "publicationDate": "2020-01-22",
     "year": 2020,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-08-24",
     "doi": "10.1111/gcbb.12667",
     "supportedClaims": [
       "Male and female Cannabis plants are phenotypically difficult to distinguish before flowering, while DNA from young plants can be used for genotype assays.",
@@ -1505,6 +1505,30 @@
     ]
   },
   {
+    "sourceKey": "10.3389/fpls.2019.00350",
+    "title": "Architecture and Florogenesis in Female Cannabis sativa Plants",
+    "organization": "Frontiers in Plant Science",
+    "url": "https://doi.org/10.3389/fpls.2019.00350",
+    "authors": [
+      "Ben Spitzer-Rimon",
+      "Shai Duchin",
+      "Nirit Bernstein",
+      "Rina Kamenetsky"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2019-04-02",
+    "year": 2019,
+    "accessedDate": "2026-08-24",
+    "doi": "10.3389/fpls.2019.00350",
+    "supportedClaims": [
+      "In three female medical-Cannabis cultivars, solitary flowers and their subtending bracts occurred at leaf axils under long photoperiod, so visible reproductive organs can precede formation of a dense terminal inflorescence.",
+      "The authors identified solitary flowers as the first visual indication of sex and warned that stigmas from solitary flowers in the apical zone can be mistaken for inflorescence flowering.",
+      "Under short photoperiod, the female inflorescence developed as condensed branchlets containing reduced leaves, bracts, solitary flowers, and axillary shoots; these neighboring structures are relevant visual confounders in node-scale imagery.",
+      "Flowering timing and inflorescence architecture differed among the three cultivars, so the study-specific days after photoperiod change and plant habit are not universal sex or maturity thresholds.",
+      "One cultivar produced terminal flowers with both pistils and anthers under the experiment conditions, supporting organ-level documentation instead of inferring the whole plant’s future expression from an earlier or distant view."
+    ]
+  },
+  {
     "sourceKey": "10.3389/fpls.2019.01120",
     "title": "Pathogens and Molds Affecting Production and Quality of Cannabis sativa L.",
     "organization": "Frontiers in Plant Science (Punja et al.)",
@@ -1542,7 +1566,7 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2020-06-25",
     "year": 2020,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-08-24",
     "doi": "10.3389/fpls.2020.00718",
     "supportedClaims": [
       "Young pistillate inflorescences developed protruding white hair-like stigmas that later became yellowish-white, then curled and browned or reddened as carpels and surrounding bracts swelled during maturation.",
