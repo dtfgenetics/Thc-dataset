@@ -58,4 +58,23 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(flower.affectedParts).toContain('flowers')
     expect(root.affectedParts.some((part) => part.toLowerCase().includes('root'))).toBe(true)
   })
+
+  it('keeps Exserohilum image-only labels conservative and linked to organism confirmation', () => {
+    const record = bySlug('exserohilum-helminthosporium-leaf-blight')
+    const evidence = [...record.indicators, ...record.exclusions, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    const primary = record.sources.find((item) => item.doi === '10.1094/PDIS-08-18-1434-PDN')
+    const media = record.media.find((item) => item.id === 'media-exserohilum-industrial-hemp-ncsu-license-review')
+
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record.progression.length).toBeGreaterThanOrEqual(5)
+    expect(evidence).toContain('its1')
+    expect(evidence).toContain('rpb2')
+    expect(evidence).toContain('human review')
+    expect(primary?.authors).toEqual(['Lindsey D. Thiessen', 'Tyler Schappe'])
+    expect(primary?.publicationDate).toBe('2019-04-03')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.displayPermission).toBe('unknown')
+    expect(media?.sourceUrl).toBe('https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/')
+  })
 })

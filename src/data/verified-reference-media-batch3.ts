@@ -1,6 +1,41 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'exserohilum-helminthosporium-leaf-blight': [
+    {
+      id: 'media-exserohilum-industrial-hemp-ncsu-license-review',
+      url: 'https://eit-wagpress-prod.s3.amazonaws.com/media/images/2019-08-Exserohilum-Leaf-spot.max-700x1200.jpg',
+      alt: 'Close-up of an industrial-hemp leaf with numerous small round lesions having dark-brown margins and gray-brown centers, presented by NC State Extension as Exserohilum leaf spot.',
+      caption: 'NC State Extension Figure 1 Cannabis symptom reference. It shows the target-like round, dark-margined lesion pattern, but the landing page does not state an individual image creator, item-level reuse license, or plant-linked laboratory identifier.',
+      creator: 'NC State Extension Plant Pathology; individual image creator not stated',
+      license: 'Copyright/reuse and automated-training terms not stated on the NC State Extension landing page',
+      sourceUrl: 'https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/',
+      mediaType: 'image',
+      requiredAttribution: 'NC State Extension Plant Pathology, Figure 1 in “Exserohilum Leaf Spot Causing Problems in NC Hemp” by Lindsey D. Thiessen, published August 16, 2019 and updated June 30, 2022. Obtain documented rights-holder permission before display, copying, modification, or automated training.',
+      diagnosticLabel: 'exserohilum-helminthosporium-leaf-blight — institutional industrial-hemp symptom reference, license and plant-linked confirmation review required',
+      hostSpecies: 'Cannabis sativa industrial hemp',
+      hostContext: 'cannabis',
+      useLimitations: [
+        'Reference-link metadata only; no media file is copied into the repository.',
+        'Do not display, copy, modify, or use for automated training until reusable item-level rights are documented.',
+        'The close-up does not provide whole-plant distribution, cultivar, crop stage, opposite leaf surface, lesion scale, time progression, or a plant-linked culture and molecular record.',
+        'Round dark-bordered lesions overlap Bipolaris, Cercospora, Septoria, Alternaria, Curvularia, Fusarium, and abiotic injury; the institutional caption does not make a new image-only observation ground truth.',
+        'Retain the landing-page context and route any proposed scientific label or crop to qualified human review.',
+      ],
+      displayPermission: 'unknown',
+      reviewStatus: 'license-review',
+      trainingPermission: 'not-permitted',
+      sha256: '052daf2b538cce9f86b41c2dd722ef753eefcbfeb7f5f327c927941221615f81',
+      perceptualHash: 'dhash64:d396429c54a48aaa',
+      width: 700,
+      height: 933,
+      view: 'close-up',
+      stage: 'foliar symptoms; cultivar and production stage not stated',
+      severity: 'moderate lesion burden; causal severity not established',
+      confirmation: 'expert-reviewed',
+      trainingEligible: false,
+    },
+  ],
   'spotted-cucumber-beetle': [
     {
       id: 'media-spotted-cucumber-beetle-rhododendrites-72669-ccbysa4',

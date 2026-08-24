@@ -108,8 +108,8 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
-      "mediaCount": 0,
+      "sourceCount": 3,
+      "mediaCount": 1,
       "path": "data/profiles/fungal-exserohilum-leaf-blight.json"
     },
     {

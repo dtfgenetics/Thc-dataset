@@ -165,6 +165,10 @@
       "year": 2019,
       "accessedDate": "2026-08-20",
       "supportedClaims": [
+        "NC State Extension identifies Exserohilum rostratum leaf spot on multiple industrial-hemp strains in North Carolina and warns that other hemp leaf spots can look similar, so accurate diagnosis is important.",
+        "The institutional hemp description states that Exserohilum can affect leaves, stems, and flowers; leaf lesions are most distinct as small round spots with dark-brown margins and gray-brown centers.",
+        "As lesions age, spores may appear in gray-brown centers like fine ground pepper and lesions may coalesce into larger irregular necrotic areas; these are progression cues, not species confirmation.",
+        "The page names bacterial, Fusarium, and Septoria leaf spots as similar hemp diseases and characterizes bacterial leaf spot/blight as angular, supporting explicit differential checks.",
         "NC State Extension states that hemp leaf spots can look similar and accurate diagnosis is important; its industrial-hemp bacterial leaf spot/blight reference is characterized only as angular lesions and is not presented as species-confirmed Serratia ground truth.",
         "The same institutional differential describes Exserohilum lesions as small, round spots with dark-brown margins and gray-brown centers that may develop pepper-like spores as they age, helping separate a fungal leaf-spot pattern from vein-limited bacterial-compatible injury.",
         "The page identifies bacterial, Fusarium, and Septoria leaf spots as visual alternatives to Exserohilum, supporting a multi-pathogen differential rather than an image-only bacterial species label."

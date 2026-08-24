@@ -156,6 +156,17 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'exserohilum-helminthosporium-leaf-blight') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('cannabis')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].displayPermission).toBe('unknown')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].useLimitations.join(' ')).toContain('no media file is copied')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
