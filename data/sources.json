@@ -57,6 +57,32 @@
     ]
   },
   {
+    "sourceKey": "10.1002/pld3.528",
+    "title": "Hormonal and proteomic analyses of southern blight disease caused by Athelia rolfsii and root chitosan priming on Cannabis sativa in an in vitro hydroponic system",
+    "organization": "Plant Direct",
+    "url": "https://doi.org/10.1002/pld3.528",
+    "authors": [
+      "Pipob Suwanchaikasem",
+      "Shuai Nie",
+      "Jamie Selby-Pham",
+      "Robert Walker",
+      "Berin A. Boughton",
+      "Alexander Idnurm"
+    ],
+    "publisher": "Wiley",
+    "publicationDate": "2023-09-08",
+    "year": 2023,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1002/pld3.528",
+    "supportedClaims": [
+      "In a controlled Root-TRAPR hydroponic experiment with Cannabis sativa cultivar Ferimon, an ITS-confirmed Athelia rolfsii isolate was placed at the crown and caused yellowing, drooping, and wilt within five days in both unprimed and chitosan-primed plants.",
+      "The experiment recovered A. rolfsii from inoculated stem tissue but not root tissue; visible root browning or root rot was not observed during the five-day infection window, showing that root rot is possible in field reports but is not required in every early controlled presentation.",
+      "The study used four treatment groups and four timepoints; 0.2% chitosan inhibited root development and did not prevent visible disease, so chitosan-treated morphology cannot serve as an untreated southern-blight progression series.",
+      "ITS evidence, controlled inoculation, compatible disease, recovery of the fungus from inoculated plants, and absence from controls provide causal support that is stronger than canopy appearance alone.",
+      "The five-day hydroponic Ferimon response, chitosan results, hormone changes, enzyme responses, and root-growth measurements are experiment-specific and are not universal diagnostic thresholds or treatment recommendations."
+    ]
+  },
+  {
     "sourceKey": "10.1002/tpg2.20169",
     "title": "Accumulation of somatic mutations leads to genetic mosaicism in cannabis",
     "organization": "The Plant Genome (Adamek et al.)",
@@ -115,6 +141,31 @@
       "Across three drug-type and four fiber-type Cannabis varieties measured from 20 to 40 degrees Celsius, photosynthetic optima varied by variety from about 25 to 35 degrees Celsius.",
       "Dark respiration approximately doubled from 20 to 40 degrees Celsius in all tested varieties, while photosynthesis, transpiration, stomatal conductance, and water-use efficiency showed variety-dependent responses.",
       "The experiment measured gas exchange rather than a validated visible heat-injury syndrome, so its temperature values must not be used as universal image-label thresholds."
+    ]
+  },
+  {
+    "sourceKey": "10.1007/s42161-022-01072-8",
+    "title": "First report of southern blight caused by Athelia rolfsii on hemp in Greece",
+    "organization": "Journal of Plant Pathology",
+    "url": "https://doi.org/10.1007/s42161-022-01072-8",
+    "authors": [
+      "Anastasia Chatzaki",
+      "Anastasia A. Papadaki",
+      "Nikolaos Krasagakis",
+      "Georgios Papaisidorou",
+      "Dimitrios E. Goumas",
+      "Emmanouil A. Markakis"
+    ],
+    "publisher": "Springer Nature",
+    "publicationDate": "2022-03-03",
+    "year": 2022,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1007/s42161-022-01072-8",
+    "supportedClaims": [
+      "A flowering Kompolti hemp field in Crete showed wilt, chlorosis, yellowing and collapse linked to dark-brown soil-line discoloration, crown/taproot rot, cottony white mycelium, and light-to-dark-brown spherical sclerotia; the reported 19.1% incidence is specific to that August 2021 field.",
+      "Morphology, an ITS sequence deposited as GenBank OL348356, 100% identity to cited accessions, and phylogenetic analysis supported Athelia rolfsii isolate SRC1 rather than a symptom-only label.",
+      "Crown inoculation of six-leaf Kompolti plants reproduced wilt, yellowing, collapse, mycelium, and sclerotia in 80% of plants after 16 days, followed by reisolation; that rate and timing are bounded to the reported isolate, cultivar, inoculation method, and 29 ± 2°C experiment.",
+      "Cottony mycelium, round sclerotia, and crown-centered disease are discriminating evidence only when they remain linked to the same plant and organism-confirmation workflow."
     ]
   },
   {
@@ -1096,6 +1147,12 @@
     "title": "First Report of Southern Blight Caused by Sclerotium rolfsii on Hemp (Cannabis sativa) in Sicily and Southern Italy",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-91-5-0636A",
+    "authors": [
+      "Antonio Pane",
+      "Salvatore L. Cosentino",
+      "Venera Copani",
+      "Santa Olga Cacciola"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2007-04-20",
     "year": 2007,

@@ -107,6 +107,32 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(sclerotinia.warnings.join(' ').toLowerCase()).toMatch(/human review/)
   })
 
+  it('keeps southern blight plant-linked, organism-confirmed, and composite-bounded', () => {
+    const southernBlight = bySlug('southern-blight-athelia-rolfsii')
+    const warnings = southernBlight.warnings.join(' ').toLowerCase()
+    expect(southernBlight.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(southernBlight.indicators).toHaveLength(8)
+    expect(southernBlight.exclusions).toHaveLength(10)
+    expect(southernBlight.progression).toHaveLength(5)
+    expect(southernBlight.lookAlikes).toHaveLength(15)
+    expect(southernBlight.confirmation).toHaveLength(9)
+    expect(southernBlight.sources).toHaveLength(4)
+    expect(southernBlight.sources.some((source) => source.doi === '10.1007/s42161-022-01072-8')).toBe(true)
+    expect(southernBlight.sources.some((source) => source.doi === '10.1002/pld3.528')).toBe(true)
+    expect(southernBlight.media).toHaveLength(1)
+    const reference = southernBlight.media[0]
+    expect(reference.license).toBe('CC BY 4.0')
+    expect(reference.hostContext).toBe('cannabis')
+    expect(reference.displayPermission).toBe('permitted')
+    expect(reference.reviewStatus).toBe('approved-reference')
+    expect(reference.trainingPermission).toBe('permitted')
+    expect(reference.trainingEligible).toBe(false)
+    expect(reference.useLimitations.join(' ').toLowerCase()).toMatch(/multi-treatment.*chitosan.*not to scale/s)
+    expect(warnings).toContain('19.1% incidence in greece')
+    expect(warnings).toContain('five-day ferimon hydroponic response')
+    expect(warnings).toContain('human review')
+  })
+
   it('keeps the downy-mildew canonical record internally consistent after taxonomy correction', () => {
     const downy = bySlug('downy-mildew-pseudoperonospora')
     expect(downy.category).toBe('Oomycete pathogen')
