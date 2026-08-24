@@ -388,14 +388,22 @@
     "title": "Cannabis sativa as a Host of Rice Root Aphid (Hemiptera: Aphididae) in North America",
     "organization": "Journal of Integrated Pest Management",
     "url": "https://doi.org/10.1093/jipm/pmaa008",
+    "authors": [
+      "Whitney Cranshaw",
+      "Suzanne Wainwright-Evans"
+    ],
+    "publisher": "Oxford University Press on behalf of the Entomological Society of America",
     "publicationDate": "2020-07-20",
     "year": 2020,
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-23",
     "doi": "10.1093/jipm/pmaa008",
     "supportedClaims": [
       "Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.",
-      "On Cannabis this aphid is found primarily in association with plant roots, and winged adults may emerge from soil in large numbers as plants approach maturity.",
-      "A root-zone aphid observation is much more discriminating than nonspecific above-ground stress symptoms."
+      "The authors observed rice root aphid in Cannabis soil, aeroponic, coconut-coir, and rockwool systems, but had not found it in outdoor hemp plantings; the outdoor evidence gap must not be converted into an absence claim.",
+      "In indoor Cannabis the aphid is almost entirely root-associated; alate females can emerge from soil especially during flowering and near maturity, colonize new plants, and produce young on stems or foliage before most offspring migrate downward.",
+      "Dead alates trapped on upper-leaf hairs can be an early facility-level cue, but a sticky-card or canopy alate is not plant-linked confirmation of a root colony.",
+      "Heavy Cannabis infestations were associated with generalized decline, slower growth, and possible lower-leaf off-coloration, none of which is unique to rice root aphid.",
+      "The article explicitly states that a Cannabis association with increased pathogen susceptibility still requires confirmation; root discoloration or decay must therefore be diagnosed independently."
     ]
   },
   {
@@ -2251,12 +2259,15 @@
     "organization": "University of New Hampshire Cooperative Extension",
     "url": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
     "publisher": "University of New Hampshire Cooperative Extension",
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-08-23",
     "supportedClaims": [
       "Adult Japanese beetles feed on hemp leaves and developing flowers; leaf feeding produces skeletonization, and large populations may completely defoliate plants.",
       "Japanese beetle grubs may damage roots, but turfgrass is their preferred larval habitat; an adult observed on hemp should not be used to infer that hemp roots contain grubs.",
-      "Representative field scouting should cover multiple plants and locations and record the pest, plant injury, crop context, and collected specimens rather than relying on one image."
-    ]
+      "Representative field scouting should cover multiple plants and locations and record the pest, plant injury, crop context, and collected specimens rather than relying on one image.",
+      "UNH Extension associates Rhopalosiphum rufiabdominale with indoor Cannabis sativa grown as a high-THC crop and reports observations from indoor cultivation across the United States.",
+      "The institutional guide reported no North American outdoor-hemp records and identified hemp soil-insect research as a gap; this supports an indoor-production scope flag rather than proof that outdoor infestation is impossible."
+    ],
+    "authors": []
   },
   {
     "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-broad-mite",

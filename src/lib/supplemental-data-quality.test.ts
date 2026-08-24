@@ -37,6 +37,41 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(source?.publicationDate).toBe('2020-07-20')
   })
 
+  it('keeps rice root aphid labels plant-linked, root-confirmed, and canopy-cautious', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'rice-root-aphid')
+    const indicators = record?.indicators.join(' ').toLowerCase() ?? ''
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(8)
+    expect(record?.progression).toHaveLength(5)
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Cannabis aphid',
+      'Fungus gnats',
+      'Pythium or another oomycete root rot',
+      'Root-knot nematodes',
+      'Root-zone hypoxia / overwatering',
+    ]))
+    expect(indicators).toContain('dead alate aphids caught on upper-leaf hairs or low sticky cards can trigger root-zone inspection')
+    expect(confirmation).toContain('preserve intact apterous adults and representative alates')
+    expect(confirmation).toContain('finding aphids does not prove they caused every root or canopy symptom')
+    expect(confirmation).toContain('keep canopy-only, damage-only, sticky-card-only, alate-only, organism-only, unlinked-root, mixed-arthropod, low-resolution, stock, vendor, generated, anecdotal, forum, and unverified observations out')
+    expect(warnings).toContain('increased pathogen susceptibility remains unconfirmed')
+    expect(warnings).toContain('evidence gap does not prove outdoor infestation is impossible')
+    expect(warnings).toContain('no verified diagnostic video or matched cannabis progression series')
+    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmaa008')).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://extension.unh.edu/resource/hemp-pests-new-hampshire')).toBe(true)
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].sourceUrl).toBe('https://doi.org/10.1093/jipm/pmaa008')
+    expect(record?.media[0].license).toBe('CC BY 4.0')
+    expect(record?.media[0].hostContext).toBe('cannabis')
+    expect(record?.media[0].trainingEligible).toBe(false)
+  })
+
   it('admits only fully verified reference media into supplemental profiles', () => {
     const permittedMediaCounts = new Map([
       ['rice-root-aphid', 1],
