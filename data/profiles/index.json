@@ -196,7 +196,7 @@
       "category": "Insect",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/insect-armyworm-complex.json"
     },

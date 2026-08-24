@@ -459,6 +459,27 @@
     ]
   },
   {
+    "sourceKey": "10.1093/jipm/pmad028",
+    "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), in Florida",
+    "organization": "Journal of Integrated Pest Management",
+    "url": "https://doi.org/10.1093/jipm/pmad028",
+    "authors": [
+      "Cindy L. McKenzie",
+      "Lance S. Osborne"
+    ],
+    "publisher": "Oxford University Press on behalf of the Entomological Society of America",
+    "publicationDate": "2023-12-26",
+    "year": 2023,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1093/jipm/pmad028",
+    "supportedClaims": [
+      "The Florida synthesis reports beet armyworm (Spodoptera exigua) and yellowstriped armyworm (Spodoptera ornithogalli) among noctuids established in Florida and associated with hemp, while bertha armyworm and Spodoptera litura are marked as intercepted rather than established records.",
+      "The authors distinguish reported presence from pest impact: not every one of the 105 listed arthropod and mollusk species can reproduce, complete its life cycle, or damage hemp.",
+      "The paper emphasizes identification across life stages and warns that immature organisms can be confused; occurrence in a regional list or an organism-only image is not plant-linked proof of injury, prevalence, or severity.",
+      "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media."
+    ]
+  },
+  {
     "sourceKey": "10.1093/jipm/pmag032",
     "title": "Profile of the Dectes stem borer (Coleoptera: Cerambycidae) in sunflower and soybean",
     "organization": "Journal of Integrated Pest Management (Varenhorst et al.)",
@@ -2399,6 +2420,21 @@
     "authors": []
   },
   {
+    "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+    "title": "Armyworms",
+    "organization": "Utah State University Extension Integrated Pest Management",
+    "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+    "publisher": "Utah State University Extension",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
+      "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
+      "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
+      "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
+      "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+    ]
+  },
+  {
     "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-broad-mite",
     "title": "Broad Mite",
     "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
@@ -2607,6 +2643,24 @@
       "NC State Extension states that hemp leaf spots can look similar and accurate diagnosis is important; its industrial-hemp bacterial leaf spot/blight reference is characterized only as angular lesions and is not presented as species-confirmed Serratia ground truth.",
       "The same institutional differential describes Exserohilum lesions as small, round spots with dark-brown margins and gray-brown centers that may develop pepper-like spores as they age, helping separate a fungal leaf-spot pattern from vein-limited bacterial-compatible injury.",
       "The page identifies bacterial, Fusarium, and Septoria leaf spots as visual alternatives to Exserohilum, supporting a multi-pathogen differential rather than an image-only bacterial species label."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars",
+    "title": "Hemp-Caterpillars",
+    "organization": "Pacific Northwest Pest Management Handbooks",
+    "url": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars",
+    "authors": [
+      "Govinda Shrestha"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "Pacific Northwest hemp guidance groups multiple noctuid caterpillars, including bertha armyworm and spotted cutworm, as hemp pests and states that all have three pairs of true legs behind the head.",
+      "Corn earworm, tobacco budworm, bertha armyworm, and spotted cutworm have five pairs of rear prolegs, while the cited loopers have three pairs and move with a looping gait; proleg and gait evidence is more discriminating than damage pattern or body color.",
+      "Corn earworm is identified as the most damaging caterpillar in the regional hemp context because it feeds and tunnels in flower buds and can contribute wounds associated with bud rot; floral injury must not automatically be assigned to armyworm.",
+      "The guide describes damage to mature hemp from caterpillars other than corn earworm as usually minor in the Pacific Northwest, which conflicts with treating every armyworm-like larva or damaged bud as a high-severity event.",
+      "Regional host, timing, damage, and management statements are bounded to Pacific Northwest hemp and do not provide a universal species-level image rule or armyworm treatment threshold."
     ]
   },
   {

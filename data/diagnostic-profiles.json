@@ -3149,72 +3149,114 @@
     "id": "insect-armyworm-complex",
     "slug": "armyworm-caterpillar-feeding",
     "name": "Armyworm caterpillar feeding complex",
-    "scientificName": "Spodoptera spp. / Mythimna unipuncta",
+    "scientificName": "Spodoptera spp. / Mamestra configurata",
     "category": "Insect",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.5,
-    "summary": "A late-season caterpillar feeding differential for hemp. Armyworm larvae can defoliate foliage and enter buds or flowers, but species-level identification requires larval morphology rather than damage pattern alone.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "A multi-species noctuid caterpillar differential for hemp. Plant-linked larvae can accompany grouped early skeletonization, later irregular chewing or defoliation, and occasional bud entry, but body color, holes, silk, frass, or floral injury cannot distinguish armyworms from corn earworm, tobacco budworm, cutworms, or loopers. Species labels require diagnostic larval morphology or expert confirmation.",
     "affectedParts": [
-      "leaves",
-      "leaf midribs",
-      "buds",
-      "flowers"
+      "lower and upper leaf surfaces",
+      "leaf blade and major veins",
+      "shoot tips",
+      "inner canopy",
+      "maturing buds and flowers at high populations",
+      "soil or surface beneath plants for mature wandering larvae"
     ],
     "stages": [
+      "field establishment",
       "vegetative",
-      "flower",
-      "late season"
+      "preflower",
+      "flower and maturing buds",
+      "regional late-season risk periods"
     ],
     "indicators": [
-      "Caterpillar larvae are present with fresh irregular chewing injury",
-      "Severe feeding skeletonizes or strips leaves toward the midribs",
-      "Larvae entering buds or flowers leave feeding injury together with silk and frass",
-      "Larval head/body markings support fall armyworm, true armyworm, or another armyworm identification"
+      "A plant-linked noctuid caterpillar with three pairs of true thoracic legs and five rear proleg pairs is documented beside fresh hemp chewing injury, separating the non-looper body plan from three-proleg-pair loopers",
+      "Young larvae and an associated egg mass occur on a leaf underside, with grouped surface feeding or skeletonization near the hatch site",
+      "Older larvae occur singly with fresh irregular holes, shredded edges, expanding defoliation, or tissue stripped toward major veins",
+      "Fresh frass, feeding margins, larval position, and same-plant time sequence link the organism to new injury rather than merely co-locating it with old holes",
+      "Beet-armyworm-compatible larvae show lengthwise green-yellow striping and a small dark lateral spot on the second segment behind the head, with the full morphology visible rather than inferred from color alone",
+      "Yellowstriped-armyworm-compatible larvae show paired yellow-to-orange dorsal stripes, a lateral dark spot on the fourth segment behind the head, and black triangular dorsal-side markings",
+      "Bertha-armyworm-compatible larvae are green to black with a pale lateral stripe, but this variable appearance supports only a differential until expert identification",
+      "At high plant-linked populations, larvae may move into maturing buds with visible feeding, silk, and frass; the larva must be recovered because floral tunneling more strongly raises corn earworm or tobacco budworm differentials"
     ],
     "exclusions": [
-      "No larvae or fresh frass are found and damage is old",
-      "Characteristic looping larvae support cabbage looper",
-      "Adult Japanese beetles are actively skeletonizing tissue"
+      "No active larvae, egg masses, fresh frass, or advancing feeding margins are found after repeated day and sheltered-canopy inspection, and the damage is old",
+      "A green caterpillar with three rear proleg pairs and a looping gait supports cabbage, alfalfa, or soybean looper rather than this five-proleg-pair armyworm differential",
+      "A larva embedded in hemp flower material with bud tunneling and associated rot is corn-earworm- or tobacco-budworm-compatible until morphology establishes otherwise",
+      "Adult Japanese beetles or spotted cucumber beetles are actively linked to the skeletonization or holes and no caterpillars are present",
+      "Slug or snail mucus, nocturnal rasping, or mollusk recovery explains the chewing pattern without caterpillar evidence",
+      "Grasshopper or katydid mandible feeding and organism evidence explain the missing tissue",
+      "Hail, wind, handling, training, equipment, or contact injury explains tears aligned with exposure or manipulation rather than active feeding fronts",
+      "Body color, a purported inverted-Y head mark, one lateral spot, silk, frass, or holes alone cannot establish species because several noctuid larvae vary and overlap"
     ],
     "progression": [
       {
-        "stage": "Leaf feeding",
-        "description": "Larvae chew irregular holes and remove expanding leaf area."
+        "stage": "Egg-mass and hatch-site evidence",
+        "description": "Pale ribbed eggs may occur in a mass on a leaf underside, sometimes partly covered with moth hairs; eggs alone require rearing or expert review."
       },
       {
-        "stage": "Heavy defoliation",
-        "description": "High feeding pressure can skeletonize leaves or strip tissue to major veins."
+        "stage": "Grouped early feeding",
+        "description": "Young larvae feed together near the hatch site and may scrape or skeletonize leaf tissue while leaving a localized clustered distribution."
       },
       {
-        "stage": "Bud/flower feeding",
-        "description": "Later larvae can enter reproductive tissue, leaving silk, frass, and damaged floral material."
+        "stage": "Dispersed irregular chewing",
+        "description": "Older larvae separate and feed singly, producing larger irregular holes, shredded margins, or expanding leaf-area loss."
+      },
+      {
+        "stage": "Heavy or reproductive-tissue injury",
+        "description": "High local populations can defoliate foliage and may move toward maturing buds, where larvae, fresh frass, silk, and exact feeding location must be documented."
+      },
+      {
+        "stage": "Departure and residual damage",
+        "description": "Mature larvae may move inward, downward, or toward soil to pupate, leaving old damage without a visible feeder; regional timing and generation counts must not be used as a universal Cannabis clock."
       }
     ],
     "lookAlikes": [
+      "Corn earworm",
+      "Tobacco budworm",
       "Cabbage looper",
-      "Corn-earworm-like caterpillar injury",
+      "Soybean or alfalfa looper",
+      "Spotted or variegated cutworm",
+      "Other noctuid caterpillar",
       "Japanese beetle",
-      "Other noctuid larvae"
+      "Spotted cucumber beetle",
+      "Grasshopper or katydid feeding",
+      "Slug or snail feeding",
+      "Hail, wind, handling, equipment, or training tear",
+      "Leaf-spot center loss or shot hole"
     ],
     "confirmation": [
-      "Collect or clearly photograph representative larvae and use morphology for species-level assignment.",
-      "Treat frass plus an active larva as stronger evidence than holes alone."
+      "Capture the same uninterrupted plant-linked sequence: whole plant and canopy position, both surfaces of the damaged leaf, fresh feeding margin, frass or silk, larva beside injury, and scaled dorsal, lateral, head, and ventral views.",
+      "Count the three true thoracic leg pairs and rear proleg pairs and record gait; five rear proleg pairs support the non-looper noctuid group while three rear pairs plus looping motion supports the cited loopers.",
+      "Record egg-mass structure and covering, larval number, size range, grouping versus solitary behavior, exact leaf or bud location, plant stage, and repeat observations of newly consumed tissue.",
+      "Use multiple high-resolution markings together rather than body color alone: photograph the head, second and fourth segments behind the head, lateral stripes or spots, dorsal stripes, and dorsal-side triangles where present.",
+      "Dissect or gently open damaged floral material on camera and preserve the recovered larva; do not assign armyworm from silk, frass, tunneling, or bud rot without excluding corn earworm and tobacco budworm.",
+      "Preserve representative larvae for rearing or qualified entomological identification and use validated molecular identification when a species-level Spodoptera or Mamestra label is required.",
+      "Keep damage-only, frass-only, silk-only, egg-only, moth-only, body-color-only, incomplete-marking, detached-leaf, non-Cannabis, organism/injury-unlinked, low-resolution, stock, Shutterstock, BugGuide, vendor, generated, anecdotal, forum, and unverified samples out of the confirmed class and route them to human review."
     ],
     "immediateActions": [
-      "Inspect fresh feeding fronts, buds, and flowers for larvae and frass.",
-      "Record larval size and density because damage potential changes with instar and population."
+      "Mark affected plants and preserve plant-linked larvae, egg masses, frass, and pre-intervention images before disturbing feeding sites.",
+      "Inspect leaf undersides, fresh feeding fronts, inner canopy, maturing buds, and the surface beneath plants, recording larvae by size and location.",
+      "Separate suspected floral feeding from bud-rot diagnosis and preserve both entomology and plant-pathology samples when decay is present."
     ],
     "correctivePlan": [
-      "Use an IPM response based on confirmed caterpillar identity, population, crop stage, and locally legal hemp options."
+      "Use an integrated response based on confirmed caterpillar identity, larval size, density, crop stage, fresh injury, regional guidance, and options currently legal for hemp in the jurisdiction.",
+      "Track new injury and live larvae at fixed marked plants; old holes and stripped tissue do not recover and cannot measure treatment response.",
+      "Protect beneficial arthropods and flower quality, and reopen the differential if feeding advances without recovery of a compatible larva."
     ],
     "prevention": [
-      "Scout late-season foliage and reproductive tissue for egg masses and young larvae.",
-      "Use monitoring and beneficial-conservation practices where appropriate."
+      "Scout leaf undersides for egg masses and grouped young larvae before injury disperses, while recording regional season rather than assuming a universal late-season window.",
+      "Maintain plant- and location-specific counts across field edges and interiors so clustered egg laying is not converted into a whole-field severity label.",
+      "Conserve documented natural enemies where appropriate and remove alternate-host or crop-residue risks only within a locally supported IPM plan."
     ],
     "warnings": [
-      "Armyworm damage overlaps other caterpillar feeding.",
-      "Do not identify species from leaf holes or frass alone."
+      "This record is an armyworm complex, not a species classifier; Spodoptera, Mamestra, corn earworms, budworms, cutworms, and loopers overlap in color and chewing injury.",
+      "Photo or video alone is capped at 0.30 because even detailed larval images may lack ventral prolegs, complete segment markings, plant linkage, or species-confirming characters.",
+      "Utah hemp guidance reports few armyworms and little foliar injury locally, while Missouri describes potentially severe feeding; neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold.",
+      "The Pacific Northwest hemp guide identifies corn earworm as the most damaging regional caterpillar and says other mature-hemp caterpillar injury is usually minor; bud injury must not be defaulted to armyworm.",
+      "The Florida synthesis distinguishes established, intercepted, and reported species and warns that presence does not prove reproduction or damage; regional lists are not image ground truth.",
+      "The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission. No media was copied or indexed, and no training-eligible asset is included."
     ],
     "sources": [
       {
@@ -3242,6 +3284,57 @@
           "Japanese beetle adults feed on hemp foliage and can skeletonize leaves between veins; adults are metallic green with bronze wing covers and often aggregate.",
           "Armyworm larvae can create irregular holes and skeletonization and may enter hemp buds or flowers, where silk and frass can accompany feeding injury.",
           "Hemp insect pressure varies by region, growth stage, and variety, so damage morphology without organism evidence should not be treated as species confirmation."
+        ]
+      },
+      {
+        "title": "Armyworms",
+        "organization": "Utah State University Extension Integrated Pest Management",
+        "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+        "publisher": "Utah State University Extension",
+        "accessedDate": "2026-08-24",
+        "supportedClaims": [
+          "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
+          "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
+          "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
+          "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
+          "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+        ]
+      },
+      {
+        "title": "Hemp-Caterpillars",
+        "organization": "Pacific Northwest Pest Management Handbooks",
+        "url": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars",
+        "authors": [
+          "Govinda Shrestha"
+        ],
+        "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+        "accessedDate": "2026-08-24",
+        "supportedClaims": [
+          "Pacific Northwest hemp guidance groups multiple noctuid caterpillars, including bertha armyworm and spotted cutworm, as hemp pests and states that all have three pairs of true legs behind the head.",
+          "Corn earworm, tobacco budworm, bertha armyworm, and spotted cutworm have five pairs of rear prolegs, while the cited loopers have three pairs and move with a looping gait; proleg and gait evidence is more discriminating than damage pattern or body color.",
+          "Corn earworm is identified as the most damaging caterpillar in the regional hemp context because it feeds and tunnels in flower buds and can contribute wounds associated with bud rot; floral injury must not automatically be assigned to armyworm.",
+          "The guide describes damage to mature hemp from caterpillars other than corn earworm as usually minor in the Pacific Northwest, which conflicts with treating every armyworm-like larva or damaged bud as a high-severity event.",
+          "Regional host, timing, damage, and management statements are bounded to Pacific Northwest hemp and do not provide a universal species-level image rule or armyworm treatment threshold."
+        ]
+      },
+      {
+        "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), in Florida",
+        "organization": "Journal of Integrated Pest Management",
+        "url": "https://doi.org/10.1093/jipm/pmad028",
+        "authors": [
+          "Cindy L. McKenzie",
+          "Lance S. Osborne"
+        ],
+        "publisher": "Oxford University Press on behalf of the Entomological Society of America",
+        "publicationDate": "2023-12-26",
+        "year": 2023,
+        "accessedDate": "2026-08-24",
+        "doi": "10.1093/jipm/pmad028",
+        "supportedClaims": [
+          "The Florida synthesis reports beet armyworm (Spodoptera exigua) and yellowstriped armyworm (Spodoptera ornithogalli) among noctuids established in Florida and associated with hemp, while bertha armyworm and Spodoptera litura are marked as intercepted rather than established records.",
+          "The authors distinguish reported presence from pest impact: not every one of the 105 listed arthropod and mollusk species can reproduce, complete its life cycle, or damage hemp.",
+          "The paper emphasizes identification across life stages and warns that immature organisms can be confused; occurrence in a regional list or an organism-only image is not plant-linked proof of injury, prevalence, or severity.",
+          "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media."
         ]
       }
     ],

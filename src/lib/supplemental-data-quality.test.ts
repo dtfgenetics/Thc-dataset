@@ -497,6 +497,40 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media[0].trainingEligible).toBe(false)
   })
 
+  it('keeps armyworm complex labels larva-linked, multi-species, and threshold-free', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'armyworm-caterpillar-feeding')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const exclusions = record?.exclusions.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(8)
+    expect(record?.progression).toHaveLength(5)
+    expect(record?.lookAlikes).toHaveLength(12)
+    expect(record?.confirmation).toHaveLength(7)
+    expect(record?.sources).toHaveLength(4)
+    expect(record?.media).toEqual([])
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Corn earworm',
+      'Tobacco budworm',
+      'Cabbage looper',
+      'Spotted or variegated cutworm',
+      'Japanese beetle',
+      'Hail, wind, handling, equipment, or training tear',
+    ]))
+    expect(confirmation).toContain('count the three true thoracic leg pairs and rear proleg pairs')
+    expect(confirmation).toContain('do not assign armyworm from silk, frass, tunneling, or bud rot without excluding corn earworm and tobacco budworm')
+    expect(confirmation).toContain('keep damage-only, frass-only, silk-only, egg-only, moth-only, body-color-only, incomplete-marking, detached-leaf, non-cannabis, organism/injury-unlinked, low-resolution, stock, shutterstock, bugguide, vendor, generated, anecdotal, forum, and unverified samples out')
+    expect(exclusions).toContain('three rear proleg pairs and a looping gait supports cabbage, alfalfa, or soybean looper')
+    expect(warnings).toContain('neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold')
+    expect(warnings).toContain('no media was copied or indexed, and no training-eligible asset is included')
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad028')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms'))).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars'))).toBe(true)
+  })
+
   it('keeps anthracnose labels lesion-linked, multilocus-confirmed, and media-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
