@@ -1,4 +1,4 @@
-export type View = 'diagnose' | 'issues' | 'references' | 'log' | 'coverage' | 'about'
+export type View = 'diagnose' | 'atlas' | 'issues' | 'references' | 'log' | 'coverage' | 'about'
 
 export type IssueCategory =
   | 'Nutrient deficiency'
