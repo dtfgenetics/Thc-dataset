@@ -19,6 +19,12 @@
     "accessedDate": "2026-08-14",
     "doi": "10.1002/agg2.70044",
     "supportedClaims": [
+      "In the first peat-perlite experiment, industrial-hemp shoot growth was reduced at substrate pH 3.0 or 4.0 relative to pH at or above 5.0; a separate mini-rhizotron experiment found inhibited root growth at very low pH. Those growth responses do not identify manganese toxicity by themselves.",
+      "Leaf micronutrient concentrations increased at the lowest pH, but the pH-rate experiments did not show toxic accumulation when micronutrients were supplied within normal production ranges, rejecting low substrate pH alone as sufficient evidence of manganese toxicity.",
+      "In the combined-rate experiment, Sweetened plants at pH 3.8 with four-times micronutrients developed lower-leaf micronutrient-toxicity symptoms, while Cherry Wine plants under the same treatment did not, demonstrating cultivar-dependent response.",
+      "The four-times treatment raised several micronutrients together rather than isolating manganese, so its visual response cannot be labeled as manganese-specific ground truth.",
+      "The study used BaOx, Cherry Wine, and Sweetened industrial-hemp cultivars in defined peat-perlite experiments; its pH values, rates, tissue results, symptoms, and root responses are not universal Cannabis thresholds.",
+      "The article is CC BY 4.0, but its treatment figures remain multi-factor, cultivar- and pH-specific context rather than clean manganese-toxicity training media.",
       "In a controlled peat-perlite experiment, industrial hemp shoot dry weight was lower at substrate pH 3.0 and 4.0 than at pH 5.0 through 7.0; plant diameter was smaller at pH 3.0, while mean plant height did not differ across that pH range.",
       "Visible root-tip counts in Cannabis sativa Baox mini-rhizotrons were lowest at both measured extremes, pH 3.1 and 7.1, by 21 days after planting, while counts at pH 3.7 through 5.9 were similar.",
       "Termination EC was higher at pH 3.0 and 7.0 than at intermediate pH values in the first experiment, so pH response cannot be interpreted without the accompanying salt and fertility context.",
@@ -2314,7 +2320,9 @@
       "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
       "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
       "The adopted 30 to 90 ppm boron range is a survey-based floral-hemp reference interval rather than a causal deficiency threshold; the authors state that rate studies and further refinement are needed.",
-      "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method."
+      "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method.",
+      "The adopted 40 to 158 ppm manganese interval represents the middle 50% of the survey submissions; it is a survey-derived sufficiency guide, not a causal toxicity cutoff.",
+      "The survey does not establish a universal manganese-toxicity threshold, and results require sampling-position, cultivar, stage, production-system, crop-purpose, and laboratory-method context."
     ]
   },
   {

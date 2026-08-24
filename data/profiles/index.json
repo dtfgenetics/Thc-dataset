@@ -482,7 +482,7 @@
       "category": "Nutrient toxicity",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/nut-tox-mn.json"
     },
