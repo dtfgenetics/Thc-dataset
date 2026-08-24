@@ -6,69 +6,110 @@
   "category": "Insect",
   "severity": "low",
   "reviewStatus": "reviewed",
-  "summary": "A greenhouse root-zone pest complex in which adult fungus gnats signal moist-media populations and larvae can feed on roots and interact with soil-borne disease. Evidence is cross-crop greenhouse literature, so Cannabis symptoms alone are not diagnostic.",
+  "photoOnlyMaxConfidence": 0.25,
+  "summary": "A greenhouse root-zone pest complex in which adult fungus gnats are a population cue and dark-headed, translucent Bradysia larvae may feed on fine roots or young plant material. Hemp evidence supports the association but not a unique visual syndrome: a causal injury label requires plant-linked larvae, compatible root injury, and independent checks for wet-root disorders and pathogens.",
   "affectedParts": [
-    "growing medium surface",
-    "roots",
-    "lower stem",
+    "growing-medium surface and upper layer",
+    "fine roots and root hairs",
+    "seed, cutting base, and lower stem in susceptible propagation material",
+    "yellow sticky cards near the medium",
     "whole plant secondarily"
   ],
   "stages": [
+    "propagation and rooted cuttings",
     "seedling",
     "vegetative",
     "flower",
-    "all"
+    "all controlled-environment stages"
   ],
   "indicators": [
-    "Small dark gnat-like adults repeatedly emerge from or rest near moist growing media",
-    "Translucent slender larvae with dark head capsules are found in the root zone",
-    "Poor growth or yellowing occurs together with confirmed fungus-gnat larvae in wet organic media"
+    "Small, delicate, dark-bodied adults with long legs and antennae repeatedly emerge from or rest near the same plant's moist growing medium; a Y-shaped wing vein supports fungus gnat over shore fly when image resolution permits",
+    "Small translucent-to-white, slender, legless larvae with a distinct dark or black head capsule are found in the growing medium or at the root interface",
+    "Plant-linked larvae occur beside damaged fine roots, root hairs, a seed or cutting base, or lower-stem tissue in the same traceable plant",
+    "Dated low-position sticky-card or emergence observations show repeated adult activity near the affected container, but this is a population cue rather than proof of feeding injury",
+    "The affected zone has persistent surface moisture, algae, decomposing plant material, or poor drainage compatible with fungus-gnat habitat; habitat alone is not a positive label",
+    "Stunting, poor growth, yellowing, wilt, or seedling/cutting loss occurs only as a secondary supporting observation after larvae and root-zone injury have been documented",
+    "Repeated potato-piece or direct medium inspection recovers characteristic larvae and preserves the plant, container, location, and inspection interval",
+    "Root decline is mapped separately from Pythium, Fusarium, Rhizoctonia, hypoxia, pH, EC, drought, restriction, and nematode evidence because fungus gnats can coexist with those conditions"
   ],
   "exclusions": [
-    "No adults or larvae are found after sticky-card and root-zone inspection",
-    "Root-associated aphids rather than fly larvae are present",
-    "Root decay is confirmed without fungus-gnat larvae",
-    "Canopy symptoms track a measured nutrient, pH, EC, light, or irrigation problem instead"
+    "Repeated, documented sticky-card, potato-piece, medium, and root inspection finds no compatible adults or dark-headed larvae",
+    "Adults are stout, short-antennaed shore flies with five pale wing spots rather than delicate long-legged gnats with a Y-shaped wing vein",
+    "Pear-shaped root-associated aphids, cornicles, aphid nymphs, or plant-linked alates establish rice root aphid rather than a fly larva",
+    "Observed organisms are springtails, soil mites, thrips, whiteflies, nematodes, or other arthropods without Bradysia-compatible morphology",
+    "Pythium, Fusarium, Rhizoctonia, or another root pathogen is confirmed while larval evidence is absent or insufficient to support a contributing fungus-gnat label",
+    "Measured hypoxia or waterlogging, drought, root binding, pH, EC, salinity, or nutrient evidence fully explains the root and canopy pattern without linked larvae",
+    "A sticky-card capture, flying-adult silhouette, dark head capsule, or generic larva alone cannot establish Bradysia species, plant injury, or causal severity",
+    "Detached roots, stock imagery, generated media, vendor material, anecdotes, forum posts, or specimens that cannot be linked to the affected plant are excluded from confirmed labels"
   ],
   "progression": [
     {
-      "stage": "Adult activity",
-      "description": "Small adults are noticed around moist media or lower canopy."
+      "stage": "Adult population cue",
+      "description": "Delicate adults appear near moist media or on low sticky cards. Their presence triggers root-zone inspection but does not establish plant injury."
     },
     {
-      "stage": "Larval feeding",
-      "description": "Larvae occupy organic media and can feed on fine roots or other plant material."
+      "stage": "Egg and larval establishment",
+      "description": "Immature stages develop in moist organic media; dark-headed translucent larvae become detectable by direct inspection or potato-piece monitoring."
     },
     {
-      "stage": "Compound decline",
-      "description": "Root injury and pathogen interactions can contribute to poor growth, but the causal contribution must be separated from root disease and irrigation conditions."
+      "stage": "Plant-linked feeding evidence",
+      "description": "Larvae are documented at the same plant's fine roots, root hairs, seed, cutting base, or lower-stem tissue with compatible localized injury."
+    },
+    {
+      "stage": "Secondary plant response",
+      "description": "Susceptible seedlings, cuttings, or plants may show poor growth, stunting, yellowing, wilt, or loss, but these canopy responses remain nonspecific."
+    },
+    {
+      "stage": "Compound root-zone decline",
+      "description": "Feeding and pathogen interactions may coexist as root function deteriorates. Cross-crop life-cycle timing must not be treated as a universal Cannabis progression clock."
     }
   ],
   "lookAlikes": [
+    "Shore flies",
     "Rice root aphid",
-    "Pythium root rot",
+    "Springtails, soil mites, or other medium fauna",
+    "Thrips or whitefly adults on sticky cards",
+    "Pythium or another oomycete root rot",
     "Fusarium crown and root rot",
-    "Overwatering / low root-zone oxygen"
+    "Rhizoctonia sore shin / root rot",
+    "Root-knot nematodes",
+    "Root-zone hypoxia / overwatering",
+    "Drought or irrigation failure",
+    "Root binding / container restriction",
+    "Root-zone pH, EC, salinity, or nutrient disorder"
   ],
   "confirmation": [
-    "Use sticky cards for adults and inspect moist media/root zones for characteristic larvae.",
-    "Confirm root health independently because fungus gnats may coexist with soil-borne pathogens."
+    "Capture a traceable same-plant sequence: whole plant, labeled container, medium surface, low sticky card, exposed root ball, washed representative roots, and larval macro or microscope views with a scale.",
+    "Place dated sticky cards close to the medium and record repeated adult activity by plant and location; keep adult counts as a scouting cue, not a causal injury label.",
+    "Use standardized potato-piece and direct medium inspections, recording placement, exposure interval, plant ID, container, medium, moisture, and the number and location of recovered larvae.",
+    "Image larvae at sufficient resolution to show the legless translucent body and dark head capsule; image adult antennae, body form, and Y-shaped wing vein when possible, and explicitly exclude shore flies.",
+    "Map larval position against fine-root, root-hair, seed, cutting-base, or lower-stem injury in the same plant and include a similarly managed unaffected comparator where available.",
+    "Record root color, firmness, odor, moisture or oxygen status, pH, EC, drainage, root restriction, irrigation history, and laboratory pathogen or nematode results when root decline is present.",
+    "Require plant-linked larvae plus compatible injury for a confirmed injury label; require qualified entomological or validated molecular work for a species-level Bradysia label, and route adult-only, sticky-card-only, larva-only, unlinked-root, mixed-organism, low-resolution, non-Cannabis, stock, vendor, generated, anecdotal, forum, and unverified samples to human review."
   ],
   "immediateActions": [
-    "Inspect moisture management, algae, plant debris, and the root zone.",
-    "Document adults and larvae before attributing canopy symptoms to fungus gnats."
+    "Preserve plant-linked adult, larval, medium, and root evidence before treatment, root washing, or irrigation changes.",
+    "Inspect moisture, drainage, algae, decomposing debris, propagation material, and nearby containers using the same documented protocol.",
+    "Keep suspected pathogen or abiotic root-zone problems as separate concurrent labels until each has been evaluated."
   ],
   "correctivePlan": [
-    "Use sanitation, moisture management, physical or biological controls that are appropriate to the crop system and local rules.",
-    "Continue monitoring adults and larvae while separately tracking root recovery."
+    "Use sanitation, moisture and drainage correction, physical or biological controls, and other locally legal integrated measures appropriate to the confirmed organism and production system.",
+    "Track adults and larvae separately during follow-up; fewer adults alone do not prove that larvae or root injury have resolved.",
+    "If root or canopy decline continues after larval pressure falls, continue the independent pathogen, irrigation, pH, EC, salinity, nutrition, and root-restriction workup."
   ],
   "prevention": [
-    "Avoid chronic surface wetness and remove algae and decomposing plant debris.",
-    "Monitor greenhouse/media pest pressure before symptoms appear."
+    "Avoid chronic surface wetness while maintaining crop-appropriate root hydration and drainage.",
+    "Remove algae, decomposing roots, discarded media, and plant debris that support development without disturbing verified evidence before documentation.",
+    "Inspect incoming media, clones, rooted cuttings, and propagation areas, and use dated low-position monitoring before symptoms appear.",
+    "Retain plant- and location-specific records so recurring adults can be connected to direct larval and root inspections rather than treated as facility-wide injury proof."
   ],
   "warnings": [
-    "This profile uses greenhouse cross-crop evidence for Bradysia biology; it does not make generic yellowing a Cannabis-specific fungus-gnat signature.",
-    "Do not treat a few adult gnats as proof that they are the primary cause of a major root or canopy disorder."
+    "Photo or video alone is capped at low confidence because adult fungus gnats, wet media, yellowing, wilt, and stunting do not prove that larvae caused plant injury.",
+    "A few adults or a sticky-card capture establish neither a plant link nor economic injury; the same-plant root zone must be inspected.",
+    "The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.",
+    "Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.",
+    "Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.",
+    "No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training."
   ],
   "sources": [
     {
@@ -81,10 +122,12 @@
       "publisher": "MDPI AG",
       "publicationDate": "2015-04-09",
       "year": 2015,
-      "accessedDate": "2026-08-16",
+      "accessedDate": "2026-08-24",
       "doi": "10.3390/insects6020325",
       "supportedClaims": [
         "Bradysia fungus gnats are important greenhouse horticultural pests whose larvae feed on roots and may contribute to disease interactions.",
+        "The review describes adults as weak, delicate fliers associated with moist growing media and larvae as translucent to white, legless, dark-headed organisms in the medium; these organism traits are more useful than nonspecific canopy decline.",
+        "Larval feeding can damage roots and young plant material, while fungus gnats can participate in pathogen interactions; finding one component does not establish that it caused every observed root or canopy symptom.",
         "This is cross-crop greenhouse evidence rather than Cannabis-specific symptom validation, so plant yellowing or stunting cannot identify fungus gnats without observing adults, larvae, or other root-zone evidence."
       ]
     },
@@ -93,10 +136,45 @@
       "organization": "University of New Hampshire Extension",
       "url": "https://extension.unh.edu/resource/fungus-gnats-fact-sheet",
       "publisher": "University of New Hampshire Cooperative Extension",
-      "accessedDate": "2026-08-16",
+      "accessedDate": "2026-08-24",
       "supportedClaims": [
         "Greenhouse fungus-gnat larvae can feed on roots or inside stems and may be associated with poor plant growth, yellowing, and stunting.",
         "Adults around moist growing media are a useful inspection cue, but above-ground plant symptoms remain nonspecific."
+      ]
+    },
+    {
+      "title": "Hemp Disease and Pest Management",
+      "organization": "University of Tennessee Extension",
+      "url": "https://solutions.tennessee.edu/?view_pub_pdf=2571",
+      "authors": [
+        "Zachariah Hansen",
+        "Ernest Bernard",
+        "Jerome Grant",
+        "Kimberly Gwinn",
+        "Frank Hale",
+        "Heather Kelly",
+        "Scott Stewart"
+      ],
+      "publisher": "University of Tennessee Extension",
+      "year": 2020,
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "University of Tennessee Extension reports fungus-gnat larvae as a root-feeding pest of hemp grown under greenhouse conditions and states that they may increase root-disease incidence.",
+        "The guide also states that much remains unknown about arthropod pests in hemp; its report supports a greenhouse-hemp association but not a universal symptom, damage threshold, species label, or causal attribution from an adult capture alone."
+      ]
+    },
+    {
+      "title": "Greenhouse ornamental—Fungus gnat",
+      "organization": "Pacific Northwest Pest Management Handbooks",
+      "url": "https://pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat",
+      "publisher": "Pacific Northwest Pest Management Handbooks",
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "Institutional greenhouse guidance describes fungus-gnat larvae as small, white, legless maggots with black head capsules and adults as delicate, black-bodied flies with long legs and antennae.",
+        "A Y-shaped wing vein helps distinguish adult fungus gnats from shore flies, which are stouter, have short antennae, and have five white wing spots.",
+        "Larvae feed on decaying material and roots, high populations can kill seedlings, and both larvae and adults may move pathogen spores; these cross-crop statements do not prove Cannabis injury in a particular image.",
+        "Yellow sticky cards can monitor adults, potato pieces can monitor larvae, and roots of poorly performing plants should be inspected directly; wet conditions and poor drainage favor populations.",
+        "The page gives greenhouse life-stage timings, but those values are context-dependent cross-crop guidance and must not be treated as universal Cannabis progression intervals."
       ]
     }
   ],

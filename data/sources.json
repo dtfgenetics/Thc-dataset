@@ -1843,10 +1843,12 @@
     "publisher": "MDPI AG",
     "publicationDate": "2015-04-09",
     "year": 2015,
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-24",
     "doi": "10.3390/insects6020325",
     "supportedClaims": [
       "Bradysia fungus gnats are important greenhouse horticultural pests whose larvae feed on roots and may contribute to disease interactions.",
+      "The review describes adults as weak, delicate fliers associated with moist growing media and larvae as translucent to white, legless, dark-headed organisms in the medium; these organism traits are more useful than nonspecific canopy decline.",
+      "Larval feeding can damage roots and young plant material, while fungus gnats can participate in pathogen interactions; finding one component does not establish that it caused every observed root or canopy symptom.",
       "This is cross-crop greenhouse evidence rather than Cannabis-specific symptom validation, so plant yellowing or stunting cannot identify fungus gnats without observing adults, larvae, or other root-zone evidence."
     ]
   },
@@ -2374,7 +2376,7 @@
     "organization": "University of New Hampshire Extension",
     "url": "https://extension.unh.edu/resource/fungus-gnats-fact-sheet",
     "publisher": "University of New Hampshire Cooperative Extension",
-    "accessedDate": "2026-08-16",
+    "accessedDate": "2026-08-24",
     "supportedClaims": [
       "Greenhouse fungus-gnat larvae can feed on roots or inside stems and may be associated with poor plant growth, yellowing, and stunting.",
       "Adults around moist growing media are a useful inspection cue, but above-ground plant symptoms remain nonspecific."
@@ -2643,6 +2645,21 @@
     ]
   },
   {
+    "sourceKey": "https://pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat",
+    "title": "Greenhouse ornamental—Fungus gnat",
+    "organization": "Pacific Northwest Pest Management Handbooks",
+    "url": "https://pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat",
+    "publisher": "Pacific Northwest Pest Management Handbooks",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "Institutional greenhouse guidance describes fungus-gnat larvae as small, white, legless maggots with black head capsules and adults as delicate, black-bodied flies with long legs and antennae.",
+      "A Y-shaped wing vein helps distinguish adult fungus gnats from shore flies, which are stouter, have short antennae, and have five white wing spots.",
+      "Larvae feed on decaying material and roots, high populations can kill seedlings, and both larvae and adults may move pathogen spores; these cross-crop statements do not prove Cannabis injury in a particular image.",
+      "Yellow sticky cards can monitor adults, potato pieces can monitor larvae, and roots of poorly performing plants should be inspected directly; wet conditions and poor drainage favor populations.",
+      "The page gives greenhouse life-stage timings, but those values are context-dependent cross-crop guidance and must not be treated as universal Cannabis progression intervals."
+    ]
+  },
+  {
     "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-brown-blight-alternaria-diseases",
     "title": "Hemp (Cannabis sativa)-Brown Blight (Alternaria Diseases)",
     "organization": "Pacific Northwest Plant Disease Management Handbook",
@@ -2815,6 +2832,28 @@
       "Diagnostic sampling should compare physiologically similar abnormal and normal plants from the same area, exclude unrelated pest, disease, moisture, and mechanical stress, and retain crop, variety, fertilizer, irrigation, appearance, insect, and disease context for interpretation.",
       "Where crop-specific instructions are unavailable, the guide recommends recently mature leaves below the growing point from multiple plants and warns that residues, unsuitable leaf age, diseased tissue, poor handling, and unmatched single plants can invalidate interpretation.",
       "The guide includes molybdenum among elements available by tissue analysis but does not provide a Cannabis-specific sufficiency or deficiency threshold."
+    ]
+  },
+  {
+    "sourceKey": "https://solutions.tennessee.edu/?view_pub_pdf=2571",
+    "title": "Hemp Disease and Pest Management",
+    "organization": "University of Tennessee Extension",
+    "url": "https://solutions.tennessee.edu/?view_pub_pdf=2571",
+    "authors": [
+      "Zachariah Hansen",
+      "Ernest Bernard",
+      "Jerome Grant",
+      "Kimberly Gwinn",
+      "Frank Hale",
+      "Heather Kelly",
+      "Scott Stewart"
+    ],
+    "publisher": "University of Tennessee Extension",
+    "year": 2020,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "University of Tennessee Extension reports fungus-gnat larvae as a root-feeding pest of hemp grown under greenhouse conditions and states that they may increase root-disease incidence.",
+      "The guide also states that much remains unknown about arthropod pests in hemp; its report supports a greenhouse-hemp association but not a universal symptom, damage threshold, species label, or causal attribution from an adult capture alone."
     ]
   },
   {

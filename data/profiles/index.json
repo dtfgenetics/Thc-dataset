@@ -526,7 +526,7 @@
       "category": "Insect",
       "severity": "low",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/pest-fungus-gnats.json"
     },

@@ -37,6 +37,39 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(source?.publicationDate).toBe('2020-07-20')
   })
 
+  it('keeps fungus gnat injury labels plant-linked, differential-ready, and low-confidence', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'fungus-gnats-root-feeding')
+    const indicators = record?.indicators.join(' ').toLowerCase() ?? ''
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(8)
+    expect(record?.progression).toHaveLength(5)
+    expect(record?.lookAlikes).toHaveLength(12)
+    expect(record?.confirmation).toHaveLength(7)
+    expect(record?.sources).toHaveLength(4)
+    expect(record?.media).toEqual([])
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining([
+      'Shore flies',
+      'Rice root aphid',
+      'Pythium or another oomycete root rot',
+      'Rhizoctonia sore shin / root rot',
+      'Root-zone hypoxia / overwatering',
+    ]))
+    expect(indicators).toContain('y-shaped wing vein supports fungus gnat over shore fly')
+    expect(confirmation).toContain('keep adult counts as a scouting cue, not a causal injury label')
+    expect(confirmation).toContain('require plant-linked larvae plus compatible injury for a confirmed injury label')
+    expect(confirmation).toContain('route adult-only, sticky-card-only, larva-only, unlinked-root, mixed-organism, low-resolution, non-cannabis, stock, vendor, generated, anecdotal, forum, and unverified samples to human review')
+    expect(warnings).toContain('does not supply a universal symptom, severity, threshold, or species diagnosis')
+    expect(warnings).toContain('no licensed, plant-linked cannabis injury progression, verified diagnostic video, or species-vouchered cannabis media')
+    expect(record?.sources.some((source) => source.doi === '10.3390/insects6020325')).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')).toBe(true)
+    expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat'))).toBe(true)
+  })
+
   it('keeps rice root aphid labels plant-linked, root-confirmed, and canopy-cautious', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'rice-root-aphid')
     const indicators = record?.indicators.join(' ').toLowerCase() ?? ''
