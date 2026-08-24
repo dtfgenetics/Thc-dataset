@@ -1,0 +1,56 @@
+name: Deploy THC Grow Doc to dtfseeds.com
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-dtfseeds
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build and deploy to Hostinger
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run check
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Add deployment marker
+        run: |
+          echo "deployed_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > dist/deploy-version.txt
+          echo "commit=${GITHUB_SHA}" >> dist/deploy-version.txt
+          echo "repo=${GITHUB_REPOSITORY}" >> dist/deploy-version.txt
+
+      - name: Deploy dist to dtfseeds.com via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.DTFSEEDS_FTP_SERVER }}
+          username: ${{ secrets.DTFSEEDS_FTP_USERNAME }}
+          password: ${{ secrets.DTFSEEDS_FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ${{ secrets.DTFSEEDS_FTP_SERVER_DIR }}
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
