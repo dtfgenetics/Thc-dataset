@@ -608,10 +608,16 @@
     "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-01-19-0088-PDN",
+    "authors": [
+      "S. T. Koike",
+      "H. Stanghellini",
+      "S. J. Mauzey",
+      "A. Burkhardt"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2019-05-16",
     "year": 2019,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-01-19-0088-PDN",
     "supportedClaims": [
       "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
@@ -954,6 +960,26 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-10-20-2142-PDN",
+    "title": "First Report of Sclerotinia sclerotiorum Causing Stem Canker on Cannabis sativa in Oregon",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-10-20-2142-PDN",
+    "authors": [
+      "Andrea R. Garfinkel"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2021-03-17",
+    "year": 2021,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1094/PDIS-10-20-2142-PDN",
+    "supportedClaims": [
+      "At two Oregon hoop-house hemp farms, affected plants developed wilting and chlorosis followed by shoot necrosis, with dry tan-to-brown stem lesions or cankers, white mycelium, and large black round, irregular, or ribbon-shaped sclerotia.",
+      "Cankers occurred at the crown and higher on stems; flowers were not infected in this report, so visible bud involvement is not required for a stem-canker diagnosis.",
+      "ITS and G3PDH sequence evidence, phylogenetic analysis, pathogenicity testing, symptom reproduction, and reisolation supported Sclerotinia sclerotiorum as the cause; appearance alone did not establish the species.",
+      "The observations came from two farms in one season and the report states that economic impact was unclear, so incidence and loss must not be generalized."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-10-24-2067-PDN",
     "title": "First Report of Fusarium commune Causing Damping Off and Wilt in Cannabis sativa in Pennsylvania",
     "organization": "Plant Disease",
@@ -1207,7 +1233,7 @@
     "publisher": "Wiley",
     "publicationDate": "2025-11-16",
     "year": 2025,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1111/jph.70196",
     "supportedClaims": [
       "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
@@ -2167,11 +2193,14 @@
     "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
     "publicationDate": "2024-11-01",
     "year": 2024,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-08-24",
     "supportedClaims": [
       "On hemp, powdery fungal mycelium and spores can appear as whitish spots or patches on both leaf surfaces and can spread across leaves, petioles, stems, flower bracts, and buds within about a week under favorable conditions.",
       "Increasing severity can lead to leaf necrosis and defoliation, while high humidity favors infection even though free leaf wetness is not required.",
-      "The guide recommends diagnostic-center confirmation for hemp diseases; its powdery-mildew image is credited to Nicole Gauthier and does not carry an explicit reusable-media license on the page, so it is not copied or indexed as training media here."
+      "The guide recommends diagnostic-center confirmation for hemp diseases; its powdery-mildew image is credited to Nicole Gauthier and does not carry an explicit reusable-media license on the page, so it is not copied or indexed as training media here.",
+      "The institutional hemp field guide describes white mold as white cottony mycelium on stems with hard dark sclerotia that form on the mycelium and turn black as they mature.",
+      "Sclerotia can persist in plant debris, seed, or soil, and wet foliage favors infection; these contextual factors support scouting and confirmation but do not identify an unknown lesion by themselves.",
+      "The guide places white mold among overlapping hemp diseases, supporting comparison with gray mold, southern blight, root disease, and noninfectious injury rather than symptom-only ground truth."
     ]
   },
   {
@@ -2810,6 +2839,25 @@
       "The hemp description records dry brown root rot and reddish-brown rot on the lower main stem; it also reports dry brown leaf tissue and bud infection in Oregon medical Cannabis.",
       "Warmer soil favors disease, while early over-irrigation and irrigation-related soil cooling can slow emergence and favor the fungus; these conditions are epidemiologic context and are not diagnostic proof.",
       "The handbook recommends rotation away from susceptible hosts and avoiding early over-irrigation, supporting soil/debris movement and irrigation-history checks without establishing a universal treatment interval for every production system."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+    "title": "Hemp (Cannabis sativa)-White Mold (Hemp Canker)",
+    "organization": "Pacific Northwest Plant Disease Management Handbook",
+    "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+    "authors": [
+      "Cynthia M. Ocamb"
+    ],
+    "publisher": "Pacific Northwest Extension (Oregon State University, Washington State University, and University of Idaho)",
+    "publicationDate": "2021-03-26",
+    "year": 2021,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "The institutional hemp guide, revised March 2026, describes water-soaked lesions on leaves or buds as a usual first symptom, followed by stem invasion near infected buds, upper-shoot death, or lower-stem cankers.",
+      "Active stems and buds may become whitish from fluffy white mycelium; sclerotia can form externally or inside stems, begin white, mature black, and include long narrow internal forms visible after splitting a stem.",
+      "Sclerotinia sclerotiorum is documented causing hemp stem cankers and bud rot, but disease position varies and a single absent flower symptom does not exclude a crown or stem infection.",
+      "The page photographs are institutional hemp references credited to Ken Frost or Cynthia M. Ocamb, but the page states no item-level reuse or automated-training license; only rights-restricted metadata are indexed."
     ]
   },
   {

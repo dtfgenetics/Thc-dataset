@@ -152,8 +152,8 @@
       "category": "Fungal pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 3,
       "path": "data/profiles/fungal-sclerotinia-white-mold.json"
     },
     {

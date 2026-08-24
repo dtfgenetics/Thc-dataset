@@ -6,68 +6,111 @@
   "category": "Fungal pathogen",
   "severity": "high",
   "reviewStatus": "reviewed",
-  "photoOnlyMaxConfidence": 0.4,
+  "photoOnlyMaxConfidence": 0.3,
   "summary": "A confirmed Cannabis Sclerotinia disease complex that can involve white-mold, crown-rot, wilt, and yellowing syndromes. S. sclerotiorum and S. minor are both documented on Cannabis/hemp; organism-level evidence is required because Botrytis, Fusarium, southern blight, and other molds overlap visually.",
   "affectedParts": [
-    "stems",
-    "crown",
-    "leaves",
-    "whole plant",
-    "flowering tissue depending on infection site"
+    "leaves or buds at an initial infection site",
+    "flowering tissue when involved",
+    "upper and lower stems",
+    "crown at or near the soil line",
+    "stem pith and internal cavity",
+    "shoot and canopy above a girdling canker"
   ],
   "stages": [
     "vegetative",
     "flower",
-    "all"
+    "closed or wet canopy",
+    "field and protected cultivation",
+    "post-symptom diagnostic sampling"
   ],
   "indicators": [
-    "White fungal growth occurs on symptomatic Cannabis tissue with associated wilt or yellowing",
-    "Affected tissue declines in a pattern consistent with an active stem/crown or aerial infection",
-    "Laboratory isolation or DNA evidence identifies Sclerotinia sclerotiorum"
+    "An early attached leaf or bud lesion may look water-soaked before obvious white growth develops; this is a direct institutional hemp observation but is highly nonspecific.",
+    "Dry tan-to-brown lesions or cankers develop at the crown or higher on a stem and remain anatomically linked to the declining shoot above them.",
+    "Fluffy white or cottony mycelium can cover active stem, crown, or infected bud tissue rather than appearing only as loose material on an uninjured surface.",
+    "External sclerotia form within or on the white growth, begin white, and mature black; documented forms range from small irregular bodies in S. minor crown rot to large round, irregular, or ribbon-shaped bodies in S. sclerotiorum stem canker.",
+    "A carefully split symptomatic stem may reveal long narrow black sclerotia in the pith or stem cavity, providing a view that superficial mold and residue cannot reproduce.",
+    "Wilting and chlorosis can progress to dry foliage, shoot necrosis, or death above a girdling canker while tissue below the lesion is less affected.",
+    "Disease position is variable: lower-stem and crown cankers are documented, higher stem cankers occur, and bud rot is possible, but the Oregon primary report observed no flower infection.",
+    "A confirmed species label requires plant-linked isolation or microscopy plus molecular evidence and, in primary reports, symptom reproduction and reisolation; sclerotial appearance alone does not resolve species."
   ],
   "exclusions": [
-    "Gray mold and laboratory evidence identify Botrytis",
-    "Root/crown testing identifies Fusarium or Pythium instead",
-    "White residue is nonliving spray/mineral material",
-    "No organism evidence accompanies nonspecific wilt"
+    "Gray-to-brown sporulation dominates rotting buds or stems and plant-linked testing identifies Botrytis cinerea rather than Sclerotinia.",
+    "A basal lesion in warm conditions carries abundant mustard-seed-sized tan-to-brown sclerotia and testing identifies the southern-blight pathogen rather than Sclerotinia.",
+    "Internal vascular browning, root/crown testing, culture, or molecular results support Fusarium wilt or crown rot.",
+    "Roots are water-soaked or cortex-sloughed and oomycete testing supports Pythium or another water mold without a Sclerotinia canker and sclerotia.",
+    "The white material is a superficial powdery-mildew colony without a stem canker, cottony internal growth, or sclerotia.",
+    "The material wipes or dissolves as mineral, spray, fiber, webbing, or other nonliving residue and the underlying tissue lacks a compatible active lesion.",
+    "Black structures are pycnidia embedded in a Diaporthe or other stem lesion, or magnification shows insect frass rather than fungal sclerotia.",
+    "Only nonspecific wilt, senescence, dead debris, or unlinked white growth is visible and no active lesion margin, attached canker, sclerotium, or organism evidence accompanies it."
   ],
   "progression": [
     {
-      "stage": "Local infection",
-      "description": "Affected tissue develops mold and localized decline."
+      "stage": "Susceptible-site contact",
+      "description": "Wet, senescing, wounded, or infected leaf or bud tissue provides context for infection, but environmental history alone is not a positive label."
     },
     {
-      "stage": "Systemic impact",
-      "description": "Stem or crown involvement can contribute to yellowing and wilt."
+      "stage": "Early lesion",
+      "description": "A water-soaked leaf or bud lesion or a localized tan stem lesion develops at an attached infection site; serial close-ups should preserve its position."
     },
     {
-      "stage": "Advanced",
-      "description": "Tissue collapse can become extensive; appearance overlaps other mold diseases."
+      "stage": "Canker and white growth",
+      "description": "The lesion expands into a crown or stem canker and fluffy white mycelium becomes visible on active tissue; decline begins above a constricting lesion."
+    },
+    {
+      "stage": "Sclerotial development",
+      "description": "Sclerotia form white and mature black externally, or long narrow black bodies become visible inside a split stem; form varies by species and site."
+    },
+    {
+      "stage": "Advanced collapse and carryover",
+      "description": "A girdled shoot, crown, or infected bud dries and dies while mature sclerotia remain in or on tissue and can persist after the visible canopy collapses."
     }
   ],
   "lookAlikes": [
-    "Botrytis gray mold",
-    "Fusarium wilt / crown rot",
-    "Pythium root rot",
+    "Botrytis gray mold or bud rot",
+    "Southern blight",
+    "Fusarium wilt or crown rot",
+    "Pythium root or crown rot",
+    "Rhizoctonia sore shin or root rot",
+    "Diaporthe or Phomopsis stem canker",
     "Powdery mildew",
-    "Nonliving spray residue"
+    "Bacterial soft rot",
+    "Mechanical stem split, abrasion, or sunscald",
+    "Nonliving spray, mineral, fiber, or web residue",
+    "Normal late-season senescence",
+    "Caterpillar or other bud injury with secondary decay"
   ],
   "confirmation": [
-    "Use culture and molecular identification for Sclerotinia confirmation.",
-    "Photograph infection site, internal stem/crown condition when available, and whole-plant distribution."
+    "Capture the same plant as a whole, the exact shoot-to-canker connection, the lesion margin, and the crown or bud site with a scale; retain canopy position, crop stage, cultivar, date, and production setting.",
+    "Mark the lesion and make repeated images before disturbance to document water soaking, canker expansion, white growth, sclerotial color change, and whether decline remains anatomically above the lesion.",
+    "Record whether the lesion is at the soil-contact crown, lower stem, upper stem, or bud and inspect adjacent leaves and buds; do not require flower symptoms when a stem canker is present.",
+    "When safe and diagnostically appropriate, split a representative symptomatic stem longitudinally and photograph the pith and any internal sclerotia with scale, keeping it linked to exterior and whole-plant views.",
+    "Submit an active lesion margin and representative sclerotia to a plant diagnostic laboratory for microscopy and culture; sample before disposal or a treatment obscures signs.",
+    "Use validated molecular evidence to resolve Sclerotinia and species; the Oregon report combined ITS and G3PDH data with phylogeny, pathogenicity, symptom reproduction, and reisolation.",
+    "Route symptom-only, detached, species-inferred, unlinked-laboratory, mixed-pathogen, low-resolution, rights-unclear, forum, vendor, stock, or generated images and videos to human review rather than confirmed ground truth."
   ],
   "immediateActions": [
-    "Isolate strongly affected plants and preserve diagnostic tissue before disposal."
+    "Photograph the plant-to-lesion connection and preserve fresh lesion-margin and sclerotial material before moving or discarding the plant.",
+    "Clearly mark or separate suspect plants where operationally appropriate and avoid moving wet symptomatic tissue through unaffected crop areas.",
+    "Record recent wetness, irrigation, condensation, canopy closure, wounds, senescing tissue, crop stage, lesion height, and whether symptoms occur in a spatial cluster."
   ],
   "correctivePlan": [
-    "Use laboratory-confirmed disease management and sanitation appropriate to the setting."
+    "Base disease management on a plant-linked laboratory result and measures legal and appropriate for the crop, jurisdiction, and production system.",
+    "Remove confirmed infected material and sclerotia using sanitary handling appropriate to the site; clean tools and surfaces to avoid moving contaminated debris.",
+    "Reduce avoidable extended tissue wetness and improve drying or airflow where feasible, while recognizing that environmental response does not retrospectively confirm Sclerotinia."
   ],
   "prevention": [
-    "Limit carryover of infected plant debris and conditions that keep susceptible tissue wet for extended periods."
+    "Scout crowns, stem junctions, senescing leaves, and dense flower sites during prolonged wetness, preserving external and internal views when a canker is found.",
+    "Limit carryover of infected plant debris and sclerotia and maintain sanitation for tools, containers, floors, and production areas appropriate to the system.",
+    "Keep cultivar, field or room zone, irrigation, canopy-wetness, wound, and prior-disease metadata so recurrent site patterns can be evaluated."
   ],
   "warnings": [
-    "White mold appearance is not specific to Sclerotinia.",
-    "The 2025 Cannabis pathogenicity report supports the organism as a real disease cause but not image-only species identification.",
+    "Photo/video-only confidence is capped at 0.30: even white mycelium plus black structures requires verification that the structures are sclerotia on the same actively diseased plant.",
+    "Sclerotinia sclerotiorum and S. minor overlap visually and must not be separated by canopy appearance, sclerotial size, shape, or infection position alone.",
+    "Water-soaked lesions, white cottony growth, cankers, wilt, and shoot death each overlap Botrytis, southern blight, Fusarium, Pythium, bacterial decay, injury, and residue.",
+    "Bud infection is documented by institutional guidance but was absent from the Oregon stem-canker report; it is possible, not required, and must not be inferred from a stem-only view.",
+    "Exact wetness duration, temperature, disease timing, incidence, and economic loss from one site or experiment are contextual observations rather than universal Cannabis thresholds.",
+    "The three institutional hemp images below have no explicit item-level reuse or automated-training permission. They are hidden metadata references, no media file is copied, and all remain training-prohibited.",
+    "No verified diagnostic video or controlled same-plant progression sequence was located; every symptom-only, detached, unlinked, mixed-organism, or rights-unclear sample requires human review.",
     "Sclerotinia sclerotiorum and S. minor should not be separated by canopy appearance alone; crown signs, sclerotia, culture, and molecular evidence carry more weight."
   ],
   "sources": [
@@ -78,7 +121,7 @@
       "publisher": "Wiley",
       "publicationDate": "2025-11-16",
       "year": 2025,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1111/jph.70196",
       "supportedClaims": [
         "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
@@ -87,13 +130,76 @@
       ]
     },
     {
+      "title": "First Report of Sclerotinia sclerotiorum Causing Stem Canker on Cannabis sativa in Oregon",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-10-20-2142-PDN",
+      "authors": [
+        "Andrea R. Garfinkel"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2021-03-17",
+      "year": 2021,
+      "accessedDate": "2026-08-24",
+      "doi": "10.1094/PDIS-10-20-2142-PDN",
+      "supportedClaims": [
+        "At two Oregon hoop-house hemp farms, affected plants developed wilting and chlorosis followed by shoot necrosis, with dry tan-to-brown stem lesions or cankers, white mycelium, and large black round, irregular, or ribbon-shaped sclerotia.",
+        "Cankers occurred at the crown and higher on stems; flowers were not infected in this report, so visible bud involvement is not required for a stem-canker diagnosis.",
+        "ITS and G3PDH sequence evidence, phylogenetic analysis, pathogenicity testing, symptom reproduction, and reisolation supported Sclerotinia sclerotiorum as the cause; appearance alone did not establish the species.",
+        "The observations came from two farms in one season and the report states that economic impact was unclear, so incidence and loss must not be generalized."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-White Mold (Hemp Canker)",
+      "organization": "Pacific Northwest Plant Disease Management Handbook",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+      "authors": [
+        "Cynthia M. Ocamb"
+      ],
+      "publisher": "Pacific Northwest Extension (Oregon State University, Washington State University, and University of Idaho)",
+      "publicationDate": "2021-03-26",
+      "year": 2021,
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "The institutional hemp guide, revised March 2026, describes water-soaked lesions on leaves or buds as a usual first symptom, followed by stem invasion near infected buds, upper-shoot death, or lower-stem cankers.",
+        "Active stems and buds may become whitish from fluffy white mycelium; sclerotia can form externally or inside stems, begin white, mature black, and include long narrow internal forms visible after splitting a stem.",
+        "Sclerotinia sclerotiorum is documented causing hemp stem cankers and bud rot, but disease position varies and a single absent flower symptom does not exclude a crown or stem infection.",
+        "The page photographs are institutional hemp references credited to Ken Frost or Cynthia M. Ocamb, but the page states no item-level reuse or automated-training license; only rights-restricted metadata are indexed."
+      ]
+    },
+    {
+      "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+      "organization": "UF/IFAS Extension",
+      "url": "https://ask.ifas.ufl.edu/publication/PP379",
+      "authors": [
+        "Kevin Korus",
+        "Wael Elwakil",
+        "Nicholas Dufault",
+        "Zachary Eldred"
+      ],
+      "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+      "publicationDate": "2024-11-01",
+      "year": 2024,
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "The institutional hemp field guide describes white mold as white cottony mycelium on stems with hard dark sclerotia that form on the mycelium and turn black as they mature.",
+        "Sclerotia can persist in plant debris, seed, or soil, and wet foliage favors infection; these contextual factors support scouting and confirmation but do not identify an unknown lesion by themselves.",
+        "The guide places white mold among overlapping hemp diseases, supporting comparison with gray mold, southern blight, root disease, and noninfectious injury rather than symptom-only ground truth."
+      ]
+    },
+    {
       "title": "First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-01-19-0088-PDN",
+      "authors": [
+        "S. T. Koike",
+        "H. Stanghellini",
+        "S. J. Mauzey",
+        "A. Burkhardt"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2019-05-16",
       "year": 2019,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-01-19-0088-PDN",
       "supportedClaims": [
         "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
@@ -101,5 +207,105 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "pnw-hemp-sclerotinia-external-canker-2022",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-white-mold-hemp-canker/20220923160728.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-white-mold-hemp-canker/20220923160728.jpg",
+      "alt": "Attached field-hemp stem with a tan canker, white mycelium, external gray-to-black sclerotia, and adjacent dead foliage.",
+      "caption": "Metadata-only institutional hemp reference showing an external stem canker with immature white and mature dark sclerotia. The frame lacks whole-plant progression and a visible laboratory link.",
+      "creator": "Ken Frost, Oregon State University",
+      "license": "Copyright © Oregon State University; no item-level reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Ken Frost, Oregon State University, 2022, via Pacific Northwest Plant Disease Management Handbook. Obtain written permission before display, copying, modification, or automated training use.",
+      "diagnosticLabel": "Sclerotinia white mold — institutional hemp external stem-canker and sclerotial context, license review",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or use for automated training without documented permission.",
+        "The image is expert-captioned but has no visible sample identifier, laboratory result, cultivar, or same-plant progression.",
+        "Do not infer Sclerotinia species, disease extent, or causality for other plants from external appearance alone."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "8505210a14c16eb2b7ebac5992bbb17ba15fbd69c8ba030d8ba22dbc546e14fc",
+      "perceptualHash": "dhash64:2ec667e53d7f52b6",
+      "width": 4032,
+      "height": 3024,
+      "view": "close-up",
+      "stage": "field stem canker with attached foliage",
+      "severity": "advanced external canker and sclerotia",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-sclerotinia-internal-stem-2022",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-white-mold-hemp-canker/thumbnail20220923155809original.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-white-mold-hemp-canker/thumbnail20220923155809original.jpg",
+      "alt": "Longitudinally split hemp stem exposing pale pith and a long narrow black internal sclerotium.",
+      "caption": "Metadata-only institutional hemp reference showing a split stem with long narrow internal sclerotia. The detached close-up omits the exterior canker, whole plant, scale, and laboratory linkage.",
+      "creator": "Ken Frost, Oregon State University",
+      "license": "Copyright © Oregon State University; no item-level reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Ken Frost, Oregon State University, 2022, via Pacific Northwest Plant Disease Management Handbook. Obtain written permission before display, copying, modification, or automated training use.",
+      "diagnosticLabel": "Sclerotinia white mold — institutional hemp split-stem internal-sclerotial context, license review",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or use for automated training without documented permission.",
+        "The split stem is detached and lacks scale, exterior lesion, whole-plant connection, sample identifier, and visible laboratory result.",
+        "Internal sclerotial form supports a differential but does not distinguish Sclerotinia species."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "e189f4d83b8c00c76b71408b684594902a77996940ef81a303aa27a2e28ef764",
+      "perceptualHash": "dhash64:cd8bd993273d596b",
+      "width": 600,
+      "height": 800,
+      "view": "close-up",
+      "stage": "split symptomatic stem",
+      "severity": "internal mature sclerotium",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    },
+    {
+      "id": "pnw-hemp-sclerotinia-bud-closeup-2020",
+      "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-hemp-canker/hempsclerotiniabudcloseupcmo2020.jpg",
+      "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-hemp-canker/hempsclerotiniabudcloseupcmo2020.jpg",
+      "alt": "Attached flowering hemp bud with collapsed brown tissue, white mycelium, and developing-to-dark sclerotia.",
+      "caption": "Metadata-only institutional hemp bud reference showing white mycelium and developing or maturing sclerotia. Botrytis, Fusarium, and secondary decay remain visual confounders without linked testing.",
+      "creator": "Cynthia M. Ocamb, Oregon State University",
+      "license": "Copyright © Oregon State University; no item-level reuse license stated on the landing page",
+      "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-white-mold-hemp-canker",
+      "mediaType": "image",
+      "requiredAttribution": "Cynthia M. Ocamb, Oregon State University, 2020, via Pacific Northwest Plant Disease Management Handbook. Obtain written permission before display, copying, modification, or automated training use.",
+      "diagnosticLabel": "Sclerotinia white mold — institutional attached hemp-bud mycelial and sclerotial context, license review",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; no image file is stored.",
+        "Do not display, copy, modify, or use for automated training without documented permission.",
+        "The close-up lacks whole-plant distribution, serial progression, cultivar, sample identifier, and a visible laboratory result.",
+        "White mycelium and brown bud tissue overlap Botrytis, Fusarium, injury, and secondary decay; retain human review."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "a855b27ca463dd9d6028d4fb0f9baa82ce021783c6397eef8db77f2a40ef29d8",
+      "perceptualHash": "dhash64:9bbdea6272d77376",
+      "width": 844,
+      "height": 1125,
+      "view": "close-up",
+      "stage": "flowering bud",
+      "severity": "advanced localized bud infection",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

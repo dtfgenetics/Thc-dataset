@@ -200,6 +200,17 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'sclerotinia-white-mold') {
+        expect(issue.media).toHaveLength(3)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media.every((item) => item.hostContext === 'cannabis')).toBe(true)
+        expect(issue.media.every((item) => item.reviewStatus === 'license-review')).toBe(true)
+        expect(issue.media.every((item) => item.displayPermission === 'unknown')).toBe(true)
+        expect(issue.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
+        expect(issue.media.every((item) => !item.trainingEligible)).toBe(true)
+        expect(issue.media.every((item) => item.useLimitations.join(' ').includes('no image file is stored'))).toBe(true)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
