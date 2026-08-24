@@ -6350,71 +6350,111 @@
     "category": "Nutrient deficiency",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.55,
-    "summary": "A controlled Cannabis boron-withholding disorder centered on growing tips, expanding leaves, and root tips. Severe new-growth distortion is useful supporting evidence, but diagnosis should be tied to nutrition and root-zone measurements rather than leaf shape alone.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "A measurement-dependent Cannabis differential centered on shoot and root meristems. In one controlled T1 withholding study, new-growth distortion progressed to marginal necrosis, growing-tip and root-tip death, and wilt; those images support a sequence, not image-only ground truth.",
     "affectedParts": [
-      "growing tips",
-      "new and expanding leaves",
-      "leaf margins",
-      "root tips",
-      "whole plant in advanced cases"
+      "apical and axillary growing tips",
+      "youngest and newly expanding leaves",
+      "leaflet bases and margins",
+      "root meristems and root tips",
+      "stems, calyxes, and bracts as provisional institutional context",
+      "whole plant secondarily after severe root loss"
     ],
     "stages": [
-      "vegetative",
-      "all"
+      "vegetative controlled-study sequence",
+      "reproductive tissue context requires human review",
+      "initial through advanced deficiency"
     ],
     "indicators": [
-      "Growing tips become stunted before older foliage shows a dominant pattern",
-      "New leaflets are distorted, smaller, and narrow near the leaflet base",
-      "Advanced new growth curls inward, downward, or at irregular angles and develops marginal necrosis",
-      "Severe deficiency can kill growing tips and root tips and lead to whole-plant wilting"
+      "Slight whole-plant stunting begins at growing tips while older foliage can remain comparatively normal in the controlled sequence",
+      "Youngest and newly expanding leaves cluster, twist, or fail to expand normally around affected shoot tips",
+      "New leaflets are smaller and distorted, with the leaflet base narrower than the distal portion",
+      "Progressing leaves curl inward, downward, or at irregular angles rather than following one uniform curl direction",
+      "Advanced new growth develops necrotic margins and thick, brittle, or malformed tissue",
+      "Growing tips can become necrotic and die, leaving a localized dead apex rather than an older-leaf-first fade",
+      "Root growth slows and root tips can swell, discolor, die, and lose biomass; whole-plant droop or wilt is secondary and nonspecific",
+      "A repeated new-growth-plus-root-tip pattern linked to low boron in correctly sampled tissue and a plausible supply or availability problem is stronger evidence than morphology alone"
     ],
     "exclusions": [
-      "Distorted tips contain broad mites or hemp russet mites",
-      "Root-zone boron supply and tissue analysis are adequate while another exposure explains the distortion",
-      "Damage is localized to a spray, heat, or mechanical event",
-      "Only old leaves are affected while new growth remains normal"
+      "Broad mites or hemp russet mites, eggs, cast skins, bronzing, or characteristic feeding injury are found on magnified growing-point and leaf-underside inspection",
+      "Calcium or copper evidence better explains the new-growth distortion and correctly positioned tissue and root-zone results do not support low boron",
+      "Older leaf margins yellow and necrose first under excessive boron or high-EC conditions while new meristems lack the controlled deficiency sequence",
+      "Root-zone pH, EC, saturation, drought, temperature, oxygenation, or root disease is abnormal enough to explain impaired uptake or wilt without deficient boron supply",
+      "Damage maps to spray droplets, a growth-regulator or herbicide exposure, a lamp-facing surface, a heat event, rubbing, pruning, or another localized injury",
+      "Mosaic, vein clearing, brittle growth, asymmetrical spread, vascular discoloration, lesions, pathogen structures, or laboratory evidence supports a virus, viroid, phytoplasma, or other pathogen",
+      "The same leaf geometry is stable in healthy clones or a cultivar reference, or appears only under altered white balance, grow-light color, glare, compression, or occlusion",
+      "Correctly positioned tissue boron is adequate for the cultivar, stage, sampled organ, laboratory method, and production system, or another measured nutrient disorder explains the syndrome better"
     ],
     "progression": [
       {
-        "stage": "Early",
-        "description": "Slight stunting develops from the growing tips."
+        "stage": "Previsual evidence",
+        "description": "A supply, pH, root-health, or analytical abnormality may exist before a reliable visual label; do not manufacture a positive image class from exposure history alone."
       },
       {
-        "stage": "Intermediate",
-        "description": "New leaves become narrower and increasingly distorted."
+        "stage": "Controlled-study onset",
+        "description": "After six weeks of complete boron withholding in one Cannabis sativa T1 experiment, plants were slightly stunted from the growing tips; the timing is study-specific."
       },
       {
-        "stage": "Advanced",
-        "description": "Margins become necrotic, apical tissue can die, root-tip loss can become severe, and the whole plant may wilt."
+        "stage": "Initial visual pattern",
+        "description": "New and expanding leaflets become smaller, distorted, and narrow at their bases while older foliage is less dominant in the frame."
+      },
+      {
+        "stage": "Intermediate to advanced",
+        "description": "New leaves become severely distorted, curl inward or downward or at odd angles, and develop marginal necrosis; shoot tips can die."
+      },
+      {
+        "stage": "Severe root-linked decline",
+        "description": "Root-tip death and root-biomass loss can accompany whole-plant wilt. Capture roots and root-zone measurements because canopy wilt alone cannot identify boron deficiency."
       }
     ],
     "lookAlikes": [
       "Calcium deficiency",
-      "Broad mite",
-      "Hemp russet mite",
-      "Herbicide or growth-regulator injury",
-      "Root disease"
+      "Copper deficiency",
+      "Zinc deficiency",
+      "Boron toxicity",
+      "Broad mite injury",
+      "Hemp russet mite injury",
+      "High-pH or high-EC root-zone stress",
+      "Salinity injury",
+      "Waterlogging, root-zone hypoxia, or root rot",
+      "Herbicide, plant-growth-regulator, or foliar-spray injury",
+      "Heat, high-light, or mechanical injury",
+      "Virus, viroid, or phytoplasma syndrome",
+      "Genetic or developmental leaf-shape variation",
+      "Camera white-balance, grow-light, focus, or compression artifact"
     ],
     "confirmation": [
-      "Review fertilizer and source-water boron and measure root-zone pH/EC before assigning the cause.",
-      "Use representative tissue analysis when the diagnosis is consequential; the published Cannabis values are experiment-specific, not universal thresholds."
+      "Do not confirm boron deficiency from twisted tips, narrow leaflet bases, marginal necrosis, wilt, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the imaged plant.",
+      "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, apical and axillary tips, both surfaces of new leaves, leaflet bases and margins, stems and reproductive tissue when present, washed roots and root tips, and the root zone under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+      "Record cultivar, stage, days since onset, boron concentration and formulation in fertilizer and source water, complete nutrient recipe, recent product changes, irrigation and dryback history, substrate or soil type, and any spray, heat, light, pruning, or mechanical event.",
+      "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect roots before changing boron supply.",
+      "Submit correctly positioned most-recently-mature leaves plus matched symptomatic and healthy material and an appropriate solution, substrate, soil, leachate, or water sample to an agricultural or plant diagnostic laboratory; document sample position, contamination controls, and method.",
+      "Inspect growing points and both leaf surfaces with sufficient magnification for broad and russet mites, and use a plant diagnostic laboratory when root pathogens, viruses, viroids, phytoplasmas, or mixed disorders remain plausible.",
+      "Interpret 2.46 mg/kg from the controlled T1 study and the NC survey range only within their methods and populations; correction response in subsequent growth is supporting evidence and does not retroactively make the original image ground truth."
     ],
     "immediateActions": [
-      "Preserve pre-correction root-zone and tissue measurements.",
-      "Inspect distorted growth under magnification for mites before changing nutrition."
+      "Mark affected and matched healthy plants and preserve pre-treatment images, roots, root-zone measurements, feed and water records, and representative tissue before changing nutrition.",
+      "Quarantine or separate suspect plants when mites or transmissible pathogens remain plausible, and inspect meristems before nutrient correction.",
+      "Correct documented drainage, pH, EC, moisture, temperature, oxygenation, or root-health problems before assuming boron concentration is inadequate."
     ],
     "correctivePlan": [
-      "Correct a confirmed boron under-supply gradually with a crop-appropriate nutrition plan.",
-      "Track new meristem and root growth; damaged leaves and dead tips will not reverse."
+      "Only when testing supports inadequate boron supply or availability and roots are functional, restore a balanced crop- and system-appropriate micronutrient program gradually under current local agronomic guidance.",
+      "Track new meristem geometry, new necrosis, root-tip growth, turgor, root-zone measurements, and follow-up tissue results; old deformed leaves and dead tips will not recover.",
+      "If boron status is adequate or the pattern continues, reopen calcium, copper, zinc, mite, pathogen, pH, EC, salinity, hypoxia, exposure, environmental, and genetic differentials."
     ],
     "prevention": [
-      "Maintain complete micronutrient supply and calibrated root-zone monitoring.",
-      "Avoid diagnosing micronutrients from internet deficiency charts without measurements."
+      "Verify boron in fertilizer and source water and maintain calibrated pH and EC monitoring without using a generic internet deficiency chart as a feed target.",
+      "Use consistent most-recently-mature-leaf sampling, contamination controls, and same-cultivar references linked to plant, stage, and image identifiers.",
+      "Maintain root-zone moisture, drainage, temperature, and oxygenation records so impaired uptake is separated from inadequate supply."
     ],
     "warnings": [
-      "The controlled study used one cultivar and complete boron withholding.",
-      "Boron has a narrow adequacy-to-toxicity margin in many crops; do not add boron from visual suspicion alone."
+      "The direct progression evidence came from one Cannabis sativa T1 cultivar grown in silica sand with boron completely withheld; six weeks, 2.46 mg/kg tissue boron, 96% reduction from control, and 28% less dry biomass are experiment-specific, not universal thresholds.",
+      "The NC State 30 to 90 ppm interval is a survey-based floral-hemp reference range, not a causal deficiency cutoff, and must not be transferred uncritically across cultivar, stage, plant part, production system, crop purpose, or laboratory method.",
+      "Stem corking and reproductive-tissue signs are institutional hemp observations rather than a controlled Cannabis progression and require human review.",
+      "The licensed Figure 4 asset is already indexed once under manganese deficiency because it contains manganese, boron, and copper classes; the center boron panels remain reference-only until panel crops, coordinates, labels, provenance, and dataset splits are reviewed.",
+      "USU page images have mixed institutional and vendor credits without item-level reuse licenses and are excluded from media indexing and ground truth.",
+      "Do not apply a generic boric-acid or borax dose from visual suspicion: the same source distinguishes boron excess, and an unmeasured correction can create toxicity or salinity-like injury.",
+      "All image-only, root-unlinked, unmatched, method-unknown, contaminated, cross-crop-threshold, mixed-disorder, or analytically discordant samples require human review."
     ],
     "sources": [
       {
@@ -6431,16 +6471,54 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
           "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Boron-withheld plants first showed slight whole-plant stunting from growing tips after six weeks; new and expanding leaflets were smaller and distorted, with bases narrower than tips, before margins became necrotic and leaves curled inward, downward, or at irregular angles.",
+          "At first boron-deficiency symptom expression, boron-withheld most-recent-mature leaves contained 2.46 mg/kg boron compared with 58.58 mg/kg in controls, 96% lower under the experiment conditions, and treated plants produced 28% less dry biomass.",
+          "Figure 4 is a CC BY 4.0 nine-panel composite: manganese, boron, and copper deficiency occupy the left, center, and right columns respectively, with initial, intermediate, and advanced rows; only the center column represents boron deficiency.",
           "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
           "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
           "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
           "Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.",
           "The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiencies",
+        "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
+        "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-nutrient-deficiencies",
+        "publisher": "Utah State University Extension",
+        "accessedDate": "2026-08-24",
+        "supportedClaims": [
+          "USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly, with shoots that can appear burned.",
+          "The guide describes slow root growth with swollen or discolored root tips, thickened brittle distorted leaves, interveinal necrotic spots, stem corking, underdeveloped calyxes or bracts with small brown spots, and overall droop; these institutional observations are not a controlled progression sequence.",
+          "USU distinguishes excess boron as an older-leaf-first marginal yellowing and necrosis pattern that can resemble salinity injury, supporting separation of deficiency from toxicity and high-EC stress.",
+          "The page mixes institutional and commercial-vendor photographs and provides no item-level reuse license, so none of its images are admitted as dataset media or ground truth."
+        ]
+      },
+      {
+        "title": "Hemp Leaf Tissue Nutrient Ranges: Refinement of Reference Standards for Floral Hemp",
+        "organization": "NC State Extension Publications",
+        "url": "https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges",
+        "authors": [
+          "David Suchoff",
+          "Michelle McGinnis",
+          "Jeanine Davis",
+          "Brian Whipker",
+          "Kristin Hicks"
+        ],
+        "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
+        "publicationDate": "2021-11-04",
+        "year": 2021,
+        "accessedDate": "2026-08-24",
+        "supportedClaims": [
+          "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
+          "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
+          "The adopted 30 to 90 ppm boron range is a survey-based floral-hemp reference interval rather than a causal deficiency threshold; the authors state that rate studies and further refinement are needed.",
+          "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method."
         ]
       }
     ],
@@ -6578,7 +6656,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -6672,14 +6750,16 @@
         "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
         "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-nutrient-deficiencies",
         "publisher": "Utah State University Extension",
-        "accessedDate": "2026-08-14",
+        "accessedDate": "2026-08-24",
         "supportedClaims": [
           "USU describes hemp phosphorus-deficiency context as slowed growth with bluish-green foliage, purple petioles, copper to purplish-brown lower-leaf blotches, contortion or downward curl, and bronze or purple necrosis in heavily affected leaves.",
           "USU states that high-pH soil above 7, cold soil, and clayey, poorly drained, soggy conditions can limit phosphorus uptake, so tissue appearance cannot distinguish inadequate supply from impaired root-zone availability.",
           "The page recommends soil and nutrient analysis to guide amendments and states that excess phosphorus can resemble iron or zinc deficiency, supporting measurement before corrective fertilization.",
           "The phosphorus photographs on the page have mixed USU and commercial-vendor credits and no explicit reuse license, so they are not admitted as verified media or ground truth.",
           "USU describes hemp calcium-deficiency context as contorted or curled leaves, irregular yellow-brown spotting while intervening tissue remains green, slowed flower-bud development, and root-tip dieback, and states that excess water, salinity, or root damage can impair calcium transport.",
-          "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic."
+          "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic.",
+          "USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly and root tips that can swell and discolor, while excess boron begins on older leaf margins and can resemble salinity injury.",
+          "The page mixes institutional and commercial-vendor photographs and provides no item-level reuse license, so none of its images are admitted as dataset media or ground truth."
         ]
       }
     ],
@@ -6853,7 +6933,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -7018,7 +7098,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -7293,7 +7373,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -7562,7 +7642,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -7852,7 +7932,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -8093,11 +8173,14 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
           "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Boron-withheld plants first showed slight whole-plant stunting from growing tips after six weeks; new and expanding leaflets were smaller and distorted, with bases narrower than tips, before margins became necrotic and leaves curled inward, downward, or at irregular angles.",
+          "At first boron-deficiency symptom expression, boron-withheld most-recent-mature leaves contained 2.46 mg/kg boron compared with 58.58 mg/kg in controls, 96% lower under the experiment conditions, and treated plants produced 28% less dry biomass.",
+          "Figure 4 is a CC BY 4.0 nine-panel composite: manganese, boron, and copper deficiency occupy the left, center, and right columns respectively, with initial, intermediate, and advanced rows; only the center column represents boron deficiency.",
           "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
           "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
           "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
@@ -8291,7 +8374,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -8539,7 +8622,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -8582,14 +8665,16 @@
         "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
         "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-nutrient-deficiencies",
         "publisher": "Utah State University Extension",
-        "accessedDate": "2026-08-14",
+        "accessedDate": "2026-08-24",
         "supportedClaims": [
           "USU describes hemp phosphorus-deficiency context as slowed growth with bluish-green foliage, purple petioles, copper to purplish-brown lower-leaf blotches, contortion or downward curl, and bronze or purple necrosis in heavily affected leaves.",
           "USU states that high-pH soil above 7, cold soil, and clayey, poorly drained, soggy conditions can limit phosphorus uptake, so tissue appearance cannot distinguish inadequate supply from impaired root-zone availability.",
           "The page recommends soil and nutrient analysis to guide amendments and states that excess phosphorus can resemble iron or zinc deficiency, supporting measurement before corrective fertilization.",
           "The phosphorus photographs on the page have mixed USU and commercial-vendor credits and no explicit reuse license, so they are not admitted as verified media or ground truth.",
           "USU describes hemp calcium-deficiency context as contorted or curled leaves, irregular yellow-brown spotting while intervening tissue remains green, slowed flower-bud development, and root-tip dieback, and states that excess water, salinity, or root damage can impair calcium transport.",
-          "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic."
+          "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic.",
+          "USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly and root tips that can swell and discolor, while excess boron begins on older leaf margins and can resemble salinity injury.",
+          "The page mixes institutional and commercial-vendor photographs and provides no item-level reuse license, so none of its images are admitted as dataset media or ground truth."
         ]
       },
       {
@@ -8783,7 +8868,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -9038,7 +9123,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -9257,7 +9342,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -9458,11 +9543,14 @@
         "publisher": "MDPI AG",
         "publicationDate": "2019-10-18",
         "year": 2019,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-08-24",
         "doi": "10.3390/app9204432",
         "supportedClaims": [
           "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
           "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+          "Boron-withheld plants first showed slight whole-plant stunting from growing tips after six weeks; new and expanding leaflets were smaller and distorted, with bases narrower than tips, before margins became necrotic and leaves curled inward, downward, or at irregular angles.",
+          "At first boron-deficiency symptom expression, boron-withheld most-recent-mature leaves contained 2.46 mg/kg boron compared with 58.58 mg/kg in controls, 96% lower under the experiment conditions, and treated plants produced 28% less dry biomass.",
+          "Figure 4 is a CC BY 4.0 nine-panel composite: manganese, boron, and copper deficiency occupy the left, center, and right columns respectively, with initial, intermediate, and advanced rows; only the center column represents boron deficiency.",
           "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
           "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
           "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",

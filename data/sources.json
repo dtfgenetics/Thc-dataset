@@ -1764,11 +1764,14 @@
     "publisher": "MDPI AG",
     "publicationDate": "2019-10-18",
     "year": 2019,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-08-24",
     "doi": "10.3390/app9204432",
     "supportedClaims": [
       "Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.",
       "Boron-deficient plants developed growing-tip stunting, distorted new leaves, marginal necrosis, death of growing tips, root-tip loss, and severe wilting in advanced stages.",
+      "Boron-withheld plants first showed slight whole-plant stunting from growing tips after six weeks; new and expanding leaflets were smaller and distorted, with bases narrower than tips, before margins became necrotic and leaves curled inward, downward, or at irregular angles.",
+      "At first boron-deficiency symptom expression, boron-withheld most-recent-mature leaves contained 2.46 mg/kg boron compared with 58.58 mg/kg in controls, 96% lower under the experiment conditions, and treated plants produced 28% less dry biomass.",
+      "Figure 4 is a CC BY 4.0 nine-panel composite: manganese, boron, and copper deficiency occupy the left, center, and right columns respectively, with initial, intermediate, and advanced rows; only the center column represents boron deficiency.",
       "In Cannabis sativa T1, manganese-toxicity symptoms appeared seven weeks after treatment: marginal yellowing began on lower leaves, intensified inward toward the midrib, and advanced to marginal necrosis, severe chlorosis, and occasional leaf abscission.",
       "The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.",
       "Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.",
@@ -2245,6 +2248,29 @@
     ]
   },
   {
+    "sourceKey": "https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges",
+    "title": "Hemp Leaf Tissue Nutrient Ranges: Refinement of Reference Standards for Floral Hemp",
+    "organization": "NC State Extension Publications",
+    "url": "https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges",
+    "authors": [
+      "David Suchoff",
+      "Michelle McGinnis",
+      "Jeanine Davis",
+      "Brian Whipker",
+      "Kristin Hicks"
+    ],
+    "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
+    "publicationDate": "2021-11-04",
+    "year": 2021,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
+      "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
+      "The adopted 30 to 90 ppm boron range is a survey-based floral-hemp reference interval rather than a causal deficiency threshold; the authors state that rate studies and further refinement are needed.",
+      "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method."
+    ]
+  },
+  {
     "sourceKey": "https://content.ces.ncsu.edu/hemp-russet-mite-in-industrial-hemp",
     "title": "Hemp Russet Mite in Industrial Hemp",
     "organization": "NC State Extension",
@@ -2526,14 +2552,19 @@
     "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
     "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-nutrient-deficiencies",
     "publisher": "Utah State University Extension",
-    "accessedDate": "2026-08-14",
+    "accessedDate": "2026-08-24",
     "supportedClaims": [
+      "USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly, with shoots that can appear burned.",
+      "The guide describes slow root growth with swollen or discolored root tips, thickened brittle distorted leaves, interveinal necrotic spots, stem corking, underdeveloped calyxes or bracts with small brown spots, and overall droop; these institutional observations are not a controlled progression sequence.",
+      "USU distinguishes excess boron as an older-leaf-first marginal yellowing and necrosis pattern that can resemble salinity injury, supporting separation of deficiency from toxicity and high-EC stress.",
+      "The page mixes institutional and commercial-vendor photographs and provides no item-level reuse license, so none of its images are admitted as dataset media or ground truth.",
       "USU describes hemp phosphorus-deficiency context as slowed growth with bluish-green foliage, purple petioles, copper to purplish-brown lower-leaf blotches, contortion or downward curl, and bronze or purple necrosis in heavily affected leaves.",
       "USU states that high-pH soil above 7, cold soil, and clayey, poorly drained, soggy conditions can limit phosphorus uptake, so tissue appearance cannot distinguish inadequate supply from impaired root-zone availability.",
       "The page recommends soil and nutrient analysis to guide amendments and states that excess phosphorus can resemble iron or zinc deficiency, supporting measurement before corrective fertilization.",
       "The phosphorus photographs on the page have mixed USU and commercial-vendor credits and no explicit reuse license, so they are not admitted as verified media or ground truth.",
       "USU describes hemp calcium-deficiency context as contorted or curled leaves, irregular yellow-brown spotting while intervening tissue remains green, slowed flower-bud development, and root-tip dieback, and states that excess water, salinity, or root damage can impair calcium transport.",
-      "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic."
+      "The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic.",
+      "USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly and root tips that can swell and discolor, while excess boron begins on older leaf margins and can resemble salinity injury."
     ],
     "authors": []
   },

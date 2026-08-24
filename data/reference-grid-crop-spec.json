@@ -72,7 +72,7 @@
       "sourceGroupId": "doi-10.3390-app9204432-fig4",
       "host": "Cannabis sativa T1",
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
-      "reason": "Controlled manganese/boron/copper withholding sequence. Boron-deficiency panels are retained as reference-only pending a standalone boron-deficiency diagnostic profile.",
+      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
       "xBands": [[154,942],[970,1763],[1787,2579]],
       "yBands": [[127,599],[613,1085],[1099,1575]],
       "columns": [

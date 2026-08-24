@@ -112,6 +112,22 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(manganese.media).toHaveLength(0)
   })
 
+  it('keeps boron deficiency meristem-linked, measurement-dependent, and composite-bounded', () => {
+    const boron = bySlug('boron-deficiency')
+    expect(boron.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(boron.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(boron.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(boron.progression.length).toBeGreaterThanOrEqual(5)
+    expect(boron.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(boron.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(boron.sources.some((item) => item.doi === '10.3390/app9204432')).toBe(true)
+    expect(boron.sources.some((item) => item.url.endsWith('/hemp-nutrient-deficiencies'))).toBe(true)
+    expect(boron.sources.some((item) => item.url.endsWith('/hemp-leaf-tissue-nutrient-ranges'))).toBe(true)
+    expect(boron.warnings.join(' ').toLowerCase()).toMatch(/center boron panels.*reference-only/)
+    expect(boron.warnings.join(' ').toLowerCase()).toContain('human review')
+    expect(boron.media).toHaveLength(0)
+  })
+
   it('keeps the hemp spider-mite scale licensed, composite-bounded, and out of training', () => {
     const mites = bySlug('two-spotted-spider-mites')
     const reference = mites.media.find((item) => item.id === 'media-two-spotted-spider-mite-hemp-figure-1')

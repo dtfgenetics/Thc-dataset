@@ -9,7 +9,7 @@ const sources: Record<string, SourceRecord> = {
     publisher: 'MDPI AG',
     publicationDate: '2019-10-18',
     year: 2019,
-    accessedDate: '2026-08-20',
+    accessedDate: '2026-08-24',
     doi: '10.3390/app9204432',
     supportedClaims: [
       'Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.',
@@ -92,7 +92,7 @@ const sources: Record<string, SourceRecord> = {
     organization: 'Utah State University Extension, Utah Plant Pest Diagnostic Laboratory',
     url: 'https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-nutrient-deficiencies',
     publisher: 'Utah State University Extension',
-    accessedDate: '2026-08-14',
+    accessedDate: '2026-08-24',
     supportedClaims: [
       'USU describes hemp phosphorus-deficiency context as slowed growth with bluish-green foliage, purple petioles, copper to purplish-brown lower-leaf blotches, contortion or downward curl, and bronze or purple necrosis in heavily affected leaves.',
       'USU states that high-pH soil above 7, cold soil, and clayey, poorly drained, soggy conditions can limit phosphorus uptake, so tissue appearance cannot distinguish inadequate supply from impaired root-zone availability.',
@@ -100,6 +100,8 @@ const sources: Record<string, SourceRecord> = {
       'The phosphorus photographs on the page have mixed USU and commercial-vendor credits and no explicit reuse license, so they are not admitted as verified media or ground truth.',
       'USU describes hemp calcium-deficiency context as contorted or curled leaves, irregular yellow-brown spotting while intervening tissue remains green, slowed flower-bud development, and root-tip dieback, and states that excess water, salinity, or root damage can impair calcium transport.',
       'The USU calcium page localizes pictured spotting to lower leaves, which is compatible with a flowering-stage hydroponic study but differs from the newly expanding growth sequence in the vegetative T1 study; canopy location alone is therefore not diagnostic.',
+      'USU describes hemp boron-deficiency context as stunted, twisted, clustered new tip growth that does not expand properly and root tips that can swell and discolor, while excess boron begins on older leaf margins and can resemble salinity injury.',
+      'The page mixes institutional and commercial-vendor photographs and provides no item-level reuse license, so none of its images are admitted as dataset media or ground truth.',
     ],
   },
   cannabisFloweringNutrientDeficiencies: {
