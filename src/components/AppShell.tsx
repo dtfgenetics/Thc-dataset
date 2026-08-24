@@ -5,6 +5,7 @@ import {
   Database,
   FileImage,
   HelpCircle,
+  Leaf,
   Menu,
   NotebookPen,
   X,
@@ -15,6 +16,7 @@ import { BrandMark } from './icons'
 
 const navItems: Array<{ id: View; label: string; icon: typeof Camera }> = [
   { id: 'diagnose', label: 'Diagnose', icon: Camera },
+  { id: 'atlas', label: 'Plant atlas', icon: Leaf },
   { id: 'issues', label: 'Issue library', icon: BookOpen },
   { id: 'references', label: 'Reference images', icon: FileImage },
   { id: 'log', label: 'Grow log', icon: NotebookPen },
@@ -45,7 +47,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
           <span><strong>THC Grow Doc</strong><small>by DTF Genetics</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Grow Doc navigation">
-          {navItems.slice(0, 4).map((item) => (
+          {navItems.slice(0, 5).map((item) => (
             <button key={item.id} className={activeView === item.id ? 'active' : ''} onClick={() => chooseView(item.id)}>{item.label}</button>
           ))}
         </nav>
