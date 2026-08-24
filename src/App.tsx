@@ -7,6 +7,7 @@ import { EvidenceUploader } from './components/EvidenceUploader'
 import { GrowContextForm } from './components/GrowContextForm'
 import { GrowLog } from './components/GrowLog'
 import { IssueLibrary } from './components/IssueLibrary'
+import { LivingPlantAtlas } from './components/LivingPlantAtlas'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
@@ -16,7 +17,7 @@ import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
 
 export default function App() {
-  const [view, setView] = useState<View>('diagnose')
+  const [view, setView] = useState<View>('atlas')
   const [evidence, setEvidence] = useState<EvidenceFile[]>([])
   const [context, setContext] = useState<GrowContext>(emptyContext)
   const [reviewed, setReviewed] = useState(false)
@@ -43,6 +44,7 @@ export default function App() {
 
   return (
     <AppShell activeView={view} onViewChange={setView}>
+      {view === 'atlas' ? <LivingPlantAtlas /> : null}
       {view === 'diagnose' ? (
         <div className="diagnostic-page">
           <div className="diagnostic-layout"><div className="workflow-column"><EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} /><VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} /><GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} /></div><DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} /></div>
