@@ -78,7 +78,11 @@ describe('rankDifferentials', () => {
   })
 
   it('keeps root-pathogen confidence low without a root or crown view and applies the Pythium policy', () => {
-    const results = rankDifferentials(issues, context(['Brown slimy roots', 'Wilting despite moisture', 'Stunting and yellowing']), [])
+    const results = rankDifferentials(issues, context([
+      'Plant-linked washed roots show expanding brown lesions, decay, and loss of normally pale active root tissue.',
+      'Decayed roots may shed or slough the outer cortex and leave a thinner central vascular core; record texture and a scale rather than inferring slime from color alone.',
+      'Stunting, chlorosis, wilt despite a moist root zone, necrosis, defoliation, or collapse can follow root or crown damage but are nonspecific secondary canopy signs.',
+    ]), [])
     expect(results[0].issue.slug).toBe('pythium-root-rot')
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('root or crown view')

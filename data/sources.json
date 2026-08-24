@@ -243,6 +243,28 @@
     ]
   },
   {
+    "sourceKey": "10.1080/07060661.2021.1954695",
+    "title": "Several Pythium species cause crown and root rot on cannabis plants grown under commercial greenhouse conditions",
+    "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
+    "url": "https://doi.org/10.1080/07060661.2021.1954695",
+    "authors": [
+      "Zamir K. Punja",
+      "Cameron Scott",
+      "Samantha Lung"
+    ],
+    "publisher": "Taylor & Francis",
+    "publicationDate": "2021-09-22",
+    "year": 2022,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1080/07060661.2021.1954695",
+    "supportedClaims": [
+      "Across 140 diseased plants sampled from seven licensed commercial greenhouses in British Columbia during 2018 and 2019, the authors associated several Pythium or Globisporangium species with crown rot, root decay, wilting, and plant death; mother, vegetative, and flowering plants across 15 strains were affected.",
+      "Recovered isolates caused root browning, decay, and stunting in Cannabis grown in coco coir–perlite, but symptom rate and severity varied among isolates; visual appearance therefore cannot resolve the causal species.",
+      "Root wounding and prolonged saturation increased disease in the reported experiments, but these are risk modifiers rather than image-level proof of Pythium disease.",
+      "The study documented damping-off in rooted cuttings and secondary canopy yellowing, necrosis, defoliation, wilting, and death, alongside crown rot and internal pith browning or blackening."
+    ]
+  },
+  {
     "sourceKey": "10.1080/07060661.2021.1988712",
     "title": "Pathogenicity of seedborne Alternaria and Stemphylium species and stem-infecting Neofusicoccum and Lasiodiplodia species to cannabis (Cannabis sativa L., marijuana) plants",
     "organization": "Canadian Journal of Plant Pathology",
@@ -640,10 +662,15 @@
     "title": "First Report of Pythium myriotylum Causing Root Rot in Cannabis sativa in California",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-02-21-0336-PDN",
+    "authors": [
+      "Tera L. Pitman",
+      "Richard N. Philbrook",
+      "Jeremy G. Warren"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2021-11-15",
     "year": 2021,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-02-21-0336-PDN",
     "supportedClaims": [
       "Greenhouse medical Cannabis with Pythium myriotylum root rot showed stunting, chlorosis, senescence, reduced root mass and root-hair density, and necrotic root lesions.",
@@ -658,7 +685,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2025-07-24",
     "year": 2025,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-02-25-0435-PDN",
     "supportedClaims": [
       "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
@@ -746,10 +773,17 @@
     "title": "First Report of Pythium myriotylum Causing Damping off and Root Rot in Cannabis sativa in Florida",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-07-25-1413-PDN",
+    "authors": [
+      "Ashley Brown",
+      "Eden Blit",
+      "Sydney Gerstenberg",
+      "Krista Say",
+      "Richard Philbrook"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2026-03-03",
     "year": 2026,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-07-25-1413-PDN",
     "supportedClaims": [
       "Pythium myriotylum was confirmed causing damping-off and root rot in indoor Cannabis cuttings from five cultivars in Florida.",
@@ -829,10 +863,16 @@
     "title": "First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-09-16-1249-PDN",
+    "authors": [
+      "Janna Beckerman",
+      "Hannah Nisonson",
+      "Nicolette Albright",
+      "Tom C. Creswell"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2017-03-20",
     "year": 2017,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-09-16-1249-PDN",
     "supportedClaims": [
       "Industrial hemp with Pythium aphanidermatum crown/root rot showed chlorosis, stunting, wilt, brown root lesions, feeder-root loss, and sometimes brown water-soaked stem lesions.",
@@ -958,10 +998,16 @@
     "title": "First Report of Pythium ultimum Crown and Root Rot of Industrial Hemp in the United States",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-12-17-1999-PDN",
+    "authors": [
+      "Janna Beckerman",
+      "John Stone",
+      "Gail Ruhl",
+      "Tom Creswell"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2018-08-08",
     "year": 2018,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-12-17-1999-PDN",
     "supportedClaims": [
       "Pythium ultimum was pathogenic to industrial hemp in replicated inoculation work; symptoms began within about one week and the organism was reisolated and PCR-confirmed.",
@@ -1303,6 +1349,26 @@
       "Galls induced on hemp by M. hapla, M. incognita, and M. javanica are described as small, whitish, and hard, generally not exceeding about 4 mm in diameter; M. enterolobii can form both small and large galls.",
       "Its Figure 2 shows a controlled M. incognita inoculation on Cannabis sativa cultivar Cherry as an entire root system and close-up of small white galls with a 5 mm scale.",
       "Hemp susceptibility and nematode reproduction vary substantially with cultivar, Meloidogyne species or isolate, inoculum, pot size, and evaluation time, so gall burden or canopy severity must not be generalized across cultivars or studies."
+    ]
+  },
+  {
+    "sourceKey": "10.3389/fagro.2021.706138",
+    "title": "Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production",
+    "organization": "Frontiers in Agronomy",
+    "url": "https://doi.org/10.3389/fagro.2021.706138",
+    "authors": [
+      "Cora S. McGehee",
+      "Rosa E. Raudales"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2021-08-06",
+    "year": 2021,
+    "accessedDate": "2026-08-24",
+    "doi": "10.3389/fagro.2021.706138",
+    "supportedClaims": [
+      "Controlled pathogenicity experiments on hemp cultivar 'Wife' confirmed that selected Pythium myriotylum and Globisporangium irregulare isolates from production substrates could reduce growth and cause chlorosis or wilt; inoculated organisms were recovered from root fragments.",
+      "The source facility sampling involved coconut coir and rockwool rather than original diseased marijuana plant tissue, and Koch-style pathogenicity testing used one hemp cultivar, so the host, facility, timing, and severity cannot be generalized.",
+      "Figure 7 is a whole-plant, multi-treatment composite at 14 days after inoculation that includes Pythium, Globisporangium, Fusarium, and an uninoculated control; it does not show roots or crown tissue and cannot confirm an unknown plant from appearance."
     ]
   },
   {
@@ -2384,6 +2450,18 @@
     "authors": []
   },
   {
+    "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-pythium-root-and-crown-rot",
+    "title": "Pythium Root and Crown Rot of Hemp",
+    "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
+    "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-pythium-root-and-crown-rot",
+    "publisher": "Utah State University Extension",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "The institutional diagnostic note describes stunting and wilt with root rot, including loss of the root outer layer that leaves the central core, and separately describes crown infection that can girdle the stem.",
+      "The note states that either root rot or crown rot can progress to rapid wilt and death and cautions that the two syndromes need not occur together, supporting separate root and crown observations."
+    ]
+  },
+  {
     "sourceKey": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle",
     "title": "Spotted Cucumber Beetle",
     "organization": "Utah State University Extension Integrated Pest Management",
@@ -2735,17 +2813,6 @@
       "The Public Health Agency of Canada identifies Serratia species as Gram-negative rods and notes that many, but not all, species or strains produce a red-to-pink pigment; pigment therefore cannot be required for or used alone as species confirmation.",
       "The agency describes Serratia species as opportunistic pathogens, classifies the genus as Risk Group 2 while noting that the classification may not apply to every species, and specifies Containment Level 2 practices for potentially infectious material or cultures.",
       "For work with infected material or cultures, the sheet calls for protective clothing, gloves where direct contact is unavoidable, eye protection where splashes are possible, and controls for aerosol-producing procedures."
-    ]
-  },
-  {
-    "sourceKey": "https://www.tandfonline.com/doi/full/10.1080/07060661.2021.1954695",
-    "title": "Several Pythium species cause crown and root rot on cannabis plants grown under commercial greenhouse conditions",
-    "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
-    "url": "https://www.tandfonline.com/doi/full/10.1080/07060661.2021.1954695",
-    "year": 2022,
-    "accessedDate": "2026-08-13",
-    "supportedClaims": [
-      "Multiple Pythium species cause crown and root rot in greenhouse cannabis, and pathogen identity cannot be resolved reliably from above-ground symptoms alone."
     ]
   }
 ]

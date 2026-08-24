@@ -11,28 +11,45 @@ export const evidenceAugmentationsBySlug: Record<string, EvidenceAugmentation> =
     sources: [
       {
         title: 'First Report of Pythium ultimum Crown and Root Rot of Industrial Hemp in the United States', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-12-17-1999-PDN', publisher: 'American Phytopathological Society', publicationDate: '2018-08-08', year: 2018, accessedDate: '2026-08-17', doi: '10.1094/PDIS-12-17-1999-PDN',
+        url: 'https://doi.org/10.1094/PDIS-12-17-1999-PDN', authors: ['Janna Beckerman', 'John Stone', 'Gail Ruhl', 'Tom Creswell'], publisher: 'American Phytopathological Society', publicationDate: '2018-08-08', year: 2018, accessedDate: '2026-08-24', doi: '10.1094/PDIS-12-17-1999-PDN',
         supportedClaims: ['Pythium ultimum was pathogenic to industrial hemp in replicated inoculation work; symptoms began within about one week and the organism was reisolated and PCR-confirmed.', 'Cool early planting, low-lying/flood-prone conditions, and soil crusting after intense rainfall were risk context in the report, not species-level visual identifiers.'],
       },
       {
         title: 'First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-09-16-1249-PDN', publisher: 'American Phytopathological Society', publicationDate: '2017-03-20', year: 2017, accessedDate: '2026-08-17', doi: '10.1094/PDIS-09-16-1249-PDN',
+        url: 'https://doi.org/10.1094/PDIS-09-16-1249-PDN', authors: ['Janna Beckerman', 'Hannah Nisonson', 'Nicolette Albright', 'Tom C. Creswell'], publisher: 'American Phytopathological Society', publicationDate: '2017-03-20', year: 2017, accessedDate: '2026-08-24', doi: '10.1094/PDIS-09-16-1249-PDN',
         supportedClaims: ['Industrial hemp with Pythium aphanidermatum crown/root rot showed chlorosis, stunting, wilt, brown root lesions, feeder-root loss, and sometimes brown water-soaked stem lesions.', 'The above-ground syndrome overlaps other root diseases and water stress, reinforcing the need for cleaned-root and laboratory evidence.'],
       },
       {
         title: 'First Report of Pythium myriotylum Causing Root Rot in Cannabis sativa in California', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-02-21-0336-PDN', publisher: 'American Phytopathological Society', publicationDate: '2021-11-15', year: 2021, accessedDate: '2026-08-17', doi: '10.1094/PDIS-02-21-0336-PDN',
+        url: 'https://doi.org/10.1094/PDIS-02-21-0336-PDN', authors: ['Tera L. Pitman', 'Richard N. Philbrook', 'Jeremy G. Warren'], publisher: 'American Phytopathological Society', publicationDate: '2021-11-15', year: 2021, accessedDate: '2026-08-24', doi: '10.1094/PDIS-02-21-0336-PDN',
         supportedClaims: ['Greenhouse medical Cannabis with Pythium myriotylum root rot showed stunting, chlorosis, senescence, reduced root mass and root-hair density, and necrotic root lesions.', 'The Cannabis-specific phenotype does not make canopy appearance species-specific.'],
       },
       {
         title: 'First Report of Pythium aphanidermatum Causing Crown and Root Rot in Cannabis sativa in Florida', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-02-25-0435-PDN', publisher: 'American Phytopathological Society', publicationDate: '2025-07-24', year: 2025, accessedDate: '2026-08-17', doi: '10.1094/PDIS-02-25-0435-PDN',
+        url: 'https://doi.org/10.1094/PDIS-02-25-0435-PDN', publisher: 'American Phytopathological Society', publicationDate: '2025-07-24', year: 2025, accessedDate: '2026-08-24', doi: '10.1094/PDIS-02-25-0435-PDN',
         supportedClaims: ['Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.', 'Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species.'],
       },
       {
         title: 'First Report of Pythium myriotylum Causing Damping off and Root Rot in Cannabis sativa in Florida', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-07-25-1413-PDN', publisher: 'American Phytopathological Society', publicationDate: '2026-03-03', year: 2026, accessedDate: '2026-08-17', doi: '10.1094/PDIS-07-25-1413-PDN',
+        url: 'https://doi.org/10.1094/PDIS-07-25-1413-PDN', authors: ['Ashley Brown', 'Eden Blit', 'Sydney Gerstenberg', 'Krista Say', 'Richard Philbrook'], publisher: 'American Phytopathological Society', publicationDate: '2026-03-03', year: 2026, accessedDate: '2026-08-24', doi: '10.1094/PDIS-07-25-1413-PDN',
         supportedClaims: ['Pythium myriotylum was confirmed causing damping-off and root rot in indoor Cannabis cuttings from five cultivars in Florida.', 'The expanded cultivar evidence supports propagation-stage scouting and reinforces that Pythium disease can occur before a mature-plant canopy syndrome is available.'],
+      },
+      {
+        title: 'Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production',
+        organization: 'Frontiers in Agronomy', url: 'https://doi.org/10.3389/fagro.2021.706138', authors: ['Cora S. McGehee', 'Rosa E. Raudales'], publisher: 'Frontiers Media SA', publicationDate: '2021-08-06', year: 2021, accessedDate: '2026-08-24', doi: '10.3389/fagro.2021.706138',
+        supportedClaims: [
+          "Controlled pathogenicity experiments on hemp cultivar 'Wife' confirmed that selected Pythium myriotylum and Globisporangium irregulare isolates from production substrates could reduce growth and cause chlorosis or wilt; inoculated organisms were recovered from root fragments.",
+          'The source facility sampling involved coconut coir and rockwool rather than original diseased marijuana plant tissue, and Koch-style pathogenicity testing used one hemp cultivar, so the host, facility, timing, and severity cannot be generalized.',
+          'Figure 7 is a whole-plant, multi-treatment composite at 14 days after inoculation that includes Pythium, Globisporangium, Fusarium, and an uninoculated control; it does not show roots or crown tissue and cannot confirm an unknown plant from appearance.',
+        ],
+      },
+      {
+        title: 'Pythium Root and Crown Rot of Hemp', organization: 'Utah State University Extension, Utah Plant Pest Diagnostic Laboratory',
+        url: 'https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-pythium-root-and-crown-rot', publisher: 'Utah State University Extension', accessedDate: '2026-08-24',
+        supportedClaims: [
+          'The institutional diagnostic note describes stunting and wilt with root rot, including loss of the root outer layer that leaves the central core, and separately describes crown infection that can girdle the stem.',
+          'The note states that either root rot or crown rot can progress to rapid wilt and death and cautions that the two syndromes need not occur together, supporting separate root and crown observations.',
+        ],
       },
     ],
     appendWarnings: ['Pythium species differ in temperature and production-system ecology; do not treat one environmental threshold as universal for the entire complex.'],

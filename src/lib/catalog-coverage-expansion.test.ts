@@ -38,7 +38,18 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(dois).toContain('10.1094/PDIS-02-21-0336-PDN')
     expect(dois).toContain('10.1094/PDIS-02-25-0435-PDN')
     expect(dois).toContain('10.1094/PDIS-07-25-1413-PDN')
+    expect(dois).toContain('10.3389/fagro.2021.706138')
+    expect(pythium.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(pythium.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(pythium.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(pythium.progression.length).toBeGreaterThanOrEqual(5)
+    expect(pythium.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(pythium.confirmation.length).toBeGreaterThanOrEqual(7)
     expect(pythium.warnings.join(' ').toLowerCase()).toContain('species differ')
+    expect(pythium.warnings.join(' ').toLowerCase()).toContain('human review')
+    expect(pythium.sources.find((source) => source.doi === '10.1080/07060661.2021.1954695')?.authors).toHaveLength(3)
+    expect(pythium.media[0]?.trainingEligible).toBe(false)
+    expect(pythium.media[0]?.useLimitations.join(' ').toLowerCase()).toContain('multi-treatment composite')
   })
 
   it('deepens the Fusarium root/crown complex without pretending images resolve species', () => {

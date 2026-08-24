@@ -1,88 +1,149 @@
 {
   "id": "root-pythium",
   "slug": "pythium-root-rot",
-  "name": "Pythium root rot",
-  "scientificName": "Pythium spp.",
+  "name": "Pythium root and crown rot complex",
+  "scientificName": "Pythium spp. / Globisporangium spp.",
   "category": "Root pathogen",
   "severity": "critical",
   "reviewStatus": "reviewed",
-  "summary": "An oomycete root disease favored by wet, low-oxygen conditions; affected roots discolor, soften, and lose function.",
+  "photoOnlyMaxConfidence": 0.2,
+  "summary": "A laboratory-resolved oomycete disease complex that can cause damping-off, feeder-root loss, root or crown decay, stunting, wilt, and death. Canopy appearance, wet conditions, and brown roots are not diagnostic on their own.",
   "affectedParts": [
-    "roots",
-    "crown",
-    "whole plant"
+    "seed or cutting base",
+    "fine and feeder roots",
+    "root cortex and stele",
+    "crown and lower stem",
+    "internal crown pith",
+    "whole plant as a secondary response"
   ],
   "stages": [
-    "all"
+    "propagation and rooted cuttings",
+    "seedling",
+    "vegetative",
+    "mother stock",
+    "flowering"
   ],
   "indicators": [
-    "Brown slimy roots",
-    "Wilting despite moisture",
-    "Stunting and yellowing",
-    "Crown rot in severe cases"
+    "Plant-linked washed roots show expanding brown lesions, decay, and loss of normally pale active root tissue.",
+    "Decayed roots may shed or slough the outer cortex and leave a thinner central vascular core; record texture and a scale rather than inferring slime from color alone.",
+    "Fine-root mass, feeder roots, and root-hair density decline relative to an age-, cultivar-, substrate-, and irrigation-matched healthy plant.",
+    "Crown disease can produce brown or water-soaked lesions, girdling, and internal pith browning or blackening; root rot and crown rot should be recorded separately when they do not co-occur.",
+    "Propagation evidence can include failed emergence, damping-off, or collapse of a rooted cutting when the affected base and roots remain linked to the same plant.",
+    "Stunting, chlorosis, wilt despite a moist root zone, necrosis, defoliation, or collapse can follow root or crown damage but are nonspecific secondary canopy signs.",
+    "A useful image or video sequence links the same plant across whole-canopy, lower-stem or crown, washed-root overview, and close root-lesion views over time.",
+    "A confirmed label requires compatible plant-linked disease plus selective isolation or a validated oomycete assay; species labels require appropriately resolved molecular evidence."
   ],
   "exclusions": [
-    "Roots are tan from media staining but firm",
-    "Container is very light and dry",
-    "Only one leaf shows damage"
+    "Do not label firm tan roots as rot when color follows substrate or nutrient staining and matched roots retain an intact cortex and active tips.",
+    "Do not convert saturated media, low dissolved oxygen, warm solution, or irrigation history into a pathogen label without organism evidence; abiotic hypoxia can produce the same decline.",
+    "Exclude measured drought when the root zone is dry and turgor recovers after irrigation without progressive root or crown lesions.",
+    "Check for Rhizoctonia-compatible basal lesions, characteristic mycelium, or right-angle hyphal branching and resolve the organism in the laboratory.",
+    "Check cut crown and stem tissue for a Fusarium-compatible vascular or internal discoloration pattern and use culture or molecular testing to resolve mixed root disease.",
+    "Exclude southern blight or Sclerotinia when diagnostic mycelium and sclerotia are linked to the crown or substrate surface.",
+    "Inspect intact washed roots for galls and obtain nematode evidence before assigning root-knot disease.",
+    "Exclude root aphid colonies, fungus-gnat larvae, root binding, high EC, and out-of-range pH; canopy-only or detached-root observations remain unconfirmed."
   ],
   "progression": [
     {
-      "stage": "Early",
-      "description": "Root tips lose white color and growth slows."
+      "stage": "Propagation onset",
+      "description": "Seeds or rooted cuttings may fail, damp off, or collapse; preserve the affected base and roots because the canopy alone cannot identify Pythium."
     },
     {
-      "stage": "Moderate",
-      "description": "Roots brown and soften while foliage wilts or yellows."
+      "stage": "Early root disease",
+      "description": "Pale active tips and feeder-root density decline while small brown root lesions appear; matched healthy plants are important because media staining can mimic color change."
     },
     {
-      "stage": "Advanced",
-      "description": "Root systems collapse and crown tissue may rot."
+      "stage": "Expanding decay",
+      "description": "Brown lesions enlarge, root mass falls, and the cortex may soften or slough from the central core; capture intact texture before washing destroys the pattern."
+    },
+    {
+      "stage": "Crown involvement",
+      "description": "Some plants develop a separate brown or water-soaked crown lesion, girdling, or dark internal pith; crown and root findings must not be assumed to occur together."
+    },
+    {
+      "stage": "Secondary canopy decline",
+      "description": "Stunting, chlorosis, wilt, necrosis, defoliation, and collapse can develop at isolate-, cultivar-, and environment-dependent rates; no universal image timeline is supported."
     }
   ],
   "lookAlikes": [
-    "Overwatering or root hypoxia",
+    "Overwatering or root-zone hypoxia",
+    "Drought / water deficit",
     "Phytophthora root rot",
-    "Fusarium crown disease"
+    "Fusarium crown and root rot",
+    "Rhizoctonia sore shin / root rot",
+    "Southern blight",
+    "Charcoal rot",
+    "Root-knot nematodes",
+    "Root binding / container restriction",
+    "Rice root aphid",
+    "Fungus-gnat larval root injury",
+    "Salinity / high EC or pH-related root stress"
   ],
   "confirmation": [
-    "Inspect cleaned roots for texture and active white tips.",
-    "Laboratory testing is required to distinguish similar root pathogens."
+    "Capture the same plant in a whole-canopy view, lower-stem and crown views, an intact root-ball view, a gently washed root overview, and lesion close-ups; retain plant, date, cultivar, substrate, and irrigation identifiers.",
+    "Record root color, firmness, cortex integrity or sloughing, active tips, feeder-root density, lesion boundaries, crown circumference, and internal pith with a scale and matched healthy comparator.",
+    "Sample the active margin of plant-linked root and crown lesions before secondary decay dominates; keep roots, crown, substrate or water, and healthy controls traceable to their plant IDs.",
+    "Use an appropriate selective isolation method and microscopy to recover an oomycete while checking for Fusarium, Rhizoctonia, Phytophthora, and mixed infections.",
+    "Use a validated molecular test for the Pythium or Globisporangium complex; species-level labels require adequately discriminating loci such as ITS plus mitochondrial COI or COII, or an equivalent validated method.",
+    "Measure root-zone moisture or saturation, dissolved oxygen where relevant, temperature, pH, and EC, and inspect for insects, nematodes, root binding, and abiotic injury before attributing the syndrome to a pathogen.",
+    "Do not confirm from canopy-only, detached-root, single-timepoint, morphology-only, ITS-only when resolution is inadequate, mixed-pathogen, laboratory-unlinked, generated, or anecdotal media; route those samples to human review."
   ],
   "immediateActions": [
-    "Isolate affected root-zone water and tools.",
-    "Restore oxygenation and correct saturation."
+    "Isolate affected root-zone water, runoff, tools, and plant material while preserving diagnostic samples.",
+    "Correct damaging saturation or oxygen conditions without treating that response as proof of the causal organism."
   ],
   "correctivePlan": [
-    "Remove irrecoverable plants where appropriate and sanitize wetted equipment.",
-    "Use only legal crop-appropriate treatments."
+    "Remove irrecoverable plants where appropriate and sanitize wetted equipment using the production system’s documented biosecurity procedure.",
+    "Use only legal, crop-appropriate treatments after diagnosis and preserve pre-treatment samples for confirmation."
   ],
   "prevention": [
-    "Control water temperature, sanitation, oxygen, and irrigation duration."
+    "Manage irrigation duration, drainage, sanitation, propagation hygiene, and recirculated water risk; verify rather than assume universal temperature or moisture thresholds."
   ],
   "warnings": [
-    "Visual symptoms cannot reliably identify Pythium to species.",
+    "Photo- or video-only confidence is capped at 0.20 because canopy decline and brown roots overlap abiotic stress and several root pathogens.",
+    "Wet or saturated conditions and wounded roots can increase disease risk but do not prove that Pythium or Globisporangium caused an observed syndrome.",
+    "Pythium and Globisporangium species differ in temperature and production-system ecology; do not transfer one study threshold to the entire complex.",
+    "The controlled hemp 'Wife' study timings and severities are study-specific and must not become universal onset or mortality thresholds.",
+    "The existing Figure 7 reference is a multi-organism whole-plant composite without root or crown views; it is reference-only and training-ineligible until panel-resolved labels and human review are available.",
+    "Human review is mandatory for canopy-only, detached-root, single-surface, morphology-only, ITS-only, mixed-pathogen, laboratory-unlinked, low-resolution, or rights-unclear samples.",
     "Pythium species differ in temperature and production-system ecology; do not treat one environmental threshold as universal for the entire complex."
   ],
   "sources": [
     {
       "title": "Several Pythium species cause crown and root rot on cannabis plants grown under commercial greenhouse conditions",
       "organization": "Canadian Journal of Plant Pathology (Punja et al.)",
-      "url": "https://www.tandfonline.com/doi/full/10.1080/07060661.2021.1954695",
+      "url": "https://doi.org/10.1080/07060661.2021.1954695",
+      "authors": [
+        "Zamir K. Punja",
+        "Cameron Scott",
+        "Samantha Lung"
+      ],
+      "publisher": "Taylor & Francis",
+      "publicationDate": "2021-09-22",
       "year": 2022,
-      "accessedDate": "2026-08-13",
+      "accessedDate": "2026-08-24",
+      "doi": "10.1080/07060661.2021.1954695",
       "supportedClaims": [
-        "Multiple Pythium species cause crown and root rot in greenhouse cannabis, and pathogen identity cannot be resolved reliably from above-ground symptoms alone."
+        "Across 140 diseased plants sampled from seven licensed commercial greenhouses in British Columbia during 2018 and 2019, the authors associated several Pythium or Globisporangium species with crown rot, root decay, wilting, and plant death; mother, vegetative, and flowering plants across 15 strains were affected.",
+        "Recovered isolates caused root browning, decay, and stunting in Cannabis grown in coco coir–perlite, but symptom rate and severity varied among isolates; visual appearance therefore cannot resolve the causal species.",
+        "Root wounding and prolonged saturation increased disease in the reported experiments, but these are risk modifiers rather than image-level proof of Pythium disease.",
+        "The study documented damping-off in rooted cuttings and secondary canopy yellowing, necrosis, defoliation, wilting, and death, alongside crown rot and internal pith browning or blackening."
       ]
     },
     {
       "title": "First Report of Pythium ultimum Crown and Root Rot of Industrial Hemp in the United States",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-12-17-1999-PDN",
+      "authors": [
+        "Janna Beckerman",
+        "John Stone",
+        "Gail Ruhl",
+        "Tom Creswell"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2018-08-08",
       "year": 2018,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-12-17-1999-PDN",
       "supportedClaims": [
         "Pythium ultimum was pathogenic to industrial hemp in replicated inoculation work; symptoms began within about one week and the organism was reisolated and PCR-confirmed.",
@@ -93,10 +154,16 @@
       "title": "First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-09-16-1249-PDN",
+      "authors": [
+        "Janna Beckerman",
+        "Hannah Nisonson",
+        "Nicolette Albright",
+        "Tom C. Creswell"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2017-03-20",
       "year": 2017,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-09-16-1249-PDN",
       "supportedClaims": [
         "Industrial hemp with Pythium aphanidermatum crown/root rot showed chlorosis, stunting, wilt, brown root lesions, feeder-root loss, and sometimes brown water-soaked stem lesions.",
@@ -107,10 +174,15 @@
       "title": "First Report of Pythium myriotylum Causing Root Rot in Cannabis sativa in California",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-02-21-0336-PDN",
+      "authors": [
+        "Tera L. Pitman",
+        "Richard N. Philbrook",
+        "Jeremy G. Warren"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2021-11-15",
       "year": 2021,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-02-21-0336-PDN",
       "supportedClaims": [
         "Greenhouse medical Cannabis with Pythium myriotylum root rot showed stunting, chlorosis, senescence, reduced root mass and root-hair density, and necrotic root lesions.",
@@ -124,7 +196,7 @@
       "publisher": "American Phytopathological Society",
       "publicationDate": "2025-07-24",
       "year": 2025,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-02-25-0435-PDN",
       "supportedClaims": [
         "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
@@ -135,14 +207,51 @@
       "title": "First Report of Pythium myriotylum Causing Damping off and Root Rot in Cannabis sativa in Florida",
       "organization": "Plant Disease",
       "url": "https://doi.org/10.1094/PDIS-07-25-1413-PDN",
+      "authors": [
+        "Ashley Brown",
+        "Eden Blit",
+        "Sydney Gerstenberg",
+        "Krista Say",
+        "Richard Philbrook"
+      ],
       "publisher": "American Phytopathological Society",
       "publicationDate": "2026-03-03",
       "year": 2026,
-      "accessedDate": "2026-08-17",
+      "accessedDate": "2026-08-24",
       "doi": "10.1094/PDIS-07-25-1413-PDN",
       "supportedClaims": [
         "Pythium myriotylum was confirmed causing damping-off and root rot in indoor Cannabis cuttings from five cultivars in Florida.",
         "The expanded cultivar evidence supports propagation-stage scouting and reinforces that Pythium disease can occur before a mature-plant canopy syndrome is available."
+      ]
+    },
+    {
+      "title": "Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production",
+      "organization": "Frontiers in Agronomy",
+      "url": "https://doi.org/10.3389/fagro.2021.706138",
+      "authors": [
+        "Cora S. McGehee",
+        "Rosa E. Raudales"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2021-08-06",
+      "year": 2021,
+      "accessedDate": "2026-08-24",
+      "doi": "10.3389/fagro.2021.706138",
+      "supportedClaims": [
+        "Controlled pathogenicity experiments on hemp cultivar 'Wife' confirmed that selected Pythium myriotylum and Globisporangium irregulare isolates from production substrates could reduce growth and cause chlorosis or wilt; inoculated organisms were recovered from root fragments.",
+        "The source facility sampling involved coconut coir and rockwool rather than original diseased marijuana plant tissue, and Koch-style pathogenicity testing used one hemp cultivar, so the host, facility, timing, and severity cannot be generalized.",
+        "Figure 7 is a whole-plant, multi-treatment composite at 14 days after inoculation that includes Pythium, Globisporangium, Fusarium, and an uninoculated control; it does not show roots or crown tissue and cannot confirm an unknown plant from appearance."
+      ]
+    },
+    {
+      "title": "Pythium Root and Crown Rot of Hemp",
+      "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
+      "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-pythium-root-and-crown-rot",
+      "publisher": "Utah State University Extension",
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "The institutional diagnostic note describes stunting and wilt with root rot, including loss of the root outer layer that leaves the central core, and separately describes crown infection that can girdle the stem.",
+        "The note states that either root rot or crown rot can progress to rapid wilt and death and cautions that the two syndromes need not occur together, supporting separate root and crown observations."
       ]
     }
   ],
@@ -156,14 +265,15 @@
       "license": "CC BY 4.0",
       "sourceUrl": "https://doi.org/10.3389/fagro.2021.706138",
       "mediaType": "image",
-      "requiredAttribution": "McGehee CS, Raudales RE. 2021. First Report of Pathogens Associated With Root Rot and Wilt of Cannabis sativa in Connecticut. Frontiers in Agronomy 3:706138. CC BY 4.0.",
+      "requiredAttribution": "McGehee CS, Raudales RE. 2021. Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production. Frontiers in Agronomy 3:706138. CC BY 4.0.",
       "diagnosticLabel": "pythium-root-rot — controlled hemp root-pathogen pathogenicity comparison including Pythium myriotylum",
       "hostSpecies": "Cannabis sativa",
       "hostContext": "cannabis",
       "useLimitations": [
-        "Multi-pathogen treatment composite; reference-only as a whole figure.",
-        "Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific.",
-        "Do not use this figure to visually confirm Pythium in an unknown plant; root/crown evidence and laboratory identification remain required."
+        "Multi-treatment composite containing Pythium, Globisporangium, Fusarium, and uninoculated plants; reference-only until panel boundaries and labels are independently reviewed.",
+        "One hemp cultivar and one 14-day whole-plant timepoint are shown; there is no root, crown, lesion-detail, or longitudinal view.",
+        "Whole-plant chlorosis, wilt, and growth reduction are not Pythium-specific, and the source study sampled production substrates rather than original marijuana plant tissue.",
+        "Do not use the composite to visually confirm Pythium in an unknown plant; plant-linked root or crown evidence and laboratory identification remain required."
       ],
       "displayPermission": "permitted",
       "reviewStatus": "approved-reference",

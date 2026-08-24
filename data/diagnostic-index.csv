@@ -52,7 +52,7 @@
 "root-binding-container-stress","root-binding-container-stress","Root binding / container-restriction stress","Water / root-zone","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/root-binding-container-stress.json"
 "root-fusarium-crown-rot","fusarium-crown-root-rot","Fusarium crown and root rot / wilt complex","Root pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/root-fusarium-crown-rot.json"
 "root-ph-extreme","acidic-extreme-substrate-ph-stress","Acidic or extreme substrate-pH root stress","Water / root-zone","moderate","reviewed","core","diagnostic-profile","data/profiles/root-ph-extreme.json"
-"root-pythium","pythium-root-rot","Pythium root rot","Root pathogen","critical","reviewed","core","diagnostic-profile","data/profiles/root-pythium.json"
+"root-pythium","pythium-root-rot","Pythium root and crown rot complex","Root pathogen","critical","reviewed","core","diagnostic-profile","data/profiles/root-pythium.json"
 "root-rhizoctonia","rhizoctonia-sore-shin-root-rot","Rhizoctonia sore shin / root and crown rot","Root pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/root-rhizoctonia.json"
 "root-white-root-rot","white-root-rot-dematophora-necatrix","White root rot","Root pathogen","critical","reviewed","supplemental","diagnostic-profile","data/profiles/root-white-root-rot.json"
 "stress-drought-water-deficit","drought-water-deficit-stress","Drought / water-deficit stress","Water / root-zone","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/stress-drought-water-deficit.json"
