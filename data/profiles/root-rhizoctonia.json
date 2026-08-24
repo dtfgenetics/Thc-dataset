@@ -6,68 +6,107 @@
   "category": "Root pathogen",
   "severity": "high",
   "reviewStatus": "reviewed",
-  "photoOnlyMaxConfidence": 0.45,
-  "summary": "A Cannabis root/crown disease documented as wilting with necrotic lesions at the plant base just above the soil line. Characteristic right-angle branching hyphae and laboratory identification are needed because the canopy response overlaps other root diseases.",
+  "photoOnlyMaxConfidence": 0.2,
+  "summary": "A soilborne Cannabis root, crown, and lower-stem disease in which dry brown root rot or reddish-brown lower-stem rot can accompany wilt. The canopy response and lesion color overlap multiple root-zone problems, so image or video evidence alone supports only a low-confidence Rhizoctonia-compatible label.",
   "affectedParts": [
-    "roots",
-    "crown",
-    "lower stem just above soil line",
-    "whole plant"
+    "fine and structural roots",
+    "root crown",
+    "lower main stem at and just above the soil line",
+    "leaves and buds when directly infected",
+    "whole plant secondarily"
   ],
   "stages": [
-    "seedling",
+    "seedling (historically documented)",
     "transplant",
     "vegetative",
     "reproductive"
   ],
   "indicators": [
-    "Plants wilt while necrotic lesions develop at the stem base near the soil line",
-    "Roots/crown show compatible necrotic disease",
-    "Pigmented septate hyphae from lesions branch at roughly 90 degrees with basal constriction",
-    "ITS/18S or other laboratory evidence supports Rhizoctonia solani"
+    "Dry brown rot is visible on plant-linked Cannabis roots",
+    "Reddish-brown rot develops on the lower main stem at or near the soil line",
+    "A necrotic lesion just above the soil line accompanies wilt on the same plant",
+    "Root and crown necrosis is documented with intact root-to-stem continuity rather than an unlinked close-up",
+    "Dry brown leaf tissue or bud infection can occur, but these above-ground lesions are not sufficient for a Rhizoctonia label",
+    "Pigmented septate hyphae recovered from an active lesion branch at roughly 90 degrees with basal constriction",
+    "Validated sequence or other qualified laboratory evidence supports Rhizoctonia solani from the same plant and lesion",
+    "A whole-plant view, soil-line view, and washed-root view show the spatial relationship and progression of compatible disease"
   ],
   "exclusions": [
-    "White cottony basal mycelium with round brown sclerotia strongly supports southern blight",
-    "Soft/slimy roots and oomycete evidence support Pythium",
-    "Vascular discoloration and Fusarium evidence support Fusarium wilt/crown disease",
-    "No basal/root lesions exist and water-status measurements explain wilt"
+    "White cottony basal mycelium with numerous round tan-to-brown sclerotia supports southern blight instead",
+    "Soft, water-soaked or sloughed roots plus oomycete evidence support Pythium or another water mold",
+    "Vascular discoloration and plant-linked Fusarium isolation or molecular evidence support Fusarium crown/root disease",
+    "Black root or crown tissue with microsclerotia and Macrophomina evidence supports charcoal rot",
+    "Firm integrated root galls plus nematode recovery support root-knot nematodes",
+    "Circling or matted roots follow the container wall and no active necrotic lesion or pathogen evidence is present, supporting root binding",
+    "No basal or root lesion is found and measured moisture, oxygen, EC, pH, or water-status data explain the canopy response",
+    "A detached root, stem lesion, or canopy image cannot be linked to the sampled plant and laboratory result"
   ],
   "progression": [
     {
-      "stage": "Basal infection",
-      "description": "Necrotic lesions develop around crown/lower stem or roots."
+      "stage": "Early or seedling infection",
+      "description": "The disease is historically documented in Cannabis seedlings, but a symptom-free image cannot establish infection and seedling onset is not universal."
     },
     {
-      "stage": "Root/crown impairment",
-      "description": "Root function declines and above-ground wilt becomes more evident."
+      "stage": "Root lesion development",
+      "description": "Dry brown rot becomes visible on roots; record lesion margins and distribution across the intact washed root system."
+    },
+    {
+      "stage": "Sore-shin development",
+      "description": "Reddish-brown rot or a necrotic lesion develops on the lower main stem at or just above the soil line."
+    },
+    {
+      "stage": "Root and crown impairment",
+      "description": "Compatible necrosis extends through plant-linked roots, crown, or lower stem while root function declines."
+    },
+    {
+      "stage": "Secondary canopy response",
+      "description": "Wilt, reduced vigor, or collapse may become evident, but no source establishes a diagnostic leaf-age, canopy-position, or temporal pattern."
     }
   ],
   "lookAlikes": [
     "Southern blight",
-    "Pythium root rot",
+    "Pythium root and crown rot",
     "Fusarium crown/root rot",
-    "Root binding",
-    "Drought / water-deficit stress"
+    "Charcoal rot",
+    "Root-knot nematodes",
+    "Root binding / container restriction",
+    "Root-zone hypoxia / overwatering",
+    "Drought / water-deficit stress",
+    "High EC / salinity injury",
+    "Root-zone pH-driven nutrient unavailability",
+    "Stem mechanical injury",
+    "Other root or crown pathogens"
   ],
   "confirmation": [
-    "Inspect and photograph roots/crown and lower-stem lesions; submit lesion tissue for fungal morphology and molecular identification.",
-    "Do not confirm Rhizoctonia from wilted foliage alone."
+    "Capture the same plant at whole-canopy, soil-line, crown, and washed-root scales with a ruler or other scale and preserve intact root-to-stem continuity.",
+    "Sample several fresh active lesion margins from the lower stem, crown, and roots under one plant identifier; retain paired apparently healthy tissue and substrate history.",
+    "Examine lesion-derived fungal growth microscopically for pigmented septate hyphae, approximately right-angle branching, and basal constriction; morphology supports a differential but is not sufficient ground truth by itself.",
+    "Use a qualified plant-diagnostic laboratory and validated molecular identification from the plant-linked lesion when assigning Rhizoctonia solani.",
+    "Investigate Pythium or other oomycetes, Fusarium, southern blight, charcoal rot, and nematodes when signs are mixed or the first assay is negative.",
+    "Measure root-zone moisture, oxygen or drainage, EC, pH, temperature, container geometry, and irrigation history so abiotic stress and disease-conducive context are separated from organism identity.",
+    "Keep canopy-only, root-only, detached, morphology-only, ITS-only, mixed-pathogen, unlinked-laboratory, low-resolution, stock, forum, vendor, or generated samples out of the confirmed class and route them to human review."
   ],
   "immediateActions": [
-    "Separate suspect root-zone material and preserve a fresh lesion sample.",
-    "Check irrigation/moisture and root binding concurrently."
+    "Separate suspect root-zone material and prevent movement of potentially contaminated soil, roots, debris, containers, runoff, or tools into clean areas.",
+    "Preserve fresh plant-linked lesion margins for diagnostic testing before destructive treatment or disposal.",
+    "Check drainage, irrigation, EC, pH, oxygenation, and container restriction concurrently without treating any one condition as proof of Rhizoctonia."
   ],
   "correctivePlan": [
-    "Use confirmed root-disease sanitation and crop-appropriate management.",
-    "Correct measured root-zone stressors that may worsen disease."
+    "Base disease-specific action on a qualified diagnosis and locally appropriate crop rules; this profile does not convert symptom appearance or warm-soil context into a treatment decision.",
+    "Correct measured root-zone stressors and track response with repeated linked canopy, soil-line, and root observations; visual improvement does not prove pathogen elimination."
   ],
   "prevention": [
-    "Use clean media/containers and avoid moving contaminated soil.",
-    "Inspect transplants for crown lesions and bound/diseased roots."
+    "Use clean propagation material, media, containers, and tools and avoid moving infected plant debris or soil between production areas.",
+    "Inspect transplants at the soil line and roots before placement while retaining plant and source-lot identifiers.",
+    "Record irrigation and soil-temperature history because early over-irrigation and cooler emergence conditions can increase risk without proving disease."
   ],
   "warnings": [
-    "Rhizoctonia can coexist with other root stresses/pathogens.",
-    "Canopy wilt is not organism-specific."
+    "Wilt, reduced vigor, brown roots, and reddish-brown stem lesions are not organism-specific.",
+    "The Cannabis-specific compendium statement is historical seedling-disease evidence from Ukraine; it does not establish current prevalence or a universal stage of onset.",
+    "The Pacific Northwest environment and symptom descriptions are crop-specific but do not establish a universal cultivar response, severity scale, or image-only label.",
+    "Rhizoctonia can coexist with other root pathogens, nematodes, container restriction, or abiotic stress, and a single assay or image may not resolve a mixed case.",
+    "Photo/video-only confidence is capped at 0.20; confirmed labels require plant-linked diagnostic evidence and human review.",
+    "No Rhizoctonia-specific Cannabis image or video with clear item-level reuse rights and linked organism confirmation was verified for this batch."
   ],
   "sources": [
     {
@@ -93,6 +132,41 @@
         "Southern blight caused whole-plant wilt in reproductive hemp during hot midseason conditions, with abundant hyphae and russet-brown sclerotia on roots/lower stems and sequence/phylogenetic evidence supporting Athelia rolfsii/Sclerotium rolfsii.",
         "Meloidogyne incognita was identified from galled hemp roots with females and egg masses; affected plants had some associated stunting.",
         "The survey documented Serratia-associated, vein-limited angular hemp lesions and red bacterial ooze emerging from punctured lesions, while emphasizing that hemp leaf diseases overlap visually and require diagnostic separation."
+      ]
+    },
+    {
+      "title": "Rhizoctonia Sore Shin and Root Rot",
+      "organization": "Compendium of Cannabis Diseases",
+      "url": "https://doi.org/10.1094/9780890546284.02.15.1",
+      "authors": [
+        "J. M. McPartland",
+        "M. A. Cubeta"
+      ],
+      "publisher": "American Phytopathological Society",
+      "year": 2022,
+      "accessedDate": "2026-08-24",
+      "doi": "10.1094/9780890546284.02.15.1",
+      "supportedClaims": [
+        "The Cannabis-specific compendium identifies sore shin and root rot as a disease caused by the soil fungus Rhizoctonia solani.",
+        "The chapter describes Rhizoctonia sore shin and root rot as the first recorded seedling disease of Cannabis in Ukraine; this is historical crop evidence and does not establish current prevalence, cultivar response, or a universal seedling-onset rule.",
+        "The chapter is Cannabis-specific and peer reviewed, but the abstract alone does not support assigning Rhizoctonia from canopy wilt, lesion color, production environment, or an image without organism-linked evidence."
+      ]
+    },
+    {
+      "title": "Hemp (Cannabis sativa)-Rhizoctonia Soreshin and Root Rot",
+      "organization": "Pacific Northwest Plant Disease Management Handbook",
+      "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-rhizoctonia-soreshin-root-rot",
+      "authors": [
+        "Pacific Northwest Plant Disease Management Handbook"
+      ],
+      "publisher": "Oregon State University, Washington State University, and University of Idaho",
+      "year": 2026,
+      "accessedDate": "2026-08-24",
+      "supportedClaims": [
+        "The March 2026 institutional revision identifies Rhizoctonia solani as the cause, states that it can persist in soil for at least several years, has a broad host range, and can spread with infected plant debris.",
+        "The hemp description records dry brown root rot and reddish-brown rot on the lower main stem; it also reports dry brown leaf tissue and bud infection in Oregon medical Cannabis.",
+        "Warmer soil favors disease, while early over-irrigation and irrigation-related soil cooling can slow emergence and favor the fungus; these conditions are epidemiologic context and are not diagnostic proof.",
+        "The handbook recommends rotation away from susceptible hosts and avoiding early over-irrigation, supporting soil/debris movement and irrigation-history checks without establishing a universal treatment interval for every production system."
       ]
     }
   ],

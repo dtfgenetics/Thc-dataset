@@ -504,6 +504,25 @@
     ]
   },
   {
+    "sourceKey": "10.1094/9780890546284.02.15.1",
+    "title": "Rhizoctonia Sore Shin and Root Rot",
+    "organization": "Compendium of Cannabis Diseases",
+    "url": "https://doi.org/10.1094/9780890546284.02.15.1",
+    "authors": [
+      "J. M. McPartland",
+      "M. A. Cubeta"
+    ],
+    "publisher": "American Phytopathological Society",
+    "year": 2022,
+    "accessedDate": "2026-08-24",
+    "doi": "10.1094/9780890546284.02.15.1",
+    "supportedClaims": [
+      "The Cannabis-specific compendium identifies sore shin and root rot as a disease caused by the soil fungus Rhizoctonia solani.",
+      "The chapter describes Rhizoctonia sore shin and root rot as the first recorded seedling disease of Cannabis in Ukraine; this is historical crop evidence and does not establish current prevalence, cultivar response, or a universal seedling-onset rule.",
+      "The chapter is Cannabis-specific and peer reviewed, but the abstract alone does not support assigning Rhizoctonia from canopy wilt, lesion color, production environment, or an image without organism-linked evidence."
+    ]
+  },
+  {
     "sourceKey": "10.1094/9780890546284.03.05.1",
     "title": "Root-Knot Nematodes",
     "organization": "Compendium of Cannabis Diseases",
@@ -2603,6 +2622,24 @@
       "Stem infection can produce cankers, splitting or breakage, and black sclerotia, while heavily affected plants can decline quickly under conducive conditions.",
       "Cool, humid or wet conditions and prolonged tissue wetness favor disease, but environmental conditions are risk context rather than proof of cause.",
       "The page photographs show a close exterior bud-rot view, a close sporulating-flower view, and a whole-plant distribution view; each is credited to Cynthia M. Ocamb in 2020, and the page states copyright without an explicit media-reuse license."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-rhizoctonia-soreshin-root-rot",
+    "title": "Hemp (Cannabis sativa)-Rhizoctonia Soreshin and Root Rot",
+    "organization": "Pacific Northwest Plant Disease Management Handbook",
+    "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-rhizoctonia-soreshin-root-rot",
+    "authors": [
+      "Pacific Northwest Plant Disease Management Handbook"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho",
+    "year": 2026,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "The March 2026 institutional revision identifies Rhizoctonia solani as the cause, states that it can persist in soil for at least several years, has a broad host range, and can spread with infected plant debris.",
+      "The hemp description records dry brown root rot and reddish-brown rot on the lower main stem; it also reports dry brown leaf tissue and bud infection in Oregon medical Cannabis.",
+      "Warmer soil favors disease, while early over-irrigation and irrigation-related soil cooling can slow emergence and favor the fungus; these conditions are epidemiologic context and are not diagnostic proof.",
+      "The handbook recommends rotation away from susceptible hosts and avoiding early over-irrigation, supporting soil/debris movement and irrigation-history checks without establishing a universal treatment interval for every production system."
     ]
   },
   {

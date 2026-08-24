@@ -77,4 +77,22 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(media?.displayPermission).toBe('unknown')
     expect(media?.sourceUrl).toBe('https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/')
   })
+
+  it('requires plant-linked evidence for Rhizoctonia and keeps symptom-only media out of training', () => {
+    const record = bySlug('rhizoctonia-sore-shin-root-rot')
+    const evidence = [...record.indicators, ...record.exclusions, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    const compendium = record.sources.find((item) => item.doi === '10.1094/9780890546284.02.15.1')
+    const handbook = record.sources.find((item) => item.url.includes('rhizoctonia-soreshin-root-rot'))
+
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record.progression.length).toBeGreaterThanOrEqual(5)
+    expect(record.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(record.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(record.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(evidence).toContain('right-angle')
+    expect(evidence).toContain('human review')
+    expect(compendium?.year).toBe(2022)
+    expect(handbook?.year).toBe(2026)
+    expect(record.media).toHaveLength(0)
+  })
 })
