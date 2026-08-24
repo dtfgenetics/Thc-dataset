@@ -783,14 +783,22 @@
     "title": "First Report of White Root Rot of Hemp (Cannabis sativa) Caused by Dematophora necatrix in Campania Region (Southern Italy)",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-07-20-1521-PDN",
+    "authors": [
+      "Roberto Sorrentino",
+      "Gian Maria Baldi",
+      "Valerio Battaglia",
+      "Francesco Raimo",
+      "Giulio Piccirillo",
+      "Ernesto Lahoz"
+    ],
     "publisher": "American Phytopathological Society",
-    "publicationDate": "2021-10-22",
+    "publicationDate": "2021-10-01",
     "year": 2021,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-24",
     "doi": "10.1094/PDIS-07-20-1521-PDN",
     "supportedClaims": [
       "Affected hemp developed yellowing, apical wilt, root rot, white mycelium covering roots, and fan-like mycelium beneath root bark before death.",
-      "In the reported field, death generally occurred within two to three weeks after first symptoms and about 10% of plants were affected.",
+      "In the single reported commercial field in Campania, death generally occurred within two to three weeks after first symptoms and about 10% of plants were affected; these are outbreak observations, not universal Cannabis timing or prevalence.",
       "Inoculated hemp reproduced chlorosis, apical wilt, and death while controls remained healthy; the fungus was reisolated and confirmed by morphology and molecular analysis.",
       "Root signs and laboratory confirmation are required because canopy yellowing and wilt overlap many Cannabis root-zone disorders."
     ]
@@ -2153,6 +2161,21 @@
     ]
   },
   {
+    "sourceKey": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
+    "title": "White root rot",
+    "organization": "Agriculture Victoria",
+    "url": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
+    "publisher": "State Government of Victoria",
+    "publicationDate": "2026-05-11",
+    "year": 2026,
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "The institutional cross-crop profile describes mycelial webs and strands near roots, bark invasion with fan-like growth, and white-to-greyish mats beneath bark that accompany progressive root-tissue rot.",
+      "The source identifies a broad host range that includes herbaceous plants, but its apple-tree timing, canopy morphology, climate, and control statements must not be transferred as Cannabis thresholds or expected progression.",
+      "Its three credited photographs are copyrighted to the State of Queensland and lack item-level automated-training permission; their landing-page metadata may inform capture planning, but no image is copied, displayed, or indexed as Cannabis ground truth."
+    ]
+  },
+  {
     "sourceKey": "https://agsci.colostate.edu/agbio/ipm-pests/cannabis-aphid/",
     "title": "Cannabis aphid, Phorodon cannabis",
     "organization": "Colorado State University Agricultural Biology",
@@ -2636,6 +2659,20 @@
       "The boron-toxicity tissue analysis was elevated while other measured nutrients were described as sufficient, strengthening the treatment-to-symptom link under this small controlled trial.",
       "In this trial, toxicity caused persistent leaf-margin injury but height, SPAD, yield, and measured THC remained close to controls, showing that visual severity must not be converted into a universal yield-loss estimate.",
       "Researchers captured weekly close-ups, whole-plant photographs, and 360-degree video, but the public report does not expose original video asset URLs or a reuse license; those unlinked assets cannot be admitted to this dataset."
+    ]
+  },
+  {
+    "sourceKey": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
+    "title": "Dematophora Root Rot, or Rosellinia Root Rot",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
+    "publisher": "Regents of the University of California, Agriculture and Natural Resources",
+    "accessedDate": "2026-08-24",
+    "supportedClaims": [
+      "In the reviewed woody-host guidance, Rosellinia can produce scattered cobwebby whitish mycelia on lower trunks, soil over infected roots, root surfaces, and beneath root-crown or major-root bark.",
+      "Removing infected root cortex can expose a whitish fluffy mycelial layer; older mycelium may darken to blackish, brown, or tan and become crustlike, so absence of bright white growth in a late sample does not exclude the organism.",
+      "The guidance distinguishes Rosellinia from larger fanlike Armillaria mycelia and from Phytophthora root rot, which does not produce whitish mycelia; these are non-Cannabis differential cues and do not replace crop-linked laboratory confirmation.",
+      "Rosellinia can persist in infected root or woody debris and spread through moist soil, supporting conservative soil, water-runoff, tool, and root-debris biosecurity after a confirmed diagnosis; this source does not establish Cannabis treatment efficacy."
     ]
   },
   {

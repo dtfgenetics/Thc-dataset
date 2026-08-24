@@ -60,6 +60,24 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(fusarium.warnings.join(' ').toLowerCase()).toContain('laboratory-confirmed species')
   })
 
+  it('keeps white root rot plant-linked, laboratory-dependent, and outbreak-bounded', () => {
+    const whiteRootRot = bySlug('white-root-rot-dematophora-necatrix')
+    expect(whiteRootRot.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(whiteRootRot.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(whiteRootRot.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(whiteRootRot.progression.length).toBeGreaterThanOrEqual(5)
+    expect(whiteRootRot.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(whiteRootRot.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(whiteRootRot.sources).toHaveLength(3)
+    expect(whiteRootRot.sources.find((item) => item.doi === '10.1094/PDIS-07-20-1521-PDN')?.authors).toHaveLength(6)
+    expect(whiteRootRot.sources.some((item) => item.organization.includes('University of California'))).toBe(true)
+    expect(whiteRootRot.sources.some((item) => item.organization === 'Agriculture Victoria')).toBe(true)
+    expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('one pathogenicity-confirmed commercial-field report')
+    expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('non-cannabis')
+    expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('human review')
+    expect(whiteRootRot.media).toHaveLength(0)
+  })
+
   it('represents Sclerotinia as a multi-species white-mold/crown-rot complex', () => {
     const sclerotinia = bySlug('sclerotinia-white-mold')
     expect(sclerotinia.name).toContain('crown rot complex')
