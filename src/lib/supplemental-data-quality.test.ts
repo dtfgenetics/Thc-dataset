@@ -109,6 +109,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     const permittedMediaCounts = new Map([
       ['rice-root-aphid', 1],
       ['fusarium-crown-root-rot', 1],
+      ['fusarium-foliar-flower-head-blight', 1],
       ['cannabis-aphid', 1],
       ['root-knot-nematodes', 1],
       ['pseudocercospora-olive-sooty-leaf-spot', 2],

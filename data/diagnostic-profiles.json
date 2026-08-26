@@ -2080,76 +2080,126 @@
     "id": "fungal-fusarium-foliar-flower-blight",
     "slug": "fusarium-foliar-flower-head-blight",
     "name": "Fusarium foliar, flower and head blight complex",
-    "scientificName": "Fusarium equiseti / Fusarium graminearum",
+    "scientificName": "Fusarium spp., including F. graminearum, F. avenaceum, F. equiseti, and F. sporotrichioides",
     "category": "Fungal pathogen",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.4,
-    "summary": "A Cannabis Fusarium disease complex affecting leaves, flowers, drying floral material, stems and grain heads. It must be separated from Fusarium root/crown rot because infection site, symptom pattern and confirmation evidence differ.",
+    "photoOnlyMaxConfidence": 0.25,
+    "summary": "A laboratory-supported Cannabis Fusarium complex involving leaves, intact or harvested inflorescences, bracts, sugar leaves, seeds within bracts, and grain heads. Pinkish-white growth, flower browning, and foliar lesions overlap other molds and cannot resolve a Fusarium species; confirmed labels require plant- and lesion-linked organism evidence, and root/crown Fusarium remains a separate profile.",
     "affectedParts": [
-      "leaves",
       "flowers",
-      "grain heads",
-      "drying floral material",
-      "stems"
+      "leaf blades on either surface",
+      "flower bracts and styles",
+      "sugar leaves adjacent to affected flowers",
+      "intact inflorescences or buds",
+      "grain heads and seeds within bracts",
+      "dried postharvest inflorescences",
+      "whole plant, crown, and roots for distribution and exclusion context"
     ],
     "stages": [
-      "flower",
-      "reproductive",
-      "postharvest drying context"
+      "vegetative tissue can carry latent F. graminearum without visible blight",
+      "flower initiation through pollinated or senescing flower",
+      "late flower and approaching harvest",
+      "grain-head maturation",
+      "postharvest drying and pre-packaging context"
     ],
     "indicators": [
-      "Floral surfaces develop abundant hyphae with light-brown necrotic tips",
-      "Leaves develop roughly circular light-brown lesions with darker brown margins and gray-brown aging centers",
-      "Blight is centered on floral/head tissue rather than beginning as root decay",
-      "Fusarium macroconidia, culture, sequence or species-specific molecular evidence accompanies compatible tissue"
+      "White-pink or pinkish-white mycelial growth develops on an intact Cannabis inflorescence, with the active lesion and laboratory sample traceably linked",
+      "Flower bracts become necrotic and mycelium may extend over the flower head, seeds within bracts, or adjacent sugar leaves as disease becomes severe",
+      "Dried inflorescences can show both external and internal mycelial growth with visible decay, while intact preharvest views establish that the finding is not only an unlinked storage contaminant",
+      "Hemp grain heads show localized to expanding blight with a sampled head yielding a compatible Fusarium isolate",
+      "Foliar involvement can include roughly circular light-brown lesions with darker margins and gray-brown aging centers, but the same plant should be inspected for flower, stem, crown, and root distribution",
+      "Plant-linked culture produces compatible Fusarium colony and macroconidial morphology; pigment or falcate, septate conidia support the genus but do not alone resolve a cryptic species",
+      "Validated molecular evidence from the photographed and sampled tissue supports the organism label, using species-specific qPCR or appropriate Fusarium loci such as EF-1-alpha or TEF1, RPB1, and RPB2 when species resolution matters",
+      "Reisolation and compatible disease in a Cannabis pathogenicity assay with symptom-free mock controls strengthen causality, especially for a newly reported species or production context"
     ],
     "exclusions": [
-      "Root/crown rot and vascular wilt dominate without foliar or floral lesions",
-      "Gray fuzzy sporulation and diagnostic evidence identify Botrytis",
-      "White mold and sclerotia identify a Sclerotinia or southern-blight differential",
-      "No Fusarium evidence is present and drying/heat/mechanical injury explains floral browning"
+      "Gray sporulation, plant-linked isolation, and validated identification support Botrytis gray mold rather than Fusarium",
+      "White cottony growth with internal or external sclerotia and laboratory evidence supports Sclerotinia white mold or a crown-associated southern-blight differential",
+      "Penicillium, Aspergillus, Alternaria, or another mold is recovered from and linked to the active flower lesion instead of Fusarium",
+      "Only pistils or uniformly aging flower and sugar-leaf tissue have browned, with no advancing lesion, internal decay, mycelium, or organism evidence",
+      "Heat, light, spray, abrasion, caterpillar feeding, frass, or handling injury explains the localized flower damage and serial images show no continuing infectious expansion",
+      "Root decay, crown lesions, vascular discoloration, unilateral wilt, or whole-plant collapse dominates without a plant-linked foliar or floral lesion; use the Fusarium crown/root profile or keep the case multi-label",
+      "A Fusarium species is detected in asymptomatic tissue but cannot be linked to a lesion; label the finding as latent detection or colonization rather than visible flower/head blight",
+      "The only evidence comes from a detached-flower high-humidity challenge, culture plate, dried retail sample, or laboratory image that is not linked to an intact source plant and lesion history",
+      "A species name is inferred from pink, white, or red color, macroconidia alone, ITS alone, or resemblance to a reference image without suitable molecular resolution",
+      "Cereal symptom scales, toxin thresholds, flowering windows, or weather rules are transferred to Cannabis without crop-specific validation and matched plant evidence"
     ],
     "progression": [
       {
-        "stage": "Foliar/floral onset",
-        "description": "Localized leaf lesions or necrotic flower tips develop and surface hyphae may become visible."
+        "stage": "Latent detection",
+        "description": "Species-specific qPCR can detect F. graminearum in asymptomatic vegetative or reproductive Cannabis tissue. In the 2022–2023 Kentucky study, visible symptoms commonly followed initial detection by six to eight weeks, but that interval varied with cultivar, planting date, year, and location and is not a universal clock."
       },
       {
-        "stage": "Blight",
-        "description": "Necrosis expands through affected foliar or floral tissue."
+        "stage": "Localized foliar or floral onset",
+        "description": "A traceable plant may develop a localized leaf lesion, necrotic flower bract or tip, or white-pink surface growth. At this point Botrytis, Sclerotinia, other flower molds, senescence, and injury remain visually plausible."
       },
       {
-        "stage": "Latent-infection caveat",
-        "description": "F. graminearum may be detectable before obvious blight, especially around flowering, so visual absence is not proof of absence."
+        "stage": "Flower or head expansion",
+        "description": "Necrosis and mycelium can extend across bracts, seeds within bracts, grain-head tissue, and adjacent sugar leaves. In one White CBG challenge, symptoms appeared seven days after inoculation and were more frequent on flowers with senescent styles; those assay conditions and percentages are not general timing or susceptibility thresholds."
+      },
+      {
+        "stage": "Extensive blight and internal involvement",
+        "description": "Severe disease can involve much of the inflorescence or grain head and may include internal flower colonization. Intact-plant sampling, culture, molecular identification, and differential testing are needed before assigning a species or excluding a mixed infection."
+      },
+      {
+        "stage": "Postharvest and analytical consequence",
+        "description": "Fusarium growth or decay may remain visible after drying, and infected tissue can contain species-, isolate-, and genotype-dependent mycotoxins. Appearance cannot predict toxin identity or concentration, so chemical analysis is a separate evidence layer."
       }
     ],
     "lookAlikes": [
       "Botrytis gray mold / bud rot",
-      "Sclerotinia white mold",
-      "Alternaria leaf spot",
+      "Sclerotinia white mold / hemp canker",
+      "Athelia rolfsii southern blight when the crown is involved",
+      "Penicillium postharvest bud rot",
+      "Aspergillus-associated flower mold",
+      "Alternaria flower or leaf blight",
+      "Powdery mildew residue on flowers or sugar leaves",
+      "Exserohilum leaf or flower blight",
       "Bipolaris leaf spot",
-      "Fusarium crown/root rot"
+      "Cercospora or Pseudocercospora leaf spot",
+      "Bacterial leaf or flower blight",
+      "Fusarium crown/root rot or vascular wilt",
+      "Normal pistil browning and late-flower senescence",
+      "Caterpillar feeding, frass, and localized flower collapse",
+      "Heat, high-light, spray, abrasion, harvest, or drying injury",
+      "Mixed fungal colonization or unresolved postharvest mold"
     ],
     "confirmation": [
-      "Submit representative fresh lesion/flower tissue for culture and molecular identification when Fusarium species matters.",
-      "For suspected F. graminearum, species-specific molecular assays can detect infection that is not yet visually obvious."
+      "Capture a traceable sequence from the same plant: whole-canopy distribution, intact flower or head exterior, safely exposed internal tissue, both leaf surfaces when lesions occur, active lesion margin with scale, and separate crown and root views.",
+      "Record plant ID, cultivar or genotype, sex, flowering or grain stage, onset date, field or greenhouse location, rain, irrigation, condensation, relative humidity, wetness duration, airflow, harvest and drying history, neighboring grasses or cereals, and recent injury or spray exposure.",
+      "Before treatment or disposal, aseptically sample the advancing interface between diseased and apparently healthy tissue from the exact photographed flower, head, leaf, or postharvest unit; retain matched asymptomatic and environmental controls where feasible.",
+      "Use plant-linked isolation and fungal morphology to establish a compatible Fusarium recovery, while recognizing that colony pigment and macroconidia do not safely distinguish all Fusarium species complexes.",
+      "When species resolution matters, pair morphology with validated molecular identification using informative Fusarium loci or a species-specific assay; preserve isolate, locus, sequence-accession, database, and percent-identity details rather than accepting an unqualified ITS-only name.",
+      "Interpret species-specific qPCR from asymptomatic tissue as latent detection, not visible-blight proof; for a lesion label, link the molecular result to the sampled lesion and exclude other fungi or mixed infection.",
+      "For a newly reported species, unusual organ, or causal research label, require compatible Cannabis pathogenicity evidence with mock controls and reisolation; detached-flower assays must remain marked as detached and high-humidity when applicable.",
+      "If food, feed, inhalation, or product safety is at issue, route material to an accredited laboratory for the relevant microbial and mycotoxin analyses; neither visible mold amount nor a Fusarium species result predicts a toxin concentration."
     ],
     "immediateActions": [
-      "Separate suspect floral material from clean material and preserve diagnostic samples before treatment or disposal.",
-      "Inspect roots/crowns separately so root Fusarium is not conflated with foliar/flower blight."
+      "Restrict movement of suspect flowers, grain heads, harvested material, tools, and debris while preserving untreated diagnostic samples and the plant-to-sample chain of custody.",
+      "Inspect nearby flowers, both leaf surfaces, stems, crowns, roots, drying lots, and neighboring grasses or cereals to map distribution without assuming the direction of inoculum movement.",
+      "Use protective handling and locally required disposal procedures for visibly moldy material; do not consume, inhale, sell, or feed suspect tissue while identity and product-safety questions remain unresolved."
     ],
     "correctivePlan": [
-      "Use laboratory-supported disease management and sanitation appropriate to the production stage and local crop rules."
+      "Base sanitation, containment, environmental correction, and any locally permitted crop treatment on the organism, organ, production stage, and analytical findings confirmed by a qualified diagnostic laboratory.",
+      "Reduce avoidable prolonged flower wetness and condensation, correct airflow or drying bottlenecks, segregate confirmed lots, and monitor tagged plants or units for new lesion expansion; old necrotic tissue will not recover.",
+      "Investigate propagation material, crop debris, workers and equipment, air or water pathways, and nearby grass or cereal hosts as hypotheses; do not declare a source or transmission route from proximity or matching species alone."
     ],
     "prevention": [
-      "Use clean propagation/seed sources where applicable and reduce movement of symptomatic plant debris.",
-      "Track humidity, rainfall/leaf wetness, and flower-stage disease development without treating environment as proof of pathogen identity."
+      "Use traceable propagation or seed material, clean tools and contact surfaces, and lot-level plant IDs that preserve links among intact plants, harvested flowers, laboratory samples, and test results.",
+      "Scout inflorescences and grain heads through flowering and before harvest, including internal tissue when safely appropriate, and retain serial images rather than relying on a single exterior view.",
+      "Manage canopy humidity, condensation, leaf or flower wetness, airflow, and drying conditions while treating those measurements as risk context rather than pathogen identification.",
+      "Monitor nearby grass or cereal hosts and facility air only as part of a source investigation; confirm shared isolates with suitable molecular evidence before inferring cross-host movement."
     ],
     "warnings": [
-      "Fusarium flower browning is not visually species-specific.",
-      "The 2020 survey identified both F. equiseti and F. graminearum in the foliar/flower blight complex; do not collapse every lesion into F. graminearum.",
-      "Image-only absence cannot exclude latent F. graminearum infection."
+      "White-pink growth, flower browning, sugar-leaf necrosis, circular foliar lesions, and grain-head blight are compatible but not specific to Fusarium or to any one Fusarium species.",
+      "The Cannabis floral complex includes multiple Fusarium species; F. graminearum, F. avenaceum, F. equiseti, and F. sporotrichioides evidence must not be collapsed into a single visual species class.",
+      "Latent F. graminearum can precede visible disease, so a normal-looking image cannot exclude infection; conversely, qPCR-positive asymptomatic tissue does not by itself prove visible blight or lesion causality.",
+      "The seven-day White CBG challenge, six-to-eight-week Kentucky detection-to-symptom interval, Pink Kush assay timing, and four-to-seven-day detached-flower colonization are study-specific and must not become universal onset thresholds.",
+      "Detached inflorescences incubated under prolonged high humidity do not reproduce intact-plant field or greenhouse progression and must remain explicitly marked in dataset labels.",
+      "Mycotoxin presence and concentration varied with fungal species, isolate, and Cannabis genotype and cannot be inferred from visible colonization, pigment, or disease severity.",
+      "The 2025 CC BY Figure 1 reference combines intact and dried Cannabis flowers and does not resolve F. avenaceum from F. graminearum panel by panel; it is displayable reference context but remains prohibited from automated training.",
+      "Human review is mandatory for symptom-only, detached-flower, postharvest-only, asymptomatic-qPCR, culture-unlinked, ITS-only, mixed-organism, low-resolution, stock, generated, or analytically conflicting samples."
     ],
     "sources": [
       {
@@ -2178,34 +2228,143 @@
         ]
       },
       {
+        "title": "First Report of Fusarium graminearum Causing Flower Blight on Hemp (Cannabis sativa) in Kentucky",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-06-21-1292-PDN",
+        "authors": [
+          "Gabdiel E. Yulfo-Soto",
+          "Henry Smith",
+          "Desiree Szarka",
+          "Ed Dixon",
+          "Lisa J. Vaillancourt",
+          "Nicole Gauthier"
+        ],
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2022-01-01",
+        "year": 2022,
+        "accessedDate": "2026-08-26",
+        "doi": "10.1094/PDIS-06-21-1292-PDN",
+        "supportedClaims": [
+          "Near-harvest White CBG hemp in one 2020 Kentucky field outbreak developed mycelium over flower heads and seeds within bracts, necrotic flower bracts, and, in severe cases, mycelium and necrosis extending onto adjacent sugar leaves.",
+          "The reported 100% field incidence applies only to the sampled White CBG planting and must not be generalized as a cultivar-independent incidence or severity threshold.",
+          "Greenhouse inoculation reproduced necrotic bracts, sugar-leaf necrosis, and visible fungal growth after seven days; mock controls remained symptomless and the fungus was recovered from symptomatic inoculated flowers.",
+          "In that controlled assay, symptoms occurred on 1% of flowers inoculated with green styles and 36% of flowers inoculated with senescent styles; those single-cultivar, inoculation-specific percentages are susceptibility context, not a universal maturity rule.",
+          "Culture and conidial morphology plus an EF-1-alpha sequence and database comparisons supported F. graminearum, so the causal label did not rest on visible mold color alone."
+        ]
+      },
+      {
+        "title": "Fusarium Species Infecting Greenhouse-Grown Cannabis (Cannabis sativa) Plants Show Potential for Mycotoxin Production in Inoculated Inflorescences and from Natural Inoculum Sources",
+        "organization": "Journal of Fungi",
+        "url": "https://doi.org/10.3390/jof11070528",
+        "authors": [
+          "Zamir K. Punja",
+          "Sheryl A. Tittlemier",
+          "Sean Walkowiak"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2025-07-16",
+        "year": 2025,
+        "accessedDate": "2026-08-26",
+        "doi": "10.3390/jof11070528",
+        "supportedClaims": [
+          "Naturally infected high-THC Cannabis inflorescences in a British Columbia greenhouse showed whitish-pink surface mycelium; dried flowers from the same facility showed surface and internal growth with visible decay.",
+          "Plant-linked isolation plus ITS and EF-1-alpha sequencing and species-specific markers identified F. avenaceum and F. graminearum in naturally infected Cannabis tissues, expanding the floral complex beyond F. equiseti and F. graminearum.",
+          "Detached inflorescences from two Cannabis genotypes were challenged with F. avenaceum, F. graminearum, or F. sporotrichioides under prolonged high humidity; extensive surface colonization at four and seven days is therefore a controlled challenge result, not intact-plant field progression.",
+          "Pre-existing F. graminearum DNA or associated metabolites were found in some nominal control or differently inoculated tissues, demonstrating that visible colonization, inoculation assignment, or a single culture result can fail to resolve mixed or latent infection.",
+          "Mycotoxin profiles differed by Fusarium species, isolate, and Cannabis genotype despite comparable mycelial colonization; mold amount or color cannot predict toxin identity or concentration.",
+          "F. avenaceum and F. graminearum were also recovered from nearby tall fescue, supporting an external-inoculum hypothesis but not proving the direction or route of transmission to Cannabis."
+        ]
+      },
+      {
         "title": "First Report of Fusarium graminearum Causing Head Blight on Hemp (Cannabis sativa) in Wisconsin",
         "organization": "Plant Disease",
         "url": "https://doi.org/10.1094/PDIS-10-25-2036-PDN",
+        "authors": [
+          "Derrick J. Grunwald",
+          "Ella L. Cain",
+          "Shelby Ellison"
+        ],
         "publisher": "American Phytopathological Society",
         "publicationDate": "2026-02-16",
         "year": 2026,
         "accessedDate": "2026-08-17",
         "doi": "10.1094/PDIS-10-25-2036-PDN",
         "supportedClaims": [
-          "Fusarium graminearum was reported causing blight of hemp grain heads, strengthening evidence that Fusarium flower/head disease is a distinct Cannabis diagnostic target from Fusarium root/crown rot.",
-          "The disease note used isolation and pathogen identification from symptomatic grain heads rather than relying on flower appearance alone."
+          "In a 0.5-acre Wisconsin grain-cultivar trial in September 2024, blighted hemp grain heads yielded white-pink Fusarium colonies and slightly hyaline, three-to-five-septate macroconidia; these location, year, and culture traits are evidence context rather than universal visual thresholds.",
+          "A representative isolate produced visible mycelial growth after inoculation of pollinated Pink Kush flowers while mock-inoculated plants remained symptomless, and a similar fungus was recovered from inoculated tissue.",
+          "Polyphasic identification used culture and macroconidial morphology plus TEF1, RPB1, and RPB2 loci and a Fusarium-ID comparison to support F. graminearum rather than relying on grain-head appearance alone.",
+          "The controlled Pink Kush timing followed three days of bagging and another six to nine greenhouse days; it does not establish a universal incubation period, cultivar response, or field progression sequence."
         ]
       },
       {
         "title": "Detection and Quantification of Latent Infection by Fusarium graminearum, Causal Agent of Fusarium Head Blight on Hemp (Cannabis sativa) Fields in Kentucky",
         "organization": "Plant Disease",
         "url": "https://doi.org/10.1094/PDIS-04-25-0774-RE",
+        "authors": [
+          "Misbakhul Munir",
+          "Annika Church",
+          "Henry Smith",
+          "Rebecca Schroer",
+          "Jacqueline Reynolds",
+          "Alainey Robinson",
+          "Justin Wong",
+          "Erin Thomas",
+          "Toni Adedokun",
+          "Faris Allahham",
+          "Desiree Szarka",
+          "Ed Dixon",
+          "Tara Caton",
+          "Magdalena Ricciardi",
+          "Robert Pearce",
+          "Nicole Gauthier"
+        ],
         "publisher": "American Phytopathological Society",
+        "publicationDate": "2026-01-04",
         "year": 2026,
         "accessedDate": "2026-08-17",
         "doi": "10.1094/PDIS-04-25-0774-RE",
         "supportedClaims": [
-          "A multi-site hemp field study used species-specific qPCR to detect and quantify F. graminearum in asymptomatic and symptomatic tissues.",
-          "Latent infection occurred before visible disease and infection was more prominent during flowering, so absence of visible blight cannot exclude infection and image-only confirmation is unsafe."
+          "A 2022–2023 multi-site Kentucky field study followed three hemp cultivars with different flowering times across eight planting dates and sampled terminal buds and male or female flowers every two weeks, beginning two to three weeks after planting.",
+          "Species-specific qPCR detected and quantified F. graminearum in both asymptomatic and symptomatic tissue; latent infection was detected in vegetative tissue but was more prominent during flowering.",
+          "Planting date, cultivar, year, and location produced different latent-infection levels, and detections appeared related to rain and relative humidity; none of those factors is diagnostic by itself.",
+          "Visible head-blight symptoms were commonly observed six to eight weeks after initial molecular detection in this study, but that interval is study-specific and must not become a universal symptom-onset rule."
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-fusarium-flower-bud-figure-1",
+        "url": "https://mdpi-res.com/d_attachment/jof/jof-11-00528/article_deploy/html/images/jof-11-00528-g001.png",
+        "alt": "Four-panel reference showing natural Fusarium mycelial growth on intact and dried Cannabis inflorescences.",
+        "caption": "Natural Fusarium-associated infection of Cannabis inflorescences: pinkish-white growth on intact greenhouse flowers and external or internal growth on dried flowers from the same licensed facility (Punja et al. 2025, Figure 1). Fusarium was confirmed by plant-linked isolation and molecular identification.",
+        "creator": "Zamir K. Punja, Sheryl A. Tittlemier, and Sean Walkowiak",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3390/jof11070528",
+        "mediaType": "image",
+        "requiredAttribution": "Punja ZK, Tittlemier SA, Walkowiak S. 2025. Fusarium Species Infecting Greenhouse-Grown Cannabis (Cannabis sativa) Plants Show Potential for Mycotoxin Production in Inoculated Inflorescences and from Natural Inoculum Sources. Journal of Fungi 11(7):528. Figure 1. CC BY 4.0.",
+        "diagnosticLabel": "fusarium-foliar-flower-head-blight — naturally infected intact and dried Cannabis inflorescence composite reference",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Four-panel composite combining intact greenhouse inflorescences and dried postharvest flowers; reference-only as a whole figure.",
+          "The source recovered both Fusarium avenaceum and F. graminearum from Cannabis tissues but does not provide a panel-by-panel species label, so the image cannot train or confirm either species class.",
+          "Pinkish-white surface or internal growth overlaps other flower molds and remains insufficient without plant-linked culture and suitable molecular identification.",
+          "Do not crop panels into independent examples or infer field progression, prevalence, mycotoxin identity, or mycotoxin concentration from this composite."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "08ab22210fa1a1242a570520352641a4954f0e3ab213f23e3fbb5ddae2e0a6ce",
+        "perceptualHash": "dhash64:64cccec5e9c8cccc",
+        "width": 2058,
+        "height": 3069,
+        "view": "diagram",
+        "stage": "flower through postharvest drying",
+        "severity": "visible surface and internal colonization",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "fungal-pm",

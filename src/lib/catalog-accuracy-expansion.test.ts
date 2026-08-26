@@ -69,6 +69,31 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(root.affectedParts.some((part) => part.toLowerCase().includes('root'))).toBe(true)
   })
 
+  it('keeps Fusarium flower/head labels plant-linked, multi-species, and visually conservative', () => {
+    const record = bySlug('fusarium-foliar-flower-head-blight')
+    const evidence = [...record.indicators, ...record.exclusions, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    const naturalInflorescenceStudy = record.sources.find((item) => item.doi === '10.3390/jof11070528')
+    const kentuckyFlowerReport = record.sources.find((item) => item.doi === '10.1094/PDIS-06-21-1292-PDN')
+    const media = record.media.find((item) => item.id === 'media-fusarium-flower-bud-figure-1')
+
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(record.exclusions.length).toBeGreaterThanOrEqual(10)
+    expect(record.progression.length).toBeGreaterThanOrEqual(5)
+    expect(record.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(record.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(record.sources).toHaveLength(5)
+    expect(evidence).toContain('latent detection')
+    expect(evidence).toContain('detached-flower')
+    expect(evidence).toContain('mycotoxin')
+    expect(evidence).toContain('human review')
+    expect(naturalInflorescenceStudy?.authors).toEqual(['Zamir K. Punja', 'Sheryl A. Tittlemier', 'Sean Walkowiak'])
+    expect(kentuckyFlowerReport?.authors).toHaveLength(6)
+    expect(media?.displayPermission).toBe('permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.hostContext).toBe('cannabis')
+  })
+
   it('keeps Exserohilum image-only labels conservative and linked to organism confirmation', () => {
     const record = bySlug('exserohilum-helminthosporium-leaf-blight')
     const evidence = [...record.indicators, ...record.exclusions, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()

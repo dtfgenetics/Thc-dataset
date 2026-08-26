@@ -838,13 +838,34 @@
     "title": "Detection and Quantification of Latent Infection by Fusarium graminearum, Causal Agent of Fusarium Head Blight on Hemp (Cannabis sativa) Fields in Kentucky",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-04-25-0774-RE",
+    "authors": [
+      "Misbakhul Munir",
+      "Annika Church",
+      "Henry Smith",
+      "Rebecca Schroer",
+      "Jacqueline Reynolds",
+      "Alainey Robinson",
+      "Justin Wong",
+      "Erin Thomas",
+      "Toni Adedokun",
+      "Faris Allahham",
+      "Desiree Szarka",
+      "Ed Dixon",
+      "Tara Caton",
+      "Magdalena Ricciardi",
+      "Robert Pearce",
+      "Nicole Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
+    "publicationDate": "2026-01-04",
     "year": 2026,
     "accessedDate": "2026-08-17",
     "doi": "10.1094/PDIS-04-25-0774-RE",
     "supportedClaims": [
-      "A multi-site hemp field study used species-specific qPCR to detect and quantify F. graminearum in asymptomatic and symptomatic tissues.",
-      "Latent infection occurred before visible disease and infection was more prominent during flowering, so absence of visible blight cannot exclude infection and image-only confirmation is unsafe."
+      "A 2022–2023 multi-site Kentucky field study followed three hemp cultivars with different flowering times across eight planting dates and sampled terminal buds and male or female flowers every two weeks, beginning two to three weeks after planting.",
+      "Species-specific qPCR detected and quantified F. graminearum in both asymptomatic and symptomatic tissue; latent infection was detected in vegetative tissue but was more prominent during flowering.",
+      "Planting date, cultivar, year, and location produced different latent-infection levels, and detections appeared related to rain and relative humidity; none of those factors is diagnostic by itself.",
+      "Visible head-blight symptoms were commonly observed six to eight weeks after initial molecular detection in this study, but that interval is study-specific and must not become a universal symptom-onset rule."
     ]
   },
   {
@@ -867,6 +888,32 @@
       "A multilocus phylogeny grouped all five isolates with Cercospora cf. flagellaris, while the cf. designation still communicates bounded taxonomic resolution rather than an image-resolvable species label.",
       "Whole-plant inoculations of Sour Space Candy and Red Kross reproduced lesions, left water-treated controls healthy, and yielded the same organism; the experiment was repeated with the same result.",
       "Seven- and fourteen-day symptom observations followed a defined spore concentration, 72-hour moist chamber, growth-chamber regime, two cultivars, and four plants per treatment and are not universal field timelines."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PDIS-06-21-1292-PDN",
+    "title": "First Report of Fusarium graminearum Causing Flower Blight on Hemp (Cannabis sativa) in Kentucky",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-06-21-1292-PDN",
+    "authors": [
+      "Gabdiel E. Yulfo-Soto",
+      "Henry Smith",
+      "Desiree Szarka",
+      "Ed Dixon",
+      "Lisa J. Vaillancourt",
+      "Nicole Gauthier"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2022-01-01",
+    "year": 2022,
+    "accessedDate": "2026-08-26",
+    "doi": "10.1094/PDIS-06-21-1292-PDN",
+    "supportedClaims": [
+      "Near-harvest White CBG hemp in one 2020 Kentucky field outbreak developed mycelium over flower heads and seeds within bracts, necrotic flower bracts, and, in severe cases, mycelium and necrosis extending onto adjacent sugar leaves.",
+      "The reported 100% field incidence applies only to the sampled White CBG planting and must not be generalized as a cultivar-independent incidence or severity threshold.",
+      "Greenhouse inoculation reproduced necrotic bracts, sugar-leaf necrosis, and visible fungal growth after seven days; mock controls remained symptomless and the fungus was recovered from symptomatic inoculated flowers.",
+      "In that controlled assay, symptoms occurred on 1% of flowers inoculated with green styles and 36% of flowers inoculated with senescent styles; those single-cultivar, inoculation-specific percentages are susceptibility context, not a universal maturity rule.",
+      "Culture and conidial morphology plus an EF-1-alpha sequence and database comparisons supported F. graminearum, so the causal label did not rest on visible mold color alone."
     ]
   },
   {
@@ -1097,14 +1144,21 @@
     "title": "First Report of Fusarium graminearum Causing Head Blight on Hemp (Cannabis sativa) in Wisconsin",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-10-25-2036-PDN",
+    "authors": [
+      "Derrick J. Grunwald",
+      "Ella L. Cain",
+      "Shelby Ellison"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2026-02-16",
     "year": 2026,
     "accessedDate": "2026-08-17",
     "doi": "10.1094/PDIS-10-25-2036-PDN",
     "supportedClaims": [
-      "Fusarium graminearum was reported causing blight of hemp grain heads, strengthening evidence that Fusarium flower/head disease is a distinct Cannabis diagnostic target from Fusarium root/crown rot.",
-      "The disease note used isolation and pathogen identification from symptomatic grain heads rather than relying on flower appearance alone."
+      "In a 0.5-acre Wisconsin grain-cultivar trial in September 2024, blighted hemp grain heads yielded white-pink Fusarium colonies and slightly hyaline, three-to-five-septate macroconidia; these location, year, and culture traits are evidence context rather than universal visual thresholds.",
+      "A representative isolate produced visible mycelial growth after inoculation of pollinated Pink Kush flowers while mock-inoculated plants remained symptomless, and a similar fungus was recovered from inoculated tissue.",
+      "Polyphasic identification used culture and macroconidial morphology plus TEF1, RPB1, and RPB2 loci and a Fusarium-ID comparison to support F. graminearum rather than relying on grain-head appearance alone.",
+      "The controlled Pink Kush timing followed three days of bagging and another six to nine greenhouse days; it does not establish a universal incubation period, cultivar response, or field progression sequence."
     ]
   },
   {
@@ -2063,6 +2117,30 @@
       "The review describes adults as weak, delicate fliers associated with moist growing media and larvae as translucent to white, legless, dark-headed organisms in the medium; these organism traits are more useful than nonspecific canopy decline.",
       "Larval feeding can damage roots and young plant material, while fungus gnats can participate in pathogen interactions; finding one component does not establish that it caused every observed root or canopy symptom.",
       "This is cross-crop greenhouse evidence rather than Cannabis-specific symptom validation, so plant yellowing or stunting cannot identify fungus gnats without observing adults, larvae, or other root-zone evidence."
+    ]
+  },
+  {
+    "sourceKey": "10.3390/jof11070528",
+    "title": "Fusarium Species Infecting Greenhouse-Grown Cannabis (Cannabis sativa) Plants Show Potential for Mycotoxin Production in Inoculated Inflorescences and from Natural Inoculum Sources",
+    "organization": "Journal of Fungi",
+    "url": "https://doi.org/10.3390/jof11070528",
+    "authors": [
+      "Zamir K. Punja",
+      "Sheryl A. Tittlemier",
+      "Sean Walkowiak"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2025-07-16",
+    "year": 2025,
+    "accessedDate": "2026-08-26",
+    "doi": "10.3390/jof11070528",
+    "supportedClaims": [
+      "Naturally infected high-THC Cannabis inflorescences in a British Columbia greenhouse showed whitish-pink surface mycelium; dried flowers from the same facility showed surface and internal growth with visible decay.",
+      "Plant-linked isolation plus ITS and EF-1-alpha sequencing and species-specific markers identified F. avenaceum and F. graminearum in naturally infected Cannabis tissues, expanding the floral complex beyond F. equiseti and F. graminearum.",
+      "Detached inflorescences from two Cannabis genotypes were challenged with F. avenaceum, F. graminearum, or F. sporotrichioides under prolonged high humidity; extensive surface colonization at four and seven days is therefore a controlled challenge result, not intact-plant field progression.",
+      "Pre-existing F. graminearum DNA or associated metabolites were found in some nominal control or differently inoculated tissues, demonstrating that visible colonization, inoculation assignment, or a single culture result can fail to resolve mixed or latent infection.",
+      "Mycotoxin profiles differed by Fusarium species, isolate, and Cannabis genotype despite comparable mycelial colonization; mold amount or color cannot predict toxin identity or concentration.",
+      "F. avenaceum and F. graminearum were also recovered from nearby tall fescue, supporting an external-inoculum hypothesis but not proving the direction or route of transmission to Cannabis."
     ]
   },
   {
