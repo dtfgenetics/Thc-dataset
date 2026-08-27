@@ -28,6 +28,29 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(source?.publicationDate).toBe('2024-03-02')
   })
 
+  it('keeps Septoria labels plant-linked, species-aware, and visually conservative', () => {
+    const record = bySlug('septoria-leaf-spot')
+    const evidence = [...record.indicators, ...record.exclusions, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    const kentucky = record.sources.find((item) => item.doi === '10.1094/PDIS-12-20-2620-SC')
+    const japan = record.sources.find((item) => item.doi === '10.47371/mycosci.2023.1.004')
+
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(record.exclusions.length).toBeGreaterThanOrEqual(10)
+    expect(record.progression.length).toBeGreaterThanOrEqual(5)
+    expect(record.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(record.confirmation.length).toBeGreaterThanOrEqual(8)
+    expect(record.sources).toHaveLength(5)
+    expect(kentucky?.authors).toHaveLength(6)
+    expect(japan?.authors).toHaveLength(5)
+    expect(evidence).toContain('different phylogenetic clades')
+    expect(evidence).toContain('generic pcr')
+    expect(evidence).toContain('human review')
+    expect(record.sources.some((item) => item.doi === '10.1094/PHP-04-25-0127-RS')).toBe(true)
+    expect(record.sources.some((item) => item.organization.includes('Cornell University'))).toBe(true)
+    expect(record.media).toHaveLength(0)
+  })
+
   it('classifies Cannabis downy mildew as an oomycete rather than a true fungus', () => {
     expect(categoryOrder).toContain('Oomycete pathogen')
     expect(bySlug('downy-mildew-pseudoperonospora').category).toBe('Oomycete pathogen')

@@ -1242,15 +1242,26 @@
     "title": "Reemergence of Septoria Leaf Spot Caused by Septoria cannabis on Hemp in Kentucky",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-12-20-2620-SC",
+    "authors": [
+      "Mostafa Rahnama",
+      "Desiree Szarka",
+      "Hua Li",
+      "Ed Dixon",
+      "Lisa Castlebury",
+      "Nicole A. Ward Gauthier"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2021-10-17",
     "year": 2021,
-    "accessedDate": "2026-08-17",
+    "accessedDate": "2026-08-27",
     "doi": "10.1094/PDIS-12-20-2620-SC",
     "supportedClaims": [
-      "Septoria leaf spot was documented on hemp primarily on lower leaves and inner canopy, with small irregular brown-to-gray lesions expanding to roughly 5 to 7.5 mm and dark pycnidia in lesions.",
-      "Eight isolates were tested for pathogenicity on greenhouse-grown hemp and diagnostic loci were sequenced; morphology and sequence evidence supported Septoria cannabis in the Kentucky material.",
-      "Visual lesion appearance alone cannot separate Septoria from other hemp leaf-spot pathogens."
+      "Kentucky hemp symptoms occurred mostly on lower leaves and in the inner canopy; small irregular brown-to-gray spots rapidly expanded to about 5 to 7.5 mm and contained scattered round dark-brown-to-black pycnidia.",
+      "The reported pycnidia measured 38.8 to 145 micrometres, and conidia were hyaline, curved or occasionally straight, pointed at the apex, and three- to four-septate; these laboratory signs are stronger than lesion color alone but are not camera-level species proof.",
+      "Eight isolates were tested for pathogenicity on six-week-old greenhouse hemp, and three isolates were sequenced at seven loci: elongation factor, beta-tubulin, RPB2, LSU, ITS, actin, and calmodulin.",
+      "No published Septoria accessions matched the seven-locus sequences and no S. cannabis reference sequences were then available; the Kentucky S. cannabis conclusion combined morphology, phylogenetic separation from other Septoria species, and the absence of a better sequence match.",
+      "The study sampled several Kentucky locations in 2018 and tested two greenhouse hemp cultivars; its lesion sizes, timing, canopy distribution, and taxonomy are not universal thresholds for every Cannabis crop or Septoria lineage.",
+      "Visual lesion appearance alone cannot separate Septoria from other hemp leaf-spot pathogens or distinguish S. cannabis from S. cannabicola."
     ]
   },
   {
@@ -1332,6 +1343,28 @@
       "The same diagnostic survey found Pythium diseases in greenhouse hemp, supporting explicit separation of abiotic flooding injury from root-pathogen diagnoses."
     ],
     "publicationDate": "2020-12-05"
+  },
+  {
+    "sourceKey": "10.1094/PHP-04-25-0127-RS",
+    "title": "Efficacy of Organic Fungicides for Management of Hemp Septoria Leaf Spot",
+    "organization": "Plant Health Progress",
+    "url": "https://doi.org/10.1094/PHP-04-25-0127-RS",
+    "authors": [
+      "Jocelyn A. Schwartz",
+      "Sebastian G. April",
+      "Charles T. C. Day",
+      "Christine D. Smart"
+    ],
+    "publisher": "American Phytopathological Society",
+    "year": 2025,
+    "accessedDate": "2026-08-27",
+    "doi": "10.1094/PHP-04-25-0127-RS",
+    "supportedClaims": [
+      "Replicated New York field trials in 2023 and 2024 inoculated the susceptible hemp cultivar TJ's CBD with a single-spore S. cannabis isolate and recorded five severity ratings to calculate area under the disease progress curve.",
+      "Azoxystrobin reduced disease progress relative to untreated inoculated controls in both trial years, while other evaluated products were variable or ineffective under the study conditions.",
+      "The trial establishes that repeated plant-linked severity measurements can quantify Septoria disease progress; it does not make one cultivar, isolate, location, season, product response, or legal label universal.",
+      "Treatment response cannot retroactively confirm an image-only diagnosis, and product selection requires current jurisdiction-specific registration, label compliance, resistance management, and professional guidance."
+    ]
   },
   {
     "sourceKey": "10.1094/PHYTOFR-05-23-0064-SC",
@@ -2331,16 +2364,27 @@
     "title": "Septoria cannabicola, a new species on Cannabis sativa from Japan",
     "organization": "Mycoscience",
     "url": "https://doi.org/10.47371/mycosci.2023.1.004",
-    "publisher": "Mycological Society of Japan",
-    "year": 2024,
-    "accessedDate": "2026-08-17",
-    "supportedClaims": [
-      "Molecular phylogeny and morphology demonstrated that Cannabis leaf spot historically attributed to Septoria cannabis can involve a distinct species, Septoria cannabicola.",
-      "Natural symptoms began as indistinct yellow spots on lower leaves and progressed to brown irregular lesions and premature defoliation of older leaves.",
-      "Species-level Septoria naming therefore requires laboratory evidence rather than lesion appearance alone."
+    "authors": [
+      "Anysia Hedy Ujat",
+      "Shinju Konishi",
+      "Yurina Kato",
+      "Hana Tonami",
+      "Chiharu Nakashima"
     ],
+    "publisher": "Mycological Society of Japan",
+    "publicationDate": "2024-03-02",
+    "year": 2024,
+    "accessedDate": "2026-08-27",
     "doi": "10.47371/mycosci.2023.1.004",
-    "publicationDate": "2024-03-02"
+    "supportedClaims": [
+      "A 2023 commercial-hemp sample from Mie Prefecture, Japan yielded the ex-type isolate MUCC3619 and voucher TSU-MUMH11996; morphology and a seven-locus phylogeny established the distinct species Septoria cannabicola.",
+      "Natural symptoms began as indistinct angular yellow spots on lower leaves, developed into brown circular-to-irregular lesions with yellow halos measuring about 2 to 8 mm, and caused premature defoliation of older leaves.",
+      "At 14 days after inoculation, intact inoculated leaves developed field-like symptoms while water controls and, unexpectedly, wounded inoculated leaves did not; that single experimental result must not be converted into a universal wound-response rule.",
+      "The ex-type was resolved with ITS, LSU, beta-tubulin, RPB2, TEF-1-alpha, calmodulin, and actin sequences and placed in a different clade from the Kentucky isolates labeled S. cannabis.",
+      "Historical ex-type cultures and sequences for S. cannabis, S. cannabina, and S. neocannabina were unavailable, and the actual distribution and reemergence history remained unknown.",
+      "Species-level Septoria naming therefore requires lesion-linked morphology, culture, and validated multilocus evidence rather than lesion appearance or a generic Septoria PCR result alone.",
+      "The article figure combines natural lesions, an inoculated leaf, conidiomata, conidia, and culture panels; conflicting license statements and the mixed-panel design prevent admission as training media in this dataset."
+    ]
   },
   {
     "sourceKey": "10.5281/zenodo.3710022",
@@ -2504,6 +2548,26 @@
       "The institutional hemp field guide describes white mold as white cottony mycelium on stems with hard dark sclerotia that form on the mycelium and turn black as they mature.",
       "Sclerotia can persist in plant debris, seed, or soil, and wet foliage favors infection; these contextual factors support scouting and confirmation but do not identify an unknown lesion by themselves.",
       "The guide places white mold among overlapping hemp diseases, supporting comparison with gray mold, southern blight, root disease, and noninfectious injury rather than symptom-only ground truth."
+    ]
+  },
+  {
+    "sourceKey": "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/f/10739/files/2025/10/Septoria-Leaf-Spot-of-Hemp.pdf",
+    "title": "Septoria Leaf Spot of Hemp",
+    "organization": "Cornell University Plant Disease Diagnostic Clinic",
+    "url": "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/f/10739/files/2025/10/Septoria-Leaf-Spot-of-Hemp.pdf",
+    "authors": [
+      "Jocelyn A. Schwartz"
+    ],
+    "publisher": "Cornell University Plant Disease Diagnostic Clinic",
+    "publicationDate": "2025-09",
+    "year": 2025,
+    "accessedDate": "2026-08-27",
+    "supportedClaims": [
+      "The Cornell diagnostic guide describes irregular brown lesions with yellow halos on the upper leaf surface, first appearing on lower leaves and in the inner canopy; coalescing halos can accompany severe defoliation.",
+      "Mature lesions can contain small black pycnidia visible to the unaided eye or with a hand lens, and humid lesions may exude thin white curled or ribbon-like conidial tendrils.",
+      "Cornell explicitly states that the disease cycle of hemp Septoria species is unknown; debris survival, stomatal infection, moist-season secondary spread, and wind or water dispersal are presented as likely or general Septoria biology rather than fully demonstrated hemp-specific steps.",
+      "The guide reports inconsistent field suppression among products and emphasizes airflow, humidity reduction, infected-leaf and debris management, and resistant germplasm research; pesticide use remains subject to current local labels and regulation.",
+      "The PDF contains no item-level reusable license for its photographs, so its figures are citation evidence only and are not copied or indexed as dataset media."
     ]
   },
   {

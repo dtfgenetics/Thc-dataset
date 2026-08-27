@@ -163,7 +163,7 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 5,
       "mediaCount": 0,
       "path": "data/profiles/fungal-septoria-leaf-spot.json"
     },

@@ -55,7 +55,7 @@
     {"id":"nut-tox-mn","priority":"P2","needs":["analytically confirmed high-Mn cases","B/K/salinity negatives","pH context"]},
     {"id":"nut-def-mo-analytical","priority":"P2","needs":["analytical low-Mo cases","symptom-negative controls","explicit image-only abstention examples"]},
     {"id":"fungal-alternaria-leaf-spot","priority":"P1","needs":["lab-confirmed lesion images","Septoria/Cercospora/Bipolaris negatives"]},
-    {"id":"fungal-septoria-leaf-spot","priority":"P1","needs":["pycnidia macros","lab-confirmed independent sources","species-aware labels"]},
+    {"id":"fungal-septoria-leaf-spot","priority":"P1","needs":["licensed plant-linked pycnidia macros","matched lesion-culture-multilocus sequences","verified progression video","cultivar and geographic diversity"]},
     {"id":"fungal-bipolaris-leaf-spot","priority":"P1","needs":["conidiophore/conidia references","field progression","other leaf-spot negatives"]},
     {"id":"fungal-cercospora-leaf-spot","priority":"P1","needs":["lower-canopy progression","conidiophore macros","Septoria/anthracnose negatives"]},
     {"id":"fungal-anthracnose-leaf-spot","priority":"P1","needs":["shot-hole progression","molecularly confirmed cases","other leaf-spot negatives"]},
