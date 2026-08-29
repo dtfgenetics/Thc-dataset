@@ -18,7 +18,7 @@ import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
 
 export default function App() {
-  const [view, setView] = useState<View>('atlas')
+  const [view, setView] = useState<View>('diagnose')
   const [evidence, setEvidence] = useState<EvidenceFile[]>([])
   const [context, setContext] = useState<GrowContext>(emptyContext)
   const [reviewed, setReviewed] = useState(false)
@@ -45,12 +45,45 @@ export default function App() {
 
   return (
     <AppShell activeView={view} onViewChange={setView}>
-      {view === 'atlas' ? <LivingPlantAtlas /> : null}
       {view === 'diagnose' ? (
-        <div className="diagnostic-page">
-          <div className="diagnostic-layout"><div className="workflow-column"><EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} /><VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} /><GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} /></div><DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} /></div>
+        <div className="diagnostic-page grow-doc-workspace">
+          <section className="diagnostic-intro grow-doc-hero">
+            <div>
+              <span>Evidence-guided plant health</span>
+              <h1>Document the plant before you diagnose it.</h1>
+              <p>
+                Build a stronger plant-health case from real photos or video, crop stage, root-zone conditions,
+                environmental measurements, recent changes, and symptom location. Grow Doc compares plausible causes;
+                it does not pretend one image proves a diagnosis.
+              </p>
+            </div>
+            <aside className="intro-note grow-doc-hero-note">
+              <strong>Three-part workflow</strong>
+              <ol>
+                <li><b>Capture evidence</b><span>Whole plant, affected area, close detail, root zone, or short video.</span></li>
+                <li><b>Add context</b><span>Stage, medium, pH/EC, watering, symptoms, and recent changes.</span></li>
+                <li><b>Review differentials</b><span>Compare ranked possibilities, confidence limits, and next checks.</span></li>
+              </ol>
+            </aside>
+          </section>
+
+          <div className="grow-doc-stepbar" aria-label="Diagnostic workflow">
+            <div><span>01</span><strong>Evidence</strong><small>Photos & video</small></div>
+            <div><span>02</span><strong>Context</strong><small>Measurements & history</small></div>
+            <div><span>03</span><strong>Review</strong><small>Differentials & next checks</small></div>
+          </div>
+
+          <div className="diagnostic-layout">
+            <div className="workflow-column">
+              <EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} />
+              <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
+              <GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} />
+            </div>
+            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} />
+          </div>
         </div>
       ) : null}
+      {view === 'atlas' ? <LivingPlantAtlas /> : null}
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
       {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
