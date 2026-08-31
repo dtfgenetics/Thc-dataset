@@ -1,8 +1,6 @@
 name: Deploy THC Grow Doc to dtfseeds.com
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -10,12 +8,13 @@ permissions:
 
 concurrency:
   group: deploy-dtfseeds
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
     name: Build and deploy to Hostinger
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -25,6 +24,20 @@ jobs:
         with:
           node-version: 22
           cache: npm
+
+      - name: Verify production deployment credentials are configured
+        shell: bash
+        env:
+          FTP_SERVER: ${{ secrets.DTFSEEDS_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.DTFSEEDS_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.DTFSEEDS_FTP_PASSWORD }}
+          FTP_SERVER_DIR: ${{ secrets.DTFSEEDS_FTP_SERVER_DIR }}
+        run: |
+          set -euo pipefail
+          test -n "${FTP_SERVER:-}" || { echo 'DTFSEEDS_FTP_SERVER is not configured for this production deployment.' >&2; exit 1; }
+          test -n "${FTP_USERNAME:-}" || { echo 'DTFSEEDS_FTP_USERNAME is not configured for this production deployment.' >&2; exit 1; }
+          test -n "${FTP_PASSWORD:-}" || { echo 'DTFSEEDS_FTP_PASSWORD is not configured for this production deployment.' >&2; exit 1; }
+          test -n "${FTP_SERVER_DIR:-}" || { echo 'DTFSEEDS_FTP_SERVER_DIR is not configured for this production deployment.' >&2; exit 1; }
 
       - name: Install dependencies
         run: npm ci
