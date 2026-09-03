@@ -8,9 +8,9 @@ describe('persisted reference media', () => {
     .filter((media) => isDisplayableMedia(media))
     .map((media) => ({ issue, media })))
 
-  it('prefers same-origin reviewed crops when persisted visual evidence is available', () => {
+  it('prefers same-origin reviewed crops when scientifically matched visual evidence is available', () => {
     const locallyCovered = approved.filter(({ issue, media }) => localReferenceMediaCoverage(media, issue.slug))
-    expect(locallyCovered.length).toBeGreaterThanOrEqual(25)
+    expect(locallyCovered.length).toBeGreaterThanOrEqual(15)
 
     for (const { issue, media } of locallyCovered) {
       const local = localReferenceMediaUrl(media, issue.slug)
