@@ -61,7 +61,10 @@ training:
   seed: 420
   bf16: true
   tf32: true
-  load_best_model_at_end: true
+  # Best-checkpoint selection is intentionally external until an actual Trainer
+  # eval_dataset + metric callback is implemented. Do not imply otherwise.
+  load_best_model_at_end: false
+  checkpoint_selection: external_heldout_promotion_gate
 
 evaluation:
   heldout_path: model_tuning/eval/heldout_v1.jsonl
