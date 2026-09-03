@@ -1,0 +1,53 @@
+# Starter configuration only; no training run is implied.
+base_model: Qwen/Qwen3-8B
+base_model_revision: PIN_BEFORE_TRAINING
+task: causal_lm_sft
+precision:
+  load_in_4bit: true
+  bnb_4bit_quant_type: nf4
+  bnb_4bit_use_double_quant: true
+  compute_dtype: bfloat16
+lora:
+  r: 32
+  alpha: 64
+  dropout: 0.05
+  bias: none
+  target_modules:
+    - q_proj
+    - k_proj
+    - v_proj
+    - o_proj
+    - gate_proj
+    - up_proj
+    - down_proj
+training:
+  max_seq_length: 4096
+  packing: true
+  learning_rate: 0.0001
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.05
+  num_train_epochs: 2
+  per_device_train_batch_size: 1
+  gradient_accumulation_steps: 16
+  gradient_checkpointing: true
+  max_grad_norm: 1.0
+  weight_decay: 0.01
+  logging_steps: 10
+  eval_steps: 100
+  save_steps: 100
+  save_total_limit: 3
+  seed: 420
+  bf16: true
+  tf32: true
+evaluation:
+  heldout_path: model_tuning/eval/heldout_v1.jsonl
+  select_best_by: critical_weighted_score
+  higher_is_better: true
+  forbid_eval_training_leakage: true
+merge_policy:
+  allow_adapter_merge: false
+  unlock_condition: measured_multi_slice_improvement
+rag:
+  preferred_for_factual_knowledge: true
+  require_source_metadata: true
+  require_claim_limitations: true
