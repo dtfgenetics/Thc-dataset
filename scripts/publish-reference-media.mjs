@@ -4,12 +4,8 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const rootDir = fileURLToPath(new URL('..', import.meta.url))
-const originalManifest = JSON.parse(readFileSync(resolve(rootDir, 'images/reference/manifest.json'), 'utf8'))
 const cropManifest = JSON.parse(readFileSync(resolve(rootDir, 'images/reference/crops-manifest.json'), 'utf8'))
-const repositoryPaths = new Set([
-  ...originalManifest.records.map((record) => record.repository_path),
-  ...cropManifest.records.map((record) => record.repositoryPath),
-])
+const repositoryPaths = new Set(cropManifest.records.map((record) => record.repositoryPath))
 
 for (const repositoryPath of repositoryPaths) {
   const relativePath = repositoryPath.replace(/^images\/reference\//, '')
@@ -19,4 +15,4 @@ for (const repositoryPath of repositoryPaths) {
   copyFileSync(source, destination)
 }
 
-console.log(`[grow-doc] published ${repositoryPaths.size} persisted reference assets`)
+console.log(`[grow-doc] published ${repositoryPaths.size} reviewed reference crops; full-resolution source originals remain in the research repository`)
