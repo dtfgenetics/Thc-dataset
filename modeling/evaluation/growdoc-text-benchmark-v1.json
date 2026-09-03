@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "benchmarkId": "growdoc-text-v1",
+  "purpose": "Select Grow Doc text checkpoints and adapter/model-soup candidates without using locked evaluation for tuning.",
+  "evaluationSets": {
+    "development": {
+      "path": "dataset/eval/text-dev-reviewed.jsonl",
+      "maySelectCheckpoints": true,
+      "maySelectSoupWeights": true,
+      "requiredReviewStatus": "reviewed"
+    },
+    "locked": {
+      "path": "dataset/eval/text-locked.jsonl",
+      "maySelectCheckpoints": false,
+      "maySelectSoupWeights": false,
+      "requiredReviewStatus": "locked_eval",
+      "use": "release-candidate evaluation only"
+    }
+  },
+  "grouping": {
+    "field": "splitGroup",
+    "rule": "No source-connected component may occur in more than one train/dev/locked partition."
+  },
+  "metrics": [
+    {
+      "id": "factuality",
+      "weight": 0.25,
+      "direction": "maximize",
+      "description": "Claims agree with the reviewed evidence supplied to the case."
+    },
+    {
+      "id": "diagnostic_reasoning",
+      "weight": 0.2,
+      "direction": "maximize",
+      "description": "Separates observations from diagnosis, names plausible differentials, and requests discriminating evidence."
+    },
+    {
+      "id": "citation_support",
+      "weight": 0.2,
+      "direction": "maximize",
+      "description": "Citations or source attributions support the claims they are attached to."
+    },
+    {
+      "id": "uncertainty_abstention",
+      "weight": 0.15,
+      "direction": "maximize",
+      "description": "Avoids false certainty when evidence is incomplete and states what would strengthen confirmation."
+    },
+    {
+      "id": "numerical_context",
+      "weight": 0.1,
+      "direction": "maximize",
+      "description": "Does not turn study-, cultivar-, device-, site-, or stage-specific values into universal thresholds."
+    },
+    {
+      "id": "instruction_regression",
+      "weight": 0.1,
+      "direction": "maximize",
+      "description": "Preserves required answer structure, safety boundaries, and Grow Doc response policy."
+    }
+  ],
+  "hardGates": {
+    "sourceGroupLeakageCount": 0,
+    "lockedEvalTrainingOverlapCount": 0,
+    "fabricatedCitationRate": 0.0,
+    "unsupportedUniversalThresholdCriticalFailures": 0
+  },
+  "selection": {
+    "compositeMetric": "growdoc_validation_score",
+    "formula": "weighted mean of metric scores after all hard gates pass",
+    "minimumImprovementOverBaseline": 0.01,
+    "tieBreaker": [
+      "citation_support",
+      "diagnostic_reasoning",
+      "uncertainty_abstention",
+      "factuality"
+    ],
+    "rule": "Do not merge or soup a candidate that fails a hard gate or does not improve development-set composite score over the strongest eligible baseline."
+  },
+  "release": {
+    "lockedEvalRunsPerReleaseCandidate": 1,
+    "record": [
+      "baseModel",
+      "adapterIds",
+      "adapterWeights",
+      "trainingDatasetHash",
+      "developmentDatasetHash",
+      "lockedDatasetHash",
+      "seed",
+      "metrics"
+    ]
+  }
+}
