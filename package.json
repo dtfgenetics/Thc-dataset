@@ -21,7 +21,8 @@
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
     "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test",
     "validate:model-run-manifest": "python3 scripts/validate-model-run-manifest.py --self-test",
-    "validate:model-runner": "python3 scripts/run-model-eval.py --self-test"
+    "validate:model-runner": "python3 scripts/run-model-eval.py --self-test",
+    "validate:rag-snapshot": "python3 scripts/build-rag-eval-snapshot.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
