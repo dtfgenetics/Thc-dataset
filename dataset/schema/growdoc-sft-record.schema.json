@@ -3,7 +3,7 @@
   "$id": "https://dtfseeds.com/schemas/growdoc-sft-record.schema.json",
   "title": "Grow Doc SFT record",
   "type": "object",
-  "required": ["id", "lane", "messages", "provenance", "evidenceTier", "splitGroup"],
+  "required": ["id", "lane", "messages", "provenance", "evidenceTier", "splitGroup", "reviewStatus"],
   "properties": {
     "id": {"type": "string", "minLength": 1},
     "lane": {"enum": ["science_explanation", "cultivation_qa", "diagnostic_reasoning", "grounded_qa", "misconception_correction", "recordkeeping"]},
@@ -16,7 +16,8 @@
         "properties": {
           "role": {"enum": ["system", "user", "assistant"]},
           "content": {"type": "string", "minLength": 1}
-        }
+        },
+        "additionalProperties": false
       }
     },
     "provenance": {
@@ -26,12 +27,13 @@
         "type": "object",
         "required": ["profileId", "sourceTitle"],
         "properties": {
-          "profileId": {"type": "string"},
-          "sourceTitle": {"type": "string"},
+          "profileId": {"type": "string", "minLength": 1},
+          "sourceTitle": {"type": "string", "minLength": 1},
           "doi": {"type": ["string", "null"]},
           "url": {"type": ["string", "null"]},
           "supportedClaims": {"type": "array", "items": {"type": "string"}}
-        }
+        },
+        "additionalProperties": false
       }
     },
     "evidenceTier": {"enum": ["A", "B", "C", "reference_only"]},
