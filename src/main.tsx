@@ -5,6 +5,7 @@ import './styles.css'
 import './visual-observations.css'
 import './growdoc-visual-polish.css'
 import './growdoc-visual-polish-views.css'
+import './growdoc-mobile-containment.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
