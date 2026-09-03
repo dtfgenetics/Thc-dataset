@@ -8,13 +8,14 @@ describe('persisted reference media', () => {
     .filter((media) => isDisplayableMedia(media))
     .map((media) => ({ issue, media })))
 
-  it('prefers same-origin reference media when a persisted asset is available', () => {
+  it('prefers same-origin reviewed crops when persisted visual evidence is available', () => {
     const locallyCovered = approved.filter(({ issue, media }) => localReferenceMediaCoverage(media, issue.slug))
     expect(locallyCovered.length).toBeGreaterThanOrEqual(25)
 
     for (const { issue, media } of locallyCovered) {
       const local = localReferenceMediaUrl(media, issue.slug)
-      expect(local).toContain('reference-media/')
+      expect(local).toContain('reference-media/crops/')
+      expect(local).not.toContain('/original/')
       expect(local).not.toMatch(/^https?:\/\//)
       expect(referenceMediaSources(media, issue.slug)[0]).toBe(local)
     }
