@@ -40,8 +40,44 @@
 
   .diagnostic-layout,
   .workflow-column,
-  .context-grid {
-    grid-template-columns: minmax(0, 1fr);
+  .context-grid,
+  .evidence-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* Keep the input workflow ahead of the evidence summary on phones. */
+  .workflow-column {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .result-panel {
+    grid-column: 1;
+    grid-row: 2 !important;
+    margin-top: 4px;
+  }
+
+  .evidence-grid {
+    gap: 16px;
+  }
+
+  .evidence-slot {
+    width: 100%;
+  }
+
+  .upload-tile {
+    width: 100%;
+    min-height: 168px;
+  }
+
+  .quality-criteria {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 12px;
+  }
+
+  .quality-criteria strong {
+    grid-column: 1 / -1;
   }
 
   .app-shell input,
@@ -79,5 +115,11 @@
   .section-heading p {
     min-width: 0;
     overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 390px) {
+  .quality-criteria {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
