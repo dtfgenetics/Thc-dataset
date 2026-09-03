@@ -7,7 +7,8 @@ all expected_points; lexical similarity is not used as a substitute for factual 
 
 Baseline-vs-candidate promotion comparisons additionally require run manifests proving that the
 benchmark, tokenizer, decoding, retrieval snapshot, base model, dtype, scorer and core runtime are
-comparable. The prediction files must match the response hashes recorded in those manifests.
+comparable. Reviewed prediction rows must reproduce the immutable raw response text byte-for-byte,
+and the raw response files must match the SHA-256 values recorded in their manifests.
 """
 from __future__ import annotations
 import argparse, hashlib, json, pathlib, re, statistics, sys
@@ -112,7 +113,7 @@ def comparable_run_errors(base: dict, cand: dict) -> list[str]:
 
 def manifest_binding_errors(
     eval_path: pathlib.Path,
-    pred_path: pathlib.Path,
+    raw_response_path: pathlib.Path,
     manifest: dict,
     label: str,
 ) -> list[str]:
@@ -120,11 +121,40 @@ def manifest_binding_errors(
     evaluation=manifest.get("evaluation") or {}
     artifacts=manifest.get("artifacts") or {}
     actual_eval_sha=sha256_file(eval_path)
-    actual_pred_sha=sha256_file(pred_path)
+    actual_raw_sha=sha256_file(raw_response_path)
     if evaluation.get("benchmark_sha256") != actual_eval_sha:
         errors.append(f"{label} manifest benchmark_sha256 does not match --eval file")
-    if artifacts.get("responses_sha256") != actual_pred_sha:
-        errors.append(f"{label} manifest responses_sha256 does not match predictions file")
+    if artifacts.get("responses_sha256") != actual_raw_sha:
+        errors.append(f"{label} manifest responses_sha256 does not match raw response file")
+    return errors
+
+
+def reviewed_raw_binding_errors(reviewed: list[dict], raw: list[dict], label: str) -> list[str]:
+    """Ensure human review annotations did not alter generated model response text."""
+    errors=[]
+    raw_by_id={}
+    for idx,row in enumerate(raw,1):
+        rid=row.get("id")
+        if not rid:
+            errors.append(f"{label} raw response {idx}: missing id")
+            continue
+        if rid in raw_by_id:
+            errors.append(f"{label} raw responses: duplicate id {rid!r}")
+        raw_by_id[rid]=row
+    reviewed_ids=set()
+    for idx,row in enumerate(reviewed,1):
+        rid=row.get("id")
+        if not rid:
+            continue
+        reviewed_ids.add(rid)
+        source=raw_by_id.get(rid)
+        if source is None:
+            errors.append(f"{label} reviewed prediction {idx}: id {rid!r} absent from raw responses")
+        elif row.get("response") != source.get("response"):
+            errors.append(f"{label} reviewed prediction {rid}: response text differs from immutable raw response")
+    extra=sorted(set(raw_by_id)-reviewed_ids)
+    if extra:
+        errors.append(f"{label} raw responses contain ids absent from reviewed predictions: {', '.join(extra)}")
     return errors
 
 
@@ -224,6 +254,12 @@ def self_test() -> int:
     assert any("exact same base model" in x for x in comparable_run_errors(base,changed))
     changed=json.loads(json.dumps(cand)); changed["decoding"]["temperature"]=0.2
     assert "decoding configuration differs" in comparable_run_errors(base,changed)
+
+    raw=[{"id":"x","response":"unchanged model text"}]
+    reviewed=[{"id":"x","response":"unchanged model text","point_scores":[1],"reviewed_by":"fixture"}]
+    assert reviewed_raw_binding_errors(reviewed,raw,"candidate") == []
+    reviewed[0]["response"]="edited model text"
+    assert any("differs from immutable raw response" in x for x in reviewed_raw_binding_errors(reviewed,raw,"candidate"))
     print("OK: score-model-eval self-test")
     return 0
 
@@ -231,10 +267,12 @@ def self_test() -> int:
 def main() -> int:
     ap=argparse.ArgumentParser()
     ap.add_argument("--eval",default="model_tuning/eval/heldout_v1.jsonl")
-    ap.add_argument("--predictions")
-    ap.add_argument("--baseline")
+    ap.add_argument("--predictions",help="reviewed candidate predictions used for scoring")
+    ap.add_argument("--baseline",help="reviewed baseline predictions used for scoring")
     ap.add_argument("--candidate-manifest")
     ap.add_argument("--baseline-manifest")
+    ap.add_argument("--candidate-raw-responses")
+    ap.add_argument("--baseline-raw-responses")
     ap.add_argument("--out")
     ap.add_argument("--require-reviewed",action="store_true")
     ap.add_argument("--minimum-gain-pp",type=float,default=2.0)
@@ -259,8 +297,9 @@ def main() -> int:
     if args.baseline:
         if not args.require_reviewed:
             print("promotion comparison requires --require-reviewed",file=sys.stderr); return 2
-        if not args.candidate_manifest or not args.baseline_manifest:
-            print("promotion comparison requires --candidate-manifest and --baseline-manifest",file=sys.stderr); return 2
+        required_args=(args.candidate_manifest,args.baseline_manifest,args.candidate_raw_responses,args.baseline_raw_responses)
+        if not all(required_args):
+            print("promotion comparison requires candidate/baseline manifests and candidate/baseline raw response files",file=sys.stderr); return 2
 
         base_path=pathlib.Path(args.baseline)
         base_preds=load_jsonl(base_path)
@@ -268,14 +307,25 @@ def main() -> int:
         if errors:
             print("baseline: "+"\nbaseline: ".join(errors),file=sys.stderr); return 2
 
+        cand_raw_path=pathlib.Path(args.candidate_raw_responses)
+        base_raw_path=pathlib.Path(args.baseline_raw_responses)
+        cand_raw=load_jsonl(cand_raw_path)
+        base_raw=load_jsonl(base_raw_path)
+        raw_errors=validate_predictions(eval_rows,cand_raw,False)
+        raw_errors.extend(validate_predictions(eval_rows,base_raw,False))
+        raw_errors.extend(reviewed_raw_binding_errors(preds,cand_raw,"candidate"))
+        raw_errors.extend(reviewed_raw_binding_errors(base_preds,base_raw,"baseline"))
+        if raw_errors:
+            print("raw/review binding failure:\n- "+"\n- ".join(raw_errors),file=sys.stderr); return 2
+
         try:
             cand_manifest=load_json(pathlib.Path(args.candidate_manifest))
             base_manifest=load_json(pathlib.Path(args.baseline_manifest))
         except ValueError as exc:
             print(str(exc),file=sys.stderr); return 2
         errors=comparable_run_errors(base_manifest,cand_manifest)
-        errors.extend(manifest_binding_errors(eval_path,pred_path,cand_manifest,"candidate"))
-        errors.extend(manifest_binding_errors(eval_path,base_path,base_manifest,"baseline"))
+        errors.extend(manifest_binding_errors(eval_path,cand_raw_path,cand_manifest,"candidate"))
+        errors.extend(manifest_binding_errors(eval_path,base_raw_path,base_manifest,"baseline"))
         if errors:
             print("non-comparable promotion runs:\n- "+"\n- ".join(errors),file=sys.stderr); return 2
 
