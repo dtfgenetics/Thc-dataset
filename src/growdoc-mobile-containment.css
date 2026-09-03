@@ -30,7 +30,10 @@
   .symptom-picker,
   .result-panel,
   .section-heading,
-  .section-heading > * {
+  .section-heading > *,
+  .library-tools,
+  .search-field,
+  .filter-row {
     min-width: 0;
     max-width: 100%;
   }
@@ -47,6 +50,24 @@
   .app-shell button {
     min-width: 0;
     max-width: 100%;
+  }
+
+  .filter-row {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x proximity;
+    padding-bottom: 7px;
+    scrollbar-width: none;
+  }
+
+  .filter-row::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-row button {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
   }
 
   .symptom-picker > button span,
