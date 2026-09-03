@@ -2,11 +2,21 @@
 base_model: Qwen/Qwen3-8B
 base_model_revision: PIN_BEFORE_TRAINING
 task: causal_lm_sft
+
+reproducibility:
+  require_pinned_base_revision: true
+  require_pinned_dependency_lock: true
+  require_dataset_manifest_hash: true
+  require_tokenizer_revision_match: true
+  record_cuda_and_gpu: true
+  seed: 420
+
 precision:
   load_in_4bit: true
   bnb_4bit_quant_type: nf4
   bnb_4bit_use_double_quant: true
   compute_dtype: bfloat16
+
 lora:
   r: 32
   alpha: 64
@@ -20,6 +30,17 @@ lora:
     - gate_proj
     - up_proj
     - down_proj
+
+training_data:
+  sft_path: model_tuning/generated/sft/grounded_v1.jsonl
+  retrieval_path: model_tuning/generated/rag/claims_v1.jsonl
+  quarantine_path: model_tuning/generated/quarantine/quarantine_v1.jsonl
+  train_only_grounded_examples: true
+  require_context_required: true
+  preserve_source_ids: true
+  forbid_quarantine_training: true
+  forbid_eval_training_leakage: true
+
 training:
   max_seq_length: 4096
   packing: true
@@ -32,6 +53,7 @@ training:
   gradient_checkpointing: true
   max_grad_norm: 1.0
   weight_decay: 0.01
+  optimizer: paged_adamw_8bit
   logging_steps: 10
   eval_steps: 100
   save_steps: 100
@@ -39,15 +61,37 @@ training:
   seed: 420
   bf16: true
   tf32: true
+  load_best_model_at_end: true
+
 evaluation:
   heldout_path: model_tuning/eval/heldout_v1.jsonl
+  compare_against_exact_base_revision: true
   select_best_by: critical_weighted_score
   higher_is_better: true
   forbid_eval_training_leakage: true
+  required_slices:
+    - factuality
+    - diagnostic
+    - hallucination
+    - citation_accuracy
+    - science
+    - education
+    - grounded_qa
+    - regression
+  promotion:
+    minimum_aggregate_gain_percentage_points: 2.0
+    max_citation_accuracy_regression: 0.0
+    max_hallucination_regression: 0.0
+    max_diagnostic_regression: 0.0
+
 merge_policy:
   allow_adapter_merge: false
   unlock_condition: measured_multi_slice_improvement
+  require_pairwise_eval_before_merge: true
+  reject_if_any_critical_slice_regresses: true
+
 rag:
   preferred_for_factual_knowledge: true
   require_source_metadata: true
   require_claim_limitations: true
+  keep_measurements_and_current_guidance_in_retrieval: true
