@@ -26,6 +26,7 @@ jobs:
       - run: npm run validate:model-scorer
       - run: npm run validate:model-run-manifest
       - run: npm run validate:model-runner
+      - run: npm run validate:rag-snapshot
       - run: npm run check
       - run: npm test
       - name: Validate visual observation PHP proxy
