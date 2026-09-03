@@ -12,10 +12,12 @@ on:
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
       - 'scripts/generate-sft-review-packet.py'
+      - 'scripts/prioritize-sft-review.py'
       - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
       - 'tests/test_generate_sft_review_packet.py'
+      - 'tests/test_prioritize_sft_review.py'
       - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
@@ -28,10 +30,12 @@ on:
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
       - 'scripts/generate-sft-review-packet.py'
+      - 'scripts/prioritize-sft-review.py'
       - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
       - 'tests/test_generate_sft_review_packet.py'
+      - 'tests/test_prioritize_sft_review.py'
       - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
@@ -57,6 +61,7 @@ jobs:
         run: |
           python -m unittest tests/test_build_text_sft.py -v
           python -m unittest tests/test_generate_sft_review_packet.py -v
+          python -m unittest tests/test_prioritize_sft_review.py -v
           python -m unittest tests/test_promote_reviewed_sft.py -v
           python -m unittest tests/test_split_reviewed_sft.py -v
 
@@ -75,6 +80,13 @@ jobs:
             --output /tmp/growdoc-model-ci/text-sft-review-packet.jsonl \
             --report /tmp/growdoc-model-ci/text-sft-review-packet.report.json
 
+      - name: Prioritize human-review queue
+        run: |
+          python scripts/prioritize-sft-review.py \
+            --packets /tmp/growdoc-model-ci/text-sft-review-packet.jsonl \
+            --output /tmp/growdoc-model-ci/text-sft-review-queue.jsonl \
+            --report /tmp/growdoc-model-ci/text-sft-review-queue.report.json
+
       - name: Enforce corpus invariants
         run: |
           python - <<'PY'
@@ -86,15 +98,21 @@ jobs:
           report_path = Path('/tmp/growdoc-model-ci/text-sft-candidates.report.json')
           packet_path = Path('/tmp/growdoc-model-ci/text-sft-review-packet.jsonl')
           packet_report_path = Path('/tmp/growdoc-model-ci/text-sft-review-packet.report.json')
+          queue_path = Path('/tmp/growdoc-model-ci/text-sft-review-queue.jsonl')
+          queue_report_path = Path('/tmp/growdoc-model-ci/text-sft-review-queue.report.json')
           assert out.exists(), 'candidate corpus was not produced'
           assert report_path.exists(), 'candidate report was not produced'
           assert packet_path.exists(), 'review packet was not produced'
           assert packet_report_path.exists(), 'review packet report was not produced'
+          assert queue_path.exists(), 'review queue was not produced'
+          assert queue_report_path.exists(), 'review queue report was not produced'
 
           report = json.loads(report_path.read_text())
           rows = [json.loads(line) for line in out.read_text().splitlines() if line.strip()]
           packets = [json.loads(line) for line in packet_path.read_text().splitlines() if line.strip()]
           packet_report = json.loads(packet_report_path.read_text())
+          queue = [json.loads(line) for line in queue_path.read_text().splitlines() if line.strip()]
+          queue_report = json.loads(queue_report_path.read_text())
 
           assert report['eligibleReviewedProfiles'] > 0, 'no reviewed profiles were eligible'
           assert report['recordsBeforeDedup'] >= report['recordsAfterDedup'] > 0
@@ -102,11 +120,15 @@ jobs:
           assert report['sourceComponents'] > 0
           assert len(packets) == len(rows), 'review packet lost or added candidates'
           assert packet_report['reviewPackets'] == len(rows)
+          assert len(queue) == len(rows), 'review queue lost or added candidates'
+          assert queue_report['queuedRecords'] == len(rows)
 
           ids = [row['id'] for row in rows]
           assert len(ids) == len(set(ids)), 'duplicate stable IDs remain'
           packet_ids = [packet['recordId'] for packet in packets]
+          queue_ids = [item['recordId'] for item in queue]
           assert set(packet_ids) == set(ids), 'review packet candidate IDs do not match corpus'
+          assert set(queue_ids) == set(ids), 'review queue candidate IDs do not match corpus'
 
           message_fingerprints = [json.dumps(row['messages'], sort_keys=True, ensure_ascii=False) for row in rows]
           assert len(message_fingerprints) == len(set(message_fingerprints)), 'exact message duplicates remain'
@@ -122,11 +144,20 @@ jobs:
               assert all(p.get('sourceTitle') for p in row['provenance']), f"candidate {row['id']} has incomplete provenance"
               assert row['evidenceTier'] in {'A', 'B', 'C'}, f"candidate {row['id']} has invalid evidence tier"
 
+          packet_hashes = {packet['recordId']: packet['candidateSha256'] for packet in packets}
           for packet in packets:
               assert packet['decisionTemplate']['decision'] is None, f"packet {packet['recordId']} pre-filled a decision"
               assert all(value is None for value in packet['reviewChecklist'].values()), f"packet {packet['recordId']} pre-filled review checks"
               assert packet['candidateSha256'], f"packet {packet['recordId']} missing candidate hash"
               assert packet['sourceIdentities'], f"packet {packet['recordId']} missing source identities"
+
+          expected_ranks = list(range(1, len(queue) + 1))
+          assert [item['reviewRank'] for item in queue] == expected_ranks, 'review queue ranks are not contiguous'
+          assert [item['priorityScore'] for item in queue] == sorted((item['priorityScore'] for item in queue), reverse=True), 'review queue is not score sorted'
+          for item in queue:
+              assert item['reviewStatus'] == 'pending_human_review', f"queue {item['recordId']} changed review state"
+              assert item['candidateSha256'] == packet_hashes[item['recordId']], f"queue {item['recordId']} changed candidate identity"
+              assert 'decision' not in item, f"queue {item['recordId']} contains a decision"
 
           print(json.dumps({
               'profiles': report['eligibleReviewedProfiles'],
@@ -136,6 +167,8 @@ jobs:
               'lanes': dict(lanes),
               'duplicates_dropped': report['exactDuplicatesDropped'] + report['normalizedDuplicatesDropped'],
               'review_packet_risk_flags': packet_report['riskFlags'],
+              'review_queue_high_risk_records': queue_report['highRiskRecords'],
+              'review_queue_top_priority_ids': queue_report['topPriorityRecordIds'],
           }, indent=2))
           PY
 
@@ -147,5 +180,6 @@ jobs:
           path: |
             /tmp/growdoc-model-ci/text-sft-candidates.report.json
             /tmp/growdoc-model-ci/text-sft-review-packet.report.json
+            /tmp/growdoc-model-ci/text-sft-review-queue.report.json
           if-no-files-found: error
           retention-days: 14
