@@ -1,0 +1,45 @@
+name: Live Grow Doc Visual QA
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/live-growdoc-visual-smoke.mjs'
+      - '.github/workflows/live-growdoc-visual-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Locate bundled Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          chrome="$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || command -v chromium-browser || true)"
+          if [[ -z "$chrome" ]]; then
+            echo 'Chrome/Chromium is unavailable on this runner.' >&2
+            exit 1
+          fi
+          echo "CHROME_BIN=$chrome" >> "$GITHUB_ENV"
+          "$chrome" --version
+      - name: Render live Grow Doc at desktop and mobile widths
+        env:
+          GROW_DOC_URL: https://dtfseeds.com/thc-grow-doc/
+          GROW_DOC_QA_DIR: qa-output
+        run: node scripts/live-growdoc-visual-smoke.mjs
+      - name: Upload visual QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: growdoc-live-visual-qa
+          path: qa-output/
+          if-no-files-found: error
+          retention-days: 14
