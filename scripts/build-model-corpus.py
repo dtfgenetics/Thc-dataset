@@ -231,10 +231,12 @@ def dedupe_rag(rows: list[dict]) -> tuple[list[dict], int, int]:
         duplicate_claims += 1
         keep = by_claim[fp]
         before_sources = len(keep["source_ids"])
+        before_profiles = len(keep["profile_ids"])
         keep["source_ids"] = list(dict.fromkeys(keep["source_ids"] + row.get("source_ids", [row["source_id"]])))
         keep["profile_ids"] = list(dict.fromkeys(keep["profile_ids"] + row.get("profile_ids", [row["profile_id"]])))
         keep["sources"] = merge_unique_dicts(keep["sources"], row.get("sources", []), "source_id")
         merged_provenance_links += max(0, len(keep["source_ids"]) - before_sources)
+        merged_provenance_links += max(0, len(keep["profile_ids"]) - before_profiles)
     return list(by_claim.values()), duplicate_claims, merged_provenance_links
 
 
@@ -285,7 +287,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; exact claim dedup with provenance consolidation; eval prompt collision rejection",
+        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
     }
     return rag, sft, quarantine, stats
 
