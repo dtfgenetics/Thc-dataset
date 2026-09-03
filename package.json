@@ -19,7 +19,8 @@
     "validate:transfer": "node scripts/validate-transfer-policy.mjs dataset/acquisition/cross-crop-transfer-policy-ds137-ds146.json",
     "validate:model-eval": "python3 scripts/validate-model-eval.py",
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
-    "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test"
+    "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test",
+    "validate:model-run-manifest": "python3 scripts/validate-model-run-manifest.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
