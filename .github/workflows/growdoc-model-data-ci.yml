@@ -11,9 +11,11 @@ on:
       - 'evaluation/**'
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
+      - 'scripts/generate-sft-review-packet.py'
       - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
+      - 'tests/test_generate_sft_review_packet.py'
       - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
@@ -25,9 +27,11 @@ on:
       - 'evaluation/**'
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
+      - 'scripts/generate-sft-review-packet.py'
       - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
+      - 'tests/test_generate_sft_review_packet.py'
       - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
@@ -52,6 +56,7 @@ jobs:
       - name: Run model-data regression tests
         run: |
           python -m unittest tests/test_build_text_sft.py -v
+          python -m unittest tests/test_generate_sft_review_packet.py -v
           python -m unittest tests/test_promote_reviewed_sft.py -v
           python -m unittest tests/test_split_reviewed_sft.py -v
 
@@ -63,6 +68,13 @@ jobs:
             --output /tmp/growdoc-model-ci/text-sft-candidates.jsonl \
             --report /tmp/growdoc-model-ci/text-sft-candidates.report.json
 
+      - name: Generate human-review packet
+        run: |
+          python scripts/generate-sft-review-packet.py \
+            --candidates /tmp/growdoc-model-ci/text-sft-candidates.jsonl \
+            --output /tmp/growdoc-model-ci/text-sft-review-packet.jsonl \
+            --report /tmp/growdoc-model-ci/text-sft-review-packet.report.json
+
       - name: Enforce corpus invariants
         run: |
           python - <<'PY'
@@ -72,19 +84,29 @@ jobs:
 
           out = Path('/tmp/growdoc-model-ci/text-sft-candidates.jsonl')
           report_path = Path('/tmp/growdoc-model-ci/text-sft-candidates.report.json')
+          packet_path = Path('/tmp/growdoc-model-ci/text-sft-review-packet.jsonl')
+          packet_report_path = Path('/tmp/growdoc-model-ci/text-sft-review-packet.report.json')
           assert out.exists(), 'candidate corpus was not produced'
           assert report_path.exists(), 'candidate report was not produced'
+          assert packet_path.exists(), 'review packet was not produced'
+          assert packet_report_path.exists(), 'review packet report was not produced'
 
           report = json.loads(report_path.read_text())
           rows = [json.loads(line) for line in out.read_text().splitlines() if line.strip()]
+          packets = [json.loads(line) for line in packet_path.read_text().splitlines() if line.strip()]
+          packet_report = json.loads(packet_report_path.read_text())
 
           assert report['eligibleReviewedProfiles'] > 0, 'no reviewed profiles were eligible'
           assert report['recordsBeforeDedup'] >= report['recordsAfterDedup'] > 0
           assert report['recordsAfterDedup'] == len(rows)
           assert report['sourceComponents'] > 0
+          assert len(packets) == len(rows), 'review packet lost or added candidates'
+          assert packet_report['reviewPackets'] == len(rows)
 
           ids = [row['id'] for row in rows]
           assert len(ids) == len(set(ids)), 'duplicate stable IDs remain'
+          packet_ids = [packet['recordId'] for packet in packets]
+          assert set(packet_ids) == set(ids), 'review packet candidate IDs do not match corpus'
 
           message_fingerprints = [json.dumps(row['messages'], sort_keys=True, ensure_ascii=False) for row in rows]
           assert len(message_fingerprints) == len(set(message_fingerprints)), 'exact message duplicates remain'
@@ -100,6 +122,12 @@ jobs:
               assert all(p.get('sourceTitle') for p in row['provenance']), f"candidate {row['id']} has incomplete provenance"
               assert row['evidenceTier'] in {'A', 'B', 'C'}, f"candidate {row['id']} has invalid evidence tier"
 
+          for packet in packets:
+              assert packet['decisionTemplate']['decision'] is None, f"packet {packet['recordId']} pre-filled a decision"
+              assert all(value is None for value in packet['reviewChecklist'].values()), f"packet {packet['recordId']} pre-filled review checks"
+              assert packet['candidateSha256'], f"packet {packet['recordId']} missing candidate hash"
+              assert packet['sourceIdentities'], f"packet {packet['recordId']} missing source identities"
+
           print(json.dumps({
               'profiles': report['eligibleReviewedProfiles'],
               'records': len(rows),
@@ -107,6 +135,7 @@ jobs:
               'largest_source_component_profiles': report['largestSourceComponentProfiles'],
               'lanes': dict(lanes),
               'duplicates_dropped': report['exactDuplicatesDropped'] + report['normalizedDuplicatesDropped'],
+              'review_packet_risk_flags': packet_report['riskFlags'],
           }, indent=2))
           PY
 
@@ -117,5 +146,6 @@ jobs:
           name: growdoc-text-corpus-audit
           path: |
             /tmp/growdoc-model-ci/text-sft-candidates.report.json
+            /tmp/growdoc-model-ci/text-sft-review-packet.report.json
           if-no-files-found: error
           retention-days: 14
