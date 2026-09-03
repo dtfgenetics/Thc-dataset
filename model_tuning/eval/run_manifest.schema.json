@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/grow-doc-run-manifest-v1.json",
+  "title": "Grow Doc Evaluation Run Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "created_at",
+    "model",
+    "tokenizer",
+    "decoding",
+    "evaluation",
+    "runtime",
+    "artifacts"
+  ],
+  "properties": {
+    "schema_version": {"const": "grow-doc-eval-run-v1"},
+    "run_id": {"type": "string", "minLength": 8},
+    "created_at": {"type": "string", "format": "date-time"},
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "revision", "dtype", "adapter"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 7},
+        "dtype": {"type": "string", "enum": ["float32", "float16", "bfloat16", "int8", "nf4"]},
+        "adapter": {
+          "oneOf": [
+            {"type": "null"},
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["repository", "revision"],
+              "properties": {
+                "repository": {"type": "string", "minLength": 1},
+                "revision": {"type": "string", "minLength": 7}
+              }
+            }
+          ]
+        }
+      }
+    },
+    "tokenizer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "revision"],
+      "properties": {
+        "repository": {"type": "string", "minLength": 1},
+        "revision": {"type": "string", "minLength": 7}
+      }
+    },
+    "decoding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["temperature", "top_p", "max_new_tokens", "do_sample"],
+      "properties": {
+        "temperature": {"type": "number", "minimum": 0},
+        "top_p": {"type": "number", "exclusiveMinimum": 0, "maximum": 1},
+        "max_new_tokens": {"type": "integer", "minimum": 1},
+        "do_sample": {"type": "boolean"},
+        "seed": {"type": ["integer", "null"]}
+      }
+    },
+    "retrieval": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["snapshot_sha256", "top_k", "reranker"],
+      "properties": {
+        "snapshot_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "top_k": {"type": "integer", "minimum": 1},
+        "reranker": {"type": ["string", "null"]}
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["benchmark_path", "benchmark_sha256", "scorer_revision"],
+      "properties": {
+        "benchmark_path": {"type": "string", "minLength": 1},
+        "benchmark_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "scorer_revision": {"type": "string", "minLength": 7}
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["python", "transformers", "torch", "accelerate", "device"],
+      "properties": {
+        "python": {"type": "string", "minLength": 1},
+        "transformers": {"type": "string", "minLength": 1},
+        "torch": {"type": "string", "minLength": 1},
+        "accelerate": {"type": "string", "minLength": 1},
+        "peft": {"type": ["string", "null"]},
+        "bitsandbytes": {"type": ["string", "null"]},
+        "device": {"type": "string", "minLength": 1},
+        "gpu_name": {"type": ["string", "null"]},
+        "gpu_memory_bytes": {"type": ["integer", "null"], "minimum": 1}
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["responses_path", "responses_sha256", "scores_path"],
+      "properties": {
+        "responses_path": {"type": "string", "minLength": 1},
+        "responses_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "scores_path": {"type": "string", "minLength": 1},
+        "review_path": {"type": ["string", "null"]}
+      }
+    }
+  }
+}
