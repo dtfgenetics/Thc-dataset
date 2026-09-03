@@ -47,7 +47,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
           <span><strong>THC Grow Doc</strong><small>by DTF Genetics</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Grow Doc navigation">
-          {navItems.slice(0, 5).map((item) => (
+          {navItems.filter((item) => item.id !== 'coverage').map((item) => (
             <button key={item.id} className={activeView === item.id ? 'active' : ''} onClick={() => chooseView(item.id)}>{item.label}</button>
           ))}
         </nav>
