@@ -1,0 +1,110 @@
+name: Grow Doc model data CI
+
+on:
+  push:
+    branches:
+      - growdoc-model-tuning-v1
+    paths:
+      - 'data/profiles/**'
+      - 'dataset/schema/**'
+      - 'dataset/training/**'
+      - 'evaluation/**'
+      - 'modeling/**'
+      - 'scripts/build-text-sft.py'
+      - 'tests/test_build_text_sft.py'
+      - '.github/workflows/growdoc-model-data-ci.yml'
+  pull_request:
+    paths:
+      - 'data/profiles/**'
+      - 'dataset/schema/**'
+      - 'dataset/training/**'
+      - 'evaluation/**'
+      - 'modeling/**'
+      - 'scripts/build-text-sft.py'
+      - 'tests/test_build_text_sft.py'
+      - '.github/workflows/growdoc-model-data-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-text-corpus:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run leakage regression tests
+        run: python -m unittest tests/test_build_text_sft.py -v
+
+      - name: Build candidate SFT corpus from reviewed profiles
+        run: |
+          mkdir -p /tmp/growdoc-model-ci
+          python scripts/build-text-sft.py \
+            --profiles data/profiles \
+            --output /tmp/growdoc-model-ci/text-sft-candidates.jsonl \
+            --report /tmp/growdoc-model-ci/text-sft-candidates.report.json
+
+      - name: Enforce corpus invariants
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+
+          out = Path('/tmp/growdoc-model-ci/text-sft-candidates.jsonl')
+          report_path = Path('/tmp/growdoc-model-ci/text-sft-candidates.report.json')
+          assert out.exists(), 'candidate corpus was not produced'
+          assert report_path.exists(), 'candidate report was not produced'
+
+          report = json.loads(report_path.read_text())
+          rows = [json.loads(line) for line in out.read_text().splitlines() if line.strip()]
+
+          assert report['eligibleReviewedProfiles'] > 0, 'no reviewed profiles were eligible'
+          assert report['recordsBeforeDedup'] >= report['recordsAfterDedup'] > 0
+          assert report['recordsAfterDedup'] == len(rows)
+          assert report['sourceComponents'] > 0
+
+          ids = [row['id'] for row in rows]
+          assert len(ids) == len(set(ids)), 'duplicate stable IDs remain'
+
+          message_fingerprints = [json.dumps(row['messages'], sort_keys=True, ensure_ascii=False) for row in rows]
+          assert len(message_fingerprints) == len(set(message_fingerprints)), 'exact message duplicates remain'
+
+          required_lanes = {'science_explanation', 'diagnostic_reasoning', 'grounded_qa'}
+          lanes = Counter(row['lane'] for row in rows)
+          assert required_lanes.issubset(lanes), f'missing required lanes: {required_lanes - set(lanes)}'
+
+          for row in rows:
+              assert row['reviewStatus'] == 'generated_unreviewed', f"candidate {row['id']} bypassed review gate"
+              assert row['splitGroup'].startswith('source-component-'), f"candidate {row['id']} lacks source component"
+              assert row['provenance'], f"candidate {row['id']} lacks provenance"
+              assert all(p.get('sourceTitle') for p in row['provenance']), f"candidate {row['id']} has incomplete provenance"
+              assert row['evidenceTier'] in {'A', 'B', 'C'}, f"candidate {row['id']} has invalid evidence tier"
+
+          print(json.dumps({
+              'profiles': report['eligibleReviewedProfiles'],
+              'records': len(rows),
+              'source_components': report['sourceComponents'],
+              'largest_source_component_profiles': report['largestSourceComponentProfiles'],
+              'lanes': dict(lanes),
+              'duplicates_dropped': report['exactDuplicatesDropped'] + report['normalizedDuplicatesDropped'],
+          }, indent=2))
+          PY
+
+      - name: Upload corpus audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: growdoc-text-corpus-audit
+          path: |
+            /tmp/growdoc-model-ci/text-sft-candidates.report.json
+          if-no-files-found: error
+          retention-days: 14
