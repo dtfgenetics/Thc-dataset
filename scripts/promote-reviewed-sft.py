@@ -7,19 +7,30 @@ rows are written to a rejection report and never enter the training corpus.
 
 Decision JSONL fields:
   recordId: candidate id
+  candidateSha256: canonical hash of the exact candidate reviewed
   decision: approved | rejected
   reviewer: non-empty reviewer identifier
   reviewedAt: ISO-8601 timestamp/date
+  checks: scientific-review checklist booleans
   notes: required for rejected decisions; recommended for edits
   editedMessages: optional replacement messages for approved decisions only
+
+Required checks:
+  sourceSupport: cited evidence supports the answer
+  citationIntegrity: provenance is traceable and not fabricated
+  scopeAndUncertainty: scope, caveats, and uncertainty are appropriate
+  diagnosticDifferential: diagnostic claims preserve plausible alternatives
+  numericalContext: numerical claims retain system/stage/measurement context
 
 Safety invariants:
 - every candidate must have exactly one decision unless --allow-undecided is set
 - decisions may reference only existing candidate IDs
+- the decision hash must match the exact candidate version being reviewed
 - reviewer and reviewedAt are mandatory
+- approval requires every scientific-review check to be true
 - rejected rows cannot be promoted
 - editedMessages may change only the conversation, never provenance/split identity
-- original candidate content is hashed into the review record for auditability
+- original candidate content is hashed into the promoted review record for auditability
 """
 
 from __future__ import annotations
@@ -31,6 +42,14 @@ import json
 from datetime import datetime
 from pathlib import Path
 from typing import Any
+
+REQUIRED_CHECKS = (
+    "sourceSupport",
+    "citationIntegrity",
+    "scopeAndUncertainty",
+    "diagnosticDifferential",
+    "numericalContext",
+)
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -77,6 +96,27 @@ def validate_messages(messages: Any) -> None:
         raise ValueError("editedMessages must end with an assistant response")
 
 
+def validate_checks(checks: Any, rid: str, outcome: str) -> dict[str, bool]:
+    if not isinstance(checks, dict):
+        raise ValueError(f"candidate {rid} missing scientific review checks")
+    unknown = set(checks) - set(REQUIRED_CHECKS)
+    missing = set(REQUIRED_CHECKS) - set(checks)
+    if unknown:
+        raise ValueError(f"candidate {rid} has unknown review checks: {sorted(unknown)}")
+    if missing:
+        raise ValueError(f"candidate {rid} missing review checks: {sorted(missing)}")
+    normalized: dict[str, bool] = {}
+    for key in REQUIRED_CHECKS:
+        value = checks[key]
+        if not isinstance(value, bool):
+            raise ValueError(f"candidate {rid} review check {key} must be boolean")
+        normalized[key] = value
+    if outcome == "approved" and not all(normalized.values()):
+        failed = [key for key, value in normalized.items() if not value]
+        raise ValueError(f"approved candidate {rid} has failed review checks: {failed}")
+    return normalized
+
+
 def index_candidates(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     indexed: dict[str, dict[str, Any]] = {}
     for row in rows:
@@ -95,16 +135,20 @@ def index_candidates(rows: list[dict[str, Any]]) -> dict[str, dict[str, Any]]:
     return indexed
 
 
-def index_decisions(rows: list[dict[str, Any]], candidate_ids: set[str]) -> dict[str, dict[str, Any]]:
+def index_decisions(rows: list[dict[str, Any]], candidates: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
     indexed: dict[str, dict[str, Any]] = {}
     for decision in rows:
         rid = decision.get("recordId")
         if not isinstance(rid, str) or not rid.strip():
             raise ValueError("review decision missing recordId")
-        if rid not in candidate_ids:
+        if rid not in candidates:
             raise ValueError(f"review decision references unknown candidate: {rid}")
         if rid in indexed:
             raise ValueError(f"duplicate review decision for candidate: {rid}")
+        expected_hash = canonical_hash(candidates[rid])
+        supplied_hash = decision.get("candidateSha256")
+        if not isinstance(supplied_hash, str) or supplied_hash != expected_hash:
+            raise ValueError(f"candidate {rid} review hash does not match current candidate")
         outcome = decision.get("decision")
         if outcome not in {"approved", "rejected"}:
             raise ValueError(f"candidate {rid} has invalid decision: {outcome}")
@@ -115,6 +159,7 @@ def index_decisions(rows: list[dict[str, Any]], candidate_ids: set[str]) -> dict
         if not isinstance(reviewed_at, str):
             raise ValueError(f"candidate {rid} missing reviewedAt")
         validate_iso8601(reviewed_at)
+        checks = validate_checks(decision.get("checks"), rid, outcome)
         notes = decision.get("notes", "")
         if outcome == "rejected" and (not isinstance(notes, str) or not notes.strip()):
             raise ValueError(f"rejected candidate {rid} requires notes")
@@ -122,13 +167,17 @@ def index_decisions(rows: list[dict[str, Any]], candidate_ids: set[str]) -> dict
             raise ValueError(f"rejected candidate {rid} cannot include editedMessages")
         if "editedMessages" in decision:
             validate_messages(decision["editedMessages"])
-        indexed[rid] = decision
+        normalized = copy.deepcopy(decision)
+        normalized["checks"] = checks
+        indexed[rid] = normalized
     return indexed
 
 
 def promote(candidate: dict[str, Any], decision: dict[str, Any]) -> dict[str, Any]:
     row = copy.deepcopy(candidate)
     original_hash = canonical_hash(candidate)
+    if decision.get("candidateSha256") not in {None, original_hash}:
+        raise ValueError(f"candidate {candidate.get('id')} review hash does not match current candidate")
     if "editedMessages" in decision:
         row["messages"] = copy.deepcopy(decision["editedMessages"])
     row["reviewStatus"] = "reviewed"
@@ -139,6 +188,7 @@ def promote(candidate: dict[str, Any], decision: dict[str, Any]) -> dict[str, An
         "notes": decision.get("notes", "").strip() if isinstance(decision.get("notes", ""), str) else "",
         "candidateSha256": original_hash,
         "messagesEdited": "editedMessages" in decision,
+        "checks": copy.deepcopy(decision.get("checks", {})),
     }
     return row
 
@@ -160,7 +210,7 @@ def main() -> None:
     candidates = index_candidates(load_jsonl(Path(args.candidates)))
     if not candidates:
         raise ValueError("candidate corpus is empty")
-    decisions = index_decisions(load_jsonl(Path(args.decisions)), set(candidates))
+    decisions = index_decisions(load_jsonl(Path(args.decisions)), candidates)
 
     undecided = sorted(set(candidates) - set(decisions))
     if undecided and not args.allow_undecided:
@@ -183,6 +233,7 @@ def main() -> None:
                 "reviewedAt": decision["reviewedAt"].strip(),
                 "notes": decision["notes"].strip(),
                 "candidateSha256": canonical_hash(candidate),
+                "checks": decision["checks"],
             })
 
     write_jsonl(Path(args.reviewed_output), reviewed)
