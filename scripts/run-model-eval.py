@@ -4,9 +4,8 @@
 CI uses --self-test with a deterministic mock backend. Real evaluation requires
 --backend transformers with pinned revisions and local model access.
 
-Evaluation dtypes are intentionally limited to explicit floating-point modes.
-Quantized int8/NF4 evaluation is not accepted until its quantization configuration
-can be pinned and recorded in the evaluation manifest.
+Optional retrieval is accepted only through a prebuilt frozen snapshot whose
+hash and benchmark binding are verified before prompts are constructed.
 """
 from __future__ import annotations
 
@@ -28,6 +27,10 @@ def sha256(path: Path) -> str:
         for chunk in iter(lambda: f.read(1048576), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def text_sha256(text: str) -> str:
+    return hashlib.sha256(text.encode("utf-8")).hexdigest()
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -75,6 +78,74 @@ def dtype_attribute(name: str) -> str:
     return name
 
 
+def load_retrieval(
+    snapshot_path: Path,
+    manifest_path: Path,
+    benchmark_path: Path,
+    cases: list[dict[str, Any]],
+) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if manifest.get("schema_version") != "grow-doc-rag-snapshot-v1":
+        raise ValueError("unsupported retrieval snapshot manifest schema")
+    if manifest.get("snapshot_sha256") != sha256(snapshot_path):
+        raise ValueError("retrieval snapshot SHA-256 does not match manifest")
+    if manifest.get("benchmark_sha256") != sha256(benchmark_path):
+        raise ValueError("retrieval snapshot was built against a different benchmark")
+    top_k = manifest.get("top_k")
+    if not isinstance(top_k, int) or top_k < 1:
+        raise ValueError("retrieval manifest top_k must be a positive integer")
+
+    rows = load_jsonl(snapshot_path)
+    expected = {c["id"]: c for c in cases}
+    by_case: dict[str, dict[str, Any]] = {}
+    for n, row in enumerate(rows, 1):
+        case_id = row.get("case_id")
+        if case_id not in expected:
+            raise ValueError(f"retrieval row {n}: unknown case_id {case_id!r}")
+        if case_id in by_case:
+            raise ValueError(f"retrieval row {n}: duplicate case_id {case_id}")
+        expected_prompt_hash = text_sha256(expected[case_id]["prompt"])
+        if row.get("prompt_sha256") != expected_prompt_hash:
+            raise ValueError(f"retrieval row {n}: prompt hash mismatch for {case_id}")
+        retrieved = row.get("retrieved")
+        if not isinstance(retrieved, list):
+            raise ValueError(f"retrieval row {n}: retrieved must be a list")
+        if len(retrieved) > top_k:
+            raise ValueError(f"retrieval row {n}: exceeds manifest top_k")
+        seen_claims: set[str] = set()
+        for item in retrieved:
+            required = {"rank", "score", "claim_id", "claim_sha256", "claim", "source_ids", "profile_ids"}
+            missing = required - item.keys()
+            if missing:
+                raise ValueError(f"retrieval row {n}: item missing {sorted(missing)}")
+            if item["claim_id"] in seen_claims:
+                raise ValueError(f"retrieval row {n}: duplicate claim {item['claim_id']}")
+            seen_claims.add(item["claim_id"])
+            if text_sha256(item["claim"]) != item["claim_sha256"]:
+                raise ValueError(f"retrieval row {n}: claim hash mismatch for {item['claim_id']}")
+            if not item["source_ids"] or not item["profile_ids"]:
+                raise ValueError(f"retrieval row {n}: provenance missing for {item['claim_id']}")
+        by_case[case_id] = row
+
+    missing_cases = sorted(set(expected) - set(by_case))
+    if missing_cases:
+        raise ValueError(f"retrieval snapshot missing benchmark cases: {missing_cases}")
+    return by_case, manifest
+
+
+def retrieval_context(row: dict[str, Any] | None) -> str:
+    if row is None:
+        return ""
+    items = row["retrieved"]
+    if not items:
+        return "\n\nRETRIEVED EVIDENCE\nNo approved evidence was retrieved. Do not invent citations or claims."
+    lines = ["\n\nRETRIEVED EVIDENCE", "Use only these retrieved claims as factual grounding; preserve uncertainty and cite source IDs exactly."]
+    for item in items:
+        sources = ", ".join(item["source_ids"])
+        lines.append(f"[{item['rank']}] {item['claim']} Sources: {sources}")
+    return "\n".join(lines)
+
+
 def transformers_generate(args: argparse.Namespace, prompts: list[str]) -> list[str]:
     try:
         import torch
@@ -92,7 +163,6 @@ def transformers_generate(args: argparse.Namespace, prompts: list[str]) -> list[
     )
     if args.adapter_repo:
         from peft import PeftModel
-
         model = PeftModel.from_pretrained(model, args.adapter_repo, revision=args.adapter_revision)
     model.eval()
 
@@ -102,20 +172,12 @@ def transformers_generate(args: argparse.Namespace, prompts: list[str]) -> list[
             torch.manual_seed(args.seed)
         inputs = tok(prompt, return_tensors="pt")
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
-        kwargs: dict[str, Any] = {
-            "max_new_tokens": args.max_new_tokens,
-            "do_sample": args.do_sample,
-        }
+        kwargs: dict[str, Any] = {"max_new_tokens": args.max_new_tokens, "do_sample": args.do_sample}
         if args.do_sample:
             kwargs.update(temperature=args.temperature, top_p=args.top_p)
         with torch.inference_mode():
             generated = model.generate(**inputs, **kwargs)
-        out.append(
-            tok.decode(
-                generated[0][inputs["input_ids"].shape[-1] :],
-                skip_special_tokens=True,
-            ).strip()
-        )
+        out.append(tok.decode(generated[0][inputs["input_ids"].shape[-1]:], skip_special_tokens=True).strip())
     return out
 
 
@@ -133,7 +195,6 @@ def runtime() -> dict[str, Any]:
     gpu_memory_bytes = None
     try:
         import torch
-
         if torch.cuda.is_available():
             device = "cuda"
             gpu_name = torch.cuda.get_device_name(0)
@@ -160,35 +221,49 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
     bench = Path(args.benchmark)
     cases = load_jsonl(bench)
     validate_cases(cases)
-    prompts = [
-        "Answer cautiously from evidence; preserve limitations and exact citations when known.\n\n" + c["prompt"]
-        for c in cases
-    ]
+
+    retrieval_rows: dict[str, dict[str, Any]] = {}
+    retrieval_manifest: dict[str, Any] | None = None
+    if args.retrieval_snapshot or args.retrieval_manifest:
+        if not args.retrieval_snapshot or not args.retrieval_manifest:
+            raise ValueError("retrieval snapshot and manifest must be provided together")
+        retrieval_rows, retrieval_manifest = load_retrieval(
+            Path(args.retrieval_snapshot), Path(args.retrieval_manifest), bench, cases
+        )
+
+    prompts: list[str] = []
+    for case in cases:
+        base = "Answer cautiously from evidence; preserve limitations and exact citations when known.\n\n" + case["prompt"]
+        prompts.append(base + retrieval_context(retrieval_rows.get(case["id"])))
+
     answers = [mock_response(c) for c in cases] if mock else transformers_generate(args, prompts)
     outdir = Path(args.output_dir)
     outdir.mkdir(parents=True, exist_ok=True)
     responses = outdir / "responses.jsonl"
-    write_jsonl(
-        responses,
-        [
-            {
-                "id": c["id"],
-                "category": c["category"],
-                "prompt_sha256": hashlib.sha256(p.encode()).hexdigest(),
-                "response": a,
-            }
-            for c, p, a in zip(cases, prompts, answers)
-        ],
-    )
+
+    response_rows: list[dict[str, Any]] = []
+    for case, prompt, answer in zip(cases, prompts, answers):
+        retrieved = retrieval_rows.get(case["id"], {}).get("retrieved", [])
+        response_rows.append({
+            "id": case["id"],
+            "category": case["category"],
+            "prompt_sha256": text_sha256(prompt),
+            "response": answer,
+            "retrieval": None if retrieval_manifest is None else {
+                "claim_ids": [item["claim_id"] for item in retrieved],
+                "source_ids": sorted({sid for item in retrieved for sid in item["source_ids"]}),
+                "profile_ids": sorted({pid for item in retrieved for pid in item["profile_ids"]}),
+                "context_sha256": text_sha256(retrieval_context(retrieval_rows[case["id"]])),
+            },
+        })
+    write_jsonl(responses, response_rows)
+
     scores = outdir / "scores.json"
     scores.write_text(
-        json.dumps(
-            {"status": "mock-only" if mock else "pending-review", "promotion_eligible": False},
-            indent=2,
-        )
-        + "\n",
+        json.dumps({"status": "mock-only" if mock else "pending-review", "promotion_eligible": False}, indent=2) + "\n",
         encoding="utf-8",
     )
+
     manifest = {
         "schema_version": "grow-doc-eval-run-v1",
         "run_id": args.run_id,
@@ -197,9 +272,7 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
             "repository": args.model_repo,
             "revision": args.model_revision,
             "dtype": args.dtype,
-            "adapter": None
-            if not args.adapter_repo
-            else {"repository": args.adapter_repo, "revision": args.adapter_revision},
+            "adapter": None if not args.adapter_repo else {"repository": args.adapter_repo, "revision": args.adapter_revision},
         },
         "tokenizer": {"repository": args.tokenizer_repo, "revision": args.tokenizer_revision},
         "decoding": {
@@ -208,6 +281,11 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
             "max_new_tokens": args.max_new_tokens,
             "do_sample": args.do_sample,
             "seed": args.seed,
+        },
+        "retrieval": None if retrieval_manifest is None else {
+            "snapshot_sha256": retrieval_manifest["snapshot_sha256"],
+            "top_k": retrieval_manifest["top_k"],
+            "reranker": None,
         },
         "evaluation": {
             "benchmark_path": str(bench),
@@ -228,9 +306,8 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
 
 
 def self_test() -> None:
-    assert dtype_attribute("float32") == "float32"
-    assert dtype_attribute("float16") == "float16"
-    assert dtype_attribute("bfloat16") == "bfloat16"
+    for dtype in SUPPORTED_DTYPES:
+        assert dtype_attribute(dtype) == dtype
     try:
         dtype_attribute("nf4")
     except ValueError:
@@ -241,43 +318,69 @@ def self_test() -> None:
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)
         bench = root / "heldout.jsonl"
-        write_jsonl(
-            bench,
-            [
-                {
-                    "id": "case-001",
-                    "category": "factuality",
-                    "prompt": "What is supported?",
-                    "expected_points": ["A cautious point."],
-                    "must_cite": ["doi:10.0000/test"],
-                    "forbidden_claims": ["An overclaim."],
-                }
-            ],
-        )
+        snapshot = root / "snapshot.jsonl"
+        snapshot_manifest = root / "snapshot.manifest.json"
+        write_jsonl(bench, [{
+            "id": "case-001",
+            "category": "factuality",
+            "prompt": "What is supported?",
+            "expected_points": ["A cautious point."],
+            "must_cite": ["doi:10.0000/test"],
+            "forbidden_claims": ["An overclaim."],
+        }])
+        claim = "A cautious point is supported by the reviewed evidence."
+        write_jsonl(snapshot, [{
+            "case_id": "case-001",
+            "prompt_sha256": text_sha256("What is supported?"),
+            "retrieved": [{
+                "rank": 1,
+                "score": 2.0,
+                "claim_id": "rag-001",
+                "claim_sha256": text_sha256(claim),
+                "claim": claim,
+                "source_ids": ["doi:10.0000/test"],
+                "profile_ids": ["profile-001"],
+            }],
+        }])
+        snapshot_manifest.write_text(json.dumps({
+            "schema_version": "grow-doc-rag-snapshot-v1",
+            "algorithm": "grow-doc-lexical-idf-v1",
+            "top_k": 5,
+            "benchmark_sha256": sha256(bench),
+            "snapshot_sha256": sha256(snapshot),
+        }), encoding="utf-8")
+
         a = argparse.Namespace(
-            benchmark=str(bench),
-            output_dir=str(root / "out"),
-            run_id="self-test-0001",
-            model_repo="Qwen/Qwen3-8B",
-            model_revision="1234567",
-            tokenizer_repo="Qwen/Qwen3-8B",
-            tokenizer_revision="1234567",
-            adapter_repo=None,
-            adapter_revision=None,
-            dtype="bfloat16",
-            temperature=0.0,
-            top_p=1.0,
-            max_new_tokens=64,
-            do_sample=False,
-            seed=42,
-            scorer_revision="1234567",
+            benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001",
+            model_repo="Qwen/Qwen3-8B", model_revision="1234567",
+            tokenizer_repo="Qwen/Qwen3-8B", tokenizer_revision="1234567",
+            adapter_repo=None, adapter_revision=None, dtype="bfloat16", temperature=0.0,
+            top_p=1.0, max_new_tokens=64, do_sample=False, seed=42,
+            scorer_revision="1234567", retrieval_snapshot=str(snapshot),
+            retrieval_manifest=str(snapshot_manifest),
         )
         responses, manifest = execute(a, mock=True)
-        assert load_jsonl(responses)[0]["response"].startswith("MOCK ONLY")
+        response = load_jsonl(responses)[0]
+        assert response["response"].startswith("MOCK ONLY")
+        assert response["retrieval"]["claim_ids"] == ["rag-001"]
+        assert response["retrieval"]["source_ids"] == ["doi:10.0000/test"]
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
-        assert manifest_data["model"]["dtype"] == "bfloat16"
+        assert manifest_data["retrieval"]["snapshot_sha256"] == sha256(snapshot)
         assert manifest_data["artifacts"]["responses_sha256"] == sha256(responses)
         assert json.loads((root / "out" / "scores.json").read_text(encoding="utf-8"))["promotion_eligible"] is False
+
+        snapshot_manifest.write_text(json.dumps({
+            "schema_version": "grow-doc-rag-snapshot-v1",
+            "top_k": 5,
+            "benchmark_sha256": "0" * 64,
+            "snapshot_sha256": sha256(snapshot),
+        }), encoding="utf-8")
+        try:
+            execute(a, mock=True)
+        except ValueError as exc:
+            assert "different benchmark" in str(exc)
+        else:
+            raise AssertionError("benchmark-mismatched retrieval snapshot must be rejected")
     print("model evaluation runner self-test: PASS")
 
 
@@ -292,6 +395,8 @@ def main() -> int:
     p.add_argument("--tokenizer-revision", default="UNPINNED")
     p.add_argument("--adapter-repo")
     p.add_argument("--adapter-revision")
+    p.add_argument("--retrieval-snapshot")
+    p.add_argument("--retrieval-manifest")
     p.add_argument("--dtype", choices=SUPPORTED_DTYPES, default="bfloat16")
     p.add_argument("--temperature", type=float, default=0.0)
     p.add_argument("--top-p", type=float, default=1.0)
@@ -305,20 +410,15 @@ def main() -> int:
     if args.self_test:
         self_test()
         return 0
-    for label, value in [
-        ("model", args.model_revision),
-        ("tokenizer", args.tokenizer_revision),
-        ("scorer", args.scorer_revision),
-    ]:
+    for label, value in [("model", args.model_revision), ("tokenizer", args.tokenizer_revision), ("scorer", args.scorer_revision)]:
         if value == "UNPINNED" or len(value) < 7:
             raise SystemExit(f"{label} revision must be pinned")
     if bool(args.adapter_repo) != bool(args.adapter_revision):
         raise SystemExit("adapter repo and revision must be provided together")
+    if bool(args.retrieval_snapshot) != bool(args.retrieval_manifest):
+        raise SystemExit("retrieval snapshot and manifest must be provided together")
     responses, manifest = execute(args)
-    print(
-        f"responses: {responses}\nmanifest: {manifest}\n"
-        "Raw artifacts only; no promotion claim is made."
-    )
+    print(f"responses: {responses}\nmanifest: {manifest}\nRaw artifacts only; no promotion claim is made.")
     return 0
 
 
