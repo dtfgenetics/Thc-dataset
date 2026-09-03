@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "baseModel": "Qwen/Qwen3-8B",
+  "license": "apache-2.0",
+  "purpose": "Grow Doc text-domain supervised fine-tuning baseline",
+  "dataset": {
+    "path": "dataset/training/text-sft-reviewed.jsonl",
+    "schema": "dataset/schema/growdoc-sft-record.schema.json",
+    "requiredReviewStatus": "reviewed",
+    "excludeEvidenceTiers": ["reference_only"],
+    "groupSplitField": "splitGroup"
+  },
+  "quantization": {
+    "loadIn4Bit": true,
+    "bnb4bitQuantType": "nf4",
+    "bnb4bitUseDoubleQuant": true,
+    "computeDtype": "bfloat16"
+  },
+  "lora": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.05,
+    "bias": "none",
+    "targetModules": "all-linear",
+    "taskType": "CAUSAL_LM"
+  },
+  "training": {
+    "maxSequenceLength": 4096,
+    "epochs": 2,
+    "learningRate": 0.0001,
+    "warmupRatio": 0.05,
+    "weightDecay": 0.01,
+    "gradientCheckpointing": true,
+    "packing": true,
+    "seed": 42017,
+    "saveStrategy": "steps",
+    "evaluationStrategy": "steps",
+    "loadBestModelAtEnd": true,
+    "metricForBestModel": "eval_loss",
+    "greaterIsBetter": false
+  },
+  "guardrails": {
+    "neverTrainOnLockedEval": true,
+    "neverSelectSoupWeightsOnLockedEval": true,
+    "requireSourceGroupIsolation": true,
+    "requireExactDedup": true,
+    "requireNearDuplicateAudit": true,
+    "requireCitationMetadata": true,
+    "generatedCandidatesRequireHumanReview": true
+  }
+}
