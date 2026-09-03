@@ -22,6 +22,7 @@ jobs:
       - run: npm run validate:acquisition
       - run: npm run validate:transfer
       - run: npm run validate:model-eval
+      - run: npm run validate:model-corpus-quality
       - run: npm run validate:model-corpus
       - run: npm run validate:model-scorer
       - run: npm run validate:model-run-manifest
