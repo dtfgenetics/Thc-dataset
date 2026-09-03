@@ -1,0 +1,62 @@
+/*
+ * Mobile containment guard for the Grow Doc diagnostic workspace.
+ *
+ * The production browser acceptance suite caught page-level horizontal
+ * overflow at a 390px viewport. These rules fix intrinsic grid/flex sizing at
+ * the source: children may shrink inside their track, form controls cannot
+ * impose an intrinsic minimum width, and the one-column mobile grids use a
+ * zero-minimum track. We intentionally do not hide horizontal overflow on the
+ * page so future regressions remain observable.
+ */
+
+@media (max-width: 640px) {
+  .diagnostic-page,
+  .grow-doc-workspace,
+  .diagnostic-intro,
+  .grow-doc-hero,
+  .grow-doc-stepbar,
+  .diagnostic-layout,
+  .workflow-column,
+  .evidence-section,
+  .evidence-grid,
+  .evidence-slot,
+  .visual-observation-section,
+  .visual-observation-card,
+  .visual-observation-intro,
+  .visual-observation-intro > div,
+  .context-section,
+  .context-grid,
+  .context-grid > label,
+  .symptom-picker,
+  .result-panel,
+  .section-heading,
+  .section-heading > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .diagnostic-layout,
+  .workflow-column,
+  .context-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell input,
+  .app-shell select,
+  .app-shell textarea,
+  .app-shell button {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .symptom-picker > button span,
+  .visual-observation-intro strong,
+  .visual-observation-intro p,
+  .result-panel h2,
+  .result-panel p,
+  .section-heading h2,
+  .section-heading p {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}
