@@ -4,8 +4,6 @@ import type { MediaRecord } from '../types'
 
 type OriginalRecord = {
   id: string
-  issue_slug: string
-  repository_path: string
   sha256: string
 }
 
@@ -58,7 +56,6 @@ export function localReferenceMediaUrl(media: MediaRecord, issueSlug: string): s
       .filter((crop) => crop.parentId === original.id && crop.issueSlug === issueSlug)
       .sort((a, b) => severityRank(a.severity) - severityRank(b.severity) || a.id.localeCompare(b.id))[0]
     if (matchedCrop) return toPublicReferenceUrl(matchedCrop.repositoryPath)
-    return toPublicReferenceUrl(original.repository_path)
   }
 
   const issueCrop = cropsByIssue.get(issueSlug)?.[0]
