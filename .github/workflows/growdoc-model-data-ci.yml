@@ -11,8 +11,10 @@ on:
       - 'evaluation/**'
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
+      - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
+      - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
   pull_request:
@@ -23,8 +25,10 @@ on:
       - 'evaluation/**'
       - 'modeling/**'
       - 'scripts/build-text-sft.py'
+      - 'scripts/promote-reviewed-sft.py'
       - 'scripts/split-reviewed-sft.py'
       - 'tests/test_build_text_sft.py'
+      - 'tests/test_promote_reviewed_sft.py'
       - 'tests/test_split_reviewed_sft.py'
       - '.github/workflows/growdoc-model-data-ci.yml'
   workflow_dispatch:
@@ -45,9 +49,10 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Run leakage regression tests
+      - name: Run model-data regression tests
         run: |
           python -m unittest tests/test_build_text_sft.py -v
+          python -m unittest tests/test_promote_reviewed_sft.py -v
           python -m unittest tests/test_split_reviewed_sft.py -v
 
       - name: Build candidate SFT corpus from reviewed profiles
