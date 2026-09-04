@@ -14,6 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
+HEX64 = re.compile(r"^[0-9a-f]{64}$")
 
 
 def scalar(text: str, key: str) -> str | None:
@@ -53,18 +54,24 @@ def float_value(value: str | None) -> float | None:
         return None
 
 
-def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list[str]:
+def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
     errors: list[str] = []
 
     base_model = scalar(text, "base_model")
     base_revision = scalar(text, "base_model_revision")
+    tokenizer_revision = scalar(text, "tokenizer_revision")
     if not base_model:
         errors.append("base_model is required")
     if not base_revision:
         errors.append("base_model_revision is required")
-    elif base_revision == "PIN_BEFORE_TRAINING" and not allow_placeholder_revision:
+    elif base_revision == "PIN_BEFORE_TRAINING" and not allow_placeholders:
         errors.append("base_model_revision must be pinned before a real training run")
+    if not tokenizer_revision:
+        errors.append("tokenizer_revision is required")
+    elif tokenizer_revision == "PIN_BEFORE_TRAINING" and not allow_placeholders:
+        errors.append("tokenizer_revision must be pinned before a real training run")
 
+    reproducibility = section(text, "reproducibility")
     precision = section(text, "precision")
     training_data = section(text, "training_data")
     training = section(text, "training")
@@ -72,6 +79,17 @@ def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list
     merge_policy = section(text, "merge_policy")
     rag = section(text, "rag")
     lora = section(text, "lora")
+
+    for key in (
+        "require_pinned_base_revision",
+        "require_pinned_dependency_lock",
+        "require_dataset_manifest_hash",
+        "require_split_manifest_hash",
+        "require_tokenizer_revision_pin",
+        "record_cuda_and_gpu",
+    ):
+        if bool_value(scalar(reproducibility, key)) is not True:
+            errors.append(f"reproducibility.{key} must be true")
 
     if bool_value(scalar(precision, "load_in_4bit")) is not True:
         errors.append("QLoRA contract requires precision.load_in_4bit: true")
@@ -82,32 +100,63 @@ def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list
     if bool_value(scalar(training, "bf16")) is not True:
         errors.append("training.bf16 must match bfloat16 compute dtype")
 
-    sft_path = scalar(training_data, "sft_path")
-    grounded_qa_path = scalar(training_data, "grounded_qa_path")
-    grounded_qa_max_fraction = float_value(scalar(training_data, "grounded_qa_max_fraction"))
-    retrieval_path = scalar(training_data, "retrieval_path")
-    quarantine_path = scalar(training_data, "quarantine_path")
+    path_keys = (
+        "sft_path",
+        "dev_sft_path",
+        "grounded_qa_path",
+        "grounded_qa_dev_path",
+        "split_manifest_path",
+        "dataset_manifest_path",
+        "retrieval_path",
+        "quarantine_path",
+    )
+    path_values = {key: scalar(training_data, key) for key in path_keys}
     heldout_path = scalar(evaluation, "heldout_path")
+    for key, value in path_values.items():
+        if not value:
+            errors.append(f"training_data.{key} is required")
 
-    if not grounded_qa_path:
-        errors.append("training_data.grounded_qa_path is required")
-    elif "model_tuning/generated/grounded_qa/" not in grounded_qa_path:
-        errors.append("grounded QA data must come from the dedicated grounded_qa output lane")
+    populated = [value for value in path_values.values() if value] + ([heldout_path] if heldout_path else [])
+    if len(populated) != len(set(populated)):
+        errors.append("train/dev/retrieval/quarantine/manifest/held-out paths must be distinct")
 
+    expected_path_fragments = {
+        "sft_path": "/splits/train_sft_",
+        "dev_sft_path": "/splits/dev_sft_",
+        "grounded_qa_path": "/splits/train_grounded_qa_",
+        "grounded_qa_dev_path": "/splits/dev_grounded_qa_",
+    }
+    for key, fragment in expected_path_fragments.items():
+        value = path_values[key]
+        if value and fragment not in value:
+            errors.append(f"training_data.{key} must use the source-component {fragment.split('/')[-1]} lane")
+
+    grounded_qa_max_fraction = float_value(scalar(training_data, "grounded_qa_max_fraction"))
     if grounded_qa_max_fraction is None:
         errors.append("training_data.grounded_qa_max_fraction must be numeric")
     elif not (0.0 < grounded_qa_max_fraction <= 0.20):
         errors.append("grounded QA fraction must be greater than 0 and capped at 0.20")
 
-    paths = [p for p in (sft_path, grounded_qa_path, retrieval_path, quarantine_path, heldout_path) if p]
-    if len(paths) != len(set(paths)):
-        errors.append("SFT, grounded-QA, retrieval, quarantine, and held-out paths must be distinct")
-    if heldout_path and heldout_path in {sft_path, grounded_qa_path}:
-        errors.append("held-out evaluation data cannot be used as training data")
-
-    for key in ("train_only_grounded_examples", "require_context_required", "preserve_source_ids", "forbid_quarantine_training", "forbid_eval_training_leakage"):
+    for key in (
+        "train_only_grounded_examples",
+        "require_context_required",
+        "preserve_source_ids",
+        "require_source_component_split",
+        "forbid_quarantine_training",
+        "forbid_eval_training_leakage",
+    ):
         if bool_value(scalar(training_data, key)) is not True:
             errors.append(f"training_data.{key} must be true")
+
+    for hash_key in ("split_manifest_sha256", "dataset_manifest_sha256"):
+        value = scalar(training_data, hash_key)
+        if not value:
+            errors.append(f"training_data.{hash_key} is required")
+        elif value == "MATERIALIZE_BEFORE_TRAINING":
+            if not allow_placeholders:
+                errors.append(f"training_data.{hash_key} must be an immutable SHA-256 before a real training run")
+        elif not HEX64.fullmatch(value):
+            errors.append(f"training_data.{hash_key} must be a lowercase 64-character SHA-256")
 
     if bool_value(scalar(rag, "preferred_for_factual_knowledge")) is not True:
         errors.append("rag.preferred_for_factual_knowledge must be true")
@@ -123,9 +172,6 @@ def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list
     if bool_value(scalar(merge_policy, "reject_if_any_critical_slice_regresses")) is not True:
         errors.append("critical-slice regression rejection must remain enabled")
 
-    # The repository currently performs checkpoint promotion externally against the
-    # frozen held-out suite. Until a Trainer eval_dataset/metric callback exists,
-    # load_best_model_at_end would be misleading and can be invalid at runtime.
     if bool_value(scalar(training, "load_best_model_at_end")) is not False:
         errors.append("load_best_model_at_end must stay false until in-training eval integration exists")
     if scalar(training, "checkpoint_selection") != "external_heldout_promotion_gate":
@@ -145,10 +191,10 @@ def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list
     return errors
 
 
-def validate_file(path: Path, *, allow_placeholder_revision: bool = True) -> list[str]:
+def validate_file(path: Path, *, allow_placeholders: bool = True) -> list[str]:
     if not path.exists():
         return [f"config not found: {path}"]
-    return validate_text(path.read_text(encoding="utf-8"), allow_placeholder_revision=allow_placeholder_revision)
+    return validate_text(path.read_text(encoding="utf-8"), allow_placeholders=allow_placeholders)
 
 
 def self_test() -> None:
@@ -158,20 +204,26 @@ def self_test() -> None:
     tampered = base.replace("allow_adapter_merge: false", "allow_adapter_merge: true")
     assert any("adapter merge" in error for error in validate_text(tampered))
 
-    tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
-    assert any("load_best_model_at_end" in error for error in validate_text(tampered))
-
     tampered = base.replace("grounded_qa_max_fraction: 0.20", "grounded_qa_max_fraction: 0.50")
     assert any("grounded QA fraction" in error for error in validate_text(tampered))
 
-    tampered = base.replace(
-        "grounded_qa_path: model_tuning/generated/grounded_qa/qa_v1.jsonl",
-        "grounded_qa_path: model_tuning/generated/sft/grounded_v1.jsonl",
-    )
-    assert any("dedicated grounded_qa" in error or "must be distinct" in error for error in validate_text(tampered))
+    tampered = base.replace("require_source_component_split: true", "require_source_component_split: false")
+    assert any("source_component_split" in error for error in validate_text(tampered))
 
-    tampered = base.replace("base_model_revision: PIN_BEFORE_TRAINING", "base_model_revision: PIN_BEFORE_TRAINING")
-    assert any("must be pinned" in error for error in validate_text(tampered, allow_placeholder_revision=False))
+    tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
+    assert any("load_best_model_at_end" in error for error in validate_text(tampered))
+
+    tampered = base.replace(
+        "grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_v1.jsonl",
+        "grounded_qa_path: model_tuning/generated/splits/train_sft_v1.jsonl",
+    )
+    assert any("grounded_qa_path" in error or "must be distinct" in error for error in validate_text(tampered))
+
+    real_run_errors = validate_text(base, allow_placeholders=False)
+    assert any("base_model_revision" in error for error in real_run_errors)
+    assert any("tokenizer_revision" in error for error in real_run_errors)
+    assert any("split_manifest_sha256" in error for error in real_run_errors)
+    assert any("dataset_manifest_sha256" in error for error in real_run_errors)
 
     with tempfile.TemporaryDirectory() as tmp:
         p = Path(tmp) / "qlora.yaml"
@@ -184,7 +236,7 @@ def self_test() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
-    parser.add_argument("--real-run", action="store_true", help="Require an immutable base-model revision instead of the starter placeholder")
+    parser.add_argument("--real-run", action="store_true", help="Require pinned model/tokenizer revisions and immutable corpus/split hashes")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
 
@@ -192,7 +244,7 @@ def main() -> int:
         self_test()
         return 0
 
-    errors = validate_file(args.config, allow_placeholder_revision=not args.real_run)
+    errors = validate_file(args.config, allow_placeholders=not args.real_run)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
