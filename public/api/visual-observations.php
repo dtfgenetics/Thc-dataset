@@ -29,6 +29,20 @@ if (($_SERVER['HTTP_X_THC_VISUAL_REQUEST'] ?? '') !== '1') {
     respond(400, ['error' => 'Missing visual-analysis request marker.']);
 }
 
+// This endpoint is served directly rather than through WordPress routing. If the
+// Grow Doc key is configured as a wp-config.php constant, bootstrap WordPress so
+// that constant is actually visible here. Environment-variable configuration
+// remains preferred and avoids this bootstrap entirely.
+if ((getenv('GEMINI_API_KEY') ?: '') === '' && !defined('THC_GROW_DOC_GEMINI_API_KEY')) {
+    $wpLoad = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'wp-load.php';
+    if (is_file($wpLoad)) {
+        if (!defined('WP_USE_THEMES')) {
+            define('WP_USE_THEMES', false);
+        }
+        require_once $wpLoad;
+    }
+}
+
 $apiKey = getenv('GEMINI_API_KEY') ?: '';
 if ($apiKey === '' && defined('THC_GROW_DOC_GEMINI_API_KEY')) {
     $apiKey = (string)constant('THC_GROW_DOC_GEMINI_API_KEY');
