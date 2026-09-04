@@ -231,7 +231,7 @@ def fixture_manifest(adapter_revision: str | None = None) -> dict:
         "tokenizer":{"repository":"Qwen/Qwen3-8B","revision":"1234567"},
         "decoding":{"temperature":0.0,"top_p":1.0,"max_new_tokens":512,"do_sample":False,"seed":42},
         "retrieval":{"snapshot_sha256":"a"*64,"top_k":5,"reranker":None},
-        "evaluation":{"benchmark_path":"model_tuning/eval/heldout_v1.jsonl","benchmark_sha256":"b"*64,"scorer_revision":"1234567"},
+        "evaluation":{"benchmark_path":"model_tuning/eval/heldout_v2.jsonl","benchmark_sha256":"b"*64,"scorer_revision":"1234567"},
         "runtime":{"python":"3.11","transformers":"4.x","torch":"2.x","accelerate":"1.x","peft":"0.x","bitsandbytes":"0.x"},
         "artifacts":{"responses_path":"responses.jsonl","responses_sha256":"c"*64,"scores_path":"scores.json"},
     }
@@ -266,7 +266,7 @@ def self_test() -> int:
 
 def main() -> int:
     ap=argparse.ArgumentParser()
-    ap.add_argument("--eval",default="model_tuning/eval/heldout_v1.jsonl")
+    ap.add_argument("--eval",default="model_tuning/eval/heldout_v2.jsonl")
     ap.add_argument("--predictions",help="reviewed candidate predictions used for scoring")
     ap.add_argument("--baseline",help="reviewed baseline predictions used for scoring")
     ap.add_argument("--candidate-manifest")
