@@ -1,5 +1,6 @@
 import { FolderOpen, Plus } from 'lucide-react'
 import type { InvestigationCase } from '../types'
+import './InvestigationManager.css'
 
 interface InvestigationManagerProps {
   active: InvestigationCase
@@ -23,7 +24,7 @@ export function InvestigationManager({ active, cases, onActivate, onCreate, onRe
         </label>
         <label>
           Reopen investigation
-          <div className="investigation-select-wrap"><FolderOpen size={16} /><select value={active.id} onChange={(event) => onActivate(event.target.value)}>{cases.map((item) => <option key={item.id} value={item.id}>{item.plantName} · {new Date(item.updatedAt).toLocaleDateString()}</option>)}</select></div>
+          <div className="investigation-select-wrap"><FolderOpen size={16} /><select value={active.id} onChange={(event) => onActivate(event.target.value)}>{cases.map((item) => <option key={item.id} value={item.id}>{item.plantName || 'Unnamed plant'} · {new Date(item.updatedAt).toLocaleDateString()}</option>)}</select></div>
         </label>
       </div>
       {active.diagnosisHistory?.length ? (
