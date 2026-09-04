@@ -39,10 +39,10 @@ describe('persisted reference media', () => {
       const parentId = persistedParentId(media)
       return Boolean(parentId && crops.some((crop) => crop.parentId === parentId && crop.issueSlug === issue.slug))
     })
-    const locallyCovered = approved.filter(({ issue, media }) => localReferenceMediaCoverage(media, issue.slug))
+    const resolvedScientificMatches = scientificallyMatched.filter(({ issue, media }) => localReferenceMediaCoverage(media, issue.slug))
 
     expect(scientificallyMatched.length).toBeGreaterThan(0)
-    expect(locallyCovered).toHaveLength(scientificallyMatched.length)
+    expect(resolvedScientificMatches).toHaveLength(scientificallyMatched.length)
 
     for (const { issue, media } of scientificallyMatched) {
       const local = localReferenceMediaUrl(media, issue.slug)
