@@ -146,6 +146,7 @@ export interface InvestigationCase {
   context: GrowContext
   evidenceSummary: Array<Pick<EvidenceFile, 'slot' | 'quality' | 'notes'>>
   diagnosis?: DiagnosticSnapshot
+  diagnosisHistory?: DiagnosticSnapshot[]
 }
 
 export interface GrowLogEntry {
@@ -164,11 +165,4 @@ export interface GrowLogEntry {
   investigationId?: string
   diagnosisIssueSlug?: string
   diagnosisConfidence?: Differential['confidence']
-}
-
-export interface CaseTrendSummary {
-  trend: 'improving' | 'stable' | 'worsening' | 'mixed' | 'insufficient'
-  changes: string[]
-  recommendedNextStep: string
-  rationale: string
 }
