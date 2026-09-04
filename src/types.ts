@@ -124,6 +124,7 @@ export interface Differential {
   supporting: string[]
   contradicting: string[]
   missing: string[]
+  historySignals?: string[]
 }
 
 export interface DiagnosticSnapshot {
@@ -143,7 +144,7 @@ export interface InvestigationCase {
   createdAt: string
   updatedAt: string
   context: GrowContext
-  evidenceSummary: Array<{ slot: EvidenceSlot; quality: EvidenceFile['quality']; notes: string[] }>
+  evidenceSummary: Array<Pick<EvidenceFile, 'slot' | 'quality' | 'notes'>>
   diagnosis?: DiagnosticSnapshot
 }
 
