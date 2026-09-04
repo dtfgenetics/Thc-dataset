@@ -12,6 +12,7 @@ import './components/LivingPlantAtlas.css'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
+import { summarizeCaseTrend } from './lib/case-trends'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
 
@@ -48,6 +49,7 @@ export default function App() {
 
   const caseHistory = useMemo(() => loadLogEntries().filter((entry) => entry.investigationId === investigation.id || entry.plantName === investigation.plantName), [investigation.id, investigation.plantName, historyRevision])
   const results = useMemo(() => reviewed ? rankDifferentials(issues, context, evidence, caseHistory) : [], [context, evidence, reviewed, caseHistory])
+  const caseTrend = useMemo(() => summarizeCaseTrend(context, caseHistory, results), [context, caseHistory, results])
   const leadingIssue = useMemo(() => issues.find((issue) => issue.slug === investigation.diagnosis?.leadingIssueSlug), [investigation.diagnosis?.leadingIssueSlug])
   const referenceFocusSlugs = useMemo(() => [investigation.diagnosis?.leadingIssueSlug, ...(investigation.diagnosis?.alternativeIssueSlugs ?? [])].filter((slug): slug is string => Boolean(slug)), [investigation.diagnosis])
 
@@ -101,7 +103,7 @@ export default function App() {
           <div className="grow-doc-stepbar" aria-label="Diagnostic workflow"><div><span>01</span><strong>Evidence</strong><small>Photos & video</small></div><div><span>02</span><strong>Context</strong><small>Measurements & history</small></div><div><span>03</span><strong>Review</strong><small>Differentials & next checks</small></div></div>
           <div className="diagnostic-layout">
             <div className="workflow-column"><EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} /><VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} /><GrowContextForm context={context} onChange={updateContext} /></div>
-            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={reviewEvidence} onOpenIssue={openIssue} onOpenAtlas={() => setView('atlas')} onOpenReferences={() => setView('references')} />
+            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} caseTrend={caseTrend} onReview={reviewEvidence} onOpenIssue={openIssue} onOpenAtlas={() => setView('atlas')} onOpenReferences={() => setView('references')} />
           </div>
         </div>
       ) : null}
