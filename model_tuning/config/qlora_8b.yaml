@@ -1,13 +1,15 @@
 # Starter configuration only; no training run is implied.
 base_model: Qwen/Qwen3-8B
 base_model_revision: PIN_BEFORE_TRAINING
+tokenizer_revision: PIN_BEFORE_TRAINING
 task: causal_lm_sft
 
 reproducibility:
   require_pinned_base_revision: true
   require_pinned_dependency_lock: true
   require_dataset_manifest_hash: true
-  require_tokenizer_revision_match: true
+  require_split_manifest_hash: true
+  require_tokenizer_revision_pin: true
   record_cuda_and_gpu: true
   seed: 420
 
@@ -32,14 +34,21 @@ lora:
     - down_proj
 
 training_data:
-  sft_path: model_tuning/generated/sft/grounded_v1.jsonl
-  grounded_qa_path: model_tuning/generated/grounded_qa/qa_v1.jsonl
+  sft_path: model_tuning/generated/splits/train_sft_v1.jsonl
+  dev_sft_path: model_tuning/generated/splits/dev_sft_v1.jsonl
+  grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_v1.jsonl
+  grounded_qa_dev_path: model_tuning/generated/splits/dev_grounded_qa_v1.jsonl
+  split_manifest_path: model_tuning/generated/splits/split_manifest_v1.json
+  split_manifest_sha256: MATERIALIZE_BEFORE_TRAINING
+  dataset_manifest_path: model_tuning/generated/manifest_v1.json
+  dataset_manifest_sha256: MATERIALIZE_BEFORE_TRAINING
   grounded_qa_max_fraction: 0.20
   retrieval_path: model_tuning/generated/rag/claims_v1.jsonl
   quarantine_path: model_tuning/generated/quarantine/quarantine_v1.jsonl
   train_only_grounded_examples: true
   require_context_required: true
   preserve_source_ids: true
+  require_source_component_split: true
   forbid_quarantine_training: true
   forbid_eval_training_leakage: true
 
