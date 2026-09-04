@@ -3,6 +3,8 @@
 
 Uses only stdlib. The builder teaches evidence-grounded behavior; factual claims remain attached
 to supplied retrieval context and provenance instead of being converted into context-free SFT.
+Held-out evaluation sources remain eligible for retrieval, but are excluded from SFT so adapter
+training cannot memorize the same factual source families used for benchmark scoring.
 """
 from __future__ import annotations
 
@@ -16,7 +18,7 @@ from collections import Counter
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v1.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
 DEFAULT_OUT = ROOT / "model_tuning/generated"
 
 
@@ -207,6 +209,21 @@ def eval_fingerprints(path: pathlib.Path) -> set[str]:
     return fps
 
 
+def eval_source_ids(path: pathlib.Path) -> set[str]:
+    """Return canonical provenance identifiers reserved by the held-out benchmark."""
+    reserved = set()
+    if not path.exists():
+        return reserved
+    for row in load_jsonl(path):
+        for sid in row.get("must_cite") or []:
+            value = (sid or "").strip()
+            if value.startswith("doi:"):
+                value = "doi:" + value[4:].lower()
+            if value:
+                reserved.add(value)
+    return reserved
+
+
 def merge_unique_dicts(existing: list[dict], incoming: list[dict], key: str) -> list[dict]:
     seen = {item.get(key) for item in existing}
     out = list(existing)
@@ -247,6 +264,9 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
     seen_profiles = set()
     duplicate_profiles = []
     eval_fps = eval_fingerprints(eval_path)
+    heldout_sources = eval_source_ids(eval_path)
+    heldout_source_exclusions = 0
+    heldout_profiles_excluded = set()
     for profile in load_jsonl(input_path):
         pid = profile.get("id")
         if not pid or pid in seen_profiles:
@@ -266,7 +286,34 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         profile_rag, source_quarantine = make_rag(profile)
         quarantine.extend(source_quarantine)
         rag.extend(profile_rag)
-        for item in make_sft(profile, profile_rag):
+
+        # Keep held-out evidence in the retrieval lane, but do not train adapters on it.
+        training_rag = [row for row in profile_rag if row["source_id"] not in heldout_sources]
+        excluded_sources = sorted({row["source_id"] for row in profile_rag if row["source_id"] in heldout_sources})
+        if excluded_sources:
+            heldout_profiles_excluded.add(pid)
+            quarantine.append(
+                {
+                    "profile_id": pid,
+                    "reason": "heldout_source_excluded_from_sft",
+                    "source_ids": excluded_sources,
+                }
+            )
+
+        for item in make_sft(profile, training_rag):
+            item_sources = set(item.get("source_ids") or [])
+            overlap = sorted(item_sources & heldout_sources)
+            if overlap:
+                heldout_source_exclusions += 1
+                quarantine.append(
+                    {
+                        "profile_id": pid,
+                        "reason": "heldout_source_collision",
+                        "sft_id": item["id"],
+                        "source_ids": overlap,
+                    }
+                )
+                continue
             user_text = next((m["content"] for m in item["messages"] if m["role"] == "user"), "")
             if sha(norm(user_text)) in eval_fps:
                 quarantine.append({"profile_id": pid, "reason": "eval_prompt_collision", "sft_id": item["id"]})
@@ -284,10 +331,13 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "duplicate_claims_removed": duplicate_claims,
         "merged_provenance_links": merged_provenance_links,
         "multi_source_claims": multi_source_claims,
+        "heldout_source_ids": len(heldout_sources),
+        "heldout_profiles_excluded_from_sft": len(heldout_profiles_excluded),
+        "heldout_source_collision_exclusions": heldout_source_exclusions,
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
+        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; held-out source families excluded from SFT but retained for retrieval; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
     }
     return rag, sft, quarantine, stats
 
@@ -317,6 +367,9 @@ def main() -> int:
         return 1
     if stats["duplicate_claims_removed"] > 0 and stats["merged_provenance_links"] == 0:
         print("duplicate claims were removed without retaining any distinct corroborating provenance", file=sys.stderr)
+        return 1
+    if stats["heldout_source_collision_exclusions"] > 0:
+        print("held-out source provenance leaked into generated SFT", file=sys.stderr)
         return 1
     if not args.check_only:
         write_jsonl(args.out / "rag" / "claims_v1.jsonl", rag)

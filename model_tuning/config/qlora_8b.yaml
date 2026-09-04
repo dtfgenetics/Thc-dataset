@@ -67,7 +67,7 @@ training:
   checkpoint_selection: external_heldout_promotion_gate
 
 evaluation:
-  heldout_path: model_tuning/eval/heldout_v1.jsonl
+  heldout_path: model_tuning/eval/heldout_v2.jsonl
   compare_against_exact_base_revision: true
   select_best_by: critical_weighted_score
   higher_is_better: true
