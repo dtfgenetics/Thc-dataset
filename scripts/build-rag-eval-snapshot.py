@@ -179,9 +179,9 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--self-test", action="store_true")
     ap.add_argument("--claims", type=Path, default=Path("model_tuning/generated/rag/claims_v1.jsonl"))
-    ap.add_argument("--benchmark", type=Path, default=Path("model_tuning/eval/heldout_v1.jsonl"))
-    ap.add_argument("--output", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v1.jsonl"))
-    ap.add_argument("--manifest", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v1.manifest.json"))
+    ap.add_argument("--benchmark", type=Path, default=Path("model_tuning/eval/heldout_v2.jsonl"))
+    ap.add_argument("--output", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v2.jsonl"))
+    ap.add_argument("--manifest", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v2.manifest.json"))
     ap.add_argument("--top-k", type=int, default=5)
     args = ap.parse_args()
     if args.self_test:
