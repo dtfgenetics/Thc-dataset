@@ -22,6 +22,7 @@
     "validate:model-corpus-quality": "python3 scripts/audit-model-corpus-quality.py && python3 scripts/audit-model-corpus-quality.py --self-test",
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
     "validate:grounded-qa": "python3 scripts/build-grounded-qa.py --check-only && python3 scripts/build-grounded-qa.py --self-test",
+    "validate:model-split": "python3 scripts/split-model-sft.py --check-only && python3 scripts/split-model-sft.py --self-test",
     "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test",
     "validate:model-run-manifest": "python3 scripts/validate-model-run-manifest.py --self-test",
     "validate:model-runner": "python3 scripts/run-model-eval.py --self-test",
