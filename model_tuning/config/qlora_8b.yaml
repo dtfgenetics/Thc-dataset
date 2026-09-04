@@ -2,6 +2,7 @@
 base_model: Qwen/Qwen3-8B
 base_model_revision: PIN_BEFORE_TRAINING
 tokenizer_revision: PIN_BEFORE_TRAINING
+tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING
 task: causal_lm_sft
 
 reproducibility:
@@ -10,6 +11,7 @@ reproducibility:
   require_dataset_manifest_hash: true
   require_split_manifest_hash: true
   require_tokenizer_revision_pin: true
+  require_chat_template_pin: true
   record_cuda_and_gpu: true
   seed: 420
 
