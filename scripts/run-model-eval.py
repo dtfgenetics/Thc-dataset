@@ -388,7 +388,7 @@ def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--self-test", action="store_true")
     p.add_argument("--backend", choices=("transformers",), default="transformers")
-    p.add_argument("--benchmark", default="model_tuning/eval/heldout_v1.jsonl")
+    p.add_argument("--benchmark", default="model_tuning/eval/heldout_v2.jsonl")
     p.add_argument("--model-repo", default="Qwen/Qwen3-8B")
     p.add_argument("--model-revision", default="UNPINNED")
     p.add_argument("--tokenizer-repo", default="Qwen/Qwen3-8B")
