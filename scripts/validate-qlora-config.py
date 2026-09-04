@@ -44,6 +44,15 @@ def bool_value(value: str | None) -> bool | None:
     return None
 
 
+def float_value(value: str | None) -> float | None:
+    if value is None:
+        return None
+    try:
+        return float(value)
+    except ValueError:
+        return None
+
+
 def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list[str]:
     errors: list[str] = []
 
@@ -74,14 +83,27 @@ def validate_text(text: str, *, allow_placeholder_revision: bool = True) -> list
         errors.append("training.bf16 must match bfloat16 compute dtype")
 
     sft_path = scalar(training_data, "sft_path")
+    grounded_qa_path = scalar(training_data, "grounded_qa_path")
+    grounded_qa_max_fraction = float_value(scalar(training_data, "grounded_qa_max_fraction"))
     retrieval_path = scalar(training_data, "retrieval_path")
     quarantine_path = scalar(training_data, "quarantine_path")
     heldout_path = scalar(evaluation, "heldout_path")
-    paths = [p for p in (sft_path, retrieval_path, quarantine_path, heldout_path) if p]
+
+    if not grounded_qa_path:
+        errors.append("training_data.grounded_qa_path is required")
+    elif "model_tuning/generated/grounded_qa/" not in grounded_qa_path:
+        errors.append("grounded QA data must come from the dedicated grounded_qa output lane")
+
+    if grounded_qa_max_fraction is None:
+        errors.append("training_data.grounded_qa_max_fraction must be numeric")
+    elif not (0.0 < grounded_qa_max_fraction <= 0.20):
+        errors.append("grounded QA fraction must be greater than 0 and capped at 0.20")
+
+    paths = [p for p in (sft_path, grounded_qa_path, retrieval_path, quarantine_path, heldout_path) if p]
     if len(paths) != len(set(paths)):
-        errors.append("SFT, retrieval, quarantine, and held-out paths must be distinct")
-    if heldout_path and heldout_path == sft_path:
-        errors.append("held-out evaluation data cannot be used as SFT data")
+        errors.append("SFT, grounded-QA, retrieval, quarantine, and held-out paths must be distinct")
+    if heldout_path and heldout_path in {sft_path, grounded_qa_path}:
+        errors.append("held-out evaluation data cannot be used as training data")
 
     for key in ("train_only_grounded_examples", "require_context_required", "preserve_source_ids", "forbid_quarantine_training", "forbid_eval_training_leakage"):
         if bool_value(scalar(training_data, key)) is not True:
@@ -138,6 +160,15 @@ def self_test() -> None:
 
     tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
     assert any("load_best_model_at_end" in error for error in validate_text(tampered))
+
+    tampered = base.replace("grounded_qa_max_fraction: 0.20", "grounded_qa_max_fraction: 0.50")
+    assert any("grounded QA fraction" in error for error in validate_text(tampered))
+
+    tampered = base.replace(
+        "grounded_qa_path: model_tuning/generated/grounded_qa/qa_v1.jsonl",
+        "grounded_qa_path: model_tuning/generated/sft/grounded_v1.jsonl",
+    )
+    assert any("dedicated grounded_qa" in error or "must be distinct" in error for error in validate_text(tampered))
 
     tampered = base.replace("base_model_revision: PIN_BEFORE_TRAINING", "base_model_revision: PIN_BEFORE_TRAINING")
     assert any("must be pinned" in error for error in validate_text(tampered, allow_placeholder_revision=False))
