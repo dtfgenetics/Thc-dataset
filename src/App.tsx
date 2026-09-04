@@ -13,17 +13,54 @@ import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
-import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
+import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, InvestigationCase, View } from './types'
 
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
+const INVESTIGATION_KEY = 'thc-grow-doc:investigation:v1'
+
+function loadInvestigation(): InvestigationCase | null {
+  try {
+    const raw = localStorage.getItem(INVESTIGATION_KEY)
+    return raw ? JSON.parse(raw) as InvestigationCase : null
+  } catch {
+    return null
+  }
+}
+
+function persistInvestigation(next: InvestigationCase) {
+  localStorage.setItem(INVESTIGATION_KEY, JSON.stringify(next))
+}
 
 export default function App() {
+  const restored = useMemo(loadInvestigation, [])
   const [view, setView] = useState<View>('diagnose')
   const [evidence, setEvidence] = useState<EvidenceFile[]>([])
-  const [context, setContext] = useState<GrowContext>(emptyContext)
+  const [context, setContext] = useState<GrowContext>(restored?.context ?? emptyContext)
   const [reviewed, setReviewed] = useState(false)
   const [issueSlug, setIssueSlug] = useState<string>()
+  const [investigation, setInvestigation] = useState<InvestigationCase>(() => restored ?? ({
+    id: makeId('case'),
+    plantName: 'Active plant',
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    context: emptyContext,
+    evidenceSummary: [],
+  }))
   const results = useMemo(() => reviewed ? rankDifferentials(issues, context, evidence) : [], [context, evidence, reviewed])
+
+  const syncInvestigation = (nextContext: GrowContext, diagnosis?: DiagnosticSnapshot) => {
+    setInvestigation((current) => {
+      const next: InvestigationCase = {
+        ...current,
+        updatedAt: new Date().toISOString(),
+        context: nextContext,
+        evidenceSummary: evidence.map((item) => ({ slot: item.slot, quality: item.quality, notes: item.notes })),
+        diagnosis: diagnosis ?? current.diagnosis,
+      }
+      persistInvestigation(next)
+      return next
+    })
+  }
 
   const handleFiles = async (slot: EvidenceSlot, fileList: FileList) => {
     const files = [...fileList].slice(0, slot === 'close-up' ? 4 : 1)
@@ -39,8 +76,35 @@ export default function App() {
   const removeFile = (id: string) => { setEvidence((current) => { const target = current.find((item) => item.id === id); if (target) URL.revokeObjectURL(target.previewUrl); return current.filter((item) => item.id !== id) }); setReviewed(false) }
   const openIssue = (slug: string) => { setIssueSlug(slug); setView('issues') }
   const applyVisualObservations = (indicators: string[]) => {
-    setContext((current) => ({ ...current, symptoms: [...new Set([...current.symptoms, ...indicators])] }))
+    setContext((current) => {
+      const next = { ...current, symptoms: [...new Set([...current.symptoms, ...indicators])] }
+      syncInvestigation(next)
+      return next
+    })
     setReviewed(false)
+  }
+
+  const reviewEvidence = () => {
+    setReviewed(true)
+    const ranked = rankDifferentials(issues, context, evidence)
+    const top = ranked[0]
+    const diagnosis: DiagnosticSnapshot = {
+      reviewedAt: new Date().toISOString(),
+      leadingIssueSlug: top?.issue.slug,
+      leadingIssueName: top?.issue.name,
+      confidence: top?.confidence,
+      supporting: top?.supporting ?? [],
+      contradicting: top?.contradicting ?? [],
+      missing: top?.missing ?? [],
+      alternativeIssueSlugs: ranked.slice(1, 5).map((item) => item.issue.slug),
+    }
+    syncInvestigation(context, diagnosis)
+  }
+
+  const updateContext = (next: GrowContext) => {
+    setContext(next)
+    setReviewed(false)
+    syncInvestigation(next)
   }
 
   return (
@@ -58,11 +122,11 @@ export default function App() {
               </p>
             </div>
             <aside className="intro-note grow-doc-hero-note">
-              <strong>Three-part workflow</strong>
+              <strong>Active investigation</strong>
               <ol>
+                <li><b>{investigation.plantName}</b><span>Case {investigation.id.slice(-6)}</span></li>
                 <li><b>Capture evidence</b><span>Whole plant, affected area, close detail, root zone, or short video.</span></li>
-                <li><b>Add context</b><span>Stage, medium, pH/EC, watering, symptoms, and recent changes.</span></li>
-                <li><b>Review differentials</b><span>Compare ranked possibilities, confidence limits, and next checks.</span></li>
+                <li><b>Review differentials</b><span>Save the leading hypothesis, alternatives, contradictions, and missing evidence.</span></li>
               </ol>
             </aside>
           </section>
@@ -77,9 +141,9 @@ export default function App() {
             <div className="workflow-column">
               <EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} />
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
-              <GrowContextForm context={context} onChange={(next) => { setContext(next); setReviewed(false) }} />
+              <GrowContextForm context={context} onChange={updateContext} />
             </div>
-            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} />
+            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={reviewEvidence} onOpenIssue={openIssue} />
           </div>
         </div>
       ) : null}
@@ -87,7 +151,7 @@ export default function App() {
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
       {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
-      {view === 'log' ? <GrowLog /> : null}
+      {view === 'log' ? <GrowLog investigation={investigation} /> : null}
       {view === 'about' ? <About /> : null}
     </AppShell>
   )
