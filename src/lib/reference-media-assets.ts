@@ -4,8 +4,6 @@ import type { MediaRecord } from '../types'
 
 type OriginalRecord = {
   id: string
-  issue_slug: string
-  repository_path: string
   sha256: string
 }
 
@@ -58,9 +56,16 @@ export function localReferenceMediaUrl(media: MediaRecord, issueSlug: string): s
       .filter((crop) => crop.parentId === original.id && crop.issueSlug === issueSlug)
       .sort((a, b) => severityRank(a.severity) - severityRank(b.severity) || a.id.localeCompare(b.id))[0]
     if (matchedCrop) return toPublicReferenceUrl(matchedCrop.repositoryPath)
-    return toPublicReferenceUrl(original.repository_path)
+
+    // A persisted parent exists but there is no reviewed crop for this exact
+    // parent + diagnosis pair. Do not silently substitute another source's
+    // crop under this media record's citation/provenance.
+    return undefined
   }
 
+  // Media without a persisted parent may use an issue-level reviewed crop as
+  // a display fallback. These records do not claim to be a local derivative
+  // of a different persisted source.
   const issueCrop = cropsByIssue.get(issueSlug)?.[0]
   return issueCrop ? toPublicReferenceUrl(issueCrop.repositoryPath) : undefined
 }
