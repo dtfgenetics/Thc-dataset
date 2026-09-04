@@ -47,6 +47,11 @@ export default function App() {
     evidenceSummary: [],
   }))
   const results = useMemo(() => reviewed ? rankDifferentials(issues, context, evidence) : [], [context, evidence, reviewed])
+  const leadingIssue = useMemo(() => issues.find((issue) => issue.slug === investigation.diagnosis?.leadingIssueSlug), [investigation.diagnosis?.leadingIssueSlug])
+  const referenceFocusSlugs = useMemo(() => [
+    investigation.diagnosis?.leadingIssueSlug,
+    ...(investigation.diagnosis?.alternativeIssueSlugs ?? []),
+  ].filter((slug): slug is string => Boolean(slug)), [investigation.diagnosis])
 
   const syncInvestigation = (nextContext: GrowContext, diagnosis?: DiagnosticSnapshot) => {
     setInvestigation((current) => {
@@ -143,13 +148,22 @@ export default function App() {
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
               <GrowContextForm context={context} onChange={updateContext} />
             </div>
-            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={reviewEvidence} onOpenIssue={openIssue} />
+            <DiagnosticResult
+              evidence={evidence}
+              context={context}
+              results={results}
+              reviewed={reviewed}
+              onReview={reviewEvidence}
+              onOpenIssue={openIssue}
+              onOpenAtlas={() => setView('atlas')}
+              onOpenReferences={() => setView('references')}
+            />
           </div>
         </div>
       ) : null}
-      {view === 'atlas' ? <LivingPlantAtlas /> : null}
+      {view === 'atlas' ? <LivingPlantAtlas investigation={investigation} issue={leadingIssue} /> : null}
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
-      {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
+      {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} focusSlugs={referenceFocusSlugs} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
       {view === 'log' ? <GrowLog investigation={investigation} /> : null}
       {view === 'about' ? <About /> : null}
