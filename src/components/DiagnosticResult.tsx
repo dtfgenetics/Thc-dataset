@@ -1,4 +1,4 @@
-import { AlertTriangle, ArrowRight, CheckCircle2, FlaskConical, Search } from 'lucide-react'
+import { AlertTriangle, ArrowRight, CheckCircle2, FileImage, FlaskConical, Leaf, Search } from 'lucide-react'
 import type { Differential, EvidenceFile, GrowContext } from '../types'
 
 interface DiagnosticResultProps {
@@ -8,9 +8,11 @@ interface DiagnosticResultProps {
   reviewed: boolean
   onReview: () => void
   onOpenIssue: (slug: string) => void
+  onOpenAtlas: () => void
+  onOpenReferences: () => void
 }
 
-export function DiagnosticResult({ evidence, context, results, reviewed, onReview, onOpenIssue }: DiagnosticResultProps) {
+export function DiagnosticResult({ evidence, context, results, reviewed, onReview, onOpenIssue, onOpenAtlas, onOpenReferences }: DiagnosticResultProps) {
   const evidenceReady = evidence.length > 0 || context.symptoms.length > 0
 
   if (!reviewed) {
@@ -83,7 +85,11 @@ export function DiagnosticResult({ evidence, context, results, reviewed, onRevie
         <p>{nextCheck}</p>
       </div>
 
-      <button className="primary-button" onClick={() => onOpenIssue(top.issue.slug)}>Open full issue guide <ArrowRight size={18} /></button>
+      <div className="diagnostic-actions">
+        <button className="primary-button" onClick={() => onOpenIssue(top.issue.slug)}>Open full issue guide <ArrowRight size={18} /></button>
+        <button className="secondary-button" onClick={onOpenAtlas}><Leaf size={17} /> Inspect relevant anatomy</button>
+        <button className="secondary-button" onClick={onOpenReferences}><FileImage size={17} /> Compare reference evidence</button>
+      </div>
 
       {results.length > 1 ? (
         <div className="other-results">
