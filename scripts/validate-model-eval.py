@@ -40,7 +40,7 @@ def validate(path: pathlib.Path) -> list[str]:
 
 def main() -> int:
     ap=argparse.ArgumentParser()
-    ap.add_argument("path", nargs="?", default="model_tuning/eval/heldout_v1.jsonl")
+    ap.add_argument("path", nargs="?", default="model_tuning/eval/heldout_v2.jsonl")
     args=ap.parse_args()
     errors=validate(pathlib.Path(args.path))
     if errors:
