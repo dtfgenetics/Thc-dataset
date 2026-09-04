@@ -165,3 +165,10 @@ export interface GrowLogEntry {
   diagnosisIssueSlug?: string
   diagnosisConfidence?: Differential['confidence']
 }
+
+export interface CaseTrendSummary {
+  trend: 'improving' | 'stable' | 'worsening' | 'mixed' | 'insufficient'
+  changes: string[]
+  recommendedNextStep: string
+  rationale: string
+}
