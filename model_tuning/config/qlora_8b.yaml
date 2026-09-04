@@ -33,6 +33,8 @@ lora:
 
 training_data:
   sft_path: model_tuning/generated/sft/grounded_v1.jsonl
+  grounded_qa_path: model_tuning/generated/grounded_qa/qa_v1.jsonl
+  grounded_qa_max_fraction: 0.20
   retrieval_path: model_tuning/generated/rag/claims_v1.jsonl
   quarantine_path: model_tuning/generated/quarantine/quarantine_v1.jsonl
   train_only_grounded_examples: true
