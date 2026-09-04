@@ -8,7 +8,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-DEFAULT_PATH = Path("model_tuning/eval/heldout_v1.jsonl")
+DEFAULT_PATH = Path("model_tuning/eval/heldout_v2.jsonl")
 REQUIRED_CATEGORIES = {
     "factuality",
     "diagnostic",
