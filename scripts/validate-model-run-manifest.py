@@ -13,6 +13,7 @@ from typing import Any
 
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 DTYPES = {"float32", "float16", "bfloat16", "int8", "nf4"}
+CHAT_TEMPLATE_METHODS = {"apply_chat_template:add_generation_prompt"}
 
 
 class ValidationError(ValueError):
@@ -74,9 +75,19 @@ def validate_manifest(data: dict[str, Any]) -> None:
     tokenizer = data["tokenizer"]
     if not isinstance(tokenizer, dict):
         raise ValidationError("$.tokenizer: expected object")
-    require_keys(tokenizer, {"repository", "revision"}, {"repository", "revision"}, "$.tokenizer")
+    require_keys(
+        tokenizer,
+        {"repository", "revision", "chat_template_sha256", "chat_template_method"},
+        {"repository", "revision", "chat_template_sha256", "chat_template_method"},
+        "$.tokenizer",
+    )
     require_string(tokenizer["repository"], "$.tokenizer.repository")
     require_string(tokenizer["revision"], "$.tokenizer.revision", 7)
+    require_sha256(tokenizer["chat_template_sha256"], "$.tokenizer.chat_template_sha256")
+    if tokenizer["chat_template_method"] not in CHAT_TEMPLATE_METHODS:
+        raise ValidationError(
+            "$.tokenizer.chat_template_method: expected apply_chat_template:add_generation_prompt"
+        )
 
     decoding = data["decoding"]
     if not isinstance(decoding, dict):
@@ -146,7 +157,12 @@ def valid_fixture() -> dict[str, Any]:
         "run_id": "baseline-qwen3-8b-0001",
         "created_at": "2026-09-03T14:00:00Z",
         "model": {"repository": "Qwen/Qwen3-8B", "revision": "1234567", "dtype": "bfloat16", "adapter": None},
-        "tokenizer": {"repository": "Qwen/Qwen3-8B", "revision": "1234567"},
+        "tokenizer": {
+            "repository": "Qwen/Qwen3-8B",
+            "revision": "1234567",
+            "chat_template_sha256": sha,
+            "chat_template_method": "apply_chat_template:add_generation_prompt",
+        },
         "decoding": {"temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "do_sample": False, "seed": 42},
         "retrieval": {"snapshot_sha256": sha, "top_k": 5, "reranker": None},
         "evaluation": {"benchmark_path": "model_tuning/eval/heldout_v1.jsonl", "benchmark_sha256": sha, "scorer_revision": "1234567"},
@@ -176,6 +192,24 @@ def self_test() -> None:
         pass
     else:
         raise AssertionError("unexpected field was accepted")
+
+    missing_template_hash = json.loads(json.dumps(good))
+    del missing_template_hash["tokenizer"]["chat_template_sha256"]
+    try:
+        validate_manifest(missing_template_hash)
+    except ValidationError:
+        pass
+    else:
+        raise AssertionError("missing tokenizer chat-template hash was accepted")
+
+    wrong_template_method = json.loads(json.dumps(good))
+    wrong_template_method["tokenizer"]["chat_template_method"] = "raw-tokenize"
+    try:
+        validate_manifest(wrong_template_method)
+    except ValidationError:
+        pass
+    else:
+        raise AssertionError("non-chat-template prompt formatting was accepted")
 
 
 def main() -> int:
