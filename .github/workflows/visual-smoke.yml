@@ -1,0 +1,94 @@
+name: Grow Doc visual smoke
+
+on:
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/validate-growdoc-visual-contract.mjs'
+      - '.github/workflows/visual-smoke.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.ts'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/validate-growdoc-visual-contract.mjs'
+      - '.github/workflows/visual-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  visual-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate final visual contract
+        run: node scripts/validate-growdoc-visual-contract.mjs
+
+      - name: Build production bundle
+        run: npm run build
+
+      - name: Install Chromium for screenshot smoke
+        run: npx --yes playwright@1.55.0 install --with-deps chromium
+
+      - name: Start production preview
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/growdoc-preview.log 2>&1 &
+          echo $! > /tmp/growdoc-preview.pid
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/thc-grow-doc/ >/tmp/growdoc.html; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/growdoc-preview.log
+          exit 1
+
+      - name: Assert meaningful production shell
+        run: |
+          grep -q 'THC Grow Doc' /tmp/growdoc.html
+          grep -q 'id="root"' /tmp/growdoc.html
+
+      - name: Capture desktop screenshot
+        run: |
+          mkdir -p visual-smoke
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size '1440,1000' --full-page http://127.0.0.1:4173/thc-grow-doc/ visual-smoke/growdoc-desktop.png
+
+      - name: Capture mobile screenshot
+        run: |
+          npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size '390,844' --full-page http://127.0.0.1:4173/thc-grow-doc/ visual-smoke/growdoc-mobile.png
+
+      - name: Upload rendered visual evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-visual-smoke
+          path: visual-smoke/*.png
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Stop preview
+        if: always()
+        run: |
+          if [ -f /tmp/growdoc-preview.pid ]; then
+            kill "$(cat /tmp/growdoc-preview.pid)" || true
+          fi
