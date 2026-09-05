@@ -6,12 +6,12 @@ import argparse
 import hashlib
 import re
 import subprocess
-import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 REQUIREMENTS = ROOT / "model_tuning/requirements.in"
+LOCK_PATH = ROOT / "model_tuning/requirements.lock"
 EXPECTED_RESOLVER = "uv==0.12.10"
 EXPECTED_UV_PREFIX = "uv 0.12.10"
 EXPECTED_LOCK_SHA = "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
@@ -74,21 +74,22 @@ def materialize() -> str:
     if errors:
         raise RuntimeError("; ".join(errors))
     version = subprocess.check_output(["uv", "--version"], text=True).strip()
-    # uv may append a platform triplet, e.g. "uv 0.12.10 (x86_64-unknown-linux-gnu)".
-    # Pin the semantic version while allowing that deterministic platform suffix.
     if not (version == EXPECTED_UV_PREFIX or version.startswith(EXPECTED_UV_PREFIX + " (")):
         raise RuntimeError(f"expected uv 0.12.10, got {version!r}")
-    with tempfile.TemporaryDirectory() as td:
-        output = Path(td) / "requirements.lock"
+    if LOCK_PATH.exists():
+        raise RuntimeError(f"refusing to overwrite existing lock file: {LOCK_PATH}")
+    try:
         subprocess.run([
             "uv", "pip", "compile", "model_tuning/requirements.in",
             "--python-version", "3.12", "--generate-hashes", "--universal",
-            "--output-file", str(output),
+            "--output-file", "model_tuning/requirements.lock",
         ], cwd=ROOT, check=True)
-        actual = sha256(output)
+        actual = sha256(LOCK_PATH)
         if actual != EXPECTED_LOCK_SHA:
             raise RuntimeError(f"dependency lock mismatch: expected {EXPECTED_LOCK_SHA}, got {actual}")
         return actual
+    finally:
+        LOCK_PATH.unlink(missing_ok=True)
 
 
 def self_test() -> None:
@@ -97,6 +98,7 @@ def self_test() -> None:
     assert len(EXPECTED_LOCK_SHA) == 64
     assert EXPECTED_UV_PREFIX == "uv 0.12.10"
     assert "uv 0.12.10 (x86_64-unknown-linux-gnu)".startswith(EXPECTED_UV_PREFIX + " (")
+    assert LOCK_PATH.name == "requirements.lock"
     print("QLoRA dependency contract self-test: PASS")
 
 
