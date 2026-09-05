@@ -4,6 +4,10 @@
 This script does not run a language model and does not claim model performance. It freezes
 which reviewed RAG claims are supplied to each held-out prompt so base models and adapters
 can be compared against identical retrieval context.
+
+Ranking uses only retrieval-corpus fields that already exist before evaluation: claim text,
+profile name/category, and reviewed source titles. It never reads held-out expected_points,
+must_cite, forbidden_claims, or source_metadata when choosing claims.
 """
 from __future__ import annotations
 
@@ -13,11 +17,11 @@ import json
 import math
 import re
 import tempfile
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
-ALGORITHM = "grow-doc-lexical-idf-v1"
+ALGORITHM = "grow-doc-lexical-idf-metadata-v2"
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 STOPWORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "how", "in", "is",
@@ -83,17 +87,38 @@ def validate_cases(rows: list[dict[str, Any]]) -> None:
         seen.add(row["id"])
 
 
+def retrieval_document(row: dict[str, Any]) -> str:
+    """Return corpus-side searchable text without touching held-out answer fields."""
+    source_titles: list[str] = []
+    sources = row.get("sources")
+    if isinstance(sources, list):
+        for source in sources:
+            if isinstance(source, dict) and isinstance(source.get("title"), str):
+                source_titles.append(source["title"])
+    if not source_titles:
+        source = row.get("source")
+        if isinstance(source, dict) and isinstance(source.get("title"), str):
+            source_titles.append(source["title"])
+    fields = [
+        str(row.get("claim") or ""),
+        str(row.get("profile_name") or ""),
+        str(row.get("category") or ""),
+        " ".join(source_titles),
+    ]
+    return " ".join(field for field in fields if field)
+
+
 def document_frequencies(claims: list[dict[str, Any]]) -> Counter[str]:
     df: Counter[str] = Counter()
     for row in claims:
-        df.update(set(tokens(row["claim"])))
+        df.update(set(tokens(retrieval_document(row))))
     return df
 
 
-def score(query: list[str], claim: str, df: Counter[str], n_docs: int) -> float:
+def score(query: list[str], document: str, df: Counter[str], n_docs: int) -> float:
     if not query:
         return 0.0
-    tf = Counter(tokens(claim))
+    tf = Counter(tokens(document))
     total = 0.0
     for term in set(query):
         if term not in tf:
@@ -108,7 +133,7 @@ def retrieve(claims: list[dict[str, Any]], prompt: str, top_k: int) -> list[dict
     query = tokens(prompt)
     ranked: list[tuple[float, str, dict[str, Any]]] = []
     for row in claims:
-        s = score(query, row["claim"], df, len(claims))
+        s = score(query, retrieval_document(row), df, len(claims))
         ranked.append((s, row["id"], row))
     ranked.sort(key=lambda item: (-item[0], item[1]))
     selected = [item for item in ranked if item[0] > 0][:top_k]
@@ -151,18 +176,38 @@ def self_test() -> None:
                 "claim_sha256": "a" * 64,
                 "source_ids": ["doi:10.0000/root"],
                 "profile_ids": ["root-hypoxia", "root-stress"],
+                "profile_name": "Root hypoxia",
+                "category": "Root disorder",
+                "source": {"title": "Root oxygen limitation in controlled crops"},
                 "retrieval_only": True,
             },
             {
                 "id": "rag-b",
-                "claim": "Powdery mildew produces superficial fungal growth on susceptible foliage.",
+                "claim": "Superficial fungal growth can develop on susceptible foliage.",
                 "claim_sha256": "b" * 64,
                 "source_ids": ["doi:10.0000/pm"],
                 "profile_ids": ["powdery-mildew"],
+                "profile_name": "Powdery mildew",
+                "category": "Fungal pathogen",
+                "source": {"title": "Powdery mildew of Cannabis"},
+                "retrieval_only": True,
+            },
+            {
+                "id": "rag-c",
+                "claim": "The isolate reproduced lesions after inoculation and was reisolated from the host.",
+                "claim_sha256": "c" * 64,
+                "source_ids": ["doi:10.0000/serratia"],
+                "profile_ids": ["bacterial-serratia-leaf-spot"],
+                "profile_name": "Serratia bacterial leaf spot",
+                "category": "Bacterial pathogen",
+                "source": {"title": "First report of Serratia marcescens causing leaf spot on hemp"},
                 "retrieval_only": True,
             },
         ]
-        cases = [{"id": "case-root", "prompt": "How can root oxygen limitation resemble nutrient stress?"}]
+        cases = [
+            {"id": "case-root", "prompt": "How can root oxygen limitation resemble nutrient stress?"},
+            {"id": "case-serratia", "prompt": "What evidence supports Serratia marcescens on hemp?"},
+        ]
         write_jsonl(claims_path, claims)
         write_jsonl(bench_path, cases)
         first = build(load_jsonl(claims_path), load_jsonl(bench_path), 2)
@@ -171,7 +216,9 @@ def self_test() -> None:
         assert first[0]["retrieved"][0]["claim_id"] == "rag-a"
         assert first[0]["retrieved"][0]["source_ids"] == ["doi:10.0000/root"]
         assert first[0]["retrieved"][0]["profile_ids"] == ["root-hypoxia", "root-stress"]
-        assert all(item["score"] > 0 for item in first[0]["retrieved"])
+        assert first[1]["retrieved"][0]["claim_id"] == "rag-c"
+        assert "serratia" in tokens(retrieval_document(claims[2]))
+        assert all(item["score"] > 0 for row in first for item in row["retrieved"])
     print("frozen RAG snapshot self-test: PASS")
 
 
@@ -196,6 +243,9 @@ def main() -> int:
     manifest = {
         "schema_version": "grow-doc-rag-snapshot-v1",
         "algorithm": ALGORITHM,
+        "index_fields": ["claim", "profile_name", "category", "source_title"],
+        "query_fields": ["prompt"],
+        "heldout_answer_fields_used_for_ranking": False,
         "top_k": args.top_k,
         "claims_path": str(args.claims),
         "claims_sha256": sha256(args.claims),
