@@ -234,8 +234,9 @@ def self_test() -> None:
     assert not any("tokenizer_revision" in error for error in real_run_errors)
     assert not any("enable_thinking" in error for error in real_run_errors)
     assert any("tokenizer_chat_template_sha256" in error for error in real_run_errors)
-    assert any("split_manifest_sha256" in error for error in real_run_errors)
-    assert any("dataset_manifest_sha256" in error for error in real_run_errors)
+    assert not any("split_manifest_sha256" in error for error in real_run_errors)
+    assert not any("dataset_manifest_sha256" in error for error in real_run_errors)
+    assert len(real_run_errors) == 1, real_run_errors
 
     with tempfile.TemporaryDirectory() as tmp:
         p = Path(tmp) / "qlora.yaml"
