@@ -1,0 +1,161 @@
+/* Screenshot-driven mobile refinement: reduce duplicate workflow chrome and shorten evidence capture on phones. */
+
+@media (max-width: 640px) {
+  .diagnostic-page.grow-doc-workspace {
+    padding: 12px 10px 48px;
+  }
+
+  .grow-doc-hero {
+    padding: 22px 18px 20px;
+    gap: 0;
+  }
+
+  .grow-doc-hero h1 {
+    max-width: 12ch;
+    margin-bottom: 14px;
+    font-size: clamp(33px, 9.4vw, 40px);
+    line-height: .96;
+  }
+
+  .grow-doc-hero > div > p {
+    font-size: 12px;
+    line-height: 1.58;
+  }
+
+  /* The step rail already explains the workflow directly below the hero. */
+  .grow-doc-hero-note {
+    display: none;
+  }
+
+  .grow-doc-stepbar {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    padding: 0 8px;
+    margin-bottom: 14px;
+  }
+
+  .grow-doc-stepbar > div {
+    min-height: 54px;
+    display: grid;
+    grid-template-columns: 27px minmax(0, 1fr);
+    grid-template-rows: auto;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 6px;
+  }
+
+  .grow-doc-stepbar > div + div {
+    border-top: 0;
+    border-left: 1px solid rgba(185, 214, 195, .09);
+  }
+
+  .grow-doc-stepbar > div > span {
+    width: 27px;
+    height: 27px;
+    font-size: 8px;
+  }
+
+  .grow-doc-stepbar strong {
+    font-size: 9px;
+    white-space: nowrap;
+  }
+
+  .grow-doc-stepbar small {
+    display: none;
+  }
+
+  .workflow-column {
+    gap: 12px;
+  }
+
+  .evidence-section,
+  .context-section,
+  .visual-observation-review {
+    padding: 16px;
+  }
+
+  .section-heading {
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .section-heading p {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .evidence-grid {
+    gap: 12px;
+  }
+
+  /* Base styles use aspect-ratio:.96; remove it on phones so evidence cards stop dominating the scroll. */
+  .upload-tile,
+  .evidence-slot:first-child .upload-tile {
+    min-height: 148px;
+    aspect-ratio: auto;
+  }
+
+  .upload-tile .upload-icon {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 6px;
+  }
+
+  .evidence-slot > label {
+    margin-bottom: 6px;
+  }
+
+  .evidence-slot > p {
+    margin-top: 5px;
+    line-height: 1.35;
+  }
+
+  .privacy-note {
+    margin-top: 14px;
+    font-size: 8px;
+    line-height: 1.45;
+  }
+
+  .quality-criteria {
+    margin-top: 12px;
+    padding: 11px 12px;
+    gap: 7px 10px;
+    font-size: 8px;
+  }
+
+  .visual-observation-card {
+    padding: 14px;
+  }
+
+  .visual-observation-intro {
+    gap: 10px;
+  }
+
+  .visual-observation-intro p {
+    font-size: 9px;
+    line-height: 1.45;
+  }
+
+  .result-panel {
+    padding: 20px;
+  }
+
+  .result-panel h2 {
+    font-size: 29px;
+  }
+}
+
+@media (max-width: 390px) {
+  .grow-doc-stepbar strong {
+    font-size: 8px;
+  }
+
+  .upload-tile,
+  .evidence-slot:first-child .upload-tile {
+    min-height: 138px;
+  }
+}
