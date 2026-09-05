@@ -16,7 +16,6 @@ import random
 import re
 import subprocess
 import sys
-import tempfile
 from dataclasses import dataclass
 from importlib.metadata import version as package_version
 from pathlib import Path
@@ -25,12 +24,14 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 REQUIREMENTS_IN = ROOT / "model_tuning/requirements.in"
+LOCK_PATH = ROOT / "model_tuning/requirements.lock"
 TRAIN_SFT = ROOT / "model_tuning/generated/splits/train_sft_v1.jsonl"
 TRAIN_GQA = ROOT / "model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl"
 DEV_SFT = ROOT / "model_tuning/generated/splits/dev_sft_v1.jsonl"
 DEV_GQA = ROOT / "model_tuning/generated/splits/dev_grounded_qa_v1.jsonl"
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 DIRECT_PACKAGE_NAMES = ("torch", "transformers", "peft", "bitsandbytes", "accelerate")
+UV_PREFIX = "uv 0.12.10"
 
 
 def sha256_file(path: Path) -> str:
@@ -85,7 +86,7 @@ def direct_requirements(path: Path = REQUIREMENTS_IN) -> dict[str, str]:
     return pinned
 
 
-def materialize_dependency_lock(output: Path) -> str:
+def materialize_dependency_lock() -> str:
     text = CONFIG.read_text(encoding="utf-8")
     expected = scalar(text, "dependency_lock_sha256")
     resolver = scalar(text, "dependency_lock_resolver")
@@ -100,23 +101,28 @@ def materialize_dependency_lock(output: Path) -> str:
         uv_version = subprocess.check_output(["uv", "--version"], text=True).strip()
     except (OSError, subprocess.CalledProcessError) as exc:
         raise RuntimeError("uv==0.12.10 is required to materialize the dependency lock") from exc
-    if uv_version != "uv 0.12.10":
+    if not (uv_version == UV_PREFIX or uv_version.startswith(UV_PREFIX + " (")):
         raise RuntimeError(f"expected uv 0.12.10, got {uv_version!r}")
-    subprocess.run(
-        [
-            "uv", "pip", "compile", input_path,
-            "--python-version", "3.12",
-            "--generate-hashes",
-            "--universal",
-            "--output-file", str(output),
-        ],
-        cwd=ROOT,
-        check=True,
-    )
-    actual = sha256_file(output)
-    if actual != expected:
-        raise RuntimeError(f"dependency lock SHA mismatch: expected {expected}, got {actual}")
-    return actual
+    if LOCK_PATH.exists():
+        raise RuntimeError(f"refusing to overwrite existing lock file: {LOCK_PATH}")
+    try:
+        subprocess.run(
+            [
+                "uv", "pip", "compile", input_path,
+                "--python-version", "3.12",
+                "--generate-hashes",
+                "--universal",
+                "--output-file", "model_tuning/requirements.lock",
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+        actual = sha256_file(LOCK_PATH)
+        if actual != expected:
+            raise RuntimeError(f"dependency lock SHA mismatch: expected {expected}, got {actual}")
+        return actual
+    finally:
+        LOCK_PATH.unlink(missing_ok=True)
 
 
 def verify_direct_runtime_versions() -> dict[str, str]:
@@ -142,8 +148,7 @@ def run_preflight() -> tuple[str, str]:
     subprocess.run([sys.executable, "scripts/freeze-model-training-artifacts.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/verify-qlora-artifacts.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/validate-qlora-config.py", "--real-run"], cwd=ROOT, check=True)
-    with tempfile.TemporaryDirectory() as tmp:
-        lock_sha = materialize_dependency_lock(Path(tmp) / "requirements.lock")
+    lock_sha = materialize_dependency_lock()
     return repo_revision, lock_sha
 
 
@@ -274,6 +279,7 @@ def self_test() -> None:
     text = CONFIG.read_text(encoding="utf-8")
     assert scalar(text, "dependency_lock_resolver") == "uv==0.12.10"
     assert scalar(text, "dependency_lock_sha256") == "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
+    assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     print("Grow Doc QLoRA trainer self-test: PASS")
 
 
