@@ -3,14 +3,15 @@ base_model: Qwen/Qwen3-8B
 base_model_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_chat_template_sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
-# Qwen3 defaults to thinking mode. Keep the first reproducible Grow Doc baseline
-# explicitly non-thinking while deterministic/greedy decoding remains in use.
 tokenizer_chat_template_kwargs_enable_thinking: false
 task: causal_lm_sft
 
 reproducibility:
   require_pinned_base_revision: true
   require_pinned_dependency_lock: true
+  dependency_lock_input_path: model_tuning/requirements.in
+  dependency_lock_resolver: uv==0.12.10
+  dependency_lock_sha256: ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e
   require_dataset_manifest_hash: true
   require_split_manifest_hash: true
   require_tokenizer_revision_pin: true
@@ -78,8 +79,6 @@ training:
   seed: 420
   bf16: true
   tf32: true
-  # Best-checkpoint selection is intentionally external until an actual Trainer
-  # eval_dataset + metric callback is implemented. Do not imply otherwise.
   load_best_model_at_end: false
   checkpoint_selection: external_heldout_promotion_gate
 

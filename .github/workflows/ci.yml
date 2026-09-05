@@ -42,6 +42,13 @@ jobs:
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
       - run: python3 scripts/validate-qlora-config.py --real-run
+      - name: Validate QLoRA trainer structure
+        run: python3 scripts/train-grow-doc-qlora.py --self-test
+      - name: Verify reproducible QLoRA dependency lock
+        run: |
+          python3 scripts/verify-qlora-dependency-contract.py --self-test
+          python3 -m pip install --disable-pip-version-check uv==0.12.10
+          python3 scripts/verify-qlora-dependency-contract.py --materialize
       - name: Verify pinned Qwen3 tokenizer chat template
         run: |
           python3 scripts/materialize-chat-template.py --self-test
