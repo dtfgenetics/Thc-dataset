@@ -1,0 +1,353 @@
+/* Secondary Grow Doc views — visual system v3 */
+
+.view-container,
+.atlas-page-v2 {
+  width: min(1480px, 100%);
+  padding-inline: 34px;
+}
+
+.view-intro,
+.atlas-hero-v2 {
+  padding-block: 42px 36px;
+  border-bottom: 1px solid rgba(192, 218, 201, .12);
+}
+
+.view-intro > div > span,
+.atlas-hero-v2 > div > span {
+  display: none;
+}
+
+.view-intro h1,
+.atlas-hero-v2 h1,
+.detail-header h1 {
+  max-width: 900px;
+  margin: 0;
+  color: var(--gd-text);
+  font-size: clamp(42px, 5vw, 70px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.06em;
+  text-wrap: balance;
+}
+
+.view-intro p,
+.atlas-hero-v2 > div > p,
+.detail-header p {
+  max-width: 760px;
+  color: #9aada2;
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.library-count {
+  padding-left: 24px;
+  border-left: 1px solid rgba(121, 216, 147, .28);
+}
+
+.library-count strong {
+  color: var(--gd-text);
+  font-size: clamp(34px, 4vw, 54px);
+}
+
+.library-tools {
+  top: 70px;
+  margin-inline: -4px;
+  padding: 15px 4px 18px;
+  background: linear-gradient(180deg, rgba(7, 16, 12, .98) 76%, rgba(7, 16, 12, .88));
+}
+
+.search-field {
+  min-height: 46px;
+  border: 1px solid var(--gd-line);
+  border-radius: 9px;
+  background: #08140e;
+}
+
+.filter-row { gap: 7px; }
+.filter-row button {
+  min-height: 34px;
+  border: 1px solid var(--gd-line);
+  border-radius: 7px;
+  background: transparent;
+  color: #82968a;
+  font-size: 10px;
+}
+.filter-row button.active {
+  border-color: rgba(121, 216, 147, .42);
+  background: rgba(121, 216, 147, .10);
+  color: #dff1e5;
+}
+
+/* Issue library — editorial list */
+.issue-list { border-top: 0; }
+.issue-row {
+  grid-template-columns: 132px minmax(0, 1fr) minmax(210px, 260px);
+  gap: 28px;
+  margin: 0;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(192, 218, 201, .10);
+  background: transparent;
+}
+.issue-thumb {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid rgba(192, 218, 201, .11);
+  border-radius: 10px;
+  background: #09150f;
+  box-shadow: none;
+}
+.issue-row h2 {
+  margin-block: 4px 8px;
+  color: var(--gd-text);
+  font-size: 23px;
+  line-height: 1.12;
+  letter-spacing: -.03em;
+}
+.issue-row-body > p,
+.issue-row-body ul,
+.issue-row em {
+  color: #879b90;
+  line-height: 1.6;
+}
+.issue-row-status {
+  align-self: stretch;
+  padding-left: 22px;
+  border-left: 1px solid rgba(192, 218, 201, .10);
+}
+.issue-row-status button {
+  margin-top: auto;
+  border-top: 1px solid rgba(192, 218, 201, .09);
+  color: var(--gd-green);
+}
+
+/* Reference library — larger media, lighter framing */
+.reference-grid { gap: 22px; }
+.reference-grid figure,
+.media-grid figure {
+  border: 1px solid rgba(192, 218, 201, .11);
+  border-radius: 12px;
+  background: #09150f;
+  box-shadow: none;
+}
+.reference-grid figure > img,
+.media-grid img {
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(.96) contrast(1.02);
+}
+.reference-grid figcaption { padding: 20px 20px 22px; }
+.reference-grid h2 {
+  color: var(--gd-text);
+  font-size: 20px;
+  line-height: 1.14;
+}
+.reference-grid p,
+.reference-grid dd,
+.media-grid figcaption { color: #879a8f; }
+
+/* Coverage — stat strip rather than card wall */
+.coverage-summary {
+  gap: 0;
+  margin-block: 28px;
+  border-top: 1px solid var(--gd-line);
+  border-bottom: 1px solid var(--gd-line);
+}
+.summary,
+.summary.warning {
+  min-height: 126px;
+  padding: 22px 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.summary + .summary { border-left: 1px solid rgba(192, 218, 201, .10); }
+.summary strong {
+  color: var(--gd-text);
+  font-size: clamp(30px, 3vw, 42px);
+}
+.summary > span { color: #7ebf91; }
+.coverage-table-wrap {
+  border: 1px solid var(--gd-line);
+  border-radius: 14px;
+  background: #09160f;
+  box-shadow: none;
+}
+.coverage-table-heading {
+  padding: 24px 26px;
+  background: transparent;
+}
+.coverage-row {
+  min-height: 58px;
+  border-top: 1px solid rgba(192, 218, 201, .08);
+}
+.coverage-row.header { background: rgba(255,255,255,.015); }
+
+/* Grow log — single work surface + timeline */
+.log-form {
+  padding: clamp(24px, 3vw, 34px);
+  border: 1px solid var(--gd-line);
+  border-radius: 16px;
+  background: linear-gradient(180deg, #0c1a13, #09150f);
+}
+.log-list {
+  margin-top: 34px;
+  border-top: 1px solid var(--gd-line);
+}
+.log-list article {
+  position: relative;
+  padding-block: 24px;
+  border-bottom: 1px solid rgba(192, 218, 201, .09);
+}
+.log-date strong { color: var(--gd-text); }
+
+/* About — less repetitive card treatment */
+.about-lead {
+  max-width: 980px;
+  padding: 48px 0 34px;
+}
+.about-lead h2 {
+  color: var(--gd-text);
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: -.035em;
+}
+.about-lead p {
+  color: #97aa9f;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.principles {
+  gap: 0;
+  border-top: 1px solid var(--gd-line);
+  border-bottom: 1px solid var(--gd-line);
+}
+.principles article {
+  min-height: 230px;
+  padding: 30px 26px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.principles article + article { border-left: 1px solid rgba(192, 218, 201, .10); }
+.principles article > span {
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(121,216,147,.15);
+  border-radius: 10px;
+  background: rgba(121,216,147,.05);
+}
+.principles h2 { color: var(--gd-text); }
+.principles p { color: #879a8f; }
+
+/* Plant atlas — calm evidence workspace */
+.atlas-workspace-v2 {
+  overflow: hidden;
+  border: 1px solid var(--gd-line);
+  border-radius: 16px;
+  background: #09160f;
+  box-shadow: none;
+}
+.atlas-section-rail {
+  border-right: 1px solid rgba(192,218,201,.10);
+  background: #07130d;
+}
+.atlas-section-rail button {
+  min-height: 58px;
+  border-bottom: 1px solid rgba(192,218,201,.07);
+  color: #92a59a;
+}
+.atlas-section-rail button.active {
+  background: rgba(121,216,147,.07);
+  box-shadow: inset 3px 0 0 var(--gd-green);
+  color: #ecf4ef;
+}
+.atlas-evidence-board {
+  padding: clamp(28px, 4vw, 48px);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(121,216,147,.05), transparent 20rem),
+    #0a1710;
+}
+.atlas-evidence-board h2,
+.atlas-rail-heading strong,
+.atlas-system-strip h3,
+.leaf-module-header h2,
+.leaf-page-card h3 { color: var(--gd-text); }
+.atlas-evidence-callout {
+  border-left: 2px solid rgba(121,216,147,.58);
+  border-radius: 0 10px 10px 0;
+  background: rgba(121,216,147,.055);
+}
+.leaf-page-grid-v2 .leaf-page-card {
+  border: 1px solid rgba(192,218,201,.09);
+  border-radius: 10px;
+  background: #08140e;
+}
+
+/* Detail pages */
+.detail-header,
+.detail-gallery,
+.action-grid {
+  border-color: rgba(192,218,201,.10);
+}
+.confirmation-box {
+  border: 1px solid rgba(121,216,147,.20);
+  border-radius: 14px;
+  background: rgba(121,216,147,.055);
+}
+
+@media (max-width: 1000px) {
+  .issue-row {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+  .issue-row-status {
+    grid-column: 2;
+    padding: 14px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(192,218,201,.09);
+  }
+  .coverage-summary { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .summary + .summary { border-left: 0; }
+  .summary:nth-child(n+4) { border-top: 1px solid rgba(192,218,201,.09); }
+}
+
+@media (max-width: 760px) {
+  .view-container,
+  .atlas-page-v2 { padding-inline: 16px; }
+  .view-intro,
+  .atlas-hero-v2 { padding-block: 30px 26px; }
+  .view-intro h1,
+  .atlas-hero-v2 h1,
+  .detail-header h1 { font-size: clamp(38px, 11vw, 52px); }
+  .library-count { padding-left: 16px; }
+  .library-tools { top: 68px; }
+  .issue-row {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 16px;
+    padding-block: 22px;
+  }
+  .issue-row h2 { font-size: 19px; }
+  .coverage-summary { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .summary { min-height: 112px; }
+  .principles { grid-template-columns: 1fr; }
+  .principles article + article {
+    border-left: 0;
+    border-top: 1px solid rgba(192,218,201,.09);
+  }
+  .atlas-section-rail {
+    display: flex;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(192,218,201,.10);
+  }
+  .atlas-section-rail button {
+    flex: 0 0 165px;
+    border-right: 1px solid rgba(192,218,201,.07);
+    border-bottom: 0;
+  }
+  .atlas-section-rail button.active { box-shadow: inset 0 -3px 0 var(--gd-green); }
+}
+
+@media (max-width: 520px) {
+  .coverage-summary { grid-template-columns: 1fr 1fr; }
+  .issue-row { grid-template-columns: 72px minmax(0,1fr); }
+  .reference-grid { grid-template-columns: 1fr; }
+}
