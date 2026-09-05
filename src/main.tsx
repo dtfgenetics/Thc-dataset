@@ -9,6 +9,7 @@ import './growdoc-mobile-containment.css'
 import './growdoc-visual-system-v3.css'
 import './growdoc-secondary-views-v3.css'
 import './growdoc-shell-v3.css'
+import './growdoc-mobile-render-refinement-v1.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
