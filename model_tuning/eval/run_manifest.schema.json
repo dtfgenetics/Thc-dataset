@@ -46,10 +46,26 @@
     "tokenizer": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["repository", "revision"],
+      "required": [
+        "repository",
+        "revision",
+        "chat_template_sha256",
+        "chat_template_method",
+        "chat_template_kwargs"
+      ],
       "properties": {
         "repository": {"type": "string", "minLength": 1},
-        "revision": {"type": "string", "minLength": 7}
+        "revision": {"type": "string", "minLength": 7},
+        "chat_template_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "chat_template_method": {"type": "string", "minLength": 1},
+        "chat_template_kwargs": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enable_thinking"],
+          "properties": {
+            "enable_thinking": {"type": "boolean"}
+          }
+        }
       }
     },
     "decoding": {
