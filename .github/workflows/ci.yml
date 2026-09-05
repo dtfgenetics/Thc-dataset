@@ -25,6 +25,7 @@ jobs:
       - run: npm run validate:model-eval-candidates
       - run: npm run validate:model-eval-coverage
       - run: npm run validate:model-corpus-quality
+      - run: npm run validate:model-semantic-leakage
       - run: npm run validate:model-corpus
       - run: npm run validate:grounded-qa
       - run: npm run validate:model-split
