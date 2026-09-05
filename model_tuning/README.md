@@ -142,10 +142,12 @@ Pin exact license/terms, model revision, tokenizer revision, chat template, depe
 
 Answers about measurements, cultivar-specific behavior, disease confirmation, nutrient thresholds, legal/current recommendations, or newly published science should retrieve evidence at inference time. Fine-tuning should teach the model to use supplied evidence and state limitations, not to memorize a changing encyclopedia.
 
+The frozen evaluation retriever uses `grow-doc-field-weighted-idf-v2`. Ranking inputs are limited to the held-out prompt plus corpus-side `claim`, `profile_name`, `category`, source title, and source organization/publisher metadata. Held-out expected points, `must_cite`, forbidden claims, and source labels are not ranking inputs. The snapshot preserves claim, profile, category, source IDs, and source metadata so downstream generations can cite the retrieved evidence directly. During snapshot creation, `must_cite` is used only after ranking to audit required-source coverage against the previous claim-only lexical baseline; CI fails if the metadata-aware retriever regresses that coverage. This is a retrieval-quality measurement, not a model-performance score.
+
 ## Experiment order
 
 1. Freeze the exact base model/tokenizer/template/dependency contract, `heldout_v2`, decoding settings, and training artifacts.
-2. Materialize the exact frozen `heldout_v2` RAG snapshot.
+2. Materialize the exact frozen `heldout_v2` RAG snapshot and record required-source retrieval coverage without feeding held-out labels into ranking.
 3. Pass the base-vs-RAG hardware/runtime preflight on BF16-capable CUDA hardware with at least 20 GiB VRAM.
 4. Run `scripts/run-base-vs-rag-experiment.py` to compare the untuned pinned base model without retrieval against the identical base model with the frozen snapshot.
 5. Blind-review and score both arms using the dedicated base-vs-RAG workflow. Use that result to decide whether QLoRA is justified.

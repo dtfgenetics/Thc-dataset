@@ -4,6 +4,10 @@
 This script does not run a language model and does not claim model performance. It freezes
 which reviewed RAG claims are supplied to each held-out prompt so base models and adapters
 can be compared against identical retrieval context.
+
+Retrieval uses only prompt text plus corpus-side claim/profile/source metadata. Held-out
+answers, expected points, must-cite labels, and forbidden claims are never retrieval inputs.
+The held-out must-cite field is used only after retrieval to audit required-source coverage.
 """
 from __future__ import annotations
 
@@ -13,15 +17,23 @@ import json
 import math
 import re
 import tempfile
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
-ALGORITHM = "grow-doc-lexical-idf-v1"
+ALGORITHM = "grow-doc-field-weighted-idf-v2"
+BASELINE_ALGORITHM = "grow-doc-lexical-idf-v1"
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 STOPWORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "for", "from", "how", "in", "is",
     "it", "of", "on", "or", "that", "the", "this", "to", "what", "when", "which", "with",
+}
+FIELD_WEIGHTS = {
+    "claim": 1.0,
+    "profile_name": 1.35,
+    "category": 0.7,
+    "source_title": 0.55,
+    "source_organization": 0.35,
 }
 
 
@@ -83,14 +95,38 @@ def validate_cases(rows: list[dict[str, Any]]) -> None:
         seen.add(row["id"])
 
 
+def row_fields(row: dict[str, Any]) -> dict[str, str]:
+    sources = row.get("sources") or []
+    source_titles = " ".join(str(source.get("title") or "") for source in sources if isinstance(source, dict))
+    source_orgs = " ".join(
+        " ".join(str(source.get(key) or "") for key in ("organization", "publisher"))
+        for source in sources
+        if isinstance(source, dict)
+    )
+    if not source_titles and isinstance(row.get("source"), dict):
+        source_titles = str(row["source"].get("title") or "")
+    if not source_orgs and isinstance(row.get("source"), dict):
+        source_orgs = " ".join(str(row["source"].get(key) or "") for key in ("organization", "publisher"))
+    return {
+        "claim": str(row.get("claim") or ""),
+        "profile_name": str(row.get("profile_name") or ""),
+        "category": str(row.get("category") or ""),
+        "source_title": source_titles,
+        "source_organization": source_orgs,
+    }
+
+
 def document_frequencies(claims: list[dict[str, Any]]) -> Counter[str]:
     df: Counter[str] = Counter()
     for row in claims:
-        df.update(set(tokens(row["claim"])))
+        combined: set[str] = set()
+        for value in row_fields(row).values():
+            combined.update(tokens(value))
+        df.update(combined)
     return df
 
 
-def score(query: list[str], claim: str, df: Counter[str], n_docs: int) -> float:
+def lexical_score(query: list[str], claim: str, df: Counter[str], n_docs: int) -> float:
     if not query:
         return 0.0
     tf = Counter(tokens(claim))
@@ -103,12 +139,36 @@ def score(query: list[str], claim: str, df: Counter[str], n_docs: int) -> float:
     return total
 
 
-def retrieve(claims: list[dict[str, Any]], prompt: str, top_k: int) -> list[dict[str, Any]]:
+def weighted_score(query: list[str], row: dict[str, Any], df: Counter[str], n_docs: int) -> float:
+    if not query:
+        return 0.0
+    fields = row_fields(row)
+    total = 0.0
+    for field_name, value in fields.items():
+        weight = FIELD_WEIGHTS[field_name]
+        if not value or weight <= 0:
+            continue
+        tf = Counter(tokens(value))
+        for term in set(query):
+            if term not in tf:
+                continue
+            idf = math.log((n_docs + 1.0) / (df[term] + 1.0)) + 1.0
+            total += weight * idf * (1.0 + math.log(tf[term]))
+    return total
+
+
+def retrieve(
+    claims: list[dict[str, Any]],
+    prompt: str,
+    top_k: int,
+    *,
+    metadata_aware: bool = True,
+) -> list[dict[str, Any]]:
     df = document_frequencies(claims)
     query = tokens(prompt)
     ranked: list[tuple[float, str, dict[str, Any]]] = []
     for row in claims:
-        s = score(query, row["claim"], df, len(claims))
+        s = weighted_score(query, row, df, len(claims)) if metadata_aware else lexical_score(query, row["claim"], df, len(claims))
         ranked.append((s, row["id"], row))
     ranked.sort(key=lambda item: (-item[0], item[1]))
     selected = [item for item in ranked if item[0] > 0][:top_k]
@@ -121,22 +181,59 @@ def retrieve(claims: list[dict[str, Any]], prompt: str, top_k: int) -> list[dict
             "claim": row["claim"],
             "source_ids": list(row["source_ids"]),
             "profile_ids": list(row["profile_ids"]),
+            "profile_name": row.get("profile_name"),
+            "category": row.get("category"),
+            "sources": list(row.get("sources") or ([row["source"]] if row.get("source") else [])),
         }
         for rank, (s, _rid, row) in enumerate(selected, 1)
     ]
 
 
-def build(claims: list[dict[str, Any]], cases: list[dict[str, Any]], top_k: int) -> list[dict[str, Any]]:
+def build(
+    claims: list[dict[str, Any]],
+    cases: list[dict[str, Any]],
+    top_k: int,
+    *,
+    metadata_aware: bool = True,
+) -> list[dict[str, Any]]:
     validate_claims(claims)
     validate_cases(cases)
     return [
         {
             "case_id": case["id"],
             "prompt_sha256": hashlib.sha256(case["prompt"].encode("utf-8")).hexdigest(),
-            "retrieved": retrieve(claims, case["prompt"], top_k),
+            "retrieved": retrieve(claims, case["prompt"], top_k, metadata_aware=metadata_aware),
         }
         for case in cases
     ]
+
+
+def required_source_coverage(cases: list[dict[str, Any]], snapshot: list[dict[str, Any]]) -> dict[str, Any]:
+    by_case = {row["case_id"]: row for row in snapshot}
+    eligible = 0
+    hit = 0
+    missing: list[str] = []
+    for case in cases:
+        required = {str(value).strip() for value in (case.get("must_cite") or []) if str(value).strip()}
+        if not required:
+            continue
+        eligible += 1
+        retrieved_sources = {
+            str(source_id).strip()
+            for item in by_case.get(case["id"], {}).get("retrieved", [])
+            for source_id in (item.get("source_ids") or [])
+            if str(source_id).strip()
+        }
+        if required.issubset(retrieved_sources):
+            hit += 1
+        else:
+            missing.append(case["id"])
+    return {
+        "eligible_cases": eligible,
+        "hit_cases": hit,
+        "hit_rate": round(hit / eligible, 6) if eligible else None,
+        "missing_case_ids": missing,
+    }
 
 
 def self_test() -> None:
@@ -151,27 +248,50 @@ def self_test() -> None:
                 "claim_sha256": "a" * 64,
                 "source_ids": ["doi:10.0000/root"],
                 "profile_ids": ["root-hypoxia", "root-stress"],
+                "profile_name": "Root hypoxia",
+                "category": "abiotic",
+                "sources": [{"source_id": "doi:10.0000/root", "title": "Root Oxygen Limitation", "organization": "Plant Lab"}],
                 "retrieval_only": True,
             },
             {
                 "id": "rag-b",
-                "claim": "Powdery mildew produces superficial fungal growth on susceptible foliage.",
+                "claim": "Superficial fungal growth can occur on susceptible foliage.",
                 "claim_sha256": "b" * 64,
                 "source_ids": ["doi:10.0000/pm"],
                 "profile_ids": ["powdery-mildew"],
+                "profile_name": "Powdery mildew",
+                "category": "fungal disease",
+                "sources": [{"source_id": "doi:10.0000/pm", "title": "Powdery Mildew of Cannabis", "organization": "Plant Pathology Lab"}],
                 "retrieval_only": True,
             },
         ]
-        cases = [{"id": "case-root", "prompt": "How can root oxygen limitation resemble nutrient stress?"}]
+        cases = [
+            {
+                "id": "case-root",
+                "prompt": "How can root oxygen limitation resemble nutrient stress?",
+                "must_cite": ["doi:10.0000/root"],
+            },
+            {
+                "id": "case-pm",
+                "prompt": "What should a grower know about powdery mildew?",
+                "must_cite": ["doi:10.0000/pm"],
+            },
+        ]
         write_jsonl(claims_path, claims)
         write_jsonl(bench_path, cases)
-        first = build(load_jsonl(claims_path), load_jsonl(bench_path), 2)
-        second = build(load_jsonl(claims_path), load_jsonl(bench_path), 2)
+        first = build(load_jsonl(claims_path), load_jsonl(bench_path), 1)
+        second = build(load_jsonl(claims_path), load_jsonl(bench_path), 1)
         assert first == second
         assert first[0]["retrieved"][0]["claim_id"] == "rag-a"
         assert first[0]["retrieved"][0]["source_ids"] == ["doi:10.0000/root"]
         assert first[0]["retrieved"][0]["profile_ids"] == ["root-hypoxia", "root-stress"]
-        assert all(item["score"] > 0 for item in first[0]["retrieved"])
+        assert first[0]["retrieved"][0]["sources"][0]["title"] == "Root Oxygen Limitation"
+        assert first[1]["retrieved"][0]["claim_id"] == "rag-b", "profile/source metadata should support prompt matching"
+        coverage = required_source_coverage(cases, first)
+        assert coverage["eligible_cases"] == 2
+        assert coverage["hit_cases"] == 2
+        assert coverage["missing_case_ids"] == []
+        assert all(item["score"] > 0 for row in first for item in row["retrieved"])
     print("frozen RAG snapshot self-test: PASS")
 
 
@@ -191,11 +311,24 @@ def main() -> int:
         raise SystemExit("top-k must be between 1 and 20")
     claims = load_jsonl(args.claims)
     cases = load_jsonl(args.benchmark)
-    rows = build(claims, cases, args.top_k)
+    rows = build(claims, cases, args.top_k, metadata_aware=True)
+    baseline_rows = build(claims, cases, args.top_k, metadata_aware=False)
+    coverage = required_source_coverage(cases, rows)
+    baseline_coverage = required_source_coverage(cases, baseline_rows)
+    if coverage["hit_cases"] < baseline_coverage["hit_cases"]:
+        raise SystemExit(
+            "metadata-aware retrieval regressed required-source coverage: "
+            f"{coverage['hit_cases']}/{coverage['eligible_cases']} vs lexical baseline "
+            f"{baseline_coverage['hit_cases']}/{baseline_coverage['eligible_cases']}"
+        )
     write_jsonl(args.output, rows)
     manifest = {
-        "schema_version": "grow-doc-rag-snapshot-v1",
+        "schema_version": "grow-doc-rag-snapshot-v2",
         "algorithm": ALGORITHM,
+        "baseline_algorithm": BASELINE_ALGORITHM,
+        "field_weights": FIELD_WEIGHTS,
+        "retrieval_inputs": ["prompt", "claim", "profile_name", "category", "source_title", "source_organization"],
+        "heldout_labels_used_for_retrieval": False,
         "top_k": args.top_k,
         "claims_path": str(args.claims),
         "claims_sha256": sha256(args.claims),
@@ -206,6 +339,8 @@ def main() -> int:
         "cases": len(rows),
         "retrieved_claims": sum(len(row["retrieved"]) for row in rows),
         "zero_hit_cases": sum(1 for row in rows if not row["retrieved"]),
+        "required_source_coverage": coverage,
+        "lexical_baseline_required_source_coverage": baseline_coverage,
     }
     args.manifest.parent.mkdir(parents=True, exist_ok=True)
     args.manifest.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
