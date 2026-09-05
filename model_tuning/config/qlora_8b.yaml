@@ -1,7 +1,7 @@
 # Starter configuration only; no training run is implied.
 base_model: Qwen/Qwen3-8B
-base_model_revision: PIN_BEFORE_TRAINING
-tokenizer_revision: PIN_BEFORE_TRAINING
+base_model_revision: b968826d9c46dd6066d109eabc6255188de91218
+tokenizer_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING
 task: causal_lm_sft
 
