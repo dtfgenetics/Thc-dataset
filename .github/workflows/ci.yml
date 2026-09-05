@@ -35,12 +35,14 @@ jobs:
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
-      - name: Materialize pinned Qwen3 tokenizer chat template
+      - run: python3 scripts/validate-qlora-config.py --real-run
+      - name: Verify pinned Qwen3 tokenizer chat template
         run: |
           python3 scripts/materialize-chat-template.py --self-test
           python3 scripts/materialize-chat-template.py \
             --tokenizer-repo Qwen/Qwen3-8B \
-            --tokenizer-revision b968826d9c46dd6066d109eabc6255188de91218
+            --tokenizer-revision b968826d9c46dd6066d109eabc6255188de91218 \
+            --expected-sha256 a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
       - name: Freeze model training artifacts
         run: python3 scripts/freeze-model-training-artifacts.py
       - name: Upload frozen model training artifacts
