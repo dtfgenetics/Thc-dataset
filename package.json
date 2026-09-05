@@ -18,6 +18,7 @@
     "validate:acquisition": "node scripts/validate-acquisition-snapshot.mjs dataset/acquisition/phase0-ds133-ds148.json dataset/acquisition/phase0-ds133-ds134-v2.json dataset/acquisition/phase0-ds135-v2.json dataset/acquisition/phase0-ds135-v3.json dataset/acquisition/phase0-ds135-v4.json dataset/acquisition/phase0-ds071-ds090-v1.json dataset/acquisition/phase0-ds137-ds146-v2.json dataset/acquisition/phase0-ds159-ds165-v1.json dataset/acquisition/phase0-ds135-v5.json",
     "validate:transfer": "node scripts/validate-transfer-policy.mjs dataset/acquisition/cross-crop-transfer-policy-ds137-ds146.json",
     "validate:model-eval": "python3 scripts/validate-model-eval.py model_tuning/eval/heldout_v1.jsonl && python3 scripts/validate-model-eval.py model_tuning/eval/heldout_v2.jsonl",
+    "validate:model-base-candidates": "python3 scripts/validate-base-model-candidates.py && python3 scripts/validate-base-model-candidates.py --self-test",
     "validate:model-eval-candidates": "python3 scripts/validate-model-eval-candidates.py model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json",
     "validate:model-eval-coverage": "python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v1.jsonl && python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v2.jsonl && python3 scripts/audit-model-eval-coverage.py --self-test",
     "validate:model-corpus-quality": "python3 scripts/audit-model-corpus-quality.py && python3 scripts/audit-model-corpus-quality.py --self-test",
