@@ -70,6 +70,8 @@ jobs:
             --output model_tuning/rag_snapshots/heldout_v2.jsonl \
             --manifest model_tuning/rag_snapshots/heldout_v2.manifest.json \
             --top-k 5
+      - name: Validate strict no-offload evaluator
+        run: python3 scripts/run-model-eval-strict.py --strict-self-test
       - name: Validate base-vs-RAG launcher
         run: python3 scripts/run-base-vs-rag-experiment.py --self-test
       - name: Validate blinded base-vs-RAG review workflow
