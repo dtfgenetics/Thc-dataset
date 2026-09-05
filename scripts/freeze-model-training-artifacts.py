@@ -59,7 +59,6 @@ def grounded_qa_limit(sft_rows: int, max_fraction: float = MAX_GROUNDED_QA_FRACT
         raise ValueError("SFT training lane is empty")
     if not 0 < max_fraction < 1:
         raise ValueError("grounded-QA max fraction must be between 0 and 1")
-    # q / (sft + q) <= f  =>  q <= f*sft/(1-f)
     return math.floor((max_fraction * sft_rows) / (1.0 - max_fraction) + 1e-12)
 
 
@@ -118,8 +117,10 @@ def freeze(out: pathlib.Path) -> dict:
         shutil.rmtree(out)
     out.mkdir(parents=True, exist_ok=True)
 
+    # Raw corpus builders remain research/candidate generators. The training split
+    # is materialized only after strict supplied-claim grounding is enforced.
     run("scripts/build-model-corpus.py", "--out", str(out))
-    run("scripts/split-model-sft.py", "--out", str(out / "splits"))
+    run("scripts/split-model-training-grounded.py", "--out", str(out / "splits"))
 
     source_split_manifest = out / "splits/split_manifest_v1.json"
     source_train_qa = out / "splits/train_grounded_qa_v1.jsonl"
@@ -130,6 +131,12 @@ def freeze(out: pathlib.Path) -> dict:
 
     sft_rows = load_jsonl(train_sft)
     qa_candidates = load_jsonl(source_train_qa)
+    for row in sft_rows + qa_candidates:
+        if row.get("grounding_mode") != "supplied_claims_only_v1":
+            raise ValueError(f"{row.get('id')}: unsanitized record reached training freeze")
+        if not row.get("evidence_claims"):
+            raise ValueError(f"{row.get('id')}: evidence_claims missing at training freeze")
+
     qa_limit = grounded_qa_limit(len(sft_rows))
     qa_selected = select_grounded_qa(qa_candidates, min(qa_limit, len(qa_candidates)))
     write_jsonl(selected_train_qa, qa_selected)
@@ -142,7 +149,8 @@ def freeze(out: pathlib.Path) -> dict:
 
     source_split = json.loads(source_split_manifest.read_text(encoding="utf-8"))
     training_split = dict(source_split)
-    training_split["schema_version"] = "grow-doc-training-mixture-split-v1"
+    training_split["schema_version"] = "grow-doc-training-mixture-split-v2"
+    training_split["grounding_policy"] = "supplied_claims_only_v1"
     training_split["parent_split_manifest_path"] = "model_tuning/generated/splits/split_manifest_v1.json"
     training_split["parent_split_manifest_sha256"] = sha256(source_split_manifest)
     training_split["train_grounded_qa_candidate_records"] = len(qa_candidates)
@@ -180,8 +188,9 @@ def freeze(out: pathlib.Path) -> dict:
     training = json.loads(training_manifest.read_text(encoding="utf-8"))
     corpus = json.loads((out / "manifest_v1.json").read_text(encoding="utf-8"))
     lock = {
-        "schema_version": "grow-doc-training-artifact-lock-v2",
-        "policy": "byte-level freeze of leak-safe source split, capped training mixture, retrieval, quarantine, and heldout provenance; no model run implied",
+        "schema_version": "grow-doc-training-artifact-lock-v3",
+        "policy": "byte-level freeze of supplied-claim-grounded leak-safe split, capped training mixture, retrieval, quarantine, and heldout provenance; no model run implied",
+        "grounding_policy": "supplied_claims_only_v1",
         "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
         "heldout_sha256": sha256(HELDOUT),
         "corpus_manifest_path": "model_tuning/generated/manifest_v1.json",
@@ -204,7 +213,7 @@ def freeze(out: pathlib.Path) -> dict:
         "training_rows": (training.get("mixture") or {}).get("training_rows"),
         "grounded_qa_fraction": (training.get("mixture") or {}).get("grounded_qa_fraction"),
     }
-    (out / "training_artifact_lock_v2.json").write_text(
+    (out / "training_artifact_lock_v3.json").write_text(
         json.dumps(lock, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     return lock
@@ -213,7 +222,8 @@ def freeze(out: pathlib.Path) -> dict:
 def self_test() -> None:
     required = {
         "build-model-corpus.py",
-        "split-model-sft.py",
+        "split-model-training-grounded.py",
+        "enforce-supplied-claim-grounding.py",
         "build-training-dataset-manifest.py",
     }
     present = {p.name for p in (ROOT / "scripts").iterdir() if p.is_file()}
