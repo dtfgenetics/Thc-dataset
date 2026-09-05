@@ -72,6 +72,10 @@ jobs:
             --top-k 5
       - name: Validate base-vs-RAG launcher
         run: python3 scripts/run-base-vs-rag-experiment.py --self-test
+      - name: Validate blinded base-vs-RAG review workflow
+        run: python3 scripts/prepare-base-rag-blind-review.py --self-test
+      - name: Validate dedicated base-vs-RAG scorer
+        run: python3 scripts/score-base-vs-rag-eval.py --self-test
       - name: Upload frozen model training artifacts
         uses: actions/upload-artifact@v4
         with:
