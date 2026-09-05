@@ -21,6 +21,7 @@
     "validate:model-eval-candidates": "python3 scripts/validate-model-eval-candidates.py model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json",
     "validate:model-eval-coverage": "python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v1.jsonl && python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v2.jsonl && python3 scripts/audit-model-eval-coverage.py --self-test",
     "validate:model-corpus-quality": "python3 scripts/audit-model-corpus-quality.py && python3 scripts/audit-model-corpus-quality.py --self-test",
+    "validate:model-semantic-leakage": "python3 scripts/audit-model-semantic-leakage.py && python3 scripts/audit-model-semantic-leakage.py --self-test",
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
     "validate:grounded-qa": "python3 scripts/build-grounded-qa.py --check-only && python3 scripts/build-grounded-qa.py --self-test",
     "validate:model-split": "python3 scripts/split-model-sft.py --check-only && python3 scripts/split-model-sft.py --self-test",
