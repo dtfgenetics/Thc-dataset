@@ -1,0 +1,8 @@
+# Direct dependencies for the Grow Doc QLoRA/evaluation environment.
+# The canonical, fully transitive lock is generated with uv and then hash-bound
+# into the QLoRA contract. Do not install this file directly for a promoted run.
+torch==2.14.0
+transformers==5.16.1
+peft==0.20.0
+bitsandbytes==0.50.2
+accelerate==1.14.0
