@@ -90,14 +90,31 @@ def task_prompt(task: str, evidence: str) -> str:
     return f"Evidence:\n{evidence}\n\n{request}"
 
 
-def assistant_target(claims: list[tuple[str, str]]) -> str:
-    bullets = "\n".join(f"- {claim} Citation: {sid}" for sid, claim in claims)
+def task_boundary(task: str) -> str:
+    if task == "grounded_diagnostic_reasoning":
+        return (
+            "Diagnostic boundary: The supplied evidence does not justify a broader diagnostic conclusion unless one of the quoted claims "
+            "explicitly establishes it. Keep the profile label as a hypothesis and separate observation from confirmation."
+        )
+    if task == "differential_and_next_test":
+        return (
+            "Differential boundary: Name a differential, test, threshold, or discriminating feature only when it appears in the quoted claims. "
+            "Otherwise state that the supplied evidence is insufficient to specify it."
+        )
+    if task == "science_education":
+        return (
+            "Teaching boundary: Explain the quoted claims clearly, but do not extend them into unstated diagnoses, universal rules, thresholds, "
+            "or recommendations. Distinguish evidence from what remains unknown."
+        )
     return (
-        "Supported by the supplied evidence:\n"
-        f"{bullets}\n\n"
-        "Uncertainty: These claims support only the statements above. They do not by themselves establish any broader profile label, "
+        "Grounding boundary: These claims support only the statements above. They do not by themselves establish any broader profile label, "
         "diagnosis, causal claim, universal threshold, differential, or recommendation unless that statement is explicitly contained in the supplied evidence."
     )
+
+
+def assistant_target(task: str, claims: list[tuple[str, str]]) -> str:
+    bullets = "\n".join(f"- {claim} Citation: {sid}" for sid, claim in claims)
+    return f"Supported by the supplied evidence:\n{bullets}\n\n{task_boundary(task)}"
 
 
 def sanitize_row(row: dict) -> dict:
@@ -116,9 +133,10 @@ def sanitize_row(row: dict) -> dict:
 
     clean = json.loads(json.dumps(row, ensure_ascii=False))
     clean_roles = messages_by_role(clean)
+    task = str(clean.get("task") or "")
     evidence = canonical_evidence(claims)
-    clean_roles["user"]["content"] = task_prompt(str(clean.get("task") or ""), evidence)
-    clean_roles["assistant"]["content"] = assistant_target(claims)
+    clean_roles["user"]["content"] = task_prompt(task, evidence)
+    clean_roles["assistant"]["content"] = assistant_target(task, claims)
     clean["grounding_mode"] = "supplied_claims_only_v1"
     clean["evidence_claims"] = [
         {"source_id": sid, "claim": claim, "claim_sha256": text_sha256(claim)} for sid, claim in claims
@@ -151,7 +169,10 @@ def validate_row(row: dict) -> list[str]:
             errors.append(f"{rid}: evidence claim missing from user prompt")
         if f"- {claim} Citation: {sid}" not in assistant:
             errors.append(f"{rid}: assistant factual bullet is not an exact supplied claim")
-    expected = assistant_target([(item["source_id"], item["claim"]) for item in evidence_claims])
+    expected = assistant_target(
+        str(row.get("task") or ""),
+        [(item["source_id"], item["claim"]) for item in evidence_claims],
+    )
     if assistant != expected:
         errors.append(f"{rid}: assistant target contains content outside deterministic supplied-claim template")
     return errors
@@ -186,6 +207,15 @@ def self_test() -> None:
     assert "Target disorder is confirmed" not in assistant
     assert "Different disorder causes circular lesions." in assistant
     assert not validate_row(clean)
+
+    base_claim = [("doi:test", "Evidence claim.")]
+    diagnostic = assistant_target("grounded_diagnostic_reasoning", base_claim)
+    differential = assistant_target("differential_and_next_test", base_claim)
+    education = assistant_target("science_education", base_claim)
+    assert len({diagnostic, differential, education}) == 3
+    assert "Diagnostic boundary" in diagnostic
+    assert "Differential boundary" in differential
+    assert "Teaching boundary" in education
 
     tampered = json.loads(json.dumps(clean))
     messages_by_role(tampered)["assistant"]["content"] += "\nTarget disorder is definitely confirmed."
