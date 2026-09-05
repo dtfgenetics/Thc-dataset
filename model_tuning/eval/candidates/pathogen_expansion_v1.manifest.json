@@ -1,6 +1,7 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/pathogen_expansion_v1.jsonl",
+  "content_sha256": "bfa311039c168eff753b66d1e99c717ff733e13ef88d6c825f9e57e3148291c6",
   "status": "candidate_only_not_promotion_eligible",
   "purpose": "Expand pathogen, diagnostic, citation-accuracy, science, and hallucination-resistance coverage without mutating the locked heldout_v2 benchmark.",
   "record_count": 6,
