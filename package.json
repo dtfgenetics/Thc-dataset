@@ -25,10 +25,12 @@
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
     "validate:grounded-qa": "python3 scripts/build-grounded-qa.py --check-only && python3 scripts/build-grounded-qa.py --self-test",
     "validate:model-split": "python3 scripts/split-model-sft.py --check-only && python3 scripts/split-model-sft.py --self-test",
+    "validate:model-grounding": "python3 scripts/enforce-supplied-claim-grounding.py --self-test && python3 scripts/split-model-training-grounded.py --self-test && python3 scripts/split-model-training-grounded.py --check-only",
     "validate:training-dataset-manifest": "python3 scripts/build-training-dataset-manifest.py --self-test",
     "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test",
     "validate:model-run-manifest": "python3 scripts/validate-model-run-manifest.py --self-test",
     "validate:model-runner": "python3 scripts/run-model-eval.py --self-test",
+    "validate:base-vs-rag-launcher": "python3 scripts/run-base-vs-rag-experiment.py --self-test",
     "validate:rag-snapshot": "python3 scripts/build-rag-eval-snapshot.py --self-test",
     "validate:qlora-config": "python3 scripts/validate-qlora-config.py && python3 scripts/validate-qlora-config.py --self-test"
   },
