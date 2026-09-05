@@ -35,13 +35,39 @@ jobs:
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
+      - run: python3 scripts/validate-qlora-config.py --real-run
+      - name: Verify pinned Qwen3 tokenizer chat template
+        run: |
+          python3 scripts/materialize-chat-template.py --self-test
+          python3 scripts/materialize-chat-template.py \
+            --tokenizer-repo Qwen/Qwen3-8B \
+            --tokenizer-revision b968826d9c46dd6066d109eabc6255188de91218 \
+            --expected-sha256 a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
       - name: Freeze model training artifacts
         run: python3 scripts/freeze-model-training-artifacts.py
+      - name: Verify frozen QLoRA artifact bytes
+        run: |
+          python3 scripts/verify-qlora-artifacts.py --self-test
+          python3 scripts/verify-qlora-artifacts.py
+      - name: Freeze heldout v2 RAG snapshot
+        run: |
+          python3 scripts/build-rag-eval-snapshot.py \
+            --claims model_tuning/generated/rag/claims_v1.jsonl \
+            --benchmark model_tuning/eval/heldout_v2.jsonl \
+            --output model_tuning/rag_snapshots/heldout_v2.jsonl \
+            --manifest model_tuning/rag_snapshots/heldout_v2.manifest.json \
+            --top-k 5
       - name: Upload frozen model training artifacts
         uses: actions/upload-artifact@v4
         with:
           name: grow-doc-model-training-artifacts
           path: model_tuning/generated
+          if-no-files-found: error
+      - name: Upload frozen heldout v2 RAG snapshot
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-heldout-v2-rag-snapshot
+          path: model_tuning/rag_snapshots
           if-no-files-found: error
       - run: npm run check
       - run: npm test

@@ -2,7 +2,7 @@
 base_model: Qwen/Qwen3-8B
 base_model_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_revision: b968826d9c46dd6066d109eabc6255188de91218
-tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING
+tokenizer_chat_template_sha256: a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
 # Qwen3 defaults to thinking mode. Keep the first reproducible Grow Doc baseline
 # explicitly non-thinking while deterministic/greedy decoding remains in use.
 tokenizer_chat_template_kwargs_enable_thinking: false
