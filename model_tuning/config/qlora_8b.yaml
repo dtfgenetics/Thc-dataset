@@ -42,9 +42,9 @@ lora:
 training_data:
   sft_path: model_tuning/generated/splits/train_sft_v1.jsonl
   dev_sft_path: model_tuning/generated/splits/dev_sft_v1.jsonl
-  grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_v1.jsonl
+  grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl
   grounded_qa_dev_path: model_tuning/generated/splits/dev_grounded_qa_v1.jsonl
-  split_manifest_path: model_tuning/generated/splits/split_manifest_v1.json
+  split_manifest_path: model_tuning/generated/splits/training_split_manifest_v1.json
   split_manifest_sha256: MATERIALIZE_BEFORE_TRAINING
   dataset_manifest_path: model_tuning/generated/training_dataset_manifest_v2.json
   dataset_manifest_sha256: MATERIALIZE_BEFORE_TRAINING
