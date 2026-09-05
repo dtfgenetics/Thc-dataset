@@ -94,14 +94,10 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
     lora = section(text, "lora")
 
     for key in (
-        "require_pinned_base_revision",
-        "require_pinned_dependency_lock",
-        "require_dataset_manifest_hash",
-        "require_split_manifest_hash",
-        "require_tokenizer_revision_pin",
-        "require_chat_template_pin",
-        "require_chat_template_kwargs_pin",
-        "record_cuda_and_gpu",
+        "require_pinned_base_revision", "require_pinned_dependency_lock",
+        "require_dataset_manifest_hash", "require_split_manifest_hash",
+        "require_tokenizer_revision_pin", "require_chat_template_pin",
+        "require_chat_template_kwargs_pin", "record_cuda_and_gpu",
     ):
         if bool_value(scalar(reproducibility, key)) is not True:
             errors.append(f"reproducibility.{key} must be true")
@@ -116,21 +112,14 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("training.bf16 must match bfloat16 compute dtype")
 
     path_keys = (
-        "sft_path",
-        "dev_sft_path",
-        "grounded_qa_path",
-        "grounded_qa_dev_path",
-        "split_manifest_path",
-        "dataset_manifest_path",
-        "retrieval_path",
-        "quarantine_path",
+        "sft_path", "dev_sft_path", "grounded_qa_path", "grounded_qa_dev_path",
+        "split_manifest_path", "dataset_manifest_path", "retrieval_path", "quarantine_path",
     )
     path_values = {key: scalar(training_data, key) for key in path_keys}
     heldout_path = scalar(evaluation, "heldout_path")
     for key, value in path_values.items():
         if not value:
             errors.append(f"training_data.{key} is required")
-
     populated = [value for value in path_values.values() if value] + ([heldout_path] if heldout_path else [])
     if len(populated) != len(set(populated)):
         errors.append("train/dev/retrieval/quarantine/manifest/held-out paths must be distinct")
@@ -153,12 +142,8 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("grounded QA fraction must be greater than 0 and capped at 0.20")
 
     for key in (
-        "train_only_grounded_examples",
-        "require_context_required",
-        "preserve_source_ids",
-        "require_source_component_split",
-        "forbid_quarantine_training",
-        "forbid_eval_training_leakage",
+        "train_only_grounded_examples", "require_context_required", "preserve_source_ids",
+        "require_source_component_split", "forbid_quarantine_training", "forbid_eval_training_leakage",
     ):
         if bool_value(scalar(training_data, key)) is not True:
             errors.append(f"training_data.{key} must be true")
@@ -186,7 +171,6 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("adapter merge unlock condition must require measured multi-slice improvement")
     if bool_value(scalar(merge_policy, "reject_if_any_critical_slice_regresses")) is not True:
         errors.append("critical-slice regression rejection must remain enabled")
-
     if bool_value(scalar(training, "load_best_model_at_end")) is not False:
         errors.append("load_best_model_at_end must stay false until in-training eval integration exists")
     if scalar(training, "checkpoint_selection") != "external_heldout_promotion_gate":
@@ -202,7 +186,6 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
     for critical in ("factuality", "diagnostic", "hallucination", "citation_accuracy", "regression", "grounded_qa"):
         if critical not in required_slices:
             errors.append(f"evaluation.required_slices missing {critical}")
-
     return errors
 
 
@@ -218,41 +201,35 @@ def self_test() -> None:
 
     tampered = base.replace("allow_adapter_merge: false", "allow_adapter_merge: true")
     assert any("adapter merge" in error for error in validate_text(tampered))
-
     tampered = base.replace("grounded_qa_max_fraction: 0.20", "grounded_qa_max_fraction: 0.50")
     assert any("grounded QA fraction" in error for error in validate_text(tampered))
-
     tampered = base.replace("require_source_component_split: true", "require_source_component_split: false")
     assert any("source_component_split" in error for error in validate_text(tampered))
-
     tampered = base.replace("require_chat_template_pin: true", "require_chat_template_pin: false")
     assert any("chat_template_pin" in error for error in validate_text(tampered))
-
     tampered = base.replace("require_chat_template_kwargs_pin: true", "require_chat_template_kwargs_pin: false")
     assert any("chat_template_kwargs_pin" in error for error in validate_text(tampered))
-
     tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false", "tokenizer_chat_template_kwargs_enable_thinking: true")
     assert any("enable_thinking" in error for error in validate_text(tampered))
-
     tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false\n", "")
     assert any("enable_thinking" in error for error in validate_text(tampered))
-
     tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
     assert any("load_best_model_at_end" in error for error in validate_text(tampered))
 
+    current_qa_path = scalar(section(base, "training_data"), "grounded_qa_path")
+    assert current_qa_path, "grounded_qa_path missing from baseline config"
     tampered = base.replace(
-        "grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_v1.jsonl",
+        f"grounded_qa_path: {current_qa_path}",
         "grounded_qa_path: model_tuning/generated/splits/train_sft_v1.jsonl",
+        1,
     )
+    assert tampered != base, "grounded_qa_path self-test fixture failed to mutate config"
     assert any("grounded_qa_path" in error or "must be distinct" in error for error in validate_text(tampered))
 
     tampered = base.replace("tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING", "tokenizer_chat_template_sha256: not-a-hash")
     assert any("chat_template_sha256" in error for error in validate_text(tampered))
 
     real_run_errors = validate_text(base, allow_placeholders=False)
-    # Model/tokenizer revisions may legitimately be pinned before the remaining
-    # materialized artifacts exist. The real-run gate should accept those pins
-    # while continuing to fail closed on unresolved template/data manifests.
     assert not any("base_model_revision" in error for error in real_run_errors)
     assert not any("tokenizer_revision" in error for error in real_run_errors)
     assert not any("enable_thinking" in error for error in real_run_errors)
@@ -264,7 +241,6 @@ def self_test() -> None:
         p = Path(tmp) / "qlora.yaml"
         p.write_text(base, encoding="utf-8")
         assert not validate_file(p)
-
     print("QLoRA config validator self-test passed")
 
 
@@ -274,11 +250,9 @@ def main() -> int:
     parser.add_argument("--real-run", action="store_true", help="Require pinned model/tokenizer revisions, chat template, chat-template kwargs, and immutable corpus/split hashes")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
-
     if args.self_test:
         self_test()
         return 0
-
     errors = validate_file(args.config, allow_placeholders=not args.real_run)
     if errors:
         for error in errors:
