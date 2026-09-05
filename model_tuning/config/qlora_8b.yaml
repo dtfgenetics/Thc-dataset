@@ -3,6 +3,9 @@ base_model: Qwen/Qwen3-8B
 base_model_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_revision: b968826d9c46dd6066d109eabc6255188de91218
 tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING
+# Qwen3 defaults to thinking mode. Keep the first reproducible Grow Doc baseline
+# explicitly non-thinking while deterministic/greedy decoding remains in use.
+tokenizer_chat_template_kwargs_enable_thinking: false
 task: causal_lm_sft
 
 reproducibility:
@@ -12,6 +15,7 @@ reproducibility:
   require_split_manifest_hash: true
   require_tokenizer_revision_pin: true
   require_chat_template_pin: true
+  require_chat_template_kwargs_pin: true
   record_cuda_and_gpu: true
   seed: 420
 
