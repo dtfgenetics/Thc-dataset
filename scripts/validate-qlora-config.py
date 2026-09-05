@@ -61,6 +61,7 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
     base_revision = scalar(text, "base_model_revision")
     tokenizer_revision = scalar(text, "tokenizer_revision")
     chat_template_sha256 = scalar(text, "tokenizer_chat_template_sha256")
+    chat_template_enable_thinking = bool_value(scalar(text, "tokenizer_chat_template_kwargs_enable_thinking"))
     if not base_model:
         errors.append("base_model is required")
     if not base_revision:
@@ -78,6 +79,10 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
             errors.append("tokenizer_chat_template_sha256 must be pinned before a real training run")
     elif not HEX64.fullmatch(chat_template_sha256):
         errors.append("tokenizer_chat_template_sha256 must be a lowercase 64-character SHA-256")
+    if chat_template_enable_thinking is None:
+        errors.append("tokenizer_chat_template_kwargs_enable_thinking must be explicitly true or false")
+    elif chat_template_enable_thinking is not False:
+        errors.append("starter deterministic Qwen3 baseline requires tokenizer_chat_template_kwargs_enable_thinking: false")
 
     reproducibility = section(text, "reproducibility")
     precision = section(text, "precision")
@@ -95,6 +100,7 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         "require_split_manifest_hash",
         "require_tokenizer_revision_pin",
         "require_chat_template_pin",
+        "require_chat_template_kwargs_pin",
         "record_cuda_and_gpu",
     ):
         if bool_value(scalar(reproducibility, key)) is not True:
@@ -222,6 +228,15 @@ def self_test() -> None:
     tampered = base.replace("require_chat_template_pin: true", "require_chat_template_pin: false")
     assert any("chat_template_pin" in error for error in validate_text(tampered))
 
+    tampered = base.replace("require_chat_template_kwargs_pin: true", "require_chat_template_kwargs_pin: false")
+    assert any("chat_template_kwargs_pin" in error for error in validate_text(tampered))
+
+    tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false", "tokenizer_chat_template_kwargs_enable_thinking: true")
+    assert any("enable_thinking" in error for error in validate_text(tampered))
+
+    tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false\n", "")
+    assert any("enable_thinking" in error for error in validate_text(tampered))
+
     tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
     assert any("load_best_model_at_end" in error for error in validate_text(tampered))
 
@@ -240,6 +255,7 @@ def self_test() -> None:
     # while continuing to fail closed on unresolved template/data manifests.
     assert not any("base_model_revision" in error for error in real_run_errors)
     assert not any("tokenizer_revision" in error for error in real_run_errors)
+    assert not any("enable_thinking" in error for error in real_run_errors)
     assert any("tokenizer_chat_template_sha256" in error for error in real_run_errors)
     assert any("split_manifest_sha256" in error for error in real_run_errors)
     assert any("dataset_manifest_sha256" in error for error in real_run_errors)
@@ -255,7 +271,7 @@ def self_test() -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, default=DEFAULT_CONFIG)
-    parser.add_argument("--real-run", action="store_true", help="Require pinned model/tokenizer revisions, chat template, and immutable corpus/split hashes")
+    parser.add_argument("--real-run", action="store_true", help="Require pinned model/tokenizer revisions, chat template, chat-template kwargs, and immutable corpus/split hashes")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
 
