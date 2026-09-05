@@ -74,6 +74,44 @@ python3 scripts/train-grow-doc-qlora.py --preflight-only
 
 A real trainer invocation is intentionally separate and requires CUDA plus the exact pinned runtime packages. The trainer uses assistant-only loss masking and refuses silent sequence truncation. Its output manifest is `trained_not_promoted`; it does not merge or deploy an adapter.
 
+## First benchmark hardware contract
+
+The pinned base-vs-RAG experiment evaluates Qwen3-8B in unquantized `bfloat16`. The launcher fails before model load unless all of the following are true:
+
+- CUDA is available;
+- GPU 0 reports at least **20 GiB** VRAM;
+- the GPU reports native bfloat16 support;
+- exact pinned runtime packages and dependency-lock bytes match;
+- the checkout is clean and the exact frozen benchmark/RAG artifacts can be rebuilt.
+
+A T4 does **not** satisfy the current contract. Use an L4/A10G-class 24 GiB GPU or larger that supports BF16. Do not weaken the dtype or memory contract merely to use cheaper hardware; changing dtype/quantization would define a different experiment and requires a separately pinned evaluation contract.
+
+Hardware readiness can be checked without inference:
+
+```bash
+python3 scripts/run-base-vs-rag-experiment.py --preflight-only
+```
+
+The real benchmark command is:
+
+```bash
+python3 scripts/run-base-vs-rag-experiment.py \
+  --output-root model_tuning/runs/base_vs_rag_v1
+```
+
+Both arms must record the same runtime environment and expected CUDA device. Raw outputs remain `pending_review`; the launcher never claims RAG improvement by itself.
+
+## Blinded base-vs-RAG review
+
+After both inference arms complete, build the deterministic blinded A/B packet. Reviewers score expected semantic points without knowing which arm used retrieval. Response text must not be edited during review.
+
+```bash
+python3 scripts/prepare-base-rag-blind-review.py --help
+python3 scripts/score-base-vs-rag-eval.py --help
+```
+
+The dedicated base-vs-RAG scorer intentionally allows retrieval configuration to differ while requiring the same base model, tokenizer/template contract, decoding, benchmark, scorer revision, and core runtime. This is separate from adapter-promotion scoring, where retrieval must remain identical between candidate and baseline.
+
 ## Evaluation slices
 
 Required slices are factuality, diagnostic reasoning, hallucination resistance, citation accuracy, science, education clarity, grounded QA, and regression. A candidate must be compared to its exact base-model revision on the same frozen evaluation set and retrieval snapshot.
@@ -108,8 +146,9 @@ Answers about measurements, cultivar-specific behavior, disease confirmation, nu
 
 1. Freeze the exact base model/tokenizer/template/dependency contract, `heldout_v2`, decoding settings, and training artifacts.
 2. Materialize the exact frozen `heldout_v2` RAG snapshot.
-3. Run `scripts/run-base-vs-rag-experiment.py` to compare the untuned pinned base model without retrieval against the identical base model with the frozen snapshot.
-4. Review and score both arms. Use that result to decide whether QLoRA is justified.
-5. Only if behavior gaps remain after retrieval, run `scripts/train-grow-doc-qlora.py` using the leak-safe supplied-claim-grounded train mixture.
-6. Evaluate the adapter against the exact frozen baselines and promotion scorer.
-7. Do not promote checkpoints, combine adapters, build model soup, merge weights, or deploy unless the registered aggregate and critical-slice gates are satisfied.
+3. Pass the base-vs-RAG hardware/runtime preflight on BF16-capable CUDA hardware with at least 20 GiB VRAM.
+4. Run `scripts/run-base-vs-rag-experiment.py` to compare the untuned pinned base model without retrieval against the identical base model with the frozen snapshot.
+5. Blind-review and score both arms using the dedicated base-vs-RAG workflow. Use that result to decide whether QLoRA is justified.
+6. Only if behavior gaps remain after retrieval, run `scripts/train-grow-doc-qlora.py` using the leak-safe supplied-claim-grounded train mixture.
+7. Evaluate the adapter against the exact frozen baselines and adapter-promotion scorer.
+8. Do not promote checkpoints, combine adapters, build model soup, merge weights, or deploy unless the registered aggregate and critical-slice gates are satisfied.
