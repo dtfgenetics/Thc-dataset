@@ -28,6 +28,10 @@ jobs:
       - run: npm run validate:model-corpus-quality
       - run: npm run validate:model-semantic-leakage
       - run: npm run validate:model-corpus
+      - name: Audit SFT profile evidence relevance
+        run: |
+          python3 scripts/audit-sft-profile-relevance.py --self-test
+          python3 scripts/audit-sft-profile-relevance.py
       - run: npm run validate:grounded-qa
       - run: npm run validate:model-split
       - name: Validate supplied-claim grounding
