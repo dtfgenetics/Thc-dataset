@@ -35,6 +35,14 @@ jobs:
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
+      - name: Freeze model training artifacts
+        run: python3 scripts/freeze-model-training-artifacts.py
+      - name: Upload frozen model training artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-model-training-artifacts
+          path: model_tuning/generated
+          if-no-files-found: error
       - run: npm run check
       - run: npm test
       - name: Validate visual observation PHP proxy
