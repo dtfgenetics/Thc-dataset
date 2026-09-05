@@ -3,8 +3,8 @@
 
 This wrapper intentionally does not fine-tune or merge anything. It prepares the
 same immutable benchmark/retrieval inputs, verifies the exact model/runtime/hardware
-contract, invokes the same pinned Qwen3-8B revision twice, and leaves both arms
-pending blinded review.
+contract, invokes the same pinned Qwen3-8B revision twice through the strict
+single-GPU evaluator, and leaves both arms pending blinded review.
 """
 from __future__ import annotations
 
@@ -28,6 +28,7 @@ RAG_SNAPSHOT = "model_tuning/rag_snapshots/heldout_v2.jsonl"
 RAG_MANIFEST = "model_tuning/rag_snapshots/heldout_v2.manifest.json"
 REQUIREMENTS = ROOT / "model_tuning/requirements.in"
 DIRECT_PACKAGES = ("torch", "transformers", "peft", "bitsandbytes", "accelerate")
+STRICT_EVALUATOR = ROOT / "scripts/run-model-eval-strict.py"
 MIN_GPU_MEMORY_GIB = 20
 GIB = 1024 ** 3
 
@@ -160,7 +161,7 @@ def runtime_preflight() -> dict[str, object]:
 def common_eval_args(repo_revision: str, output_dir: Path, run_id: str) -> list[str]:
     return [
         sys.executable,
-        str(ROOT / "scripts/run-model-eval.py"),
+        str(STRICT_EVALUATOR),
         "--benchmark", BENCHMARK,
         "--model-repo", MODEL_REPO,
         "--model-revision", MODEL_REVISION,
@@ -234,7 +235,7 @@ def run_experiment(output_root: Path) -> Path:
     assert_recorded_hardware(rag_run, hardware, "base-plus-RAG arm")
 
     manifest = {
-        "schema_version": "grow-doc-base-vs-rag-experiment-v3",
+        "schema_version": "grow-doc-base-vs-rag-experiment-v4",
         "status": "pending_review",
         "promotion_eligible": False,
         "repo_revision": repo_revision,
@@ -248,6 +249,7 @@ def run_experiment(output_root: Path) -> Path:
             "dependency_lock_sha256": preflight["dependency_lock_sha256"],
             "direct_packages": preflight["packages"],
             "hardware": hardware,
+            "model_device_map_policy": "single-cuda-no-offload-v1",
             "both_arms_runtime_identical": True,
         },
         "decoding": {"do_sample": False, "temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "seed": 420},
@@ -284,6 +286,7 @@ def self_test() -> None:
     assert pins["torch"] == "2.14.0"
     assert pins["transformers"] == "5.16.1"
     cmd = common_eval_args("a" * 40, Path("out"), "test-run")
+    assert cmd[1].endswith("run-model-eval-strict.py")
     assert "--disable-thinking" in cmd
     assert "--do-sample" not in cmd
     assert cmd[cmd.index("--model-revision") + 1] == MODEL_REVISION
