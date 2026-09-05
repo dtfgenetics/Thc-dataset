@@ -24,11 +24,16 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
 
+# Terms that can appear in profile names/slugs but are not sufficiently entity-specific to
+# prove that a claim is about a different diagnosis. Keeping this list explicit makes the
+# audit deterministic and intentionally favors false negatives over noisy false positives.
 GENERIC = {
-    "abiotic", "bacterial", "cannabis", "cultivation", "deficiency", "disease",
-    "disorder", "fungal", "hemp", "leaf", "leaves", "nutrient", "pathogen",
-    "plant", "plants", "spot", "stress", "sativa", "symptom", "symptoms",
-    "toxicity", "viral", "virus",
+    "abiotic", "associated", "bacterial", "blight", "cannabis", "complex", "context",
+    "cultivation", "deficiency", "disease", "disorder", "environmental", "exposure",
+    "feeding", "flower", "fungal", "fungus", "growth", "hemp", "high", "injury", "leaf",
+    "leaves", "light", "mold", "nutrient", "other", "pathogen", "plant", "plants",
+    "response", "root", "sativa", "species", "spot", "state", "stress", "symptom",
+    "symptoms", "toxicity", "viral", "virus", "visual", "water", "white",
 }
 
 
@@ -147,6 +152,7 @@ def self_test() -> None:
             "reviewStatus": "reviewed", "sources": [{"url": "https://example.test/a", "supportedClaims": [
                 "Calcium deficiency can affect developing tissues.",
                 "Magnesium deficiency commonly presents differently in mobile tissues.",
+                "Water stress can change leaf appearance without proving a calcium disorder.",
             ]}],
         },
         {
@@ -155,12 +161,19 @@ def self_test() -> None:
                 "Magnesium deficiency is a distinct nutrient disorder."
             ]}],
         },
+        {
+            "id": "water-root-stress", "slug": "water-root-stress", "name": "Water root stress",
+            "reviewStatus": "reviewed", "sources": [{"url": "https://example.test/c", "supportedClaims": [
+                "Water conditions can affect roots."
+            ]}],
+        },
     ]
     report = audit(profiles, set())
-    assert report["sft_context_slots_audited"] == 3, report
+    assert report["sft_context_slots_audited"] == 5, report
     assert report["foreign_only_context_slots"] == 1, report
     assert report["examples"][0]["profile_id"] == "calcium-deficiency", report
     assert "magnesium" in report["examples"][0]["foreign_anchors"], report
+    assert all("water" not in row["foreign_anchors"] for row in report["examples"]), report
 
 
 def main() -> int:
