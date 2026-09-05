@@ -226,22 +226,24 @@ def self_test() -> None:
     assert tampered != base, "grounded_qa_path self-test fixture failed to mutate config"
     assert any("grounded_qa_path" in error or "must be distinct" in error for error in validate_text(tampered))
 
-    tampered = base.replace("tokenizer_chat_template_sha256: MATERIALIZE_BEFORE_TRAINING", "tokenizer_chat_template_sha256: not-a-hash")
+    current_template_hash = scalar(base, "tokenizer_chat_template_sha256")
+    assert current_template_hash and HEX64.fullmatch(current_template_hash), "chat-template hash must be pinned in baseline config"
+    tampered = base.replace(
+        f"tokenizer_chat_template_sha256: {current_template_hash}",
+        "tokenizer_chat_template_sha256: not-a-hash",
+        1,
+    )
+    assert tampered != base, "chat-template hash self-test fixture failed to mutate config"
     assert any("chat_template_sha256" in error for error in validate_text(tampered))
 
     real_run_errors = validate_text(base, allow_placeholders=False)
-    assert not any("base_model_revision" in error for error in real_run_errors)
-    assert not any("tokenizer_revision" in error for error in real_run_errors)
-    assert not any("enable_thinking" in error for error in real_run_errors)
-    assert any("tokenizer_chat_template_sha256" in error for error in real_run_errors)
-    assert not any("split_manifest_sha256" in error for error in real_run_errors)
-    assert not any("dataset_manifest_sha256" in error for error in real_run_errors)
-    assert len(real_run_errors) == 1, real_run_errors
+    assert not real_run_errors, real_run_errors
 
     with tempfile.TemporaryDirectory() as tmp:
         p = Path(tmp) / "qlora.yaml"
         p.write_text(base, encoding="utf-8")
         assert not validate_file(p)
+        assert not validate_file(p, allow_placeholders=False)
     print("QLoRA config validator self-test passed")
 
 
