@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 REQUIREMENTS = ROOT / "model_tuning/requirements.in"
 EXPECTED_RESOLVER = "uv==0.12.10"
+EXPECTED_UV_PREFIX = "uv 0.12.10"
 EXPECTED_LOCK_SHA = "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
 EXPECTED_DIRECT = {
     "torch": "2.14.0",
@@ -73,7 +74,9 @@ def materialize() -> str:
     if errors:
         raise RuntimeError("; ".join(errors))
     version = subprocess.check_output(["uv", "--version"], text=True).strip()
-    if version != "uv 0.12.10":
+    # uv may append a platform triplet, e.g. "uv 0.12.10 (x86_64-unknown-linux-gnu)".
+    # Pin the semantic version while allowing that deterministic platform suffix.
+    if not (version == EXPECTED_UV_PREFIX or version.startswith(EXPECTED_UV_PREFIX + " (")):
         raise RuntimeError(f"expected uv 0.12.10, got {version!r}")
     with tempfile.TemporaryDirectory() as td:
         output = Path(td) / "requirements.lock"
@@ -92,6 +95,8 @@ def self_test() -> None:
     assert not validate(), validate()
     assert direct_pins() == EXPECTED_DIRECT
     assert len(EXPECTED_LOCK_SHA) == 64
+    assert EXPECTED_UV_PREFIX == "uv 0.12.10"
+    assert "uv 0.12.10 (x86_64-unknown-linux-gnu)".startswith(EXPECTED_UV_PREFIX + " (")
     print("QLoRA dependency contract self-test: PASS")
 
 
