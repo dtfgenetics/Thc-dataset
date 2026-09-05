@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "purpose": "Pre-training base-model comparison registry. Registry eligibility does not imply a training run or promotion.",
+  "benchmark_contract": {
+    "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
+    "rag_snapshot_path": "model_tuning/rag_snapshots/heldout_v2.jsonl",
+    "required_slices": [
+      "factuality",
+      "diagnostic",
+      "hallucination",
+      "citation_accuracy",
+      "science",
+      "education",
+      "grounded_qa",
+      "regression"
+    ],
+    "selection_rule": "No family may become a tuning target until its exact revision/runtime contract is frozen and it is evaluated on the same heldout and retrieval contracts."
+  },
+  "candidates": [
+    {
+      "id": "qwen3-8b-primary",
+      "repo_id": "Qwen/Qwen3-8B",
+      "role": "primary_baseline_and_qlora_candidate",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Qwen/Qwen3-8B",
+      "gated": false,
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+      "runtime_contract_frozen": true,
+      "benchmark_eligible": true,
+      "training_eligible": true,
+      "notes": "Existing pinned Grow Doc starter contract. Training eligibility means configuration eligibility only; no run is implied."
+    },
+    {
+      "id": "gemma3-12b-it-research",
+      "repo_id": "google/gemma-3-12b-it",
+      "role": "second_family_comparison",
+      "license": "gemma",
+      "license_source": "https://huggingface.co/google/gemma-3-12b-it",
+      "gated": true,
+      "revision": null,
+      "tokenizer_revision": null,
+      "chat_template_sha256": null,
+      "runtime_contract_frozen": false,
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "notes": "Research candidate only. Access terms, exact revision, tokenizer/template, decoding and runtime contract must be frozen before benchmark use."
+    },
+    {
+      "id": "mistral-small-3-2-24b-research",
+      "repo_id": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "role": "higher_memory_quality_ceiling_or_teacher",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "gated": false,
+      "revision": null,
+      "tokenizer_revision": null,
+      "chat_template_sha256": null,
+      "runtime_contract_frozen": false,
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "notes": "Research candidate only. Exact revision, tokenizer/template, decoding and hardware/runtime contract must be frozen before benchmark use."
+    }
+  ]
+}
