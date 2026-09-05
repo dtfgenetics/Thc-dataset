@@ -76,6 +76,16 @@ def dtype_attribute(name: str) -> str:
     return name
 
 
+def validate_enable_thinking(value: Any) -> bool:
+    if type(value) is not bool:
+        raise ValueError("enable_thinking must be explicitly set to a boolean")
+    return value
+
+
+def chat_template_kwargs(enable_thinking: Any) -> dict[str, bool]:
+    return {"enable_thinking": validate_enable_thinking(enable_thinking)}
+
+
 def verify_chat_template(template: Any, expected_sha256: str) -> str:
     if not isinstance(template, str) or not template.strip():
         raise ValueError("tokenizer chat_template must be a non-empty string")
@@ -88,11 +98,12 @@ def verify_chat_template(template: Any, expected_sha256: str) -> str:
     return actual
 
 
-def render_chat_prompt(tokenizer: Any, prompt: str) -> str:
+def render_chat_prompt(tokenizer: Any, prompt: str, *, enable_thinking: Any) -> str:
     rendered = tokenizer.apply_chat_template(
         [{"role": "user", "content": prompt}],
         tokenize=False,
         add_generation_prompt=True,
+        **chat_template_kwargs(enable_thinking),
     )
     if not isinstance(rendered, str) or not rendered:
         raise ValueError("tokenizer.apply_chat_template returned an empty/non-string prompt")
@@ -189,7 +200,7 @@ def transformers_generate(args: argparse.Namespace, prompts: list[str]) -> tuple
     for prompt in prompts:
         if args.seed is not None:
             torch.manual_seed(args.seed)
-        rendered = render_chat_prompt(tok, prompt)
+        rendered = render_chat_prompt(tok, prompt, enable_thinking=args.enable_thinking)
         rendered_hashes.append(text_sha256(rendered))
         inputs = tok(rendered, add_special_tokens=False, return_tensors="pt")
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
@@ -236,6 +247,7 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
     bench = Path(args.benchmark)
     cases = load_jsonl(bench)
     validate_cases(cases)
+    template_kwargs = chat_template_kwargs(args.enable_thinking)
 
     retrieval_rows: dict[str, dict[str, Any]] = {}
     retrieval_manifest: dict[str, Any] | None = None
@@ -291,6 +303,7 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
             "revision": args.tokenizer_revision,
             "chat_template_sha256": template_hash,
             "chat_template_method": CHAT_TEMPLATE_METHOD,
+            "chat_template_kwargs": template_kwargs,
         },
         "decoding": {
             "temperature": args.temperature, "top_p": args.top_p, "max_new_tokens": args.max_new_tokens,
@@ -321,6 +334,16 @@ def self_test() -> None:
     else:
         raise AssertionError("quantized dtype must be rejected until its config is pinned")
 
+    for invalid in (None, 0, 1, "false", "true"):
+        try:
+            validate_enable_thinking(invalid)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError(f"non-boolean enable_thinking must be rejected: {invalid!r}")
+    assert chat_template_kwargs(False) == {"enable_thinking": False}
+    assert chat_template_kwargs(True) == {"enable_thinking": True}
+
     template = "{% for message in messages %}{{ message['role'] }}: {{ message['content'] }}{% endfor %} assistant:"
     digest = text_sha256(template)
     assert verify_chat_template(template, digest.upper()) == digest
@@ -333,12 +356,13 @@ def self_test() -> None:
 
     class DummyTokenizer:
         chat_template = template
-        def apply_chat_template(self, messages: list[dict[str, str]], tokenize: bool, add_generation_prompt: bool) -> str:
+        def apply_chat_template(self, messages: list[dict[str, str]], tokenize: bool, add_generation_prompt: bool, enable_thinking: bool) -> str:
             assert tokenize is False
             assert add_generation_prompt is True
+            assert enable_thinking is False
             return f"user: {messages[0]['content']} assistant:"
 
-    rendered = render_chat_prompt(DummyTokenizer(), "Test")
+    rendered = render_chat_prompt(DummyTokenizer(), "Test", enable_thinking=False)
     assert rendered == "user: Test assistant:"
 
     with tempfile.TemporaryDirectory() as td:
@@ -353,7 +377,7 @@ def self_test() -> None:
         a = argparse.Namespace(
             benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001",
             model_repo="Qwen/Qwen3-8B", model_revision="1234567", tokenizer_repo="Qwen/Qwen3-8B", tokenizer_revision="1234567",
-            tokenizer_chat_template_sha256=digest, adapter_repo=None, adapter_revision=None, dtype="bfloat16", temperature=0.0,
+            tokenizer_chat_template_sha256=digest, enable_thinking=False, adapter_repo=None, adapter_revision=None, dtype="bfloat16", temperature=0.0,
             top_p=1.0, max_new_tokens=64, do_sample=False, seed=42, scorer_revision="1234567",
             retrieval_snapshot=str(snapshot), retrieval_manifest=str(snapshot_manifest),
         )
@@ -364,6 +388,7 @@ def self_test() -> None:
         assert response["retrieval"]["claim_ids"] == ["rag-001"]
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
         assert manifest_data["tokenizer"]["chat_template_method"] == CHAT_TEMPLATE_METHOD
+        assert manifest_data["tokenizer"]["chat_template_kwargs"] == {"enable_thinking": False}
         assert len(manifest_data["tokenizer"]["chat_template_sha256"]) == 64
         assert manifest_data["retrieval"]["snapshot_sha256"] == sha256(snapshot)
         assert manifest_data["artifacts"]["responses_sha256"] == sha256(responses)
@@ -389,6 +414,10 @@ def main() -> int:
     p.add_argument("--tokenizer-repo", default="Qwen/Qwen3-8B")
     p.add_argument("--tokenizer-revision", default="UNPINNED")
     p.add_argument("--tokenizer-chat-template-sha256", default="UNPINNED")
+    thinking = p.add_mutually_exclusive_group()
+    thinking.add_argument("--enable-thinking", dest="enable_thinking", action="store_true")
+    thinking.add_argument("--disable-thinking", dest="enable_thinking", action="store_false")
+    p.set_defaults(enable_thinking=None)
     p.add_argument("--adapter-repo")
     p.add_argument("--adapter-revision")
     p.add_argument("--retrieval-snapshot")
@@ -412,6 +441,10 @@ def main() -> int:
     expected = args.tokenizer_chat_template_sha256.lower()
     if len(expected) != 64 or any(c not in "0123456789abcdef" for c in expected):
         raise SystemExit("tokenizer chat-template SHA-256 must be pinned as 64 hexadecimal characters")
+    if type(args.enable_thinking) is not bool:
+        raise SystemExit("Qwen3 thinking mode must be explicit: pass --enable-thinking or --disable-thinking")
+    if args.enable_thinking and not args.do_sample:
+        raise SystemExit("thinking mode requires an explicitly sampled decoding contract; greedy decoding is not accepted")
     if bool(args.adapter_repo) != bool(args.adapter_revision):
         raise SystemExit("adapter repo and revision must be provided together")
     if bool(args.retrieval_snapshot) != bool(args.retrieval_manifest):
