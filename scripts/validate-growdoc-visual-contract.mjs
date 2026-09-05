@@ -40,7 +40,7 @@ for (const selector of requiredSelectors) {
 
 if (!css.includes('@media')) failures.push('Responsive media rules are missing from the final visual system.')
 if (!css.includes('max-width: 760px') && !css.includes('max-width:760px')) failures.push('Expected mobile breakpoint at 760px is missing.')
-if (!css.includes('max-width: 1180px') && !css.includes('max-width:1180px')) failures.push('Expected desktop-to-tablet breakpoint at 1180px is missing.')
+if (!css.includes('max-width: 980px') && !css.includes('max-width:980px')) failures.push('Expected tablet breakpoint at 980px is missing.')
 if (!css.includes('overflow-x')) failures.push('No explicit horizontal-overflow containment is present in the final visual CSS.')
 
 for (const prototypeLabel of ['Dataset v0.2', 'App 0.2.0', 'Schema 1.0']) {
@@ -48,7 +48,7 @@ for (const prototypeLabel of ['Dataset v0.2', 'App 0.2.0', 'Schema 1.0']) {
 }
 
 if (!files.appShell.includes('Evidence coverage')) failures.push('Public shell must expose user-facing Evidence coverage language.')
-if (!files.appShell.includes('Evidence-guided screening')) failures.push('Public footer must retain the evidence-guided screening disclaimer.')
+if (!files.appShell.includes('Evidence-guided plant-health screening')) failures.push('Public footer must retain the evidence-guided plant-health screening message.')
 
 if (failures.length) {
   console.error('Grow Doc visual contract failed:')
