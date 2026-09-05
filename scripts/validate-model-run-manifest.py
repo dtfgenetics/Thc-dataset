@@ -77,8 +77,8 @@ def validate_manifest(data: dict[str, Any]) -> None:
         raise ValidationError("$.tokenizer: expected object")
     require_keys(
         tokenizer,
-        {"repository", "revision", "chat_template_sha256", "chat_template_method"},
-        {"repository", "revision", "chat_template_sha256", "chat_template_method"},
+        {"repository", "revision", "chat_template_sha256", "chat_template_method", "chat_template_kwargs"},
+        {"repository", "revision", "chat_template_sha256", "chat_template_method", "chat_template_kwargs"},
         "$.tokenizer",
     )
     require_string(tokenizer["repository"], "$.tokenizer.repository")
@@ -88,6 +88,17 @@ def validate_manifest(data: dict[str, Any]) -> None:
         raise ValidationError(
             "$.tokenizer.chat_template_method: expected apply_chat_template:add_generation_prompt"
         )
+    chat_template_kwargs = tokenizer["chat_template_kwargs"]
+    if not isinstance(chat_template_kwargs, dict):
+        raise ValidationError("$.tokenizer.chat_template_kwargs: expected object")
+    require_keys(
+        chat_template_kwargs,
+        {"enable_thinking"},
+        {"enable_thinking"},
+        "$.tokenizer.chat_template_kwargs",
+    )
+    if not isinstance(chat_template_kwargs["enable_thinking"], bool):
+        raise ValidationError("$.tokenizer.chat_template_kwargs.enable_thinking: expected boolean")
 
     decoding = data["decoding"]
     if not isinstance(decoding, dict):
@@ -162,10 +173,11 @@ def valid_fixture() -> dict[str, Any]:
             "revision": "1234567",
             "chat_template_sha256": sha,
             "chat_template_method": "apply_chat_template:add_generation_prompt",
+            "chat_template_kwargs": {"enable_thinking": False},
         },
         "decoding": {"temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "do_sample": False, "seed": 42},
         "retrieval": {"snapshot_sha256": sha, "top_k": 5, "reranker": None},
-        "evaluation": {"benchmark_path": "model_tuning/eval/heldout_v1.jsonl", "benchmark_sha256": sha, "scorer_revision": "1234567"},
+        "evaluation": {"benchmark_path": "model_tuning/eval/heldout_v2.jsonl", "benchmark_sha256": sha, "scorer_revision": "1234567"},
         "runtime": {"python": "3.11", "transformers": "x", "torch": "x", "accelerate": "x", "peft": None, "bitsandbytes": None, "device": "cuda", "gpu_name": "test", "gpu_memory_bytes": 1},
         "artifacts": {"responses_path": "out/responses.jsonl", "responses_sha256": sha, "scores_path": "out/scores.json", "review_path": None},
     }
@@ -210,6 +222,24 @@ def self_test() -> None:
         pass
     else:
         raise AssertionError("non-chat-template prompt formatting was accepted")
+
+    missing_template_kwargs = json.loads(json.dumps(good))
+    del missing_template_kwargs["tokenizer"]["chat_template_kwargs"]
+    try:
+        validate_manifest(missing_template_kwargs)
+    except ValidationError:
+        pass
+    else:
+        raise AssertionError("missing chat-template kwargs were accepted")
+
+    wrong_thinking_type = json.loads(json.dumps(good))
+    wrong_thinking_type["tokenizer"]["chat_template_kwargs"]["enable_thinking"] = "false"
+    try:
+        validate_manifest(wrong_thinking_type)
+    except ValidationError:
+        pass
+    else:
+        raise AssertionError("non-boolean enable_thinking was accepted")
 
 
 def main() -> int:
