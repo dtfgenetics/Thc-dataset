@@ -1,0 +1,107 @@
+/* Public product-shell refinements */
+
+.site-header {
+  padding-inline: max(18px, calc((100vw - 1480px) / 2));
+}
+
+.header-actions {
+  margin-left: auto;
+}
+
+.dataset-button {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(192,218,201,.12);
+  border-radius: 8px;
+  background: transparent;
+  color: #9bad9f;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .01em;
+}
+
+.dataset-button:hover {
+  border-color: rgba(121,216,147,.30);
+  background: rgba(121,216,147,.055);
+  color: #e8f3eb;
+}
+
+.app-shell footer {
+  width: min(1480px, calc(100% - 68px));
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+  margin: 0 auto;
+  padding: 28px 0 34px;
+  border-top: 1px solid rgba(192,218,201,.10);
+  background: transparent;
+  color: #72877b;
+}
+
+.app-shell footer > div {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #dbe8df;
+}
+
+.footer-mark {
+  width: 28px;
+  height: 28px;
+  color: var(--gd-green);
+}
+
+.app-shell footer strong {
+  font-family: 'Sora', 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  letter-spacing: -.015em;
+}
+
+.app-shell footer p {
+  max-width: 620px;
+  margin: 0;
+  color: #788d81;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.app-shell footer > span {
+  color: #667a6e;
+  font-size: 9px;
+  letter-spacing: .04em;
+  text-align: right;
+}
+
+@media (max-width: 980px) {
+  .desktop-nav button {
+    padding-inline: 9px;
+  }
+
+  .dataset-button {
+    max-width: 42px;
+    overflow: hidden;
+    padding-inline: 11px;
+    white-space: nowrap;
+    color: transparent;
+    gap: 0;
+  }
+
+  .dataset-button svg {
+    flex: 0 0 auto;
+    color: #a9b9b0;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-shell footer {
+    width: calc(100% - 32px);
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-block: 24px 30px;
+  }
+
+  .app-shell footer > span {
+    text-align: left;
+  }
+}
