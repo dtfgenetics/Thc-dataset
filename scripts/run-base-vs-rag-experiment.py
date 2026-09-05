@@ -2,8 +2,9 @@
 """Run the first controlled Grow Doc base-only vs frozen-RAG experiment.
 
 This wrapper intentionally does not fine-tune or merge anything. It prepares the
-same immutable benchmark/retrieval inputs, verifies the exact model runtime contract,
-invokes the same pinned Qwen3-8B revision twice, and leaves both arms pending review.
+same immutable benchmark/retrieval inputs, verifies the exact model/runtime/hardware
+contract, invokes the same pinned Qwen3-8B revision twice, and leaves both arms
+pending blinded review.
 """
 from __future__ import annotations
 
@@ -27,6 +28,8 @@ RAG_SNAPSHOT = "model_tuning/rag_snapshots/heldout_v2.jsonl"
 RAG_MANIFEST = "model_tuning/rag_snapshots/heldout_v2.manifest.json"
 REQUIREMENTS = ROOT / "model_tuning/requirements.in"
 DIRECT_PACKAGES = ("torch", "transformers", "peft", "bitsandbytes", "accelerate")
+MIN_GPU_MEMORY_GIB = 20
+GIB = 1024 ** 3
 
 
 def sha256(path: Path) -> str:
@@ -101,10 +104,57 @@ def verify_dependency_contract() -> str:
     return DEPENDENCY_LOCK_SHA256
 
 
+def validate_gpu_properties(*, cuda_available: bool, total_memory_bytes: int, bf16_supported: bool, gpu_name: str) -> dict[str, object]:
+    if not cuda_available:
+        raise RuntimeError("base-vs-RAG inference requires CUDA; CPU/MPS evaluation is refused")
+    minimum = MIN_GPU_MEMORY_GIB * GIB
+    if total_memory_bytes < minimum:
+        actual_gib = total_memory_bytes / GIB
+        raise RuntimeError(
+            f"evaluation GPU {gpu_name!r} has {actual_gib:.1f} GiB VRAM; at least {MIN_GPU_MEMORY_GIB} GiB is required "
+            "to avoid silent CPU/disk offload for pinned Qwen3-8B bfloat16 evaluation"
+        )
+    if not bf16_supported:
+        raise RuntimeError(
+            f"evaluation GPU {gpu_name!r} does not report native bfloat16 support; the benchmark dtype is pinned to bfloat16"
+        )
+    return {
+        "device": "cuda",
+        "gpu_name": gpu_name,
+        "gpu_memory_bytes": total_memory_bytes,
+        "minimum_gpu_memory_gib": MIN_GPU_MEMORY_GIB,
+        "bfloat16_supported": True,
+    }
+
+
+def verify_gpu_runtime() -> dict[str, object]:
+    try:
+        import torch
+    except ImportError as exc:
+        raise RuntimeError("torch must be installed before GPU evaluation preflight") from exc
+    cuda_available = bool(torch.cuda.is_available())
+    if not cuda_available:
+        return validate_gpu_properties(
+            cuda_available=False,
+            total_memory_bytes=0,
+            bf16_supported=False,
+            gpu_name="none",
+        )
+    props = torch.cuda.get_device_properties(0)
+    bf16_supported = bool(getattr(torch.cuda, "is_bf16_supported", lambda: False)())
+    return validate_gpu_properties(
+        cuda_available=True,
+        total_memory_bytes=int(props.total_memory),
+        bf16_supported=bf16_supported,
+        gpu_name=str(torch.cuda.get_device_name(0)),
+    )
+
+
 def runtime_preflight() -> dict[str, object]:
     lock_sha = verify_dependency_contract()
     packages = verify_installed_runtime()
-    return {"dependency_lock_sha256": lock_sha, "packages": packages}
+    hardware = verify_gpu_runtime()
+    return {"dependency_lock_sha256": lock_sha, "packages": packages, "hardware": hardware}
 
 
 def common_eval_args(repo_revision: str, output_dir: Path, run_id: str) -> list[str]:
@@ -150,9 +200,21 @@ def run_preflight() -> dict[str, object]:
     return {"repo_revision": repo_revision, **runtime_contract}
 
 
+def assert_recorded_hardware(run_manifest: dict, expected_hardware: dict[str, object], label: str) -> None:
+    runtime = run_manifest.get("runtime") or {}
+    if runtime.get("device") != "cuda":
+        raise RuntimeError(f"{label} did not record CUDA execution")
+    recorded_memory = runtime.get("gpu_memory_bytes")
+    if not isinstance(recorded_memory, int) or recorded_memory < MIN_GPU_MEMORY_GIB * GIB:
+        raise RuntimeError(f"{label} recorded insufficient GPU memory; CPU/disk-offloaded evaluation is not accepted")
+    if runtime.get("gpu_name") != expected_hardware.get("gpu_name"):
+        raise RuntimeError(f"{label} ran on an unexpected GPU")
+
+
 def run_experiment(output_root: Path) -> Path:
     preflight = run_preflight()
     repo_revision = str(preflight["repo_revision"])
+    hardware = dict(preflight["hardware"])
     output_root.mkdir(parents=True, exist_ok=True)
 
     base_dir = output_root / "base_only"
@@ -168,9 +230,11 @@ def run_experiment(output_root: Path) -> Path:
     rag_run = json.loads((rag_dir / "run-manifest.json").read_text(encoding="utf-8"))
     if base_run.get("runtime") != rag_run.get("runtime"):
         raise RuntimeError("base and RAG arms used different recorded runtime environments")
+    assert_recorded_hardware(base_run, hardware, "base-only arm")
+    assert_recorded_hardware(rag_run, hardware, "base-plus-RAG arm")
 
     manifest = {
-        "schema_version": "grow-doc-base-vs-rag-experiment-v2",
+        "schema_version": "grow-doc-base-vs-rag-experiment-v3",
         "status": "pending_review",
         "promotion_eligible": False,
         "repo_revision": repo_revision,
@@ -183,6 +247,7 @@ def run_experiment(output_root: Path) -> Path:
         "runtime_contract": {
             "dependency_lock_sha256": preflight["dependency_lock_sha256"],
             "direct_packages": preflight["packages"],
+            "hardware": hardware,
             "both_arms_runtime_identical": True,
         },
         "decoding": {"do_sample": False, "temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "seed": 420},
@@ -207,7 +272,7 @@ def run_experiment(output_root: Path) -> Path:
     out = output_root / "experiment-manifest.json"
     out.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"experiment manifest: {out}")
-    print("Raw comparison complete; human/scorer review is still required before any promotion claim.")
+    print("Raw comparison complete; blinded human/scorer review is still required before any conclusion.")
     return out
 
 
@@ -224,6 +289,24 @@ def self_test() -> None:
     assert cmd[cmd.index("--model-revision") + 1] == MODEL_REVISION
     assert cmd[cmd.index("--tokenizer-chat-template-sha256") + 1] == CHAT_TEMPLATE_SHA256
     assert cmd[cmd.index("--scorer-revision") + 1] == "a" * 40
+    good = validate_gpu_properties(
+        cuda_available=True,
+        total_memory_bytes=24 * GIB,
+        bf16_supported=True,
+        gpu_name="fixture-l4",
+    )
+    assert good["device"] == "cuda" and good["bfloat16_supported"] is True
+    for kwargs, expected_text in [
+        ({"cuda_available": False, "total_memory_bytes": 0, "bf16_supported": False, "gpu_name": "none"}, "requires CUDA"),
+        ({"cuda_available": True, "total_memory_bytes": 16 * GIB, "bf16_supported": True, "gpu_name": "fixture-t4"}, "at least 20 GiB"),
+        ({"cuda_available": True, "total_memory_bytes": 24 * GIB, "bf16_supported": False, "gpu_name": "fixture-old"}, "bfloat16"),
+    ]:
+        try:
+            validate_gpu_properties(**kwargs)
+        except RuntimeError as exc:
+            assert expected_text in str(exc)
+        else:
+            raise AssertionError(f"hardware contract should reject {kwargs}")
     with tempfile.TemporaryDirectory() as td:
         root = Path(td)
         p = root / "x"
