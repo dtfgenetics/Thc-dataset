@@ -5,13 +5,13 @@ const files = {
   main: fs.readFileSync('src/main.tsx', 'utf8'),
   visual: fs.readFileSync('src/growdoc-visual-system-v3.css', 'utf8'),
   secondary: fs.readFileSync('src/growdoc-secondary-views-v3.css', 'utf8'),
-  shell: fs.readFileSync('src/growdoc-product-shell-v3.css', 'utf8'),
+  shell: fs.readFileSync('src/growdoc-shell-v3.css', 'utf8'),
 }
 
 const requiredImports = [
   "./growdoc-visual-system-v3.css",
   "./growdoc-secondary-views-v3.css",
-  "./growdoc-product-shell-v3.css",
+  "./growdoc-shell-v3.css",
 ]
 
 const requiredSelectors = [
