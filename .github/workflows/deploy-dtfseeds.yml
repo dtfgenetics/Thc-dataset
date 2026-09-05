@@ -2,6 +2,18 @@ name: Deploy THC Grow Doc to dtfseeds.com
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.ts'
+      - 'server.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/publish-reference-media.mjs'
+      - '.github/workflows/deploy-dtfseeds.yml'
 
 permissions:
   contents: read
