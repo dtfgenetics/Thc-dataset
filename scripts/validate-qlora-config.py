@@ -235,8 +235,11 @@ def self_test() -> None:
     assert any("chat_template_sha256" in error for error in validate_text(tampered))
 
     real_run_errors = validate_text(base, allow_placeholders=False)
-    assert any("base_model_revision" in error for error in real_run_errors)
-    assert any("tokenizer_revision" in error for error in real_run_errors)
+    # Model/tokenizer revisions may legitimately be pinned before the remaining
+    # materialized artifacts exist. The real-run gate should accept those pins
+    # while continuing to fail closed on unresolved template/data manifests.
+    assert not any("base_model_revision" in error for error in real_run_errors)
+    assert not any("tokenizer_revision" in error for error in real_run_errors)
     assert any("tokenizer_chat_template_sha256" in error for error in real_run_errors)
     assert any("split_manifest_sha256" in error for error in real_run_errors)
     assert any("dataset_manifest_sha256" in error for error in real_run_errors)
