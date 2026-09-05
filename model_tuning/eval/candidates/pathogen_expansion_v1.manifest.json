@@ -1,0 +1,47 @@
+{
+  "schema_version": "grow-doc-eval-candidate-manifest-v1",
+  "dataset": "model_tuning/eval/candidates/pathogen_expansion_v1.jsonl",
+  "status": "candidate_only_not_promotion_eligible",
+  "purpose": "Expand pathogen, diagnostic, citation-accuracy, science, and hallucination-resistance coverage without mutating the locked heldout_v2 benchmark.",
+  "record_count": 6,
+  "source_policy": {
+    "require_primary_or_peer_reviewed_source": true,
+    "preserve_source_metadata": true,
+    "require_human_review_before_heldout_admission": true,
+    "forbid_training_use": true,
+    "forbid_train_dev_overlap": true
+  },
+  "sources": [
+    {
+      "doi": "10.1094/PDIS-03-19-0530-PDN",
+      "title": "Occurrence of Hop Latent Viroid Causing Disease in Cannabis sativa in California",
+      "year": 2019,
+      "role": "HLVd causality and diagnostic limitation"
+    },
+    {
+      "doi": "10.3390/plants14050830",
+      "title": "Transmission, Spread, Longevity and Management of Hop Latent Viroid, a Widespread and Destructive Pathogen Affecting Cannabis (Cannabis sativa L.) Plants in North America",
+      "year": 2025,
+      "role": "HLVd transmission and persistence"
+    },
+    {
+      "doi": "10.1094/PDIS-11-20-2455-PDN",
+      "title": "First Report of Powdery Mildew Caused by Golovinomyces ambrosiae on Cannabis sativa in Oregon",
+      "year": 2021,
+      "role": "powdery mildew diagnosis and taxonomy caution"
+    },
+    {
+      "doi": "10.1094/PDIS-01-20-0055-PDN",
+      "title": "Three Botrytis Species Found Causing Gray Mold on Industrial Hemp (Cannabis sativa) in Oregon",
+      "year": 2020,
+      "role": "Botrytis differential and species-level uncertainty"
+    }
+  ],
+  "admission_requirements": [
+    "independent human factual review",
+    "confirm DOI/title/year metadata",
+    "check semantic near-duplicates against heldout_v2 and training/dev corpora",
+    "confirm no source-group leakage into training",
+    "freeze content hash before benchmark promotion"
+  ]
+}
