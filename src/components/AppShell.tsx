@@ -20,7 +20,7 @@ const navItems: Array<{ id: View; label: string; icon: typeof Camera }> = [
   { id: 'issues', label: 'Issue library', icon: BookOpen },
   { id: 'references', label: 'Reference images', icon: FileImage },
   { id: 'log', label: 'Grow log', icon: NotebookPen },
-  { id: 'coverage', label: 'Dataset coverage', icon: BarChart3 },
+  { id: 'coverage', label: 'Evidence coverage', icon: BarChart3 },
   { id: 'about', label: 'About', icon: HelpCircle },
 ]
 
@@ -52,7 +52,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
           ))}
         </nav>
         <div className="header-actions">
-          <button className="dataset-button" onClick={() => chooseView('coverage')}><Database size={17} /> Dataset v0.2</button>
+          <button className="dataset-button" onClick={() => chooseView('coverage')}><Database size={17} /> Evidence coverage</button>
           <button className="menu-button" onClick={() => setMenuOpen((current) => !current)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -71,8 +71,8 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
       <main>{children}</main>
       <footer>
         <div><BrandMark className="footer-mark" /><strong>THC Grow Doc</strong></div>
-        <p>Evidence-guided screening, not a laboratory diagnosis. Follow local laws and product labels.</p>
-        <span>App 0.2.0 · Dataset 0.2.0 · Schema 1.0</span>
+        <p>Evidence-guided plant-health screening with transparent limits, source-backed references, and grower context.</p>
+        <span>Teaching Healthy Cultivation · DTF Genetics</span>
       </footer>
     </div>
   )
