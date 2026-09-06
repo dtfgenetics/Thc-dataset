@@ -181,7 +181,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "skipped": dict(skipped),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; canonical DOI identity used for held-out isolation; emitted provenance IDs remain byte-stable; context-required QA; held-out source families excluded; source metadata preserved",
+        "policy": "reviewed profiles only; DOI/URL provenance required; context-required QA; held-out source families excluded; source metadata preserved",
     }
     if collisions:
         raise ValueError(f"held-out provenance leaked into grounded QA: {collisions[:3]}")
