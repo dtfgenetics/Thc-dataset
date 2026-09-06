@@ -39,15 +39,22 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
     return rows
 
 
+def canonical_doi(raw: str) -> str:
+    value = (raw or "").strip()
+    value = re.sub(r"(?i)^doi:\s*", "", value)
+    value = re.sub(r"(?i)^https?://(?:dx\.)?doi\.org/", "", value)
+    return f"doi:{value.lower()}" if value else ""
+
+
 def canonical_identifier(raw: str) -> str:
     """Canonicalize DOI/URL provenance so formatting aliases cannot bypass held-out isolation."""
     value = (raw or "").strip()
     if not value:
         return ""
-    doi = re.sub(r"(?i)^doi:\s*", "", value)
-    doi = re.sub(r"(?i)^https?://(?:dx\.)?doi\.org/", "", doi)
-    if doi != value or re.match(r"(?i)^10\.\d{4,9}/\S+$", doi):
-        return f"doi:{doi.strip().lower()}"
+    if re.match(r"(?i)^doi:\s*", value) or re.match(r"(?i)^https?://(?:dx\.)?doi\.org/", value):
+        return canonical_doi(value)
+    if re.match(r"(?i)^10\.\d{4,9}/\S+$", value):
+        return canonical_doi(value)
     try:
         parts = urlsplit(value)
         if parts.scheme and parts.netloc:
@@ -63,7 +70,7 @@ def canonical_identifier(raw: str) -> str:
 def canonical_source_id(source: dict) -> str:
     doi = (source.get("doi") or "").strip()
     if doi:
-        return canonical_identifier(doi)
+        return canonical_doi(doi)
     url = (source.get("url") or "").strip()
     if url:
         return canonical_identifier(url)
@@ -209,6 +216,7 @@ def self_test() -> None:
         input_path.write_text(json.dumps(reviewed) + "\n" + json.dumps(unreviewed) + "\n", encoding="utf-8")
         eval_path.write_text(json.dumps(heldout) + "\n", encoding="utf-8")
         rows, stats = build(input_path, eval_path)
+    assert canonical_doi("10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("HTTPS://DOI.ORG/10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("doi:10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("HTTPS://Example.org/path/") == "url:https://example.org/path"
