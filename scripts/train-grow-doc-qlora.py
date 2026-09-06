@@ -320,8 +320,10 @@ def self_test() -> None:
     assert scalar(text, "forbid_auto_device_map") == "true"
     assert scalar(text, "forbid_cpu_disk_offload") == "true"
     trainer_text = Path(__file__).read_text(encoding="utf-8")
-    assert 'device_map="auto"' not in trainer_text
-    assert 'device_map={"": 0}' in trainer_text
+    auto_map_marker = "device_map=" + '"auto"'
+    explicit_map_marker = "device_map=" + '{"": 0}'
+    assert auto_map_marker not in trainer_text
+    assert explicit_map_marker in trainer_text
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     print("Grow Doc QLoRA trainer self-test: PASS")
 
