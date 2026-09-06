@@ -16,6 +16,8 @@ import re
 import sys
 from collections import Counter
 
+from sft_evidence_ranking import build_anchor_owners, rank_sft_evidence
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
@@ -267,7 +269,9 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
     heldout_sources = eval_source_ids(eval_path)
     heldout_source_exclusions = 0
     heldout_profiles_excluded = set()
-    for profile in load_jsonl(input_path):
+    profiles = load_jsonl(input_path)
+    owners_by_anchor = build_anchor_owners(profiles)
+    for profile in profiles:
         pid = profile.get("id")
         if not pid or pid in seen_profiles:
             duplicate_profiles.append(pid)
@@ -289,6 +293,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
 
         # Keep held-out evidence in the retrieval lane, but do not train adapters on it.
         training_rag = [row for row in profile_rag if row["source_id"] not in heldout_sources]
+        training_rag = rank_sft_evidence(profile, training_rag, owners_by_anchor)
         excluded_sources = sorted({row["source_id"] for row in profile_rag if row["source_id"] in heldout_sources})
         if excluded_sources:
             heldout_profiles_excluded.add(pid)
@@ -337,7 +342,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; held-out source families excluded from SFT but retained for retrieval; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
+        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; held-out source families excluded from SFT but retained for retrieval; target-explicit SFT evidence ranked ahead of neutral and explicit foreign-target claims; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
     }
     return rag, sft, quarantine, stats
 
