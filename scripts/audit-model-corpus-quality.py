@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse, json, pathlib, re, sys
 from collections import Counter
+from urllib.parse import urlsplit, urlunsplit
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
@@ -17,6 +18,34 @@ DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 
 def norm(v: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]+", " ", (v or "").lower())).strip()
+
+
+def canonical_source_id(source: dict) -> str:
+    """Return one stable source identity for corroboration/dedup accounting.
+
+    DOI identity is case-insensitive and normalized independently of whether the source stores a
+    bare DOI, doi: prefix, or doi.org URL. URL fallback normalizes scheme/host casing and removes a
+    non-semantic trailing slash. This prevents one source from being counted as independent
+    corroboration merely because its identifier was formatted differently in another profile.
+    """
+    doi = (source.get("doi") or "").strip()
+    if doi:
+        doi = re.sub(r"(?i)^doi:\s*", "", doi)
+        doi = re.sub(r"(?i)^https?://(?:dx\.)?doi\.org/", "", doi)
+        return f"doi:{doi.strip().lower()}"
+
+    raw_url = (source.get("url") or "").strip()
+    if not raw_url:
+        return ""
+    try:
+        parts = urlsplit(raw_url)
+        scheme = parts.scheme.lower()
+        netloc = parts.netloc.lower()
+        path = parts.path.rstrip("/") or ("/" if parts.path == "/" else "")
+        normalized = urlunsplit((scheme, netloc, path, parts.query, ""))
+    except ValueError:
+        normalized = raw_url.rstrip("/")
+    return f"url:{normalized}"
 
 
 def load(path: pathlib.Path):
@@ -76,6 +105,7 @@ def audit(rows):
     for k,c in slugs.items():
         if not k or c>1: errors.append(f"profile slug collision/missing: {k!r} count={c}")
     claim_sources={}; claim_counts=Counter(); claim_records=[]
+    source_aliases={}
     reviewed=0; quarantinable=0; sources=0; claims=0; media=0
     for r in rows:
         pid=r.get("id") or "<missing>"
@@ -87,9 +117,11 @@ def audit(rows):
         if not srcs: errors.append(f"{pid}: no sources")
         for s in srcs:
             sources+=1
-            sid=(s.get("doi") or s.get("url") or "").strip()
+            raw_sid=(s.get("doi") or s.get("url") or "").strip()
+            sid=canonical_source_id(s)
             sc=s.get("supportedClaims") or []
             if not sid: errors.append(f"{pid}: source lacks DOI/URL: {s.get('title')!r}")
+            else: source_aliases.setdefault(sid,set()).add(raw_sid)
             if not sc: errors.append(f"{pid}: source has no supportedClaims: {s.get('title')!r}")
             for c in sc:
                 claims+=1; key=norm(c)
@@ -104,13 +136,18 @@ def audit(rows):
                 errors.append(f"{pid}: media {m.get('id')!r} is trainingEligible without explicit permission")
             if m.get("trainingPermission") in {"not-permitted","unknown"} and m.get("trainingEligible") is True:
                 errors.append(f"{pid}: prohibited/unknown-rights media marked trainingEligible: {m.get('id')!r}")
+    alias_collisions={sid:sorted(raws) for sid,raws in source_aliases.items() if len(raws)>1}
+    for sid, raws in sorted(alias_collisions.items()):
+        warnings.append(f"canonical source identity {sid!r} has formatting aliases: {raws}")
     corroborated=sum(1 for v in claim_sources.values() if len(v)>1)
     exact_duplicate_claims=sum(1 for count in claim_counts.values() if count>1)
     exact_duplicate_occurrences=sum(count-1 for count in claim_counts.values() if count>1)
     near_count, near_examples=near_duplicate_claims(claim_records)
     return {
       "profiles":len(rows),"reviewed_profiles":reviewed,"nonreviewed_profiles":quarantinable,
-      "sources":sources,"supported_claims":claims,"media_records":media,
+      "sources":sources,"canonical_source_identities":len(source_aliases),
+      "source_identity_alias_collisions":len(alias_collisions),
+      "supported_claims":claims,"media_records":media,
       "corroborated_exact_claims":corroborated,
       "exact_duplicate_claims":exact_duplicate_claims,
       "exact_duplicate_occurrences":exact_duplicate_occurrences,
@@ -121,7 +158,8 @@ def audit(rows):
 
 
 def self_test():
-    good={"id":"p1","slug":"p1","reviewStatus":"reviewed","sources":[{"doi":"10.x/a","supportedClaims":["Leaves develop small dark brown angular lesions along the major veins"]}],"media":[{"id":"m1","trainingEligible":False,"trainingPermission":"not-permitted"}]}
+    good={"id":"p1","slug":"p1","reviewStatus":"reviewed","sources":[{"doi":"10.X/A","supportedClaims":["Leaves develop small dark brown angular lesions along the major veins"]}],"media":[{"id":"m1","trainingEligible":False,"trainingPermission":"not-permitted"}]}
+    assert canonical_source_id(good["sources"][0]) == "doi:10.x/a"
     assert not audit([good])["errors"]
     bad=json.loads(json.dumps(good)); bad["media"][0].update(trainingEligible=True)
     assert audit([bad])["errors"]
@@ -133,6 +171,14 @@ def self_test():
     exact=json.loads(json.dumps(redundant)); exact.update(id="p3",slug="p3"); exact["sources"][0]["doi"]="10.x/c"; exact["sources"][0]["supportedClaims"]=good["sources"][0]["supportedClaims"]
     report=audit([good,redundant,exact])
     assert report["exact_duplicate_claims"]==1 and report["exact_duplicate_occurrences"]==1
+    alias=json.loads(json.dumps(good)); alias.update(id="p4",slug="p4"); alias["sources"][0]["doi"]="https://doi.org/10.x/A"
+    report=audit([good,alias])
+    assert report["source_identity_alias_collisions"]==1
+    assert report["canonical_source_identities"]==1
+    assert report["corroborated_exact_claims"]==0, "same DOI alias must not count as independent corroboration"
+    url_a={"url":"HTTPS://Example.org/path/","supportedClaims":["A sufficiently long supported scientific claim used only for identity testing"]}
+    url_b={"url":"https://example.org/path","supportedClaims":url_a["supportedClaims"]}
+    assert canonical_source_id(url_a)==canonical_source_id(url_b)
     print("model corpus quality self-test: PASS")
 
 
