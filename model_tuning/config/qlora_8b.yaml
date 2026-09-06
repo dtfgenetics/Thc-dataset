@@ -61,7 +61,7 @@ training_data:
 
 training:
   max_seq_length: 4096
-  packing: true
+  packing: false
   learning_rate: 0.0001
   lr_scheduler_type: cosine
   warmup_ratio: 0.05
