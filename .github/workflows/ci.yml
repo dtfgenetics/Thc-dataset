@@ -59,6 +59,10 @@ jobs:
         run: |
           python3 scripts/validate-qlora-packing-contract.py --self-test
           python3 scripts/validate-qlora-packing-contract.py
+      - name: Validate QLoRA runtime/config binding
+        run: |
+          python3 scripts/validate-qlora-runtime-config-binding.py --self-test
+          python3 scripts/validate-qlora-runtime-config-binding.py
       - name: Validate QLoRA trainer structure
         run: python3 scripts/train-grow-doc-qlora.py --self-test
       - name: Verify reproducible QLoRA dependency lock
