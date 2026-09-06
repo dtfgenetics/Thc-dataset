@@ -23,6 +23,10 @@ jobs:
       - run: npm run validate:transfer
       - run: npm run validate:model-eval
       - run: npm run validate:model-base-candidates
+      - name: Validate base-vs-RAG candidate binding
+        run: |
+          python3 scripts/validate-base-vs-rag-candidate-binding.py --self-test
+          python3 scripts/validate-base-vs-rag-candidate-binding.py
       - run: npm run validate:model-eval-candidates
       - run: npm run validate:model-eval-coverage
       - run: npm run validate:model-corpus-quality
