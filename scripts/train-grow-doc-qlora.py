@@ -2,7 +2,7 @@
 """Fail-closed QLoRA trainer for the Grow Doc model workstream.
 
 The trainer refuses a real run unless dataset bytes, tokenizer template, dependency
-resolution, direct runtime package versions, git revision, and CUDA availability all
+resolution, direct runtime package versions, git revision, and CUDA hardware topology
 match the pinned contract. It saves an adapter only; promotion/merge/deployment remain
 external gates.
 """
@@ -163,6 +163,42 @@ def load_runtime():
     return torch, LoraConfig, get_peft_model, prepare_model_for_kbit_training, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, Trainer, TrainingArguments
 
 
+def verify_cuda_hardware_contract(torch, config_text: str) -> dict[str, Any]:
+    if scalar(config_text, "require_cuda") != "true":
+        raise RuntimeError("hardware.require_cuda must remain true for a real QLoRA run")
+    if scalar(config_text, "require_single_visible_cuda_device") != "true":
+        raise RuntimeError("hardware.require_single_visible_cuda_device must remain true")
+    if scalar(config_text, "expected_visible_cuda_device_count") != "1":
+        raise RuntimeError("hardware.expected_visible_cuda_device_count must be 1")
+    if scalar(config_text, "device_map") != "single_visible_gpu":
+        raise RuntimeError("hardware.device_map must be single_visible_gpu")
+    if scalar(config_text, "forbid_auto_device_map") != "true":
+        raise RuntimeError("hardware.forbid_auto_device_map must remain true")
+    if scalar(config_text, "forbid_cpu_disk_offload") != "true":
+        raise RuntimeError("hardware.forbid_cpu_disk_offload must remain true")
+    if not torch.cuda.is_available():
+        raise RuntimeError("QLoRA real run requires CUDA; CPU fallback is disabled")
+    device_count = torch.cuda.device_count()
+    if device_count != 1:
+        raise RuntimeError(
+            f"QLoRA hardware contract requires exactly one visible CUDA device; found {device_count}. "
+            "Select one GPU with CUDA_VISIBLE_DEVICES before training."
+        )
+    torch.cuda.set_device(0)
+    props = torch.cuda.get_device_properties(0)
+    capability = torch.cuda.get_device_capability(0)
+    return {
+        "visible_cuda_device_count": device_count,
+        "device_index": 0,
+        "device_name": torch.cuda.get_device_name(0),
+        "total_memory_bytes": int(props.total_memory),
+        "compute_capability": f"{capability[0]}.{capability[1]}",
+        "device_map": {"": 0},
+        "auto_device_map": False,
+        "cpu_disk_offload_allowed": False,
+    }
+
+
 @dataclass
 class EncodedRecord:
     input_ids: list[int]
@@ -215,10 +251,9 @@ def train(output_dir: Path) -> None:
     repo_revision, lock_sha = run_preflight()
     runtime = load_runtime()
     torch, LoraConfig, get_peft_model, prepare_model_for_kbit_training, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, Trainer, TrainingArguments = runtime
-    if not torch.cuda.is_available():
-        raise RuntimeError("QLoRA real run requires CUDA; CPU fallback is disabled")
 
     config_text = CONFIG.read_text(encoding="utf-8")
+    hardware = verify_cuda_hardware_contract(torch, config_text)
     model_repo = scalar(config_text, "base_model")
     model_revision = scalar(config_text, "base_model_revision")
     tokenizer_revision = scalar(config_text, "tokenizer_revision")
@@ -242,7 +277,7 @@ def train(output_dir: Path) -> None:
     encoded_dev = [encode_record(tokenizer, row, max_length) for row in dev_rows]
 
     quant = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.bfloat16)
-    model = AutoModelForCausalLM.from_pretrained(model_repo, revision=model_revision, quantization_config=quant, torch_dtype=torch.bfloat16, device_map="auto")
+    model = AutoModelForCausalLM.from_pretrained(model_repo, revision=model_revision, quantization_config=quant, torch_dtype=torch.bfloat16, device_map={"": 0})
     model.config.use_cache = False
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
     model = get_peft_model(model, LoraConfig(r=32, lora_alpha=64, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM", target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]))
@@ -263,7 +298,7 @@ def train(output_dir: Path) -> None:
         "training_dataset_manifest_sha256": scalar(config_text, "dataset_manifest_sha256"), "train_rows": len(train_rows),
         "grounded_qa_train_rows": qa_rows, "dev_rows": len(dev_rows), "seed": seed, "packages": packages,
         "python": platform.python_version(), "platform": platform.platform(), "torch_cuda": torch.version.cuda,
-        "gpu": torch.cuda.get_device_name(0), "train_metrics": result.metrics, "adapter_path": str(adapter_dir),
+        "gpu": torch.cuda.get_device_name(0), "hardware": hardware, "train_metrics": result.metrics, "adapter_path": str(adapter_dir),
         "adapter_merge_performed": False, "deployment_performed": False,
         "next_gate": "external heldout_v2 evaluation and promotion scorer",
     }
@@ -279,6 +314,14 @@ def self_test() -> None:
     text = CONFIG.read_text(encoding="utf-8")
     assert scalar(text, "dependency_lock_resolver") == "uv==0.12.10"
     assert scalar(text, "dependency_lock_sha256") == "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
+    assert scalar(text, "require_single_visible_cuda_device") == "true"
+    assert scalar(text, "expected_visible_cuda_device_count") == "1"
+    assert scalar(text, "device_map") == "single_visible_gpu"
+    assert scalar(text, "forbid_auto_device_map") == "true"
+    assert scalar(text, "forbid_cpu_disk_offload") == "true"
+    trainer_text = Path(__file__).read_text(encoding="utf-8")
+    assert 'device_map="auto"' not in trainer_text
+    assert 'device_map={"": 0}' in trainer_text
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     print("Grow Doc QLoRA trainer self-test: PASS")
 
