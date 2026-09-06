@@ -1,0 +1,26 @@
+name: Model RAG source specificity experiment
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/evaluate-rag-source-specificity.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'model_tuning/generated/rag/claims_v1.jsonl'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - '.github/workflows/model-rag-source-specificity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate current frozen retriever
+        run: python3 scripts/build-rag-eval-snapshot.py --self-test
+      - name: Evaluate source-title specificity bonus
+        run: python3 scripts/evaluate-rag-source-specificity.py
