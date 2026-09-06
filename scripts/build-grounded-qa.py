@@ -15,7 +15,6 @@ import re
 import sys
 import tempfile
 from collections import Counter
-from urllib.parse import urlsplit, urlunsplit
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
@@ -40,6 +39,7 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
 
 
 def canonical_doi(raw: str) -> str:
+    """Return one DOI identity for bare, doi:-prefixed, and doi.org forms."""
     value = (raw or "").strip()
     value = re.sub(r"(?i)^doi:\s*", "", value)
     value = re.sub(r"(?i)^https?://(?:dx\.)?doi\.org/", "", value)
@@ -47,7 +47,7 @@ def canonical_doi(raw: str) -> str:
 
 
 def canonical_identifier(raw: str) -> str:
-    """Canonicalize DOI/URL provenance so formatting aliases cannot bypass held-out isolation."""
+    """Canonicalize DOI aliases while preserving established non-DOI URL identities."""
     value = (raw or "").strip()
     if not value:
         return ""
@@ -55,25 +55,22 @@ def canonical_identifier(raw: str) -> str:
         return canonical_doi(value)
     if re.match(r"(?i)^10\.\d{4,9}/\S+$", value):
         return canonical_doi(value)
-    try:
-        parts = urlsplit(value)
-        if parts.scheme and parts.netloc:
-            scheme = parts.scheme.lower()
-            netloc = parts.netloc.lower()
-            path = parts.path.rstrip("/") or ("/" if parts.path == "/" else "")
-            return "url:" + urlunsplit((scheme, netloc, path, parts.query, ""))
-    except ValueError:
-        pass
+    if re.match(r"(?i)^https?://", value):
+        return f"url:{value}"
     return value
 
 
 def canonical_source_id(source: dict) -> str:
     doi = (source.get("doi") or "").strip()
     if doi:
+        # The schema identifies this field as DOI provenance, so do not require
+        # a syntax heuristic before canonicalizing it.
         return canonical_doi(doi)
     url = (source.get("url") or "").strip()
     if url:
-        return canonical_identifier(url)
+        # Preserve the existing URL byte contract; URL normalization is a
+        # separate migration because source IDs participate in deterministic splits.
+        return f"url:{url}"
     return ""
 
 
@@ -172,7 +169,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "skipped": dict(skipped),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; canonical DOI/URL provenance required; context-required QA; held-out source families excluded; source metadata preserved",
+        "policy": "reviewed profiles only; canonical DOI provenance required; established URL identities preserved; context-required QA; held-out source families excluded; source metadata preserved",
     }
     if collisions:
         raise ValueError(f"held-out provenance leaked into grounded QA: {collisions[:3]}")
@@ -219,7 +216,7 @@ def self_test() -> None:
     assert canonical_doi("10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("HTTPS://DOI.ORG/10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("doi:10.X/ABC") == "doi:10.x/abc"
-    assert canonical_identifier("HTTPS://Example.org/path/") == "url:https://example.org/path"
+    assert canonical_identifier("https://Example.org/path/") == "url:https://Example.org/path/"
     assert len(rows) == 1
     assert rows[0]["source_ids"] == ["doi:10.x/train"]
     assert rows[0]["must_cite"] == ["doi:10.x/train"]
