@@ -1,0 +1,43 @@
+name: Model RAG retrieval depth diagnostic
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/evaluate-rag-depth.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'scripts/build-model-corpus.py'
+      - 'data/**'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - '.github/workflows/model-rag-depth.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci
+      - name: Validate reviewed model corpus
+        run: npm run validate:model-corpus
+      - name: Materialize reviewed model corpus
+        run: python3 scripts/build-model-corpus.py
+      - name: Validate current frozen retriever
+        run: python3 scripts/build-rag-eval-snapshot.py --self-test
+      - name: Measure required-source retrieval depth
+        run: python3 scripts/evaluate-rag-depth.py | tee rag-depth-results.txt
+      - name: Retain diagnostic result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-depth-results
+          path: rag-depth-results.txt
+          retention-days: 14
