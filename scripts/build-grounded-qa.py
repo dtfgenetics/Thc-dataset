@@ -47,11 +47,14 @@ def canonical_doi(raw: str) -> str:
 
 
 def canonical_identifier(raw: str) -> str:
-    """Canonicalize DOI aliases while preserving established non-DOI URL identities."""
+    """Canonicalize DOI aliases for comparison without rewriting ordinary URLs."""
     value = (raw or "").strip()
     if not value:
         return ""
-    if re.match(r"(?i)^doi:\s*", value) or re.match(r"(?i)^https?://(?:dx\.)?doi\.org/", value):
+    # Handle historical emitted IDs such as doi:https://doi.org/10.x/example.
+    if re.match(r"(?i)^doi:\s*", value):
+        return canonical_doi(value)
+    if re.match(r"(?i)^https?://(?:dx\.)?doi\.org/", value):
         return canonical_doi(value)
     if re.match(r"(?i)^10\.\d{4,9}/\S+$", value):
         return canonical_doi(value)
@@ -60,18 +63,23 @@ def canonical_identifier(raw: str) -> str:
     return value
 
 
-def canonical_source_id(source: dict) -> str:
+def source_id(source: dict) -> str:
+    """Return the established emitted provenance ID; this is part of frozen dataset bytes."""
     doi = (source.get("doi") or "").strip()
     if doi:
-        # The schema identifies this field as DOI provenance, so do not require
-        # a syntax heuristic before canonicalizing it.
-        return canonical_doi(doi)
+        return f"doi:{doi.lower()}"
     url = (source.get("url") or "").strip()
     if url:
-        # Preserve the existing URL byte contract; URL normalization is a
-        # separate migration because source IDs participate in deterministic splits.
         return f"url:{url}"
     return ""
+
+
+def source_comparison_id(source: dict) -> str:
+    """Return canonical identity used only for held-out isolation and collision checks."""
+    doi = (source.get("doi") or "").strip()
+    if doi:
+        return canonical_doi(doi)
+    return canonical_identifier(source_id(source))
 
 
 def heldout_source_ids(path: pathlib.Path) -> set[str]:
@@ -115,12 +123,13 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         profile_id = profile.get("id")
         profile_name = profile.get("name") or profile_id
         for source in profile.get("sources") or []:
-            sid = canonical_source_id(source)
+            sid = source_id(source)
+            comparison_sid = source_comparison_id(source)
             claims = [str(x).strip() for x in (source.get("supportedClaims") or []) if str(x).strip()]
-            if not sid or not claims:
+            if not sid or not comparison_sid or not claims:
                 skipped["source_missing_provenance_or_claims"] += 1
                 continue
-            if sid in reserved:
+            if comparison_sid in reserved:
                 skipped["heldout_source"] += 1
                 continue
 
@@ -160,7 +169,10 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
                 }
             )
 
-    collisions = [r["id"] for r in records if set(r["source_ids"]) & reserved]
+    collisions = [
+        r["id"] for r in records
+        if any(canonical_identifier(sid) in reserved for sid in (r.get("source_ids") or []))
+    ]
     stats = {
         "reviewed_profiles": reviewed_profiles,
         "grounded_qa_examples": len(records),
@@ -169,7 +181,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "skipped": dict(skipped),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; canonical DOI provenance required; established URL identities preserved; context-required QA; held-out source families excluded; source metadata preserved",
+        "policy": "reviewed profiles only; canonical DOI identity used for held-out isolation; emitted provenance IDs remain byte-stable; context-required QA; held-out source families excluded; source metadata preserved",
     }
     if collisions:
         raise ValueError(f"held-out provenance leaked into grounded QA: {collisions[:3]}")
@@ -216,9 +228,12 @@ def self_test() -> None:
     assert canonical_doi("10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("HTTPS://DOI.ORG/10.X/ABC") == "doi:10.x/abc"
     assert canonical_identifier("doi:10.X/ABC") == "doi:10.x/abc"
-    assert canonical_identifier("https://Example.org/path/") == "url:https://Example.org/path/"
+    assert canonical_identifier("doi:https://doi.org/10.X/ABC") == "doi:10.x/abc"
     assert len(rows) == 1
+    # Emitted ID remains in the historical byte format, while comparison is canonical.
     assert rows[0]["source_ids"] == ["doi:10.x/train"]
+    assert source_id({"doi": "https://doi.org/10.X/ABC"}) == "doi:https://doi.org/10.x/abc"
+    assert source_comparison_id({"doi": "https://doi.org/10.X/ABC"}) == "doi:10.x/abc"
     assert rows[0]["must_cite"] == ["doi:10.x/train"]
     assert rows[0]["grounded"] is True and rows[0]["context_required"] is True
     assert stats["skipped"]["heldout_source"] == 1
