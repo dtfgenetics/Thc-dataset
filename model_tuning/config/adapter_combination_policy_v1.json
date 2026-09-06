@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "purpose": "Fail-closed policy for adapter merge/model-soup eligibility. This file does not imply that any adapter has been trained, evaluated, merged, or promoted.",
+  "benchmark": "model_tuning/eval/heldout_v2.jsonl",
+  "required_slices": [
+    "factuality",
+    "diagnostic",
+    "hallucination",
+    "citation_accuracy",
+    "science",
+    "education",
+    "grounded_qa",
+    "regression"
+  ],
+  "minimum_aggregate_gain": 0.02,
+  "require_no_slice_regression": true,
+  "require_reviewed_semantic_scores": true,
+  "require_identical_runtime_contract": true,
+  "require_distinct_adapter_revisions": true,
+  "combination_candidates": []
+}
