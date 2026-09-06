@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import json
 import pathlib
+import re
 import sys
 import tempfile
 from collections import Counter
@@ -37,7 +38,33 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
     return rows
 
 
-def canonical_source_id(source: dict) -> str:
+def canonical_doi(raw: str) -> str:
+    """Return one DOI identity for bare, doi:-prefixed, and doi.org forms."""
+    value = (raw or "").strip()
+    value = re.sub(r"(?i)^doi:\s*", "", value)
+    value = re.sub(r"(?i)^https?://(?:dx\.)?doi\.org/", "", value)
+    return f"doi:{value.lower()}" if value else ""
+
+
+def canonical_identifier(raw: str) -> str:
+    """Canonicalize DOI aliases for comparison without rewriting ordinary URLs."""
+    value = (raw or "").strip()
+    if not value:
+        return ""
+    # Handle historical emitted IDs such as doi:https://doi.org/10.x/example.
+    if re.match(r"(?i)^doi:\s*", value):
+        return canonical_doi(value)
+    if re.match(r"(?i)^https?://(?:dx\.)?doi\.org/", value):
+        return canonical_doi(value)
+    if re.match(r"(?i)^10\.\d{4,9}/\S+$", value):
+        return canonical_doi(value)
+    if re.match(r"(?i)^https?://", value):
+        return f"url:{value}"
+    return value
+
+
+def source_id(source: dict) -> str:
+    """Return the established emitted provenance ID; this is part of frozen dataset bytes."""
     doi = (source.get("doi") or "").strip()
     if doi:
         return f"doi:{doi.lower()}"
@@ -47,15 +74,21 @@ def canonical_source_id(source: dict) -> str:
     return ""
 
 
+def source_comparison_id(source: dict) -> str:
+    """Return canonical identity used only for held-out isolation and collision checks."""
+    doi = (source.get("doi") or "").strip()
+    if doi:
+        return canonical_doi(doi)
+    return canonical_identifier(source_id(source))
+
+
 def heldout_source_ids(path: pathlib.Path) -> set[str]:
     reserved = set()
     if not path.exists():
         return reserved
     for row in load_jsonl(path):
         for raw in row.get("must_cite") or []:
-            sid = (raw or "").strip()
-            if sid.startswith("doi:"):
-                sid = "doi:" + sid[4:].lower()
+            sid = canonical_identifier(raw)
             if sid:
                 reserved.add(sid)
     return reserved
@@ -90,12 +123,13 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         profile_id = profile.get("id")
         profile_name = profile.get("name") or profile_id
         for source in profile.get("sources") or []:
-            sid = canonical_source_id(source)
+            sid = source_id(source)
+            comparison_sid = source_comparison_id(source)
             claims = [str(x).strip() for x in (source.get("supportedClaims") or []) if str(x).strip()]
-            if not sid or not claims:
+            if not sid or not comparison_sid or not claims:
                 skipped["source_missing_provenance_or_claims"] += 1
                 continue
-            if sid in reserved:
+            if comparison_sid in reserved:
                 skipped["heldout_source"] += 1
                 continue
 
@@ -135,7 +169,10 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
                 }
             )
 
-    collisions = [r["id"] for r in records if set(r["source_ids"]) & reserved]
+    collisions = [
+        r["id"] for r in records
+        if any(canonical_identifier(sid) in reserved for sid in (r.get("source_ids") or []))
+    ]
     stats = {
         "reviewed_profiles": reviewed_profiles,
         "grounded_qa_examples": len(records),
@@ -163,12 +200,12 @@ def self_test() -> None:
         "reviewStatus": "reviewed",
         "sources": [
             {
-                "doi": "10.x/train",
+                "doi": "10.X/TRAIN",
                 "title": "Training source",
                 "supportedClaims": ["Claim one is supported.", "Claim two is supported."],
             },
             {
-                "doi": "10.x/heldout",
+                "doi": "https://doi.org/10.X/HELDOUT",
                 "title": "Held-out source",
                 "supportedClaims": ["This must not enter training QA."],
             },
@@ -188,8 +225,15 @@ def self_test() -> None:
         input_path.write_text(json.dumps(reviewed) + "\n" + json.dumps(unreviewed) + "\n", encoding="utf-8")
         eval_path.write_text(json.dumps(heldout) + "\n", encoding="utf-8")
         rows, stats = build(input_path, eval_path)
+    assert canonical_doi("10.X/ABC") == "doi:10.x/abc"
+    assert canonical_identifier("HTTPS://DOI.ORG/10.X/ABC") == "doi:10.x/abc"
+    assert canonical_identifier("doi:10.X/ABC") == "doi:10.x/abc"
+    assert canonical_identifier("doi:https://doi.org/10.X/ABC") == "doi:10.x/abc"
     assert len(rows) == 1
+    # Emitted ID remains in the historical byte format, while comparison is canonical.
     assert rows[0]["source_ids"] == ["doi:10.x/train"]
+    assert source_id({"doi": "https://doi.org/10.X/ABC"}) == "doi:https://doi.org/10.x/abc"
+    assert source_comparison_id({"doi": "https://doi.org/10.X/ABC"}) == "doi:10.x/abc"
     assert rows[0]["must_cite"] == ["doi:10.x/train"]
     assert rows[0]["grounded"] is True and rows[0]["context_required"] is True
     assert stats["skipped"]["heldout_source"] == 1
