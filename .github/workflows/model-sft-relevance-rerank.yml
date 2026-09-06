@@ -3,6 +3,9 @@ name: Evaluate SFT relevance reranker
 on:
   pull_request:
     paths:
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/sft_evidence_ranking.py'
+      - 'scripts/validate-generated-sft-relevance.py'
       - 'scripts/evaluate-sft-relevance-rerank.py'
       - 'scripts/audit-sft-profile-relevance.py'
       - 'data/diagnostic-profiles.jsonl'
@@ -23,7 +26,11 @@ jobs:
           python-version: '3.12'
       - name: Run existing relevance-audit self-test
         run: python3 scripts/audit-sft-profile-relevance.py --self-test
+      - name: Run integrated ranking self-test
+        run: python3 scripts/sft_evidence_ranking.py
       - name: Require dry-run relevance improvement
         run: python3 scripts/evaluate-sft-relevance-rerank.py --require-improvement
       - name: Rebuild model corpus without mutation
         run: python3 scripts/build-model-corpus.py --check-only
+      - name: Validate generated SFT evidence relevance
+        run: python3 scripts/validate-generated-sft-relevance.py --self-test && python3 scripts/validate-generated-sft-relevance.py --max-rate 0.02
