@@ -33,4 +33,11 @@ jobs:
       - name: Validate current frozen retriever
         run: python3 scripts/build-rag-eval-snapshot.py --self-test
       - name: Evaluate evidence-role alignment bonus
-        run: python3 scripts/evaluate-rag-evidence-role.py
+        run: python3 scripts/evaluate-rag-evidence-role.py | tee evidence-role-results.txt
+      - name: Retain experiment result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidence-role-results
+          path: evidence-role-results.txt
+          retention-days: 14
