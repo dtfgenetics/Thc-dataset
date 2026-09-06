@@ -38,13 +38,17 @@ def main() -> int:
     full = rag.build(claims, cases, 20, metadata_aware=True)
     by_case = {row["case_id"]: row for row in full}
     for case in cases:
-        required = {str(x).strip() for x in case.get("must_cite") or [] if str(x).strip()}
+        required = {rag.canonical_source_id(x) for x in case.get("must_cite") or [] if rag.canonical_source_id(x)}
         if not required:
             continue
         cumulative: set[str] = set()
         found_depth = None
         for item in by_case[case["id"]]["retrieved"]:
-            cumulative.update(str(x).strip() for x in item.get("source_ids") or [] if str(x).strip())
+            cumulative.update(
+                rag.canonical_source_id(x)
+                for x in item.get("source_ids") or []
+                if rag.canonical_source_id(x)
+            )
             if required.issubset(cumulative):
                 found_depth = item["rank"]
                 break
