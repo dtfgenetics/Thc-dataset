@@ -1,0 +1,44 @@
+name: Generate QLoRA lock candidate
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  generate-lock-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install pinned resolver
+        run: python -m pip install --disable-pip-version-check 'uv==0.12.10'
+
+      - name: Validate dependency contract
+        run: |
+          python3 scripts/verify-qlora-dependency-contract.py --self-test
+          python3 scripts/verify-qlora-dependency-contract.py
+
+      - name: Generate candidate transitive lock
+        run: |
+          rm -f model_tuning/requirements.lock.candidate
+          python3 scripts/verify-qlora-dependency-contract.py \
+            --generate-candidate-lock model_tuning/requirements.lock.candidate
+          sha256sum model_tuning/requirements.lock.candidate | tee qlora-lock-candidate.sha256
+
+      - name: Upload candidate for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: qlora-requirements-lock-candidate
+          path: |
+            model_tuning/requirements.lock.candidate
+            qlora-lock-candidate.sha256
+          if-no-files-found: error
+          retention-days: 14
