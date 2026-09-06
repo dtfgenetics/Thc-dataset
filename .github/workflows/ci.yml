@@ -4,19 +4,22 @@ on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   validate:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
-          cache: npm
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - run: npm ci
       - run: npm run validate:sources
       - run: npm run validate:acquisition
@@ -36,6 +39,10 @@ jobs:
         run: |
           python3 scripts/audit-sft-profile-relevance.py --self-test
           python3 scripts/audit-sft-profile-relevance.py
+      - name: Validate generated SFT evidence relevance
+        run: |
+          python3 scripts/validate-generated-sft-relevance.py --self-test
+          python3 scripts/validate-generated-sft-relevance.py --max-rate 0.02
       - run: npm run validate:grounded-qa
       - run: npm run validate:model-split
       - name: Validate supplied-claim grounding
@@ -78,43 +85,18 @@ jobs:
             --tokenizer-revision b968826d9c46dd6066d109eabc6255188de91218 \
             --expected-sha256 a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
       - name: Freeze model training artifacts
-        run: python3 scripts/freeze-model-training-artifacts.py
-      - name: Verify frozen QLoRA artifact bytes
+        run: npm run freeze:model-training
+      - run: npm run validate:frozen-model-training
+      - name: Validate canonical training source identity
         run: |
-          python3 scripts/verify-qlora-artifacts.py --self-test
-          python3 scripts/verify-qlora-artifacts.py
-      - name: Freeze heldout v2 RAG snapshot
-        run: |
-          python3 scripts/build-rag-eval-snapshot.py \
-            --claims model_tuning/generated/rag/claims_v1.jsonl \
-            --benchmark model_tuning/eval/heldout_v2.jsonl \
-            --output model_tuning/rag_snapshots/heldout_v2.jsonl \
-            --manifest model_tuning/rag_snapshots/heldout_v2.manifest.json \
-            --top-k 5
-      - name: Validate strict no-offload evaluator
-        run: python3 scripts/run-model-eval-strict.py --strict-self-test
-      - name: Validate base-vs-RAG launcher
-        run: python3 scripts/run-base-vs-rag-experiment.py --self-test
-      - name: Validate blinded base-vs-RAG review workflow
-        run: python3 scripts/prepare-base-rag-blind-review.py --self-test
-      - name: Validate dedicated base-vs-RAG scorer
-        run: python3 scripts/score-base-vs-rag-eval.py --self-test
-      - name: Upload frozen model training artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: grow-doc-model-training-artifacts
-          path: model_tuning/generated
-          if-no-files-found: error
-      - name: Upload frozen heldout v2 RAG snapshot
-        uses: actions/upload-artifact@v4
-        with:
-          name: grow-doc-heldout-v2-rag-snapshot
-          path: model_tuning/rag_snapshots
-          if-no-files-found: error
-      - run: npm run check
+          python3 scripts/split-model-training-grounded.py --write
+          python3 scripts/validate-training-source-identity.py --self-test
+          python3 scripts/validate-training-source-identity.py
+      - run: npm run validate:rag-required-source-membership
+      - run: npm run validate:rag-retrieval-depth
+      - run: npm run validate:model-evaluator
+      - run: npm run validate:model-base-vs-rag
       - run: npm test
-      - name: Validate visual observation PHP proxy
-        run: php -l public/api/visual-observations.php
+      - run: npm run typecheck
+      - run: npm run validate:php
       - run: npm run build
-      - name: Verify visual observation proxy ships in the production bundle
-        run: test -f dist/api/visual-observations.php
