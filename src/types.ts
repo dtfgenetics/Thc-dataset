@@ -124,6 +124,29 @@ export interface Differential {
   supporting: string[]
   contradicting: string[]
   missing: string[]
+  historySignals?: string[]
+}
+
+export interface DiagnosticSnapshot {
+  reviewedAt: string
+  leadingIssueSlug?: string
+  leadingIssueName?: string
+  confidence?: Differential['confidence']
+  supporting: string[]
+  contradicting: string[]
+  missing: string[]
+  alternativeIssueSlugs: string[]
+}
+
+export interface InvestigationCase {
+  id: string
+  plantName: string
+  createdAt: string
+  updatedAt: string
+  context: GrowContext
+  evidenceSummary: Array<Pick<EvidenceFile, 'slot' | 'quality' | 'notes'>>
+  diagnosis?: DiagnosticSnapshot
+  diagnosisHistory?: DiagnosticSnapshot[]
 }
 
 export interface GrowLogEntry {
@@ -132,4 +155,14 @@ export interface GrowLogEntry {
   plantName: string
   note: string
   outcome: string
+  stage?: string
+  medium?: string
+  ph?: string
+  ec?: string
+  watering?: string
+  symptoms?: string[]
+  recentChanges?: string
+  investigationId?: string
+  diagnosisIssueSlug?: string
+  diagnosisConfidence?: Differential['confidence']
 }

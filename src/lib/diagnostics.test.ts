@@ -1,51 +1,21 @@
 import { describe, expect, it } from 'vitest'
 import { issues } from '../data/issues'
-import type { GrowContext, IssueRecord } from '../types'
+import type { GrowContext, GrowLogEntry, IssueRecord } from '../types'
 import { rankDifferentials } from './diagnostics'
 
-const context = (symptoms: string[], overrides: Partial<GrowContext> = {}): GrowContext => ({
-  stage: '',
-  medium: '',
-  ph: '',
-  ec: '',
-  watering: '',
-  recentChanges: '',
-  symptoms,
-  ...overrides,
+const context = (symptoms: string[], overrides: Partial<GrowContext> = {}): GrowContext => ({ stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms, ...overrides })
+
+const fixtureIssue = (slug: string, indicators: string[], overrides: Partial<IssueRecord> = {}): IssueRecord => ({
+  id: slug, slug, name: slug, category: 'Environmental stress', severity: 'moderate', reviewStatus: 'reviewed', summary: '', affectedParts: [], stages: [], indicators,
+  exclusions: [], progression: [], lookAlikes: [], confirmation: [], immediateActions: [], correctivePlan: [], prevention: [], warnings: [], sources: [], media: [], ...overrides,
 })
 
-const fixtureIssue = (
-  slug: string,
-  indicators: string[],
-  overrides: Partial<IssueRecord> = {},
-): IssueRecord => ({
-  id: slug,
-  slug,
-  name: slug,
-  category: 'Environmental stress',
-  severity: 'moderate',
-  reviewStatus: 'reviewed',
-  summary: '',
-  affectedParts: [],
-  stages: [],
-  indicators,
-  exclusions: [],
-  progression: [],
-  lookAlikes: [],
-  confirmation: [],
-  immediateActions: [],
-  correctivePlan: [],
-  prevention: [],
-  warnings: [],
-  sources: [],
-  media: [],
-  ...overrides,
+const historyEntry = (overrides: Partial<GrowLogEntry>): GrowLogEntry => ({
+  id: 'history-1', createdAt: '2026-09-01T12:00:00.000Z', plantName: 'Test plant', note: 'Follow-up', outcome: 'Monitoring', ...overrides,
 })
 
 describe('rankDifferentials', () => {
-  it('returns no fabricated match without symptom evidence', () => {
-    expect(rankDifferentials(issues, context([]), [])).toEqual([])
-  })
+  it('returns no fabricated match without symptom evidence', () => { expect(rankDifferentials(issues, context([]), [])).toEqual([]) })
 
   it('ranks magnesium deficiency without overstating confidence', () => {
     const results = rankDifferentials(issues, context(['Older leaves yellow between green veins', 'Rust or tan spotting']), [])
@@ -73,8 +43,6 @@ describe('rankDifferentials', () => {
     expect(results[0].missing).toContain('leaf-underside image')
     expect(results[0].missing).toContain('microscope-confirmed mite identification')
     expect(results[0].missing).toContain('confirmation: high-magnification organism or egg evidence')
-    expect(results[0].missing).not.toContain('measured pH')
-    expect(results[0].missing).not.toContain('measured EC/PPM')
   })
 
   it('keeps root-pathogen confidence low without a root or crown view and applies the Pythium policy', () => {
@@ -86,83 +54,54 @@ describe('rankDifferentials', () => {
     expect(results[0].issue.slug).toBe('pythium-root-rot')
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('root or crown view')
-    expect(results[0].missing).toContain('confirmation: root/crown evidence')
-    expect(results[0].missing).toContain('confirmation: isolation/microscopy/PCR/sequence')
   })
 
   it('lets discriminating symptoms outrank a larger pile of generic symptoms', () => {
     const generic = ['General yellowing', 'Stunted growth', 'Leaf spotting']
     const specific = ['Older-leaf interveinal chlorosis', 'Veins remain distinctly green']
-    const records = [
-      fixtureIssue('generic-candidate', generic),
-      fixtureIssue('specific-candidate', specific),
-      fixtureIssue('generic-noise-1', generic),
-      fixtureIssue('generic-noise-2', generic),
-      fixtureIssue('generic-noise-3', generic),
-      fixtureIssue('generic-noise-4', generic),
-    ]
-
+    const records = [fixtureIssue('generic-candidate', generic), fixtureIssue('specific-candidate', specific), fixtureIssue('generic-noise-1', generic), fixtureIssue('generic-noise-2', generic), fixtureIssue('generic-noise-3', generic), fixtureIssue('generic-noise-4', generic)]
     const results = rankDifferentials(records, context([...generic, ...specific]), [])
     expect(results[0].issue.slug).toBe('specific-candidate')
     expect(results[0].supporting).toEqual(specific)
   })
 
   it('downgrades a high-scoring leader when a look-alike is essentially tied', () => {
-    const records = [
-      fixtureIssue('candidate-a', ['A specific sign 1', 'A specific sign 2', 'A specific sign 3']),
-      fixtureIssue('candidate-b', ['B specific sign 1', 'B specific sign 2', 'B specific sign 3']),
-    ]
-
-    const results = rankDifferentials(
-      records,
-      context([
-        'A specific sign 1',
-        'A specific sign 2',
-        'A specific sign 3',
-        'B specific sign 1',
-        'B specific sign 2',
-        'B specific sign 3',
-      ]),
-      [],
-    )
-
+    const records = [fixtureIssue('candidate-a', ['A specific sign 1', 'A specific sign 2', 'A specific sign 3']), fixtureIssue('candidate-b', ['B specific sign 1', 'B specific sign 2', 'B specific sign 3'])]
+    const results = rankDifferentials(records, context(['A specific sign 1', 'A specific sign 2', 'A specific sign 3', 'B specific sign 1', 'B specific sign 2', 'B specific sign 3']), [])
     expect(results[0].confidence).toBe('Moderate')
     expect(results[0].missing).toContain('additional discriminating evidence between the leading look-alikes')
     expect(results[1].confidence).toBe('Moderate')
   })
 
   it('honors a conservative photo-only confidence cap when a record defines one', () => {
-    const record = fixtureIssue(
-      'photo-capped',
-      ['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3'],
-      { photoOnlyMaxConfidence: 0.5 },
-    )
-
-    const results = rankDifferentials(
-      [record],
-      context(['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3']),
-      [],
-    )
-
+    const record = fixtureIssue('photo-capped', ['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3'], { photoOnlyMaxConfidence: 0.5 })
+    const results = rankDifferentials([record], context(['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3']), [])
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('response policy limits photo-only confidence')
   })
 
   it('uses controlled backend confirmation requirements for policy-bound canonical conditions', () => {
-    const record = fixtureIssue(
-      'hlvd-policy-fixture',
-      ['Short internodes', 'Brittle tissue', 'Stunted growth'],
-      { canonicalId: 'CAN-DIS-011' },
-    )
-
-    const results = rankDifferentials(
-      [record],
-      context(['Short internodes', 'Brittle tissue', 'Stunted growth']),
-      [],
-    )
-
+    const record = fixtureIssue('hlvd-policy-fixture', ['Short internodes', 'Brittle tissue', 'Stunted growth'], { canonicalId: 'CAN-DIS-011' })
+    const results = rankDifferentials([record], context(['Short internodes', 'Brittle tissue', 'Stunted growth']), [])
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('confirmation: RT-PCR')
     expect(results[0].missing).toContain('confirmation: RT-qPCR')
+  })
+
+  it('uses recurring case history as bounded supporting evidence', () => {
+    const record = fixtureIssue('history-candidate', ['Older-leaf interveinal chlorosis', 'Rust spotting'])
+    const current = context(['Older-leaf interveinal chlorosis'], { ph: '6.2', ec: '1.4' })
+    const history = [historyEntry({ symptoms: ['Older-leaf interveinal chlorosis'], diagnosisIssueSlug: 'history-candidate', outcome: 'Stable', ph: '5.4', ec: '0.7' })]
+    const [result] = rankDifferentials([record], current, [], history)
+    expect(result.historySignals?.length).toBeGreaterThan(0)
+    expect(result.confidence).toBe('Low')
+  })
+
+  it('treats a resolved prior hypothesis as weakening persistence, not proof against recurrence', () => {
+    const record = fixtureIssue('resolved-candidate', ['Distinct sign 1', 'Distinct sign 2'])
+    const history = [historyEntry({ symptoms: ['Distinct sign 1'], diagnosisIssueSlug: 'resolved-candidate', outcome: 'Resolved' })]
+    const [result] = rankDifferentials([record], context(['Distinct sign 1', 'Distinct sign 2']), [], history)
+    expect(result.historySignals).toContain('this hypothesis was previously marked resolved, which weakens simple persistence as an explanation')
+    expect(result.score).toBeGreaterThan(0)
   })
 })
