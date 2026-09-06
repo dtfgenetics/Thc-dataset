@@ -14,7 +14,16 @@ from __future__ import annotations
 import argparse, hashlib, json, pathlib, re, statistics, sys
 from collections import defaultdict
 
-CRITICAL_SLICES = {"citation_accuracy", "hallucination", "diagnostic"}
+CRITICAL_SLICES = {
+    "factuality",
+    "diagnostic",
+    "hallucination",
+    "citation_accuracy",
+    "science",
+    "education",
+    "grounded_qa",
+    "regression",
+}
 RUNTIME_COMPARABILITY_KEYS = ("python", "transformers", "torch", "accelerate", "peft", "bitsandbytes")
 
 
@@ -245,6 +254,22 @@ def self_test() -> int:
     assert gs["aggregate_score"] == 1.0 and gs["citation_score"] == 1.0 and gs["forbidden_claim_avoidance"] == 1.0
     assert bs["citation_score"] == 0.0 and bs["forbidden_claim_avoidance"] == 0.0 and bs["semantic_score"] == 0.5
     assert promotion_decision(summarize([bs]),summarize([gs]),2.0)["eligible"] is True
+
+    # A candidate can improve overall while regressing a non-legacy slice; every
+    # held-out promotion slice must block that regression, not only the original
+    # diagnostic/hallucination/citation subset.
+    base_summary={
+        "overall":{"aggregate":0.80},
+        "slices":{sl:{"aggregate":0.80} for sl in CRITICAL_SLICES},
+    }
+    cand_summary={
+        "overall":{"aggregate":0.84},
+        "slices":{sl:{"aggregate":0.84} for sl in CRITICAL_SLICES},
+    }
+    cand_summary["slices"]["science"]={"aggregate":0.79}
+    decision=promotion_decision(base_summary,cand_summary,2.0)
+    assert decision["eligible"] is False
+    assert any(x["slice"] == "science" for x in decision["critical_regressions"])
 
     base=fixture_manifest(); cand=fixture_manifest("abcdef1")
     assert comparable_run_errors(base,cand) == []

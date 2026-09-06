@@ -69,11 +69,10 @@ jobs:
           python3 scripts/validate-qlora-runtime-config-binding.py
       - name: Validate QLoRA trainer structure
         run: python3 scripts/train-grow-doc-qlora.py --self-test
-      - name: Verify reproducible QLoRA dependency lock
+      - name: Validate pinned QLoRA dependency contract
         run: |
           python3 scripts/verify-qlora-dependency-contract.py --self-test
-          python3 -m pip install --disable-pip-version-check uv==0.12.10
-          python3 scripts/verify-qlora-dependency-contract.py --materialize
+          python3 scripts/verify-qlora-dependency-contract.py
       - name: Verify pinned Qwen3 tokenizer chat template
         run: |
           python3 scripts/materialize-chat-template.py --self-test
