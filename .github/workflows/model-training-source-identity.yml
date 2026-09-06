@@ -1,0 +1,44 @@
+name: Model training source identity
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/validate-training-source-identity.py'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/split-model-training-grounded.py'
+      - 'scripts/build-training-dataset-manifest.py'
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/config/qlora_8b.yaml'
+      - '.github/workflows/model-training-source-identity.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate-training-source-identity.py'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/split-model-training-grounded.py'
+      - 'scripts/build-training-dataset-manifest.py'
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/config/qlora_8b.yaml'
+      - '.github/workflows/model-training-source-identity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  canonical-source-identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test canonical source identity audit
+        run: python scripts/validate-training-source-identity.py --self-test
+      - name: Materialize grounded source-component splits
+        run: python scripts/split-model-training-grounded.py
+      - name: Validate materialized train/dev provenance and held-out isolation
+        run: python scripts/validate-training-source-identity.py
