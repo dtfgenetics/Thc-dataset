@@ -20,6 +20,15 @@ reproducibility:
   record_cuda_and_gpu: true
   seed: 420
 
+hardware:
+  require_cuda: true
+  require_single_visible_cuda_device: true
+  expected_visible_cuda_device_count: 1
+  device_map: single_visible_gpu
+  forbid_auto_device_map: true
+  forbid_cpu_disk_offload: true
+  record_device_properties: true
+
 precision:
   load_in_4bit: true
   bnb_4bit_quant_type: nf4
