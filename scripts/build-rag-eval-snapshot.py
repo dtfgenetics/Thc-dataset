@@ -21,7 +21,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-ALGORITHM = "grow-doc-field-weighted-idf-v2"
+ALGORITHM = "grow-doc-field-weighted-idf-v3"
 BASELINE_ALGORITHM = "grow-doc-lexical-idf-v1"
 TOKEN_RE = re.compile(r"[a-z0-9]+")
 STOPWORDS = {
@@ -31,6 +31,7 @@ STOPWORDS = {
 FIELD_WEIGHTS = {
     "claim": 1.0,
     "profile_name": 1.35,
+    "profile_alias": 1.0,
     "category": 0.7,
     "source_title": 0.55,
     "source_organization": 0.35,
@@ -107,9 +108,14 @@ def row_fields(row: dict[str, Any]) -> dict[str, str]:
         source_titles = str(row["source"].get("title") or "")
     if not source_orgs and isinstance(row.get("source"), dict):
         source_orgs = " ".join(str(row["source"].get(key) or "") for key in ("organization", "publisher"))
+    profile_aliases = " ".join(
+        str(profile_id or "").replace("-", " ").replace("_", " ")
+        for profile_id in (row.get("profile_ids") or [])
+    )
     return {
         "claim": str(row.get("claim") or ""),
         "profile_name": str(row.get("profile_name") or ""),
+        "profile_alias": profile_aliases,
         "category": str(row.get("category") or ""),
         "source_title": source_titles,
         "source_organization": source_orgs,
@@ -255,13 +261,13 @@ def self_test() -> None:
             },
             {
                 "id": "rag-b",
-                "claim": "Superficial fungal growth can occur on susceptible foliage.",
+                "claim": "Superficial growth can occur on susceptible foliage.",
                 "claim_sha256": "b" * 64,
                 "source_ids": ["doi:10.0000/pm"],
                 "profile_ids": ["powdery-mildew"],
-                "profile_name": "Powdery mildew",
+                "profile_name": "Foliar disease",
                 "category": "fungal disease",
-                "sources": [{"source_id": "doi:10.0000/pm", "title": "Powdery Mildew of Cannabis", "organization": "Plant Pathology Lab"}],
+                "sources": [{"source_id": "doi:10.0000/pm", "title": "Cannabis Disease Study", "organization": "Plant Pathology Lab"}],
                 "retrieval_only": True,
             },
         ]
@@ -286,7 +292,7 @@ def self_test() -> None:
         assert first[0]["retrieved"][0]["source_ids"] == ["doi:10.0000/root"]
         assert first[0]["retrieved"][0]["profile_ids"] == ["root-hypoxia", "root-stress"]
         assert first[0]["retrieved"][0]["sources"][0]["title"] == "Root Oxygen Limitation"
-        assert first[1]["retrieved"][0]["claim_id"] == "rag-b", "profile/source metadata should support prompt matching"
+        assert first[1]["retrieved"][0]["claim_id"] == "rag-b", "profile-id aliases should support prompt matching after claim deduplication"
         coverage = required_source_coverage(cases, first)
         assert coverage["eligible_cases"] == 2
         assert coverage["hit_cases"] == 2
@@ -327,7 +333,7 @@ def main() -> int:
         "algorithm": ALGORITHM,
         "baseline_algorithm": BASELINE_ALGORITHM,
         "field_weights": FIELD_WEIGHTS,
-        "retrieval_inputs": ["prompt", "claim", "profile_name", "category", "source_title", "source_organization"],
+        "retrieval_inputs": ["prompt", "claim", "profile_name", "profile_alias", "category", "source_title", "source_organization"],
         "heldout_labels_used_for_retrieval": False,
         "top_k": args.top_k,
         "claims_path": str(args.claims),
