@@ -46,6 +46,10 @@ jobs:
           python3 scripts/split-model-training-grounded.py --check-only
       - run: npm run validate:training-dataset-manifest
       - run: npm run validate:model-scorer
+      - name: Validate adapter combination policy
+        run: |
+          python3 scripts/validate-adapter-combination-policy.py --self-test
+          python3 scripts/validate-adapter-combination-policy.py
       - run: npm run validate:model-run-manifest
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
