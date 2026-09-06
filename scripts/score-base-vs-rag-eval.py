@@ -17,7 +17,10 @@ from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCORER_PATH = ROOT / "scripts/score-model-eval.py"
-CRITICAL_SLICES = {"citation_accuracy", "hallucination", "diagnostic"}
+# Retrieval is intended to improve factual grounding without sacrificing the core
+# behavior/safety contract. Treat all explicitly protected held-out slices as
+# fail-closed: an aggregate gain cannot hide a factuality or regression loss.
+CRITICAL_SLICES = {"citation_accuracy", "hallucination", "diagnostic", "factuality", "regression"}
 
 
 def load_scorer():
@@ -166,13 +169,45 @@ def self_test() -> None:
     bad_base = json.loads(json.dumps(base)); bad_base["retrieval"] = {"snapshot_sha256": "f" * 64, "top_k": 5}
     assert "base-only arm must have retrieval=null" in base_vs_rag_comparability_errors(bad_base, rag)
 
-    base_summary = {"overall": {"aggregate": 0.70}, "slices": {"diagnostic": {"aggregate": 0.70}, "citation_accuracy": {"aggregate": 0.70}, "hallucination": {"aggregate": 0.70}}}
-    rag_summary = {"overall": {"aggregate": 0.75}, "slices": {"diagnostic": {"aggregate": 0.72}, "citation_accuracy": {"aggregate": 0.80}, "hallucination": {"aggregate": 0.70}}}
+    base_summary = {
+        "overall": {"aggregate": 0.70},
+        "slices": {
+            "diagnostic": {"aggregate": 0.70},
+            "citation_accuracy": {"aggregate": 0.70},
+            "hallucination": {"aggregate": 0.70},
+            "factuality": {"aggregate": 0.70},
+            "regression": {"aggregate": 0.70},
+        },
+    }
+    rag_summary = {
+        "overall": {"aggregate": 0.75},
+        "slices": {
+            "diagnostic": {"aggregate": 0.72},
+            "citation_accuracy": {"aggregate": 0.80},
+            "hallucination": {"aggregate": 0.70},
+            "factuality": {"aggregate": 0.76},
+            "regression": {"aggregate": 0.70},
+        },
+    }
     decision = comparison_decision(base_summary, rag_summary)
     assert decision["aggregate_gain_pp"] == 5.0
     assert decision["rag_preferred_by_reviewed_metrics"] is True
-    rag_summary["slices"]["diagnostic"]["aggregate"] = 0.69
-    assert comparison_decision(base_summary, rag_summary)["rag_preferred_by_reviewed_metrics"] is False
+
+    diagnostic_regression = json.loads(json.dumps(rag_summary))
+    diagnostic_regression["slices"]["diagnostic"]["aggregate"] = 0.69
+    assert comparison_decision(base_summary, diagnostic_regression)["rag_preferred_by_reviewed_metrics"] is False
+
+    factuality_regression = json.loads(json.dumps(rag_summary))
+    factuality_regression["slices"]["factuality"]["aggregate"] = 0.69
+    factuality_decision = comparison_decision(base_summary, factuality_regression)
+    assert factuality_decision["rag_preferred_by_reviewed_metrics"] is False
+    assert any(row["slice"] == "factuality" for row in factuality_decision["critical_regressions"])
+
+    regression_slice_loss = json.loads(json.dumps(rag_summary))
+    regression_slice_loss["slices"]["regression"]["aggregate"] = 0.69
+    regression_decision = comparison_decision(base_summary, regression_slice_loss)
+    assert regression_decision["rag_preferred_by_reviewed_metrics"] is False
+    assert any(row["slice"] == "regression" for row in regression_decision["critical_regressions"])
     print("base-vs-RAG scorer self-test: PASS")
 
 
