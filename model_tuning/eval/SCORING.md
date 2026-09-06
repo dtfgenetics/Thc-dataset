@@ -26,12 +26,14 @@ python3 scripts/score-model-eval.py \
   --out results/qwen3-8b-adapter-x.report.json
 ```
 
-The default promotion rule requires at least +2.0 percentage points in aggregate score and no aggregate regression on the diagnostic, hallucination, or citation-accuracy slices. The scorer refuses promotion comparisons that lack reviewed semantic judgments.
+The current promotion rule requires at least +2.0 percentage points in aggregate score and no regression on any protected held-out slice: factuality, diagnostic, hallucination resistance, citation accuracy, science, education, grounded QA, or regression. The scorer refuses promotion comparisons that lack reviewed semantic judgments.
 
 For current promotion work, predictions and baselines must correspond to the exact `heldout_v2.jsonl` case set and the same pinned runtime contract. `heldout_v1.jsonl` results should be reported separately as legacy regression evidence rather than mixed into the promotion aggregate.
 
 ## Interpretation
 
-The aggregate is 60% reviewed semantic correctness, 20% required-citation accuracy, and 20% forbidden-claim avoidance. Slice scores must be inspected in addition to the aggregate. Adapter merging/model soup remains locked unless pairwise candidate evaluation passes the configured promotion gate.
+The aggregate is 60% reviewed semantic correctness, 20% required-citation accuracy, and 20% forbidden-claim avoidance. Slice scores must be inspected in addition to the aggregate.
+
+Adapter merging/model soup is additionally guarded by `model_tuning/config/adapter_combination_policy_v1.json`. A combination may only become eligible when at least two distinct adapter revisions have independently passed reviewed promotion, their promotion reports are content-addressed, the combined candidate is evaluated under the identical runtime/benchmark contract, the combination improves at least +2.0 percentage points over the best component, and no protected slice regresses. The current registry contains no combination candidates because no qualifying adapter evaluations have occurred.
 
 This harness scores model outputs; it does not run inference itself. Base-model and checkpoint inference must pin the model revision, tokenizer revision, decoding parameters, retrieval snapshot, dependency lock, and hardware/runtime metadata so comparisons are reproducible.
