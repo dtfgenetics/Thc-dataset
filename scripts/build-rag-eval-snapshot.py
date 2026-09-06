@@ -69,6 +69,14 @@ def tokens(text: str) -> list[str]:
     return [t for t in TOKEN_RE.findall((text or "").lower()) if t not in STOPWORDS and len(t) > 1]
 
 
+def canonical_source_id(value: Any) -> str:
+    """Normalize source identifiers for equality checks without altering citation display text."""
+    sid = str(value or "").strip()
+    if sid.lower().startswith("doi:"):
+        return "doi:" + sid[4:].strip().lower()
+    return sid
+
+
 def validate_claims(rows: list[dict[str, Any]]) -> None:
     seen: set[str] = set()
     for n, row in enumerate(rows, 1):
@@ -214,15 +222,15 @@ def required_source_coverage(cases: list[dict[str, Any]], snapshot: list[dict[st
     hit = 0
     missing: list[str] = []
     for case in cases:
-        required = {str(value).strip() for value in (case.get("must_cite") or []) if str(value).strip()}
+        required = {canonical_source_id(value) for value in (case.get("must_cite") or []) if canonical_source_id(value)}
         if not required:
             continue
         eligible += 1
         retrieved_sources = {
-            str(source_id).strip()
+            canonical_source_id(source_id)
             for item in by_case.get(case["id"], {}).get("retrieved", [])
             for source_id in (item.get("source_ids") or [])
-            if str(source_id).strip()
+            if canonical_source_id(source_id)
         }
         if required.issubset(retrieved_sources):
             hit += 1
@@ -269,7 +277,7 @@ def self_test() -> None:
             {
                 "id": "case-root",
                 "prompt": "How can root oxygen limitation resemble nutrient stress?",
-                "must_cite": ["doi:10.0000/root"],
+                "must_cite": ["doi:10.0000/ROOT"],
             },
             {
                 "id": "case-pm",
@@ -291,6 +299,7 @@ def self_test() -> None:
         assert coverage["eligible_cases"] == 2
         assert coverage["hit_cases"] == 2
         assert coverage["missing_case_ids"] == []
+        assert canonical_source_id("doi:10.1094/PDIS-04-19-0782-PDN") == "doi:10.1094/pdis-04-19-0782-pdn"
         assert all(item["score"] > 0 for row in first for item in row["retrieved"])
     print("frozen RAG snapshot self-test: PASS")
 
@@ -329,6 +338,7 @@ def main() -> int:
         "field_weights": FIELD_WEIGHTS,
         "retrieval_inputs": ["prompt", "claim", "profile_name", "category", "source_title", "source_organization"],
         "heldout_labels_used_for_retrieval": False,
+        "source_id_comparison": "DOI identifiers are case-insensitive and canonicalized to lowercase for coverage equality only",
         "top_k": args.top_k,
         "claims_path": str(args.claims),
         "claims_sha256": sha256(args.claims),

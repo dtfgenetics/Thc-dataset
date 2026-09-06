@@ -1,0 +1,43 @@
+name: Model RAG required-source membership diagnostic
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-required-source-membership.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'scripts/build-model-corpus.py'
+      - 'data/**'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - '.github/workflows/model-rag-source-membership.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: npm ci
+      - name: Validate reviewed model corpus
+        run: npm run validate:model-corpus
+      - name: Materialize reviewed model corpus
+        run: python3 scripts/build-model-corpus.py
+      - name: Validate frozen retriever implementation
+        run: python3 scripts/build-rag-eval-snapshot.py --self-test
+      - name: Audit required-source membership and rank
+        run: python3 scripts/audit-required-source-membership.py | tee rag-source-membership.txt
+      - name: Retain diagnostic result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-source-membership
+          path: rag-source-membership.txt
+          retention-days: 14
