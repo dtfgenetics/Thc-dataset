@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import re
+from decimal import Decimal, InvalidOperation
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,6 +74,21 @@ def require(text: str, marker: str, label: str) -> None:
         raise RuntimeError(f"QLoRA runtime/config drift: {label}; expected trainer marker {marker!r}")
 
 
+def require_numeric_arg(text: str, arg: str, expected: str, label: str) -> None:
+    match = re.search(rf"\b{re.escape(arg)}=([0-9.+\-eE]+)", text)
+    if not match:
+        raise RuntimeError(f"QLoRA runtime/config drift: {label}; trainer argument {arg!r} not found")
+    try:
+        actual_value = Decimal(match.group(1))
+        expected_value = Decimal(expected)
+    except InvalidOperation as exc:
+        raise RuntimeError(f"QLoRA runtime/config drift: {label}; non-numeric value") from exc
+    if actual_value != expected_value:
+        raise RuntimeError(
+            f"QLoRA runtime/config drift: {label}; config={expected} trainer={match.group(1)}"
+        )
+
+
 def validate(config_text: str, trainer_text: str) -> None:
     training = section_values(config_text, "training")
     precision = section_values(config_text, "precision")
@@ -90,20 +106,20 @@ def validate(config_text: str, trainer_text: str) -> None:
     if missing:
         raise RuntimeError(f"missing training contract keys: {missing}")
 
-    require(trainer_text, f"learning_rate={training['learning_rate']}", "learning_rate")
+    require_numeric_arg(trainer_text, "learning_rate", training["learning_rate"], "learning_rate")
     require(trainer_text, f"lr_scheduler_type=\"{training['lr_scheduler_type']}\"", "lr_scheduler_type")
-    require(trainer_text, f"warmup_ratio={training['warmup_ratio']}", "warmup_ratio")
-    require(trainer_text, f"num_train_epochs={training['num_train_epochs']}", "num_train_epochs")
-    require(trainer_text, f"per_device_train_batch_size={training['per_device_train_batch_size']}", "per_device_train_batch_size")
-    require(trainer_text, f"gradient_accumulation_steps={training['gradient_accumulation_steps']}", "gradient_accumulation_steps")
+    require_numeric_arg(trainer_text, "warmup_ratio", training["warmup_ratio"], "warmup_ratio")
+    require_numeric_arg(trainer_text, "num_train_epochs", training["num_train_epochs"], "num_train_epochs")
+    require_numeric_arg(trainer_text, "per_device_train_batch_size", training["per_device_train_batch_size"], "per_device_train_batch_size")
+    require_numeric_arg(trainer_text, "gradient_accumulation_steps", training["gradient_accumulation_steps"], "gradient_accumulation_steps")
     require(trainer_text, f"gradient_checkpointing={py_bool(training['gradient_checkpointing'])}", "gradient_checkpointing")
-    require(trainer_text, f"max_grad_norm={training['max_grad_norm']}", "max_grad_norm")
-    require(trainer_text, f"weight_decay={training['weight_decay']}", "weight_decay")
+    require_numeric_arg(trainer_text, "max_grad_norm", training["max_grad_norm"], "max_grad_norm")
+    require_numeric_arg(trainer_text, "weight_decay", training["weight_decay"], "weight_decay")
     require(trainer_text, f"optim=\"{training['optimizer']}\"", "optimizer")
-    require(trainer_text, f"logging_steps={training['logging_steps']}", "logging_steps")
-    require(trainer_text, f"eval_steps={training['eval_steps']}", "eval_steps")
-    require(trainer_text, f"save_steps={training['save_steps']}", "save_steps")
-    require(trainer_text, f"save_total_limit={training['save_total_limit']}", "save_total_limit")
+    require_numeric_arg(trainer_text, "logging_steps", training["logging_steps"], "logging_steps")
+    require_numeric_arg(trainer_text, "eval_steps", training["eval_steps"], "eval_steps")
+    require_numeric_arg(trainer_text, "save_steps", training["save_steps"], "save_steps")
+    require_numeric_arg(trainer_text, "save_total_limit", training["save_total_limit"], "save_total_limit")
     require(trainer_text, f"bf16={py_bool(training['bf16'])}", "bf16")
     require(trainer_text, f"tf32={py_bool(training['tf32'])}", "tf32")
     require(trainer_text, f"load_best_model_at_end={py_bool(training['load_best_model_at_end'])}", "load_best_model_at_end")
@@ -115,9 +131,9 @@ def validate(config_text: str, trainer_text: str) -> None:
         raise RuntimeError("validator currently supports only compute_dtype=bfloat16")
     require(trainer_text, "bnb_4bit_compute_dtype=torch.bfloat16", "compute_dtype")
 
-    require(trainer_text, f"LoraConfig(r={lora['r']}", "LoRA rank")
-    require(trainer_text, f"lora_alpha={lora['alpha']}", "LoRA alpha")
-    require(trainer_text, f"lora_dropout={lora['dropout']}", "LoRA dropout")
+    require_numeric_arg(trainer_text, "r", lora["r"], "LoRA rank")
+    require_numeric_arg(trainer_text, "lora_alpha", lora["alpha"], "LoRA alpha")
+    require_numeric_arg(trainer_text, "lora_dropout", lora["dropout"], "LoRA dropout")
     require(trainer_text, f"bias=\"{lora['bias']}\"", "LoRA bias")
     if not targets:
         raise RuntimeError("LoRA target_modules must not be empty")
