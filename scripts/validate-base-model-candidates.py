@@ -23,6 +23,11 @@ PIN_READINESS_KEYS = {
     'hardware_contract_verified',
     'heldout_rag_binding_verified',
 }
+PROMPT_CONTRACT_KEYS = {
+    'source_revision_observed',
+    'known_prompt_defects',
+    'defect_evidence',
+}
 
 
 def fail(message: str) -> None:
@@ -70,11 +75,30 @@ def validate(path: Path) -> None:
         if not str(item.get('license_source')).startswith('https://'):
             fail(f'{cid}: license_source must be an https URL')
 
+        prompt_contract = item.get('prompt_contract')
+        if not isinstance(prompt_contract, dict) or set(prompt_contract) != PROMPT_CONTRACT_KEYS:
+            fail(f'{cid}: prompt_contract must contain exactly {sorted(PROMPT_CONTRACT_KEYS)}')
+        observed_revision = prompt_contract.get('source_revision_observed')
+        if observed_revision is not None and not SHA40.fullmatch(observed_revision):
+            fail(f'{cid}: prompt_contract source_revision_observed must be null or an exact 40-char commit SHA')
+        known_defects = prompt_contract.get('known_prompt_defects')
+        defect_evidence = prompt_contract.get('defect_evidence')
+        if not isinstance(known_defects, list) or any(not isinstance(value, str) or not value.strip() for value in known_defects):
+            fail(f'{cid}: known_prompt_defects must be a list of non-empty strings')
+        if len(known_defects) != len(set(known_defects)):
+            fail(f'{cid}: known_prompt_defects must not contain duplicates')
+        if not isinstance(defect_evidence, list) or any(not isinstance(value, str) or not value.startswith('https://') for value in defect_evidence):
+            fail(f'{cid}: defect_evidence must be a list of https URLs')
+        if known_defects and not defect_evidence:
+            fail(f'{cid}: known prompt defects require defect_evidence')
+
         readiness = item.get('pin_readiness')
         if not isinstance(readiness, dict) or set(readiness) != PIN_READINESS_KEYS:
             fail(f'{cid}: pin_readiness must contain exactly {sorted(PIN_READINESS_KEYS)}')
         if any(type(value) is not bool for value in readiness.values()):
             fail(f'{cid}: every pin_readiness value must be boolean')
+        if known_defects and readiness.get('chat_template_verified') is True:
+            fail(f'{cid}: chat_template_verified cannot be true while known prompt defects remain unresolved')
 
         benchmark_eligible = item.get('benchmark_eligible') is True
         training_eligible = item.get('training_eligible') is True
@@ -88,6 +112,8 @@ def validate(path: Path) -> None:
 
         if benchmark_eligible:
             eligible.append(item)
+            if known_defects:
+                fail(f'{cid}: benchmark eligibility requires zero unresolved prompt defects')
             missing = sorted(key for key, value in readiness.items() if value is not True)
             if missing:
                 fail(f'{cid}: benchmark eligibility requires all pin readiness gates; missing {missing}')
@@ -165,6 +191,27 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected incomplete pin readiness schema to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][0]['prompt_contract']['known_prompt_defects'] = ['synthetic-template-defect']
+        broken['candidates'][0]['prompt_contract']['defect_evidence'] = ['https://example.invalid/defect']
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected eligible candidate with a known prompt defect to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][1]['prompt_contract']['defect_evidence'] = []
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected known prompt defect without evidence to fail')
 
 
 if __name__ == '__main__':
