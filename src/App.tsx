@@ -14,6 +14,7 @@ import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import type { EvidenceFile, EvidenceSlot, GrowContext, View } from './types'
+import './growdoc-visual-pass-2.css'
 
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
 
