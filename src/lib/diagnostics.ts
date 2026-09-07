@@ -11,6 +11,14 @@ interface DiagnosticResponsePolicy {
   required_confirmation?: string[]
 }
 
+type RequiredContextField = 'ph' | 'ec' | 'watering'
+
+interface RequiredContextEvidence {
+  field: RequiredContextField
+  missingLabel: string
+  signalLabel: string
+}
+
 const policies = responsePolicies as DiagnosticResponsePolicy[]
 const defaultPolicy = policies.find((policy) => policy.policy_id === 'POL-DEFAULT')
 
@@ -23,6 +31,29 @@ const responsePolicyBySlug: Record<string, string> = {
   'hemp-russet-mite': 'POL-BROAD-RUSSET',
   'broad-mite': 'POL-BROAD-RUSSET',
   'acidic-extreme-substrate-ph-stress': 'POL-PH-LOCKOUT',
+}
+
+const requiredContextEvidenceBySlug: Record<string, RequiredContextEvidence[]> = {
+  'acidic-extreme-substrate-ph-stress': [{
+    field: 'ph',
+    missingLabel: 'structured root-zone pH measurement linked to this plant',
+    signalLabel: 'structured root-zone pH evidence is recorded for this exposure-dependent hypothesis',
+  }],
+  'salinity-high-ec-stress': [{
+    field: 'ec',
+    missingLabel: 'structured root-zone EC/PPM measurement linked to this plant',
+    signalLabel: 'structured root-zone EC/PPM evidence is recorded for this exposure-dependent hypothesis',
+  }],
+  'overwatering-root-hypoxia': [{
+    field: 'watering',
+    missingLabel: 'structured irrigation / substrate-moisture evidence linked to this plant',
+    signalLabel: 'structured irrigation or substrate-moisture evidence is recorded for this exposure-dependent hypothesis',
+  }],
+  'drought-water-deficit-stress': [{
+    field: 'watering',
+    missingLabel: 'structured irrigation / substrate-moisture evidence linked to this plant',
+    signalLabel: 'structured irrigation or substrate-moisture evidence is recorded for this exposure-dependent hypothesis',
+  }],
 }
 
 const laboratoryBoundedCategories = new Set(['Bacterial pathogen', 'Viroid', 'Virus', 'Phytoplasma / Spiroplasma'])
@@ -121,6 +152,10 @@ function numeric(value?: string) {
   return Number.isFinite(parsed) ? parsed : undefined
 }
 
+function hasStructuredContext(context: GrowContext, field: RequiredContextField) {
+  return Boolean(context[field]?.trim())
+}
+
 function historyContribution(issue: IssueRecord, context: GrowContext, history: GrowLogEntry[]) {
   if (!history.length) return { score: 0, signals: [] as string[] }
   let score = 0
@@ -207,6 +242,11 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     if (needsRootZoneChemistry(issue) && context.ph && context.ec) contextSignals.push('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
     if (needsWateringContext(issue) && context.watering) contextSignals.push('recent irrigation or substrate-moisture context was supplied for review')
 
+    const requiredContextEvidence = requiredContextEvidenceBySlug[issue.slug] ?? []
+    for (const requirement of requiredContextEvidence) {
+      if (hasStructuredContext(context, requirement.field)) contextSignals.push(requirement.signalLabel)
+    }
+
     const missing: string[] = []
     if (!hasWholePlant) missing.push('whole-plant view')
     if (!hasCloseUp) missing.push('affected-tissue close-up')
@@ -217,11 +257,15 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     if (needsRootZoneChemistry(issue) && !context.ph) missing.push('measured pH')
     if (needsRootZoneChemistry(issue) && !context.ec) missing.push('measured EC/PPM')
     if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
+    for (const requirement of requiredContextEvidence) {
+      if (!hasStructuredContext(context, requirement.field) && !missing.includes(requirement.missingLabel)) missing.push(requirement.missingLabel)
+    }
 
     let confidence: Differential['confidence'] = score >= 10 && matched.length >= 3 && contradictory.length === 0 ? 'High' : score >= 5 && matched.length >= 2 ? 'Moderate' : 'Low'
 
     if (laboratoryBoundedCategories.has(issue.category)) confidence = 'Low'
     if (issue.category === 'Root pathogen' && !hasRootView) confidence = 'Low'
+    if (requiredContextEvidence.some((requirement) => !hasStructuredContext(context, requirement.field))) confidence = 'Low'
     if (issue.category === 'Mite') {
       if (!hasUnderside) confidence = 'Low'
       else if (microscopicMiteSlugs.has(issue.slug) && confidence === 'High') confidence = 'Moderate'
