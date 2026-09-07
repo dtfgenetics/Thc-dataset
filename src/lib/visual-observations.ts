@@ -20,6 +20,20 @@ export interface VisualObservationResult {
 
 const endpoint = import.meta.env.VITE_VISUAL_OBSERVATION_ENDPOINT || '/thc-grow-doc/api/visual-observations.php'
 
+const nonVisualIndicatorPatterns = [
+  /\b(?:rt-?pcr|rt-?qpcr|qpcr|pcr|sequenc(?:e|ing)?|culture-confirmed|laboratory|lab-confirmed|molecular)\b/i,
+  /\b(?:measured|documented|analytical|analysis|tissue result|tissue results|tissue analysis|assay|test result|test results)\b/i,
+  /\b(?:root-zone ph|root zone ph|ec\/ppm|electrical conductivity|solution chemistry|substrate chemistry)\b/i,
+  /\b(?:linked to supply|linked to root-zone availability|confirmed by|verified by)\b/i,
+]
+
+export function visualIndicatorVocabulary(indicators: string[]) {
+  return [...new Set(indicators)].filter((indicator) => {
+    const value = indicator.trim()
+    return value.length > 0 && !nonVisualIndicatorPatterns.some((pattern) => pattern.test(value))
+  })
+}
+
 function waitForEvent(target: EventTarget, event: string) {
   return new Promise<void>((resolve, reject) => {
     const onSuccess = () => { cleanup(); resolve() }
@@ -103,9 +117,12 @@ export async function requestVisualObservations(
   const media = await buildObservationMedia(evidence)
   if (!media.length) throw new Error('No supported image frames were available for visual analysis.')
 
+  const visualIndicators = visualIndicatorVocabulary(allowedIndicators)
+  if (!visualIndicators.length) throw new Error('No image-observable indicators are available for visual analysis.')
+
   const form = new FormData()
   media.forEach((item) => form.append('files[]', item.blob, item.name))
-  form.append('allowedIndicators', JSON.stringify(allowedIndicators))
+  form.append('allowedIndicators', JSON.stringify(visualIndicators))
 
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -120,7 +137,7 @@ export async function requestVisualObservations(
     throw new Error(message)
   }
 
-  const allowed = new Set(allowedIndicators)
+  const allowed = new Set(visualIndicators)
   const rawFeatures = Array.isArray(payload.visibleFeatures) ? payload.visibleFeatures : []
   const visibleFeatures = rawFeatures.flatMap((feature) => {
     if (!feature || typeof feature !== 'object') return []
