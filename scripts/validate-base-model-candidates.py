@@ -14,6 +14,15 @@ REQUIRED_SLICES = {
     'science', 'education', 'grounded_qa', 'regression'
 }
 ALLOWED_RESEARCH_STATUS = {'pinned_baseline', 'active_research', 'legacy_research'}
+PIN_READINESS_KEYS = {
+    'exact_revision_verified',
+    'tokenizer_or_processor_verified',
+    'chat_template_verified',
+    'decoding_contract_verified',
+    'dependency_lock_verified',
+    'hardware_contract_verified',
+    'heldout_rag_binding_verified',
+}
 
 
 def fail(message: str) -> None:
@@ -61,6 +70,12 @@ def validate(path: Path) -> None:
         if not str(item.get('license_source')).startswith('https://'):
             fail(f'{cid}: license_source must be an https URL')
 
+        readiness = item.get('pin_readiness')
+        if not isinstance(readiness, dict) or set(readiness) != PIN_READINESS_KEYS:
+            fail(f'{cid}: pin_readiness must contain exactly {sorted(PIN_READINESS_KEYS)}')
+        if any(type(value) is not bool for value in readiness.values()):
+            fail(f'{cid}: every pin_readiness value must be boolean')
+
         benchmark_eligible = item.get('benchmark_eligible') is True
         training_eligible = item.get('training_eligible') is True
         frozen = item.get('runtime_contract_frozen') is True
@@ -73,6 +88,9 @@ def validate(path: Path) -> None:
 
         if benchmark_eligible:
             eligible.append(item)
+            missing = sorted(key for key, value in readiness.items() if value is not True)
+            if missing:
+                fail(f'{cid}: benchmark eligibility requires all pin readiness gates; missing {missing}')
             if not frozen:
                 fail(f'{cid}: benchmark eligibility requires a frozen runtime contract')
             if not SHA40.fullmatch(item.get('revision') or ''):
@@ -84,6 +102,8 @@ def validate(path: Path) -> None:
         else:
             if training_eligible:
                 fail(f'{cid}: ineligible candidate cannot be training eligible')
+            if frozen and not all(readiness.values()):
+                fail(f'{cid}: runtime_contract_frozen cannot be true while pin readiness gates remain false')
 
     if len(eligible) != 1 or eligible[0].get('repo_id') != 'Qwen/Qwen3-8B':
         fail('v1 registry must fail closed with only pinned Qwen3-8B benchmark eligible')
@@ -125,6 +145,26 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected invalid evidence date to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][0]['pin_readiness']['hardware_contract_verified'] = False
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected eligible candidate with incomplete pin readiness to fail')
+
+        broken = json.loads(json.dumps(good))
+        del broken['candidates'][1]['pin_readiness']['chat_template_verified']
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected incomplete pin readiness schema to fail')
 
 
 if __name__ == '__main__':
