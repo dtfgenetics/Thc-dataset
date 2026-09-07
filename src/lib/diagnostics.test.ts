@@ -82,6 +82,43 @@ describe('rankDifferentials', () => {
     expect(results[0].missing).toContain('measured EC/PPM')
   })
 
+  it('keeps older/lower magnesium evidence ahead of an isolated upper-canopy iron-like sign', () => {
+    const nutrientLookAlikes = issues.filter((issue) => ['magnesium-deficiency', 'iron-deficiency', 'manganese-deficiency'].includes(issue.slug))
+    const results = rankDifferentials(nutrientLookAlikes, context([
+      'Older leaves yellow between green veins',
+      'The vegetative T1 sequence begins on lower and older foliage',
+      'Interveinal chlorosis develops on new and expanding leaves while veins remain relatively greener',
+    ]), [])
+
+    expect(results[0].issue.slug).toBe('magnesium-deficiency')
+    expect(results[0].supporting).toContain('The vegetative T1 sequence begins on lower and older foliage')
+  })
+
+  it('keeps upper-canopy iron evidence ahead of an isolated magnesium-like sign', () => {
+    const nutrientLookAlikes = issues.filter((issue) => ['magnesium-deficiency', 'iron-deficiency', 'manganese-deficiency'].includes(issue.slug))
+    const results = rankDifferentials(nutrientLookAlikes, context([
+      'Interveinal chlorosis develops on new and expanding leaves while veins remain relatively greener',
+      'Paling spreads through the upper half and is most apparent at the growing tip',
+      'Older leaves yellow between green veins',
+    ]), [])
+
+    expect(results[0].issue.slug).toBe('iron-deficiency')
+    expect(results[0].supporting).toContain('Paling spreads through the upper half and is most apparent at the growing tip')
+  })
+
+  it('keeps manganese netting and tan flecks distinct from magnesium and iron look-alikes', () => {
+    const nutrientLookAlikes = issues.filter((issue) => ['magnesium-deficiency', 'iron-deficiency', 'manganese-deficiency'].includes(issue.slug))
+    const results = rankDifferentials(nutrientLookAlikes, context([
+      'Bright-yellow netted interveinal chlorosis develops on upper and central foliage in the T1 withholding study',
+      'Chlorotic netting begins near the leaflet midrib and spreads outward toward margins',
+      'Small tan necrotic regions develop within advanced interveinal chlorosis',
+      'Interveinal chlorosis develops on new and expanding leaves while veins remain relatively greener',
+    ]), [])
+
+    expect(results[0].issue.slug).toBe('manganese-deficiency')
+    expect(results[0].supporting).toHaveLength(3)
+  })
+
   it('keeps viroid differentials low confidence until laboratory confirmation and applies the HLVd response policy', () => {
     const results = rankDifferentials(issues, context(['Short internodes', 'Brittle stems or leaves', 'Stunted growth']), [])
     expect(results[0].issue.slug).toBe('hop-latent-viroid')
