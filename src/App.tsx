@@ -15,10 +15,15 @@ import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import { activateInvestigation, createInvestigation, loadActiveInvestigation, loadInvestigations, upsertInvestigation } from './lib/investigations'
-import type { EvidenceFile, EvidenceSlot, GrowContext, InvestigationCase, View } from './types'
+import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
 import './growdoc-visual-pass-2.css'
 
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
+const LOG_KEY = 'thc-grow-doc:log:v2'
+
+function loadLogEntries(): GrowLogEntry[] {
+  try { return JSON.parse(localStorage.getItem(LOG_KEY) ?? '[]') as GrowLogEntry[] } catch { return [] }
+}
 
 export default function App() {
   const restored = useMemo(loadActiveInvestigation, [])
@@ -27,9 +32,17 @@ export default function App() {
   const [context, setContext] = useState<GrowContext>(restored.context ?? emptyContext)
   const [reviewed, setReviewed] = useState(false)
   const [issueSlug, setIssueSlug] = useState<string>()
+  const [historyRevision, setHistoryRevision] = useState(0)
   const [investigation, setInvestigation] = useState<InvestigationCase>(restored)
   const [investigations, setInvestigations] = useState<InvestigationCase[]>(() => loadInvestigations())
-  const results = useMemo(() => reviewed ? rankDifferentials(issues, context, evidence) : [], [context, evidence, reviewed])
+  const caseHistory = useMemo(
+    () => loadLogEntries().filter((entry) => entry.investigationId === investigation.id),
+    [investigation.id, historyRevision],
+  )
+  const results = useMemo(
+    () => reviewed ? rankDifferentials(issues, context, evidence, caseHistory) : [],
+    [context, evidence, reviewed, caseHistory],
+  )
 
   const replaceInvestigation = (next: InvestigationCase) => {
     setInvestigation(next)
@@ -103,6 +116,35 @@ export default function App() {
     syncContext({ ...context, symptoms: [...new Set([...context.symptoms, ...indicators])] })
   }
 
+  const reviewEvidence = () => {
+    const ranked = rankDifferentials(issues, context, evidence, caseHistory)
+    const top = ranked[0]
+    const diagnosis: DiagnosticSnapshot = {
+      reviewedAt: new Date().toISOString(),
+      leadingIssueSlug: top?.issue.slug,
+      leadingIssueName: top?.issue.name,
+      confidence: top?.confidence,
+      supporting: top?.supporting ?? [],
+      contradicting: top?.contradicting ?? [],
+      missing: top?.missing ?? [],
+      alternativeIssueSlugs: ranked.slice(1, 5).map((item) => item.issue.slug),
+    }
+
+    setReviewed(true)
+    setInvestigation((current) => {
+      const next: InvestigationCase = {
+        ...current,
+        updatedAt: new Date().toISOString(),
+        context,
+        evidenceSummary: evidence.map((item) => ({ slot: item.slot, quality: item.quality, notes: item.notes })),
+        diagnosis,
+        diagnosisHistory: [...(current.diagnosisHistory ?? []), diagnosis].slice(-30),
+      }
+      setInvestigations(upsertInvestigation(next))
+      return next
+    })
+  }
+
   return (
     <AppShell activeView={view} onViewChange={setView}>
       {view === 'diagnose' ? (
@@ -123,7 +165,7 @@ export default function App() {
               <ol>
                 <li><b>{investigation.plantName || 'Unnamed plant'}</b><span>Case {investigation.id.slice(-6)}</span></li>
                 <li><b>Capture evidence</b><span>Whole plant, affected area, close detail, root zone, or short video.</span></li>
-                <li><b>Review differentials</b><span>Use the Grow Log for structured follow-up observations tied to this case.</span></li>
+                <li><b>Review differentials</b><span>Case history can adjust plausible rankings but cannot bypass confirmation requirements.</span></li>
               </ol>
             </aside>
           </section>
@@ -140,7 +182,7 @@ export default function App() {
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
               <GrowContextForm context={context} onChange={syncContext} />
             </div>
-            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={() => setReviewed(true)} onOpenIssue={openIssue} />
+            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={reviewEvidence} onOpenIssue={openIssue} />
           </div>
         </div>
       ) : null}
@@ -148,7 +190,7 @@ export default function App() {
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
       {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
-      {view === 'log' ? <GrowLog investigation={investigation} /> : null}
+      {view === 'log' ? <GrowLog investigation={investigation} onEntriesChange={() => setHistoryRevision((value) => value + 1)} /> : null}
       {view === 'about' ? <About /> : null}
     </AppShell>
   )
