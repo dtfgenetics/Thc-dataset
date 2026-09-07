@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 import re
 import sys
@@ -34,13 +35,35 @@ def fail(message: str) -> None:
     raise ValueError(message)
 
 
+def git_blob_sha(path: Path) -> str:
+    payload = path.read_bytes()
+    header = f'blob {len(payload)}\0'.encode('ascii')
+    return hashlib.sha1(header + payload).hexdigest()
+
+
 def validate(path: Path) -> None:
     data = json.loads(path.read_text())
     if data.get('schema_version') != 1:
         fail('schema_version must be 1')
     contract = data.get('benchmark_contract') or {}
-    if contract.get('heldout_path') != 'model_tuning/eval/heldout_v2.jsonl':
+    heldout_path = contract.get('heldout_path')
+    if heldout_path != 'model_tuning/eval/heldout_v2.jsonl':
         fail('benchmark contract must use heldout_v2.jsonl')
+    heldout_blob = contract.get('heldout_git_blob_sha')
+    if not SHA40.fullmatch(heldout_blob or ''):
+        fail('benchmark contract must pin heldout_git_blob_sha')
+    if git_blob_sha(Path(heldout_path)) != heldout_blob:
+        fail('heldout_v2 content does not match frozen heldout_git_blob_sha')
+    if contract.get('rag_snapshot_path') != 'model_tuning/rag_snapshots/heldout_v2.jsonl':
+        fail('benchmark contract must use the heldout_v2 RAG snapshot path')
+    rag_builder_path = contract.get('rag_builder_path')
+    if rag_builder_path != 'scripts/build-rag-eval-snapshot.py':
+        fail('benchmark contract must pin the canonical RAG snapshot builder')
+    rag_builder_blob = contract.get('rag_builder_git_blob_sha')
+    if not SHA40.fullmatch(rag_builder_blob or ''):
+        fail('benchmark contract must pin rag_builder_git_blob_sha')
+    if git_blob_sha(Path(rag_builder_path)) != rag_builder_blob:
+        fail('RAG snapshot builder content does not match frozen rag_builder_git_blob_sha')
     if set(contract.get('required_slices') or []) != REQUIRED_SLICES:
         fail('benchmark required_slices must match the locked promotion slices')
 
@@ -140,6 +163,26 @@ def self_test() -> None:
     good = json.loads(DEFAULT.read_text())
     with tempfile.TemporaryDirectory() as td:
         p = Path(td) / 'registry.json'
+
+        broken = json.loads(json.dumps(good))
+        broken['benchmark_contract']['heldout_git_blob_sha'] = '0' * 40
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected heldout content identity mismatch to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['benchmark_contract']['rag_builder_git_blob_sha'] = 'f' * 40
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected RAG builder identity mismatch to fail')
 
         broken = json.loads(json.dumps(good))
         broken['candidates'][1]['benchmark_eligible'] = True
