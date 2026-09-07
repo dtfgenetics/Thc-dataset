@@ -1,9 +1,9 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/heldout_v3_expansion_v1.jsonl",
-  "content_sha256": "896b04cd19835df9f7cd02713a8cebd409a30d5c8f2ce462071bce6e128695b8",
+  "content_sha256": "4f51bd2731c4b4b16e23dbc82c11dd502b0f6662aacc997b5391b4a5eea59eeb",
   "status": "candidate_only_not_promotion_eligible",
-  "purpose": "Add source-bound nutrient-diagnostic and drought-generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
+  "purpose": "Add source-bound salinity-differential and drought-generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
   "record_count": 2,
   "source_policy": {
     "require_primary_or_peer_reviewed_source": true,
@@ -14,16 +14,16 @@
   },
   "sources": [
     {
-      "doi": "10.3390/app9204432",
-      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
-      "year": 2019,
-      "role": "nutrient-disorder visual-diagnosis limits"
+      "doi": "10.3389/fpls.2020.01169",
+      "title": "Aquaponic and Hydroponic Solutions Modulate NaCl-Induced Stress in Drug-Type Cannabis sativa L.",
+      "year": 2020,
+      "role": "salinity-stress differential and diagnostic limits"
     },
     {
-      "doi": "10.3390/horticulturae9040431",
-      "title": "Variation in Hydric Response of Two Industrial Hemp Varieties (Cannabis sativa) to Induced Water Stress",
-      "year": 2023,
-      "role": "water-stress response and generalization limits"
+      "doi": "10.1016/j.indcrop.2022.115331",
+      "title": "Physiological and morphological responses of industrial hemp (Cannabis sativa L.) to water deficit",
+      "year": 2022,
+      "role": "water-deficit response and generalization limits"
     }
   ],
   "admission_requirements": [
