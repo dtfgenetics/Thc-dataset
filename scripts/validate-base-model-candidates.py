@@ -2,15 +2,18 @@
 import json
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 DEFAULT = Path('model_tuning/config/base_model_candidates_v1.json')
 SHA40 = re.compile(r'^[0-9a-f]{40}$')
 SHA256 = re.compile(r'^[0-9a-f]{64}$')
+ISO_DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
 REQUIRED_SLICES = {
     'factuality', 'diagnostic', 'hallucination', 'citation_accuracy',
     'science', 'education', 'grounded_qa', 'regression'
 }
+ALLOWED_RESEARCH_STATUS = {'pinned_baseline', 'active_research', 'legacy_research'}
 
 
 def fail(message: str) -> None:
@@ -41,13 +44,33 @@ def validate(path: Path) -> None:
         if not repo or repo in repos:
             fail(f'invalid or duplicate repo_id: {repo!r}')
         ids.add(cid); repos.add(repo)
+
+        status = item.get('research_status')
+        if status not in ALLOWED_RESEARCH_STATUS:
+            fail(f'{cid}: research_status must be one of {sorted(ALLOWED_RESEARCH_STATUS)}')
+        checked = item.get('evidence_checked_at')
+        if not isinstance(checked, str) or not ISO_DATE.fullmatch(checked):
+            fail(f'{cid}: evidence_checked_at must be YYYY-MM-DD')
+        try:
+            date.fromisoformat(checked)
+        except ValueError:
+            fail(f'{cid}: evidence_checked_at is not a valid calendar date')
+
         if not item.get('license') or not item.get('license_source'):
             fail(f'{cid}: license and license_source are required')
+        if not str(item.get('license_source')).startswith('https://'):
+            fail(f'{cid}: license_source must be an https URL')
+
         benchmark_eligible = item.get('benchmark_eligible') is True
         training_eligible = item.get('training_eligible') is True
         frozen = item.get('runtime_contract_frozen') is True
         if training_eligible and not benchmark_eligible:
             fail(f'{cid}: training eligibility requires benchmark eligibility')
+        if status == 'legacy_research' and (benchmark_eligible or training_eligible):
+            fail(f'{cid}: legacy research candidates cannot be benchmark or training eligible')
+        if status == 'pinned_baseline' and not benchmark_eligible:
+            fail(f'{cid}: pinned baseline must be benchmark eligible')
+
         if benchmark_eligible:
             eligible.append(item)
             if not frozen:
@@ -71,6 +94,7 @@ def self_test() -> None:
     good = json.loads(DEFAULT.read_text())
     with tempfile.TemporaryDirectory() as td:
         p = Path(td) / 'registry.json'
+
         broken = json.loads(json.dumps(good))
         broken['candidates'][1]['benchmark_eligible'] = True
         p.write_text(json.dumps(broken))
@@ -80,6 +104,27 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected unpinned benchmark candidate to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][1]['research_status'] = 'legacy_research'
+        broken['candidates'][1]['training_eligible'] = True
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected legacy training candidate to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][1]['evidence_checked_at'] = '2026-02-31'
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected invalid evidence date to fail')
 
 
 if __name__ == '__main__':
