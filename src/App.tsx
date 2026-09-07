@@ -13,6 +13,7 @@ import './components/LivingPlantAtlas.css'
 import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
+import { summarizeCaseTrend } from './lib/case-trends'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import { activateInvestigation, createInvestigation, loadActiveInvestigation, loadInvestigations, upsertInvestigation } from './lib/investigations'
 import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
@@ -43,6 +44,7 @@ export default function App() {
     () => reviewed ? rankDifferentials(issues, context, evidence, caseHistory) : [],
     [context, evidence, reviewed, caseHistory],
   )
+  const caseTrend = useMemo(() => summarizeCaseTrend(context, caseHistory, results), [context, caseHistory, results])
 
   const replaceInvestigation = (next: InvestigationCase) => {
     setInvestigation(next)
@@ -182,7 +184,17 @@ export default function App() {
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
               <GrowContextForm context={context} onChange={syncContext} />
             </div>
-            <DiagnosticResult evidence={evidence} context={context} results={results} reviewed={reviewed} onReview={reviewEvidence} onOpenIssue={openIssue} />
+            <DiagnosticResult
+              evidence={evidence}
+              context={context}
+              results={results}
+              reviewed={reviewed}
+              caseTrend={caseTrend}
+              onReview={reviewEvidence}
+              onOpenIssue={openIssue}
+              onOpenAtlas={() => setView('atlas')}
+              onOpenReferences={() => setView('references')}
+            />
           </div>
         </div>
       ) : null}
