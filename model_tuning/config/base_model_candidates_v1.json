@@ -30,6 +30,15 @@
       "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
       "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
       "runtime_contract_frozen": true,
+      "pin_readiness": {
+        "exact_revision_verified": true,
+        "tokenizer_or_processor_verified": true,
+        "chat_template_verified": true,
+        "decoding_contract_verified": true,
+        "dependency_lock_verified": true,
+        "hardware_contract_verified": true,
+        "heldout_rag_binding_verified": true
+      },
       "benchmark_eligible": true,
       "training_eligible": true,
       "notes": "Existing pinned Grow Doc starter contract. Training eligibility means configuration eligibility only; no run is implied."
@@ -47,9 +56,18 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "pin_readiness": {
+        "exact_revision_verified": false,
+        "tokenizer_or_processor_verified": true,
+        "chat_template_verified": false,
+        "decoding_contract_verified": false,
+        "dependency_lock_verified": false,
+        "hardware_contract_verified": false,
+        "heldout_rag_binding_verified": false
+      },
       "benchmark_eligible": false,
       "training_eligible": false,
-      "notes": "Official current-generation 9B challenger. Do not compare or train until an exact revision, processor/tokenizer template, text-only decoding behavior, dependency lock, hardware contract, and frozen heldout/RAG bindings are recorded. Multimodal capability does not bypass the blocked vision-training admission lane."
+      "notes": "Official current-generation 9B challenger. Hugging Face metadata confirms the transformers multimodal architecture and AutoProcessor path, but benchmark promotion remains blocked until the exact revision, chat-template identity, text-only decoding behavior, dependency lock, hardware contract, and frozen heldout/RAG bindings are verified. A later upstream chat-template fix is additional reason not to guess a revision or template hash."
     },
     {
       "id": "gemma3-12b-it-research",
@@ -64,6 +82,15 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "pin_readiness": {
+        "exact_revision_verified": false,
+        "tokenizer_or_processor_verified": false,
+        "chat_template_verified": false,
+        "decoding_contract_verified": false,
+        "dependency_lock_verified": false,
+        "hardware_contract_verified": false,
+        "heldout_rag_binding_verified": false
+      },
       "benchmark_eligible": false,
       "training_eligible": false,
       "notes": "Retained as a prior-family reference, not a preferred new benchmark target. Access terms, exact revision, tokenizer/template, decoding and runtime contract would still need to be frozen before any benchmark use."
@@ -81,6 +108,15 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "pin_readiness": {
+        "exact_revision_verified": false,
+        "tokenizer_or_processor_verified": false,
+        "chat_template_verified": false,
+        "decoding_contract_verified": false,
+        "dependency_lock_verified": false,
+        "hardware_contract_verified": false,
+        "heldout_rag_binding_verified": false
+      },
       "benchmark_eligible": false,
       "training_eligible": false,
       "notes": "Research candidate only. Exact revision, tokenizer/template, decoding and hardware/runtime contract must be frozen before benchmark use."
