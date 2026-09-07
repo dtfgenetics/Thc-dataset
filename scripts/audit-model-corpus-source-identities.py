@@ -13,9 +13,11 @@ from __future__ import annotations
 
 import argparse
 import importlib.util
+import json
 import pathlib
 import re
 import sys
+import tempfile
 from collections import defaultdict
 from urllib.parse import urlsplit, urlunsplit
 
@@ -144,6 +146,60 @@ def self_test() -> None:
     assert canonical_source_identity("url:https://doi.org/10.1234/AbC") == "doi:10.1234/abc"
     assert canonical_source_identity("https://doi.org/10.1234/AbC") == "doi:10.1234/abc"
     assert canonical_source_identity("HTTPS://Example.COM/path/") == "https://example.com/path"
+
+    corpus = load_module(CORPUS_BUILDER, "grow_doc_corpus_builder_source_identity_self_test")
+    for sample in (
+        "doi:10.1234/ABC",
+        "url:https://doi.org/10.1234/AbC",
+        "https://doi.org/10.1234/AbC",
+        "HTTPS://Example.COM/path/",
+    ):
+        assert corpus.canonical_source_identity(sample) == canonical_source_identity(sample)
+
+    # Exercise the production builder, not only this audit helper: a DOI URL in reviewed
+    # training data must be excluded when held-out declares the same DOI in canonical form.
+    with tempfile.TemporaryDirectory() as tmp:
+        root = pathlib.Path(tmp)
+        profiles = root / "profiles.jsonl"
+        heldout = root / "heldout.jsonl"
+        profiles.write_text(
+            json.dumps(
+                {
+                    "id": "alias-heldout-profile",
+                    "name": "Alias held-out profile",
+                    "category": "diagnostic",
+                    "reviewStatus": "reviewed",
+                    "summary": "Synthetic self-test only.",
+                    "sources": [
+                        {
+                            "title": "Synthetic held-out source",
+                            "url": "https://doi.org/10.1000/HELD",
+                            "supportedClaims": ["Synthetic claim used only to test source isolation."],
+                        }
+                    ],
+                },
+                separators=(",", ":"),
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        heldout.write_text(
+            json.dumps(
+                {
+                    "id": "heldout-alias-case",
+                    "prompt": "Synthetic held-out prompt",
+                    "must_cite": ["doi:10.1000/held"],
+                },
+                separators=(",", ":"),
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+        rag, sft, quarantine, stats = corpus.build(profiles, heldout)
+        assert len(rag) == 1
+        assert sft == []
+        assert stats["heldout_profiles_excluded_from_sft"] == 1
+        assert any(item.get("reason") == "heldout_source_excluded_from_sft" for item in quarantine)
 
     audit_rows(
         [{"id": "rag-safe", "claim_sha256": "a", "source_ids": ["doi:10.1000/a"]}],

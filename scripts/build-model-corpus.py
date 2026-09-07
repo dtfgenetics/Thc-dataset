@@ -15,6 +15,7 @@ import pathlib
 import re
 import sys
 from collections import Counter
+from urllib.parse import urlsplit, urlunsplit
 
 from sft_evidence_ranking import build_anchor_owners, rank_sft_evidence
 
@@ -22,6 +23,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
 DEFAULT_OUT = ROOT / "model_tuning/generated"
+DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def norm(text: str) -> str:
@@ -30,6 +32,50 @@ def norm(text: str) -> str:
 
 def sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+
+def canonical_source_identity(value: str) -> str:
+    """Normalize DOI/URL identity for comparisons without rewriting emitted citation bytes."""
+    raw = (value or "").strip()
+    if not raw:
+        return ""
+
+    lowered = raw.lower()
+    if lowered.startswith("url:"):
+        return canonical_source_identity(raw[4:].strip())
+    if lowered.startswith("doi:"):
+        payload = raw[4:].strip()
+        if not payload:
+            return ""
+        if payload.lower().startswith(("http://", "https://")):
+            canonical = canonical_source_identity(payload)
+            return canonical if canonical.startswith("doi:") else f"doi:{payload.lower()}"
+        return f"doi:{payload.lower()}"
+    if DOI_RE.fullmatch(raw):
+        return f"doi:{raw.lower()}"
+
+    parsed = urlsplit(raw)
+    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
+        host = (parsed.hostname or "").lower()
+        path = parsed.path or ""
+        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
+            payload = path.lstrip("/")
+            return f"doi:{payload.lower()}" if payload else ""
+        netloc = host
+        if parsed.port:
+            netloc = f"{host}:{parsed.port}"
+        normalized_path = path.rstrip("/") or "/"
+        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
+    return raw
+
+
+def canonical_sources(values) -> set[str]:
+    return {
+        identity
+        for value in values
+        for identity in [canonical_source_identity(str(value))]
+        if identity
+    }
 
 
 def source_id(source: dict) -> str:
@@ -217,12 +263,7 @@ def eval_source_ids(path: pathlib.Path) -> set[str]:
     if not path.exists():
         return reserved
     for row in load_jsonl(path):
-        for sid in row.get("must_cite") or []:
-            value = (sid or "").strip()
-            if value.startswith("doi:"):
-                value = "doi:" + value[4:].lower()
-            if value:
-                reserved.add(value)
+        reserved.update(canonical_sources(row.get("must_cite") or []))
     return reserved
 
 
@@ -291,10 +332,16 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         quarantine.extend(source_quarantine)
         rag.extend(profile_rag)
 
-        # Keep held-out evidence in the retrieval lane, but do not train adapters on it.
-        training_rag = [row for row in profile_rag if row["source_id"] not in heldout_sources]
+        # Keep held-out evidence in retrieval, but compare canonical identities before adapter SFT.
+        training_rag = [
+            row for row in profile_rag
+            if canonical_source_identity(row["source_id"]) not in heldout_sources
+        ]
         training_rag = rank_sft_evidence(profile, training_rag, owners_by_anchor)
-        excluded_sources = sorted({row["source_id"] for row in profile_rag if row["source_id"] in heldout_sources})
+        excluded_sources = sorted({
+            row["source_id"] for row in profile_rag
+            if canonical_source_identity(row["source_id"]) in heldout_sources
+        })
         if excluded_sources:
             heldout_profiles_excluded.add(pid)
             quarantine.append(
@@ -306,7 +353,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
             )
 
         for item in make_sft(profile, training_rag):
-            item_sources = set(item.get("source_ids") or [])
+            item_sources = canonical_sources(item.get("source_ids") or [])
             overlap = sorted(item_sources & heldout_sources)
             if overlap:
                 heldout_source_exclusions += 1
@@ -315,7 +362,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
                         "profile_id": pid,
                         "reason": "heldout_source_collision",
                         "sft_id": item["id"],
-                        "source_ids": overlap,
+                        "canonical_source_ids": overlap,
                     }
                 )
                 continue
@@ -342,7 +389,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; held-out source families excluded from SFT but retained for retrieval; target-explicit SFT evidence ranked ahead of neutral and explicit foreign-target claims; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
+        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; canonical held-out source families excluded from SFT but retained for retrieval; target-explicit SFT evidence ranked ahead of neutral and explicit foreign-target claims; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
     }
     return rag, sft, quarantine, stats
 
