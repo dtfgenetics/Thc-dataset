@@ -29,6 +29,7 @@ jobs:
           python3 scripts/validate-base-vs-rag-candidate-binding.py --self-test
           python3 scripts/validate-base-vs-rag-candidate-binding.py
       - run: npm run validate:model-eval-candidates
+      - run: npm run validate:model-eval-candidate-leakage
       - run: npm run validate:model-eval-coverage
       - run: npm run validate:model-corpus-quality
       - run: npm run validate:model-semantic-leakage
