@@ -1,0 +1,44 @@
+name: Validate model split source identities
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/eval/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/audit-split-source-identities.py'
+      - '.github/workflows/model-split-source-identity.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/eval/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/audit-split-source-identities.py'
+      - '.github/workflows/model-split-source-identity.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit-source-identities:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run source-identity self-test
+        run: python3 scripts/audit-split-source-identities.py --self-test
+
+      - name: Audit current Grow Doc split source identities
+        run: python3 scripts/audit-split-source-identities.py
