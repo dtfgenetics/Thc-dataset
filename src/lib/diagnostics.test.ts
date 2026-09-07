@@ -53,8 +53,25 @@ describe('rankDifferentials', () => {
       { id: 'whole', file: {} as File, previewUrl: '', slot: 'whole-plant' as const, quality: 'good' as const, notes: [] },
       { id: 'close', file: {} as File, previewUrl: '', slot: 'close-up' as const, quality: 'good' as const, notes: [] },
     ]
-
     expect(rankDifferentials([record], context([], { stage: 'Flowering' }), evidence)).toEqual([])
+  })
+
+  it('records stage and relevant evidence bonuses as bounded context signals', () => {
+    const record = fixtureIssue('mite-context', ['Visible stippling'], { category: 'Mite', stages: ['Flowering'] })
+    const evidence = [{ id: 'underside', file: {} as File, previewUrl: '', slot: 'underside' as const, quality: 'good' as const, notes: [] }]
+    const results = rankDifferentials([record], context(['Visible stippling'], { stage: 'Flowering' }), evidence)
+    expect(results[0].contextSignals).toEqual(expect.arrayContaining([
+      'reported growth stage matches this profile: Flowering',
+      'a leaf-underside view is available for this arthropod hypothesis',
+    ]))
+  })
+
+  it('records supplied pH and EC as review context without treating their presence as confirmation', () => {
+    const record = fixtureIssue('nutrient-context', ['Interveinal chlorosis'], { category: 'Nutrient deficiency' })
+    const withoutChemistry = rankDifferentials([record], context(['Interveinal chlorosis']), [])
+    const withChemistry = rankDifferentials([record], context(['Interveinal chlorosis'], { ph: '6.2', ec: '1.4' }), [])
+    expect(withChemistry[0].contextSignals).toContain('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
+    expect(withChemistry[0].score).toBe(withoutChemistry[0].score)
   })
 
   it('ranks magnesium deficiency without overstating confidence', () => {
@@ -111,7 +128,6 @@ describe('rankDifferentials', () => {
       fixtureIssue('generic-noise-3', generic),
       fixtureIssue('generic-noise-4', generic),
     ]
-
     const results = rankDifferentials(records, context([...generic, ...specific]), [])
     expect(results[0].issue.slug).toBe('specific-candidate')
     expect(results[0].supporting).toEqual(specific)
@@ -123,7 +139,6 @@ describe('rankDifferentials', () => {
       fixtureIssue('broad-profile', [...shared, 'Unseen sign 3', 'Unseen sign 4', 'Unseen sign 5', 'Unseen sign 6']),
       fixtureIssue('focused-profile', shared),
     ]
-
     const results = rankDifferentials(records, context(shared), [])
     expect(results[0].issue.slug).toBe('focused-profile')
     expect(results[0].score).toBeGreaterThan(results[1].score)
@@ -134,55 +149,25 @@ describe('rankDifferentials', () => {
       fixtureIssue('candidate-a', ['A specific sign 1', 'A specific sign 2', 'A specific sign 3']),
       fixtureIssue('candidate-b', ['B specific sign 1', 'B specific sign 2', 'B specific sign 3']),
     ]
-
-    const results = rankDifferentials(
-      records,
-      context([
-        'A specific sign 1',
-        'A specific sign 2',
-        'A specific sign 3',
-        'B specific sign 1',
-        'B specific sign 2',
-        'B specific sign 3',
-      ]),
-      [],
-    )
-
+    const results = rankDifferentials(records, context([
+      'A specific sign 1', 'A specific sign 2', 'A specific sign 3',
+      'B specific sign 1', 'B specific sign 2', 'B specific sign 3',
+    ]), [])
     expect(results[0].confidence).toBe('Moderate')
     expect(results[0].missing).toContain('additional discriminating evidence between the leading look-alikes')
     expect(results[1].confidence).toBe('Moderate')
   })
 
   it('honors a conservative photo-only confidence cap when a record defines one', () => {
-    const record = fixtureIssue(
-      'photo-capped',
-      ['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3'],
-      { photoOnlyMaxConfidence: 0.5 },
-    )
-
-    const results = rankDifferentials(
-      [record],
-      context(['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3']),
-      [],
-    )
-
+    const record = fixtureIssue('photo-capped', ['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3'], { photoOnlyMaxConfidence: 0.5 })
+    const results = rankDifferentials([record], context(['Distinct sign 1', 'Distinct sign 2', 'Distinct sign 3']), [])
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('response policy limits photo-only confidence')
   })
 
   it('uses controlled backend confirmation requirements for policy-bound canonical conditions', () => {
-    const record = fixtureIssue(
-      'hlvd-policy-fixture',
-      ['Short internodes', 'Brittle tissue', 'Stunted growth'],
-      { canonicalId: 'CAN-DIS-011' },
-    )
-
-    const results = rankDifferentials(
-      [record],
-      context(['Short internodes', 'Brittle tissue', 'Stunted growth']),
-      [],
-    )
-
+    const record = fixtureIssue('hlvd-policy-fixture', ['Short internodes', 'Brittle tissue', 'Stunted growth'], { canonicalId: 'CAN-DIS-011' })
+    const results = rankDifferentials([record], context(['Short internodes', 'Brittle tissue', 'Stunted growth']), [])
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('confirmation: RT-PCR')
     expect(results[0].missing).toContain('confirmation: RT-qPCR')

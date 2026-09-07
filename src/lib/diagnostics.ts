@@ -189,11 +189,23 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     const coverageScore = indicatorCoverageBonus(matched.length, issue.indicators.length)
     const contradictionScore = contradictory.reduce((total, indicator) => total + Math.max(4, indicatorSignalWeight(indicatorFrequency.get(normalise(indicator)) ?? 1) + 1), 0)
     const historical = historyContribution(issue, context, history)
+    const contextSignals: string[] = []
     let score = supportingScore + coverageScore - contradictionScore + historical.score
 
-    if (matched.length && context.stage && issue.stages.includes(context.stage)) score += 1
-    if (matched.length && hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) score += 1
-    if (matched.length && hasUnderside && (issue.category === 'Mite' || issue.category === 'Insect')) score += 1
+    if (matched.length && context.stage && issue.stages.includes(context.stage)) {
+      score += 1
+      contextSignals.push(`reported growth stage matches this profile: ${context.stage}`)
+    }
+    if (matched.length && hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) {
+      score += 1
+      contextSignals.push('a root or crown view is available for this root-zone hypothesis')
+    }
+    if (matched.length && hasUnderside && (issue.category === 'Mite' || issue.category === 'Insect')) {
+      score += 1
+      contextSignals.push('a leaf-underside view is available for this arthropod hypothesis')
+    }
+    if (needsRootZoneChemistry(issue) && context.ph && context.ec) contextSignals.push('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
+    if (needsWateringContext(issue) && context.watering) contextSignals.push('recent irrigation or substrate-moisture context was supplied for review')
 
     const missing: string[] = []
     if (!hasWholePlant) missing.push('whole-plant view')
@@ -219,7 +231,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     if ((!hasWholePlant || !hasCloseUp) && confidence === 'High') confidence = 'Moderate'
     confidence = applyResponsePolicy(issue, confidence, missing)
 
-    return { issue, confidence, score, supporting: matched, contradicting: contradictory, missing, historySignals: historical.signals } satisfies Differential
+    return { issue, confidence, score, supporting: matched, contradicting: contradictory, missing, historySignals: historical.signals, contextSignals } satisfies Differential
   }).filter((item) => item.supporting.length > 0 && item.score > 0).sort((a, b) => b.score - a.score).slice(0, 4)
 
   return ranked.map((item, index) => {

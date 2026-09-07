@@ -125,6 +125,7 @@ export interface Differential {
   contradicting: string[]
   missing: string[]
   historySignals?: string[]
+  contextSignals?: string[]
 }
 
 export interface DiagnosticSnapshot {
