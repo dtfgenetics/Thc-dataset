@@ -47,6 +47,16 @@ describe('rankDifferentials', () => {
     expect(rankDifferentials(issues, context([]), [])).toEqual([])
   })
 
+  it('does not fabricate a diagnosis from growth stage or evidence-slot bonuses alone', () => {
+    const record = fixtureIssue('stage-only-candidate', ['A defining symptom'], { stages: ['Flowering'] })
+    const evidence = [
+      { id: 'whole', file: {} as File, previewUrl: '', slot: 'whole-plant' as const, quality: 'good' as const, notes: [] },
+      { id: 'close', file: {} as File, previewUrl: '', slot: 'close-up' as const, quality: 'good' as const, notes: [] },
+    ]
+
+    expect(rankDifferentials([record], context([], { stage: 'Flowering' }), evidence)).toEqual([])
+  })
+
   it('ranks magnesium deficiency without overstating confidence', () => {
     const results = rankDifferentials(issues, context(['Older leaves yellow between green veins', 'Rust or tan spotting']), [])
     expect(results[0].issue.slug).toBe('magnesium-deficiency')
@@ -105,6 +115,18 @@ describe('rankDifferentials', () => {
     const results = rankDifferentials(records, context([...generic, ...specific]), [])
     expect(results[0].issue.slug).toBe('specific-candidate')
     expect(results[0].supporting).toEqual(specific)
+  })
+
+  it('rewards a candidate that explains a larger share of its defining indicators', () => {
+    const shared = ['Shared sign 1', 'Shared sign 2']
+    const records = [
+      fixtureIssue('broad-profile', [...shared, 'Unseen sign 3', 'Unseen sign 4', 'Unseen sign 5', 'Unseen sign 6']),
+      fixtureIssue('focused-profile', shared),
+    ]
+
+    const results = rankDifferentials(records, context(shared), [])
+    expect(results[0].issue.slug).toBe('focused-profile')
+    expect(results[0].score).toBeGreaterThan(results[1].score)
   })
 
   it('downgrades a high-scoring leader when a look-alike is essentially tied', () => {
