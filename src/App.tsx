@@ -27,7 +27,6 @@ export default function App() {
   const [context, setContext] = useState<GrowContext>(restored.context ?? emptyContext)
   const [reviewed, setReviewed] = useState(false)
   const [issueSlug, setIssueSlug] = useState<string>()
-  const [historyRevision, setHistoryRevision] = useState(0)
   const [investigation, setInvestigation] = useState<InvestigationCase>(restored)
   const [investigations, setInvestigations] = useState<InvestigationCase[]>(() => loadInvestigations())
   const results = useMemo(() => reviewed ? rankDifferentials(issues, context, evidence) : [], [context, evidence, reviewed])
@@ -149,7 +148,7 @@ export default function App() {
       {view === 'issues' ? <IssueLibrary initialSlug={issueSlug} onClearInitialSlug={() => setIssueSlug(undefined)} /> : null}
       {view === 'references' ? <ReferenceLibrary onOpenIssue={openIssue} /> : null}
       {view === 'coverage' ? <CoverageDashboard /> : null}
-      {view === 'log' ? <GrowLog investigation={investigation} onEntriesChange={() => setHistoryRevision((value) => value + 1)} /> : null}
+      {view === 'log' ? <GrowLog investigation={investigation} /> : null}
       {view === 'about' ? <About /> : null}
     </AppShell>
   )
