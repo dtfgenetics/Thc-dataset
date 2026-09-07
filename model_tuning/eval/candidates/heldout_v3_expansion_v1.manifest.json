@@ -1,0 +1,36 @@
+{
+  "schema_version": "grow-doc-eval-candidate-manifest-v1",
+  "dataset": "model_tuning/eval/candidates/heldout_v3_expansion_v1.jsonl",
+  "content_sha256": "896b04cd19835df9f7cd02713a8cebd409a30d5c8f2ce462071bce6e128695b8",
+  "status": "candidate_only_not_promotion_eligible",
+  "purpose": "Add source-bound nutrient-diagnostic and drought-generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
+  "record_count": 2,
+  "source_policy": {
+    "require_primary_or_peer_reviewed_source": true,
+    "preserve_source_metadata": true,
+    "require_human_review_before_heldout_admission": true,
+    "forbid_training_use": true,
+    "forbid_train_dev_overlap": true
+  },
+  "sources": [
+    {
+      "doi": "10.3390/app9204432",
+      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
+      "year": 2019,
+      "role": "nutrient-disorder visual-diagnosis limits"
+    },
+    {
+      "doi": "10.3390/horticulturae9040431",
+      "title": "Variation in Hydric Response of Two Industrial Hemp Varieties (Cannabis sativa) to Induced Water Stress",
+      "year": 2023,
+      "role": "water-stress response and generalization limits"
+    }
+  ],
+  "admission_requirements": [
+    "independent human factual review",
+    "confirm DOI/title/year metadata",
+    "check semantic near-duplicates against heldout_v2 and training/dev corpora",
+    "confirm no source-group leakage into training",
+    "freeze content hash before benchmark promotion"
+  ]
+}
