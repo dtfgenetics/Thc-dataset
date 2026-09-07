@@ -29,16 +29,10 @@ if (($_SERVER['HTTP_X_THC_VISUAL_REQUEST'] ?? '') !== '1') {
     respond(400, ['error' => 'Missing visual-analysis request marker.']);
 }
 
-// This endpoint is served directly rather than through WordPress routing. If the
-// Grow Doc key is configured as a wp-config.php constant, bootstrap WordPress so
-// that constant is actually visible here. Environment-variable configuration
-// remains preferred and avoids this bootstrap entirely.
 if ((getenv('GEMINI_API_KEY') ?: '') === '' && !defined('THC_GROW_DOC_GEMINI_API_KEY')) {
     $wpLoad = dirname(__DIR__, 2) . DIRECTORY_SEPARATOR . 'wp-load.php';
     if (is_file($wpLoad)) {
-        if (!defined('WP_USE_THEMES')) {
-            define('WP_USE_THEMES', false);
-        }
+        if (!defined('WP_USE_THEMES')) define('WP_USE_THEMES', false);
         require_once $wpLoad;
     }
 }
@@ -59,7 +53,6 @@ if (!preg_match('/^[a-zA-Z0-9._-]{3,80}$/', $model)) {
     respond(500, ['error' => 'Invalid configured visual model.']);
 }
 
-// Lightweight per-IP throttle to reduce accidental or automated API-key abuse.
 $ip = (string)($_SERVER['REMOTE_ADDR'] ?? 'unknown');
 $rateKey = hash('sha256', $ip . '|thc-grow-doc-visual-v1');
 $rateFile = rtrim(sys_get_temp_dir(), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'thc-visual-' . $rateKey . '.json';
@@ -69,13 +62,9 @@ $maxRequests = 12;
 $rate = ['window' => $now, 'count' => 0];
 if (is_file($rateFile)) {
     $decoded = json_decode((string)@file_get_contents($rateFile), true);
-    if (is_array($decoded) && isset($decoded['window'], $decoded['count'])) {
-        $rate = $decoded;
-    }
+    if (is_array($decoded) && isset($decoded['window'], $decoded['count'])) $rate = $decoded;
 }
-if (($now - (int)$rate['window']) >= $windowSeconds) {
-    $rate = ['window' => $now, 'count' => 0];
-}
+if (($now - (int)$rate['window']) >= $windowSeconds) $rate = ['window' => $now, 'count' => 0];
 $rate['count'] = (int)$rate['count'] + 1;
 @file_put_contents($rateFile, json_encode($rate), LOCK_EX);
 if ((int)$rate['count'] > $maxRequests) {
@@ -88,17 +77,32 @@ if (!is_array($allowedDecoded)) {
     respond(400, ['error' => 'The controlled observation vocabulary is missing or invalid.']);
 }
 
+$nonVisualPatterns = [
+    '/\b(?:rt-?pcr|rt-?qpcr|qpcr|pcr|sequenc(?:e|ing)?|culture-confirmed|laboratory|lab-confirmed|molecular)\b/i',
+    '/\b(?:measured|documented|analytical|analysis|tissue result|tissue results|tissue analysis|assay|test result|test results)\b/i',
+    '/\b(?:root-zone ph|root zone ph|ec\/ppm|electrical conductivity|solution chemistry|substrate chemistry)\b/i',
+    '/\b(?:linked to supply|linked to root-zone availability|confirmed by|verified by)\b/i',
+];
+
 $allowedIndicators = [];
 foreach ($allowedDecoded as $indicator) {
     if (!is_string($indicator)) continue;
     $indicator = trim($indicator);
     if ($indicator === '' || mb_strlen($indicator) > 220) continue;
+    $blocked = false;
+    foreach ($nonVisualPatterns as $pattern) {
+        if (preg_match($pattern, $indicator) === 1) {
+            $blocked = true;
+            break;
+        }
+    }
+    if ($blocked) continue;
     $allowedIndicators[$indicator] = true;
     if (count($allowedIndicators) >= 600) break;
 }
 $allowedList = array_keys($allowedIndicators);
 if (!$allowedList) {
-    respond(400, ['error' => 'No controlled observation indicators were supplied.']);
+    respond(400, ['error' => 'No image-observable indicators were supplied.']);
 }
 
 $files = $_FILES['files'] ?? null;
@@ -128,12 +132,7 @@ for ($i = 0; $i < min(count($names), 8); $i++) {
     if (!isset($allowedMimes[$mime])) continue;
     $bytes = @file_get_contents($tmp);
     if ($bytes === false) continue;
-    $parts[] = [
-        'inlineData' => [
-            'mimeType' => $mime,
-            'data' => base64_encode($bytes),
-        ],
-    ];
+    $parts[] = ['inlineData' => ['mimeType' => $mime, 'data' => base64_encode($bytes)]];
     $accepted++;
 }
 
@@ -158,7 +157,7 @@ Return:
 6. suggestedNextViews: use only these values when helpful: whole-plant, affected-close-up, leaf-underside, roots-or-crown, natural-light-retake, magnified-pest-view.
 7. unknownOrOutOfScope: true when the images do not provide enough reliable visible evidence or mainly show something outside this plant-symptom task.
 
-Do not output cultivar guesses. Do not identify a pest species without a clearly visible organism. Do not call mold/pathogen/viroid/virus confirmed from appearance. A model-selected indicator is a suggestion that the user must review before it enters the diagnostic ranking.
+Do not output cultivar guesses. Do not identify a pest species without a clearly visible organism. Do not call mold/pathogen/viroid/virus confirmed from appearance. Never infer pH, EC, nutrient concentration, tissue chemistry, PCR/qPCR status, culture results, sequencing results, or laboratory findings from pixels. A model-selected indicator is a suggestion that the user must review before it enters the diagnostic ranking.
 
 CONTROLLED INDICATOR LIST:
 - {$vocabulary}
@@ -197,10 +196,7 @@ $schema = [
 ];
 
 $requestBody = [
-    'contents' => [[
-        'role' => 'user',
-        'parts' => $parts,
-    ]],
+    'contents' => [['role' => 'user', 'parts' => $parts]],
     'generationConfig' => [
         'temperature' => 0.1,
         'responseMimeType' => 'application/json',
@@ -213,10 +209,7 @@ $ch = curl_init($url);
 curl_setopt_array($ch, [
     CURLOPT_POST => true,
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPHEADER => [
-        'Content-Type: application/json',
-        'x-goog-api-key: ' . $apiKey,
-    ],
+    CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'x-goog-api-key: ' . $apiKey],
     CURLOPT_POSTFIELDS => json_encode($requestBody, JSON_UNESCAPED_SLASHES),
     CURLOPT_CONNECTTIMEOUT => 10,
     CURLOPT_TIMEOUT => 45,
