@@ -30,6 +30,11 @@
       "tokenizer_revision": "b968826d9c46dd6066d109eabc6255188de91218",
       "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
       "runtime_contract_frozen": true,
+      "prompt_contract": {
+        "source_revision_observed": "b968826d9c46dd6066d109eabc6255188de91218",
+        "known_prompt_defects": [],
+        "defect_evidence": []
+      },
       "pin_readiness": {
         "exact_revision_verified": true,
         "tokenizer_or_processor_verified": true,
@@ -56,6 +61,16 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "prompt_contract": {
+        "source_revision_observed": "1045d9897c423faab1b15e4fbb5e40df97a2780f",
+        "known_prompt_defects": [
+          "empty_historical_think_blocks"
+        ],
+        "defect_evidence": [
+          "https://huggingface.co/Qwen/Qwen3.5-9B/discussions/48",
+          "https://huggingface.co/Qwen/Qwen3.5-9B/blob/1045d9897c423faab1b15e4fbb5e40df97a2780f/chat_template.jinja"
+        ]
+      },
       "pin_readiness": {
         "exact_revision_verified": false,
         "tokenizer_or_processor_verified": true,
@@ -67,7 +82,7 @@
       },
       "benchmark_eligible": false,
       "training_eligible": false,
-      "notes": "Official current-generation 9B challenger. Hugging Face metadata confirms the transformers multimodal architecture and AutoProcessor path, but benchmark promotion remains blocked until the exact revision, chat-template identity, text-only decoding behavior, dependency lock, hardware contract, and frozen heldout/RAG bindings are verified. A later upstream chat-template fix is additional reason not to guess a revision or template hash."
+      "notes": "Official current-generation 9B challenger. The inspected upstream revision 1045d9897c423faab1b15e4fbb5e40df97a2780f still renders historical assistant think wrappers without requiring non-empty reasoning content. An upstream discussion proposes a fix, but this registry does not assume that proposal is merged into a benchmark-safe revision. Benchmark promotion remains blocked until a defect-free exact revision/template or an explicitly vendored immutable template is verified along with decoding, dependencies, hardware, and frozen heldout/RAG bindings."
     },
     {
       "id": "gemma3-12b-it-research",
@@ -82,6 +97,11 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "prompt_contract": {
+        "source_revision_observed": null,
+        "known_prompt_defects": [],
+        "defect_evidence": []
+      },
       "pin_readiness": {
         "exact_revision_verified": false,
         "tokenizer_or_processor_verified": false,
@@ -108,6 +128,11 @@
       "tokenizer_revision": null,
       "chat_template_sha256": null,
       "runtime_contract_frozen": false,
+      "prompt_contract": {
+        "source_revision_observed": null,
+        "known_prompt_defects": [],
+        "defect_evidence": []
+      },
       "pin_readiness": {
         "exact_revision_verified": false,
         "tokenizer_or_processor_verified": false,
