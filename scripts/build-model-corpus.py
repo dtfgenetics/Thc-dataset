@@ -267,19 +267,47 @@ def eval_source_ids(path: pathlib.Path) -> set[str]:
     return reserved
 
 
-def merge_unique_dicts(existing: list[dict], incoming: list[dict], key: str) -> list[dict]:
-    seen = {item.get(key) for item in existing}
+def merge_canonical_source_ids(existing: list[str], incoming: list[str]) -> tuple[list[str], list[str]]:
+    """Keep one raw ID per canonical source while returning alternate raw aliases separately."""
     out = list(existing)
+    aliases = []
+    seen = {canonical_source_identity(value) for value in existing if canonical_source_identity(value)}
+    for value in incoming:
+        canonical = canonical_source_identity(value)
+        if canonical and canonical in seen:
+            if value not in out and value not in aliases:
+                aliases.append(value)
+            continue
+        if value not in out:
+            out.append(value)
+        if canonical:
+            seen.add(canonical)
+    return out, aliases
+
+
+def merge_source_records(existing: list[dict], incoming: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Merge independent source records canonically and retain alias records separately."""
+    out = list(existing)
+    aliases = []
+    seen = {
+        canonical_source_identity(str(item.get("source_id") or ""))
+        for item in existing
+        if canonical_source_identity(str(item.get("source_id") or ""))
+    }
     for item in incoming:
-        value = item.get(key)
-        if value not in seen:
-            out.append(item)
-            seen.add(value)
-    return out
+        source_identity = canonical_source_identity(str(item.get("source_id") or ""))
+        if source_identity and source_identity in seen:
+            if item not in out and item not in aliases:
+                aliases.append(item)
+            continue
+        out.append(item)
+        if source_identity:
+            seen.add(source_identity)
+    return out, aliases
 
 
 def dedupe_rag(rows: list[dict]) -> tuple[list[dict], int, int]:
-    """Deduplicate exact normalized claims while retaining all corroborating provenance."""
+    """Deduplicate exact normalized claims while retaining canonical provenance and raw aliases."""
     by_claim: dict[str, dict] = {}
     duplicate_claims = 0
     merged_provenance_links = 0
@@ -292,11 +320,25 @@ def dedupe_rag(rows: list[dict]) -> tuple[list[dict], int, int]:
         keep = by_claim[fp]
         before_sources = len(keep["source_ids"])
         before_profiles = len(keep["profile_ids"])
-        keep["source_ids"] = list(dict.fromkeys(keep["source_ids"] + row.get("source_ids", [row["source_id"]])))
+        merged_source_ids, source_alias_ids = merge_canonical_source_ids(
+            keep["source_ids"], row.get("source_ids", [row["source_id"]])
+        )
+        keep["source_ids"] = merged_source_ids
+        if source_alias_ids:
+            prior_alias_ids = keep.get("source_alias_ids", [])
+            keep["source_alias_ids"] = list(dict.fromkeys(prior_alias_ids + source_alias_ids))
         keep["profile_ids"] = list(dict.fromkeys(keep["profile_ids"] + row.get("profile_ids", [row["profile_id"]])))
-        keep["sources"] = merge_unique_dicts(keep["sources"], row.get("sources", []), "source_id")
+        merged_sources, source_aliases = merge_source_records(keep["sources"], row.get("sources", []))
+        keep["sources"] = merged_sources
+        if source_aliases:
+            prior_aliases = keep.get("source_aliases", [])
+            for alias in source_aliases:
+                if alias not in prior_aliases:
+                    prior_aliases.append(alias)
+            keep["source_aliases"] = prior_aliases
         merged_provenance_links += max(0, len(keep["source_ids"]) - before_sources)
         merged_provenance_links += max(0, len(keep["profile_ids"]) - before_profiles)
+        merged_provenance_links += len(source_alias_ids)
     return list(by_claim.values()), duplicate_claims, merged_provenance_links
 
 
@@ -373,7 +415,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
                 sft.append(item)
 
     rag, duplicate_claims, merged_provenance_links = dedupe_rag(rag)
-    multi_source_claims = sum(1 for row in rag if len(row.get("source_ids", [])) > 1)
+    multi_source_claims = sum(1 for row in rag if len(canonical_sources(row.get("source_ids", []))) > 1)
     stats = {
         "input_profiles": len(seen_profiles),
         "duplicate_profile_ids": len(duplicate_profiles),
