@@ -236,13 +236,14 @@ async function run() {
     const atlas = await inspectAtlas(client)
     const mobile = await loadViewport(client, { name: 'diagnose-mobile', width: 390, height: 844 })
 
-    const menuOpened = await evaluate(client, `(() => {
+    const menuClickAccepted = await evaluate(client, `(() => {
       const button = document.querySelector('.menu-button');
       if (!button) return false;
       button.click();
-      return Boolean(document.querySelector('.mobile-nav'));
+      return true;
     })()`)
-    assert(menuOpened, 'Mobile navigation did not open.')
+    assert(menuClickAccepted, 'Mobile menu button was not available to click.')
+    await waitFor(client, "Boolean(document.querySelector('.mobile-nav'))", 'mobile navigation')
     const mobileMenuOverflow = await evaluate(client, "document.documentElement.scrollWidth - innerWidth")
     assert(mobileMenuOverflow <= 1, `Mobile menu introduced horizontal overflow (${mobileMenuOverflow}px).`)
     await capture(client, 'mobile-menu')
