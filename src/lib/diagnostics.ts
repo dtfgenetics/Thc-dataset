@@ -56,6 +56,12 @@ const indicatorSignalWeight = (frequency: number) => {
   return 2
 }
 
+const indicatorCoverageBonus = (matchedCount: number, indicatorCount: number) => {
+  if (!matchedCount || !indicatorCount) return 0
+  const coverage = matchedCount / indicatorCount
+  return Math.min(2, coverage * 2)
+}
+
 const responsePolicyFor = (issue: IssueRecord) => {
   if (issue.responsePolicyId) {
     const explicit = policies.find((policy) => policy.policy_id === issue.responsePolicyId)
@@ -180,13 +186,14 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     const matched = issue.indicators.filter((indicator) => selected.has(normalise(indicator)))
     const contradictory = issue.exclusions.filter((indicator) => selected.has(normalise(indicator)))
     const supportingScore = matched.reduce((total, indicator) => total + indicatorSignalWeight(indicatorFrequency.get(normalise(indicator)) ?? 1), 0)
+    const coverageScore = indicatorCoverageBonus(matched.length, issue.indicators.length)
     const contradictionScore = contradictory.reduce((total, indicator) => total + Math.max(4, indicatorSignalWeight(indicatorFrequency.get(normalise(indicator)) ?? 1) + 1), 0)
     const historical = historyContribution(issue, context, history)
-    let score = supportingScore - contradictionScore + historical.score
+    let score = supportingScore + coverageScore - contradictionScore + historical.score
 
-    if (context.stage && issue.stages.includes(context.stage)) score += 1
-    if (hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) score += 1
-    if (hasUnderside && (issue.category === 'Mite' || issue.category === 'Insect')) score += 1
+    if (matched.length && context.stage && issue.stages.includes(context.stage)) score += 1
+    if (matched.length && hasRootView && (issue.category === 'Root pathogen' || issue.category === 'Water / root-zone')) score += 1
+    if (matched.length && hasUnderside && (issue.category === 'Mite' || issue.category === 'Insect')) score += 1
 
     const missing: string[] = []
     if (!hasWholePlant) missing.push('whole-plant view')
@@ -213,7 +220,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     confidence = applyResponsePolicy(issue, confidence, missing)
 
     return { issue, confidence, score, supporting: matched, contradicting: contradictory, missing, historySignals: historical.signals } satisfies Differential
-  }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score).slice(0, 4)
+  }).filter((item) => item.supporting.length > 0 && item.score > 0).sort((a, b) => b.score - a.score).slice(0, 4)
 
   return ranked.map((item, index) => {
     let confidence = item.confidence
