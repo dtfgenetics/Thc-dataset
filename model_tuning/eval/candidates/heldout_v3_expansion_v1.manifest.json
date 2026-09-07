@@ -1,9 +1,9 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/heldout_v3_expansion_v1.jsonl",
-  "content_sha256": "4f51bd2731c4b4b16e23dbc82c11dd502b0f6662aacc997b5391b4a5eea59eeb",
+  "content_sha256": "feb34a984843cd572c994777911346afafbe3c984cb32bcc1b5c367b8dbb797f",
   "status": "candidate_only_not_promotion_eligible",
-  "purpose": "Add source-bound salinity-differential and drought-generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
+  "purpose": "Add source-bound stress-generalization science cases for future heldout-v3 review without mutating frozen heldout_v2.",
   "record_count": 2,
   "source_policy": {
     "require_primary_or_peer_reviewed_source": true,
@@ -14,16 +14,16 @@
   },
   "sources": [
     {
-      "doi": "10.3389/fpls.2020.01169",
-      "title": "Aquaponic and Hydroponic Solutions Modulate NaCl-Induced Stress in Drug-Type Cannabis sativa L.",
-      "year": 2020,
-      "role": "salinity-stress differential and diagnostic limits"
+      "doi": "10.1111/gcbb.12880",
+      "title": "Limited effect of environmental stress on cannabinoid profiles in high-cannabidiol hemp (Cannabis sativa L.)",
+      "year": 2021,
+      "role": "environmental-stress cannabinoid generalization limits"
     },
     {
-      "doi": "10.1016/j.indcrop.2022.115331",
-      "title": "Physiological and morphological responses of industrial hemp (Cannabis sativa L.) to water deficit",
-      "year": 2022,
-      "role": "water-deficit response and generalization limits"
+      "doi": "10.1002/csc2.21150",
+      "title": "Identifying physiological traits related with drought tolerance and water-use efficiency in floral hemp (Cannabis sativa L.)",
+      "year": 2024,
+      "role": "drought physiology, cultivar variation, and generalization limits"
     }
   ],
   "admission_requirements": [
