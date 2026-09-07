@@ -1,7 +1,7 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/pathogen_expansion_v1.jsonl",
-  "content_sha256": "bfa311039c168eff753b66d1e99c717ff733e13ef88d6c825f9e57e3148291c6",
+  "content_sha256": "329b51300ad82e400bd07711301c1fc29c6e01736cb7d6b8a30f44514de70c3c",
   "status": "candidate_only_not_promotion_eligible",
   "purpose": "Expand pathogen, diagnostic, citation-accuracy, science, and hallucination-resistance coverage without mutating the locked heldout_v2 benchmark.",
   "record_count": 6,
@@ -20,10 +20,10 @@
       "role": "HLVd causality and diagnostic limitation"
     },
     {
-      "doi": "10.3390/plants14050830",
-      "title": "Transmission, Spread, Longevity and Management of Hop Latent Viroid, a Widespread and Destructive Pathogen Affecting Cannabis (Cannabis sativa L.) Plants in North America",
-      "year": 2025,
-      "role": "HLVd transmission and persistence"
+      "doi": "10.3390/v16010030",
+      "title": "New Insights into Hop Latent Viroid Detection, Infectivity, Host Range, and Transmission",
+      "year": 2023,
+      "role": "HLVd infectivity and seed-transmission limits"
     },
     {
       "doi": "10.1094/PDIS-11-20-2455-PDN",

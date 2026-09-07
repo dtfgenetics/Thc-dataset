@@ -1,9 +1,9 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/heldout_v3_expansion_v1.jsonl",
-  "content_sha256": "896b04cd19835df9f7cd02713a8cebd409a30d5c8f2ce462071bce6e128695b8",
+  "content_sha256": "feb34a984843cd572c994777911346afafbe3c984cb32bcc1b5c367b8dbb797f",
   "status": "candidate_only_not_promotion_eligible",
-  "purpose": "Add source-bound nutrient-diagnostic and drought-generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
+  "purpose": "Add source-bound stress-generalization science cases for future heldout-v3 review without mutating frozen heldout_v2.",
   "record_count": 2,
   "source_policy": {
     "require_primary_or_peer_reviewed_source": true,
@@ -14,16 +14,16 @@
   },
   "sources": [
     {
-      "doi": "10.3390/app9204432",
-      "title": "Characterization of Nutrient Disorders of Cannabis sativa",
-      "year": 2019,
-      "role": "nutrient-disorder visual-diagnosis limits"
+      "doi": "10.1111/gcbb.12880",
+      "title": "Limited effect of environmental stress on cannabinoid profiles in high-cannabidiol hemp (Cannabis sativa L.)",
+      "year": 2021,
+      "role": "environmental-stress cannabinoid generalization limits"
     },
     {
-      "doi": "10.3390/horticulturae9040431",
-      "title": "Variation in Hydric Response of Two Industrial Hemp Varieties (Cannabis sativa) to Induced Water Stress",
-      "year": 2023,
-      "role": "water-stress response and generalization limits"
+      "doi": "10.1002/csc2.21150",
+      "title": "Identifying physiological traits related with drought tolerance and water-use efficiency in floral hemp (Cannabis sativa L.)",
+      "year": 2024,
+      "role": "drought physiology, cultivar variation, and generalization limits"
     }
   ],
   "admission_requirements": [
