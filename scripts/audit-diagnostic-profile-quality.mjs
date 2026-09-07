@@ -11,6 +11,9 @@ const labBoundedCategories = new Set(['Bacterial pathogen', 'Viroid', 'Virus', '
 const arthropodCategories = new Set(['Insect', 'Mite', 'Nematode'])
 const rootCategories = new Set(['Root pathogen', 'Water / root-zone'])
 const nutrientCategories = new Set(['Nutrient deficiency', 'Nutrient toxicity'])
+const stopWords = new Set([
+  'about','above','across','after','against','along','also','among','around','before','below','between','both','can','could','does','during','each','from','have','into','more','most','near','other','over','rather','remains','same','show','shows','than','that','their','then','there','these','this','through','toward','under','until','very','while','with','within','without','plant','plants','leaf','leaves','foliage','tissue','growth','symptom','symptoms','visible','visually','develop','develops','developed','progress','progresses','progressed',
+])
 
 const errors = []
 const warnings = []
@@ -22,6 +25,35 @@ function uniqueNormalised(values = []) {
 function hasAnyText(values = [], needles = []) {
   const text = values.map(normalise).join(' | ')
   return needles.some((needle) => text.includes(needle))
+}
+
+function stemToken(token) {
+  if (token.length > 6 && token.endsWith('ies')) return `${token.slice(0, -3)}y`
+  if (token.length > 6 && token.endsWith('ing')) return token.slice(0, -3)
+  if (token.length > 5 && token.endsWith('ed')) return token.slice(0, -2)
+  if (token.length > 5 && token.endsWith('es')) return token.slice(0, -2)
+  if (token.length > 4 && token.endsWith('s')) return token.slice(0, -1)
+  return token
+}
+
+function indicatorTokens(values = []) {
+  const tokens = new Set()
+  for (const value of values) {
+    for (const raw of normalise(value).replace(/[^a-z0-9]+/g, ' ').split(' ')) {
+      if (!raw || raw.length < 4 || stopWords.has(raw) || /^\d+$/.test(raw)) continue
+      const token = stemToken(raw)
+      if (token.length >= 4 && !stopWords.has(token)) tokens.add(token)
+    }
+  }
+  return tokens
+}
+
+function jaccard(a, b) {
+  if (!a.size || !b.size) return 0
+  let shared = 0
+  for (const item of a) if (b.has(item)) shared += 1
+  const union = a.size + b.size - shared
+  return union ? shared / union : 0
 }
 
 function qualityCheck(profile) {
@@ -77,33 +109,42 @@ for (let i = 0; i < profiles.length; i += 1) {
   const a = profiles[i]
   if (diagnosticExemptCategories.has(a.category)) continue
   const ai = new Set(uniqueNormalised(a.indicators))
+  const at = indicatorTokens(a.indicators)
   if (ai.size < 2) continue
+
   for (let j = i + 1; j < profiles.length; j += 1) {
     const b = profiles[j]
     if (diagnosticExemptCategories.has(b.category)) continue
     const bi = new Set(uniqueNormalised(b.indicators))
+    const bt = indicatorTokens(b.indicators)
     if (bi.size < 2) continue
+
     const shared = [...ai].filter((item) => bi.has(item))
-    const unionSize = new Set([...ai, ...bi]).size
-    const jaccard = unionSize ? shared.length / unionSize : 0
-    if (shared.length >= 2 || jaccard >= 0.35) {
-      confusionPairs.push({ a, b, shared, jaccard })
+    const exactJaccard = jaccard(ai, bi)
+    const sharedTokens = [...at].filter((item) => bt.has(item))
+    const lexicalJaccard = jaccard(at, bt)
+
+    if (shared.length >= 2 || exactJaccard >= 0.35 || lexicalJaccard >= 0.28) {
+      confusionPairs.push({ a, b, shared, exactJaccard, sharedTokens, lexicalJaccard })
     }
+
     if (ai.size === bi.size && shared.length === ai.size && ai.size >= 2) {
       errors.push(`${a.id} and ${b.id}: exact duplicate normalized indicator sets (${ai.size} indicators)`)
     }
   }
 }
 
-confusionPairs.sort((x, y) => y.jaccard - x.jaccard || y.shared.length - x.shared.length)
+confusionPairs.sort((x, y) => y.lexicalJaccard - x.lexicalJaccard || y.exactJaccard - x.exactJaccard || y.shared.length - x.shared.length)
 
-const topPairs = confusionPairs.slice(0, 15).map((pair) => ({
+const topPairs = confusionPairs.slice(0, 20).map((pair) => ({
   a: pair.a.slug,
   b: pair.b.slug,
   categories: [pair.a.category, pair.b.category],
   sharedIndicators: pair.shared.length,
-  indicatorOverlap: Number(pair.jaccard.toFixed(3)),
-  examples: pair.shared.slice(0, 3),
+  exactIndicatorOverlap: Number(pair.exactJaccard.toFixed(3)),
+  lexicalIndicatorOverlap: Number(pair.lexicalJaccard.toFixed(3)),
+  sharedTokens: pair.sharedTokens.slice(0, 10),
+  exactExamples: pair.shared.slice(0, 3),
 }))
 
 if (warnings.length) {
