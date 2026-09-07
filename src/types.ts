@@ -149,6 +149,13 @@ export interface InvestigationCase {
   diagnosisHistory?: DiagnosticSnapshot[]
 }
 
+export interface CaseTrendSummary {
+  trend: 'insufficient' | 'stable' | 'mixed' | 'worsening' | 'improving'
+  changes: string[]
+  recommendedNextStep: string
+  rationale: string
+}
+
 export interface GrowLogEntry {
   id: string
   createdAt: string
