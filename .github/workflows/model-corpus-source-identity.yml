@@ -6,6 +6,7 @@ on:
       - 'data/diagnostic-profiles.jsonl'
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'scripts/build-model-corpus.py'
+      - 'scripts/test-rag-provenance-dedupe.py'
       - 'scripts/audit-model-corpus-source-identities.py'
       - '.github/workflows/model-corpus-source-identity.yml'
   push:
@@ -14,6 +15,7 @@ on:
       - 'data/diagnostic-profiles.jsonl'
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'scripts/build-model-corpus.py'
+      - 'scripts/test-rag-provenance-dedupe.py'
       - 'scripts/audit-model-corpus-source-identities.py'
       - '.github/workflows/model-corpus-source-identity.yml'
 
@@ -28,6 +30,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Test canonical RAG provenance consolidation
+        run: python3 scripts/test-rag-provenance-dedupe.py
       - name: Self-test canonical corpus identity audit
         run: python3 scripts/audit-model-corpus-source-identities.py --self-test
       - name: Audit current reviewed corpus
