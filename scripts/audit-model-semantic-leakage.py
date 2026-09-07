@@ -17,12 +17,14 @@ import json
 import pathlib
 import re
 import sys
+from urllib.parse import urlsplit, urlunsplit
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def load_module(path: pathlib.Path, name: str):
@@ -83,17 +85,55 @@ def similarity(left: str, right: str) -> tuple[float, float, float]:
     return containment, jaccard, length_ratio
 
 
+def canonical_source_identity(value: str) -> str:
+    """Normalize DOI/URL aliases for leakage comparison without rewriting source metadata."""
+    raw = (value or "").strip()
+    if not raw:
+        return ""
+    lowered = raw.lower()
+    if lowered.startswith("url:"):
+        return canonical_source_identity(raw[4:].strip())
+    if lowered.startswith("doi:"):
+        payload = raw[4:].strip()
+        if not payload:
+            return ""
+        if payload.lower().startswith(("http://", "https://")):
+            canonical = canonical_source_identity(payload)
+            return canonical if canonical.startswith("doi:") else f"doi:{payload.lower()}"
+        return f"doi:{payload.lower()}"
+    if DOI_RE.fullmatch(raw):
+        return f"doi:{raw.lower()}"
+    parsed = urlsplit(raw)
+    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
+        host = (parsed.hostname or "").lower()
+        path = parsed.path or ""
+        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
+            payload = path.lstrip("/")
+            return f"doi:{payload.lower()}" if payload else ""
+        netloc = host
+        if parsed.port:
+            netloc = f"{host}:{parsed.port}"
+        normalized_path = path.rstrip("/") or "/"
+        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
+    return raw
+
+
 def canonical_sources(row: dict) -> set[str]:
-    return {str(value).strip().lower() for value in row.get("source_ids") or [] if str(value).strip()}
+    return {
+        identity
+        for value in row.get("source_ids") or []
+        for identity in [canonical_source_identity(str(value))]
+        if identity
+    }
 
 
 def heldout_sources(eval_rows: list[dict]) -> set[str]:
     result = set()
     for row in eval_rows:
         for value in row.get("must_cite") or []:
-            value = str(value).strip().lower()
-            if value:
-                result.add(value)
+            identity = canonical_source_identity(str(value))
+            if identity:
+                result.add(identity)
     return result
 
 
@@ -130,7 +170,6 @@ def audit(training_rows: list[dict], eval_rows: list[dict], *, near_limit: int =
             if len(tokens(heldout_semantic)) < 8:
                 continue
             containment, jaccard, length_ratio = similarity(train_semantic, heldout_semantic)
-            # Reporting-only threshold: intentionally conservative and never auto-deletes.
             if containment >= 0.78 and jaccard >= 0.50 and length_ratio >= 0.45:
                 near.append(
                     {
@@ -161,7 +200,7 @@ def audit(training_rows: list[dict], eval_rows: list[dict], *, near_limit: int =
         "errors": errors,
         "policy": {
             "exact_prompt_overlap": "fail",
-            "heldout_source_overlap": "fail",
+            "heldout_source_overlap": "fail_canonical_doi_url_identity",
             "semantic_near_duplicate": "report_for_human_review",
             "auto_delete_near_duplicates": False,
         },
@@ -214,6 +253,21 @@ def self_test() -> None:
     report = audit([source_leak], heldout)
     assert report["hard_leakage_errors"] == 1
     assert "held-out source leakage" in report["errors"][0]
+
+    alias_leak = dict(clean)
+    alias_leak["id"] = "train-source-alias-leak"
+    alias_leak["source_ids"] = ["https://DOI.org/10.TEST/HELD"]
+    report = audit([alias_leak], heldout)
+    assert report["hard_leakage_errors"] == 1
+    assert "doi:10.test/held" in report["errors"][0]
+
+    url_heldout = [dict(heldout[0], must_cite=["url:https://Example.org/reference/"])]
+    url_alias = dict(clean)
+    url_alias["id"] = "train-url-alias-leak"
+    url_alias["source_ids"] = ["https://example.org/reference"]
+    report = audit([url_alias], url_heldout)
+    assert report["hard_leakage_errors"] == 1
+    assert "https://example.org/reference" in report["errors"][0]
 
     paraphrase = dict(clean)
     paraphrase["id"] = "train-near"
