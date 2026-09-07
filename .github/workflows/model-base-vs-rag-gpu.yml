@@ -1,0 +1,53 @@
+name: Grow Doc base vs RAG GPU benchmark
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grow-doc-base-vs-rag-gpu
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    runs-on: [self-hosted, linux, x64, growdoc-gpu]
+    timeout-minutes: 180
+    env:
+      PYTHONUNBUFFERED: "1"
+      TOKENIZERS_PARALLELISM: "false"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+
+      - name: Verify clean pinned checkout
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -z "$(git status --porcelain)"
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+
+      - name: Verify qualifying GPU and pinned runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/run-base-vs-rag-experiment.py --preflight-only
+
+      - name: Run frozen Qwen3-8B base vs frozen RAG experiment
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/run-base-vs-rag-experiment.py \
+            --output-root model_tuning/runs/base_vs_rag_v1
+
+      - name: Upload raw blinded-review inputs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-base-vs-rag-${{ github.sha }}
+          path: model_tuning/runs/base_vs_rag_v1/
+          if-no-files-found: error
+          retention-days: 30
