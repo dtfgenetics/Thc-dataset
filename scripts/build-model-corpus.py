@@ -431,7 +431,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
         "eval_sha256": hashlib.sha256(eval_path.read_bytes()).hexdigest() if eval_path.exists() else None,
-        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; canonical held-out source families excluded from SFT but retained for retrieval; target-explicit SFT evidence ranked ahead of neutral and explicit foreign-target claims; exact claim dedup with canonical source/profile provenance consolidation and raw source-alias retention; eval prompt collision rejection",
+        "policy": "reviewed profiles only; source-level claim provenance required; context-required SFT; canonical held-out source families excluded from SFT but retained for retrieval; target-explicit SFT evidence ranked ahead of neutral and explicit foreign-target claims; exact claim dedup with source/profile provenance consolidation; eval prompt collision rejection",
     }
     return rag, sft, quarantine, stats
 
