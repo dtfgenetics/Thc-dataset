@@ -32,6 +32,7 @@ jobs:
       - run: npm run validate:model-eval-candidate-leakage
       - run: npm run validate:model-eval-coverage
       - run: npm run validate:model-corpus-quality
+      - run: npm run validate:model-source-evidence-quality
       - run: npm run validate:model-semantic-leakage
       - run: npm run validate:model-corpus
       - name: Audit SFT profile evidence relevance
