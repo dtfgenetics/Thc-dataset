@@ -40,6 +40,17 @@ def canonical_source_id(value: str) -> str:
     return source_id
 
 
+def metadata_evidence_ids(source: dict) -> set[str]:
+    identities: set[str] = set()
+    doi = str(source.get("doi", "")).strip()
+    url = str(source.get("url", "")).strip()
+    if doi:
+        identities.add(canonical_source_id(f"doi:{doi}"))
+    if url:
+        identities.add(canonical_source_id(f"url:{url}"))
+    return identities - {""}
+
+
 def load_rows(path: Path) -> list[dict]:
     rows: list[dict] = []
     for line_no, raw in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
@@ -100,9 +111,11 @@ def audit(rows: list[dict], *, require_replicated_slices: bool = False) -> dict:
         if not row.get("forbidden_claims"):
             errors.append(f"{label}: missing forbidden_claims")
         category = str(row.get("category", "")).strip()
+        required_citations: set[str] = set()
         for cite in row.get("must_cite") or []:
             canonical = canonical_source_id(str(cite))
             if canonical:
+                required_citations.add(canonical)
                 evidence_sources_by_category[category].add(canonical)
         source = row.get("source_metadata")
         if not isinstance(source, dict):
@@ -112,6 +125,13 @@ def audit(rows: list[dict], *, require_replicated_slices: bool = False) -> dict:
             errors.append(f"{label}: source_metadata.source_id is required")
         if not (source.get("doi") or source.get("url")):
             errors.append(f"{label}: source_metadata requires DOI or URL")
+            continue
+        metadata_ids = metadata_evidence_ids(source)
+        if required_citations and metadata_ids and required_citations.isdisjoint(metadata_ids):
+            errors.append(
+                f"{label}: source_metadata provenance does not match any must_cite identity; "
+                f"metadata={sorted(metadata_ids)} must_cite={sorted(required_citations)}"
+            )
 
     source_ids = {
         str((r.get("source_metadata") or {}).get("source_id", "")).strip()
@@ -167,6 +187,7 @@ def _fixture(*, replicated: bool) -> list[dict]:
         for i, category in enumerate(cats):
             difficulty = "hard" if category in CRITICAL_CATEGORIES else "medium"
             source_index = repeat
+            doi = f"10.0000/{category}-{source_index}"
             rows.append(
                 {
                     "id": f"case-{repeat}-{i}",
@@ -174,11 +195,11 @@ def _fixture(*, replicated: bool) -> list[dict]:
                     "difficulty": difficulty,
                     "prompt": f"prompt {repeat} {i}",
                     "expected_points": ["fact"],
-                    "must_cite": [f"doi:10.0000/{category}-{source_index}"],
+                    "must_cite": [f"doi:{doi}"],
                     "forbidden_claims": ["overclaim"],
                     "source_metadata": {
                         "source_id": f"source-{category}-{source_index}",
-                        "doi": f"10.0000/{category}-{source_index}",
+                        "doi": doi,
                     },
                 }
             )
@@ -201,9 +222,16 @@ def run_self_test() -> None:
     for row in bad_source:
         if row["category"] == "citation_accuracy":
             row["must_cite"] = ["doi:10.0000/shared-citation-source"]
+            row["source_metadata"]["doi"] = "10.0000/shared-citation-source"
     result = audit(bad_source, require_replicated_slices=True)
     if not any("promotion category citation_accuracy uses only 1 distinct required evidence source" in error for error in result["errors"]):
         raise SystemExit("self-test did not reject a single-source protected slice")
+
+    mismatched_provenance = _fixture(replicated=True)
+    mismatched_provenance[0]["source_metadata"]["doi"] = "10.0000/unrelated-source"
+    result = audit(mismatched_provenance, require_replicated_slices=True)
+    if not any("source_metadata provenance does not match any must_cite identity" in error for error in result["errors"]):
+        raise SystemExit("self-test did not reject mismatched citation/source provenance")
 
     legacy = _fixture(replicated=False)
     while len(legacy) < 12:
