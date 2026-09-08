@@ -31,13 +31,16 @@ VERIFIED_INSTITUTIONAL_HOSTS = {
     "www.onspecialtycrops.ca",
 }
 
-# Some universities serve PDFs through third-party/CDN hosts. In those cases, require an
-# explicit institutional publisher/organization identity in the source metadata.
+# Some universities/colleges serve PDFs through third-party or project-specific hosts. In
+# those cases, require an explicit institutional publisher/organization identity in the
+# source metadata. Each marker in this list should be independently verified before adding.
 VERIFIED_INSTITUTIONAL_ORG_MARKERS = (
     "cornell university",
     "ontario ministry of agriculture",
     "pacific northwest pest management handbooks",
     "pacific northwest plant disease management handbook",
+    "horticultural & environmental sciences innovation centre, niagara college",
+    "horticultural and environmental sciences innovation centre, niagara college",
 )
 
 
@@ -255,6 +258,10 @@ def self_test() -> None:
     assert evidence_tier({
         "url": "https://onspecialtycrops.ca/example",
         "publisher": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+    }) == "institutional_web"
+    assert evidence_tier({
+        "url": "https://growdoc.ca/boronreport.pdf",
+        "organization": "Horticultural & Environmental Sciences Innovation Centre, Niagara College",
     }) == "institutional_web"
 
     bad = [{"id": "p2", "reviewStatus": "reviewed", "sources": [{"supportedClaims": []}]}]
