@@ -13,6 +13,7 @@ import argparse
 import importlib.util
 import json
 import pathlib
+import re
 import sys
 from collections import Counter
 from types import ModuleType
@@ -25,6 +26,8 @@ CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 EVIDENCE_AUDIT = ROOT / "scripts/audit-model-source-evidence-quality.py"
 STRONG_TIERS = {"scholarly_doi", "institutional_web"}
+TOKEN_RE = re.compile(r"[a-z0-9]+")
+SOURCE_ID_RE = re.compile(r"(?:doi|url|source):\S+", re.IGNORECASE)
 
 
 def load_module(path: pathlib.Path, name: str) -> ModuleType:
@@ -77,6 +80,51 @@ def classify_record(record: dict, tiers: dict[str, str], corpus) -> tuple[str, d
     return "weak_only", detail
 
 
+def assistant_supervision_key(record: dict) -> tuple[str, str]:
+    """Normalize assistant supervision so repeated evidence payloads do not overweight training.
+
+    Provenance identifiers are intentionally ignored for duplicate detection, while the retained
+    record keeps its full source/citation metadata. This affects only the weight-training lane;
+    RAG and canonical grounded-QA generation remain unchanged.
+    """
+    text = "\n".join(
+        str(message.get("content") or "")
+        for message in (record.get("messages") or [])
+        if message.get("role") == "assistant"
+    ).lower()
+    text = SOURCE_ID_RE.sub(" ", text)
+    normalized = " ".join(TOKEN_RE.findall(text))
+    return str(record.get("task") or "<missing-task>"), normalized
+
+
+def deduplicate_training_supervision(records: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Keep the first deterministic supervision payload and report all later duplicates."""
+    kept: list[dict] = []
+    first_by_key: dict[tuple[str, str], dict] = {}
+    excluded: list[dict] = []
+    for record in records:
+        key = assistant_supervision_key(record)
+        if not key[1]:
+            kept.append(record)
+            continue
+        first = first_by_key.get(key)
+        if first is None:
+            first_by_key[key] = record
+            kept.append(record)
+            continue
+        excluded.append(
+            {
+                "id": str(record.get("id") or "<missing-id>"),
+                "profile_id": str(record.get("profile_id") or "<missing-profile>"),
+                "task": str(record.get("task") or "<missing-task>"),
+                "retained_id": str(first.get("id") or "<missing-id>"),
+                "retained_profile_id": str(first.get("profile_id") or "<missing-profile>"),
+                "source_ids": [str(x) for x in (record.get("source_ids") or [])],
+            }
+        )
+    return kept, excluded
+
+
 def evaluate(records: list[dict], tiers: dict[str, str], corpus) -> tuple[list[dict], dict]:
     eligible: list[dict] = []
     queues = {
@@ -99,8 +147,9 @@ def evaluate(records: list[dict], tiers: dict[str, str], corpus) -> tuple[list[d
         else:
             queues[status].append(detail)
 
+    deduplicated, duplicate_queue = deduplicate_training_supervision(eligible)
     report = {
-        "schema_version": "grow-doc-training-eligible-supervision-v1",
+        "schema_version": "grow-doc-training-eligible-supervision-v2",
         "policy": {
             "rag_first": True,
             "rag_corpus_mutated": False,
@@ -109,9 +158,13 @@ def evaluate(records: list[dict], tiers: dict[str, str], corpus) -> tuple[list[d
             "mixed_tier_behavior": "exclude from weight-training candidate lane; keep available for remediation/retrieval",
             "weak_only_behavior": "exclude from weight-training candidate lane; keep available for remediation/retrieval",
             "unknown_provenance_behavior": "hard error",
+            "exact_supervision_duplicate_behavior": "retain one deterministic record in weight-training lane; preserve canonical RAG/GQA records and provenance",
         },
         "candidate_examples": len(records),
-        "training_eligible_examples": len(eligible),
+        "training_eligible_examples_before_dedup": len(eligible),
+        "training_eligible_examples": len(deduplicated),
+        "exact_supervision_duplicates_excluded": len(duplicate_queue),
+        "exact_supervision_duplicate_queue": duplicate_queue,
         "mixed_tier_examples": counts["mixed_tier"],
         "weak_only_examples": counts["weak_only"],
         "unknown_provenance_examples": counts["unknown_provenance"],
@@ -121,7 +174,7 @@ def evaluate(records: list[dict], tiers: dict[str, str], corpus) -> tuple[list[d
         "unknown_provenance": queues["unknown_provenance"],
         "hard_errors": counts["unknown_provenance"],
     }
-    return eligible, report
+    return deduplicated, report
 
 
 def write_jsonl(path: pathlib.Path, rows: list[dict]) -> None:
@@ -163,16 +216,35 @@ def self_test() -> None:
         "url:https://example.edu/guide": "institutional_web",
         "url:https://example.com/report": "general_web",
     }
+    duplicate_answer_a = {
+        "id": "dup-a",
+        "task": "grounded_qa",
+        "profile_id": "p-a",
+        "source_ids": ["doi:10.x/strong"],
+        "messages": [{"role": "assistant", "content": "Shared supported statement. Citation: doi:10.x/strong"}],
+    }
+    duplicate_answer_b = {
+        "id": "dup-b",
+        "task": "grounded_qa",
+        "profile_id": "p-b",
+        "source_ids": ["url:https://example.edu/guide"],
+        "messages": [{"role": "assistant", "content": "Shared supported statement. Citation: url:https://example.edu/guide"}],
+    }
     records = [
         {"id": "a", "task": "science_education", "source_ids": ["DOI:10.X/STRONG"]},
         {"id": "b", "task": "grounded_qa", "source_ids": ["url:https://example.com/report"]},
         {"id": "c", "task": "grounded_diagnostic_reasoning", "source_ids": ["doi:10.x/strong", "url:https://example.com/report"]},
         {"id": "d", "task": "grounded_qa", "source_ids": ["doi:10.x/missing"]},
         {"id": "e", "task": "differential_and_next_test", "source_ids": ["url:https://example.edu/guide"]},
+        duplicate_answer_a,
+        duplicate_answer_b,
     ]
     eligible, report = evaluate(records, tiers, Corpus)
-    assert [row["id"] for row in eligible] == ["a", "e"]
-    assert report["training_eligible_examples"] == 2
+    assert [row["id"] for row in eligible] == ["a", "e", "dup-a"]
+    assert report["training_eligible_examples_before_dedup"] == 4
+    assert report["training_eligible_examples"] == 3
+    assert report["exact_supervision_duplicates_excluded"] == 1
+    assert report["exact_supervision_duplicate_queue"][0]["retained_id"] == "dup-a"
     assert report["weak_only_examples"] == 1
     assert report["mixed_tier_examples"] == 1
     assert report["unknown_provenance_examples"] == 1
