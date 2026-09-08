@@ -283,7 +283,7 @@ def train(output_dir: Path) -> None:
     model = get_peft_model(model, LoraConfig(r=32, lora_alpha=64, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM", target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]))
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    args = TrainingArguments(output_dir=str(output_dir), learning_rate=1e-4, lr_scheduler_type="cosine", warmup_ratio=0.05, num_train_epochs=2, per_device_train_batch_size=1, per_device_eval_batch_size=1, gradient_accumulation_steps=16, gradient_checkpointing=True, max_grad_norm=1.0, weight_decay=0.01, optim="paged_adamw_8bit", logging_steps=10, eval_strategy="steps", eval_steps=100, save_strategy="steps", save_steps=100, save_total_limit=3, bf16=True, tf32=True, seed=seed, data_seed=seed, report_to=[], load_best_model_at_end=False, remove_unused_columns=False)
+    args = TrainingArguments(output_dir=str(output_dir), learning_rate=1e-4, lr_scheduler_type="cosine", warmup_ratio=0.05, num_train_epochs=2, per_device_train_batch_size=1, per_device_eval_batch_size=1, gradient_accumulation_steps=16, gradient_checkpointing=True, max_grad_norm=1.0, weight_decay=0.01, optim="paged_adamw_8bit", logging_steps=10, eval_strategy="steps", eval_steps=100, save_strategy="steps", save_steps=100, save_total_limit=3, bf16=True, tf32=True, seed=seed, data_seed=seed, report_to=[], load_best_model_at_end=True, metric_for_best_model="eval_loss", greater_is_better=False, remove_unused_columns=False)
     trainer = Trainer(model=model, args=args, train_dataset=EncodedDataset(encoded_train), eval_dataset=EncodedDataset(encoded_dev), data_collator=Collator(tokenizer.pad_token_id))
     result = trainer.train()
     adapter_dir = output_dir / "adapter-final"
@@ -299,6 +299,9 @@ def train(output_dir: Path) -> None:
         "grounded_qa_train_rows": qa_rows, "dev_rows": len(dev_rows), "seed": seed, "packages": packages,
         "python": platform.python_version(), "platform": platform.platform(), "torch_cuda": torch.version.cuda,
         "gpu": torch.cuda.get_device_name(0), "hardware": hardware, "train_metrics": result.metrics, "adapter_path": str(adapter_dir),
+        "checkpoint_selection": "dev_eval_loss_then_external_heldout_promotion_gate",
+        "best_model_metric": trainer.state.best_metric,
+        "best_model_checkpoint": trainer.state.best_model_checkpoint,
         "adapter_merge_performed": False, "deployment_performed": False,
         "next_gate": "external heldout_v2 evaluation and promotion scorer",
     }
@@ -319,11 +322,18 @@ def self_test() -> None:
     assert scalar(text, "device_map") == "single_visible_gpu"
     assert scalar(text, "forbid_auto_device_map") == "true"
     assert scalar(text, "forbid_cpu_disk_offload") == "true"
+    assert scalar(text, "load_best_model_at_end") == "true"
+    assert scalar(text, "metric_for_best_model") == "eval_loss"
+    assert scalar(text, "greater_is_better") == "false"
+    assert scalar(text, "checkpoint_selection") == "dev_eval_loss_then_external_heldout_promotion_gate"
     trainer_text = Path(__file__).read_text(encoding="utf-8")
     auto_map_marker = "device_map=" + '"auto"'
     explicit_map_marker = "device_map=" + '{"": 0}'
     assert auto_map_marker not in trainer_text
     assert explicit_map_marker in trainer_text
+    assert "load_best_model_at_end=True" in trainer_text
+    assert 'metric_for_best_model="eval_loss"' in trainer_text
+    assert "greater_is_better=False" in trainer_text
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     print("Grow Doc QLoRA trainer self-test: PASS")
 
