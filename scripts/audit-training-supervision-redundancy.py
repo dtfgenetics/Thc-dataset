@@ -169,18 +169,22 @@ def run() -> dict:
 
 
 def self_test() -> None:
+    duplicate_text = (
+        "Magnesium supports chlorophyll function and deficiency can cause interveinal chlorosis "
+        "on older leaves while reducing photosynthetic performance in affected tissue. Citations: {}"
+    )
     records = [
         {
             "id": "a",
             "task": "science_education",
             "profile_id": "p1",
-            "messages": [{"role": "assistant", "content": "Magnesium supports chlorophyll function and deficiency can cause interveinal chlorosis on older leaves. Citations: doi:10.x/a"}],
+            "messages": [{"role": "assistant", "content": duplicate_text.format("doi:10.x/a")}],
         },
         {
             "id": "b",
             "task": "science_education",
             "profile_id": "p2",
-            "messages": [{"role": "assistant", "content": "Magnesium supports chlorophyll function and deficiency can cause interveinal chlorosis on older leaves. Citations: doi:10.x/b"}],
+            "messages": [{"role": "assistant", "content": duplicate_text.format("doi:10.x/b")}],
         },
         {
             "id": "c",
