@@ -1,0 +1,22 @@
+name: Validate Grow Doc Training Evidence Eligibility
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-training-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Self-test training evidence eligibility validator
+        run: python3 scripts/validate-model-training-evidence-eligibility.py --self-test
+      - name: Validate reviewed profile evidence eligibility
+        run: python3 scripts/validate-model-training-evidence-eligibility.py
