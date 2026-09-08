@@ -4,13 +4,23 @@ on:
   pull_request:
     paths:
       - 'model_tuning/eval/heldout_v3_candidates.jsonl'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/candidates/**'
+      - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
+      - 'scripts/audit-model-eval-candidate-leakage.py'
+      - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
   push:
     branches: [main]
     paths:
       - 'model_tuning/eval/heldout_v3_candidates.jsonl'
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/candidates/**'
+      - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
+      - 'scripts/audit-model-eval-candidate-leakage.py'
+      - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
 
 permissions:
@@ -26,3 +36,7 @@ jobs:
           python-version: '3.12'
       - name: Validate heldout-v3 candidate benchmark additions
         run: python scripts/validate-heldout-v3-candidates.py
+      - name: Self-test candidate leakage auditor
+        run: python scripts/audit-model-eval-candidate-leakage.py --self-test
+      - name: Audit candidate leakage against training, dev, and heldout-v2
+        run: python scripts/audit-model-eval-candidate-leakage.py
