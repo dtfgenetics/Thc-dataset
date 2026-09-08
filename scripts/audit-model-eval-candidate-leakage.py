@@ -27,6 +27,9 @@ DEFAULT_MANIFESTS = (
     ROOT / "model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json",
     ROOT / "model_tuning/eval/candidates/heldout_v3_expansion_v1.manifest.json",
 )
+DEFAULT_DIRECT_DATASETS = (
+    ROOT / "model_tuning/eval/heldout_v3_candidates.jsonl",
+)
 
 
 def load_module(path: pathlib.Path, name: str):
@@ -50,23 +53,30 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
     return rows
 
 
-def load_candidate_rows(manifests: list[pathlib.Path]) -> list[dict]:
+def load_candidate_rows(manifests: list[pathlib.Path], direct_datasets: list[pathlib.Path]) -> list[dict]:
     rows: list[dict] = []
     seen_ids: set[str] = set()
-    for manifest_path in manifests:
-        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        dataset_rel = manifest.get("dataset")
-        if not isinstance(dataset_rel, str) or not dataset_rel:
-            raise ValueError(f"{manifest_path}: missing dataset")
-        dataset_path = ROOT / dataset_rel
+
+    def add_rows(dataset_path: pathlib.Path) -> None:
         for row in load_jsonl(dataset_path):
             rid = row.get("id")
             if not isinstance(rid, str) or not rid:
                 raise ValueError(f"{dataset_path}: candidate missing id")
             if rid in seen_ids:
-                raise ValueError(f"duplicate candidate id across manifests: {rid}")
+                raise ValueError(f"duplicate candidate id across candidate datasets: {rid}")
             seen_ids.add(rid)
             rows.append(row)
+
+    for manifest_path in manifests:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        dataset_rel = manifest.get("dataset")
+        if not isinstance(dataset_rel, str) or not dataset_rel:
+            raise ValueError(f"{manifest_path}: missing dataset")
+        add_rows(ROOT / dataset_rel)
+
+    for dataset_path in direct_datasets:
+        add_rows(dataset_path)
+
     return rows
 
 
@@ -90,10 +100,15 @@ def eval_rows_as_training(rows: list[dict], lane: str) -> list[dict]:
     return converted
 
 
-def audit_all(input_path: pathlib.Path, heldout_path: pathlib.Path, manifests: list[pathlib.Path]) -> dict:
+def audit_all(
+    input_path: pathlib.Path,
+    heldout_path: pathlib.Path,
+    manifests: list[pathlib.Path],
+    direct_datasets: list[pathlib.Path],
+) -> dict:
     semantic = load_module(SEMANTIC_AUDIT, "grow_doc_candidate_leakage_semantic")
     training_rows, heldout_rows = semantic.build_current(input_path, heldout_path)
-    candidate_rows = load_candidate_rows(manifests)
+    candidate_rows = load_candidate_rows(manifests, direct_datasets)
 
     corpus_report = semantic.audit(training_rows, candidate_rows)
     heldout_report = semantic.audit(eval_rows_as_training(candidate_rows, "candidate_eval"), heldout_rows)
@@ -167,6 +182,7 @@ def main() -> int:
     parser.add_argument("--input", type=pathlib.Path, default=DEFAULT_INPUT)
     parser.add_argument("--heldout", type=pathlib.Path, default=DEFAULT_HELDOUT)
     parser.add_argument("--manifest", action="append", type=pathlib.Path, dest="manifests")
+    parser.add_argument("--candidate-dataset", action="append", type=pathlib.Path, dest="candidate_datasets")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
 
@@ -175,8 +191,9 @@ def main() -> int:
         return 0
 
     manifests = args.manifests or list(DEFAULT_MANIFESTS)
+    direct_datasets = args.candidate_datasets or list(DEFAULT_DIRECT_DATASETS)
     try:
-        report = audit_all(args.input, args.heldout, manifests)
+        report = audit_all(args.input, args.heldout, manifests, direct_datasets)
     except (OSError, RuntimeError, ValueError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
