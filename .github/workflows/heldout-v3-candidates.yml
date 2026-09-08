@@ -1,0 +1,28 @@
+name: Validate Grow Doc Heldout V3 Candidates
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/eval/heldout_v3_candidates.jsonl'
+      - 'scripts/validate-heldout-v3-candidates.py'
+      - '.github/workflows/heldout-v3-candidates.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/eval/heldout_v3_candidates.jsonl'
+      - 'scripts/validate-heldout-v3-candidates.py'
+      - '.github/workflows/heldout-v3-candidates.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate heldout-v3 candidate benchmark additions
+        run: python scripts/validate-heldout-v3-candidates.py
