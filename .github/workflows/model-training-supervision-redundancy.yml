@@ -1,0 +1,37 @@
+name: Audit Grow Doc training supervision redundancy
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/build-training-eligible-supervision.py'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/audit-training-supervision-redundancy.py'
+      - '.github/workflows/model-training-supervision-redundancy.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/build-training-eligible-supervision.py'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/audit-training-supervision-redundancy.py'
+      - '.github/workflows/model-training-supervision-redundancy.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test redundancy audit
+        run: python3 scripts/audit-training-supervision-redundancy.py --self-test
+      - name: Audit strong-evidence supervision lane
+        run: python3 scripts/audit-training-supervision-redundancy.py
