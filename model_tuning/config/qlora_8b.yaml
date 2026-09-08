@@ -88,8 +88,10 @@ training:
   seed: 420
   bf16: true
   tf32: true
-  load_best_model_at_end: false
-  checkpoint_selection: external_heldout_promotion_gate
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  greater_is_better: false
+  checkpoint_selection: dev_eval_loss_then_external_heldout_promotion_gate
 
 evaluation:
   heldout_path: model_tuning/eval/heldout_v2.jsonl
