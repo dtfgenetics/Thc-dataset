@@ -15,7 +15,7 @@ import pathlib
 import sys
 from collections import Counter, defaultdict
 from datetime import date
-from urllib.parse import urlsplit
+from urllib.parse import urlsplit, urlunsplit
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
@@ -40,6 +40,24 @@ def hostname(source: dict) -> str:
         return ""
     parsed = urlsplit(value)
     return (parsed.hostname or "").lower()
+
+
+def canonical_source_id(source: dict) -> str:
+    """Return a stable review identifier without asserting source equivalence beyond DOI/URL identity."""
+    doi = str(source.get("doi") or "").strip().lower()
+    doi = doi.removeprefix("https://doi.org/").removeprefix("http://doi.org/").removeprefix("doi:")
+    if doi:
+        return f"doi:{doi}"
+    raw_url = str(source.get("url") or "").strip()
+    if not raw_url:
+        return "missing-provenance"
+    parsed = urlsplit(raw_url)
+    scheme = (parsed.scheme or "https").lower()
+    host = (parsed.hostname or "").lower()
+    port = f":{parsed.port}" if parsed.port else ""
+    path = parsed.path.rstrip("/") or "/"
+    canonical = urlunsplit((scheme, host + port, path, parsed.query, ""))
+    return f"url:{canonical}"
 
 
 def evidence_tier(source: dict) -> str:
@@ -71,6 +89,21 @@ def source_year(source: dict) -> int | None:
         return None
 
 
+def remediation_item(profile_id: str, source_index: int, source: dict, tier: str, year: int | None) -> dict:
+    return {
+        "profile_id": profile_id,
+        "source_index": source_index,
+        "source_id": canonical_source_id(source),
+        "tier": tier,
+        "year": year,
+        "title": source.get("title"),
+        "organization": source.get("organization"),
+        "doi": source.get("doi"),
+        "url": source.get("url"),
+        "supported_claims": len(source.get("supportedClaims") or []),
+    }
+
+
 def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
     current_year = current_year or date.today().year
     tiers = Counter()
@@ -78,6 +111,8 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
     sources_total = 0
     supported_claims = 0
     age_review = []
+    general_web_review = []
+    missing_year_review = []
     missing_year = 0
     hard_errors = []
     profile_tiers: dict[str, Counter] = defaultdict(Counter)
@@ -101,21 +136,16 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
                 hard_errors.append(f"{pid}: source {index} has no supportedClaims")
 
             year = source_year(source)
+            item = remediation_item(pid, index, source, tier, year)
+            if tier == "general_web":
+                general_web_review.append(item)
             if year is None:
                 missing_year += 1
+                missing_year_review.append(item)
             elif year > current_year:
                 hard_errors.append(f"{pid}: source {index} has future publication year {year}")
             elif current_year - year >= AGE_REVIEW_YEARS:
-                age_review.append({
-                    "profile_id": pid,
-                    "source_index": index,
-                    "year": year,
-                    "age_years": current_year - year,
-                    "tier": tier,
-                    "title": source.get("title"),
-                    "doi": source.get("doi"),
-                    "url": source.get("url"),
-                })
+                age_review.append({**item, "age_years": current_year - year})
 
     profiles_without_doi = sorted(
         pid for pid, counts in profile_tiers.items() if counts["scholarly_doi"] == 0
@@ -128,8 +158,12 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
         and counts["institutional_web"] == 0
     )
 
+    general_web_review.sort(key=lambda row: (row["profile_id"], row["source_id"], row["source_index"]))
+    missing_year_review.sort(key=lambda row: (row["profile_id"], row["source_id"], row["source_index"]))
+    age_review.sort(key=lambda row: (-row["age_years"], row["profile_id"], row["source_id"]))
+
     return {
-        "schema_version": "grow-doc-source-evidence-audit-v1",
+        "schema_version": "grow-doc-source-evidence-audit-v2",
         "reviewed_profiles": reviewed_profile_count,
         "sources_audited": sources_total,
         "supported_claims_audited": supported_claims,
@@ -139,14 +173,18 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
             "institutional_web": "eligible supporting guidance; do not silently treat as peer-reviewed primary evidence",
             "general_web": "retrieval/support only unless independently reviewed and explicitly justified",
             "source_age": "review flag only; age alone does not invalidate primary evidence",
+            "missing_year": "review metadata gap; do not infer freshness from retrieval date",
             "automatic_training_mutation": False,
         },
         "profiles_without_doi": profiles_without_doi,
         "profiles_general_web_only": profiles_general_web_only,
+        "general_web_sources_requiring_review": len(general_web_review),
+        "general_web_remediation_queue": general_web_review,
         "missing_publication_year": missing_year,
+        "missing_year_remediation_queue": missing_year_review,
         "age_review_threshold_years": AGE_REVIEW_YEARS,
         "sources_requiring_age_scope_review": len(age_review),
-        "age_scope_review_examples": age_review[:20],
+        "age_scope_review_queue": age_review,
         "hard_errors": len(hard_errors),
         "errors": hard_errors,
     }
@@ -157,19 +195,25 @@ def self_test() -> None:
         "id": "p1",
         "reviewStatus": "reviewed",
         "sources": [
-            {"doi": "10.1234/example", "url": "https://doi.org/10.1234/example", "year": 2025, "supportedClaims": ["a"]},
+            {"doi": "10.1234/Example", "url": "https://doi.org/10.1234/Example", "year": 2025, "supportedClaims": ["a"]},
             {"url": "https://extension.example.edu/guide", "year": 2010, "supportedClaims": ["b"]},
-            {"url": "https://example.com/page", "year": 2024, "supportedClaims": ["c"]},
+            {"url": "https://Example.com/page/#fragment", "supportedClaims": ["c"]},
         ],
     }]
     report = audit(profiles, current_year=2026)
     assert report["hard_errors"] == 0
+    assert report["schema_version"] == "grow-doc-source-evidence-audit-v2"
     assert report["evidence_tiers"] == {
         "general_web": 1,
         "institutional_web": 1,
         "scholarly_doi": 1,
     }
     assert report["sources_requiring_age_scope_review"] == 1
+    assert report["general_web_sources_requiring_review"] == 1
+    assert report["general_web_remediation_queue"][0]["source_id"] == "url:https://example.com/page"
+    assert report["missing_publication_year"] == 1
+    assert report["missing_year_remediation_queue"][0]["profile_id"] == "p1"
+    assert canonical_source_id({"doi": "https://doi.org/10.1234/Example"}) == "doi:10.1234/example"
 
     bad = [{"id": "p2", "reviewStatus": "reviewed", "sources": [{"supportedClaims": []}]}]
     assert audit(bad, current_year=2026)["hard_errors"] == 2
