@@ -171,10 +171,17 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("adapter merge unlock condition must require measured multi-slice improvement")
     if bool_value(scalar(merge_policy, "reject_if_any_critical_slice_regresses")) is not True:
         errors.append("critical-slice regression rejection must remain enabled")
-    if bool_value(scalar(training, "load_best_model_at_end")) is not False:
-        errors.append("load_best_model_at_end must stay false until in-training eval integration exists")
-    if scalar(training, "checkpoint_selection") != "external_heldout_promotion_gate":
-        errors.append("training.checkpoint_selection must use the external held-out promotion gate")
+
+    if bool_value(scalar(training, "load_best_model_at_end")) is not True:
+        errors.append("load_best_model_at_end must be true now that a separate dev set is integrated")
+    if scalar(training, "metric_for_best_model") != "eval_loss":
+        errors.append("training.metric_for_best_model must be eval_loss for within-run checkpoint selection")
+    if bool_value(scalar(training, "greater_is_better")) is not False:
+        errors.append("training.greater_is_better must be false for eval_loss")
+    if scalar(training, "checkpoint_selection") != "dev_eval_loss_then_external_heldout_promotion_gate":
+        errors.append("training.checkpoint_selection must select on dev eval_loss, then use held-out only for external promotion")
+    if scalar(training, "eval_steps") != scalar(training, "save_steps"):
+        errors.append("training.eval_steps must equal save_steps so every selectable checkpoint has a dev evaluation")
 
     targets = set(list_items(lora, "target_modules"))
     required_targets = {"q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"}
@@ -213,8 +220,16 @@ def self_test() -> None:
     assert any("enable_thinking" in error for error in validate_text(tampered))
     tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false\n", "")
     assert any("enable_thinking" in error for error in validate_text(tampered))
-    tampered = base.replace("load_best_model_at_end: false", "load_best_model_at_end: true")
+    tampered = base.replace("load_best_model_at_end: true", "load_best_model_at_end: false")
     assert any("load_best_model_at_end" in error for error in validate_text(tampered))
+    tampered = base.replace("metric_for_best_model: eval_loss", "metric_for_best_model: train_loss")
+    assert any("metric_for_best_model" in error for error in validate_text(tampered))
+    tampered = base.replace("greater_is_better: false", "greater_is_better: true")
+    assert any("greater_is_better" in error for error in validate_text(tampered))
+    tampered = base.replace("checkpoint_selection: dev_eval_loss_then_external_heldout_promotion_gate", "checkpoint_selection: external_heldout_promotion_gate")
+    assert any("checkpoint_selection" in error for error in validate_text(tampered))
+    tampered = base.replace("save_steps: 100", "save_steps: 200")
+    assert any("eval_steps" in error for error in validate_text(tampered))
 
     current_qa_path = scalar(section(base, "training_data"), "grounded_qa_path")
     assert current_qa_path, "grounded_qa_path missing from baseline config"
