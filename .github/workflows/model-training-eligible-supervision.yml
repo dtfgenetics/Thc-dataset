@@ -1,0 +1,26 @@
+name: Validate Grow Doc Training-Eligible Supervision
+
+on:
+  pull_request:
+    paths:
+      - 'data/**'
+      - 'model_tuning/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/build-training-eligible-supervision.py'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - '.github/workflows/model-training-eligible-supervision.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-training-evidence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test training-eligible builder
+        run: python3 scripts/build-training-eligible-supervision.py --self-test
+      - name: Validate current strong-evidence supervision lane
+        run: python3 scripts/build-training-eligible-supervision.py --check-only
