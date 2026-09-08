@@ -21,6 +21,25 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 AGE_REVIEW_YEARS = 10
 
+# These non-.edu/.gov hosts are explicitly verified institutional/Extension publication
+# surfaces. Keep this list narrow and evidence-based rather than inferring authority from
+# arbitrary organization strings.
+VERIFIED_INSTITUTIONAL_HOSTS = {
+    "pnwhandbooks.org",
+    "www.pnwhandbooks.org",
+    "onspecialtycrops.ca",
+    "www.onspecialtycrops.ca",
+}
+
+# Some universities serve PDFs through third-party/CDN hosts. In those cases, require an
+# explicit institutional publisher/organization identity in the source metadata.
+VERIFIED_INSTITUTIONAL_ORG_MARKERS = (
+    "cornell university",
+    "ontario ministry of agriculture",
+    "pacific northwest pest management handbooks",
+    "pacific northwest plant disease management handbook",
+)
+
 
 def load_jsonl(path: pathlib.Path) -> list[dict]:
     rows = []
@@ -72,6 +91,15 @@ def evidence_tier(source: dict) -> str:
         "usda.gov", "epa.gov", "who.int", "fao.org",
     )
     if any(marker in host for marker in institutional_markers):
+        return "institutional_web"
+    if host in VERIFIED_INSTITUTIONAL_HOSTS:
+        return "institutional_web"
+
+    attribution = " ".join(
+        str(source.get(field) or "").strip().lower()
+        for field in ("organization", "publisher")
+    )
+    if any(marker in attribution for marker in VERIFIED_INSTITUTIONAL_ORG_MARKERS):
         return "institutional_web"
     return "general_web"
 
@@ -163,7 +191,7 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
     age_review.sort(key=lambda row: (-row["age_years"], row["profile_id"], row["source_id"]))
 
     return {
-        "schema_version": "grow-doc-source-evidence-audit-v2",
+        "schema_version": "grow-doc-source-evidence-audit-v3",
         "reviewed_profiles": reviewed_profile_count,
         "sources_audited": sources_total,
         "supported_claims_audited": supported_claims,
@@ -172,6 +200,7 @@ def audit(profiles: list[dict], *, current_year: int | None = None) -> dict:
             "scholarly_doi": "stable scholarly identity; study quality still requires claim-level review",
             "institutional_web": "eligible supporting guidance; do not silently treat as peer-reviewed primary evidence",
             "general_web": "retrieval/support only unless independently reviewed and explicitly justified",
+            "institutional_classification": "standard academic/government domains plus narrow verified Extension/publication hosts and explicit institutional attribution",
             "source_age": "review flag only; age alone does not invalidate primary evidence",
             "missing_year": "review metadata gap; do not infer freshness from retrieval date",
             "automatic_training_mutation": False,
@@ -202,7 +231,7 @@ def self_test() -> None:
     }]
     report = audit(profiles, current_year=2026)
     assert report["hard_errors"] == 0
-    assert report["schema_version"] == "grow-doc-source-evidence-audit-v2"
+    assert report["schema_version"] == "grow-doc-source-evidence-audit-v3"
     assert report["evidence_tiers"] == {
         "general_web": 1,
         "institutional_web": 1,
@@ -214,6 +243,19 @@ def self_test() -> None:
     assert report["missing_publication_year"] == 1
     assert report["missing_year_remediation_queue"][0]["profile_id"] == "p1"
     assert canonical_source_id({"doi": "https://doi.org/10.1234/Example"}) == "doi:10.1234/example"
+
+    assert evidence_tier({
+        "url": "https://pnwhandbooks.org/plantdisease/example",
+        "organization": "Pacific Northwest Pest Management Handbooks",
+    }) == "institutional_web"
+    assert evidence_tier({
+        "url": "https://bpb-us-e1.wpmucdn.com/example.pdf",
+        "organization": "Cornell University Plant Disease Diagnostic Clinic",
+    }) == "institutional_web"
+    assert evidence_tier({
+        "url": "https://onspecialtycrops.ca/example",
+        "publisher": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+    }) == "institutional_web"
 
     bad = [{"id": "p2", "reviewStatus": "reviewed", "sources": [{"supportedClaims": []}]}]
     assert audit(bad, current_year=2026)["hard_errors"] == 2
