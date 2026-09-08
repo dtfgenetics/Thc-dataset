@@ -1,0 +1,52 @@
+name: Validate Grow Doc Base Model Research Registry
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/config/base_model_research_*.json'
+      - 'scripts/validate-base-model-research.py'
+      - '.github/workflows/validate-base-model-research.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/config/base_model_research_*.json'
+      - 'scripts/validate-base-model-research.py'
+      - '.github/workflows/validate-base-model-research.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validate research candidate promotion contracts
+        run: python scripts/validate-base-model-research.py
+      - name: Self-test unsafe promotion is rejected
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          src = Path('model_tuning/config/base_model_research_2026-09-08.json')
+          data = json.loads(src.read_text())
+          data['candidates'][0]['benchmark_eligible'] = True
+          data['candidates'][0]['training_eligible'] = True
+          with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
+              json.dump(data, f)
+              temp = f.name
+          result = subprocess.run(
+              ['python', 'scripts/validate-base-model-research.py', temp],
+              text=True,
+              capture_output=True,
+          )
+          if result.returncode == 0:
+              raise SystemExit('validator incorrectly accepted an unverified promotion')
+          print('Unsafe promotion correctly rejected.')
+          PY
