@@ -34,4 +34,14 @@ jobs:
       - name: Self-test redundancy audit
         run: python3 scripts/audit-training-supervision-redundancy.py --self-test
       - name: Audit strong-evidence supervision lane
-        run: python3 scripts/audit-training-supervision-redundancy.py
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/audit-training-supervision-redundancy.py | tee training-supervision-redundancy-report.json
+      - name: Upload redundancy report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: training-supervision-redundancy-report
+          path: training-supervision-redundancy-report.json
+          if-no-files-found: warn
