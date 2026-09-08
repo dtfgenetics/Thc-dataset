@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-08",
+  "purpose": "Research-only candidate update. Entries are not benchmark-eligible or training-eligible until exact runtime, prompt, revision, hardware, and frozen heldout/RAG contracts are verified.",
+  "selection_policy": {
+    "rag_first": true,
+    "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
+    "required_slices": ["factuality", "diagnostic", "hallucination", "citation_accuracy", "science", "education", "grounded_qa", "regression"],
+    "promotion_rule": "Compare on identical frozen heldout and RAG snapshots. Do not train, merge, soup, or promote from upstream benchmark claims alone."
+  },
+  "candidates": [
+    {
+      "id": "qwen3-6-35b-a3b-research",
+      "repo_id": "Qwen/Qwen3.6-35B-A3B",
+      "license": "apache-2.0",
+      "architecture": "MoE, 35B total / 3B activated",
+      "native_context": 262144,
+      "observed_revision": "53c43178507d69762986fbfa314f6e8d4d859409",
+      "upstream_evidence": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+      "role": "current-generation sparse challenger",
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "blockers": [
+        "freeze tokenizer/processor and chat-template hashes",
+        "verify deterministic decoding contract for Grow Doc evaluation",
+        "verify compatible pinned Transformers/PEFT/bitsandbytes runtime",
+        "verify BF16/quantized hardware envelope",
+        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+      ],
+      "notes": "Upstream reports 35B total parameters with 3B activated and Apache-2.0 licensing. Treat upstream benchmark tables as discovery evidence only, not Grow Doc evaluation results."
+    },
+    {
+      "id": "qwen3-8-27b-research",
+      "repo_id": "Qwen/Qwen3.8-27B",
+      "license": "apache-2.0",
+      "observed_revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "upstream_evidence": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "role": "newer dense quality-ceiling challenger",
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "known_prompt_risk": "An upstream discussion reproduces empty historical thinking wrappers against the observed revision; do not freeze this revision without template verification or an explicitly vendored immutable template.",
+      "blockers": [
+        "resolve and verify chat-template historical-thinking behavior",
+        "freeze exact revision/tokenizer/processor/template hashes",
+        "verify deterministic decoding and dependency contracts",
+        "verify hardware envelope",
+        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+      ],
+      "notes": "Research-only. Newer version number is not evidence of better Grow Doc factuality or diagnostics; it must beat the frozen Qwen3-8B baseline under the project benchmark contract."
+    }
+  ]
+}
