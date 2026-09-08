@@ -25,6 +25,7 @@
     "validate:model-eval-coverage": "python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v1.jsonl && python3 scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v2.jsonl --require-replicated-slices && python3 scripts/audit-model-eval-coverage.py --self-test",
     "validate:model-corpus-quality": "python3 scripts/audit-model-corpus-quality.py && python3 scripts/audit-model-corpus-quality.py --self-test",
     "validate:model-source-evidence-quality": "python3 scripts/audit-model-source-evidence-quality.py && python3 scripts/audit-model-source-evidence-quality.py --self-test",
+    "validate:model-example-evidence-tiers": "python3 scripts/audit-model-example-evidence-tiers.py && python3 scripts/audit-model-example-evidence-tiers.py --self-test",
     "validate:model-semantic-leakage": "python3 scripts/audit-model-semantic-leakage.py && python3 scripts/audit-model-semantic-leakage.py --self-test",
     "validate:model-corpus": "python3 scripts/build-model-corpus.py --check-only",
     "validate:grounded-qa": "python3 scripts/build-grounded-qa.py --check-only && python3 scripts/build-grounded-qa.py --self-test",

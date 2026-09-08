@@ -1,0 +1,28 @@
+name: Model Example Evidence Tier Audit
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/eval/**'
+      - 'scripts/build-model-corpus.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/audit-model-example-evidence-tiers.py'
+      - 'package.json'
+      - '.github/workflows/model-example-evidence-tier-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Audit generated supervision evidence tiers
+        run: npm run validate:model-example-evidence-tiers
