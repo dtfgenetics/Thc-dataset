@@ -20,14 +20,30 @@
       "role": "current-generation sparse challenger",
       "benchmark_eligible": false,
       "training_eligible": false,
+      "upstream_runtime_observations": {
+        "model_class": "AutoModelForMultimodalLM",
+        "transformers_architecture": "qwen3_5_moe",
+        "generation_config": {
+          "do_sample": true,
+          "temperature": 1.0,
+          "top_k": 20,
+          "top_p": 0.95,
+          "bos_token_id": 248044,
+          "pad_token_id": 248044,
+          "eos_token_id": [248046, 248044]
+        },
+        "non_thinking_switch": "chat_template_kwargs.enable_thinking=false",
+        "thinking_history_option": "chat_template_kwargs.preserve_thinking=true",
+        "evaluation_note": "Upstream generation defaults are sampling-based. Grow Doc deterministic evaluation must explicitly freeze its own decoding contract rather than inherit mutable/default sampling behavior."
+      },
       "blockers": [
-        "freeze tokenizer/processor and chat-template hashes",
-        "verify deterministic decoding contract for Grow Doc evaluation",
-        "verify compatible pinned Transformers/PEFT/bitsandbytes runtime",
+        "freeze tokenizer/processor and chat-template hashes at observed_revision",
+        "freeze an explicit deterministic Grow Doc decoding contract; do not inherit upstream sampling defaults",
+        "verify compatible pinned Transformers/PEFT/bitsandbytes runtime for qwen3_5_moe",
         "verify BF16/quantized hardware envelope",
         "bind exact revision to frozen heldout-v2 and RAG snapshot"
       ],
-      "notes": "Upstream reports 35B total parameters with 3B activated and Apache-2.0 licensing. Treat upstream benchmark tables as discovery evidence only, not Grow Doc evaluation results."
+      "notes": "Upstream reports 35B total parameters with 3B activated and Apache-2.0 licensing. Treat upstream benchmark tables as discovery evidence only, not Grow Doc evaluation results. Runtime observations document upstream behavior but do not make this candidate benchmark-eligible."
     },
     {
       "id": "qwen3-8-27b-research",
