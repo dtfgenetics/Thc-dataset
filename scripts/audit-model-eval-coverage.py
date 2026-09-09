@@ -127,10 +127,11 @@ def audit(rows: list[dict], *, require_replicated_slices: bool = False) -> dict:
             errors.append(f"{label}: source_metadata requires DOI or URL")
             continue
         metadata_ids = metadata_evidence_ids(source)
-        if required_citations and metadata_ids and required_citations.isdisjoint(metadata_ids):
+        missing_metadata_citations = sorted(required_citations - metadata_ids)
+        if missing_metadata_citations:
             errors.append(
-                f"{label}: source_metadata provenance does not match any must_cite identity; "
-                f"metadata={sorted(metadata_ids)} must_cite={sorted(required_citations)}"
+                f"{label}: every must_cite identity must be represented by source_metadata; "
+                f"missing={missing_metadata_citations} metadata={sorted(metadata_ids)}"
             )
 
     source_ids = {
@@ -230,8 +231,15 @@ def run_self_test() -> None:
     mismatched_provenance = _fixture(replicated=True)
     mismatched_provenance[0]["source_metadata"]["doi"] = "10.0000/unrelated-source"
     result = audit(mismatched_provenance, require_replicated_slices=True)
-    if not any("source_metadata provenance does not match any must_cite identity" in error for error in result["errors"]):
+    if not any("every must_cite identity must be represented by source_metadata" in error for error in result["errors"]):
         raise SystemExit("self-test did not reject mismatched citation/source provenance")
+
+    partial_mismatch = _fixture(replicated=True)
+    original = partial_mismatch[0]["must_cite"][0]
+    partial_mismatch[0]["must_cite"] = [original, "doi:10.0000/unsupported-extra-source"]
+    result = audit(partial_mismatch, require_replicated_slices=True)
+    if not any("unsupported-extra-source" in error for error in result["errors"]):
+        raise SystemExit("self-test did not reject a partially unsupported must_cite set")
 
     legacy = _fixture(replicated=False)
     while len(legacy) < 12:
