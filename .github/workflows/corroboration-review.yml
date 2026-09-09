@@ -1,0 +1,27 @@
+name: Validate Grow Doc Corroboration Review Queue
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'scripts/build-corroboration-review-queue.py'
+      - '.github/workflows/corroboration-review.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'scripts/build-corroboration-review-queue.py'
+      - '.github/workflows/corroboration-review.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate corroboration candidate generation
+        run: |
+          python3 scripts/build-corroboration-review-queue.py --self-test
+          python3 scripts/build-corroboration-review-queue.py --check-only
