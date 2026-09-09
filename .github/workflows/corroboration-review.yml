@@ -24,4 +24,21 @@ jobs:
       - name: Validate corroboration candidate generation
         run: |
           python3 scripts/build-corroboration-review-queue.py --self-test
-          python3 scripts/build-corroboration-review-queue.py --check-only
+          python3 scripts/build-corroboration-review-queue.py
+          test -f model_tuning/generated/corroboration/review_queue_v1.jsonl
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          path = Path('model_tuning/generated/corroboration/review_queue_v1.jsonl')
+          rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
+          assert all(row.get('auto_merge') is False for row in rows)
+          assert all(row.get('review_status') == 'pending_proposition_equivalence_review' for row in rows)
+          print(json.dumps({'persisted_review_candidates': len(rows), 'auto_merged': 0}, sort_keys=True))
+          PY
+      - name: Upload corroboration review queue
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-corroboration-review-queue
+          path: model_tuning/generated/corroboration/review_queue_v1.jsonl
+          if-no-files-found: error
+          retention-days: 14
