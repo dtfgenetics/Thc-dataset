@@ -79,7 +79,10 @@ def candidate_pairs(profiles: list[dict], min_jaccard: float, min_sequence: floa
                 claims.append((sid, claim.strip(), source_meta(source)))
         for i, (sid_a, claim_a, meta_a) in enumerate(claims):
             for sid_b, claim_b, meta_b in claims[i + 1 :]:
-                if sid_a == sid_b or norm(claim_a) == norm(claim_b):
+                # Same-source duplication is never independent corroboration. Exact normalized
+                # claims from different canonical sources, however, are valuable review targets
+                # and must not be discarded before proposition-equivalence review.
+                if sid_a == sid_b:
                     continue
                 jac = token_jaccard(claim_a, claim_b)
                 seq = SequenceMatcher(None, norm(claim_a), norm(claim_b)).ratio()
@@ -118,21 +121,28 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
 
 
 def self_test() -> None:
+    exact_claim = "Older lower leaves first develop yellow-green lesions that later become necrotic."
     profile = {
         "id": "p1", "name": "Leaf spot", "category": "pathogen", "reviewStatus": "reviewed",
         "sources": [
-            {"title": "A", "doi": "10.1234/a", "supportedClaims": ["Older lower leaves first develop yellow-green lesions that later become necrotic.", "Older lower leaves first develop yellow-green lesions that later become necrotic."]},
+            {"title": "A", "doi": "10.1234/a", "supportedClaims": [exact_claim, exact_claim]},
             {"title": "B", "url": "https://doi.org/10.5678/b", "supportedClaims": ["Older lower leaves first develop yellow-green lesions that later progress to necrosis."]},
             {"title": "C", "doi": "10.9999/c", "supportedClaims": ["This unrelated sentence describes a different mechanism entirely."]},
+            {"title": "D", "doi": "10.7777/d", "supportedClaims": [exact_claim]},
         ],
     }
     rows = candidate_pairs([profile], 0.45, 0.55)
-    assert len(rows) == 1
-    row = rows[0]
-    assert row["source_a"]["canonical_source_id"] == "doi:10.1234/a"
-    assert row["source_b"]["canonical_source_id"] == "doi:10.5678/b"
-    assert row["auto_merge"] is False
-    assert row["review_status"] == "pending_proposition_equivalence_review"
+    assert len(rows) == 3
+    assert all(row["auto_merge"] is False for row in rows)
+    assert all(row["review_status"] == "pending_proposition_equivalence_review" for row in rows)
+    exact_rows = [row for row in rows if norm(row["claim_a"]) == norm(row["claim_b"])]
+    assert len(exact_rows) == 1
+    exact_row = exact_rows[0]
+    exact_ids = {
+        exact_row["source_a"]["canonical_source_id"],
+        exact_row["source_b"]["canonical_source_id"],
+    }
+    assert exact_ids == {"doi:10.1234/a", "doi:10.7777/d"}
     print("Corroboration review queue self-test: PASS")
 
 
