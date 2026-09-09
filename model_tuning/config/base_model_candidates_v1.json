@@ -88,6 +88,72 @@
       "notes": "Official current-generation 9B challenger. The inspected upstream revision 1045d9897c423faab1b15e4fbb5e40df97a2780f still renders historical assistant think wrappers without requiring non-empty reasoning content. An upstream discussion proposes a fix, but this registry does not assume that proposal is merged into a benchmark-safe revision. Benchmark promotion remains blocked until a defect-free exact revision/template or an explicitly vendored immutable template is verified along with decoding, dependencies, hardware, and frozen heldout/RAG bindings."
     },
     {
+      "id": "qwen3-6-35b-a3b-research",
+      "repo_id": "Qwen/Qwen3.6-35B-A3B",
+      "role": "sparse_current_generation_quality_challenger",
+      "research_status": "active_research",
+      "evidence_checked_at": "2026-09-09",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+      "gated": false,
+      "revision": null,
+      "tokenizer_revision": null,
+      "chat_template_sha256": null,
+      "runtime_contract_frozen": false,
+      "prompt_contract": {
+        "source_revision_observed": "53c43178507d69762986fbfa314f6e8d4d859409",
+        "known_prompt_defects": [],
+        "defect_evidence": []
+      },
+      "pin_readiness": {
+        "exact_revision_verified": false,
+        "tokenizer_or_processor_verified": false,
+        "chat_template_verified": false,
+        "decoding_contract_verified": false,
+        "dependency_lock_verified": false,
+        "hardware_contract_verified": false,
+        "heldout_rag_binding_verified": false
+      },
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "notes": "Research-only sparse challenger. Upstream documents Apache-2.0 licensing and multimodal AutoModelForMultimodalLM usage, but Grow Doc must freeze the exact tokenizer/processor/template hashes, deterministic decoding, compatible runtime, hardware envelope, and heldout/RAG bindings before any benchmark eligibility. Upstream benchmark claims are discovery evidence only."
+    },
+    {
+      "id": "qwen3-8-27b-research",
+      "repo_id": "Qwen/Qwen3.8-27B",
+      "role": "newer_dense_quality_ceiling_challenger",
+      "research_status": "active_research",
+      "evidence_checked_at": "2026-09-09",
+      "license": "apache-2.0",
+      "license_source": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "gated": false,
+      "revision": null,
+      "tokenizer_revision": null,
+      "chat_template_sha256": null,
+      "runtime_contract_frozen": false,
+      "prompt_contract": {
+        "source_revision_observed": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+        "known_prompt_defects": [
+          "empty_historical_think_blocks"
+        ],
+        "defect_evidence": [
+          "https://huggingface.co/Qwen/Qwen3.8-27B/discussions/48"
+        ]
+      },
+      "pin_readiness": {
+        "exact_revision_verified": false,
+        "tokenizer_or_processor_verified": false,
+        "chat_template_verified": false,
+        "decoding_contract_verified": false,
+        "dependency_lock_verified": false,
+        "hardware_contract_verified": false,
+        "heldout_rag_binding_verified": false
+      },
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "notes": "Research-only dense challenger. The observed upstream revision has a documented historical empty-thinking-wrapper defect under review, so chat-template verification remains blocked. Newer versioning or upstream benchmark scores are not evidence of Grow Doc improvement. It must first freeze an exact defect-free or vendored prompt contract plus deterministic decoding, dependency, hardware, and heldout/RAG bindings, then beat the pinned Qwen3-8B baseline on the same frozen benchmark."
+    },
+    {
       "id": "gemma3-12b-it-research",
       "repo_id": "google/gemma-3-12b-it",
       "role": "second_family_legacy_comparison",
