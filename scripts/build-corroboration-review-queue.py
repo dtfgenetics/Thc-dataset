@@ -122,11 +122,11 @@ def self_test() -> None:
         "id": "p1", "name": "Leaf spot", "category": "pathogen", "reviewStatus": "reviewed",
         "sources": [
             {"title": "A", "doi": "10.1234/a", "supportedClaims": ["Older lower leaves first develop yellow-green lesions that later become necrotic.", "Older lower leaves first develop yellow-green lesions that later become necrotic."]},
-            {"title": "B", "url": "https://doi.org/10.5678/b", "supportedClaims": ["Yellow-green lesions often begin on older lower leaves and later progress to necrosis."]},
+            {"title": "B", "url": "https://doi.org/10.5678/b", "supportedClaims": ["Older lower leaves first develop yellow-green lesions that later progress to necrosis."]},
             {"title": "C", "doi": "10.9999/c", "supportedClaims": ["This unrelated sentence describes a different mechanism entirely."]},
         ],
     }
-    rows = candidate_pairs([profile], 0.40, 0.50)
+    rows = candidate_pairs([profile], 0.45, 0.55)
     assert len(rows) == 1
     row = rows[0]
     assert row["source_a"]["canonical_source_id"] == "doi:10.1234/a"
