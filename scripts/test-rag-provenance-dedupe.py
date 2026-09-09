@@ -66,4 +66,37 @@ assert result["profile_ids"] == ["profile-a", "profile-b"]
 assert len(builder.canonical_sources(result["source_ids"])) == 1
 assert merged_links >= 2, "profile and alias provenance should both remain traceable"
 
+# A repeated claim from two genuinely independent sources in the same profile must survive
+# per-profile construction long enough for global exact-claim dedupe to consolidate both sources.
+shared_claim = "Independent studies can support the same normalized cultivation claim."
+profile = {
+    "id": "profile-multisource",
+    "name": "Synthetic multisource profile",
+    "category": "test",
+    "reviewStatus": "reviewed",
+    "sources": [
+        {
+            "title": "Independent paper A",
+            "doi": "10.1234/growdoc.a",
+            "supportedClaims": [shared_claim, shared_claim],
+        },
+        {
+            "title": "Independent paper B",
+            "doi": "10.1234/growdoc.b",
+            "supportedClaims": [shared_claim],
+        },
+    ],
+}
+profile_rows, quarantine = builder.make_rag(profile)
+assert quarantine == []
+assert len(profile_rows) == 2, "duplicate claim text should dedupe within one source, not across independent sources"
+consolidated, duplicate_claims, _ = builder.dedupe_rag(profile_rows)
+assert duplicate_claims == 1
+assert len(consolidated) == 1
+assert builder.canonical_sources(consolidated[0]["source_ids"]) == {
+    "doi:10.1234/growdoc.a",
+    "doi:10.1234/growdoc.b",
+}
+assert len(consolidated[0]["sources"]) == 2
+
 print("RAG provenance dedupe regression: PASS")

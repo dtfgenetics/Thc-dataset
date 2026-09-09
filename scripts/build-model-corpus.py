@@ -115,9 +115,10 @@ def source_metadata(source: dict) -> dict:
 def make_rag(profile: dict) -> tuple[list[dict], list[dict]]:
     good = []
     quarantine = []
-    seen = set()
+    seen_claim_sources: set[tuple[str, str]] = set()
     for source in profile.get("sources") or []:
         sid = source_id(source)
+        canonical_sid = canonical_source_identity(sid) or sid
         claims = source.get("supportedClaims") or []
         if not (source.get("doi") or source.get("url")) or not claims:
             quarantine.append(
@@ -130,9 +131,10 @@ def make_rag(profile: dict) -> tuple[list[dict], list[dict]]:
             continue
         for claim in claims:
             key = norm(claim)
-            if not key or key in seen:
+            claim_source_key = (key, canonical_sid)
+            if not key or claim_source_key in seen_claim_sources:
                 continue
-            seen.add(key)
+            seen_claim_sources.add(claim_source_key)
             metadata = source_metadata(source)
             good.append(
                 {
