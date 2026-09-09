@@ -26,19 +26,36 @@ jobs:
           python3 scripts/build-corroboration-review-queue.py --self-test
           python3 scripts/build-corroboration-review-queue.py
           test -f model_tuning/generated/corroboration/review_queue_v1.jsonl
+          test -f model_tuning/generated/corroboration/discovery_queue_v1.jsonl
           python3 - <<'PY'
           import json
           from pathlib import Path
-          path = Path('model_tuning/generated/corroboration/review_queue_v1.jsonl')
-          rows = [json.loads(line) for line in path.read_text(encoding='utf-8').splitlines() if line.strip()]
-          assert all(row.get('auto_merge') is False for row in rows)
-          assert all(row.get('review_status') == 'pending_proposition_equivalence_review' for row in rows)
-          print(json.dumps({'persisted_review_candidates': len(rows), 'auto_merged': 0}, sort_keys=True))
+
+          strict_path = Path('model_tuning/generated/corroboration/review_queue_v1.jsonl')
+          discovery_path = Path('model_tuning/generated/corroboration/discovery_queue_v1.jsonl')
+          strict_rows = [json.loads(line) for line in strict_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+          discovery_rows = [json.loads(line) for line in discovery_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+
+          assert all(row.get('auto_merge') is False for row in strict_rows)
+          assert all(row.get('review_status') == 'pending_proposition_equivalence_review' for row in strict_rows)
+          assert all(row.get('auto_merge') is False for row in discovery_rows)
+          assert all(row.get('eligible_for_corroboration') is False for row in discovery_rows)
+          assert all(row.get('eligible_for_training') is False for row in discovery_rows)
+          assert all(row.get('review_status') == 'discovery_only_not_evidence' for row in discovery_rows)
+          assert all(row.get('discovery_reason') == 'below_strict_corroboration_thresholds' for row in discovery_rows)
+          print(json.dumps({
+              'persisted_review_candidates': len(strict_rows),
+              'persisted_discovery_candidates': len(discovery_rows),
+              'auto_merged': 0,
+              'training_promoted': 0,
+          }, sort_keys=True))
           PY
-      - name: Upload corroboration review queue
+      - name: Upload corroboration review queues
         uses: actions/upload-artifact@v4
         with:
-          name: grow-doc-corroboration-review-queue
-          path: model_tuning/generated/corroboration/review_queue_v1.jsonl
+          name: grow-doc-corroboration-review-queues
+          path: |
+            model_tuning/generated/corroboration/review_queue_v1.jsonl
+            model_tuning/generated/corroboration/discovery_queue_v1.jsonl
           if-no-files-found: error
           retention-days: 14
