@@ -48,6 +48,14 @@ def metadata_evidence_ids(source: dict) -> set[str]:
         identities.add(canonical_source_id(f"doi:{doi}"))
     if url:
         identities.add(canonical_source_id(f"url:{url}"))
+    for extra_doi in source.get("additional_dois") or []:
+        extra_doi = str(extra_doi).strip()
+        if extra_doi:
+            identities.add(canonical_source_id(f"doi:{extra_doi}"))
+    for extra_url in source.get("additional_urls") or []:
+        extra_url = str(extra_url).strip()
+        if extra_url:
+            identities.add(canonical_source_id(f"url:{extra_url}"))
     return identities - {""}
 
 
@@ -212,6 +220,14 @@ def run_self_test() -> None:
     result = audit(good, require_replicated_slices=True)
     if result["errors"]:
         raise SystemExit(f"self-test valid promotion fixture failed: {result['errors']}")
+
+    multi_source = _fixture(replicated=True)
+    original = multi_source[0]["must_cite"][0]
+    multi_source[0]["must_cite"] = [original, "doi:10.0000/additional-supported-source"]
+    multi_source[0]["source_metadata"]["additional_dois"] = ["10.0000/additional-supported-source"]
+    result = audit(multi_source, require_replicated_slices=True)
+    if result["errors"]:
+        raise SystemExit(f"self-test multi-source provenance fixture failed: {result['errors']}")
 
     bad = _fixture(replicated=True)
     bad = [r for r in bad if not (r["category"] == "hallucination" and r["id"].startswith("case-1-"))]
