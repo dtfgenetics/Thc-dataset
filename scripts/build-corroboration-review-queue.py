@@ -194,7 +194,7 @@ def self_test() -> None:
             {"title": "B", "url": "https://doi.org/10.5678/b", "supportedClaims": ["Older lower leaves first develop yellow-green lesions that later progress to necrosis."]},
             {"title": "C", "doi": "10.9999/c", "supportedClaims": ["This unrelated sentence describes a different mechanism entirely."]},
             {"title": "D", "doi": "10.7777/d", "supportedClaims": [exact_claim]},
-            {"title": "E", "doi": "10.2468/e", "supportedClaims": ["Lower leaves show chlorotic spotting before affected tissue browns and dies."]},
+            {"title": "E", "doi": "10.2468/e", "supportedClaims": ["Lower leaves first show yellow lesions before the damaged areas turn brown."]},
         ],
     }
     rows = candidate_pairs([profile], 0.45, 0.55)
