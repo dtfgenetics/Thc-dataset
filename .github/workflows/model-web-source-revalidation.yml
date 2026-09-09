@@ -1,0 +1,30 @@
+name: Validate Grow Doc Web Source Revalidation
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/audit-model-web-source-revalidation.py'
+      - '.github/workflows/model-web-source-revalidation.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/audit-model-web-source-revalidation.py'
+      - '.github/workflows/model-web-source-revalidation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-web-source-revalidation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test web-source revalidation policy
+        run: python3 scripts/audit-model-web-source-revalidation.py --self-test
+      - name: Audit current mutable web evidence
+        run: python3 scripts/audit-model-web-source-revalidation.py
