@@ -3,13 +3,14 @@ import hashlib
 import json
 import re
 import sys
-from datetime import date
+from datetime import date, timedelta
 from pathlib import Path
 
 DEFAULT = Path('model_tuning/config/base_model_candidates_v1.json')
 SHA40 = re.compile(r'^[0-9a-f]{40}$')
 SHA256 = re.compile(r'^[0-9a-f]{64}$')
 ISO_DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
+MAX_ACTIVE_EVIDENCE_AGE_DAYS = 90
 REQUIRED_SLICES = {
     'factuality', 'diagnostic', 'hallucination', 'citation_accuracy',
     'science', 'education', 'grounded_qa', 'regression'
@@ -73,6 +74,7 @@ def validate(path: Path) -> None:
     ids = set()
     repos = set()
     eligible = []
+    today = date.today()
     for item in candidates:
         cid = item.get('id')
         repo = item.get('repo_id')
@@ -89,9 +91,16 @@ def validate(path: Path) -> None:
         if not isinstance(checked, str) or not ISO_DATE.fullmatch(checked):
             fail(f'{cid}: evidence_checked_at must be YYYY-MM-DD')
         try:
-            date.fromisoformat(checked)
+            checked_date = date.fromisoformat(checked)
         except ValueError:
             fail(f'{cid}: evidence_checked_at is not a valid calendar date')
+        if checked_date > today:
+            fail(f'{cid}: evidence_checked_at cannot be in the future')
+        if status != 'legacy_research' and today - checked_date > timedelta(days=MAX_ACTIVE_EVIDENCE_AGE_DAYS):
+            fail(
+                f'{cid}: evidence_checked_at is older than {MAX_ACTIVE_EVIDENCE_AGE_DAYS} days; '
+                'revalidate license/runtime/prompt evidence before active benchmark research'
+            )
 
         if not item.get('license') or not item.get('license_source'):
             fail(f'{cid}: license and license_source are required')
@@ -214,6 +223,28 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected invalid evidence date to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][1]['evidence_checked_at'] = (date.today() + timedelta(days=1)).isoformat()
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected future evidence date to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['candidates'][1]['evidence_checked_at'] = (
+            date.today() - timedelta(days=MAX_ACTIVE_EVIDENCE_AGE_DAYS + 1)
+        ).isoformat()
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError:
+            pass
+        else:
+            fail('self-test expected stale active-research evidence to fail')
 
         broken = json.loads(json.dumps(good))
         broken['candidates'][0]['pin_readiness']['hardware_contract_verified'] = False
