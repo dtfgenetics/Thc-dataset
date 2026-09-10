@@ -11,6 +11,7 @@ on:
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
       - 'scripts/audit-training-cross-task-duplicates.py'
+      - 'scripts/audit-training-supervision-concentration.py'
       - '.github/workflows/model-training-supervision-redundancy.yml'
   push:
     branches: [main]
@@ -23,6 +24,7 @@ on:
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
       - 'scripts/audit-training-cross-task-duplicates.py'
+      - 'scripts/audit-training-supervision-concentration.py'
       - '.github/workflows/model-training-supervision-redundancy.yml'
 
 permissions:
@@ -33,10 +35,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Self-test redundancy audits
+      - name: Self-test redundancy and concentration audits
         run: |
           python3 scripts/audit-training-supervision-redundancy.py --self-test
           python3 scripts/audit-training-cross-task-duplicates.py --self-test
+          python3 scripts/audit-training-supervision-concentration.py --self-test
       - name: Audit strong-evidence supervision lane
         shell: bash
         run: |
@@ -47,12 +50,18 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/audit-training-cross-task-duplicates.py | tee training-cross-task-duplicates-report.json
-      - name: Upload redundancy reports
+      - name: Measure supervision concentration
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/audit-training-supervision-concentration.py | tee training-supervision-concentration-report.json
+      - name: Upload redundancy and concentration reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: training-supervision-redundancy-report
+          name: training-supervision-quality-report
           path: |
             training-supervision-redundancy-report.json
             training-cross-task-duplicates-report.json
+            training-supervision-concentration-report.json
           if-no-files-found: warn
