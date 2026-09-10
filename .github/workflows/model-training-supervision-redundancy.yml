@@ -10,6 +10,7 @@ on:
       - 'scripts/build-training-eligible-supervision.py'
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
+      - 'scripts/audit-training-cross-task-duplicates.py'
       - '.github/workflows/model-training-supervision-redundancy.yml'
   push:
     branches: [main]
@@ -21,6 +22,7 @@ on:
       - 'scripts/build-training-eligible-supervision.py'
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
+      - 'scripts/audit-training-cross-task-duplicates.py'
       - '.github/workflows/model-training-supervision-redundancy.yml'
 
 permissions:
@@ -31,17 +33,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Self-test redundancy audit
-        run: python3 scripts/audit-training-supervision-redundancy.py --self-test
+      - name: Self-test redundancy audits
+        run: |
+          python3 scripts/audit-training-supervision-redundancy.py --self-test
+          python3 scripts/audit-training-cross-task-duplicates.py --self-test
       - name: Audit strong-evidence supervision lane
         shell: bash
         run: |
           set -o pipefail
           python3 scripts/audit-training-supervision-redundancy.py | tee training-supervision-redundancy-report.json
-      - name: Upload redundancy report
+      - name: Audit cross-task exact supervision duplicates
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/audit-training-cross-task-duplicates.py | tee training-cross-task-duplicates-report.json
+      - name: Upload redundancy reports
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: training-supervision-redundancy-report
-          path: training-supervision-redundancy-report.json
+          path: |
+            training-supervision-redundancy-report.json
+            training-cross-task-duplicates-report.json
           if-no-files-found: warn
