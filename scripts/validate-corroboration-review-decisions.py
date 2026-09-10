@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate source-verified corroboration review decisions without promoting them.
 
-Review decisions are curation metadata only. They must reference a current priority-review
+Review decisions are curation metadata only. They must reference one exact current priority-review
 candidate, preserve distinct canonical source identities, and remain explicitly ineligible for
 training and corroboration until a separate human promotion step exists.
 """
@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import re
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_DECISIONS = ROOT / "model_tuning/reviews/corroboration_decisions_v1.jsonl"
@@ -29,12 +30,18 @@ def load_jsonl(path: pathlib.Path) -> list[dict]:
     return rows
 
 
-def candidate_key(row: dict) -> tuple[str, frozenset[str]]:
+def norm(text: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]+", " ", (text or "").lower())).strip()
+
+
+def candidate_key(row: dict) -> tuple[str, frozenset[tuple[str, str]]]:
+    source_a = row.get("source_a_id") or row.get("source_a", {}).get("canonical_source_id") or ""
+    source_b = row.get("source_b_id") or row.get("source_b", {}).get("canonical_source_id") or ""
     return (
         row.get("profile_id") or "",
         frozenset({
-            row.get("source_a_id") or row.get("source_a", {}).get("canonical_source_id") or "",
-            row.get("source_b_id") or row.get("source_b", {}).get("canonical_source_id") or "",
+            (source_a, norm(row.get("claim_a") or "")),
+            (source_b, norm(row.get("claim_b") or "")),
         }),
     )
 
@@ -56,8 +63,9 @@ def validate(decisions: list[dict], priority: list[dict]) -> dict:
         source_a = row.get("source_a_id") or ""
         source_b = row.get("source_b_id") or ""
         assert source_a and source_b and source_a != source_b, f"row {idx}: two distinct canonical sources required"
+        assert norm(row.get("claim_a") or "") and norm(row.get("claim_b") or ""), f"row {idx}: both exact candidate claims required"
         key = candidate_key(row)
-        assert key in priority_keys, f"row {idx}: decision no longer maps to a current priority candidate"
+        assert key in priority_keys, f"row {idx}: decision no longer maps to the exact current priority candidate"
         dedupe_key = (key, row.get("canonical_proposition") or "", decision)
         assert dedupe_key not in seen, f"row {idx}: duplicate decision"
         seen.add(dedupe_key)
@@ -77,13 +85,19 @@ def validate(decisions: list[dict], priority: list[dict]) -> dict:
 
 
 def self_test() -> None:
+    claim_a = "Older leaves developed yellow flecks followed by tan lesions."
+    claim_b = "Older foliage first showed yellow specks that progressed to tan lesions."
     priority = [{
         "profile_id": "example",
+        "claim_a": claim_a,
+        "claim_b": claim_b,
         "source_a": {"canonical_source_id": "doi:10.1/a"},
         "source_b": {"canonical_source_id": "doi:10.1/b"},
     }]
     decisions = [{
         "profile_id": "example",
+        "claim_a": claim_a,
+        "claim_b": claim_b,
         "source_a_id": "doi:10.1/a",
         "source_b_id": "doi:10.1/b",
         "decision": "supported_core_equivalence",
@@ -99,6 +113,13 @@ def self_test() -> None:
     summary = validate(decisions, priority)
     assert summary["decisions"] == 1
     assert summary["training_promoted"] == 0
+    tampered = [dict(decisions[0], claim_b="A different claim that was never queued.")]
+    try:
+        validate(tampered, priority)
+    except AssertionError:
+        pass
+    else:
+        raise AssertionError("tampered review decision must not validate")
     print("Corroboration review decision validator self-test: PASS")
 
 
