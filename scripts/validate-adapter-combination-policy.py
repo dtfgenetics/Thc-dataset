@@ -28,11 +28,13 @@ def validate(path: Path) -> None:
     if data.get('minimum_aggregate_gain') != 0.02:
         fail('minimum_aggregate_gain must remain locked at 0.02 for v1')
     for key in ('require_no_slice_regression', 'require_reviewed_semantic_scores',
-                'require_identical_runtime_contract', 'require_distinct_adapter_revisions'):
+                'require_identical_runtime_contract', 'require_distinct_adapter_revisions',
+                'require_adapter_artifact_sha256'):
         if data.get(key) is not True:
             fail(f'{key} must be true')
 
     seen = set()
+    seen_artifacts = set()
     for item in data.get('combination_candidates') or []:
         cid = item.get('id')
         if not cid or cid in seen:
@@ -49,6 +51,12 @@ def validate(path: Path) -> None:
                 fail(f'{cid}: component repository is required')
             if not SHA40.fullmatch(component.get('revision') or ''):
                 fail(f'{cid}: component revision must be an exact 40-char commit SHA')
+            artifact_sha = component.get('adapter_artifact_sha256') or ''
+            if not SHA256.fullmatch(artifact_sha):
+                fail(f'{cid}: every component needs an exact adapter_artifact_sha256')
+            if artifact_sha in seen_artifacts:
+                fail(f'{cid}: adapter artifact hashes must be distinct')
+            seen_artifacts.add(artifact_sha)
             report = component.get('promotion_report') or {}
             if not report.get('path') or not SHA256.fullmatch(report.get('sha256') or ''):
                 fail(f'{cid}: every component needs a hashed promotion report')
@@ -71,6 +79,15 @@ def validate(path: Path) -> None:
             fail(f'{cid}: blocked candidate must not carry a promotion result')
 
 
+def component(repository: str, revision: str, artifact_sha: str, report_sha: str) -> dict:
+    return {
+        'repository': repository,
+        'revision': revision,
+        'adapter_artifact_sha256': artifact_sha,
+        'promotion_report': {'path': f'{repository}.json', 'sha256': report_sha, 'reviewed': True, 'passed_gate': True},
+    }
+
+
 def self_test() -> None:
     import tempfile
     good = json.loads(DEFAULT.read_text())
@@ -82,8 +99,8 @@ def self_test() -> None:
             'id': 'bad-soup',
             'eligible_for_combination': True,
             'components': [
-                {'repository': 'dtf/a', 'revision': 'a' * 40, 'promotion_report': {'path': 'a.json', 'sha256': 'b' * 64, 'reviewed': True, 'passed_gate': True}},
-                {'repository': 'dtf/b', 'revision': 'c' * 40, 'promotion_report': {'path': 'b.json', 'sha256': 'd' * 64, 'reviewed': True, 'passed_gate': True}}
+                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
+                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
             ],
             'combination_report': {'path': 'combo.json', 'sha256': 'e' * 64, 'reviewed': True, 'passed_gate': True, 'aggregate_gain_vs_best_component': 0.01, 'slice_regressions': []}
         }]
@@ -100,8 +117,8 @@ def self_test() -> None:
             'id': 'bad-regression',
             'eligible_for_combination': True,
             'components': [
-                {'repository': 'dtf/a', 'revision': 'a' * 40, 'promotion_report': {'path': 'a.json', 'sha256': 'b' * 64, 'reviewed': True, 'passed_gate': True}},
-                {'repository': 'dtf/b', 'revision': 'c' * 40, 'promotion_report': {'path': 'b.json', 'sha256': 'd' * 64, 'reviewed': True, 'passed_gate': True}}
+                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
+                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
             ],
             'combination_report': {'path': 'combo.json', 'sha256': 'e' * 64, 'reviewed': True, 'passed_gate': True, 'aggregate_gain_vs_best_component': 0.03, 'slice_regressions': ['factuality']}
         }]
@@ -112,6 +129,40 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected protected slice regression to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['combination_candidates'] = [{
+            'id': 'missing-artifact-hash',
+            'eligible_for_combination': False,
+            'components': [
+                {'repository': 'dtf/a', 'revision': 'a' * 40, 'promotion_report': {'path': 'a.json', 'sha256': 'b' * 64, 'reviewed': True, 'passed_gate': True}},
+                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
+            ],
+        }]
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError as exc:
+            assert 'adapter_artifact_sha256' in str(exc)
+        else:
+            fail('self-test expected missing adapter artifact hash to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['combination_candidates'] = [{
+            'id': 'duplicate-artifact',
+            'eligible_for_combination': False,
+            'components': [
+                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
+                component('dtf/b', 'c' * 40, '1' * 64, 'd' * 64),
+            ],
+        }]
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p)
+        except ValueError as exc:
+            assert 'artifact hashes must be distinct' in str(exc)
+        else:
+            fail('self-test expected duplicate adapter artifact hash to fail')
 
 
 if __name__ == '__main__':

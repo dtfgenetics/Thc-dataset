@@ -17,5 +17,6 @@
   "require_reviewed_semantic_scores": true,
   "require_identical_runtime_contract": true,
   "require_distinct_adapter_revisions": true,
+  "require_adapter_artifact_sha256": true,
   "combination_candidates": []
 }
