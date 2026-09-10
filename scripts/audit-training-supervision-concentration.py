@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Measure concentration in the strong-evidence Grow Doc weight-training lane.
+"""Measure concentration and drift in the strong-evidence Grow Doc weight-training lane.
 
-This is intentionally report-only. It quantifies whether otherwise unique SFT/grounded-QA
-examples are dominated by a small number of canonical sources, diagnostic profiles, or task
-families. It does not mutate canonical RAG, delete supervision, or impose an uncalibrated failure
-threshold. The report is meant to establish a baseline before any balancing policy is enforced.
+This remains report-only. It quantifies whether otherwise unique SFT/grounded-QA examples are
+concentrated in a small number of canonical sources, diagnostic profiles, or task families and,
+when a frozen baseline is present, reports deltas against that baseline. It does not mutate
+canonical RAG, delete supervision, rebalance examples, or impose an uncalibrated failure threshold.
 """
 from __future__ import annotations
 
@@ -17,6 +17,7 @@ from types import ModuleType
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 ELIGIBLE_BUILDER = ROOT / "scripts/build-training-eligible-supervision.py"
+DEFAULT_BASELINE = ROOT / "model_tuning/training-supervision-concentration-baseline.json"
 
 
 def load_module(path: pathlib.Path, name: str) -> ModuleType:
@@ -39,7 +40,6 @@ def audit(records: list[dict]) -> dict:
     source_counts: Counter[str] = Counter()
     profile_counts: Counter[str] = Counter()
     task_counts: Counter[str] = Counter()
-    source_example_counts: Counter[str] = Counter()
 
     for record in records:
         profile_counts[str(record.get("profile_id") or "<missing-profile>")] += 1
@@ -47,18 +47,10 @@ def audit(records: list[dict]) -> dict:
         source_ids = sorted({str(x) for x in (record.get("source_ids") or []) if str(x).strip()})
         for source_id in source_ids:
             source_counts[source_id] += 1
-        if source_ids:
-            source_example_counts[source_ids[0]] += 1
 
     total = len(records)
-    unique_sources = len(source_counts)
-    source_mentions = sum(source_counts.values())
-    top_source_share = max((count / total for count in source_counts.values()), default=0.0)
-    top_profile_share = max((count / total for count in profile_counts.values()), default=0.0)
-    top_task_share = max((count / total for count in task_counts.values()), default=0.0)
-
     return {
-        "schema_version": "grow-doc-training-supervision-concentration-v1",
+        "schema_version": "grow-doc-training-supervision-concentration-v2",
         "policy": {
             "scope": "deduplicated strong-evidence training-eligible SFT and grounded-QA candidates",
             "rag_first": True,
@@ -66,21 +58,66 @@ def audit(records: list[dict]) -> dict:
             "automatic_rebalancing": False,
             "canonical_rag_mutated": False,
             "failure_threshold": None,
-            "purpose": "establish measured source/profile/task concentration before enforcing balancing limits",
+            "purpose": "measure concentration and drift before enforcing balancing limits",
         },
         "candidate_examples": total,
-        "unique_source_ids": unique_sources,
-        "source_mentions": source_mentions,
-        "top_source_example_share": round(top_source_share, 6),
-        "top_profile_example_share": round(top_profile_share, 6),
-        "top_task_example_share": round(top_task_share, 6),
+        "unique_source_ids": len(source_counts),
+        "source_mentions": sum(source_counts.values()),
+        "top_source_example_share": round(max((c / total for c in source_counts.values()), default=0.0), 6),
+        "top_profile_example_share": round(max((c / total for c in profile_counts.values()), default=0.0), 6),
+        "top_task_example_share": round(max((c / total for c in task_counts.values()), default=0.0), 6),
         "sources": ranked(source_counts, total),
         "profiles": ranked(profile_counts, total),
         "tasks": ranked(task_counts, total),
     }
 
 
-def run() -> dict:
+def load_baseline(path: pathlib.Path) -> dict | None:
+    if not path.exists():
+        return None
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if data.get("schema_version") != "grow-doc-training-supervision-concentration-baseline-v1":
+        raise ValueError(f"unsupported concentration baseline schema: {data.get('schema_version')}")
+    return data
+
+
+def add_baseline_comparison(report: dict, baseline: dict | None) -> None:
+    if baseline is None:
+        report["baseline_comparison"] = {"available": False}
+        return
+
+    metrics = (
+        "candidate_examples",
+        "unique_source_ids",
+        "source_mentions",
+        "top_source_example_share",
+        "top_profile_example_share",
+        "top_task_example_share",
+    )
+    deltas = {}
+    for key in metrics:
+        current = report[key]
+        previous = baseline[key]
+        delta = current - previous
+        deltas[key] = round(delta, 6) if isinstance(delta, float) else delta
+
+    current_tasks = {row["key"]: row["share"] for row in report.get("tasks", [])}
+    baseline_tasks = baseline.get("task_distribution", {})
+    task_deltas = {
+        key: round(current_tasks.get(key, 0.0) - float(previous), 6)
+        for key, previous in sorted(baseline_tasks.items())
+    }
+    report["baseline_comparison"] = {
+        "available": True,
+        "baseline_commit": baseline.get("baseline_commit"),
+        "artifact_sha256": (baseline.get("artifact") or {}).get("sha256"),
+        "regression_thresholds_enforced": False,
+        "metric_deltas": deltas,
+        "task_share_deltas": task_deltas,
+    }
+
+
+def run(baseline_path: pathlib.Path = DEFAULT_BASELINE) -> dict:
     eligible = load_module(ELIGIBLE_BUILDER, "grow_doc_supervision_concentration_eligible")
     sft, qa, eligibility_report = eligible.run(eligible.DEFAULT_INPUT, eligible.DEFAULT_EVAL)
     report = audit(sft + qa)
@@ -91,6 +128,7 @@ def run() -> dict:
             "exact_supervision_duplicates_excluded"
         ],
     }
+    add_baseline_comparison(report, load_baseline(baseline_path))
     return report
 
 
@@ -107,20 +145,36 @@ def self_test() -> None:
     assert report["top_source_example_share"] == 0.5
     assert report["top_profile_example_share"] == 0.5
     assert report["top_task_example_share"] == 0.75
+    baseline = {
+        "baseline_commit": "abc",
+        "artifact": {"sha256": "deadbeef"},
+        "candidate_examples": 3,
+        "unique_source_ids": 2,
+        "source_mentions": 3,
+        "top_source_example_share": 0.4,
+        "top_profile_example_share": 0.5,
+        "top_task_example_share": 0.7,
+        "task_distribution": {"grounded_qa": 0.7},
+    }
+    add_baseline_comparison(report, baseline)
+    assert report["baseline_comparison"]["metric_deltas"]["candidate_examples"] == 1
+    assert report["baseline_comparison"]["metric_deltas"]["top_source_example_share"] == 0.1
+    assert report["baseline_comparison"]["task_share_deltas"]["grounded_qa"] == 0.05
     assert report["policy"]["report_only"] is True
     print("training supervision concentration self-test: PASS")
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit Grow Doc training supervision concentration.")
+    parser = argparse.ArgumentParser(description="Audit Grow Doc training supervision concentration and drift.")
     parser.add_argument("--self-test", action="store_true")
+    parser.add_argument("--baseline", type=pathlib.Path, default=DEFAULT_BASELINE)
     args = parser.parse_args()
     if args.self_test:
         self_test()
         return 0
     try:
-        report = run()
-    except (OSError, ValueError, RuntimeError, KeyError) as exc:
+        report = run(args.baseline)
+    except (OSError, ValueError, RuntimeError, KeyError, json.JSONDecodeError) as exc:
         print(f"ERROR: {exc}")
         return 1
     print(json.dumps(report, indent=2, sort_keys=True))

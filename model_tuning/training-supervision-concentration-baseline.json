@@ -1,0 +1,36 @@
+{
+  "schema_version": "grow-doc-training-supervision-concentration-baseline-v1",
+  "baseline_commit": "f134c405ed540d51d3ca756d8d56693d74a20a45",
+  "artifact": {
+    "workflow_run_id": 34460487458,
+    "artifact_id": 10145305164,
+    "artifact_name": "training-supervision-quality-report",
+    "sha256": "c3ac8f2321513da0ddb2a5a1cc1a6059c4ee4e6dd65c8be7c6f1648db57087ca"
+  },
+  "scope": "deduplicated strong-evidence training-eligible SFT and grounded-QA candidates",
+  "candidate_examples": 332,
+  "unique_source_ids": 149,
+  "source_mentions": 578,
+  "top_source_example_share": 0.066265,
+  "top_profile_example_share": 0.033133,
+  "top_task_example_share": 0.466867,
+  "task_distribution": {
+    "grounded_qa": 0.466867,
+    "differential_and_next_test": 0.177711,
+    "grounded_diagnostic_reasoning": 0.177711,
+    "science_education": 0.177711
+  },
+  "eligibility_snapshot": {
+    "training_eligible_sft_examples": 177,
+    "training_eligible_grounded_qa_examples": 155,
+    "exact_supervision_duplicates_excluded_within_task": 19,
+    "cross_task_exact_duplicate_group_count": 0,
+    "near_duplicate_pair_count": 0
+  },
+  "policy": {
+    "rag_first": true,
+    "automatic_rebalancing": false,
+    "regression_thresholds_enforced": false,
+    "purpose": "freeze the first measured concentration baseline so later corpus changes can be compared quantitatively before any balancing threshold is introduced"
+  }
+}

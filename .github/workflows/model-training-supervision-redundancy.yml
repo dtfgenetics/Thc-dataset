@@ -50,7 +50,7 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/audit-training-cross-task-duplicates.py | tee training-cross-task-duplicates-report.json
-      - name: Measure supervision concentration
+      - name: Measure supervision concentration and drift
         shell: bash
         run: |
           set -o pipefail
