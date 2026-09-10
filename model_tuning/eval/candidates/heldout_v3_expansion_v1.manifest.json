@@ -1,10 +1,10 @@
 {
   "schema_version": "grow-doc-eval-candidate-manifest-v1",
   "dataset": "model_tuning/eval/candidates/heldout_v3_expansion_v1.jsonl",
-  "content_sha256": "feb34a984843cd572c994777911346afafbe3c984cb32bcc1b5c367b8dbb797f",
+  "content_sha256": "942da868fd6fc29d263725c48d51098682be5c45a58c6cc7e74bc4e30f869e9e",
   "status": "candidate_only_not_promotion_eligible",
-  "purpose": "Add source-bound stress-generalization science cases for future heldout-v3 review without mutating frozen heldout_v2.",
-  "record_count": 2,
+  "purpose": "Add source-bound stress, drought, and nutrient-uptake generalization cases for future heldout-v3 review without mutating frozen heldout_v2.",
+  "record_count": 3,
   "source_policy": {
     "require_primary_or_peer_reviewed_source": true,
     "preserve_source_metadata": true,
@@ -24,6 +24,12 @@
       "title": "Identifying physiological traits related with drought tolerance and water-use efficiency in floral hemp (Cannabis sativa L.)",
       "year": 2024,
       "role": "drought physiology, cultivar variation, and generalization limits"
+    },
+    {
+      "doi": "10.3389/fpls.2025.1753553",
+      "title": "Predicting vegetative phase nutrient uptake in Cannabis sativa L. via transpiration-driven mass-balance",
+      "year": 2026,
+      "role": "cultivar-specific vegetative nutrient uptake, organ sampling limits, and fertigation generalization boundaries"
     }
   ],
   "admission_requirements": [
