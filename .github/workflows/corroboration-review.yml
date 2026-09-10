@@ -5,12 +5,14 @@ on:
     paths:
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/build-corroboration-review-queue.py'
+      - 'scripts/filter-corroboration-discovery-noise.py'
       - '.github/workflows/corroboration-review.yml'
   push:
     branches: [main]
     paths:
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/build-corroboration-review-queue.py'
+      - 'scripts/filter-corroboration-discovery-noise.py'
       - '.github/workflows/corroboration-review.yml'
 
 permissions:
@@ -25,16 +27,24 @@ jobs:
         run: |
           python3 scripts/build-corroboration-review-queue.py --self-test
           python3 scripts/build-corroboration-review-queue.py
+          python3 scripts/filter-corroboration-discovery-noise.py --self-test
+          python3 scripts/filter-corroboration-discovery-noise.py
           test -f model_tuning/generated/corroboration/review_queue_v1.jsonl
           test -f model_tuning/generated/corroboration/discovery_queue_v1.jsonl
+          test -f model_tuning/generated/corroboration/discovery_priority_v1.jsonl
+          test -f model_tuning/generated/corroboration/discovery_noise_audit_v1.json
           python3 - <<'PY'
           import json
           from pathlib import Path
 
           strict_path = Path('model_tuning/generated/corroboration/review_queue_v1.jsonl')
           discovery_path = Path('model_tuning/generated/corroboration/discovery_queue_v1.jsonl')
+          priority_path = Path('model_tuning/generated/corroboration/discovery_priority_v1.jsonl')
+          audit_path = Path('model_tuning/generated/corroboration/discovery_noise_audit_v1.json')
           strict_rows = [json.loads(line) for line in strict_path.read_text(encoding='utf-8').splitlines() if line.strip()]
           discovery_rows = [json.loads(line) for line in discovery_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+          priority_rows = [json.loads(line) for line in priority_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+          audit = json.loads(audit_path.read_text(encoding='utf-8'))
 
           assert all(row.get('auto_merge') is False for row in strict_rows)
           assert all(row.get('review_status') == 'pending_proposition_equivalence_review' for row in strict_rows)
@@ -43,9 +53,19 @@ jobs:
           assert all(row.get('eligible_for_training') is False for row in discovery_rows)
           assert all(row.get('review_status') == 'discovery_only_not_evidence' for row in discovery_rows)
           assert all(row.get('discovery_reason') == 'below_strict_corroboration_thresholds' for row in discovery_rows)
+          assert all(row.get('auto_merge') is False for row in priority_rows)
+          assert all(row.get('eligible_for_corroboration') is False for row in priority_rows)
+          assert all(row.get('eligible_for_training') is False for row in priority_rows)
+          assert all(row.get('priority_status') == 'priority_human_review' for row in priority_rows)
+          assert audit.get('raw_discovery_candidates') == len(discovery_rows)
+          assert audit.get('priority_human_review_candidates') == len(priority_rows)
+          assert audit.get('auto_merged') == 0
+          assert audit.get('training_promoted') == 0
           print(json.dumps({
               'persisted_review_candidates': len(strict_rows),
               'persisted_discovery_candidates': len(discovery_rows),
+              'priority_human_review_candidates': len(priority_rows),
+              'excluded_cross_profile_reuse': audit.get('excluded_cross_profile_reuse'),
               'auto_merged': 0,
               'training_promoted': 0,
           }, sort_keys=True))
@@ -57,5 +77,7 @@ jobs:
           path: |
             model_tuning/generated/corroboration/review_queue_v1.jsonl
             model_tuning/generated/corroboration/discovery_queue_v1.jsonl
+            model_tuning/generated/corroboration/discovery_priority_v1.jsonl
+            model_tuning/generated/corroboration/discovery_noise_audit_v1.json
           if-no-files-found: error
           retention-days: 14
