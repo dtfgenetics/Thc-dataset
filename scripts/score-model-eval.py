@@ -220,12 +220,24 @@ def promotion_decision(base: dict, cand: dict, min_gain_pp: float) -> dict:
     b=base["overall"].get("aggregate"); c=cand["overall"].get("aggregate")
     if b is None or c is None:
         return {"eligible":False,"reason":"reviewed semantic scores required for promotion comparison"}
-    gain_pp=(c-b)*100.0
-    regressions=[]
+    missing=[]
     for sl in sorted(CRITICAL_SLICES):
         bs=base.get("slices",{}).get(sl,{}).get("aggregate")
         cs=cand.get("slices",{}).get(sl,{}).get("aggregate")
-        if bs is not None and cs is not None and cs < bs:
+        if bs is None or cs is None:
+            missing.append({"slice":sl,"baseline_present":bs is not None,"candidate_present":cs is not None})
+    if missing:
+        return {
+            "eligible":False,
+            "reason":"all protected promotion slices require reviewed aggregate scores",
+            "missing_protected_slices":missing,
+        }
+    gain_pp=(c-b)*100.0
+    regressions=[]
+    for sl in sorted(CRITICAL_SLICES):
+        bs=base["slices"][sl]["aggregate"]
+        cs=cand["slices"][sl]["aggregate"]
+        if cs < bs:
             regressions.append({"slice":sl,"base":bs,"candidate":cs,"delta_pp":round((cs-bs)*100,2)})
     return {"eligible": gain_pp >= min_gain_pp and not regressions,
             "aggregate_gain_pp":round(gain_pp,2),"minimum_gain_pp":min_gain_pp,
@@ -253,7 +265,7 @@ def self_test() -> int:
     gs=score_row(case,good,True); bs=score_row(case,bad,True)
     assert gs["aggregate_score"] == 1.0 and gs["citation_score"] == 1.0 and gs["forbidden_claim_avoidance"] == 1.0
     assert bs["citation_score"] == 0.0 and bs["forbidden_claim_avoidance"] == 0.0 and bs["semantic_score"] == 0.5
-    assert promotion_decision(summarize([bs]),summarize([gs]),2.0)["eligible"] is True
+    assert promotion_decision(summarize([bs]),summarize([gs]),2.0)["eligible"] is False
 
     # A candidate can improve overall while regressing a non-legacy slice; every
     # held-out promotion slice must block that regression, not only the original
@@ -270,6 +282,15 @@ def self_test() -> int:
     decision=promotion_decision(base_summary,cand_summary,2.0)
     assert decision["eligible"] is False
     assert any(x["slice"] == "science" for x in decision["critical_regressions"])
+
+    # Promotion must fail closed if either arm lacks a reviewed aggregate for any
+    # protected slice, even when the remaining slices and overall score improve.
+    incomplete=json.loads(json.dumps(cand_summary))
+    del incomplete["slices"]["grounded_qa"]
+    decision=promotion_decision(base_summary,incomplete,2.0)
+    assert decision["eligible"] is False
+    assert decision["reason"] == "all protected promotion slices require reviewed aggregate scores"
+    assert any(x["slice"] == "grounded_qa" and x["baseline_present"] and not x["candidate_present"] for x in decision["missing_protected_slices"])
 
     base=fixture_manifest(); cand=fixture_manifest("abcdef1")
     assert comparable_run_errors(base,cand) == []
