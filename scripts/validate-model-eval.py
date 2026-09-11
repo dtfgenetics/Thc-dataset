@@ -30,6 +30,14 @@ def source_metadata_citation_ids(meta: dict) -> set[str]:
         ids.add(canonical_source_id(f"url:{url}"))
     if source_id:
         ids.add(canonical_source_id(f"source:{source_id}"))
+    for extra_doi in meta.get("additional_dois") or []:
+        extra_doi=str(extra_doi).strip()
+        if extra_doi:
+            ids.add(canonical_source_id(f"doi:{extra_doi}"))
+    for extra_url in meta.get("additional_urls") or []:
+        extra_url=str(extra_url).strip()
+        if extra_url:
+            ids.add(canonical_source_id(f"url:{extra_url}"))
     return ids
 
 def validate(path: pathlib.Path) -> list[str]:
@@ -108,6 +116,16 @@ def self_test() -> int:
         bad["must_cite"]=["doi:10.1000/wrong"]
         path.write_text(json.dumps(bad)+"\n",encoding="utf-8")
         assert any("not represented by source_metadata" in e for e in validate(path))
+        multi=dict(base)
+        multi["must_cite"]=["doi:10.1000/abc","doi:10.1000/extra"]
+        multi["source_metadata"]=dict(base["source_metadata"], additional_dois=["10.1000/EXTRA"])
+        path.write_text(json.dumps(multi)+"\n",encoding="utf-8")
+        assert validate(path) == []
+        multi_url=dict(base)
+        multi_url["must_cite"]=["doi:10.1000/abc","url:https://example.org/source"]
+        multi_url["source_metadata"]=dict(base["source_metadata"], additional_urls=["https://example.org/source"])
+        path.write_text(json.dumps(multi_url)+"\n",encoding="utf-8")
+        assert validate(path) == []
     print("OK: validate-model-eval self-test")
     return 0
 
