@@ -178,12 +178,68 @@ def validate_row(row: dict) -> list[str]:
     return errors
 
 
+def conversation_fingerprint(row: dict) -> str:
+    roles = messages_by_role(row)
+    payload = {
+        "system": (roles.get("system") or {}).get("content") or "",
+        "user": (roles.get("user") or {}).get("content") or "",
+        "assistant": (roles.get("assistant") or {}).get("content") or "",
+    }
+    canonical = json.dumps(payload, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    return text_sha256(canonical)
+
+
+def _stable_unique(values: list[str]) -> list[str]:
+    return list(dict.fromkeys(value for value in values if value))
+
+
+def collapse_duplicate_conversations(rows: list[dict]) -> list[dict]:
+    """Collapse exact post-sanitization conversations while preserving upstream provenance.
+
+    The representative row keeps the exact source/citation metadata used by its
+    conversation. Provenance from collapsed upstream records is stored separately so
+    the assistant target is never widened with uncited sources.
+    """
+    representatives: list[dict] = []
+    by_fingerprint: dict[str, dict] = {}
+
+    for row in rows:
+        fingerprint = conversation_fingerprint(row)
+        if fingerprint not in by_fingerprint:
+            representative = row
+            representative["conversation_sha256"] = fingerprint
+            representative["dedup_provenance"] = {
+                "source_record_ids": _stable_unique([str(row.get("id") or "")]),
+                "profile_ids": _stable_unique([str(row.get("profile_id") or "")]),
+                "split_lanes": _stable_unique([str(row.get("_split_lane") or "")]),
+                "collapsed_record_count": 1,
+            }
+            by_fingerprint[fingerprint] = representative
+            representatives.append(representative)
+            continue
+
+        representative = by_fingerprint[fingerprint]
+        provenance = representative["dedup_provenance"]
+        provenance["source_record_ids"] = _stable_unique(
+            provenance["source_record_ids"] + [str(row.get("id") or "")]
+        )
+        provenance["profile_ids"] = _stable_unique(
+            provenance["profile_ids"] + [str(row.get("profile_id") or "")]
+        )
+        provenance["split_lanes"] = _stable_unique(
+            provenance["split_lanes"] + [str(row.get("_split_lane") or "")]
+        )
+        provenance["collapsed_record_count"] += 1
+
+    return representatives
+
+
 def sanitize_records(rows: list[dict]) -> list[dict]:
     sanitized = [sanitize_row(row) for row in rows]
     errors = [error for row in sanitized for error in validate_row(row)]
     if errors:
         raise ValueError("; ".join(errors[:5]))
-    return sanitized
+    return collapse_duplicate_conversations(sanitized)
 
 
 def self_test() -> None:
@@ -194,6 +250,7 @@ def self_test() -> None:
         "source_ids": ["url:https://example.test/different"],
         "grounded": True,
         "context_required": True,
+        "_split_lane": "grounded_qa",
         "messages": [
             {"role": "system", "content": "Answer only from evidence."},
             {"role": "user", "content": "Evidence from [url:https://example.test/different]:\n- Different disorder causes circular lesions.\n\nWhat is supported about Target disorder?"},
@@ -221,9 +278,26 @@ def self_test() -> None:
     messages_by_role(tampered)["assistant"]["content"] += "\nTarget disorder is definitely confirmed."
     assert any("outside deterministic" in error for error in validate_row(tampered))
 
+    duplicate = json.loads(json.dumps(unsafe))
+    duplicate["id"] = "gqa-target-2"
+    duplicate["profile_id"] = "different-upstream-profile"
+    collapsed = sanitize_records([unsafe, duplicate])
+    assert len(collapsed) == 1
+    provenance = collapsed[0]["dedup_provenance"]
+    assert provenance["collapsed_record_count"] == 2
+    assert provenance["source_record_ids"] == ["gqa-target-1", "gqa-target-2"]
+    assert provenance["profile_ids"] == ["target-disorder", "different-upstream-profile"]
+    assert collapsed[0]["source_ids"] == ["url:https://example.test/different"]
+    assert len(collapsed[0]["conversation_sha256"]) == 64
+
+    distinct_task = json.loads(json.dumps(unsafe))
+    distinct_task["id"] = "gqa-target-3"
+    distinct_task["task"] = "science_education"
+    assert len(sanitize_records([unsafe, distinct_task])) == 2
+
     with tempfile.TemporaryDirectory() as td:
         path = Path(td) / "rows.jsonl"
-        path.write_text(json.dumps(clean) + "\n", encoding="utf-8")
+        path.write_text(json.dumps(collapsed[0]) + "\n", encoding="utf-8")
         loaded = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines()]
         assert not validate_row(loaded[0])
     print("supplied-claim grounding self-test: PASS")
