@@ -54,13 +54,22 @@ def build_grounded_split(input_path: pathlib.Path, eval_path: pathlib.Path, out:
         dev_fraction=dev_fraction,
     )
     splitter.add_hashes(manifest, train, dev)
+    collapsed_records = len(candidate_rows) - len(sanitized)
+    collapsed_groups = sum(
+        1
+        for row in sanitized
+        if (row.get("dedup_provenance") or {}).get("collapsed_record_count", 1) > 1
+    )
     manifest.update(
         {
             "schema_version": "grow-doc-model-split-v2",
             "grounding_policy": "supplied_claims_only_v1",
             "grounding_enforced_before_split": True,
+            "post_sanitization_dedup": "exact_conversation_sha256_v1",
             "candidate_records": len(candidate_rows),
             "sanitized_records": len(sanitized),
+            "collapsed_duplicate_records": collapsed_records,
+            "collapsed_duplicate_groups": collapsed_groups,
             "input_sha256": corpus_stats["input_sha256"],
             "eval_sha256": corpus_stats["eval_sha256"],
             "source_sft_records": corpus_stats["sft_examples"],
@@ -69,8 +78,13 @@ def build_grounded_split(input_path: pathlib.Path, eval_path: pathlib.Path, out:
             "grounded_qa_policy": gqa_stats["policy"],
         }
     )
-    if len(candidate_rows) != len(sanitized):
-        raise ValueError("grounding transformation unexpectedly changed record count")
+    if len(sanitized) > len(candidate_rows):
+        raise ValueError("grounding transformation unexpectedly increased record count")
+    if collapsed_records != sum(
+        max(0, (row.get("dedup_provenance") or {}).get("collapsed_record_count", 1) - 1)
+        for row in sanitized
+    ):
+        raise ValueError("post-sanitization dedup provenance does not reconcile with record counts")
     for row in train + dev:
         errors = grounding.validate_row(row)
         if errors:
