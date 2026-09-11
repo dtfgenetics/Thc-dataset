@@ -30,7 +30,7 @@ No real Grow Doc model training, adapter promotion, adapter merge, model soup, o
 - `generated/manifest_v1.json`: corpus build statistics only. It is **not** the training-dataset manifest and must not be used as the QLoRA dataset lock.
 - `generated/training_artifact_lock_v3.json`: byte-level freeze report for the supplied-claim-grounded training artifacts.
 
-All 351 candidate SFT/GQA records are rewritten before splitting with `grounding_mode=supplied_claims_only_v1`. Factual assistant bullets must be exact claims physically present in the user evidence, with their source IDs. Task-specific diagnostic, differential, and education behavior is supplied only through fixed non-factual scaffolding. This prevents profile-wide facts from appearing in a training target when those facts were not in the prompt evidence.
+Candidate SFT/GQA records are rewritten before splitting with `grounding_mode=supplied_claims_only_v1`. Factual assistant bullets must be exact claims physically present in the user evidence, with their source IDs. Task-specific diagnostic, differential, and education behavior is supplied only through fixed non-factual scaffolding. Identical post-sanitization conversations are then collapsed by conversation fingerprint before train/dev assignment; `dedup_provenance` retains upstream record, profile, and source-lane identities so redundant gradient signal is removed without discarding lineage. This prevents profile-wide facts from appearing in a training target when those facts were not in the prompt evidence and prevents duplicate grounded conversations from being counted as independent supervision.
 
 Generated artifacts may be materialized during validation or experiment preparation rather than committed. Their byte hashes are pinned before a real run.
 
@@ -41,11 +41,12 @@ Current Qwen3-8B starter contract:
 - base/tokenizer revision: `b968826d9c46dd6066d109eabc6255188de91218`
 - tokenizer chat-template SHA-256: `a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8`
 - Qwen3 thinking mode: `enable_thinking=false`
-- training split manifest SHA-256: `9232dd3069be2de91350af8e9f54c28eb6e13eefae4b60a54427d68210069857`
-- training dataset manifest SHA-256: `8c62f742b9ec27fa3797af90ee4bc6924a2d96b3d96aa269dda75b07c54be1f4`
+- training split manifest SHA-256: `eabe77b07c027d78929852c6cef77993ddd53ceab4b08c76063b793eaa46cac6`
+- training dataset manifest SHA-256: `e7049cf59860bcc1620761ba7dfcacd0a6847a8ee80f9c140c2fb0ce11ab62ea`
 - dependency-lock resolver: `uv==0.12.10`
 - dependency-lock SHA-256: `ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e`
-- training mixture: 144 SFT + 36 grounded-QA = 180 rows, exactly 20% grounded-QA
+- current frozen training mixture: 129 SFT + 32 grounded-QA = 161 rows (~19.9% grounded-QA)
+- mixture-size validation is artifact-driven from `training_artifact_lock_v3.json`; the trainer must not hard-code expected row counts
 
 The dependency lock is not trusted merely because direct package versions are pinned. CI re-materializes the full transitive lock from `requirements.in` using the exact resolver/version and rejects the run if the resulting bytes do not match the pinned SHA.
 
