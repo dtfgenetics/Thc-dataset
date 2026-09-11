@@ -52,12 +52,26 @@ jobs:
           set -euo pipefail
           python3 scripts/run-base-vs-rag-experiment.py --preflight-only 2>&1 | tee model_tuning/runs/base_vs_rag_v1/preflight.txt
 
+      - name: Verify preflight preserved tracked repository bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          test -z "$(git status --porcelain --untracked-files=no)"
+
       - name: Run frozen Qwen3-8B base vs frozen RAG experiment
         shell: bash
         run: |
           set -euo pipefail
           python3 scripts/run-base-vs-rag-experiment.py \
             --output-root model_tuning/runs/base_vs_rag_v1
+
+      - name: Verify benchmark preserved tracked repository bytes
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          test -z "$(git status --porcelain --untracked-files=no)"
 
       - name: Upload benchmark outputs
         if: success()
