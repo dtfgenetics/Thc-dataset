@@ -20,6 +20,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 ELIGIBLE_BUILDER = ROOT / "scripts/build-training-eligible-supervision.py"
 DEFAULT_BASELINE = ROOT / "model_tuning/training-supervision-concentration-baseline.json"
 BASELINE_SCHEMA = "grow-doc-training-supervision-concentration-baseline-v1"
+GIT_OBJECT_RE = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -97,7 +98,7 @@ def validate_baseline(data: dict) -> dict:
         raise ValueError(f"unsupported concentration baseline schema: {data.get('schema_version')}")
 
     baseline_commit = data.get("baseline_commit")
-    if not isinstance(baseline_commit, str) or not SHA256_RE.fullmatch(baseline_commit):
+    if not isinstance(baseline_commit, str) or not GIT_OBJECT_RE.fullmatch(baseline_commit):
         raise ValueError(f"invalid concentration baseline commit: {baseline_commit!r}")
 
     artifact = data.get("artifact")
@@ -231,7 +232,7 @@ def self_test() -> None:
     assert report["top_task_example_share"] == 0.75
     baseline = {
         "schema_version": BASELINE_SCHEMA,
-        "baseline_commit": "a" * 40 + "b" * 24,
+        "baseline_commit": "a" * 40,
         "artifact": {
             "workflow_run_id": 1,
             "artifact_id": 2,
@@ -287,6 +288,15 @@ def self_test() -> None:
         pass
     else:
         raise AssertionError("non-RAG-first baseline policy must be rejected")
+
+    bad = json.loads(json.dumps(baseline))
+    bad["baseline_commit"] = "not-a-git-object"
+    try:
+        validate_baseline(bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("invalid baseline Git identity must be rejected")
 
     assert report["policy"]["report_only"] is True
     print("training supervision concentration self-test: PASS")
