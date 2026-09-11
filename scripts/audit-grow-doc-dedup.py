@@ -17,17 +17,17 @@ import tempfile
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 PROMPT_FIELDS = (
     "prompt", "question", "instruction", "input", "query", "user", "task",
 )
 ANSWER_FIELDS = (
-    "answer", "response", "output", "assistant", "completion", "target",
+    "answer", "response", "output", "assistant", "completion", "target", "expected_points",
 )
 SOURCE_FIELDS = (
-    "source_id", "source_ids", "sources", "citations", "citation_ids",
-    "source_component_id", "source_component_ids", "provenance",
+    "source_id", "source_ids", "sources", "citations", "citation_ids", "must_cite",
+    "source_metadata", "source_component_id", "source_component_ids", "provenance",
 )
 TRAIN_HINTS = ("train", "sft", "grounded_qa_mixture")
 EVAL_HINTS = ("eval", "heldout", "benchmark", "test")
@@ -203,8 +203,9 @@ def self_test() -> None:
         heldout_rows = [
             {
                 "question": "  WHAT does VPD describe? ",
-                "answer": "Different wording is enough to avoid pair duplication, but prompt leakage must still fail.",
-                "citations": ["src-c"],
+                "expected_points": ["Different wording is enough to avoid pair duplication, but prompt leakage must still fail."],
+                "must_cite": ["src-c"],
+                "source_metadata": {"source_id": "src-c"},
             }
         ]
         train.write_text("\n".join(json.dumps(r) for r in train_rows) + "\n", encoding="utf-8")
@@ -212,6 +213,8 @@ def self_test() -> None:
 
         report = audit([train, heldout])
         assert report["totals"]["rows"] == 3
+        assert report["totals"]["missing_answer"] == 0
+        assert report["totals"]["missing_source_metadata"] == 0
         assert report["totals"]["train_eval_pair_leak_groups"] == 0
         assert report["totals"]["train_eval_prompt_leak_groups"] == 1
         assert report["pass"] is False
@@ -219,13 +222,15 @@ def self_test() -> None:
         heldout.write_text(
             json.dumps({
                 "question": "How does photoperiod differ from PPFD?",
-                "answer": "They describe duration versus photon flux density.",
-                "citations": ["src-c"],
+                "expected_points": ["They describe duration versus photon flux density."],
+                "must_cite": ["src-c"],
+                "source_metadata": {"source_id": "src-c"},
             }) + "\n",
             encoding="utf-8",
         )
         clean = audit([train, heldout])
         assert clean["pass"] is True
+        assert clean["totals"]["missing_answer"] == 0
         assert clean["totals"]["missing_source_metadata"] == 0
     print("Grow Doc dedup/leakage audit self-test: PASS")
 
