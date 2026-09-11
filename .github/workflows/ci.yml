@@ -89,6 +89,17 @@ jobs:
             --expected-sha256 a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
       - name: Freeze model training artifacts
         run: python3 scripts/freeze-model-training-artifacts.py
+      - name: Audit frozen training deduplication and held-out leakage
+        run: |
+          python3 scripts/audit-grow-doc-dedup.py --self-test
+          python3 scripts/audit-grow-doc-dedup.py \
+            model_tuning/generated/splits/train_sft_v1.jsonl \
+            model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl \
+            model_tuning/generated/splits/dev_sft_v1.jsonl \
+            model_tuning/generated/splits/dev_grounded_qa_v1.jsonl \
+            model_tuning/eval/heldout_v2.jsonl \
+            --fail-on-missing-provenance \
+            --report model_tuning/generated/audits/dedup_leakage_v1.json
       - name: Retain pre-verification model artifacts
         uses: actions/upload-artifact@v4
         with:
