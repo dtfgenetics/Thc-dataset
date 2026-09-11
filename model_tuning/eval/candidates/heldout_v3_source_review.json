@@ -1,0 +1,89 @@
+{
+  "schema_version": "grow-doc-heldout-v3-source-review-v1",
+  "reviewed_at": "2026-09-11",
+  "policy": {
+    "purpose": "Record independent source-identity and claim-scope review for heldout-v3 candidates before any benchmark promotion.",
+    "promotion_eligible": false,
+    "rag_first": true,
+    "requirements": [
+      "source DOI or publisher identity resolves to the cited work",
+      "candidate expected_points stay within the cited experiment's reported scope",
+      "universal cultivation prescriptions are not inferred from experiment-specific findings",
+      "review does not itself promote the candidate benchmark"
+    ]
+  },
+  "reviews": [
+    {
+      "candidate_id": "v3-factuality-light-001",
+      "source_id": "llewellynLightUv2022",
+      "citation": "doi:10.3389/fpls.2022.974018",
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.974018/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article reports higher inflorescence yield at higher tested PPFD, no light-intensity effect on inflorescence cannabinoid concentration, and no commercially relevant UV benefit under the tested treatments."
+    },
+    {
+      "candidate_id": "v3-diagnostic-magnesium-001",
+      "source_id": "moradMagnesium2023",
+      "citation": "doi:10.3390/plants12142676",
+      "publisher_url": "https://www.mdpi.com/2223-7747/12/14/2676",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article reports visual Mg-deficiency symptoms and impaired function at the lowest Mg supply in controlled vegetative-stage plants; candidate correctly treats appearance as compatible evidence rather than a standalone diagnosis."
+    },
+    {
+      "candidate_id": "v3-science-drought-001",
+      "source_id": "morganDrought2024",
+      "citation": "doi:10.1016/j.envexpbot.2024.105649",
+      "publisher_url": "https://doi.org/10.1016/j.envexpbot.2024.105649",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher abstract reports moderate drought did not significantly change yield or THC/CBD concentrations, while severe drought reduced yield and cannabinoid concentrations with cultivar variation."
+    },
+    {
+      "candidate_id": "v3-citation-phosphorus-001",
+      "source_id": "westmorelandPhosphorus2022",
+      "citation": "doi:10.3389/fpls.2022.1015652",
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.1015652/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article reports 25 mg/L P was sufficient for maximum yield and cannabinoid concentration under the experiment and higher P increased leachate P without improving yield or quality."
+    },
+    {
+      "candidate_id": "v3-hallucination-spectrum-001",
+      "source_id": "morelloSpectrum2022",
+      "citation": "doi:10.3390/plants11212982",
+      "publisher_url": "https://www.mdpi.com/2223-7747/11/21/2982",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article evaluates six spectra in one accession; candidate appropriately refuses a universal best spectrum and distinguishes concentration from total compound yield."
+    },
+    {
+      "candidate_id": "v3-education-biostimulant-001",
+      "source_id": "malikAminoAcids2022",
+      "citation": "doi:10.3389/fpls.2022.868350",
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.868350/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article reports amino-acid supplementation altered ionome and secondary metabolites, including reduced cannabinoid-acid content and increased selected monoterpenes, and calls for further dosage/media/chemotype work."
+    },
+    {
+      "candidate_id": "v3-regression-uvb-001",
+      "source_id": "rodriguezMorrisonUvb2021",
+      "citation": "doi:10.3389/fpls.2021.725078",
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.725078/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article concludes the tested short-wavelength UV treatments did not increase yield or cannabinoid concentration and had no commercially relevant secondary-metabolite benefit in the two studied cultivars."
+    },
+    {
+      "candidate_id": "v3-groundedqa-potassium-001",
+      "source_id": "salonerPotassium2022",
+      "citation": "doi:10.3390/agronomy12051242",
+      "publisher_url": "https://www.mdpi.com/2073-4395/12/5/1242",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Publisher article reports impaired function/yield at 15 mg/L K, generally favorable function/yield across higher tested levels, genotype-specific responses, and suggests 60 mg/L only within the studied reproductive-stage conditions."
+    }
+  ]
+}
