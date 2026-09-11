@@ -77,12 +77,33 @@ def comparison_decision(base_summary: dict[str, Any], rag_summary: dict[str, Any
             "rag_preferred_by_reviewed_metrics": False,
             "reason": "reviewed semantic scores are required",
         }
+
+    missing_slices: list[dict[str, Any]] = []
+    base_slices = base_summary.get("slices") or {}
+    rag_slices = rag_summary.get("slices") or {}
+    for category in sorted(CRITICAL_SLICES):
+        base_value = (base_slices.get(category) or {}).get("aggregate")
+        rag_value = (rag_slices.get(category) or {}).get("aggregate")
+        if base_value is None or rag_value is None:
+            missing_slices.append({
+                "slice": category,
+                "base_present": base_value is not None,
+                "rag_present": rag_value is not None,
+            })
+    if missing_slices:
+        return {
+            "review_complete": False,
+            "rag_preferred_by_reviewed_metrics": False,
+            "reason": "all protected held-out slices require reviewed aggregate scores in both arms",
+            "missing_critical_slices": missing_slices,
+        }
+
     gain_pp = round((rag_agg - base_agg) * 100.0, 2)
     regressions: list[dict[str, Any]] = []
     for category in sorted(CRITICAL_SLICES):
-        base_value = ((base_summary.get("slices") or {}).get(category) or {}).get("aggregate")
-        rag_value = ((rag_summary.get("slices") or {}).get(category) or {}).get("aggregate")
-        if base_value is not None and rag_value is not None and rag_value < base_value:
+        base_value = base_slices[category]["aggregate"]
+        rag_value = rag_slices[category]["aggregate"]
+        if rag_value < base_value:
             regressions.append({
                 "slice": category,
                 "base": base_value,
@@ -195,6 +216,15 @@ def self_test() -> None:
     decision = comparison_decision(base_summary, rag_summary)
     assert decision["aggregate_gain_pp"] == 5.0
     assert decision["rag_preferred_by_reviewed_metrics"] is True
+
+    missing = json.loads(json.dumps(rag_summary))
+    del missing["slices"]["grounded_qa"]
+    missing_decision = comparison_decision(base_summary, missing)
+    assert missing_decision["review_complete"] is False
+    assert missing_decision["rag_preferred_by_reviewed_metrics"] is False
+    assert missing_decision["missing_critical_slices"] == [
+        {"slice": "grounded_qa", "base_present": True, "rag_present": False}
+    ]
 
     for category in sorted(CRITICAL_SLICES):
         regressed = json.loads(json.dumps(rag_summary))
