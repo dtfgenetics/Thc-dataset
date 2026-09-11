@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter
+from datetime import date
 from pathlib import Path
 
 PATH = Path("model_tuning/eval/heldout_v3_candidates.jsonl")
@@ -11,6 +12,12 @@ REVIEW_PATH = Path("model_tuning/eval/candidates/heldout_v3_source_review.json")
 REQUIRED = {
     "factuality", "diagnostic", "science", "citation_accuracy",
     "hallucination", "education", "regression", "grounded_qa",
+}
+REQUIRED_REVIEW_POLICY = {
+    "source DOI or publisher identity resolves to the cited work",
+    "candidate expected_points stay within the cited experiment's reported scope",
+    "universal cultivation prescriptions are not inferred from experiment-specific findings",
+    "review does not itself promote the candidate benchmark",
 }
 
 
@@ -29,8 +36,27 @@ def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
     if ledger.get("schema_version") != "grow-doc-heldout-v3-source-review-v1":
         errors.append("unsupported or missing heldout-v3 source review schema")
         return errors
-    if (ledger.get("policy") or {}).get("promotion_eligible") is not False:
+
+    reviewed_at = str(ledger.get("reviewed_at", "")).strip()
+    try:
+        date.fromisoformat(reviewed_at)
+    except ValueError:
+        errors.append("source review ledger reviewed_at must be an ISO YYYY-MM-DD date")
+
+    policy = ledger.get("policy") or {}
+    if policy.get("promotion_eligible") is not False:
         errors.append("source review ledger must not promote heldout-v3 candidates")
+    if policy.get("rag_first") is not True:
+        errors.append("source review ledger policy.rag_first must remain true")
+    if not str(policy.get("purpose", "")).strip():
+        errors.append("source review ledger policy.purpose is required")
+    requirements = {str(value).strip() for value in policy.get("requirements") or [] if str(value).strip()}
+    missing_requirements = sorted(REQUIRED_REVIEW_POLICY - requirements)
+    if missing_requirements:
+        errors.append(
+            "source review ledger is missing required review-policy statements: "
+            + "; ".join(missing_requirements)
+        )
 
     reviews = ledger.get("reviews") or []
     by_candidate = {str(item.get("candidate_id", "")).strip(): item for item in reviews}
@@ -59,8 +85,11 @@ def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
             errors.append(f"{label}: source_identity_verified must be true")
         if review.get("claim_scope_review") != "pass":
             errors.append(f"{label}: claim_scope_review must be pass")
-        if not str(review.get("publisher_url", "")).strip():
+        publisher_url = str(review.get("publisher_url", "")).strip()
+        if not publisher_url:
             errors.append(f"{label}: publisher_url is required in source review ledger")
+        elif not publisher_url.startswith("https://"):
+            errors.append(f"{label}: publisher_url must use https")
         if not str(review.get("notes", "")).strip():
             errors.append(f"{label}: source review notes are required")
     return errors
@@ -179,6 +208,22 @@ def self_test() -> None:
     broken_ledger = json.loads(json.dumps(ledger))
     broken_ledger["reviews"][0]["claim_scope_review"] = "needs_review"
     assert any("claim_scope_review" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviewed_at"] = "09/11/2026"
+    assert any("reviewed_at" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["policy"]["rag_first"] = False
+    assert any("rag_first" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["policy"]["requirements"] = []
+    assert any("required review-policy statements" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviews"][0]["publisher_url"] = "http://example.com/not-secure"
+    assert any("publisher_url must use https" in error for error in validate(rows, broken_ledger))
 
     print("heldout-v3 candidate validator self-test: PASS")
 
