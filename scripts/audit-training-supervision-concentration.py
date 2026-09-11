@@ -12,12 +12,16 @@ import argparse
 import importlib.util
 import json
 import pathlib
+import re
 from collections import Counter
 from types import ModuleType
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 ELIGIBLE_BUILDER = ROOT / "scripts/build-training-eligible-supervision.py"
 DEFAULT_BASELINE = ROOT / "model_tuning/training-supervision-concentration-baseline.json"
+BASELINE_SCHEMA = "grow-doc-training-supervision-concentration-baseline-v1"
+GIT_OBJECT_RE = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 
 
 def load_module(path: pathlib.Path, name: str) -> ModuleType:
@@ -72,13 +76,91 @@ def audit(records: list[dict]) -> dict:
     }
 
 
+def _require_nonnegative_int(data: dict, key: str) -> int:
+    value = data.get(key)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"invalid concentration baseline {key}: {value!r}")
+    return value
+
+
+def _require_share(data: dict, key: str) -> float:
+    value = data.get(key)
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(f"invalid concentration baseline {key}: {value!r}")
+    share = float(value)
+    if not 0.0 <= share <= 1.0:
+        raise ValueError(f"concentration baseline {key} must be within [0, 1]: {share}")
+    return share
+
+
+def validate_baseline(data: dict) -> dict:
+    if data.get("schema_version") != BASELINE_SCHEMA:
+        raise ValueError(f"unsupported concentration baseline schema: {data.get('schema_version')}")
+
+    baseline_commit = data.get("baseline_commit")
+    if not isinstance(baseline_commit, str) or not GIT_OBJECT_RE.fullmatch(baseline_commit):
+        raise ValueError(f"invalid concentration baseline commit: {baseline_commit!r}")
+
+    artifact = data.get("artifact")
+    if not isinstance(artifact, dict):
+        raise ValueError("concentration baseline artifact must be an object")
+    artifact_sha = artifact.get("sha256")
+    if not isinstance(artifact_sha, str) or not SHA256_RE.fullmatch(artifact_sha):
+        raise ValueError(f"invalid concentration baseline artifact sha256: {artifact_sha!r}")
+    _require_nonnegative_int(artifact, "workflow_run_id")
+    _require_nonnegative_int(artifact, "artifact_id")
+    artifact_name = artifact.get("artifact_name")
+    if not isinstance(artifact_name, str) or not artifact_name.strip():
+        raise ValueError("concentration baseline artifact_name must be non-empty")
+
+    candidate_examples = _require_nonnegative_int(data, "candidate_examples")
+    unique_source_ids = _require_nonnegative_int(data, "unique_source_ids")
+    source_mentions = _require_nonnegative_int(data, "source_mentions")
+    if unique_source_ids > source_mentions:
+        raise ValueError("concentration baseline unique_source_ids cannot exceed source_mentions")
+    if candidate_examples == 0 and source_mentions != 0:
+        raise ValueError("zero-example concentration baseline cannot contain source mentions")
+
+    _require_share(data, "top_source_example_share")
+    _require_share(data, "top_profile_example_share")
+    _require_share(data, "top_task_example_share")
+
+    task_distribution = data.get("task_distribution")
+    if not isinstance(task_distribution, dict) or not task_distribution:
+        raise ValueError("concentration baseline task_distribution must be a non-empty object")
+    task_total = 0.0
+    for task, raw_share in task_distribution.items():
+        if not isinstance(task, str) or not task.strip():
+            raise ValueError(f"invalid concentration baseline task name: {task!r}")
+        if isinstance(raw_share, bool) or not isinstance(raw_share, (int, float)):
+            raise ValueError(f"invalid concentration baseline task share for {task}: {raw_share!r}")
+        share = float(raw_share)
+        if not 0.0 <= share <= 1.0:
+            raise ValueError(f"concentration baseline task share for {task} must be within [0, 1]: {share}")
+        task_total += share
+    if abs(task_total - 1.0) > 1e-5:
+        raise ValueError(f"concentration baseline task_distribution must sum to 1.0, got {task_total:.6f}")
+
+    policy = data.get("policy")
+    if not isinstance(policy, dict):
+        raise ValueError("concentration baseline policy must be an object")
+    if policy.get("rag_first") is not True:
+        raise ValueError("concentration baseline must preserve rag_first=true")
+    if policy.get("automatic_rebalancing") is not False:
+        raise ValueError("concentration baseline must preserve automatic_rebalancing=false")
+    if policy.get("regression_thresholds_enforced") is not False:
+        raise ValueError("concentration baseline must preserve regression_thresholds_enforced=false")
+
+    return data
+
+
 def load_baseline(path: pathlib.Path) -> dict | None:
     if not path.exists():
         return None
     data = json.loads(path.read_text(encoding="utf-8"))
-    if data.get("schema_version") != "grow-doc-training-supervision-concentration-baseline-v1":
-        raise ValueError(f"unsupported concentration baseline schema: {data.get('schema_version')}")
-    return data
+    if not isinstance(data, dict):
+        raise ValueError("concentration baseline must be a JSON object")
+    return validate_baseline(data)
 
 
 def add_baseline_comparison(report: dict, baseline: dict | None) -> None:
@@ -149,8 +231,14 @@ def self_test() -> None:
     assert report["top_profile_example_share"] == 0.5
     assert report["top_task_example_share"] == 0.75
     baseline = {
-        "baseline_commit": "abc",
-        "artifact": {"sha256": "deadbeef"},
+        "schema_version": BASELINE_SCHEMA,
+        "baseline_commit": "a" * 40,
+        "artifact": {
+            "workflow_run_id": 1,
+            "artifact_id": 2,
+            "artifact_name": "test-report",
+            "sha256": "c" * 64,
+        },
         "candidate_examples": 3,
         "unique_source_ids": 2,
         "source_mentions": 3,
@@ -158,7 +246,13 @@ def self_test() -> None:
         "top_profile_example_share": 0.5,
         "top_task_example_share": 0.7,
         "task_distribution": {"grounded_qa": 0.7, "legacy_task": 0.3},
+        "policy": {
+            "rag_first": True,
+            "automatic_rebalancing": False,
+            "regression_thresholds_enforced": False,
+        },
     }
+    validate_baseline(baseline)
     add_baseline_comparison(report, baseline)
     assert report["baseline_comparison"]["metric_deltas"]["candidate_examples"] == 1
     assert report["baseline_comparison"]["metric_deltas"]["top_source_example_share"] == 0.1
@@ -167,6 +261,43 @@ def self_test() -> None:
     assert report["baseline_comparison"]["task_share_deltas"]["legacy_task"] == -0.3
     assert report["baseline_comparison"]["new_task_families"] == ["science_education"]
     assert report["baseline_comparison"]["missing_baseline_task_families"] == ["legacy_task"]
+
+    bad = json.loads(json.dumps(baseline))
+    bad["artifact"]["sha256"] = "not-a-sha"
+    try:
+        validate_baseline(bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("invalid artifact SHA-256 must be rejected")
+
+    bad = json.loads(json.dumps(baseline))
+    bad["task_distribution"] = {"grounded_qa": 0.4, "legacy_task": 0.3}
+    try:
+        validate_baseline(bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("non-normalized task distribution must be rejected")
+
+    bad = json.loads(json.dumps(baseline))
+    bad["policy"]["rag_first"] = False
+    try:
+        validate_baseline(bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("non-RAG-first baseline policy must be rejected")
+
+    bad = json.loads(json.dumps(baseline))
+    bad["baseline_commit"] = "not-a-git-object"
+    try:
+        validate_baseline(bad)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError("invalid baseline Git identity must be rejected")
+
     assert report["policy"]["report_only"] is True
     print("training supervision concentration self-test: PASS")
 
