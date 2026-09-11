@@ -30,6 +30,7 @@ TRAIN_SFT = ROOT / "model_tuning/generated/splits/train_sft_v1.jsonl"
 TRAIN_GQA = ROOT / "model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl"
 DEV_SFT = ROOT / "model_tuning/generated/splits/dev_sft_v1.jsonl"
 DEV_GQA = ROOT / "model_tuning/generated/splits/dev_grounded_qa_v1.jsonl"
+ARTIFACT_LOCK = ROOT / "model_tuning/generated/training_artifact_lock_v3.json"
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 DIRECT_PACKAGE_NAMES = ("torch", "transformers", "peft", "bitsandbytes", "accelerate")
 UV_PREFIX = "uv 0.12.10"
@@ -58,6 +59,32 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
             raise ValueError(f"{path}:{line_no}: expected JSON object")
         rows.append(row)
     return rows
+
+
+def frozen_mixture_contract(path: Path = ARTIFACT_LOCK) -> tuple[int, int]:
+    try:
+        lock = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        raise RuntimeError(f"unable to read frozen training artifact lock: {path}") from exc
+    if lock.get("schema_version") != "grow-doc-training-artifact-lock-v3":
+        raise RuntimeError("unexpected training artifact lock schema")
+    training_rows = lock.get("training_rows")
+    grounded_qa_rows = lock.get("grounded_qa_selected_rows")
+    grounded_qa_fraction = lock.get("grounded_qa_fraction")
+    if isinstance(training_rows, bool) or not isinstance(training_rows, int) or training_rows <= 0:
+        raise RuntimeError("training artifact lock must contain a positive integer training_rows")
+    if isinstance(grounded_qa_rows, bool) or not isinstance(grounded_qa_rows, int) or grounded_qa_rows < 0:
+        raise RuntimeError("training artifact lock must contain a non-negative integer grounded_qa_selected_rows")
+    if grounded_qa_rows > training_rows:
+        raise RuntimeError("grounded_qa_selected_rows cannot exceed training_rows")
+    if isinstance(grounded_qa_fraction, bool) or not isinstance(grounded_qa_fraction, (int, float)):
+        raise RuntimeError("training artifact lock must contain numeric grounded_qa_fraction")
+    expected_fraction = grounded_qa_rows / training_rows
+    if abs(float(grounded_qa_fraction) - expected_fraction) > 1e-12:
+        raise RuntimeError(
+            "training artifact lock grounded_qa_fraction is inconsistent with its row counts"
+        )
+    return training_rows, grounded_qa_rows
 
 
 def git_head() -> str:
@@ -288,8 +315,13 @@ def train(output_dir: Path) -> None:
     train_rows = load_jsonl(TRAIN_SFT) + load_jsonl(TRAIN_GQA)
     dev_rows = load_jsonl(DEV_SFT) + load_jsonl(DEV_GQA)
     qa_rows = sum(1 for row in train_rows if row.get("task") == "grounded_qa")
-    if len(train_rows) != 180 or qa_rows != 36:
-        raise RuntimeError(f"frozen mixture mismatch: train={len(train_rows)} grounded_qa={qa_rows}; expected 180/36")
+    expected_train_rows, expected_qa_rows = frozen_mixture_contract()
+    if len(train_rows) != expected_train_rows or qa_rows != expected_qa_rows:
+        raise RuntimeError(
+            "frozen mixture mismatch: "
+            f"train={len(train_rows)} grounded_qa={qa_rows}; "
+            f"artifact lock requires {expected_train_rows}/{expected_qa_rows}"
+        )
     encoded_train = [encode_record(tokenizer, row, max_length) for row in train_rows]
     encoded_dev = [encode_record(tokenizer, row, max_length) for row in dev_rows]
 
@@ -356,6 +388,28 @@ def self_test() -> None:
     assert "finalize_training_manifest(manifest_path, adapter_dir)" in trainer_text
     assert FINALIZER == ROOT / "scripts/finalize-qlora-run-manifest.py"
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
+    assert ARTIFACT_LOCK == ROOT / "model_tuning/generated/training_artifact_lock_v3.json"
+    sample_lock = {
+        "schema_version": "grow-doc-training-artifact-lock-v3",
+        "training_rows": 161,
+        "grounded_qa_selected_rows": 32,
+        "grounded_qa_fraction": 32 / 161,
+    }
+    sample_path = ROOT / ".grow-doc-qlora-lock-self-test.json"
+    sample_path.write_text(json.dumps(sample_lock), encoding="utf-8")
+    try:
+        assert frozen_mixture_contract(sample_path) == (161, 32)
+        bad_lock = dict(sample_lock)
+        bad_lock["grounded_qa_fraction"] = 0.20
+        sample_path.write_text(json.dumps(bad_lock), encoding="utf-8")
+        try:
+            frozen_mixture_contract(sample_path)
+        except RuntimeError as exc:
+            assert "inconsistent" in str(exc)
+        else:
+            raise AssertionError("inconsistent artifact-lock mixture was accepted")
+    finally:
+        sample_path.unlink(missing_ok=True)
     print("Grow Doc QLoRA trainer self-test: PASS")
 
 
