@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "candidate_id": "qwen3-5-9b-research",
+  "repo_id": "Qwen/Qwen3.5-9B",
+  "checked_at": "2026-09-11",
+  "upstream_repo_head_observed": "7daa976d0c5c4f25f6f513094ae567d74bf11818",
+  "chat_template_last_change_observed": "ef3d031a90d340a92d71f83ec17d054e100ce713",
+  "license": "apache-2.0",
+  "runtime_family": "qwen3_5",
+  "parameter_count_approx_b": 9.6531,
+  "task_metadata": "image-text-to-text",
+  "prompt_contract": {
+    "status": "blocked",
+    "known_defects": [
+      "empty_historical_think_blocks"
+    ],
+    "observed_template_condition": "loop.index0 > ns.last_query_index",
+    "required_safe_condition": "loop.index0 > ns.last_query_index and reasoning_content",
+    "upstream_fix_status": "proposed_not_merged"
+  },
+  "grow_doc_eligibility": {
+    "benchmark_eligible": false,
+    "training_eligible": false,
+    "reason": "The current upstream chat template still emits the historical think wrapper without requiring non-empty reasoning content. Grow Doc must not benchmark or tune this challenger until an exact defect-free revision or an explicitly vendored immutable prompt contract is frozen and the remaining decoding, dependency, hardware, tokenizer/processor, and held-out/RAG bindings are verified."
+  },
+  "evidence": [
+    {
+      "type": "hugging_face_model_metadata",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "supports": [
+        "license",
+        "runtime_family",
+        "parameter_count_approx_b",
+        "task_metadata"
+      ]
+    },
+    {
+      "type": "upstream_commit_history",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/commits/7daa976d0c5c4f25f6f513094ae567d74bf11818",
+      "supports": [
+        "upstream_repo_head_observed",
+        "chat_template_last_change_observed"
+      ]
+    },
+    {
+      "type": "current_chat_template",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/blob/main/chat_template.jinja",
+      "supports": [
+        "observed_template_condition",
+        "empty_historical_think_blocks"
+      ]
+    },
+    {
+      "type": "upstream_proposed_fix",
+      "url": "https://huggingface.co/Qwen/Qwen3.5-9B/discussions/48",
+      "supports": [
+        "required_safe_condition",
+        "upstream_fix_status"
+      ]
+    }
+  ],
+  "decision": "retain_as_research_only_challenger"
+}
