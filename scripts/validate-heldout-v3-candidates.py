@@ -39,9 +39,12 @@ def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
 
     reviewed_at = str(ledger.get("reviewed_at", "")).strip()
     try:
-        date.fromisoformat(reviewed_at)
+        reviewed_date = date.fromisoformat(reviewed_at)
     except ValueError:
         errors.append("source review ledger reviewed_at must be an ISO YYYY-MM-DD date")
+    else:
+        if reviewed_date > date.today():
+            errors.append("source review ledger reviewed_at must not be future-dated")
 
     policy = ledger.get("policy") or {}
     if policy.get("promotion_eligible") is not False:
@@ -212,6 +215,10 @@ def self_test() -> None:
     broken_ledger = json.loads(json.dumps(ledger))
     broken_ledger["reviewed_at"] = "09/11/2026"
     assert any("reviewed_at" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviewed_at"] = "2999-01-01"
+    assert any("future-dated" in error for error in validate(rows, broken_ledger))
 
     broken_ledger = json.loads(json.dumps(ledger))
     broken_ledger["policy"]["rag_first"] = False
