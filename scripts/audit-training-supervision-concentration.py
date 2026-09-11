@@ -102,10 +102,11 @@ def add_baseline_comparison(report: dict, baseline: dict | None) -> None:
         deltas[key] = round(delta, 6) if isinstance(delta, float) else delta
 
     current_tasks = {row["key"]: row["share"] for row in report.get("tasks", [])}
-    baseline_tasks = baseline.get("task_distribution", {})
+    baseline_tasks = {str(key): float(value) for key, value in (baseline.get("task_distribution") or {}).items()}
+    all_task_keys = sorted(set(current_tasks) | set(baseline_tasks))
     task_deltas = {
-        key: round(current_tasks.get(key, 0.0) - float(previous), 6)
-        for key, previous in sorted(baseline_tasks.items())
+        key: round(current_tasks.get(key, 0.0) - baseline_tasks.get(key, 0.0), 6)
+        for key in all_task_keys
     }
     report["baseline_comparison"] = {
         "available": True,
@@ -114,6 +115,8 @@ def add_baseline_comparison(report: dict, baseline: dict | None) -> None:
         "regression_thresholds_enforced": False,
         "metric_deltas": deltas,
         "task_share_deltas": task_deltas,
+        "new_task_families": sorted(set(current_tasks) - set(baseline_tasks)),
+        "missing_baseline_task_families": sorted(set(baseline_tasks) - set(current_tasks)),
     }
 
 
@@ -154,12 +157,16 @@ def self_test() -> None:
         "top_source_example_share": 0.4,
         "top_profile_example_share": 0.5,
         "top_task_example_share": 0.7,
-        "task_distribution": {"grounded_qa": 0.7},
+        "task_distribution": {"grounded_qa": 0.7, "legacy_task": 0.3},
     }
     add_baseline_comparison(report, baseline)
     assert report["baseline_comparison"]["metric_deltas"]["candidate_examples"] == 1
     assert report["baseline_comparison"]["metric_deltas"]["top_source_example_share"] == 0.1
     assert report["baseline_comparison"]["task_share_deltas"]["grounded_qa"] == 0.05
+    assert report["baseline_comparison"]["task_share_deltas"]["science_education"] == 0.25
+    assert report["baseline_comparison"]["task_share_deltas"]["legacy_task"] == -0.3
+    assert report["baseline_comparison"]["new_task_families"] == ["science_education"]
+    assert report["baseline_comparison"]["missing_baseline_task_families"] == ["legacy_task"]
     assert report["policy"]["report_only"] is True
     print("training supervision concentration self-test: PASS")
 
