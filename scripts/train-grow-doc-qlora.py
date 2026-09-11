@@ -25,6 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 REQUIREMENTS_IN = ROOT / "model_tuning/requirements.in"
 LOCK_PATH = ROOT / "model_tuning/requirements.lock"
+FINALIZER = ROOT / "scripts/finalize-qlora-run-manifest.py"
 TRAIN_SFT = ROOT / "model_tuning/generated/splits/train_sft_v1.jsonl"
 TRAIN_GQA = ROOT / "model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl"
 DEV_SFT = ROOT / "model_tuning/generated/splits/dev_sft_v1.jsonl"
@@ -247,6 +248,22 @@ class Collator:
         return {"input_ids": torch.tensor(ids), "attention_mask": torch.tensor(masks), "labels": torch.tensor(labels)}
 
 
+def finalize_training_manifest(manifest_path: Path, adapter_dir: Path) -> str:
+    raw = subprocess.check_output(
+        [sys.executable, str(FINALIZER), str(manifest_path), str(adapter_dir)],
+        cwd=ROOT,
+        text=True,
+    ).strip()
+    if not HEX64.fullmatch(raw):
+        raise RuntimeError("QLoRA manifest finalizer did not return a valid adapter SHA-256")
+    finalized = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if finalized.get("adapter_artifact_sha256") != raw:
+        raise RuntimeError("finalized manifest adapter digest does not match finalizer output")
+    if finalized.get("artifact_identity_scheme") != "grow-doc-adapter-tree-sha256-v1":
+        raise RuntimeError("finalized manifest is missing the canonical artifact identity scheme")
+    return raw
+
+
 def train(output_dir: Path) -> None:
     repo_revision, lock_sha = run_preflight()
     runtime = load_runtime()
@@ -305,8 +322,10 @@ def train(output_dir: Path) -> None:
         "adapter_merge_performed": False, "deployment_performed": False,
         "next_gate": "external heldout_v2 evaluation and promotion scorer",
     }
-    (output_dir / "training-run-manifest.json").write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print("QLoRA training completed; adapter is NOT promoted, merged, or deployed.")
+    manifest_path = output_dir / "training-run-manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    adapter_sha = finalize_training_manifest(manifest_path, adapter_dir)
+    print(f"QLoRA training completed; adapter {adapter_sha} is NOT promoted, merged, or deployed.")
 
 
 def self_test() -> None:
@@ -334,6 +353,8 @@ def self_test() -> None:
     assert "load_best_model_at_end=True" in trainer_text
     assert 'metric_for_best_model="eval_loss"' in trainer_text
     assert "greater_is_better=False" in trainer_text
+    assert "finalize_training_manifest(manifest_path, adapter_dir)" in trainer_text
+    assert FINALIZER == ROOT / "scripts/finalize-qlora-run-manifest.py"
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     print("Grow Doc QLoRA trainer self-test: PASS")
 
