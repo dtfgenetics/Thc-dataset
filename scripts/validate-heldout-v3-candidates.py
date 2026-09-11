@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 PATH = Path("model_tuning/eval/heldout_v3_candidates.jsonl")
+REVIEW_PATH = Path("model_tuning/eval/candidates/heldout_v3_source_review.json")
 REQUIRED = {
     "factuality", "diagnostic", "science", "citation_accuracy",
     "hallucination", "education", "regression", "grounded_qa",
@@ -23,7 +24,49 @@ def canonical(value: str) -> str:
     return f"{prefix.lower()}:{rest}"
 
 
-def validate(rows: list[dict]) -> list[str]:
+def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
+    errors: list[str] = []
+    if ledger.get("schema_version") != "grow-doc-heldout-v3-source-review-v1":
+        errors.append("unsupported or missing heldout-v3 source review schema")
+        return errors
+    if (ledger.get("policy") or {}).get("promotion_eligible") is not False:
+        errors.append("source review ledger must not promote heldout-v3 candidates")
+
+    reviews = ledger.get("reviews") or []
+    by_candidate = {str(item.get("candidate_id", "")).strip(): item for item in reviews}
+    if len(by_candidate) != len(reviews):
+        errors.append("source review ledger candidate_id values must be unique and non-empty")
+
+    expected_ids = {str(row.get("id", "")).strip() for row in rows}
+    if set(by_candidate) != expected_ids:
+        errors.append(
+            "source review ledger candidate ids must exactly match heldout-v3 candidates; "
+            f"expected {sorted(expected_ids)}, got {sorted(by_candidate)}"
+        )
+        return errors
+
+    for row in rows:
+        label = str(row.get("id", "")).strip()
+        review = by_candidate[label]
+        source = row.get("source_metadata") or {}
+        row_citations = {canonical(value) for value in row.get("must_cite") or [] if canonical(value)}
+        review_citation = canonical(review.get("citation", ""))
+        if str(review.get("source_id", "")).strip() != str(source.get("source_id", "")).strip():
+            errors.append(f"{label}: source review source_id does not match candidate source_metadata")
+        if not review_citation or review_citation not in row_citations:
+            errors.append(f"{label}: source review citation does not match candidate must_cite")
+        if review.get("source_identity_verified") is not True:
+            errors.append(f"{label}: source_identity_verified must be true")
+        if review.get("claim_scope_review") != "pass":
+            errors.append(f"{label}: claim_scope_review must be pass")
+        if not str(review.get("publisher_url", "")).strip():
+            errors.append(f"{label}: publisher_url is required in source review ledger")
+        if not str(review.get("notes", "")).strip():
+            errors.append(f"{label}: source review notes are required")
+    return errors
+
+
+def validate(rows: list[dict], ledger: dict | None = None) -> list[str]:
     errors: list[str] = []
     ids = [str(row.get("id", "")).strip() for row in rows]
     duplicates = [key for key, count in Counter(ids).items() if key and count > 1]
@@ -88,6 +131,8 @@ def validate(rows: list[dict]) -> list[str]:
     if duplicate_evidence:
         errors.append("candidate source DOI/URL identities must be unique across slices: " + ", ".join(sorted(duplicate_evidence)))
 
+    if ledger is not None:
+        errors.extend(validate_review_ledger(rows, ledger))
     return errors
 
 
@@ -95,41 +140,56 @@ def load(path: Path = PATH) -> list[dict]:
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
 
+def load_review(path: Path = REVIEW_PATH) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def self_test() -> None:
     rows = load()
-    assert not validate(rows), validate(rows)
+    ledger = load_review()
+    assert not validate(rows, ledger), validate(rows, ledger)
 
     bad = [dict(row) for row in rows]
     bad[0] = dict(bad[0]); bad[0]["promotion_eligible"] = True
-    assert any("promotion_eligible" in error for error in validate(bad))
+    assert any("promotion_eligible" in error for error in validate(bad, ledger))
 
     bad = [dict(row) for row in rows]
     bad[0] = dict(bad[0]); bad[0]["must_cite"] = [rows[0]["must_cite"][0], "doi:10.0000/not-the-source"]
-    assert any("must_cite contains provenance" in error for error in validate(bad))
+    assert any("must_cite contains provenance" in error for error in validate(bad, ledger))
 
     bad = [dict(row) for row in rows]
     bad[0] = dict(bad[0]); bad[0]["source_metadata"] = dict(bad[0]["source_metadata"]); bad[0]["source_metadata"].pop("title", None)
-    assert any("source_metadata.title" in error for error in validate(bad))
+    assert any("source_metadata.title" in error for error in validate(bad, ledger))
 
     bad = [dict(row) for row in rows]
     bad[1] = dict(bad[1]); bad[1]["source_metadata"] = dict(bad[1]["source_metadata"])
     bad[1]["source_metadata"]["source_id"] = rows[0]["source_metadata"]["source_id"]
-    assert any("source_metadata.source_id values must be unique" in error for error in validate(bad))
+    assert any("source_metadata.source_id values must be unique" in error for error in validate(bad, ledger))
 
     bad = [dict(row) for row in rows]
     bad[1] = dict(bad[1]); bad[1]["source_metadata"] = dict(bad[1]["source_metadata"])
     bad[1]["source_metadata"]["doi"] = rows[0]["source_metadata"]["doi"]
     bad[1]["must_cite"] = list(rows[0]["must_cite"])
-    assert any("source DOI/URL identities must be unique" in error for error in validate(bad))
+    assert any("source DOI/URL identities must be unique" in error for error in validate(bad, ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviews"][0]["citation"] = "doi:10.0000/not-the-source"
+    assert any("source review citation" in error for error in validate(rows, broken_ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviews"][0]["claim_scope_review"] = "needs_review"
+    assert any("claim_scope_review" in error for error in validate(rows, broken_ledger))
 
     print("heldout-v3 candidate validator self-test: PASS")
 
 
 if __name__ == "__main__":
-    errors = validate(load())
+    rows = load()
+    ledger = load_review()
+    errors = validate(rows, ledger)
     if errors:
         for error in errors:
             print(f"ERROR: {error}")
         raise SystemExit(1)
     self_test()
-    print(f"heldout-v3 candidates valid: {PATH}")
+    print(f"heldout-v3 candidates valid with reviewed source ledger: {PATH}")
