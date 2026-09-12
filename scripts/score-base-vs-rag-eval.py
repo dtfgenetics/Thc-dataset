@@ -17,8 +17,6 @@ from typing import Any
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCORER_PATH = ROOT / "scripts/score-model-eval.py"
-# Retrieval is intended to improve factual grounding without sacrificing any required
-# held-out behavior. An aggregate gain must not hide a regression in a benchmark slice.
 CRITICAL_SLICES = {
     "citation_accuracy",
     "diagnostic",
@@ -40,6 +38,10 @@ def load_scorer():
     return module
 
 
+def valid_sha256(value: Any) -> bool:
+    return isinstance(value, str) and len(value) == 64 and all(c in "0123456789abcdef" for c in value.lower())
+
+
 def base_vs_rag_comparability_errors(base: dict[str, Any], rag: dict[str, Any]) -> list[str]:
     errors: list[str] = []
     if base.get("schema_version") != rag.get("schema_version"):
@@ -49,7 +51,6 @@ def base_vs_rag_comparability_errors(base: dict[str, Any], rag: dict[str, Any]) 
         if base.get(section) != rag.get(section):
             errors.append(f"{section} differs between base and RAG arms")
 
-    # For this experiment the *only* intended intervention is retrieval.
     if base.get("retrieval") is not None:
         errors.append("base-only arm must have retrieval=null")
     rag_retrieval = rag.get("retrieval")
@@ -58,10 +59,10 @@ def base_vs_rag_comparability_errors(base: dict[str, Any], rag: dict[str, Any]) 
     else:
         snapshot = rag_retrieval.get("snapshot_sha256")
         top_k = rag_retrieval.get("top_k")
-        if not isinstance(snapshot, str) or len(snapshot) != 64:
-            errors.append("RAG arm retrieval snapshot_sha256 must be pinned")
-        if not isinstance(top_k, int) or top_k < 1:
-            errors.append("RAG arm retrieval top_k must be positive")
+        if not valid_sha256(snapshot):
+            errors.append("RAG arm retrieval snapshot_sha256 must be 64 hexadecimal characters")
+        if type(top_k) is not int or top_k < 1:
+            errors.append("RAG arm retrieval top_k must be a positive integer")
 
     if base.get("runtime") != rag.get("runtime"):
         errors.append("recorded runtime differs between base and RAG arms")
@@ -72,11 +73,7 @@ def comparison_decision(base_summary: dict[str, Any], rag_summary: dict[str, Any
     base_agg = (base_summary.get("overall") or {}).get("aggregate")
     rag_agg = (rag_summary.get("overall") or {}).get("aggregate")
     if base_agg is None or rag_agg is None:
-        return {
-            "review_complete": False,
-            "rag_preferred_by_reviewed_metrics": False,
-            "reason": "reviewed semantic scores are required",
-        }
+        return {"review_complete": False, "rag_preferred_by_reviewed_metrics": False, "reason": "reviewed semantic scores are required"}
 
     missing_slices: list[dict[str, Any]] = []
     base_slices = base_summary.get("slices") or {}
@@ -85,11 +82,7 @@ def comparison_decision(base_summary: dict[str, Any], rag_summary: dict[str, Any
         base_value = (base_slices.get(category) or {}).get("aggregate")
         rag_value = (rag_slices.get(category) or {}).get("aggregate")
         if base_value is None or rag_value is None:
-            missing_slices.append({
-                "slice": category,
-                "base_present": base_value is not None,
-                "rag_present": rag_value is not None,
-            })
+            missing_slices.append({"slice": category, "base_present": base_value is not None, "rag_present": rag_value is not None})
     if missing_slices:
         return {
             "review_complete": False,
@@ -104,12 +97,7 @@ def comparison_decision(base_summary: dict[str, Any], rag_summary: dict[str, Any
         base_value = base_slices[category]["aggregate"]
         rag_value = rag_slices[category]["aggregate"]
         if rag_value < base_value:
-            regressions.append({
-                "slice": category,
-                "base": base_value,
-                "rag": rag_value,
-                "delta_pp": round((rag_value - base_value) * 100.0, 2),
-            })
+            regressions.append({"slice": category, "base": base_value, "rag": rag_value, "delta_pp": round((rag_value - base_value) * 100.0, 2)})
     return {
         "review_complete": True,
         "aggregate_gain_pp": gain_pp,
@@ -155,7 +143,7 @@ def score(args: argparse.Namespace) -> dict[str, Any]:
     base_summary = scorer.summarize(base_cases)
     rag_summary = scorer.summarize(rag_cases)
 
-    report = {
+    return {
         "schema_version": "grow-doc-base-vs-rag-reviewed-score-v1",
         "status": "reviewed_comparison",
         "promotion_eligible": False,
@@ -169,12 +157,8 @@ def score(args: argparse.Namespace) -> dict[str, Any]:
             "base_manifest_sha256": scorer.sha256_file(base_manifest_path),
             "rag_manifest_sha256": scorer.sha256_file(rag_manifest_path),
         },
-        "cases": {
-            "base": base_cases,
-            "rag": rag_cases,
-        },
+        "cases": {"base": base_cases, "rag": rag_cases},
     }
-    return report
 
 
 def self_test() -> None:
@@ -197,16 +181,16 @@ def self_test() -> None:
     assert "recorded runtime differs between base and RAG arms" in base_vs_rag_comparability_errors(base, bad)
     bad_base = json.loads(json.dumps(base)); bad_base["retrieval"] = {"snapshot_sha256": "f" * 64, "top_k": 5}
     assert "base-only arm must have retrieval=null" in base_vs_rag_comparability_errors(bad_base, rag)
+    bad = json.loads(json.dumps(rag)); bad["retrieval"]["snapshot_sha256"] = "z" * 64
+    assert "RAG arm retrieval snapshot_sha256 must be 64 hexadecimal characters" in base_vs_rag_comparability_errors(base, bad)
+    for invalid_top_k in (True, 0, -1, 5.0, "5"):
+        bad = json.loads(json.dumps(rag)); bad["retrieval"]["top_k"] = invalid_top_k
+        assert "RAG arm retrieval top_k must be a positive integer" in base_vs_rag_comparability_errors(base, bad)
 
     protected = {
-        "diagnostic": {"aggregate": 0.70},
-        "citation_accuracy": {"aggregate": 0.70},
-        "hallucination": {"aggregate": 0.70},
-        "factuality": {"aggregate": 0.70},
-        "regression": {"aggregate": 0.70},
-        "science": {"aggregate": 0.70},
-        "education": {"aggregate": 0.70},
-        "grounded_qa": {"aggregate": 0.70},
+        "diagnostic": {"aggregate": 0.70}, "citation_accuracy": {"aggregate": 0.70}, "hallucination": {"aggregate": 0.70},
+        "factuality": {"aggregate": 0.70}, "regression": {"aggregate": 0.70}, "science": {"aggregate": 0.70},
+        "education": {"aggregate": 0.70}, "grounded_qa": {"aggregate": 0.70},
     }
     base_summary = {"overall": {"aggregate": 0.70}, "slices": json.loads(json.dumps(protected))}
     rag_summary = {"overall": {"aggregate": 0.75}, "slices": json.loads(json.dumps(protected))}
@@ -217,14 +201,11 @@ def self_test() -> None:
     assert decision["aggregate_gain_pp"] == 5.0
     assert decision["rag_preferred_by_reviewed_metrics"] is True
 
-    missing = json.loads(json.dumps(rag_summary))
-    del missing["slices"]["grounded_qa"]
+    missing = json.loads(json.dumps(rag_summary)); del missing["slices"]["grounded_qa"]
     missing_decision = comparison_decision(base_summary, missing)
     assert missing_decision["review_complete"] is False
     assert missing_decision["rag_preferred_by_reviewed_metrics"] is False
-    assert missing_decision["missing_critical_slices"] == [
-        {"slice": "grounded_qa", "base_present": True, "rag_present": False}
-    ]
+    assert missing_decision["missing_critical_slices"] == [{"slice": "grounded_qa", "base_present": True, "rag_present": False}]
 
     for category in sorted(CRITICAL_SLICES):
         regressed = json.loads(json.dumps(rag_summary))
