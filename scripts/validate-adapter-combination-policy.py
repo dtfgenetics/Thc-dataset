@@ -67,7 +67,6 @@ def validate(path: Path, *, report_root: Path = Path('.')) -> None:
             fail(f'{key} must be true')
 
     seen = set()
-    seen_artifacts = set()
     for item in data.get('combination_candidates') or []:
         cid = item.get('id')
         if not cid or cid in seen:
@@ -79,6 +78,7 @@ def validate(path: Path, *, report_root: Path = Path('.')) -> None:
         revisions = [c.get('revision') for c in components]
         if len(set(revisions)) != len(revisions):
             fail(f'{cid}: component adapter revisions must be distinct')
+        seen_artifacts = set()
         for component in components:
             if not component.get('repository'):
                 fail(f'{cid}: component repository is required')
@@ -135,6 +135,7 @@ def self_test() -> None:
         report_bytes = {
             'a.json': b'{"adapter":"a"}\n',
             'b.json': b'{"adapter":"b"}\n',
+            'c.json': b'{"adapter":"c"}\n',
             'combo.json': b'{"combination":"a+b"}\n',
         }
         report_shas = {}
@@ -148,6 +149,17 @@ def self_test() -> None:
                 component('dtf/a', 'a' * 40, '1' * 64, 'a.json', report_shas['a.json']),
                 component('dtf/b', 'c' * 40, '2' * 64, 'b.json', report_shas['b.json']),
             ]
+
+        shared = json.loads(json.dumps(good))
+        shared['combination_candidates'] = [
+            {'id': 'a-plus-b', 'eligible_for_combination': False, 'components': components()},
+            {'id': 'a-plus-c', 'eligible_for_combination': False, 'components': [
+                component('dtf/a', 'a' * 40, '1' * 64, 'a.json', report_shas['a.json']),
+                component('dtf/c', 'd' * 40, '3' * 64, 'c.json', report_shas['c.json']),
+            ]},
+        ]
+        p.write_text(json.dumps(shared))
+        validate(p, report_root=root)
 
         broken = json.loads(json.dumps(good))
         broken['combination_candidates'] = [{
