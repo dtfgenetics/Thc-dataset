@@ -52,6 +52,15 @@ def validate_device_map(device_map: Any) -> dict[str, Any]:
     }
 
 
+def validate_successful_run(exit_code: int, observed: dict[str, Any]) -> int:
+    """Require successful strict runs to have actually crossed the guarded model-load path."""
+    if exit_code != 0:
+        return exit_code
+    if not observed:
+        raise RuntimeError("strict evaluation exited successfully without observing a model load")
+    return 0
+
+
 def run_target(argv: list[str]) -> int:
     try:
         from transformers import AutoModelForCausalLM
@@ -70,6 +79,7 @@ def run_target(argv: list[str]) -> int:
 
     old_argv = sys.argv[:]
     sys.argv = [str(TARGET), *argv]
+    exit_code = 0
     try:
         with patch.object(AutoModelForCausalLM, "from_pretrained", side_effect=guarded_from_pretrained):
             try:
@@ -77,15 +87,14 @@ def run_target(argv: list[str]) -> int:
             except SystemExit as exc:
                 code = exc.code
                 if code is None:
-                    return 0
-                if isinstance(code, int):
-                    return code
-                raise
+                    exit_code = 0
+                elif isinstance(code, int):
+                    exit_code = code
+                else:
+                    raise
     finally:
         sys.argv = old_argv
-    if not observed:
-        raise RuntimeError("strict evaluation did not observe a model load")
-    return 0
+    return validate_successful_run(exit_code, observed)
 
 
 def self_test() -> None:
@@ -106,6 +115,15 @@ def self_test() -> None:
             assert expected in str(exc)
         else:
             raise AssertionError(f"strict device-map contract should reject {device_map!r}")
+    observed = {"policy": "single-cuda-no-offload-v1", "devices": ["cuda:0"]}
+    assert validate_successful_run(0, observed) == 0
+    assert validate_successful_run(7, {}) == 7
+    try:
+        validate_successful_run(0, {})
+    except RuntimeError as exc:
+        assert "without observing a model load" in str(exc)
+    else:
+        raise AssertionError("successful strict evaluation must observe the guarded model load")
     print("strict model evaluation entrypoint self-test: PASS")
 
 
