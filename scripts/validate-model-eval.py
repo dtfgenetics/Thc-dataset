@@ -19,6 +19,27 @@ def canonical_source_id(value: str) -> str:
         return f"{prefix}:{rest}"
     return value
 
+def source_metadata_citation_ids(meta: dict) -> set[str]:
+    ids=set()
+    doi=meta.get("doi")
+    url=meta.get("url")
+    source_id=meta.get("source_id")
+    if doi:
+        ids.add(canonical_source_id(f"doi:{doi}"))
+    if url:
+        ids.add(canonical_source_id(f"url:{url}"))
+    if source_id:
+        ids.add(canonical_source_id(f"source:{source_id}"))
+    for extra_doi in meta.get("additional_dois") or []:
+        extra_doi=str(extra_doi).strip()
+        if extra_doi:
+            ids.add(canonical_source_id(f"doi:{extra_doi}"))
+    for extra_url in meta.get("additional_urls") or []:
+        extra_url=str(extra_url).strip()
+        if extra_url:
+            ids.add(canonical_source_id(f"url:{extra_url}"))
+    return ids
+
 def validate(path: pathlib.Path) -> list[str]:
     errors=[]
     seen=set()
@@ -51,9 +72,14 @@ def validate(path: pathlib.Path) -> list[str]:
         if not (meta.get("doi") or meta.get("url")):
             errors.append(f"{path}:{lineno}: source_metadata requires doi or url")
         canonical_cites={canonical_source_id(c) for c in cites if isinstance(c, str)}
+        metadata_ids=source_metadata_citation_ids(meta)
         for cite in cites:
             if not isinstance(cite, str) or not (cite.startswith("doi:") or cite.startswith("url:") or cite.startswith("source:")):
                 errors.append(f"{path}:{lineno}: unsupported citation identifier {cite!r}")
+                continue
+            canonical=canonical_source_id(cite)
+            if canonical not in metadata_ids:
+                errors.append(f"{path}:{lineno}: must_cite identifier is not represented by source_metadata: {cite!r}")
 
         bindings=row.get("claim_source_bindings")
         if bindings is not None:
@@ -70,10 +96,46 @@ def validate(path: pathlib.Path) -> list[str]:
                             errors.append(f"{path}:{lineno}: claim_source_bindings[{index}] references citation outside must_cite: {cite!r}")
     return errors
 
+def self_test() -> int:
+    import tempfile
+    base={
+        "id":"x",
+        "category":"citation_accuracy",
+        "difficulty":"medium",
+        "prompt":"p",
+        "expected_points":["e"],
+        "must_cite":["doi:10.1000/abc"],
+        "forbidden_claims":[],
+        "source_metadata":{"source_id":"fixture","doi":"10.1000/ABC","year":2026},
+    }
+    with tempfile.TemporaryDirectory() as td:
+        path=pathlib.Path(td)/"eval.jsonl"
+        path.write_text(json.dumps(base)+"\n",encoding="utf-8")
+        assert validate(path) == []
+        bad=dict(base)
+        bad["must_cite"]=["doi:10.1000/wrong"]
+        path.write_text(json.dumps(bad)+"\n",encoding="utf-8")
+        assert any("not represented by source_metadata" in e for e in validate(path))
+        multi=dict(base)
+        multi["must_cite"]=["doi:10.1000/abc","doi:10.1000/extra"]
+        multi["source_metadata"]=dict(base["source_metadata"], additional_dois=["10.1000/EXTRA"])
+        path.write_text(json.dumps(multi)+"\n",encoding="utf-8")
+        assert validate(path) == []
+        multi_url=dict(base)
+        multi_url["must_cite"]=["doi:10.1000/abc","url:https://example.org/source"]
+        multi_url["source_metadata"]=dict(base["source_metadata"], additional_urls=["https://example.org/source"])
+        path.write_text(json.dumps(multi_url)+"\n",encoding="utf-8")
+        assert validate(path) == []
+    print("OK: validate-model-eval self-test")
+    return 0
+
 def main() -> int:
     ap=argparse.ArgumentParser()
     ap.add_argument("path", nargs="?", default="model_tuning/eval/heldout_v2.jsonl")
+    ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
+    if args.self_test:
+        return self_test()
     errors=validate(pathlib.Path(args.path))
     if errors:
         print("\n".join(errors), file=sys.stderr)
