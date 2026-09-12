@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import hashlib
 import json
 import re
 import sys
@@ -17,7 +18,39 @@ def fail(message: str) -> None:
     raise ValueError(message)
 
 
-def validate(path: Path) -> None:
+def sha256_file(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open('rb') as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def validate_report_ref(cid: str, label: str, report: dict, report_root: Path) -> None:
+    report_path = report.get('path')
+    report_sha = report.get('sha256') or ''
+    if not isinstance(report_path, str) or not report_path.strip() or not SHA256.fullmatch(report_sha):
+        fail(f'{cid}: {label} requires a repository-relative path and exact sha256')
+
+    relative = Path(report_path)
+    if relative.is_absolute():
+        fail(f'{cid}: {label} path must be repository-relative')
+
+    root = report_root.resolve()
+    resolved = (root / relative).resolve()
+    try:
+        resolved.relative_to(root)
+    except ValueError:
+        fail(f'{cid}: {label} path escapes report root')
+
+    if not resolved.is_file():
+        fail(f'{cid}: {label} file does not exist: {report_path}')
+    actual_sha = sha256_file(resolved)
+    if actual_sha != report_sha:
+        fail(f'{cid}: {label} sha256 does not match file bytes')
+
+
+def validate(path: Path, *, report_root: Path = Path('.')) -> None:
     data = json.loads(path.read_text())
     if data.get('schema_version') != 1:
         fail('schema_version must be 1')
@@ -58,15 +91,13 @@ def validate(path: Path) -> None:
                 fail(f'{cid}: adapter artifact hashes must be distinct')
             seen_artifacts.add(artifact_sha)
             report = component.get('promotion_report') or {}
-            if not report.get('path') or not SHA256.fullmatch(report.get('sha256') or ''):
-                fail(f'{cid}: every component needs a hashed promotion report')
+            validate_report_ref(cid, 'component promotion report', report, report_root)
             if report.get('reviewed') is not True or report.get('passed_gate') is not True:
                 fail(f'{cid}: every component must independently pass reviewed promotion')
 
         combo = item.get('combination_report') or {}
         if item.get('eligible_for_combination') is True:
-            if not combo.get('path') or not SHA256.fullmatch(combo.get('sha256') or ''):
-                fail(f'{cid}: eligibility requires a hashed combination report')
+            validate_report_ref(cid, 'combination report', combo, report_root)
             if combo.get('reviewed') is not True or combo.get('passed_gate') is not True:
                 fail(f'{cid}: combination must pass reviewed promotion gate')
             gain = combo.get('aggregate_gain_vs_best_component')
@@ -79,12 +110,17 @@ def validate(path: Path) -> None:
             fail(f'{cid}: blocked candidate must not carry a promotion result')
 
 
-def component(repository: str, revision: str, artifact_sha: str, report_sha: str) -> dict:
+def component(repository: str, revision: str, artifact_sha: str, report_path: str, report_sha: str) -> dict:
     return {
         'repository': repository,
         'revision': revision,
         'adapter_artifact_sha256': artifact_sha,
-        'promotion_report': {'path': f'{repository}.json', 'sha256': report_sha, 'reviewed': True, 'passed_gate': True},
+        'promotion_report': {
+            'path': report_path,
+            'sha256': report_sha,
+            'reviewed': True,
+            'passed_gate': True,
+        },
     }
 
 
@@ -92,21 +128,41 @@ def self_test() -> None:
     import tempfile
     good = json.loads(DEFAULT.read_text())
     with tempfile.TemporaryDirectory() as td:
-        p = Path(td) / 'policy.json'
+        root = Path(td)
+        p = root / 'policy.json'
         validate(DEFAULT)
+
+        report_bytes = {
+            'a.json': b'{"adapter":"a"}\n',
+            'b.json': b'{"adapter":"b"}\n',
+            'combo.json': b'{"combination":"a+b"}\n',
+        }
+        report_shas = {}
+        for name, payload in report_bytes.items():
+            target = root / name
+            target.write_bytes(payload)
+            report_shas[name] = hashlib.sha256(payload).hexdigest()
+
+        def components() -> list[dict]:
+            return [
+                component('dtf/a', 'a' * 40, '1' * 64, 'a.json', report_shas['a.json']),
+                component('dtf/b', 'c' * 40, '2' * 64, 'b.json', report_shas['b.json']),
+            ]
+
         broken = json.loads(json.dumps(good))
         broken['combination_candidates'] = [{
             'id': 'bad-soup',
             'eligible_for_combination': True,
-            'components': [
-                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
-                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
-            ],
-            'combination_report': {'path': 'combo.json', 'sha256': 'e' * 64, 'reviewed': True, 'passed_gate': True, 'aggregate_gain_vs_best_component': 0.01, 'slice_regressions': []}
+            'components': components(),
+            'combination_report': {
+                'path': 'combo.json', 'sha256': report_shas['combo.json'],
+                'reviewed': True, 'passed_gate': True,
+                'aggregate_gain_vs_best_component': 0.01, 'slice_regressions': []
+            }
         }]
         p.write_text(json.dumps(broken))
         try:
-            validate(p)
+            validate(p, report_root=root)
         except ValueError:
             pass
         else:
@@ -116,53 +172,103 @@ def self_test() -> None:
         broken['combination_candidates'] = [{
             'id': 'bad-regression',
             'eligible_for_combination': True,
-            'components': [
-                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
-                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
-            ],
-            'combination_report': {'path': 'combo.json', 'sha256': 'e' * 64, 'reviewed': True, 'passed_gate': True, 'aggregate_gain_vs_best_component': 0.03, 'slice_regressions': ['factuality']}
+            'components': components(),
+            'combination_report': {
+                'path': 'combo.json', 'sha256': report_shas['combo.json'],
+                'reviewed': True, 'passed_gate': True,
+                'aggregate_gain_vs_best_component': 0.03, 'slice_regressions': ['factuality']
+            }
         }]
         p.write_text(json.dumps(broken))
         try:
-            validate(p)
+            validate(p, report_root=root)
         except ValueError:
             pass
         else:
             fail('self-test expected protected slice regression to fail')
 
         broken = json.loads(json.dumps(good))
+        missing_hash_components = components()
+        missing_hash_components[0].pop('adapter_artifact_sha256')
         broken['combination_candidates'] = [{
             'id': 'missing-artifact-hash',
             'eligible_for_combination': False,
-            'components': [
-                {'repository': 'dtf/a', 'revision': 'a' * 40, 'promotion_report': {'path': 'a.json', 'sha256': 'b' * 64, 'reviewed': True, 'passed_gate': True}},
-                component('dtf/b', 'c' * 40, '2' * 64, 'd' * 64),
-            ],
+            'components': missing_hash_components,
         }]
         p.write_text(json.dumps(broken))
         try:
-            validate(p)
+            validate(p, report_root=root)
         except ValueError as exc:
             assert 'adapter_artifact_sha256' in str(exc)
         else:
             fail('self-test expected missing adapter artifact hash to fail')
 
         broken = json.loads(json.dumps(good))
+        duplicate_components = components()
+        duplicate_components[1]['adapter_artifact_sha256'] = duplicate_components[0]['adapter_artifact_sha256']
         broken['combination_candidates'] = [{
             'id': 'duplicate-artifact',
             'eligible_for_combination': False,
-            'components': [
-                component('dtf/a', 'a' * 40, '1' * 64, 'b' * 64),
-                component('dtf/b', 'c' * 40, '1' * 64, 'd' * 64),
-            ],
+            'components': duplicate_components,
         }]
         p.write_text(json.dumps(broken))
         try:
-            validate(p)
+            validate(p, report_root=root)
         except ValueError as exc:
             assert 'artifact hashes must be distinct' in str(exc)
         else:
             fail('self-test expected duplicate adapter artifact hash to fail')
+
+        broken = json.loads(json.dumps(good))
+        stale_components = components()
+        stale_components[0]['promotion_report']['sha256'] = 'f' * 64
+        broken['combination_candidates'] = [{
+            'id': 'stale-promotion-report',
+            'eligible_for_combination': False,
+            'components': stale_components,
+        }]
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p, report_root=root)
+        except ValueError as exc:
+            assert 'sha256 does not match file bytes' in str(exc)
+        else:
+            fail('self-test expected stale promotion report hash to fail')
+
+        broken = json.loads(json.dumps(good))
+        broken['combination_candidates'] = [{
+            'id': 'missing-combination-report',
+            'eligible_for_combination': True,
+            'components': components(),
+            'combination_report': {
+                'path': 'missing.json', 'sha256': 'e' * 64,
+                'reviewed': True, 'passed_gate': True,
+                'aggregate_gain_vs_best_component': 0.03, 'slice_regressions': []
+            }
+        }]
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p, report_root=root)
+        except ValueError as exc:
+            assert 'file does not exist' in str(exc)
+        else:
+            fail('self-test expected missing combination report file to fail')
+
+        broken = json.loads(json.dumps(good))
+        escape_components = components()
+        escape_components[0]['promotion_report']['path'] = '../outside.json'
+        broken['combination_candidates'] = [{
+            'id': 'path-escape',
+            'eligible_for_combination': False,
+            'components': escape_components,
+        }]
+        p.write_text(json.dumps(broken))
+        try:
+            validate(p, report_root=root)
+        except ValueError as exc:
+            assert 'path escapes report root' in str(exc)
+        else:
+            fail('self-test expected report path escape to fail')
 
 
 if __name__ == '__main__':
