@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 from datetime import datetime
@@ -38,6 +39,12 @@ def require_string(value: Any, path: str, min_len: int = 1) -> str:
 def require_sha256(value: Any, path: str) -> None:
     if not isinstance(value, str) or not SHA256_RE.fullmatch(value):
         raise ValidationError(f"{path}: expected lowercase SHA-256 hex")
+
+
+def require_finite_number(value: Any, path: str) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)) or not math.isfinite(value):
+        raise ValidationError(f"{path}: expected finite number")
+    return float(value)
 
 
 def validate_manifest(data: dict[str, Any]) -> None:
@@ -104,9 +111,11 @@ def validate_manifest(data: dict[str, Any]) -> None:
     if not isinstance(decoding, dict):
         raise ValidationError("$.decoding: expected object")
     require_keys(decoding, {"temperature", "top_p", "max_new_tokens", "do_sample"}, {"temperature", "top_p", "max_new_tokens", "do_sample", "seed"}, "$.decoding")
-    if not isinstance(decoding["temperature"], (int, float)) or decoding["temperature"] < 0:
+    temperature = require_finite_number(decoding["temperature"], "$.decoding.temperature")
+    if temperature < 0:
         raise ValidationError("$.decoding.temperature: expected number >= 0")
-    if not isinstance(decoding["top_p"], (int, float)) or not (0 < decoding["top_p"] <= 1):
+    top_p = require_finite_number(decoding["top_p"], "$.decoding.top_p")
+    if not (0 < top_p <= 1):
         raise ValidationError("$.decoding.top_p: expected 0 < value <= 1")
     if not isinstance(decoding["max_new_tokens"], int) or isinstance(decoding["max_new_tokens"], bool) or decoding["max_new_tokens"] < 1:
         raise ValidationError("$.decoding.max_new_tokens: expected integer >= 1")
@@ -183,63 +192,51 @@ def valid_fixture() -> dict[str, Any]:
     }
 
 
+def expect_invalid(data: dict[str, Any], message: str) -> None:
+    try:
+        validate_manifest(data)
+    except ValidationError:
+        return
+    raise AssertionError(message)
+
+
 def self_test() -> None:
     good = valid_fixture()
     validate_manifest(good)
 
     bad_sha = json.loads(json.dumps(good))
     bad_sha["artifacts"]["responses_sha256"] = "not-a-sha"
-    try:
-        validate_manifest(bad_sha)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("invalid SHA-256 was accepted")
+    expect_invalid(bad_sha, "invalid SHA-256 was accepted")
 
     leaked_field = json.loads(json.dumps(good))
     leaked_field["model"]["untracked_revision"] = "oops"
-    try:
-        validate_manifest(leaked_field)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("unexpected field was accepted")
+    expect_invalid(leaked_field, "unexpected field was accepted")
 
     missing_template_hash = json.loads(json.dumps(good))
     del missing_template_hash["tokenizer"]["chat_template_sha256"]
-    try:
-        validate_manifest(missing_template_hash)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("missing tokenizer chat-template hash was accepted")
+    expect_invalid(missing_template_hash, "missing tokenizer chat-template hash was accepted")
 
     wrong_template_method = json.loads(json.dumps(good))
     wrong_template_method["tokenizer"]["chat_template_method"] = "raw-tokenize"
-    try:
-        validate_manifest(wrong_template_method)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("non-chat-template prompt formatting was accepted")
+    expect_invalid(wrong_template_method, "non-chat-template prompt formatting was accepted")
 
     missing_template_kwargs = json.loads(json.dumps(good))
     del missing_template_kwargs["tokenizer"]["chat_template_kwargs"]
-    try:
-        validate_manifest(missing_template_kwargs)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("missing chat-template kwargs were accepted")
+    expect_invalid(missing_template_kwargs, "missing chat-template kwargs were accepted")
 
     wrong_thinking_type = json.loads(json.dumps(good))
     wrong_thinking_type["tokenizer"]["chat_template_kwargs"]["enable_thinking"] = "false"
-    try:
-        validate_manifest(wrong_thinking_type)
-    except ValidationError:
-        pass
-    else:
-        raise AssertionError("non-boolean enable_thinking was accepted")
+    expect_invalid(wrong_thinking_type, "non-boolean enable_thinking was accepted")
+
+    for field in ("temperature", "top_p"):
+        bool_numeric = json.loads(json.dumps(good))
+        bool_numeric["decoding"][field] = True
+        expect_invalid(bool_numeric, f"boolean {field} was accepted as numeric")
+
+    for value in (float("nan"), float("inf"), float("-inf")):
+        non_finite_temperature = json.loads(json.dumps(good))
+        non_finite_temperature["decoding"]["temperature"] = value
+        expect_invalid(non_finite_temperature, f"non-finite temperature {value!r} was accepted")
 
 
 def main() -> int:
