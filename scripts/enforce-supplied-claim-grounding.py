@@ -152,12 +152,19 @@ def validate_row(row: dict) -> list[str]:
         errors.append(f"{rid}: grounding_mode must be supplied_claims_only_v1")
         return errors
     roles = messages_by_role(row)
+    source_ids = [str(value) for value in (row.get("source_ids") or []) if str(value).strip()]
+    source_id_set = set(source_ids)
+    if not source_ids:
+        errors.append(f"{rid}: source_ids are required")
+    if len(source_ids) != len(source_id_set):
+        errors.append(f"{rid}: source_ids must not contain duplicates")
     evidence_claims = row.get("evidence_claims") or []
     if not evidence_claims:
         errors.append(f"{rid}: evidence_claims are required")
         return errors
     user = (roles.get("user") or {}).get("content") or ""
     assistant = (roles.get("assistant") or {}).get("content") or ""
+    expected_claim_hashes: list[str] = []
     for item in evidence_claims:
         sid = item.get("source_id")
         claim = item.get("claim")
@@ -165,10 +172,15 @@ def validate_row(row: dict) -> list[str]:
         if not sid or not claim or text_sha256(claim) != digest:
             errors.append(f"{rid}: invalid evidence claim metadata")
             continue
+        expected_claim_hashes.append(digest)
+        if sid not in source_id_set:
+            errors.append(f"{rid}: evidence claim source_id is outside source_ids")
         if f"[{sid}] {claim}" not in user:
             errors.append(f"{rid}: evidence claim missing from user prompt")
         if f"- {claim} Citation: {sid}" not in assistant:
             errors.append(f"{rid}: assistant factual bullet is not an exact supplied claim")
+    if row.get("evidence_claim_sha256s") != expected_claim_hashes:
+        errors.append(f"{rid}: evidence_claim_sha256s must exactly match evidence_claims in order")
     expected = assistant_target(
         str(row.get("task") or ""),
         [(item["source_id"], item["claim"]) for item in evidence_claims],
@@ -277,6 +289,18 @@ def self_test() -> None:
     tampered = json.loads(json.dumps(clean))
     messages_by_role(tampered)["assistant"]["content"] += "\nTarget disorder is definitely confirmed."
     assert any("outside deterministic" in error for error in validate_row(tampered))
+
+    tampered_source_binding = json.loads(json.dumps(clean))
+    tampered_source_binding["source_ids"] = ["url:https://example.test/unrelated"]
+    assert any("outside source_ids" in error for error in validate_row(tampered_source_binding))
+
+    tampered_hash_list = json.loads(json.dumps(clean))
+    tampered_hash_list["evidence_claim_sha256s"] = ["0" * 64]
+    assert any("exactly match evidence_claims" in error for error in validate_row(tampered_hash_list))
+
+    duplicate_source_ids = json.loads(json.dumps(clean))
+    duplicate_source_ids["source_ids"] = clean["source_ids"] + clean["source_ids"]
+    assert any("must not contain duplicates" in error for error in validate_row(duplicate_source_ids))
 
     duplicate = json.loads(json.dumps(unsafe))
     duplicate["id"] = "gqa-target-2"
