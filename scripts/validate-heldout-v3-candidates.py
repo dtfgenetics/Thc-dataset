@@ -63,7 +63,7 @@ def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
 
     reviews = ledger.get("reviews") or []
     by_candidate = {str(item.get("candidate_id", "")).strip(): item for item in reviews}
-    if len(by_candidate) != len(reviews):
+    if len(by_candidate) != len(reviews) or any(not key for key in by_candidate):
         errors.append("source review ledger candidate_id values must be unique and non-empty")
 
     expected_ids = {str(row.get("id", "")).strip() for row in rows}
@@ -101,6 +101,8 @@ def validate_review_ledger(rows: list[dict], ledger: dict) -> list[str]:
 def validate(rows: list[dict], ledger: dict | None = None) -> list[str]:
     errors: list[str] = []
     ids = [str(row.get("id", "")).strip() for row in rows]
+    if any(not key for key in ids):
+        errors.append("candidate ids must be non-empty")
     duplicates = [key for key, count in Counter(ids).items() if key and count > 1]
     if duplicates:
         errors.append("duplicate ids: " + ", ".join(sorted(duplicates)))
@@ -147,7 +149,7 @@ def validate(rows: list[dict], ledger: dict | None = None) -> list[str]:
         if not str(source.get("title", "")).strip():
             errors.append(f"{label}: source_metadata.title is required")
         year = source.get("year")
-        if not isinstance(year, int) or year < 1900 or year > 2100:
+        if isinstance(year, bool) or not isinstance(year, int) or year < 1900 or year > 2100:
             errors.append(f"{label}: source_metadata.year must be a plausible integer year")
         if not evidence:
             errors.append(f"{label}: source_metadata requires DOI or URL")
@@ -194,6 +196,14 @@ def self_test() -> None:
     assert any("source_metadata.title" in error for error in validate(bad, ledger))
 
     bad = [dict(row) for row in rows]
+    bad[0] = dict(bad[0]); bad[0]["id"] = ""
+    assert any("candidate ids must be non-empty" in error for error in validate(bad))
+
+    bad = [dict(row) for row in rows]
+    bad[0] = dict(bad[0]); bad[0]["source_metadata"] = dict(bad[0]["source_metadata"]); bad[0]["source_metadata"]["year"] = True
+    assert any("source_metadata.year" in error for error in validate(bad))
+
+    bad = [dict(row) for row in rows]
     bad[1] = dict(bad[1]); bad[1]["source_metadata"] = dict(bad[1]["source_metadata"])
     bad[1]["source_metadata"]["source_id"] = rows[0]["source_metadata"]["source_id"]
     assert any("source_metadata.source_id values must be unique" in error for error in validate(bad, ledger))
@@ -203,6 +213,10 @@ def self_test() -> None:
     bad[1]["source_metadata"]["doi"] = rows[0]["source_metadata"]["doi"]
     bad[1]["must_cite"] = list(rows[0]["must_cite"])
     assert any("source DOI/URL identities must be unique" in error for error in validate(bad, ledger))
+
+    broken_ledger = json.loads(json.dumps(ledger))
+    broken_ledger["reviews"][0]["candidate_id"] = ""
+    assert any("candidate_id values must be unique and non-empty" in error for error in validate_review_ledger(rows, broken_ledger))
 
     broken_ledger = json.loads(json.dumps(ledger))
     broken_ledger["reviews"][0]["citation"] = "doi:10.0000/not-the-source"
