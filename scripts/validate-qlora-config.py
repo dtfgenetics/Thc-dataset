@@ -190,9 +190,13 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("missing LoRA target modules: " + ", ".join(missing_targets))
 
     required_slices = set(list_items(evaluation, "required_slices"))
-    for critical in ("factuality", "diagnostic", "hallucination", "citation_accuracy", "regression", "grounded_qa"):
-        if critical not in required_slices:
-            errors.append(f"evaluation.required_slices missing {critical}")
+    protected_slices = (
+        "factuality", "diagnostic", "hallucination", "citation_accuracy",
+        "science", "education", "grounded_qa", "regression",
+    )
+    for protected_slice in protected_slices:
+        if protected_slice not in required_slices:
+            errors.append(f"evaluation.required_slices missing {protected_slice}")
     return errors
 
 
@@ -230,6 +234,11 @@ def self_test() -> None:
     assert any("checkpoint_selection" in error for error in validate_text(tampered))
     tampered = base.replace("save_steps: 100", "save_steps: 200")
     assert any("eval_steps" in error for error in validate_text(tampered))
+
+    for protected_slice in ("science", "education"):
+        tampered = base.replace(f"    - {protected_slice}\n", "", 1)
+        assert tampered != base, f"{protected_slice} required-slice self-test fixture failed to mutate config"
+        assert any(f"required_slices missing {protected_slice}" in error for error in validate_text(tampered))
 
     current_qa_path = scalar(section(base, "training_data"), "grounded_qa_path")
     assert current_qa_path, "grounded_qa_path missing from baseline config"
