@@ -1,0 +1,30 @@
+name: Validate QLoRA Optimization Scalars
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/validate-qlora-optimization-scalars.py'
+      - '.github/workflows/qlora-optimization-scalars.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/validate-qlora-optimization-scalars.py'
+      - '.github/workflows/qlora-optimization-scalars.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run scalar validator self-tests
+        run: python3 scripts/validate-qlora-optimization-scalars.py --self-test
+      - name: Validate active QLoRA config
+        run: python3 scripts/validate-qlora-optimization-scalars.py
