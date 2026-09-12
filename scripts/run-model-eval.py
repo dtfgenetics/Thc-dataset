@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import math
 import platform
 import tempfile
 from datetime import datetime, timezone
@@ -110,6 +111,16 @@ def render_chat_prompt(tokenizer: Any, prompt: str, *, enable_thinking: Any) -> 
     return rendered
 
 
+def validate_id_list(value: Any, *, field: str, row_number: int, claim_id: str) -> list[str]:
+    if not isinstance(value, list) or not value:
+        raise ValueError(f"retrieval row {row_number}: {field} missing for {claim_id}")
+    if any(not isinstance(item, str) or not item.strip() for item in value):
+        raise ValueError(f"retrieval row {row_number}: {field} must contain non-empty strings for {claim_id}")
+    if len(set(value)) != len(value):
+        raise ValueError(f"retrieval row {row_number}: {field} contains duplicates for {claim_id}")
+    return value
+
+
 def load_retrieval(snapshot_path: Path, manifest_path: Path, benchmark_path: Path, cases: list[dict[str, Any]]) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     if manifest.get("schema_version") != "grow-doc-rag-snapshot-v1":
@@ -119,7 +130,7 @@ def load_retrieval(snapshot_path: Path, manifest_path: Path, benchmark_path: Pat
     if manifest.get("benchmark_sha256") != sha256(benchmark_path):
         raise ValueError("retrieval snapshot was built against a different benchmark")
     top_k = manifest.get("top_k")
-    if not isinstance(top_k, int) or top_k < 1:
+    if type(top_k) is not int or top_k < 1:
         raise ValueError("retrieval manifest top_k must be a positive integer")
 
     rows = load_jsonl(snapshot_path)
@@ -139,18 +150,41 @@ def load_retrieval(snapshot_path: Path, manifest_path: Path, benchmark_path: Pat
         if len(retrieved) > top_k:
             raise ValueError(f"retrieval row {n}: exceeds manifest top_k")
         seen_claims: set[str] = set()
-        for item in retrieved:
+        seen_ranks: set[int] = set()
+        for position, item in enumerate(retrieved, 1):
+            if not isinstance(item, dict):
+                raise ValueError(f"retrieval row {n}: retrieved item {position} must be an object")
             required = {"rank", "score", "claim_id", "claim_sha256", "claim", "source_ids", "profile_ids"}
             missing = required - item.keys()
             if missing:
                 raise ValueError(f"retrieval row {n}: item missing {sorted(missing)}")
-            if item["claim_id"] in seen_claims:
-                raise ValueError(f"retrieval row {n}: duplicate claim {item['claim_id']}")
-            seen_claims.add(item["claim_id"])
-            if text_sha256(item["claim"]) != item["claim_sha256"]:
-                raise ValueError(f"retrieval row {n}: claim hash mismatch for {item['claim_id']}")
-            if not item["source_ids"] or not item["profile_ids"]:
-                raise ValueError(f"retrieval row {n}: provenance missing for {item['claim_id']}")
+            rank = item["rank"]
+            if type(rank) is not int or rank < 1 or rank > top_k:
+                raise ValueError(f"retrieval row {n}: rank must be an integer from 1 through top_k")
+            if rank in seen_ranks:
+                raise ValueError(f"retrieval row {n}: duplicate rank {rank}")
+            seen_ranks.add(rank)
+            if rank != position:
+                raise ValueError(f"retrieval row {n}: ranks must be contiguous and ordered from 1")
+            score = item["score"]
+            if type(score) not in (int, float) or not math.isfinite(score):
+                raise ValueError(f"retrieval row {n}: score must be a finite number for rank {rank}")
+            claim_id = item["claim_id"]
+            if not isinstance(claim_id, str) or not claim_id.strip():
+                raise ValueError(f"retrieval row {n}: claim_id must be a non-empty string")
+            if claim_id in seen_claims:
+                raise ValueError(f"retrieval row {n}: duplicate claim {claim_id}")
+            seen_claims.add(claim_id)
+            claim = item["claim"]
+            if not isinstance(claim, str) or not claim.strip():
+                raise ValueError(f"retrieval row {n}: claim must be a non-empty string for {claim_id}")
+            claim_sha256 = item["claim_sha256"]
+            if not isinstance(claim_sha256, str) or len(claim_sha256) != 64 or any(c not in "0123456789abcdef" for c in claim_sha256.lower()):
+                raise ValueError(f"retrieval row {n}: claim_sha256 must be 64 hexadecimal characters for {claim_id}")
+            if text_sha256(claim) != claim_sha256.lower():
+                raise ValueError(f"retrieval row {n}: claim hash mismatch for {claim_id}")
+            validate_id_list(item["source_ids"], field="source_ids", row_number=n, claim_id=claim_id)
+            validate_id_list(item["profile_ids"], field="profile_ids", row_number=n, claim_id=claim_id)
         by_case[case_id] = row
 
     missing_cases = sorted(set(expected) - set(by_case))
@@ -372,7 +406,8 @@ def self_test() -> None:
         snapshot_manifest = root / "snapshot.manifest.json"
         write_jsonl(bench, [{"id": "case-001", "category": "factuality", "prompt": "What is supported?", "expected_points": ["A cautious point."], "must_cite": ["doi:10.0000/test"], "forbidden_claims": ["An overclaim."]}])
         claim = "A cautious point is supported by the reviewed evidence."
-        write_jsonl(snapshot, [{"case_id": "case-001", "prompt_sha256": text_sha256("What is supported?"), "retrieved": [{"rank": 1, "score": 2.0, "claim_id": "rag-001", "claim_sha256": text_sha256(claim), "claim": claim, "source_ids": ["doi:10.0000/test"], "profile_ids": ["profile-001"]}]}])
+        good_item = {"rank": 1, "score": 2.0, "claim_id": "rag-001", "claim_sha256": text_sha256(claim), "claim": claim, "source_ids": ["doi:10.0000/test"], "profile_ids": ["profile-001"]}
+        write_jsonl(snapshot, [{"case_id": "case-001", "prompt_sha256": text_sha256("What is supported?"), "retrieved": [good_item]}])
         snapshot_manifest.write_text(json.dumps({"schema_version": "grow-doc-rag-snapshot-v1", "algorithm": "grow-doc-lexical-idf-v1", "top_k": 5, "benchmark_sha256": sha256(bench), "snapshot_sha256": sha256(snapshot)}), encoding="utf-8")
         a = argparse.Namespace(
             benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001",
@@ -401,6 +436,23 @@ def self_test() -> None:
             assert "different benchmark" in str(exc)
         else:
             raise AssertionError("benchmark-mismatched retrieval snapshot must be rejected")
+
+        invalid_cases = [
+            ("boolean top_k", True, good_item, "top_k"),
+            ("boolean rank", 5, {**good_item, "rank": True}, "rank"),
+            ("boolean score", 5, {**good_item, "score": True}, "score"),
+            ("non-finite score", 5, {**good_item, "score": float("nan")}, "score"),
+            ("duplicate provenance", 5, {**good_item, "source_ids": ["doi:10.0000/test", "doi:10.0000/test"]}, "duplicates"),
+        ]
+        for label, top_k, item, expected_error in invalid_cases:
+            write_jsonl(snapshot, [{"case_id": "case-001", "prompt_sha256": text_sha256("What is supported?"), "retrieved": [item]}])
+            snapshot_manifest.write_text(json.dumps({"schema_version": "grow-doc-rag-snapshot-v1", "algorithm": "grow-doc-lexical-idf-v1", "top_k": top_k, "benchmark_sha256": sha256(bench), "snapshot_sha256": sha256(snapshot)}), encoding="utf-8")
+            try:
+                execute(a, mock=True)
+            except ValueError as exc:
+                assert expected_error in str(exc), (label, str(exc))
+            else:
+                raise AssertionError(f"{label} must be rejected")
     print("model evaluation runner self-test: PASS")
 
 
