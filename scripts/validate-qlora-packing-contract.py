@@ -33,7 +33,8 @@ def validate(config_text: str, trainer_text: str) -> list[str]:
         errors.append("training.packing must be false until the trainer implements and tests explicit sequence packing")
 
     required_runtime_markers = (
-        "encoded_train = [encode_record(tokenizer, row, max_length) for row in train_rows]",
+        "runtime_config = runtime_kwargs(contract)",
+        "encode_record(tokenizer, row, max_length, enable_thinking=enable_thinking)",
         "train_dataset=EncodedDataset(encoded_train)",
         "data_collator=Collator(tokenizer.pad_token_id)",
     )
@@ -56,7 +57,11 @@ def self_test() -> None:
     tampered = config.replace("packing: false", "packing: true", 1)
     assert any("packing must be false" in error for error in validate(tampered, trainer))
 
-    tampered_trainer = trainer.replace("train_dataset=EncodedDataset(encoded_train)", "train_dataset=packed_train", 1)
+    tampered_trainer = trainer.replace(
+        "runtime_config = runtime_kwargs(contract)",
+        "runtime_config = {}",
+        1,
+    )
     assert any("trainer packing contract marker missing" in error for error in validate(config, tampered_trainer))
     print("QLoRA packing contract self-test: PASS")
 
