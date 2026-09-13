@@ -20,8 +20,9 @@ from pathlib import Path
 from typing import Any
 
 PROMPT_FIELDS = (
-    "prompt", "question", "instruction", "input", "query", "user", "task",
+    "prompt", "question", "instruction", "input", "query", "user",
 )
+PROMPT_FALLBACK_FIELDS = ("task",)
 ANSWER_FIELDS = (
     "answer", "response", "output", "assistant", "completion", "target", "expected_points",
 )
@@ -56,7 +57,14 @@ def prompt_text(record: dict[str, Any]) -> str:
             if isinstance(msg, dict) and str(msg.get("role", "")).casefold() in {"system", "user"}:
                 if msg.get("content") not in (None, ""):
                     parts.append(canonical_text(msg["content"]))
-        return "\n".join(parts)
+        if parts:
+            return "\n".join(parts)
+    # Metadata such as `task` is only a last-resort fallback. It must never mask
+    # the actual conversational prompt or distinct examples will share a bogus
+    # fingerprint simply because they belong to the same training task.
+    for field in PROMPT_FALLBACK_FIELDS:
+        if field in record and record[field] not in (None, "", [], {}):
+            return canonical_text(record[field])
     return ""
 
 
@@ -193,13 +201,26 @@ def self_test() -> None:
                 "sources": [{"id": "src-a"}],
             },
             {
+                "task": "science_education",
                 "messages": [
                     {"role": "user", "content": "Explain photoperiod."},
                     {"role": "assistant", "content": "It is the daily light/dark duration."},
                 ],
                 "source_id": "src-b",
             },
+            {
+                "task": "science_education",
+                "messages": [
+                    {"role": "user", "content": "Explain PPFD."},
+                    {"role": "assistant", "content": "It is photosynthetic photon flux density."},
+                ],
+                "source_id": "src-d",
+            },
         ]
+        # Task metadata must not mask distinct message prompts.
+        assert prompt_text(train_rows[1]) != prompt_text(train_rows[2])
+        assert prompt_text({"task": "fallback_only"}) == "fallback_only"
+
         heldout_rows = [
             {
                 "question": "  WHAT does VPD describe? ",
@@ -212,7 +233,7 @@ def self_test() -> None:
         heldout.write_text("\n".join(json.dumps(r) for r in heldout_rows) + "\n", encoding="utf-8")
 
         report = audit([train, heldout])
-        assert report["totals"]["rows"] == 3
+        assert report["totals"]["rows"] == 4
         assert report["totals"]["missing_answer"] == 0
         assert report["totals"]["missing_source_metadata"] == 0
         assert report["totals"]["train_eval_pair_leak_groups"] == 0
