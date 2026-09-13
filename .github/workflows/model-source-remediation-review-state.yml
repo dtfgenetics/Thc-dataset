@@ -1,0 +1,44 @@
+name: Validate Grow Doc Source Remediation Review State
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/evidence/source_metadata_reviews_v1.jsonl'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/prioritize-model-source-remediation.py'
+      - 'scripts/audit-model-source-remediation-review-state.py'
+      - '.github/workflows/model-source-remediation-review-state.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'model_tuning/evidence/source_metadata_reviews_v1.jsonl'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/prioritize-model-source-remediation.py'
+      - 'scripts/audit-model-source-remediation-review-state.py'
+      - '.github/workflows/model-source-remediation-review-state.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Self-test review-state audit
+        run: python3 scripts/audit-model-source-remediation-review-state.py --self-test
+      - name: Validate reviewed source metadata
+        run: python3 scripts/validate-source-metadata-reviews.py
+      - name: Build remediation review-state report
+        run: python3 scripts/audit-model-source-remediation-review-state.py --top 100 > source-remediation-review-state.json
+      - name: Upload remediation review-state report
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-source-remediation-review-state
+          path: source-remediation-review-state.json
