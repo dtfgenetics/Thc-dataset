@@ -1,0 +1,33 @@
+name: Validate Grow Doc Source Remediation Priority
+
+on:
+  pull_request:
+    paths:
+      - 'data/diagnostic-profiles.jsonl'
+      - 'scripts/audit-model-source-evidence-quality.py'
+      - 'scripts/prioritize-model-source-remediation.py'
+      - '.github/workflows/model-source-remediation-priority.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run remediation priority self-test
+        run: python3 scripts/prioritize-model-source-remediation.py --self-test
+      - name: Audit current remediation queue
+        run: python3 scripts/prioritize-model-source-remediation.py --top 100 > source-remediation-priority.json
+      - name: Validate source evidence audit
+        run: python3 scripts/audit-model-source-evidence-quality.py
+      - name: Upload remediation report
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-source-remediation-priority
+          path: source-remediation-priority.json
