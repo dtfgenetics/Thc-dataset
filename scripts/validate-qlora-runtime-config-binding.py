@@ -92,7 +92,6 @@ def self_test(config_text: str, trainer_text: str) -> None:
     missing_mapping = trainer_text.replace(
         "runtime_config = runtime_kwargs(contract)",
         "runtime_config = {}",
-        1,
     )
     if missing_mapping == trainer_text:
         raise AssertionError("self-test could not remove runtime kwargs derivation")
