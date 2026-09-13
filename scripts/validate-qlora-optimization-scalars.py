@@ -2,8 +2,8 @@
 """Fail closed on malformed Grow Doc QLoRA optimization scalars.
 
 This validator is dependency-free and complements validate-qlora-config.py by
-checking numeric types, finiteness, and broad safety ranges before a training
-launcher can consume the configuration.
+checking numeric types, finiteness, broad safety ranges, and seed consistency
+before a training launcher can consume the configuration.
 """
 from __future__ import annotations
 
@@ -111,6 +111,18 @@ def validate_text(text: str) -> list[str]:
         errors.append("training.weight_decay must be a finite number between 0 and 1")
 
     require_nonnegative_int(errors, training, "seed", "training")
+
+    reproducibility_seed = parse_int(scalar(reproducibility, "seed"))
+    training_seed = parse_int(scalar(training, "seed"))
+    if (
+        reproducibility_seed is not None
+        and reproducibility_seed >= 0
+        and training_seed is not None
+        and training_seed >= 0
+        and reproducibility_seed != training_seed
+    ):
+        errors.append("training.seed must match reproducibility.seed")
+
     return errors
 
 
@@ -146,6 +158,15 @@ def self_test() -> None:
         assert tampered != base, f"self-test fixture failed to mutate {old}"
         errors = validate_text(tampered)
         assert any(expected in error for error in errors), (expected, errors)
+
+    training_seed_tampered = base.replace(
+        "  seed: 420\n  bf16: true",
+        "  seed: 421\n  bf16: true",
+        1,
+    )
+    assert training_seed_tampered != base, "self-test fixture failed to mutate training.seed"
+    seed_errors = validate_text(training_seed_tampered)
+    assert any("training.seed must match reproducibility.seed" in error for error in seed_errors), seed_errors
 
     with tempfile.TemporaryDirectory() as tmp:
         path = Path(tmp) / "qlora.yaml"
