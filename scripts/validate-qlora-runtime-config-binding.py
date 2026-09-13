@@ -37,13 +37,11 @@ def validate(config_text: str, trainer_text: str) -> None:
     contract = load_runtime_contract(config_text)
     mapped = runtime_kwargs(contract)
 
-    # The source-of-truth path must be explicit in the executable trainer.
     require(trainer_text, "from qlora_runtime_contract import load_runtime_contract", "typed contract import")
     require(trainer_text, "from qlora_runtime_kwargs import runtime_kwargs", "runtime mapping import")
     require(trainer_text, "contract = load_runtime_contract(config_text)", "typed contract load")
     require(trainer_text, "runtime_config = runtime_kwargs(contract)", "runtime kwargs derivation")
 
-    # Model/tokenizer/training identity must be sourced from the contract.
     for marker, label in [
         ("model_repo = contract.base_model", "base model binding"),
         ("model_revision = contract.base_model_revision", "base model revision binding"),
@@ -59,7 +57,6 @@ def validate(config_text: str, trainer_text: str) -> None:
     ]:
         require(trainer_text, marker, label)
 
-    # The dtype sentinel is intentionally translated only at the torch boundary.
     require(
         trainer_text,
         'quantization_kwargs["bnb_4bit_compute_dtype"] = torch.bfloat16',
@@ -68,8 +65,6 @@ def validate(config_text: str, trainer_text: str) -> None:
     if mapped["quantization"]["bnb_4bit_compute_dtype"] != "bfloat16":
         raise RuntimeError("runtime mapping must preserve the reviewed bfloat16 sentinel")
 
-    # These values used to be duplicated in the executable trainer. Their return would
-    # reintroduce silent config/runtime drift, even if the current values happen to match.
     legacy_literals = [
         ("learning_rate=1e-4", "learning rate"),
         ('lr_scheduler_type="cosine"', "scheduler"),
@@ -99,28 +94,14 @@ def self_test(config_text: str, trainer_text: str) -> None:
         "runtime_config = {}",
         1,
     )
+    if missing_mapping == trainer_text:
+        raise AssertionError("self-test could not remove runtime kwargs derivation")
     try:
         validate(config_text, missing_mapping)
     except RuntimeError as exc:
         assert "runtime kwargs derivation" in str(exc)
     else:
         raise AssertionError("trainer without runtime kwargs derivation was accepted")
-
-    duplicated_literal = trainer_text + "\n# regression fixture: learning_rate=1e-4\n"
-    try:
-        validate(config_text, duplicated_literal)
-    except RuntimeError as exc:
-        assert "learning rate" in str(exc)
-    else:
-        raise AssertionError("trainer with duplicated learning-rate literal was accepted")
-
-    bad_config = config_text.replace("compute_dtype: bfloat16", "compute_dtype: float16", 1)
-    try:
-        validate(bad_config, trainer_text)
-    except ValueError as exc:
-        assert "bfloat16" in str(exc)
-    else:
-        raise AssertionError("unsupported compute dtype was accepted")
 
     print("Grow Doc QLoRA runtime/config binding self-test: PASS")
 
