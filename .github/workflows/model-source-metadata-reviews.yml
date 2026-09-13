@@ -1,0 +1,28 @@
+name: Validate Grow Doc Source Metadata Reviews
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/evidence/source_metadata_reviews_v1.jsonl'
+      - 'scripts/validate-source-metadata-reviews.py'
+      - '.github/workflows/model-source-metadata-reviews.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/evidence/source_metadata_reviews_v1.jsonl'
+      - 'scripts/validate-source-metadata-reviews.py'
+      - '.github/workflows/model-source-metadata-reviews.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Self-test validator
+        run: python3 scripts/validate-source-metadata-reviews.py --self-test
+      - name: Validate reviewed source metadata
+        run: python3 scripts/validate-source-metadata-reviews.py
