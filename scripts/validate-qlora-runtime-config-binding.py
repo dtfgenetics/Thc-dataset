@@ -97,7 +97,7 @@ def validate(config_text: str, trainer_text: str) -> None:
 
     required_training = {
         "learning_rate", "lr_scheduler_type", "warmup_ratio", "num_train_epochs",
-        "per_device_train_batch_size", "gradient_accumulation_steps",
+        "per_device_train_batch_size", "per_device_eval_batch_size", "gradient_accumulation_steps",
         "gradient_checkpointing", "max_grad_norm", "weight_decay", "optimizer",
         "logging_steps", "eval_steps", "save_steps", "save_total_limit", "bf16",
         "tf32", "load_best_model_at_end",
@@ -111,6 +111,7 @@ def validate(config_text: str, trainer_text: str) -> None:
     require_numeric_arg(trainer_text, "warmup_ratio", training["warmup_ratio"], "warmup_ratio")
     require_numeric_arg(trainer_text, "num_train_epochs", training["num_train_epochs"], "num_train_epochs")
     require_numeric_arg(trainer_text, "per_device_train_batch_size", training["per_device_train_batch_size"], "per_device_train_batch_size")
+    require_numeric_arg(trainer_text, "per_device_eval_batch_size", training["per_device_eval_batch_size"], "per_device_eval_batch_size")
     require_numeric_arg(trainer_text, "gradient_accumulation_steps", training["gradient_accumulation_steps"], "gradient_accumulation_steps")
     require(trainer_text, f"gradient_checkpointing={py_bool(training['gradient_checkpointing'])}", "gradient_checkpointing")
     require_numeric_arg(trainer_text, "max_grad_norm", training["max_grad_norm"], "max_grad_norm")
@@ -150,6 +151,14 @@ def self_test(config_text: str, trainer_text: str) -> None:
         assert "learning_rate" in str(exc)
     else:
         raise AssertionError("learning-rate drift was not rejected")
+
+    bad_eval_batch = trainer_text.replace("per_device_eval_batch_size=1", "per_device_eval_batch_size=2", 1)
+    try:
+        validate(config_text, bad_eval_batch)
+    except RuntimeError as exc:
+        assert "per_device_eval_batch_size" in str(exc)
+    else:
+        raise AssertionError("evaluation-batch-size drift was not rejected")
 
     bad_config = config_text.replace("r: 32", "r: 16", 1)
     try:

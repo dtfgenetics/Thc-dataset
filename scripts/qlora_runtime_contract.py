@@ -167,8 +167,8 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
 
     required_training = {
         "max_seq_length", "packing", "learning_rate", "lr_scheduler_type", "warmup_ratio",
-        "num_train_epochs", "per_device_train_batch_size", "gradient_accumulation_steps",
-        "gradient_checkpointing", "max_grad_norm", "weight_decay", "optimizer",
+        "num_train_epochs", "per_device_train_batch_size", "per_device_eval_batch_size",
+        "gradient_accumulation_steps", "gradient_checkpointing", "max_grad_norm", "weight_decay", "optimizer",
         "logging_steps", "eval_steps", "save_steps", "save_total_limit", "seed", "bf16",
         "tf32", "load_best_model_at_end", "metric_for_best_model", "greater_is_better",
         "checkpoint_selection",
@@ -220,6 +220,7 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
         "warmup_ratio": parse_float(training_raw["warmup_ratio"], "training.warmup_ratio"),
         "num_train_epochs": parse_float(training_raw["num_train_epochs"], "training.num_train_epochs"),
         "per_device_train_batch_size": parse_int(training_raw["per_device_train_batch_size"], "training.per_device_train_batch_size"),
+        "per_device_eval_batch_size": parse_int(training_raw["per_device_eval_batch_size"], "training.per_device_eval_batch_size"),
         "gradient_accumulation_steps": parse_int(training_raw["gradient_accumulation_steps"], "training.gradient_accumulation_steps"),
         "gradient_checkpointing": parse_bool(training_raw["gradient_checkpointing"], "training.gradient_checkpointing"),
         "max_grad_norm": parse_float(training_raw["max_grad_norm"], "training.max_grad_norm"),
@@ -240,6 +241,8 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
     max_seq_length = parse_int(training_raw["max_seq_length"], "training.max_seq_length")
     if max_seq_length <= 0 or training_seed < 0:
         raise ContractError("max_seq_length must be positive and seed must be non-negative")
+    if training["per_device_train_batch_size"] <= 0 or training["per_device_eval_batch_size"] <= 0:
+        raise ContractError("training batch sizes must be positive")
     if lora["r"] <= 0 or lora["alpha"] <= 0 or not 0 <= lora["dropout"] < 1:
         raise ContractError("LoRA rank/alpha must be positive and dropout must be in [0,1)")
 
@@ -278,6 +281,8 @@ def self_test() -> None:
         "q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"
     ]
     assert contract.training["learning_rate"] == 0.0001
+    assert contract.training["per_device_train_batch_size"] == 1
+    assert contract.training["per_device_eval_batch_size"] == 1
     assert contract.training["gradient_accumulation_steps"] == 16
     assert contract.training["metric_for_best_model"] == "eval_loss"
 
@@ -296,6 +301,7 @@ def self_test() -> None:
         (text.replace("bf16: true", "bf16: maybe", 1), "training.bf16"),
         (text.replace("tokenizer_chat_template_kwargs_enable_thinking: false", "tokenizer_chat_template_kwargs_enable_thinking: maybe", 1), "tokenizer_chat_template_kwargs_enable_thinking"),
         (text.replace("packing: false", "packing: maybe", 1), "training.packing"),
+        (text.replace("per_device_eval_batch_size: 1", "per_device_eval_batch_size: 0", 1), "training batch sizes must be positive"),
         (reproducibility_seed_mismatch, "training.seed must match"),
         (text.replace("    - down_proj", "    - q_proj\n    - down_proj", 1), "duplicate values"),
     ]:
