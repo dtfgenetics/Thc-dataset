@@ -21,6 +21,9 @@ from importlib.metadata import version as package_version
 from pathlib import Path
 from typing import Any
 
+from qlora_runtime_contract import load_runtime_contract
+from qlora_runtime_kwargs import runtime_kwargs
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 REQUIREMENTS_IN = ROOT / "model_tuning/requirements.in"
@@ -235,14 +238,30 @@ class EncodedRecord:
     record_id: str
 
 
-def encode_record(tokenizer, row: dict[str, Any], max_length: int) -> EncodedRecord:
+def encode_record(
+    tokenizer,
+    row: dict[str, Any],
+    max_length: int,
+    *,
+    enable_thinking: bool,
+) -> EncodedRecord:
     messages = row.get("messages") or []
     if not messages or messages[-1].get("role") != "assistant":
         raise ValueError(f"{row.get('id')}: final assistant message is required")
     if row.get("grounding_mode") != "supplied_claims_only_v1":
         raise ValueError(f"{row.get('id')}: unsanitized record refused")
-    prompt = tokenizer.apply_chat_template(messages[:-1], tokenize=False, add_generation_prompt=True, enable_thinking=False)
-    full = tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=False, enable_thinking=False)
+    prompt = tokenizer.apply_chat_template(
+        messages[:-1],
+        tokenize=False,
+        add_generation_prompt=True,
+        enable_thinking=enable_thinking,
+    )
+    full = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=False,
+        enable_thinking=enable_thinking,
+    )
     prompt_ids = tokenizer(prompt, add_special_tokens=False)["input_ids"]
     full_ids = tokenizer(full, add_special_tokens=False)["input_ids"]
     if len(full_ids) > max_length:
@@ -254,15 +273,21 @@ def encode_record(tokenizer, row: dict[str, Any], max_length: int) -> EncodedRec
 
 
 class EncodedDataset:
-    def __init__(self, rows: list[EncodedRecord]): self.rows = rows
-    def __len__(self): return len(self.rows)
+    def __init__(self, rows: list[EncodedRecord]):
+        self.rows = rows
+
+    def __len__(self):
+        return len(self.rows)
+
     def __getitem__(self, index: int):
         row = self.rows[index]
         return {"input_ids": row.input_ids, "attention_mask": row.attention_mask, "labels": row.labels}
 
 
 class Collator:
-    def __init__(self, pad_token_id: int): self.pad_token_id = pad_token_id
+    def __init__(self, pad_token_id: int):
+        self.pad_token_id = pad_token_id
+
     def __call__(self, features: list[dict[str, list[int]]]):
         import torch
         width = max(len(x["input_ids"]) for x in features)
@@ -297,17 +322,23 @@ def train(output_dir: Path) -> None:
     torch, LoraConfig, get_peft_model, prepare_model_for_kbit_training, AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig, Trainer, TrainingArguments = runtime
 
     config_text = CONFIG.read_text(encoding="utf-8")
+    contract = load_runtime_contract(config_text)
+    runtime_config = runtime_kwargs(contract)
     hardware = verify_cuda_hardware_contract(torch, config_text)
-    model_repo = scalar(config_text, "base_model")
-    model_revision = scalar(config_text, "base_model_revision")
-    tokenizer_revision = scalar(config_text, "tokenizer_revision")
-    expected_template_sha = scalar(config_text, "tokenizer_chat_template_sha256")
-    max_length = int(scalar(config_text, "max_seq_length") or "4096")
-    seed = int(scalar(config_text, "seed") or "420")
-    random.seed(seed); torch.manual_seed(seed); torch.cuda.manual_seed_all(seed)
+    model_repo = contract.base_model
+    model_revision = contract.base_model_revision
+    tokenizer_revision = contract.tokenizer_revision
+    expected_template_sha = contract.tokenizer_chat_template_sha256
+    max_length = contract.max_seq_length
+    seed = contract.seed
+    enable_thinking = contract.tokenizer_chat_template_kwargs_enable_thinking
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
 
     tokenizer = AutoTokenizer.from_pretrained(model_repo, revision=tokenizer_revision)
-    if tokenizer.pad_token_id is None: tokenizer.pad_token = tokenizer.eos_token
+    if tokenizer.pad_token_id is None:
+        tokenizer.pad_token = tokenizer.eos_token
     template_sha = hashlib.sha256(tokenizer.chat_template.encode("utf-8")).hexdigest()
     if template_sha != expected_template_sha:
         raise RuntimeError(f"runtime chat-template SHA mismatch: expected {expected_template_sha}, got {template_sha}")
@@ -322,36 +353,77 @@ def train(output_dir: Path) -> None:
             f"train={len(train_rows)} grounded_qa={qa_rows}; "
             f"artifact lock requires {expected_train_rows}/{expected_qa_rows}"
         )
-    encoded_train = [encode_record(tokenizer, row, max_length) for row in train_rows]
-    encoded_dev = [encode_record(tokenizer, row, max_length) for row in dev_rows]
+    encoded_train = [
+        encode_record(tokenizer, row, max_length, enable_thinking=enable_thinking)
+        for row in train_rows
+    ]
+    encoded_dev = [
+        encode_record(tokenizer, row, max_length, enable_thinking=enable_thinking)
+        for row in dev_rows
+    ]
 
-    quant = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.bfloat16)
-    model = AutoModelForCausalLM.from_pretrained(model_repo, revision=model_revision, quantization_config=quant, torch_dtype=torch.bfloat16, device_map={"": 0})
+    quantization_kwargs = dict(runtime_config["quantization"])
+    quantization_kwargs["bnb_4bit_compute_dtype"] = torch.bfloat16
+    quant = BitsAndBytesConfig(**quantization_kwargs)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_repo,
+        revision=model_revision,
+        quantization_config=quant,
+        torch_dtype=torch.bfloat16,
+        device_map={"": 0},
+    )
     model.config.use_cache = False
-    model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
-    model = get_peft_model(model, LoraConfig(r=32, lora_alpha=64, lora_dropout=0.05, bias="none", task_type="CAUSAL_LM", target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"]))
+    model = prepare_model_for_kbit_training(
+        model,
+        use_gradient_checkpointing=runtime_config["training"]["gradient_checkpointing"],
+    )
+    model = get_peft_model(model, LoraConfig(**runtime_config["lora"]))
 
     output_dir.mkdir(parents=True, exist_ok=True)
-    args = TrainingArguments(output_dir=str(output_dir), learning_rate=1e-4, lr_scheduler_type="cosine", warmup_ratio=0.05, num_train_epochs=2, per_device_train_batch_size=1, per_device_eval_batch_size=1, gradient_accumulation_steps=16, gradient_checkpointing=True, max_grad_norm=1.0, weight_decay=0.01, optim="paged_adamw_8bit", logging_steps=10, eval_strategy="steps", eval_steps=100, save_strategy="steps", save_steps=100, save_total_limit=3, bf16=True, tf32=True, seed=seed, data_seed=seed, report_to=[], load_best_model_at_end=True, metric_for_best_model="eval_loss", greater_is_better=False, remove_unused_columns=False)
-    trainer = Trainer(model=model, args=args, train_dataset=EncodedDataset(encoded_train), eval_dataset=EncodedDataset(encoded_dev), data_collator=Collator(tokenizer.pad_token_id))
+    args = TrainingArguments(output_dir=str(output_dir), **runtime_config["training"])
+    trainer = Trainer(
+        model=model,
+        args=args,
+        train_dataset=EncodedDataset(encoded_train),
+        eval_dataset=EncodedDataset(encoded_dev),
+        data_collator=Collator(tokenizer.pad_token_id),
+    )
     result = trainer.train()
     adapter_dir = output_dir / "adapter-final"
-    trainer.model.save_pretrained(adapter_dir); tokenizer.save_pretrained(adapter_dir)
+    trainer.model.save_pretrained(adapter_dir)
+    tokenizer.save_pretrained(adapter_dir)
 
     packages = verify_direct_runtime_versions()
     manifest = {
-        "schema_version": "grow-doc-qlora-run-v1", "status": "trained_not_promoted", "promotion_eligible": False,
-        "repo_revision": repo_revision, "base_model": model_repo, "base_model_revision": model_revision,
-        "tokenizer_revision": tokenizer_revision, "tokenizer_chat_template_sha256": template_sha, "enable_thinking": False,
-        "dependency_lock_sha256": lock_sha, "training_split_manifest_sha256": scalar(config_text, "split_manifest_sha256"),
-        "training_dataset_manifest_sha256": scalar(config_text, "dataset_manifest_sha256"), "train_rows": len(train_rows),
-        "grounded_qa_train_rows": qa_rows, "dev_rows": len(dev_rows), "seed": seed, "packages": packages,
-        "python": platform.python_version(), "platform": platform.platform(), "torch_cuda": torch.version.cuda,
-        "gpu": torch.cuda.get_device_name(0), "hardware": hardware, "train_metrics": result.metrics, "adapter_path": str(adapter_dir),
-        "checkpoint_selection": "dev_eval_loss_then_external_heldout_promotion_gate",
+        "schema_version": "grow-doc-qlora-run-v1",
+        "status": "trained_not_promoted",
+        "promotion_eligible": False,
+        "repo_revision": repo_revision,
+        "base_model": model_repo,
+        "base_model_revision": model_revision,
+        "tokenizer_revision": tokenizer_revision,
+        "tokenizer_chat_template_sha256": template_sha,
+        "enable_thinking": enable_thinking,
+        "dependency_lock_sha256": lock_sha,
+        "training_split_manifest_sha256": scalar(config_text, "split_manifest_sha256"),
+        "training_dataset_manifest_sha256": scalar(config_text, "dataset_manifest_sha256"),
+        "train_rows": len(train_rows),
+        "grounded_qa_train_rows": qa_rows,
+        "dev_rows": len(dev_rows),
+        "seed": seed,
+        "packages": packages,
+        "python": platform.python_version(),
+        "platform": platform.platform(),
+        "torch_cuda": torch.version.cuda,
+        "gpu": torch.cuda.get_device_name(0),
+        "hardware": hardware,
+        "train_metrics": result.metrics,
+        "adapter_path": str(adapter_dir),
+        "checkpoint_selection": contract.training["checkpoint_selection"],
         "best_model_metric": trainer.state.best_metric,
         "best_model_checkpoint": trainer.state.best_model_checkpoint,
-        "adapter_merge_performed": False, "deployment_performed": False,
+        "adapter_merge_performed": False,
+        "deployment_performed": False,
         "next_gate": "external heldout_v2 evaluation and promotion scorer",
     }
     manifest_path = output_dir / "training-run-manifest.json"
@@ -366,6 +438,8 @@ def self_test() -> None:
     assert pins["torch"] == "2.14.0"
     assert pins["transformers"] == "5.16.1"
     text = CONFIG.read_text(encoding="utf-8")
+    contract = load_runtime_contract(text)
+    mapped = runtime_kwargs(contract)
     assert scalar(text, "dependency_lock_resolver") == "uv==0.12.10"
     assert scalar(text, "dependency_lock_sha256") == "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
     assert scalar(text, "require_single_visible_cuda_device") == "true"
@@ -373,18 +447,20 @@ def self_test() -> None:
     assert scalar(text, "device_map") == "single_visible_gpu"
     assert scalar(text, "forbid_auto_device_map") == "true"
     assert scalar(text, "forbid_cpu_disk_offload") == "true"
-    assert scalar(text, "load_best_model_at_end") == "true"
-    assert scalar(text, "metric_for_best_model") == "eval_loss"
-    assert scalar(text, "greater_is_better") == "false"
-    assert scalar(text, "checkpoint_selection") == "dev_eval_loss_then_external_heldout_promotion_gate"
+    assert contract.training["checkpoint_selection"] == "dev_eval_loss_then_external_heldout_promotion_gate"
+    assert mapped["training"]["load_best_model_at_end"] is True
+    assert mapped["training"]["metric_for_best_model"] == "eval_loss"
+    assert mapped["training"]["greater_is_better"] is False
     trainer_text = Path(__file__).read_text(encoding="utf-8")
     auto_map_marker = "device_map=" + '"auto"'
     explicit_map_marker = "device_map=" + '{"": 0}'
     assert auto_map_marker not in trainer_text
     assert explicit_map_marker in trainer_text
-    assert "load_best_model_at_end=True" in trainer_text
-    assert 'metric_for_best_model="eval_loss"' in trainer_text
-    assert "greater_is_better=False" in trainer_text
+    assert "contract = load_runtime_contract(config_text)" in trainer_text
+    assert "runtime_config = runtime_kwargs(contract)" in trainer_text
+    assert 'BitsAndBytesConfig(**quantization_kwargs)' in trainer_text
+    assert 'LoraConfig(**runtime_config["lora"])' in trainer_text
+    assert 'TrainingArguments(output_dir=str(output_dir), **runtime_config["training"])' in trainer_text
     assert "finalize_training_manifest(manifest_path, adapter_dir)" in trainer_text
     assert FINALIZER == ROOT / "scripts/finalize-qlora-run-manifest.py"
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
@@ -419,12 +495,16 @@ def main() -> int:
     parser.add_argument("--preflight-only", action="store_true")
     parser.add_argument("--output-dir", type=Path, default=Path("model_tuning/runs/qlora_qwen3_8b_v1"))
     args = parser.parse_args()
-    if args.self_test: self_test(); return 0
+    if args.self_test:
+        self_test()
+        return 0
     if args.preflight_only:
         revision, lock_sha = run_preflight()
         print(f"QLoRA preflight passed at {revision}; dependency lock {lock_sha}; no training was run.")
         return 0
-    train(args.output_dir); return 0
+    train(args.output_dir)
+    return 0
 
 
-if __name__ == "__main__": raise SystemExit(main())
+if __name__ == "__main__":
+    raise SystemExit(main())

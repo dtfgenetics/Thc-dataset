@@ -1,172 +1,107 @@
 #!/usr/bin/env python3
-"""Fail closed if the real QLoRA trainer drifts from qlora_8b.yaml.
+"""Fail closed unless the real QLoRA trainer consumes the reviewed runtime contract.
 
-The trainer currently spells out Transformers/PEFT arguments explicitly. Until it is
-refactored to construct those objects directly from the YAML contract, this validator
-makes that duplication machine-checked so a config-only or trainer-only edit cannot
-silently change a real run.
+The trainer no longer owns a second copy of the QLoRA/LoRA/TrainingArguments values.
+This validator protects that architecture: the YAML is parsed by the typed contract,
+runtime kwargs are derived by the tested mapping, and the real trainer must consume
+those objects instead of reintroducing independent hyperparameter literals.
 """
 from __future__ import annotations
 
 import argparse
-import re
-from decimal import Decimal, InvalidOperation
 from pathlib import Path
+
+from qlora_runtime_contract import load_runtime_contract
+from qlora_runtime_kwargs import runtime_kwargs
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG = ROOT / "model_tuning/config/qlora_8b.yaml"
 TRAINER = ROOT / "scripts/train-grow-doc-qlora.py"
 
 
-def section_values(text: str, section: str) -> dict[str, str]:
-    values: dict[str, str] = {}
-    active = False
-    for raw in text.splitlines():
-        if re.match(r"^[A-Za-z_][A-Za-z0-9_]*:\s*$", raw):
-            active = raw.strip() == f"{section}:"
-            continue
-        if not active:
-            continue
-        if raw and not raw.startswith(" "):
-            break
-        match = re.match(r"^\s{2}([A-Za-z_][A-Za-z0-9_]*):\s*([^#]+?)\s*$", raw)
-        if match:
-            values[match.group(1)] = match.group(2).strip().strip('"\'')
-    return values
-
-
-def list_values(text: str, section: str, key: str) -> list[str]:
-    lines = text.splitlines()
-    in_section = False
-    in_list = False
-    out: list[str] = []
-    for raw in lines:
-        if re.match(r"^[A-Za-z_][A-Za-z0-9_]*:\s*$", raw):
-            in_section = raw.strip() == f"{section}:"
-            in_list = False
-            continue
-        if not in_section:
-            continue
-        if re.match(rf"^\s{{2}}{re.escape(key)}:\s*$", raw):
-            in_list = True
-            continue
-        if in_list:
-            match = re.match(r"^\s{4}-\s+(.+?)\s*$", raw)
-            if match:
-                out.append(match.group(1).strip().strip('"\''))
-                continue
-            if raw.strip():
-                break
-    return out
-
-
-def py_bool(value: str) -> str:
-    lowered = value.lower()
-    if lowered == "true":
-        return "True"
-    if lowered == "false":
-        return "False"
-    raise ValueError(f"expected YAML boolean, got {value!r}")
-
-
 def require(text: str, marker: str, label: str) -> None:
     if marker not in text:
-        raise RuntimeError(f"QLoRA runtime/config drift: {label}; expected trainer marker {marker!r}")
-
-
-def require_numeric_arg(text: str, arg: str, expected: str, label: str) -> None:
-    match = re.search(rf"\b{re.escape(arg)}=([0-9.+\-eE]+)", text)
-    if not match:
-        raise RuntimeError(f"QLoRA runtime/config drift: {label}; trainer argument {arg!r} not found")
-    try:
-        actual_value = Decimal(match.group(1))
-        expected_value = Decimal(expected)
-    except InvalidOperation as exc:
-        raise RuntimeError(f"QLoRA runtime/config drift: {label}; non-numeric value") from exc
-    if actual_value != expected_value:
         raise RuntimeError(
-            f"QLoRA runtime/config drift: {label}; config={expected} trainer={match.group(1)}"
+            f"QLoRA runtime/config binding failure: {label}; expected trainer marker {marker!r}"
+        )
+
+
+def reject(text: str, marker: str, label: str) -> None:
+    if marker in text:
+        raise RuntimeError(
+            f"QLoRA runtime/config binding failure: {label}; legacy trainer literal {marker!r} returned"
         )
 
 
 def validate(config_text: str, trainer_text: str) -> None:
-    training = section_values(config_text, "training")
-    precision = section_values(config_text, "precision")
-    lora = section_values(config_text, "lora")
-    targets = list_values(config_text, "lora", "target_modules")
+    contract = load_runtime_contract(config_text)
+    mapped = runtime_kwargs(contract)
 
-    required_training = {
-        "learning_rate", "lr_scheduler_type", "warmup_ratio", "num_train_epochs",
-        "per_device_train_batch_size", "per_device_eval_batch_size", "gradient_accumulation_steps",
-        "gradient_checkpointing", "max_grad_norm", "weight_decay", "optimizer",
-        "logging_steps", "eval_steps", "save_steps", "save_total_limit", "bf16",
-        "tf32", "load_best_model_at_end",
-    }
-    missing = sorted(required_training - training.keys())
-    if missing:
-        raise RuntimeError(f"missing training contract keys: {missing}")
+    require(trainer_text, "from qlora_runtime_contract import load_runtime_contract", "typed contract import")
+    require(trainer_text, "from qlora_runtime_kwargs import runtime_kwargs", "runtime mapping import")
+    require(trainer_text, "contract = load_runtime_contract(config_text)", "typed contract load")
+    require(trainer_text, "runtime_config = runtime_kwargs(contract)", "runtime kwargs derivation")
 
-    require_numeric_arg(trainer_text, "learning_rate", training["learning_rate"], "learning_rate")
-    require(trainer_text, f"lr_scheduler_type=\"{training['lr_scheduler_type']}\"", "lr_scheduler_type")
-    require_numeric_arg(trainer_text, "warmup_ratio", training["warmup_ratio"], "warmup_ratio")
-    require_numeric_arg(trainer_text, "num_train_epochs", training["num_train_epochs"], "num_train_epochs")
-    require_numeric_arg(trainer_text, "per_device_train_batch_size", training["per_device_train_batch_size"], "per_device_train_batch_size")
-    require_numeric_arg(trainer_text, "per_device_eval_batch_size", training["per_device_eval_batch_size"], "per_device_eval_batch_size")
-    require_numeric_arg(trainer_text, "gradient_accumulation_steps", training["gradient_accumulation_steps"], "gradient_accumulation_steps")
-    require(trainer_text, f"gradient_checkpointing={py_bool(training['gradient_checkpointing'])}", "gradient_checkpointing")
-    require_numeric_arg(trainer_text, "max_grad_norm", training["max_grad_norm"], "max_grad_norm")
-    require_numeric_arg(trainer_text, "weight_decay", training["weight_decay"], "weight_decay")
-    require(trainer_text, f"optim=\"{training['optimizer']}\"", "optimizer")
-    require_numeric_arg(trainer_text, "logging_steps", training["logging_steps"], "logging_steps")
-    require_numeric_arg(trainer_text, "eval_steps", training["eval_steps"], "eval_steps")
-    require_numeric_arg(trainer_text, "save_steps", training["save_steps"], "save_steps")
-    require_numeric_arg(trainer_text, "save_total_limit", training["save_total_limit"], "save_total_limit")
-    require(trainer_text, f"bf16={py_bool(training['bf16'])}", "bf16")
-    require(trainer_text, f"tf32={py_bool(training['tf32'])}", "tf32")
-    require(trainer_text, f"load_best_model_at_end={py_bool(training['load_best_model_at_end'])}", "load_best_model_at_end")
+    for marker, label in [
+        ("model_repo = contract.base_model", "base model binding"),
+        ("model_revision = contract.base_model_revision", "base model revision binding"),
+        ("tokenizer_revision = contract.tokenizer_revision", "tokenizer revision binding"),
+        ("expected_template_sha = contract.tokenizer_chat_template_sha256", "chat-template digest binding"),
+        ("max_length = contract.max_seq_length", "sequence-length binding"),
+        ("seed = contract.seed", "seed binding"),
+        ("enable_thinking = contract.tokenizer_chat_template_kwargs_enable_thinking", "thinking-mode binding"),
+        ('BitsAndBytesConfig(**quantization_kwargs)', "quantization mapping consumption"),
+        ('LoraConfig(**runtime_config["lora"])', "LoRA mapping consumption"),
+        ('TrainingArguments(output_dir=str(output_dir), **runtime_config["training"])', "training mapping consumption"),
+        ('use_gradient_checkpointing=runtime_config["training"]["gradient_checkpointing"]', "gradient-checkpointing binding"),
+    ]:
+        require(trainer_text, marker, label)
 
-    require(trainer_text, f"load_in_4bit={py_bool(precision['load_in_4bit'])}", "load_in_4bit")
-    require(trainer_text, f"bnb_4bit_quant_type=\"{precision['bnb_4bit_quant_type']}\"", "bnb_4bit_quant_type")
-    require(trainer_text, f"bnb_4bit_use_double_quant={py_bool(precision['bnb_4bit_use_double_quant'])}", "bnb_4bit_use_double_quant")
-    if precision.get("compute_dtype") != "bfloat16":
-        raise RuntimeError("validator currently supports only compute_dtype=bfloat16")
-    require(trainer_text, "bnb_4bit_compute_dtype=torch.bfloat16", "compute_dtype")
+    require(
+        trainer_text,
+        'quantization_kwargs["bnb_4bit_compute_dtype"] = torch.bfloat16',
+        "bfloat16 torch translation",
+    )
+    if mapped["quantization"]["bnb_4bit_compute_dtype"] != "bfloat16":
+        raise RuntimeError("runtime mapping must preserve the reviewed bfloat16 sentinel")
 
-    require_numeric_arg(trainer_text, "r", lora["r"], "LoRA rank")
-    require_numeric_arg(trainer_text, "lora_alpha", lora["alpha"], "LoRA alpha")
-    require_numeric_arg(trainer_text, "lora_dropout", lora["dropout"], "LoRA dropout")
-    require(trainer_text, f"bias=\"{lora['bias']}\"", "LoRA bias")
-    if not targets:
-        raise RuntimeError("LoRA target_modules must not be empty")
-    expected_targets = "target_modules=[" + ", ".join(f'\"{item}\"' for item in targets) + "]"
-    require(trainer_text, expected_targets, "LoRA target_modules")
+    legacy_literals = [
+        ("learning_rate=1e-4", "learning rate"),
+        ('lr_scheduler_type="cosine"', "scheduler"),
+        ("warmup_ratio=0.05", "warmup"),
+        ("num_train_epochs=2", "epochs"),
+        ("per_device_train_batch_size=1", "train batch size"),
+        ("per_device_eval_batch_size=1", "eval batch size"),
+        ("gradient_accumulation_steps=16", "gradient accumulation"),
+        ("max_grad_norm=1.0", "max grad norm"),
+        ("weight_decay=0.01", "weight decay"),
+        ('optim="paged_adamw_8bit"', "optimizer"),
+        ("save_total_limit=3", "checkpoint retention"),
+        ("LoraConfig(r=32", "LoRA rank"),
+        ('lora_alpha=64', "LoRA alpha"),
+        ('lora_dropout=0.05', "LoRA dropout"),
+        ('BitsAndBytesConfig(load_in_4bit=True', "4-bit quantization"),
+    ]
+    for marker, label in legacy_literals:
+        reject(trainer_text, marker, label)
 
 
 def self_test(config_text: str, trainer_text: str) -> None:
     validate(config_text, trainer_text)
-    bad_trainer = trainer_text.replace("learning_rate=1e-4", "learning_rate=2e-4", 1)
-    try:
-        validate(config_text, bad_trainer)
-    except RuntimeError as exc:
-        assert "learning_rate" in str(exc)
-    else:
-        raise AssertionError("learning-rate drift was not rejected")
 
-    bad_eval_batch = trainer_text.replace("per_device_eval_batch_size=1", "per_device_eval_batch_size=2", 1)
+    missing_mapping = trainer_text.replace(
+        "runtime_config = runtime_kwargs(contract)",
+        "runtime_config = {}",
+    )
+    if missing_mapping == trainer_text:
+        raise AssertionError("self-test could not remove runtime kwargs derivation")
     try:
-        validate(config_text, bad_eval_batch)
+        validate(config_text, missing_mapping)
     except RuntimeError as exc:
-        assert "per_device_eval_batch_size" in str(exc)
+        assert "runtime kwargs derivation" in str(exc)
     else:
-        raise AssertionError("evaluation-batch-size drift was not rejected")
+        raise AssertionError("trainer without runtime kwargs derivation was accepted")
 
-    bad_config = config_text.replace("r: 32", "r: 16", 1)
-    try:
-        validate(bad_config, trainer_text)
-    except RuntimeError as exc:
-        assert "LoRA rank" in str(exc)
-    else:
-        raise AssertionError("LoRA-rank drift was not rejected")
     print("Grow Doc QLoRA runtime/config binding self-test: PASS")
 
 
