@@ -10,7 +10,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "model_tuning/evidence/source_metadata_reviews_v1.jsonl"
 ALLOWED_STATUS = {"verified-current", "verified-unresolved", "rejected-metadata"}
-ALLOWED_SCOPE = {"publisher-page-metadata", "doi-metadata", "institutional-catalog-metadata"}
+ALLOWED_SCOPE = {
+    "publisher-page-metadata",
+    "publisher-pdf-metadata",
+    "doi-metadata",
+    "institutional-catalog-metadata",
+}
 
 
 def load_rows(path: Path) -> list[dict]:
@@ -65,7 +70,7 @@ def validate(rows: list[dict]) -> list[str]:
 
 
 def self_test() -> None:
-    good = [{
+    unresolved = [{
         "_line": 1,
         "source_id": "url:https://example.test/source",
         "checked_date": "2026-09-13",
@@ -77,8 +82,23 @@ def self_test() -> None:
         "changes_training_eligibility": False,
         "rag_first": True,
     }]
-    assert validate(good) == []
-    bad = [dict(good[0], _line=2, year=2024)]
+    assert validate(unresolved) == []
+
+    publisher_pdf = [{
+        "_line": 1,
+        "source_id": "url:https://example.test/publication",
+        "checked_date": "2026-09-13",
+        "review_status": "verified-current",
+        "publication_date": "2023-12",
+        "year": 2023,
+        "finding": "Publisher PDF explicitly states the latest revision date.",
+        "evidence_scope": "publisher-pdf-metadata",
+        "changes_training_eligibility": False,
+        "rag_first": True,
+    }]
+    assert validate(publisher_pdf) == []
+
+    bad = [dict(unresolved[0], _line=2, year=2024)]
     assert any("must not invent" in error for error in validate(bad))
     print("source metadata review self-test: PASS")
 
