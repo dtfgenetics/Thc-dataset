@@ -1,0 +1,30 @@
+name: Validate QLoRA Runtime Contract Loader
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/qlora_runtime_contract.py'
+      - '.github/workflows/qlora-runtime-contract-loader.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/qlora_runtime_contract.py'
+      - '.github/workflows/qlora-runtime-contract-loader.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Self-test typed runtime contract loader
+        run: python scripts/qlora_runtime_contract.py --self-test
+      - name: Validate active runtime contract
+        run: python scripts/qlora_runtime_contract.py
+      - name: Render canonical runtime contract JSON
+        run: python scripts/qlora_runtime_contract.py --json > /tmp/qlora-runtime-contract.json
