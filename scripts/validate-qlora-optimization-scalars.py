@@ -151,7 +151,7 @@ def self_test() -> None:
         ("gradient_accumulation_steps: 16", "gradient_accumulation_steps: true", "training.gradient_accumulation_steps"),
         ("max_grad_norm: 1.0", "max_grad_norm: 0", "training.max_grad_norm"),
         ("weight_decay: 0.01", "weight_decay: nan", "training.weight_decay"),
-        ("eval_steps: 100", "eval_steps: 1.5", "training.eval_steps"),
+        ("eval_steps: 10", "eval_steps: 1.5", "training.eval_steps"),
         ("save_total_limit: 3", "save_total_limit: -1", "training.save_total_limit"),
         ("seed: 420", "seed: true", "seed"),
     )
