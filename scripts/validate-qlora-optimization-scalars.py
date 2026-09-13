@@ -93,6 +93,7 @@ def validate_text(text: str) -> list[str]:
     for key in (
         "max_seq_length",
         "per_device_train_batch_size",
+        "per_device_eval_batch_size",
         "gradient_accumulation_steps",
         "logging_steps",
         "eval_steps",
@@ -146,6 +147,7 @@ def self_test() -> None:
         ("warmup_ratio: 0.05", "warmup_ratio: -0.01", "training.warmup_ratio"),
         ("num_train_epochs: 2", "num_train_epochs: false", "training.num_train_epochs"),
         ("per_device_train_batch_size: 1", "per_device_train_batch_size: 0", "training.per_device_train_batch_size"),
+        ("per_device_eval_batch_size: 1", "per_device_eval_batch_size: 0", "training.per_device_eval_batch_size"),
         ("gradient_accumulation_steps: 16", "gradient_accumulation_steps: true", "training.gradient_accumulation_steps"),
         ("max_grad_norm: 1.0", "max_grad_norm: 0", "training.max_grad_norm"),
         ("weight_decay: 0.01", "weight_decay: nan", "training.weight_decay"),
