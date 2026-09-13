@@ -60,8 +60,9 @@ def self_test() -> None:
     tampered_trainer = trainer.replace(
         "runtime_config = runtime_kwargs(contract)",
         "runtime_config = {}",
-        1,
     )
+    if tampered_trainer == trainer:
+        raise AssertionError("self-test could not remove runtime kwargs derivation")
     assert any("trainer packing contract marker missing" in error for error in validate(config, tampered_trainer))
     print("QLoRA packing contract self-test: PASS")
 
