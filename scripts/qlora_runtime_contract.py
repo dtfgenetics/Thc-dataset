@@ -134,7 +134,9 @@ class QLoRARuntimeContract:
     base_model_revision: str
     tokenizer_revision: str
     tokenizer_chat_template_sha256: str
+    tokenizer_chat_template_kwargs_enable_thinking: bool
     max_seq_length: int
+    packing: bool
     seed: int
     precision: dict[str, Any]
     lora: dict[str, Any]
@@ -146,7 +148,9 @@ class QLoRARuntimeContract:
             "base_model_revision": self.base_model_revision,
             "tokenizer_revision": self.tokenizer_revision,
             "tokenizer_chat_template_sha256": self.tokenizer_chat_template_sha256,
+            "tokenizer_chat_template_kwargs_enable_thinking": self.tokenizer_chat_template_kwargs_enable_thinking,
             "max_seq_length": self.max_seq_length,
+            "packing": self.packing,
             "seed": self.seed,
             "precision": dict(self.precision),
             "lora": dict(self.lora),
@@ -162,7 +166,7 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
     targets = list_values(text, "lora", "target_modules")
 
     required_training = {
-        "max_seq_length", "learning_rate", "lr_scheduler_type", "warmup_ratio",
+        "max_seq_length", "packing", "learning_rate", "lr_scheduler_type", "warmup_ratio",
         "num_train_epochs", "per_device_train_batch_size", "gradient_accumulation_steps",
         "gradient_checkpointing", "max_grad_norm", "weight_decay", "optimizer",
         "logging_steps", "eval_steps", "save_steps", "save_total_limit", "seed", "bf16",
@@ -190,6 +194,12 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
     reproducibility_seed = parse_int(require(reproducibility, "seed", "reproducibility.seed"), "reproducibility.seed")
     if training_seed != reproducibility_seed:
         raise ContractError("training.seed must match reproducibility.seed")
+
+    enable_thinking = parse_bool(
+        require(top, "tokenizer_chat_template_kwargs_enable_thinking", "tokenizer_chat_template_kwargs_enable_thinking"),
+        "tokenizer_chat_template_kwargs_enable_thinking",
+    )
+    packing = parse_bool(training_raw["packing"], "training.packing")
 
     precision = {
         "load_in_4bit": parse_bool(precision_raw["load_in_4bit"], "precision.load_in_4bit"),
@@ -238,7 +248,9 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
         base_model_revision=require(top, "base_model_revision", "base_model_revision"),
         tokenizer_revision=require(top, "tokenizer_revision", "tokenizer_revision"),
         tokenizer_chat_template_sha256=require(top, "tokenizer_chat_template_sha256", "tokenizer_chat_template_sha256"),
+        tokenizer_chat_template_kwargs_enable_thinking=enable_thinking,
         max_seq_length=max_seq_length,
+        packing=packing,
         seed=training_seed,
         precision=precision,
         lora=lora,
@@ -251,7 +263,9 @@ def self_test() -> None:
     contract = load_runtime_contract(text)
     assert contract.base_model == "Qwen/Qwen3-8B"
     assert contract.max_seq_length == 4096
+    assert contract.packing is False
     assert contract.seed == 420
+    assert contract.tokenizer_chat_template_kwargs_enable_thinking is False
     assert contract.precision == {
         "load_in_4bit": True,
         "bnb_4bit_quant_type": "nf4",
@@ -280,6 +294,8 @@ def self_test() -> None:
 
     for bad_text, expected in [
         (text.replace("bf16: true", "bf16: maybe", 1), "training.bf16"),
+        (text.replace("tokenizer_chat_template_kwargs_enable_thinking: false", "tokenizer_chat_template_kwargs_enable_thinking: maybe", 1), "tokenizer_chat_template_kwargs_enable_thinking"),
+        (text.replace("packing: false", "packing: maybe", 1), "training.packing"),
         (reproducibility_seed_mismatch, "training.seed must match"),
         (text.replace("    - down_proj", "    - q_proj\n    - down_proj", 1), "duplicate values"),
     ]:
