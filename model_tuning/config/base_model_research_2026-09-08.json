@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-09-08",
+  "checked_at": "2026-09-13",
   "purpose": "Research-only candidate update. Entries are not benchmark-eligible or training-eligible until exact runtime, prompt, revision, hardware, and frozen heldout/RAG contracts are verified.",
   "selection_policy": {
     "rag_first": true,
@@ -63,6 +63,28 @@
         "bind exact revision to frozen heldout-v2 and RAG snapshot"
       ],
       "notes": "Research-only. Newer version number is not evidence of better Grow Doc factuality or diagnostics; it must beat the frozen Qwen3-8B baseline under the project benchmark contract."
+    },
+    {
+      "id": "qwen3-5-9b-research",
+      "repo_id": "Qwen/Qwen3.5-9B",
+      "license": "apache-2.0",
+      "architecture": "dense hybrid multimodal LM, approximately 9.65B parameters",
+      "native_context": 262144,
+      "observed_revision": "7daa976d0c5c4f25f6f513094ae567d74bf11818",
+      "upstream_evidence": "https://huggingface.co/Qwen/Qwen3.5-9B",
+      "role": "near-size current-generation challenger",
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "known_prompt_risk": "The observed upstream chat template can emit empty historical <think> wrappers when reasoning_content is empty; the minimal upstream correction remains proposed rather than merged as of 2026-09-13.",
+      "blockers": [
+        "resolve and verify the upstream historical-think chat-template defect or vendor and hash an immutable corrected template",
+        "freeze tokenizer/processor and chat-template hashes at one exact defect-free revision",
+        "freeze an explicit deterministic Grow Doc decoding contract",
+        "verify compatible pinned Transformers/PEFT/bitsandbytes runtime for qwen3_5",
+        "verify BF16/quantized hardware envelope",
+        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+      ],
+      "notes": "Research-only. The model is close enough in size to the Qwen3-8B baseline to be an informative challenger, but upstream model-card or community benchmark results are not Grow Doc evidence. Do not benchmark or tune until the prompt contract is defect-free and immutable."
     }
   ]
 }
