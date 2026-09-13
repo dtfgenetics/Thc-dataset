@@ -270,9 +270,17 @@ def self_test() -> None:
     changed = load_runtime_contract(text.replace("learning_rate: 0.0001", "learning_rate: 0.0002", 1))
     assert changed.training["learning_rate"] == 0.0002
 
+    reproducibility_seed_mismatch = re.sub(
+        r"(reproducibility:\n(?:(?:  .*|)\n)*?  seed:\s*)420\b",
+        r"\g<1>421",
+        text,
+        count=1,
+    )
+    assert reproducibility_seed_mismatch != text, "self-test failed to mutate reproducibility.seed"
+
     for bad_text, expected in [
         (text.replace("bf16: true", "bf16: maybe", 1), "training.bf16"),
-        (text.replace("  seed: 420\n\nprecision:", "  seed: 421\n\nprecision:", 1), "training.seed must match"),
+        (reproducibility_seed_mismatch, "training.seed must match"),
         (text.replace("    - down_proj", "    - q_proj\n    - down_proj", 1), "duplicate values"),
     ]:
         try:
