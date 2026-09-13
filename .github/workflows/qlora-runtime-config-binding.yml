@@ -1,0 +1,32 @@
+name: Validate QLoRA Runtime Config Binding
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/train-grow-doc-qlora.py'
+      - 'scripts/validate-qlora-runtime-config-binding.py'
+      - '.github/workflows/qlora-runtime-config-binding.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/train-grow-doc-qlora.py'
+      - 'scripts/validate-qlora-runtime-config-binding.py'
+      - '.github/workflows/qlora-runtime-config-binding.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run runtime/config binding self-tests
+        run: python3 scripts/validate-qlora-runtime-config-binding.py --self-test
+      - name: Validate active trainer against reviewed config
+        run: python3 scripts/validate-qlora-runtime-config-binding.py
