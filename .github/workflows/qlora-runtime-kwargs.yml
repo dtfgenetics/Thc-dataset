@@ -1,0 +1,27 @@
+name: Validate QLoRA Runtime Kwargs
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/config/qlora_8b.yaml'
+      - 'scripts/qlora_runtime_contract.py'
+      - 'scripts/qlora_runtime_kwargs.py'
+      - 'scripts/train-grow-doc-qlora.py'
+      - '.github/workflows/qlora-runtime-kwargs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate typed runtime contract
+        run: python scripts/qlora_runtime_contract.py --self-test
+      - name: Validate config-derived runtime kwargs
+        run: python scripts/qlora_runtime_kwargs.py
