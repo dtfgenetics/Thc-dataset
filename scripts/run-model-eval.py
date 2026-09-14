@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 SUPPORTED_DTYPES = ("float32", "float16", "bfloat16")
+SUPPORTED_RAG_SNAPSHOT_SCHEMAS = ("grow-doc-rag-snapshot-v1", "grow-doc-rag-snapshot-v2")
 CHAT_TEMPLATE_METHOD = "apply_chat_template:add_generation_prompt"
 
 
@@ -121,10 +122,27 @@ def validate_id_list(value: Any, *, field: str, row_number: int, claim_id: str) 
     return value
 
 
+def validate_retrieval_manifest_contract(manifest: dict[str, Any]) -> None:
+    schema = manifest.get("schema_version")
+    if schema not in SUPPORTED_RAG_SNAPSHOT_SCHEMAS:
+        raise ValueError("unsupported retrieval snapshot manifest schema")
+    if schema == "grow-doc-rag-snapshot-v2":
+        if manifest.get("algorithm") != "grow-doc-field-weighted-idf-v2":
+            raise ValueError("unsupported v2 retrieval algorithm")
+        if manifest.get("heldout_labels_used_for_retrieval") is not False:
+            raise ValueError("v2 retrieval manifest must explicitly forbid held-out labels as retrieval inputs")
+        retrieval_inputs = manifest.get("retrieval_inputs")
+        if not isinstance(retrieval_inputs, list) or not retrieval_inputs:
+            raise ValueError("v2 retrieval manifest retrieval_inputs must be a non-empty list")
+        forbidden = {"expected_points", "must_cite", "forbidden_claims"}
+        overlap = forbidden.intersection(str(value) for value in retrieval_inputs)
+        if overlap:
+            raise ValueError(f"v2 retrieval manifest includes held-out label inputs: {sorted(overlap)}")
+
+
 def load_retrieval(snapshot_path: Path, manifest_path: Path, benchmark_path: Path, cases: list[dict[str, Any]]) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if manifest.get("schema_version") != "grow-doc-rag-snapshot-v1":
-        raise ValueError("unsupported retrieval snapshot manifest schema")
+    validate_retrieval_manifest_contract(manifest)
     if manifest.get("snapshot_sha256") != sha256(snapshot_path):
         raise ValueError("retrieval snapshot SHA-256 does not match manifest")
     if manifest.get("benchmark_sha256") != sha256(benchmark_path):
@@ -408,7 +426,17 @@ def self_test() -> None:
         claim = "A cautious point is supported by the reviewed evidence."
         good_item = {"rank": 1, "score": 2.0, "claim_id": "rag-001", "claim_sha256": text_sha256(claim), "claim": claim, "source_ids": ["doi:10.0000/test"], "profile_ids": ["profile-001"]}
         write_jsonl(snapshot, [{"case_id": "case-001", "prompt_sha256": text_sha256("What is supported?"), "retrieved": [good_item]}])
-        snapshot_manifest.write_text(json.dumps({"schema_version": "grow-doc-rag-snapshot-v1", "algorithm": "grow-doc-lexical-idf-v1", "top_k": 5, "benchmark_sha256": sha256(bench), "snapshot_sha256": sha256(snapshot)}), encoding="utf-8")
+        v2_manifest = {
+            "schema_version": "grow-doc-rag-snapshot-v2",
+            "algorithm": "grow-doc-field-weighted-idf-v2",
+            "baseline_algorithm": "grow-doc-lexical-idf-v1",
+            "retrieval_inputs": ["prompt", "claim", "profile_name", "category", "source_title", "source_organization"],
+            "heldout_labels_used_for_retrieval": False,
+            "top_k": 5,
+            "benchmark_sha256": sha256(bench),
+            "snapshot_sha256": sha256(snapshot),
+        }
+        snapshot_manifest.write_text(json.dumps(v2_manifest), encoding="utf-8")
         a = argparse.Namespace(
             benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001",
             model_repo="Qwen/Qwen3-8B", model_revision="1234567", tokenizer_repo="Qwen/Qwen3-8B", tokenizer_revision="1234567",
@@ -429,7 +457,29 @@ def self_test() -> None:
         assert manifest_data["artifacts"]["responses_sha256"] == sha256(responses)
         assert json.loads((root / "out" / "scores.json").read_text(encoding="utf-8"))["promotion_eligible"] is False
 
-        snapshot_manifest.write_text(json.dumps({"schema_version": "grow-doc-rag-snapshot-v1", "top_k": 5, "benchmark_sha256": "0" * 64, "snapshot_sha256": sha256(snapshot)}), encoding="utf-8")
+        bad_v2 = {**v2_manifest, "heldout_labels_used_for_retrieval": True}
+        snapshot_manifest.write_text(json.dumps(bad_v2), encoding="utf-8")
+        try:
+            execute(a, mock=True)
+        except ValueError as exc:
+            assert "held-out labels" in str(exc)
+        else:
+            raise AssertionError("v2 retrieval using held-out labels must be rejected")
+
+        bad_v2 = {**v2_manifest, "retrieval_inputs": [*v2_manifest["retrieval_inputs"], "must_cite"]}
+        snapshot_manifest.write_text(json.dumps(bad_v2), encoding="utf-8")
+        try:
+            execute(a, mock=True)
+        except ValueError as exc:
+            assert "held-out label inputs" in str(exc)
+        else:
+            raise AssertionError("v2 retrieval inputs must not contain held-out labels")
+
+        v1_manifest = {"schema_version": "grow-doc-rag-snapshot-v1", "algorithm": "grow-doc-lexical-idf-v1", "top_k": 5, "benchmark_sha256": sha256(bench), "snapshot_sha256": sha256(snapshot)}
+        snapshot_manifest.write_text(json.dumps(v1_manifest), encoding="utf-8")
+        execute(a, mock=True)
+
+        snapshot_manifest.write_text(json.dumps({**v1_manifest, "benchmark_sha256": "0" * 64}), encoding="utf-8")
         try:
             execute(a, mock=True)
         except ValueError as exc:
