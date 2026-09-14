@@ -45,6 +45,34 @@ def git_head(root: Path = ROOT) -> str:
     return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=root, text=True).strip()
 
 
+def tracked_dirty_paths(status_output: str) -> list[str]:
+    paths: list[str] = []
+    for raw in status_output.splitlines():
+        if not raw.strip():
+            continue
+        if len(raw) < 4:
+            raise RuntimeError(f"malformed git status entry: {raw!r}")
+        paths.append(raw[3:])
+    return paths
+
+
+def validate_post_regeneration_status(status_output: str) -> None:
+    changed = tracked_dirty_paths(status_output)
+    if changed:
+        raise RuntimeError(
+            "input regeneration modified canonical tracked files: " + ", ".join(changed)
+        )
+
+
+def ensure_post_regeneration_clean(root: Path = ROOT) -> None:
+    status_output = subprocess.check_output(
+        ["git", "status", "--porcelain", "--untracked-files=no"],
+        cwd=root,
+        text=True,
+    )
+    validate_post_regeneration_status(status_output)
+
+
 def ensure_clean_checkout(root: Path = ROOT) -> str:
     head = git_head(root)
     if len(head) != 40 or any(c not in "0123456789abcdef" for c in head.lower()):
@@ -198,6 +226,7 @@ def run_preflight() -> dict[str, object]:
     repo_revision = ensure_clean_checkout()
     runtime_contract = runtime_preflight()
     prepare_inputs()
+    ensure_post_regeneration_clean()
     return {"repo_revision": repo_revision, **runtime_contract}
 
 
@@ -292,6 +321,20 @@ def self_test() -> None:
     assert cmd[cmd.index("--model-revision") + 1] == MODEL_REVISION
     assert cmd[cmd.index("--tokenizer-chat-template-sha256") + 1] == CHAT_TEMPLATE_SHA256
     assert cmd[cmd.index("--scorer-revision") + 1] == "a" * 40
+    assert tracked_dirty_paths("") == []
+    fixture_status = " M model_tuning/generated/rag/claims_v1.jsonl\nM  model_tuning/rag_snapshots/heldout_v2.jsonl\n"
+    assert tracked_dirty_paths(fixture_status) == [
+        "model_tuning/generated/rag/claims_v1.jsonl",
+        "model_tuning/rag_snapshots/heldout_v2.jsonl",
+    ]
+    try:
+        validate_post_regeneration_status(fixture_status)
+    except RuntimeError as exc:
+        assert "input regeneration modified canonical tracked files" in str(exc)
+        assert "claims_v1.jsonl" in str(exc)
+    else:
+        raise AssertionError("post-regeneration cleanliness guard should reject tracked drift")
+    validate_post_regeneration_status("")
     good = validate_gpu_properties(
         cuda_available=True,
         total_memory_bytes=24 * GIB,
