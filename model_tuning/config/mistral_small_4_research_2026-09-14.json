@@ -1,0 +1,79 @@
+{
+  "schema_version": "grow-doc-base-model-research-v1",
+  "candidate": {
+    "id": "mistral-small-4-119b-2603-research",
+    "repo_id": "mistralai/Mistral-Small-4-119B-2603",
+    "role": "high-capacity sparse quality-ceiling and possible teacher candidate",
+    "research_status": "active_research",
+    "evidence_checked_at": "2026-09-14",
+    "license": "apache-2.0",
+    "license_source": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
+    "official_announcement": "https://mistral.ai/news/mistral-small-4/",
+    "architecture": {
+      "family": "mistral3",
+      "mixture_of_experts": true,
+      "experts_total": 128,
+      "experts_active_per_token": 4,
+      "parameters_total_billion": 119.4,
+      "parameters_active_per_token_billion": 6.5,
+      "context_length_tokens": 256000,
+      "multimodal_input": true,
+      "reasoning_effort_configurable": true
+    },
+    "grow_doc_assessment": {
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "adapter_combination_eligible": false,
+      "recommended_role": "research-only quality-ceiling comparator after the current pinned Qwen3-8B base-vs-RAG experiment",
+      "advantages": [
+        "Apache-2.0 open-weight release",
+        "sparse activation may provide substantially higher model capacity than the current 8B baseline while activating a much smaller subset per token",
+        "native multimodal support is potentially relevant to future plant-image diagnostic evaluation",
+        "long context can support retrieval-grounded document and citation workloads"
+      ],
+      "blocking_requirements": [
+        "freeze an exact model revision and tokenizer/processor revision",
+        "hash and review the exact prompt/chat-template contract",
+        "freeze deterministic non-reasoning and, if tested, reasoning decoding contracts separately",
+        "verify dependency versions and evaluator compatibility",
+        "establish a realistic hardware/VRAM/runtime contract for the 119B-weight footprint",
+        "bind the candidate to the same frozen heldout_v2 and RAG snapshot contract",
+        "run the same factuality, diagnostic, hallucination, citation-accuracy, science, education, grounded-QA, and regression slices",
+        "demonstrate measured improvement before any training-target or teacher promotion"
+      ],
+      "decision": "Do not replace Qwen3-8B or spend fine-tuning compute on this candidate yet. First complete the controlled Qwen3-8B base-only versus identical base-plus-frozen-RAG benchmark. Mistral Small 4 should then be evaluated only as a separately frozen research challenger."
+    }
+  },
+  "evidence": [
+    {
+      "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
+      "supports": [
+        "Apache-2.0 license",
+        "mistral3 architecture",
+        "119.4B-class total parameter count",
+        "128 experts with 4 active per token",
+        "approximately 6.5B active parameters per token",
+        "256K context",
+        "multimodal input",
+        "configurable reasoning"
+      ]
+    },
+    {
+      "url": "https://mistral.ai/news/mistral-small-4/",
+      "supports": [
+        "official release status",
+        "Apache-2.0 licensing",
+        "MoE architecture",
+        "119B total and approximately 6B active model parameters",
+        "256K context",
+        "multimodal and configurable reasoning positioning"
+      ]
+    }
+  ],
+  "policy": {
+    "rag_first_for_factual_knowledge": true,
+    "upstream_benchmark_claims_are_not_grow_doc_evidence": true,
+    "no_training_or_promotion_without_heldout_improvement": true,
+    "no_adapter_or_model_soup_combination_without_measured_gain": true
+  }
+}
