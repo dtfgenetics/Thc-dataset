@@ -1,0 +1,24 @@
+{
+  "schema_version": "grow-doc-training-supervision-concentration-policy-v1",
+  "purpose": "Fail only material supervision-concentration regressions relative to the frozen measured baseline; these limits are safety guardrails, not balancing targets.",
+  "policy": {
+    "rag_first": true,
+    "automatic_rebalancing": false,
+    "delete_or_downsample_to_pass": false,
+    "require_frozen_baseline": true
+  },
+  "metrics": {
+    "top_source_example_share": {
+      "absolute_margin": 0.03,
+      "baseline_multiplier": 1.5
+    },
+    "top_profile_example_share": {
+      "absolute_margin": 0.03,
+      "baseline_multiplier": 2.0
+    },
+    "top_task_example_share": {
+      "absolute_margin": 0.08,
+      "baseline_multiplier": 1.2
+    }
+  }
+}
