@@ -1,0 +1,36 @@
+name: Validate Base-vs-RAG Experiment Binding
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/validate-base-vs-rag-experiment-binding.py'
+      - 'scripts/run-base-vs-rag-experiment.py'
+      - 'scripts/run-model-eval.py'
+      - 'scripts/score-base-vs-rag-eval.py'
+      - '.github/workflows/validate-base-vs-rag-experiment-binding.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/validate-base-vs-rag-experiment-binding.py'
+      - 'scripts/run-base-vs-rag-experiment.py'
+      - 'scripts/run-model-eval.py'
+      - 'scripts/score-base-vs-rag-eval.py'
+      - '.github/workflows/validate-base-vs-rag-experiment-binding.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-binding:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate experiment binding self-test
+        run: python3 scripts/validate-base-vs-rag-experiment-binding.py --self-test
+      - name: Validate existing base-vs-RAG scorer self-test
+        run: python3 scripts/score-base-vs-rag-eval.py --self-test
+      - name: Validate existing launcher self-test
+        run: python3 scripts/run-base-vs-rag-experiment.py --self-test
