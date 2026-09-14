@@ -104,6 +104,29 @@ def ensure_clean_checkout() -> str:
     return head
 
 
+def tracked_status_porcelain() -> str:
+    return subprocess.check_output(
+        ["git", "status", "--porcelain", "--untracked-files=no"],
+        cwd=ROOT,
+        text=True,
+    )
+
+
+def ensure_regenerated_tracked_clean(status_text: str | None = None) -> None:
+    status = tracked_status_porcelain() if status_text is None else status_text
+    changed = []
+    for raw in status.splitlines():
+        if not raw.strip():
+            continue
+        path = raw[3:].strip() if len(raw) > 3 else raw.strip()
+        changed.append(path or raw.strip())
+    if changed:
+        raise RuntimeError(
+            "QLoRA preflight regeneration changed tracked canonical artifacts: "
+            + ", ".join(changed)
+        )
+
+
 def direct_requirements(path: Path = REQUIREMENTS_IN) -> dict[str, str]:
     pinned: dict[str, str] = {}
     for raw in path.read_text(encoding="utf-8").splitlines():
@@ -180,6 +203,7 @@ def run_preflight() -> tuple[str, str]:
     subprocess.run([sys.executable, "scripts/verify-qlora-artifacts.py"], cwd=ROOT, check=True)
     subprocess.run([sys.executable, "scripts/validate-qlora-config.py", "--real-run"], cwd=ROOT, check=True)
     lock_sha = materialize_dependency_lock()
+    ensure_regenerated_tracked_clean()
     return repo_revision, lock_sha
 
 
@@ -462,9 +486,22 @@ def self_test() -> None:
     assert 'LoraConfig(**runtime_config["lora"])' in trainer_text
     assert 'TrainingArguments(output_dir=str(output_dir), **runtime_config["training"])' in trainer_text
     assert "finalize_training_manifest(manifest_path, adapter_dir)" in trainer_text
+    assert "ensure_regenerated_tracked_clean()" in trainer_text
     assert FINALIZER == ROOT / "scripts/finalize-qlora-run-manifest.py"
     assert LOCK_PATH == ROOT / "model_tuning/requirements.lock"
     assert ARTIFACT_LOCK == ROOT / "model_tuning/generated/training_artifact_lock_v3.json"
+    ensure_regenerated_tracked_clean("")
+    try:
+        ensure_regenerated_tracked_clean(
+            " M model_tuning/generated/training_artifact_lock_v3.json\n"
+            "M  model_tuning/generated/splits/train_sft_v1.jsonl\n"
+        )
+    except RuntimeError as exc:
+        message = str(exc)
+        assert "training_artifact_lock_v3.json" in message
+        assert "train_sft_v1.jsonl" in message
+    else:
+        raise AssertionError("tracked post-regeneration drift was accepted")
     sample_lock = {
         "schema_version": "grow-doc-training-artifact-lock-v3",
         "training_rows": 161,
