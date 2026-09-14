@@ -1,4 +1,4 @@
-name: Model RAG retrieval depth diagnostic
+name: Model RAG retrieval depth guard
 
 on:
   pull_request:
@@ -32,9 +32,11 @@ jobs:
         run: python3 scripts/build-model-corpus.py
       - name: Validate current frozen retriever
         run: python3 scripts/build-rag-eval-snapshot.py --self-test
-      - name: Measure required-source retrieval depth
+      - name: Validate retrieval-depth gate logic
+        run: python3 -c "import importlib.util; s=importlib.util.spec_from_file_location('rag_depth','scripts/evaluate-rag-depth.py'); m=importlib.util.module_from_spec(s); s.loader.exec_module(m); m.self_test()"
+      - name: Enforce required-source recovery by top-5
         run: python3 scripts/evaluate-rag-depth.py | tee rag-depth-results.txt
-      - name: Retain diagnostic result
+      - name: Retain retrieval-depth result
         if: always()
         uses: actions/upload-artifact@v4
         with:
