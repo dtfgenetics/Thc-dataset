@@ -137,7 +137,7 @@ Pin exact license/terms, model revision, tokenizer revision, chat template, depe
 
 ## QLoRA defaults
 
-`config/qlora_8b.yaml` uses NF4 4-bit loading with bfloat16 compute, LoRA rank 32 / alpha 64 over attention and MLP projections, 4096 maximum sequence length, learning rate `1e-4`, two epochs, gradient accumulation 16, and dev-set evaluation every 100 steps. `load_best_model_at_end` is enabled so the trainer restores the checkpoint with the lowest dev `eval_loss`; the frozen held-out benchmark is never used for within-run checkpoint selection and remains reserved for external promotion decisions.
+`config/qlora_8b.yaml` uses NF4 4-bit loading with bfloat16 compute, LoRA rank 32 / alpha 64 over attention and MLP projections, 4096 maximum sequence length, learning rate `1e-4`, two epochs, gradient accumulation 16, and dev-set evaluation plus checkpoint saving every 10 optimizer steps. `load_best_model_at_end` is enabled so the trainer restores the checkpoint with the lowest dev `eval_loss`; the frozen held-out benchmark is never used for within-run checkpoint selection and remains reserved for external promotion decisions. CI also validates the 10-step cadence against the frozen training-mixture size and rejects configurations that would produce too few evaluated checkpoints.
 
 ## Retrieval policy
 
