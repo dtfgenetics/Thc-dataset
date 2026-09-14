@@ -4,13 +4,17 @@ on:
   pull_request:
     paths:
       - 'model_tuning/config/base_model_research_*.json'
+      - 'model_tuning/config/*_research_*.json'
       - 'scripts/validate-base-model-research.py'
+      - 'scripts/validate-model-research-evidence.py'
       - '.github/workflows/validate-base-model-research.yml'
   push:
     branches: [main]
     paths:
       - 'model_tuning/config/base_model_research_*.json'
+      - 'model_tuning/config/*_research_*.json'
       - 'scripts/validate-base-model-research.py'
+      - 'scripts/validate-model-research-evidence.py'
       - '.github/workflows/validate-base-model-research.yml'
 
 permissions:
@@ -26,7 +30,9 @@ jobs:
           python-version: '3.11'
       - name: Validate research candidate promotion contracts
         run: python scripts/validate-base-model-research.py
-      - name: Self-test unsafe promotion is rejected
+      - name: Validate standalone model research evidence
+        run: python scripts/validate-model-research-evidence.py
+      - name: Self-test unsafe registry promotion is rejected
         run: |
           python - <<'PY'
           import json
@@ -47,6 +53,29 @@ jobs:
               capture_output=True,
           )
           if result.returncode == 0:
-              raise SystemExit('validator incorrectly accepted an unverified promotion')
-          print('Unsafe promotion correctly rejected.')
+              raise SystemExit('validator incorrectly accepted an unverified registry promotion')
+          print('Unsafe registry promotion correctly rejected.')
+          PY
+      - name: Self-test unsafe standalone promotion is rejected
+        run: |
+          python - <<'PY'
+          import json
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          src = Path('model_tuning/config/mistral_small_4_research_2026-09-14.json')
+          data = json.loads(src.read_text())
+          data['candidate']['grow_doc_assessment']['benchmark_eligible'] = True
+          with tempfile.NamedTemporaryFile('w', suffix='.json', delete=False) as f:
+              json.dump(data, f)
+              temp = f.name
+          result = subprocess.run(
+              ['python', 'scripts/validate-model-research-evidence.py', temp],
+              text=True,
+              capture_output=True,
+          )
+          if result.returncode == 0:
+              raise SystemExit('validator incorrectly accepted an unverified standalone promotion')
+          print('Unsafe standalone promotion correctly rejected.')
           PY
