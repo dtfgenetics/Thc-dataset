@@ -10,6 +10,7 @@ on:
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
+      - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
   push:
@@ -22,6 +23,7 @@ on:
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
+      - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
 
@@ -44,3 +46,7 @@ jobs:
         run: python scripts/audit-model-eval-candidate-leakage.py --self-test
       - name: Audit candidate leakage against training, dev, and heldout-v2
         run: python scripts/audit-model-eval-candidate-leakage.py
+      - name: Self-test candidate internal diversity auditor
+        run: python scripts/audit-model-eval-candidate-diversity.py --self-test
+      - name: Audit candidate internal duplication and source reuse
+        run: python scripts/audit-model-eval-candidate-diversity.py
