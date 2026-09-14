@@ -8,6 +8,7 @@ on:
       - 'model_tuning/eval/candidates/**'
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
+      - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
@@ -19,6 +20,7 @@ on:
       - 'model_tuning/eval/candidates/**'
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
+      - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - '.github/workflows/heldout-v3-candidates.yml'
@@ -36,6 +38,8 @@ jobs:
           python-version: '3.12'
       - name: Validate heldout-v3 candidate benchmark additions
         run: python scripts/validate-heldout-v3-candidates.py
+      - name: Validate heldout-v3 structured field types
+        run: python scripts/validate-heldout-v3-field-types.py
       - name: Self-test candidate leakage auditor
         run: python scripts/audit-model-eval-candidate-leakage.py --self-test
       - name: Audit candidate leakage against training, dev, and heldout-v2
