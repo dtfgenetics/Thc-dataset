@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import hashlib
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -101,8 +102,10 @@ def validate(path: Path, *, report_root: Path = Path('.')) -> None:
             if combo.get('reviewed') is not True or combo.get('passed_gate') is not True:
                 fail(f'{cid}: combination must pass reviewed promotion gate')
             gain = combo.get('aggregate_gain_vs_best_component')
-            if not isinstance(gain, (int, float)) or gain < data['minimum_aggregate_gain']:
-                fail(f'{cid}: combination must improve >= 0.02 over best component')
+            if (isinstance(gain, bool) or not isinstance(gain, (int, float))
+                    or not math.isfinite(float(gain))
+                    or gain < data['minimum_aggregate_gain']):
+                fail(f'{cid}: combination must report a finite numeric gain >= 0.02 over best component')
             regressions = combo.get('slice_regressions')
             if regressions != []:
                 fail(f'{cid}: protected slice regressions are not allowed')
@@ -179,6 +182,26 @@ def self_test() -> None:
             pass
         else:
             fail('self-test expected sub-threshold combination gain to fail')
+
+        for bad_gain, label in ((True, 'boolean'), (float('nan'), 'non-finite')):
+            broken = json.loads(json.dumps(good))
+            broken['combination_candidates'] = [{
+                'id': f'bad-{label}-gain',
+                'eligible_for_combination': True,
+                'components': components(),
+                'combination_report': {
+                    'path': 'combo.json', 'sha256': report_shas['combo.json'],
+                    'reviewed': True, 'passed_gate': True,
+                    'aggregate_gain_vs_best_component': bad_gain, 'slice_regressions': []
+                }
+            }]
+            p.write_text(json.dumps(broken))
+            try:
+                validate(p, report_root=root)
+            except ValueError as exc:
+                assert 'finite numeric gain' in str(exc)
+            else:
+                fail(f'self-test expected {label} combination gain to fail')
 
         broken = json.loads(json.dumps(good))
         broken['combination_candidates'] = [{
