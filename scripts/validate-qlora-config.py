@@ -232,7 +232,8 @@ def self_test() -> None:
     assert any("greater_is_better" in error for error in validate_text(tampered))
     tampered = base.replace("checkpoint_selection: dev_eval_loss_then_external_heldout_promotion_gate", "checkpoint_selection: external_heldout_promotion_gate")
     assert any("checkpoint_selection" in error for error in validate_text(tampered))
-    tampered = base.replace("save_steps: 100", "save_steps: 200")
+    tampered = base.replace("save_steps: 10", "save_steps: 20")
+    assert tampered != base, "save_steps self-test fixture failed to mutate config"
     assert any("eval_steps" in error for error in validate_text(tampered))
 
     for protected_slice in ("science", "education"):
