@@ -1,0 +1,41 @@
+name: Validate QLoRA Checkpoint Cadence
+
+on:
+  pull_request:
+    paths:
+      - "model_tuning/config/qlora_8b.yaml"
+      - "model_tuning/corpus/**"
+      - "model_tuning/eval/**"
+      - "scripts/build-model-corpus.py"
+      - "scripts/split-model-training-grounded.py"
+      - "scripts/freeze-model-training-artifacts.py"
+      - "scripts/qlora_runtime_contract.py"
+      - "scripts/validate-qlora-checkpoint-cadence.py"
+      - ".github/workflows/qlora-checkpoint-cadence.yml"
+  push:
+    branches: [main]
+    paths:
+      - "model_tuning/config/qlora_8b.yaml"
+      - "model_tuning/corpus/**"
+      - "model_tuning/eval/**"
+      - "scripts/build-model-corpus.py"
+      - "scripts/split-model-training-grounded.py"
+      - "scripts/freeze-model-training-artifacts.py"
+      - "scripts/qlora_runtime_contract.py"
+      - "scripts/validate-qlora-checkpoint-cadence.py"
+      - ".github/workflows/qlora-checkpoint-cadence.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cadence:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Freeze exact training mixture
+        run: python3 scripts/freeze-model-training-artifacts.py
+      - name: Validate dataset-aware QLoRA checkpoint cadence
+        run: |
+          python3 scripts/validate-qlora-checkpoint-cadence.py --self-test
+          python3 scripts/validate-qlora-checkpoint-cadence.py
