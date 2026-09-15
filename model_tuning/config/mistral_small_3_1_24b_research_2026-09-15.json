@@ -8,6 +8,7 @@
     "evidence_checked_at": "2026-09-15",
     "license": "apache-2.0",
     "license_source": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "official_announcement": "https://mistral.ai/news/mistral-small-3-1/",
     "architecture": {
       "family": "mistral3",
       "mixture_of_experts": false,
@@ -51,6 +52,17 @@
         "multimodal input",
         "subject-matter-expert fine-tuning positioning",
         "quantized single-RTX-4090 deployment positioning"
+      ]
+    },
+    {
+      "url": "https://mistral.ai/news/mistral-small-3-1/",
+      "supports": [
+        "official March 17, 2025 announcement",
+        "Apache-2.0 release",
+        "128K context",
+        "multimodal understanding",
+        "single-RTX-4090 deployment positioning",
+        "specialized-domain fine-tuning positioning"
       ]
     }
   ],
