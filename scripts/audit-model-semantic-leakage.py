@@ -17,7 +17,7 @@ import json
 import pathlib
 import re
 import sys
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
@@ -25,6 +25,7 @@ GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
 DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
+TRACKING_QUERY_KEYS = {"fbclid", "gclid", "dclid", "msclkid"}
 
 
 def load_module(path: pathlib.Path, name: str):
@@ -110,11 +111,24 @@ def canonical_source_identity(value: str) -> str:
         if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
             payload = path.lstrip("/")
             return f"doi:{payload.lower()}" if payload else ""
+
+        # Source identity is transport-independent for HTTP(S): canonicalize to
+        # HTTPS and remove only default ports. This affects comparison only;
+        # stored citation/source bytes are never rewritten.
+        port = parsed.port
         netloc = host
-        if parsed.port:
-            netloc = f"{host}:{parsed.port}"
+        if port and not ((parsed.scheme.lower() == "http" and port == 80) or (parsed.scheme.lower() == "https" and port == 443)):
+            netloc = f"{host}:{port}"
+
         normalized_path = path.rstrip("/") or "/"
-        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
+        query_pairs = []
+        for key, query_value in parse_qsl(parsed.query, keep_blank_values=True):
+            lowered_key = key.lower()
+            if lowered_key.startswith("utm_") or lowered_key in TRACKING_QUERY_KEYS:
+                continue
+            query_pairs.append((key, query_value))
+        normalized_query = urlencode(query_pairs, doseq=True)
+        return urlunsplit(("https", netloc, normalized_path, normalized_query, ""))
     return raw
 
 
@@ -268,6 +282,28 @@ def self_test() -> None:
     report = audit([url_alias], url_heldout)
     assert report["hard_leakage_errors"] == 1
     assert "https://example.org/reference" in report["errors"][0]
+
+    # Common transport/tracking aliases must not evade held-out source reuse.
+    for alias in (
+        "http://example.org:80/reference#methods",
+        "https://example.org:443/reference?utm_source=newsletter&utm_medium=email",
+        "https://example.org/reference?fbclid=abc123",
+        "https://example.org/reference?gclid=abc123",
+    ):
+        candidate = dict(clean)
+        candidate["id"] = "train-url-transport-tracking-alias"
+        candidate["source_ids"] = [alias]
+        report = audit([candidate], url_heldout)
+        assert report["hard_leakage_errors"] == 1, alias
+        assert "held-out source leakage" in report["errors"][0]
+
+    # Query parameters that identify different content remain distinct.
+    query_heldout = [dict(heldout[0], must_cite=["https://example.org/reference?id=alpha"])]
+    query_distinct = dict(clean)
+    query_distinct["id"] = "train-url-content-query-distinct"
+    query_distinct["source_ids"] = ["https://example.org/reference?id=beta&utm_source=x"]
+    report = audit([query_distinct], query_heldout)
+    assert report["hard_leakage_errors"] == 0
 
     paraphrase = dict(clean)
     paraphrase["id"] = "train-near"
