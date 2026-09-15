@@ -8,6 +8,7 @@ import { join } from 'node:path'
 const siteUrl = process.env.GROW_DOC_URL || 'https://dtfseeds.com/thc-grow-doc/'
 const outputDir = process.env.GROW_DOC_QA_DIR || 'qa-output'
 const port = 9300 + Math.floor(Math.random() * 500)
+const expectedHero = 'Show us the plant. Get a clear next step.'
 
 function resolveChrome() {
   if (process.env.CHROME_BIN) return process.env.CHROME_BIN
@@ -115,7 +116,7 @@ async function loadViewport(client, { name, width, height }) {
     width,
     height,
     deviceScaleFactor: 1,
-    mobile: false,
+    mobile: width < 600,
     screenWidth: width,
     screenHeight: height,
   })
@@ -129,9 +130,11 @@ async function loadViewport(client, { name, width, height }) {
   const report = await evaluate(client, `(() => {
     const hero = document.querySelector('.grow-doc-hero');
     const resultPanel = document.querySelector('.result-panel');
-    const evidenceGrid = document.querySelector('.evidence-grid');
+    const evidenceGrid = document.querySelector('.primary-evidence-grid');
     const desktopNav = document.querySelector('.desktop-nav');
     const menuButton = document.querySelector('.menu-button');
+    const optionalEvidence = document.querySelector('.optional-evidence');
+    const contextDisclosure = document.querySelector('.context-disclosure');
     const heading = hero?.querySelector('h1');
     const bodyStyle = getComputedStyle(document.body);
     const heroStyle = hero ? getComputedStyle(hero) : null;
@@ -149,6 +152,8 @@ async function loadViewport(client, { name, width, height }) {
       heroRadius: parseFloat(heroStyle?.borderRadius || '0'),
       resultBackground: resultStyle?.backgroundColor || '',
       evidenceColumns: gridStyle?.gridTemplateColumns?.split(/\\s+/).filter(Boolean).length || 0,
+      optionalEvidencePresent: Boolean(optionalEvidence),
+      contextDisclosurePresent: Boolean(contextDisclosure),
       desktopNavDisplay: desktopNav ? getComputedStyle(desktopNav).display : 'missing',
       menuDisplay: menuButton ? getComputedStyle(menuButton).display : 'missing',
       headingFontSize: parseFloat(headingStyle?.fontSize || '0'),
@@ -157,22 +162,24 @@ async function loadViewport(client, { name, width, height }) {
   })()`)
 
   assert(report.appMounted, `${name}: React app did not mount.`)
-  assert(report.heading === 'Document the plant before you diagnose it.', `${name}: unexpected hero heading: ${report.heading}`)
+  assert(report.heading === expectedHero, `${name}: unexpected hero heading: ${report.heading}`)
   assertDark(report.bodyBackground, `${name}: body`)
   assertDark(report.resultBackground, `${name}: result panel`)
   assert(report.heroBackground.includes('gradient'), `${name}: hero lost its designed gradient treatment.`)
   assert(report.heroRadius >= 12, `${name}: hero radius is unexpectedly small (${report.heroRadius}).`)
   assert(report.overflowX <= 1, `${name}: horizontal overflow detected (${report.overflowX}px).`)
+  assert(report.optionalEvidencePresent, `${name}: optional evidence disclosure is missing.`)
+  assert(report.contextDisclosurePresent, `${name}: optional context disclosure is missing.`)
 
-  if (width >= 900) {
+  if (width > 1080) {
     assert(report.desktopNavDisplay !== 'none', `${name}: desktop navigation is hidden.`)
     assert(report.menuDisplay === 'none', `${name}: mobile menu button is visible on desktop.`)
-    assert(report.evidenceColumns >= 4, `${name}: evidence grid collapsed unexpectedly (${report.evidenceColumns} columns).`)
+    assert(report.evidenceColumns === 2, `${name}: primary evidence grid should have 2 columns, found ${report.evidenceColumns}.`)
     assert(report.headingFontSize >= 40, `${name}: hero heading is too small (${report.headingFontSize}px).`)
   } else {
-    assert(report.desktopNavDisplay === 'none', `${name}: desktop navigation is visible on mobile.`)
+    assert(report.desktopNavDisplay === 'none', `${name}: desktop navigation is visible on mobile/tablet.`)
     assert(report.menuDisplay !== 'none', `${name}: mobile menu button is hidden.`)
-    assert(report.evidenceColumns === 2, `${name}: mobile evidence grid should have 2 columns, found ${report.evidenceColumns}.`)
+    assert(report.evidenceColumns === 1, `${name}: mobile evidence grid should have 1 column, found ${report.evidenceColumns}.`)
     assert(report.headingFontSize >= 32 && report.headingFontSize <= 48, `${name}: mobile heading size is out of range (${report.headingFontSize}px).`)
   }
 
@@ -180,30 +187,54 @@ async function loadViewport(client, { name, width, height }) {
   return report
 }
 
-async function inspectAtlas(client) {
+async function inspectIssueLibrary(client) {
   const switched = await evaluate(client, `(() => {
-    const button = [...document.querySelectorAll('.desktop-nav button')].find((item) => item.textContent?.trim() === 'Plant atlas');
+    const button = [...document.querySelectorAll('.desktop-nav button')].find((item) => item.textContent?.trim() === 'Issue library');
     if (!button) return false;
     button.click();
     return true;
   })()`)
-  assert(switched, 'Could not switch to Plant atlas from desktop navigation.')
-  await waitFor(client, "Boolean(document.querySelector('.atlas-workspace-v2'))", 'Plant atlas workspace')
+  assert(switched, 'Could not switch to Issue library from desktop navigation.')
+  await waitFor(client, "Boolean(document.querySelector('.library-view'))", 'Issue library')
   await sleep(250)
-  const atlas = await evaluate(client, `(() => {
-    const workspace = document.querySelector('.atlas-workspace-v2');
-    const rail = document.querySelector('.atlas-section-rail');
+  const library = await evaluate(client, `(() => {
+    const rows = [...document.querySelectorAll('.issue-row')];
+    const first = rows[0];
     return {
-      workspaceBackground: workspace ? getComputedStyle(workspace).backgroundColor : '',
-      railBackground: rail ? getComputedStyle(rail).backgroundColor : '',
+      rowCount: rows.length,
+      firstRowBackground: first ? getComputedStyle(first).backgroundColor : '',
       overflowX: document.documentElement.scrollWidth - innerWidth,
     };
   })()`)
-  assertDark(atlas.workspaceBackground, 'atlas workspace')
-  assertDark(atlas.railBackground, 'atlas rail')
-  assert(atlas.overflowX <= 1, `Atlas horizontal overflow detected (${atlas.overflowX}px).`)
-  await capture(client, 'atlas-desktop')
-  return atlas
+  assert(library.rowCount > 0, 'Issue library rendered no diagnostic records.')
+  assertDark(library.firstRowBackground, 'issue library row')
+  assert(library.overflowX <= 1, `Issue library horizontal overflow detected (${library.overflowX}px).`)
+  await capture(client, 'issue-library-desktop')
+  return library
+}
+
+async function inspectMobileMenu(client) {
+  const menuClickAccepted = await evaluate(client, `(() => {
+    const button = document.querySelector('.menu-button');
+    if (!button) return false;
+    button.click();
+    return true;
+  })()`)
+  assert(menuClickAccepted, 'Mobile menu button was not available to click.')
+  await waitFor(client, "Boolean(document.querySelector('.mobile-nav'))", 'mobile navigation')
+  const menu = await evaluate(client, `(() => {
+    const labels = [...document.querySelectorAll('.mobile-nav button')].map((item) => item.textContent?.trim() || '');
+    return {
+      labels,
+      overflowX: document.documentElement.scrollWidth - innerWidth,
+    };
+  })()`)
+  assert(menu.overflowX <= 1, `Mobile menu introduced horizontal overflow (${menu.overflowX}px).`)
+  for (const label of ['Diagnose', 'Issue library', 'Grow log', 'Reference images', 'Plant atlas', 'About Grow Doc']) {
+    assert(menu.labels.includes(label), `Mobile menu is missing ${label}.`)
+  }
+  await capture(client, 'mobile-menu')
+  return menu
 }
 
 async function run() {
@@ -233,22 +264,11 @@ async function run() {
     await client.send('Runtime.enable')
 
     const desktop = await loadViewport(client, { name: 'diagnose-desktop', width: 1440, height: 1100 })
-    const atlas = await inspectAtlas(client)
+    const issueLibrary = await inspectIssueLibrary(client)
     const mobile = await loadViewport(client, { name: 'diagnose-mobile', width: 390, height: 844 })
+    const mobileMenu = await inspectMobileMenu(client)
 
-    const menuClickAccepted = await evaluate(client, `(() => {
-      const button = document.querySelector('.menu-button');
-      if (!button) return false;
-      button.click();
-      return true;
-    })()`)
-    assert(menuClickAccepted, 'Mobile menu button was not available to click.')
-    await waitFor(client, "Boolean(document.querySelector('.mobile-nav'))", 'mobile navigation')
-    const mobileMenuOverflow = await evaluate(client, "document.documentElement.scrollWidth - innerWidth")
-    assert(mobileMenuOverflow <= 1, `Mobile menu introduced horizontal overflow (${mobileMenuOverflow}px).`)
-    await capture(client, 'mobile-menu')
-
-    const summary = { ok: true, url: siteUrl, desktop, atlas, mobile, mobileMenuOverflow }
+    const summary = { ok: true, url: siteUrl, desktop, issueLibrary, mobile, mobileMenu }
     await writeFile(join(outputDir, 'visual-smoke.json'), JSON.stringify(summary, null, 2) + '\n')
     console.log(JSON.stringify(summary, null, 2))
   } finally {
