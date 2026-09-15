@@ -17,7 +17,6 @@ import { summarizeCaseTrend } from './lib/case-trends'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import { activateInvestigation, createInvestigation, loadActiveInvestigation, loadInvestigations, upsertInvestigation } from './lib/investigations'
 import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
-import './growdoc-visual-pass-2.css'
 
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
 const LOG_KEY = 'thc-grow-doc:log:v2'
@@ -152,30 +151,29 @@ export default function App() {
       {view === 'diagnose' ? (
         <div className="diagnostic-page grow-doc-workspace">
           <InvestigationManager active={investigation} cases={investigations} onActivate={reopenInvestigation} onCreate={newInvestigation} onRename={renameInvestigation} />
+
           <section className="diagnostic-intro grow-doc-hero">
-            <div>
-              <span>Evidence-guided plant health</span>
-              <h1>Document the plant before you diagnose it.</h1>
+            <div className="hero-copy">
+              <h1>Show us the plant. Get a clear next step.</h1>
               <p>
-                Build a stronger plant-health case from real photos or video, crop stage, root-zone conditions,
-                environmental measurements, recent changes, and symptom location. Grow Doc compares plausible causes;
-                it does not pretend one image proves a diagnosis.
+                Start with a clear photo. Grow Doc compares visible symptoms with reviewed plant-health evidence,
+                then shows the leading possibilities, what to check next, and what actions are safest at the current confidence level.
               </p>
             </div>
-            <aside className="intro-note grow-doc-hero-note">
-              <strong>Active investigation</strong>
+            <aside className="grow-doc-hero-note" aria-label="How to start">
+              <strong>Start here</strong>
               <ol>
-                <li><b>{investigation.plantName || 'Unnamed plant'}</b><span>Case {investigation.id.slice(-6)}</span></li>
-                <li><b>Capture evidence</b><span>Whole plant, affected area, close detail, root zone, or short video.</span></li>
-                <li><b>Review differentials</b><span>Case history can adjust plausible rankings but cannot bypass confirmation requirements.</span></li>
+                <li><b>Add one clear photo</b><span>A whole-plant or affected-area view is enough to begin.</span></li>
+                <li><b>Review visible signs</b><span>Confirm only observations you can actually see.</span></li>
+                <li><b>Act on the result</b><span>Use the next check and low-risk corrective steps before broad treatment.</span></li>
               </ol>
             </aside>
           </section>
 
           <div className="grow-doc-stepbar" aria-label="Diagnostic workflow">
-            <div><span>01</span><strong>Evidence</strong><small>Photos & video</small></div>
-            <div><span>02</span><strong>Context</strong><small>Measurements & history</small></div>
-            <div><span>03</span><strong>Review</strong><small>Differentials & next checks</small></div>
+            <div><span>01</span><strong>Upload</strong><small>Start with the plant</small></div>
+            <div><span>02</span><strong>Review</strong><small>Confirm visible signs</small></div>
+            <div><span>03</span><strong>Act</strong><small>Get the next step</small></div>
           </div>
 
           <div className="diagnostic-layout">
