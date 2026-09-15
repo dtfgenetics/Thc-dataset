@@ -1,12 +1,9 @@
 name: Live Grow Doc Visual QA
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'src/**'
-      - 'scripts/live-growdoc-visual-smoke.mjs'
-      - '.github/workflows/live-growdoc-visual-qa.yml'
+  workflow_run:
+    workflows: ['Deploy THC Grow Doc to dtfseeds.com']
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -14,10 +11,13 @@ permissions:
 
 jobs:
   visual-smoke:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
