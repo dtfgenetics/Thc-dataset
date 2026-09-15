@@ -1,7 +1,8 @@
 name: Live Grow Doc Visual QA
 
 on:
-  pull_request:
+  push:
+    branches: [main]
     paths:
       - 'src/**'
       - 'scripts/live-growdoc-visual-smoke.mjs'
@@ -31,12 +32,12 @@ jobs:
           fi
           echo "CHROME_BIN=$chrome" >> "$GITHUB_ENV"
           "$chrome" --version
-      - name: Render live Grow Doc at desktop and mobile widths
+      - name: Render deployed Grow Doc at desktop and mobile widths
         env:
           GROW_DOC_URL: https://dtfseeds.com/thc-grow-doc/
           GROW_DOC_QA_DIR: qa-output
         run: node scripts/live-growdoc-visual-smoke.mjs
-      - name: Upload visual QA evidence
+      - name: Upload live visual QA evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:

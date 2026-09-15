@@ -2,7 +2,6 @@ import {
   BarChart3,
   BookOpen,
   Camera,
-  Database,
   FileImage,
   HelpCircle,
   Leaf,
@@ -14,14 +13,16 @@ import { useState, type ReactNode } from 'react'
 import type { View } from '../types'
 import { BrandMark } from './icons'
 
-const navItems: Array<{ id: View; label: string; icon: typeof Camera }> = [
+const primaryNav: Array<{ id: View; label: string; icon: typeof Camera }> = [
   { id: 'diagnose', label: 'Diagnose', icon: Camera },
-  { id: 'atlas', label: 'Plant atlas', icon: Leaf },
   { id: 'issues', label: 'Issue library', icon: BookOpen },
-  { id: 'references', label: 'Reference images', icon: FileImage },
   { id: 'log', label: 'Grow log', icon: NotebookPen },
-  { id: 'coverage', label: 'Evidence coverage', icon: BarChart3 },
-  { id: 'about', label: 'About', icon: HelpCircle },
+]
+
+const moreNav: Array<{ id: View; label: string; icon: typeof Camera }> = [
+  { id: 'references', label: 'Reference images', icon: FileImage },
+  { id: 'atlas', label: 'Plant atlas', icon: Leaf },
+  { id: 'about', label: 'About Grow Doc', icon: HelpCircle },
 ]
 
 interface AppShellProps {
@@ -44,15 +45,17 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
       <header className="site-header">
         <a className="brand" href="https://dtfseeds.com/" aria-label="DTF Genetics home">
           <BrandMark className="brand-mark" />
-          <span><strong>THC Grow Doc</strong><small>by DTF Genetics</small></span>
+          <span><strong>THC Grow Doc</strong><small>Plant diagnostics by DTF Genetics</small></span>
         </a>
+
         <nav className="desktop-nav" aria-label="Grow Doc navigation">
-          {navItems.filter((item) => item.id !== 'coverage').map((item) => (
+          {primaryNav.map((item) => (
             <button key={item.id} className={activeView === item.id ? 'active' : ''} onClick={() => chooseView(item.id)}>{item.label}</button>
           ))}
         </nav>
+
         <div className="header-actions">
-          <button className="dataset-button" onClick={() => chooseView('coverage')}><Database size={17} /> Evidence coverage</button>
+          <button className="reference-button" onClick={() => chooseView('references')}><FileImage size={17} /> References</button>
           <button className="menu-button" onClick={() => setMenuOpen((current) => !current)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
             {menuOpen ? <X /> : <Menu />}
           </button>
@@ -61,7 +64,7 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
 
       {menuOpen ? (
         <nav className="mobile-nav" aria-label="Grow Doc mobile navigation">
-          {navItems.map((item) => {
+          {[...primaryNav, ...moreNav].map((item) => {
             const Icon = item.icon
             return <button key={item.id} className={activeView === item.id ? 'active' : ''} onClick={() => chooseView(item.id)}><Icon size={19} />{item.label}</button>
           })}
@@ -71,8 +74,14 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
       <main>{children}</main>
       <footer>
         <div><BrandMark className="footer-mark" /><strong>THC Grow Doc</strong></div>
-        <p>Evidence-guided plant-health screening with transparent limits, source-backed references, and grower context.</p>
-        <span>Teaching Healthy Cultivation · DTF Genetics</span>
+        <p>Photo-first plant-health screening with source-backed guidance and clear limits.</p>
+        <div className="footer-meta">
+          <div className="footer-links">
+            <button onClick={() => chooseView('about')}>How Grow Doc works</button>
+            <button onClick={() => chooseView('coverage')}><BarChart3 size={15} /> Research coverage</button>
+          </div>
+          <span>Teaching Healthy Cultivation · DTF Genetics</span>
+        </div>
       </footer>
     </div>
   )
