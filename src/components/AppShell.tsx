@@ -75,11 +75,13 @@ export function AppShell({ activeView, onViewChange, children }: AppShellProps) 
       <footer>
         <div><BrandMark className="footer-mark" /><strong>THC Grow Doc</strong></div>
         <p>Photo-first plant-health screening with source-backed guidance and clear limits.</p>
-        <div className="footer-links">
-          <button onClick={() => chooseView('about')}>How Grow Doc works</button>
-          <button onClick={() => chooseView('coverage')}><BarChart3 size={15} /> Research coverage</button>
+        <div className="footer-meta">
+          <div className="footer-links">
+            <button onClick={() => chooseView('about')}>How Grow Doc works</button>
+            <button onClick={() => chooseView('coverage')}><BarChart3 size={15} /> Research coverage</button>
+          </div>
+          <span>Teaching Healthy Cultivation · DTF Genetics</span>
         </div>
-        <span>Teaching Healthy Cultivation · DTF Genetics</span>
       </footer>
     </div>
   )
