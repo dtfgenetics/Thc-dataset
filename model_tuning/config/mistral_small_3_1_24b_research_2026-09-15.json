@@ -1,0 +1,75 @@
+{
+  "schema_version": "grow-doc-base-model-research-v1",
+  "candidate": {
+    "id": "mistral-small-3-1-24b-instruct-2503-research",
+    "repo_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "role": "medium-capacity open-weight challenger for retrieval-grounded Grow Doc evaluation",
+    "research_status": "active_research",
+    "evidence_checked_at": "2026-09-15",
+    "license": "apache-2.0",
+    "license_source": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "official_announcement": "https://mistral.ai/news/mistral-small-3-1/",
+    "architecture": {
+      "family": "mistral3",
+      "mixture_of_experts": false,
+      "parameters_total_billion": 24.0,
+      "context_length_tokens": 128000,
+      "multimodal_input": true
+    },
+    "grow_doc_assessment": {
+      "benchmark_eligible": false,
+      "training_eligible": false,
+      "adapter_combination_eligible": false,
+      "recommended_role": "research-only challenger after the pinned Qwen3-8B base-vs-RAG experiment; potentially more practical than the 119B Mistral Small 4 quality-ceiling candidate for local quantized inference",
+      "advantages": [
+        "Apache-2.0 open-weight release",
+        "24B parameter scale is materially smaller than the 119B research ceiling candidate",
+        "128K context supports retrieval-grounded document and citation workloads",
+        "native multimodal capability may be relevant to later plant-image diagnostic evaluation",
+        "official model card explicitly positions the model for subject-matter-expert fine-tuning and reports quantized single-RTX-4090 deployment feasibility"
+      ],
+      "blocking_requirements": [
+        "freeze an exact model revision and tokenizer/processor revision",
+        "hash and review the exact prompt/chat-template contract",
+        "freeze deterministic decoding settings",
+        "verify dependency versions and evaluator compatibility",
+        "establish and test an exact quantization and hardware/runtime contract",
+        "bind the candidate to the same frozen heldout_v2 and RAG snapshot contract",
+        "run the same factuality, diagnostic, hallucination, citation-accuracy, science, education, grounded-QA, and regression slices",
+        "demonstrate measured improvement before any training-target or adapter promotion"
+      ],
+      "decision": "Do not replace Qwen3-8B or spend fine-tuning compute on this candidate yet. Complete the controlled Qwen3-8B base-only versus identical base-plus-frozen-RAG benchmark first, then evaluate this candidate under a separately frozen runtime contract."
+    }
+  },
+  "evidence": [
+    {
+      "url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+      "supports": [
+        "Apache-2.0 license",
+        "mistral3 architecture",
+        "24B-class parameter count",
+        "128K context",
+        "multimodal input",
+        "subject-matter-expert fine-tuning positioning",
+        "quantized single-RTX-4090 deployment positioning"
+      ]
+    },
+    {
+      "url": "https://mistral.ai/news/mistral-small-3-1/",
+      "supports": [
+        "official March 17, 2025 announcement",
+        "Apache-2.0 release",
+        "128K context",
+        "multimodal understanding",
+        "single-RTX-4090 deployment positioning",
+        "specialized-domain fine-tuning positioning"
+      ]
+    }
+  ],
+  "policy": {
+    "rag_first_for_factual_knowledge": true,
+    "upstream_benchmark_claims_are_not_grow_doc_evidence": true,
+    "no_training_or_promotion_without_heldout_improvement": true,
+    "no_adapter_or_model_soup_combination_without_measured_gain": true
+  }
+}
