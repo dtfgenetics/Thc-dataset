@@ -5,7 +5,8 @@ from __future__ import annotations
 import argparse
 import importlib.util
 from pathlib import Path
-from urllib.parse import urlsplit
+
+from source_identity import canonical_source_identity
 
 ROOT = Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
@@ -25,31 +26,6 @@ def load_module(path: Path, name: str):
 
 def has_locator(source: dict) -> bool:
     return bool((source.get("doi") or "").strip() or (source.get("url") or "").strip())
-
-
-def canonical_source_identity(value: str) -> str:
-    """Canonicalize DOI/URL aliases when counting independent source support."""
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-    lowered = raw.lower()
-    if lowered.startswith("doi:"):
-        return f"doi:{raw[4:].strip().lower()}"
-    if lowered.startswith("url:"):
-        raw = raw[4:].strip()
-        lowered = raw.lower()
-    if lowered.startswith("10.") and "/" in raw:
-        return f"doi:{lowered}"
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            doi = parsed.path.lstrip("/").strip().lower()
-            return f"doi:{doi}" if doi else ""
-        path = (parsed.path or "/").rstrip("/") or "/"
-        query = f"?{parsed.query}" if parsed.query else ""
-        return f"url:{parsed.scheme.lower()}://{host}{path}{query}"
-    return lowered
 
 
 def source_record_identity(source: dict) -> str:
@@ -170,6 +146,31 @@ def self_test() -> None:
     }]
     assert audit_rows(alias_rag, [], []) == []
     assert support_counts(alias_rag) == (1, 0), "DOI URL aliases must not count as independent corroboration"
+
+    transport_alias_rag = [{
+        "id": "r-transport-alias",
+        "source_ids": [
+            "http://example.com/reference?utm_source=train",
+            "https://example.com:443/reference?gclid=duplicate",
+        ],
+        "sources": [
+            {"source_id": "http://example.com/reference?utm_source=train", "url": "http://example.com/reference?utm_source=train"},
+            {"source_id": "https://example.com:443/reference?gclid=duplicate", "url": "https://example.com:443/reference?gclid=duplicate"},
+        ],
+    }]
+    assert audit_rows(transport_alias_rag, [], []) == []
+    assert support_counts(transport_alias_rag) == (1, 0), "safe URL aliases must not count as independent corroboration"
+
+    meaningful_query_rag = [{
+        "id": "r-query-distinct",
+        "source_ids": ["https://example.com/reference?id=1", "https://example.com/reference?id=2"],
+        "sources": [
+            {"source_id": "https://example.com/reference?id=1", "url": "https://example.com/reference?id=1"},
+            {"source_id": "https://example.com/reference?id=2", "url": "https://example.com/reference?id=2"},
+        ],
+    }]
+    assert audit_rows(meaningful_query_rag, [], []) == []
+    assert support_counts(meaningful_query_rag) == (0, 1), "meaningful query parameters must remain distinct"
 
     corroborated_rag = [{
         "id": "r2",
