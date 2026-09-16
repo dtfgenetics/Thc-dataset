@@ -12,6 +12,7 @@ on:
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
+      - 'scripts/source_identity.py'
       - '.github/workflows/heldout-v3-candidates.yml'
   push:
     branches: [main]
@@ -25,6 +26,7 @@ on:
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
+      - 'scripts/source_identity.py'
       - '.github/workflows/heldout-v3-candidates.yml'
 
 permissions:
