@@ -3,17 +3,18 @@
 
 This is intentionally read-only. It rebuilds candidate records in memory, delegates
 record assignment to the production splitter, then checks the resulting partitions
-with stricter DOI/URL canonicalization so formatting aliases cannot hide leakage.
+with the shared comparison-only source identity contract so formatting aliases cannot
+hide leakage.
 """
 from __future__ import annotations
 
 import argparse
 import importlib.util
 import pathlib
-import re
 import sys
 from collections import defaultdict
-from urllib.parse import urlsplit, urlunsplit
+
+from source_identity import canonical_source_identity, canonical_sources
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
@@ -21,7 +22,6 @@ GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 SPLITTER = ROOT / "scripts/split-model-sft.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def load_module(path: pathlib.Path, name: str):
@@ -31,36 +31,6 @@ def load_module(path: pathlib.Path, name: str):
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
-
-
-def canonical_source_identity(value: str) -> str:
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-    lowered = raw.lower()
-    if lowered.startswith("doi:"):
-        payload = raw[4:].strip()
-        return f"doi:{payload.lower()}" if payload else ""
-    if DOI_RE.fullmatch(raw):
-        return f"doi:{raw.lower()}"
-
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        path = parsed.path or ""
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            payload = path.lstrip("/")
-            return f"doi:{payload.lower()}" if payload else ""
-        netloc = host
-        if parsed.port:
-            netloc = f"{host}:{parsed.port}"
-        normalized_path = path.rstrip("/") or "/"
-        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
-    return raw
-
-
-def canonical_sources(values) -> set[str]:
-    return {identity for value in values for identity in [canonical_source_identity(str(value))] if identity}
 
 
 def audit_partitions(train: list[dict], dev: list[dict], heldout_sources: set[str]) -> dict:
@@ -119,6 +89,12 @@ def self_test() -> None:
     assert canonical_source_identity("https://doi.org/10.1234/AbC") == "doi:10.1234/abc"
     assert canonical_source_identity("10.1234/ABC") == "doi:10.1234/abc"
     assert canonical_source_identity("HTTPS://Example.COM/path/") == "https://example.com/path"
+    assert canonical_source_identity("http://example.com/path") == "https://example.com/path"
+    assert canonical_source_identity("https://example.com:443/path") == "https://example.com/path"
+    assert canonical_source_identity("https://example.com/path?utm_source=test") == "https://example.com/path"
+    assert canonical_source_identity("https://example.com/path?gclid=abc") == "https://example.com/path"
+    assert canonical_source_identity("https://example.com/path?id=1") != canonical_source_identity("https://example.com/path?id=2")
+    assert canonical_source_identity("https://example.com:8443/path") != canonical_source_identity("https://example.com/path")
 
     safe_train = [{"source_ids": ["doi:10.1000/a"]}]
     safe_dev = [{"source_ids": ["doi:10.1000/b"]}]
@@ -137,6 +113,17 @@ def self_test() -> None:
 
     try:
         audit_partitions(
+            [{"source_ids": ["http://example.com/reference?utm_source=train"]}],
+            [{"source_ids": ["https://example.com/reference"]}],
+            set(),
+        )
+    except ValueError as exc:
+        assert "train/dev" in str(exc)
+    else:
+        raise AssertionError("safe URL aliases must not bypass train/dev source isolation")
+
+    try:
+        audit_partitions(
             [{"source_ids": ["https://doi.org/10.1000/HELD"]}],
             [],
             {"doi:10.1000/held"},
@@ -145,6 +132,17 @@ def self_test() -> None:
         assert "held-out" in str(exc)
     else:
         raise AssertionError("DOI formatting alias must not bypass held-out source isolation")
+
+    try:
+        audit_partitions(
+            [{"source_ids": ["https://example.com/reference?gclid=train"]}],
+            [],
+            {"http://example.com/reference"},
+        )
+    except ValueError as exc:
+        assert "held-out" in str(exc)
+    else:
+        raise AssertionError("safe URL aliases must not bypass held-out source isolation")
     print("canonical split source-identity audit self-test: PASS")
 
 
