@@ -1,0 +1,29 @@
+name: Grow Doc Source Identity Parity
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/source_identity.py'
+      - 'scripts/audit-model-semantic-leakage.py'
+      - 'scripts/test-source-identity-parity.py'
+      - 'scripts/test-semantic-leakage-source-identity-parity.py'
+      - '.github/workflows/model-source-identity-parity.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Shared source identity regression guard
+        run: python3 scripts/test-source-identity-parity.py
+      - name: Semantic leakage/shared source identity parity
+        run: python3 scripts/test-semantic-leakage-source-identity-parity.py
+      - name: Semantic leakage self-test
+        run: python3 scripts/audit-model-semantic-leakage.py --self-test
