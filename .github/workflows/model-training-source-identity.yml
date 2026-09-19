@@ -12,6 +12,7 @@ on:
       - 'scripts/build-training-dataset-manifest.py'
       - 'scripts/validate-model-eval-candidates.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
+      - 'scripts/audit-model-semantic-leakage.py'
       - 'data/diagnostic-profiles.jsonl'
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'model_tuning/config/qlora_8b.yaml'
@@ -28,6 +29,7 @@ on:
       - 'scripts/build-training-dataset-manifest.py'
       - 'scripts/validate-model-eval-candidates.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
+      - 'scripts/audit-model-semantic-leakage.py'
       - 'data/diagnostic-profiles.jsonl'
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'model_tuning/config/qlora_8b.yaml'
@@ -48,6 +50,7 @@ jobs:
         run: |
           python scripts/validate-model-eval-candidates.py model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json model_tuning/eval/candidates/heldout_v3_expansion_v1.manifest.json
           python scripts/audit-model-eval-candidate-diversity.py --self-test
+          python scripts/audit-model-semantic-leakage.py --self-test
       - name: Materialize grounded source-component splits
         run: python scripts/split-model-training-grounded.py
       - name: Validate materialized train/dev provenance and held-out isolation
