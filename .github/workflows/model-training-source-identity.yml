@@ -44,9 +44,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Self-test canonical source identity audit
         run: python scripts/validate-training-source-identity.py --self-test
-      - name: Self-test evaluation source identity consumers
+      - name: Validate evaluation source identity consumers
         run: |
-          python scripts/validate-model-eval-candidates.py --self-test
+          python scripts/validate-model-eval-candidates.py model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json model_tuning/eval/candidates/heldout_v3_expansion_v1.manifest.json
           python scripts/audit-model-eval-candidate-diversity.py --self-test
       - name: Materialize grounded source-component splits
         run: python scripts/split-model-training-grounded.py
