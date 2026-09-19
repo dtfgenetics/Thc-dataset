@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - 'scripts/source_identity.py'
+      - 'scripts/test-source-identity-contract.py'
+      - 'scripts/test-source-identity-parity.py'
+      - 'scripts/test-semantic-leakage-source-identity-parity.py'
       - 'scripts/validate-training-source-identity.py'
       - 'scripts/build-model-corpus.py'
       - 'scripts/build-grounded-qa.py'
@@ -21,6 +24,9 @@ on:
     branches: [main]
     paths:
       - 'scripts/source_identity.py'
+      - 'scripts/test-source-identity-contract.py'
+      - 'scripts/test-source-identity-parity.py'
+      - 'scripts/test-semantic-leakage-source-identity-parity.py'
       - 'scripts/validate-training-source-identity.py'
       - 'scripts/build-model-corpus.py'
       - 'scripts/build-grounded-qa.py'
@@ -46,6 +52,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Self-test canonical source identity audit
         run: python scripts/validate-training-source-identity.py --self-test
+      - name: Validate shared source identity contract and consumer parity
+        run: |
+          python scripts/test-source-identity-contract.py
+          python scripts/test-source-identity-parity.py
+          python scripts/test-semantic-leakage-source-identity-parity.py
       - name: Validate evaluation source identity consumers
         run: |
           python scripts/validate-model-eval-candidates.py model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json model_tuning/eval/candidates/heldout_v3_expansion_v1.manifest.json
