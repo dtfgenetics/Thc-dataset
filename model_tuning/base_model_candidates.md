@@ -31,10 +31,10 @@ Do not add a model to the training queue until its exact repository, revision/co
 
 ## Data policy before the next GPU run
 
-The corpus builder must use the shared `scripts/source_identity.py` comparison contract before corpus regeneration. After that migration passes parity/leakage/citation gates, regenerate deterministically and report: exact-claim duplicates removed, canonical source aliases consolidated, held-out source exclusions, quarantine counts/reasons, citation retention, task distribution, and retrieval-vs-SFT composition.
+The corpus builder now uses the shared `scripts/source_identity.py` comparison contract. Its migration passed the source-identity parity, leakage, citation/provenance, supervision, held-out, RAG, and full Grow Doc CI gates on the migration commit. The next gate is deterministic corpus regeneration and a before/after report covering: exact-claim duplicates removed, canonical source aliases consolidated, held-out source exclusions, quarantine counts/reasons, citation retention, task distribution, retrieval-vs-SFT composition, and all resulting manifest hashes. Do not authorize GPU training if regeneration changes a protected split or provenance boundary without an explained, reviewed reason.
 
 Low-confidence, incomplete-provenance, superseded, or unreviewed material belongs in quarantine/retrieval review, not SFT. Preserve original citation metadata even when canonical identities are used for comparison and leakage prevention.
 
 ## Current recommendation
 
-Keep Qwen3-8B as the first measured QLoRA baseline because the repository already has a reviewed 8B training contract around it. Use Llama 3.1 8B Instruct as the same-size control and Mistral Small 3.1 24B only after the corpus/provenance gate is clean and sufficient compute is available. No model is declared superior until the Grow Doc held-out suite says so.
+Keep Qwen3-8B as the first measured QLoRA baseline because the repository already has a reviewed 8B training contract around it. Use Llama 3.1 8B Instruct as the same-size control and Mistral Small 3.1 24B only after the regenerated corpus/provenance gate is clean and sufficient compute is available. No model is declared superior until the Grow Doc held-out suite says so.
