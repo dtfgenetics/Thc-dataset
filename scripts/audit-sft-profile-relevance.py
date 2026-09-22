@@ -33,7 +33,7 @@ GENERIC = {
     "feeding", "flower", "fungal", "fungus", "growth", "hemp", "high", "injury", "leaf",
     "leaves", "light", "mold", "nutrient", "other", "pathogen", "plant", "plants",
     "response", "root", "sativa", "species", "spot", "state", "stress", "symptom",
-    "symptoms", "toxicity", "viral", "virus", "visual", "water", "white",
+    "symptoms", "toxicity", "treatment", "viral", "virus", "visual", "water", "white",
 }
 
 
@@ -152,6 +152,7 @@ def self_test() -> None:
             "reviewStatus": "reviewed", "sources": [{"url": "https://example.test/a", "supportedClaims": [
                 "Calcium deficiency can affect developing tissues.",
                 "Magnesium deficiency commonly presents differently in mobile tissues.",
+                "A treatment response can be useful experimental context.",
                 "Water stress can change leaf appearance without proving a calcium disorder.",
             ]}],
         },
@@ -162,6 +163,12 @@ def self_test() -> None:
             ]}],
         },
         {
+            "id": "treatment-response", "slug": "treatment-response", "name": "Treatment response",
+            "reviewStatus": "reviewed", "sources": [{"url": "https://example.test/t", "supportedClaims": [
+                "Treatment response is contextual rather than a diagnostic entity."
+            ]}],
+        },
+        {
             "id": "water-root-stress", "slug": "water-root-stress", "name": "Water root stress",
             "reviewStatus": "reviewed", "sources": [{"url": "https://example.test/c", "supportedClaims": [
                 "Water conditions can affect roots."
@@ -169,10 +176,11 @@ def self_test() -> None:
         },
     ]
     report = audit(profiles, set())
-    assert report["sft_context_slots_audited"] == 5, report
+    assert report["sft_context_slots_audited"] == 7, report
     assert report["foreign_only_context_slots"] == 1, report
     assert report["examples"][0]["profile_id"] == "calcium-deficiency", report
     assert "magnesium" in report["examples"][0]["foreign_anchors"], report
+    assert all("treatment" not in row["foreign_anchors"] for row in report["examples"]), report
     assert all("water" not in row["foreign_anchors"] for row in report["examples"]), report
 
 
