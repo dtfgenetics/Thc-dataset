@@ -19,7 +19,8 @@ import pathlib
 import re
 import sys
 from collections import defaultdict
-from urllib.parse import urlsplit
+
+from source_identity import canonical_source_identity
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_MANIFESTS = (
@@ -29,7 +30,6 @@ DEFAULT_MANIFESTS = (
 DEFAULT_DIRECT_DATASETS = (
     ROOT / "model_tuning/eval/heldout_v3_candidates.jsonl",
 )
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def load_jsonl(path: pathlib.Path) -> list[dict]:
@@ -82,26 +82,6 @@ def eval_text(row: dict) -> str:
     parts = [row.get("prompt") or ""]
     parts.extend(str(value) for value in row.get("expected_points") or [])
     return "\n".join(parts).strip()
-
-
-def canonical_source_identity(value: str) -> str:
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-    lowered = raw.lower()
-    if lowered.startswith("doi:"):
-        payload = raw[4:].strip()
-        return f"doi:{payload.lower()}" if payload else ""
-    if DOI_RE.fullmatch(raw):
-        return f"doi:{raw.lower()}"
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            payload = (parsed.path or "").lstrip("/")
-            return f"doi:{payload.lower()}" if payload else ""
-        return raw.lower().rstrip("/")
-    return raw
 
 
 def similarity(left: str, right: str) -> tuple[float, float, float]:

@@ -15,15 +15,13 @@ import pathlib
 import re
 import sys
 from collections import Counter
-from urllib.parse import urlsplit, urlunsplit
-
+from source_identity import canonical_source_identity, canonical_sources
 from sft_evidence_ranking import build_anchor_owners, rank_sft_evidence
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
 DEFAULT_OUT = ROOT / "model_tuning/generated"
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def norm(text: str) -> str:
@@ -32,50 +30,6 @@ def norm(text: str) -> str:
 
 def sha(text: str) -> str:
     return hashlib.sha256(text.encode("utf-8")).hexdigest()
-
-
-def canonical_source_identity(value: str) -> str:
-    """Normalize DOI/URL identity for comparisons without rewriting emitted citation bytes."""
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-
-    lowered = raw.lower()
-    if lowered.startswith("url:"):
-        return canonical_source_identity(raw[4:].strip())
-    if lowered.startswith("doi:"):
-        payload = raw[4:].strip()
-        if not payload:
-            return ""
-        if payload.lower().startswith(("http://", "https://")):
-            canonical = canonical_source_identity(payload)
-            return canonical if canonical.startswith("doi:") else f"doi:{payload.lower()}"
-        return f"doi:{payload.lower()}"
-    if DOI_RE.fullmatch(raw):
-        return f"doi:{raw.lower()}"
-
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        path = parsed.path or ""
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            payload = path.lstrip("/")
-            return f"doi:{payload.lower()}" if payload else ""
-        netloc = host
-        if parsed.port:
-            netloc = f"{host}:{parsed.port}"
-        normalized_path = path.rstrip("/") or "/"
-        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
-    return raw
-
-
-def canonical_sources(values) -> set[str]:
-    return {
-        identity
-        for value in values
-        for identity in [canonical_source_identity(str(value))]
-        if identity
-    }
 
 
 def source_id(source: dict) -> str:
