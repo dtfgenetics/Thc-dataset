@@ -7,9 +7,6 @@ import sys
 
 from source_identity import canonical_source_identity, canonical_sources
 
-# legacy canonicalizer removed; shared comparison-only source identity is authoritative
-# DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
-
 
 def fail(message: str) -> None:
     raise ValueError(message)
