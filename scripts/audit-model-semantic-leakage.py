@@ -24,8 +24,6 @@ CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
-TRACKING_QUERY_KEYS = {"fbclid", "gclid", "dclid", "msclkid"}
 
 
 def load_module(path: pathlib.Path, name: str):
