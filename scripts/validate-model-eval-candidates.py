@@ -3,58 +3,16 @@ import argparse
 import hashlib
 import json
 import pathlib
-import re
 import sys
-from urllib.parse import urlsplit, urlunsplit
 
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
+from source_identity import canonical_source_identity, canonical_sources
+
+# legacy canonicalizer removed; shared comparison-only source identity is authoritative
+# DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def fail(message: str) -> None:
     raise ValueError(message)
-
-
-def canonical_source_identity(value: str) -> str:
-    """Canonicalize DOI/URL identities for validation without rewriting stored citation bytes."""
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-
-    lowered = raw.lower()
-    if lowered.startswith("url:"):
-        return canonical_source_identity(raw[4:].strip())
-    if lowered.startswith("doi:"):
-        payload = raw[4:].strip()
-        if not payload:
-            return ""
-        if payload.lower().startswith(("http://", "https://")):
-            return canonical_source_identity(payload)
-        return f"doi:{payload.lower()}"
-    if DOI_RE.fullmatch(raw):
-        return f"doi:{raw.lower()}"
-
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        path = parsed.path or ""
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            payload = path.lstrip("/")
-            return f"doi:{payload.lower()}" if payload else ""
-        netloc = host
-        if parsed.port:
-            netloc = f"{host}:{parsed.port}"
-        normalized_path = path.rstrip("/") or "/"
-        return urlunsplit((parsed.scheme.lower(), netloc, normalized_path, parsed.query, ""))
-    return raw
-
-
-def canonical_sources(values) -> set[str]:
-    return {
-        identity
-        for value in values
-        for identity in [canonical_source_identity(str(value))]
-        if identity
-    }
 
 
 def metadata_source_identities(metadata: dict) -> set[str]:
