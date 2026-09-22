@@ -9,6 +9,7 @@ on:
       - "scripts/validate-model-eval-candidates.py"
       - "scripts/audit-model-eval-candidate-diversity.py"
       - "scripts/test-source-identity-consumer-parity.py"
+      - "scripts/test-source-identity-contract.py"
       - ".github/workflows/model-source-identity-consumer-parity.yml"
   push:
     branches: [main]
@@ -36,4 +37,4 @@ jobs:
       - name: Verify semantic leakage self-test
         run: python scripts/audit-model-semantic-leakage.py --self-test
       - name: Verify shared source identity regression guard
-        run: python scripts/test-source-identity.py
+        run: python scripts/test-source-identity-contract.py
