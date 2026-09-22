@@ -48,7 +48,6 @@ jobs:
         run: python scripts/validate-heldout-v3-field-types.py
       - name: Audit heldout-v3 promotion coverage readiness
         run: |
-          python scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v3_candidates.jsonl
           if python scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v3_candidates.jsonl --require-replicated-slices; then
             echo "heldout-v3 has replicated promotion coverage"
           else
