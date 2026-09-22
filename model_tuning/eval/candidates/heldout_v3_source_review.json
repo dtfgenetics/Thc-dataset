@@ -1,6 +1,6 @@
 {
   "schema_version": "grow-doc-heldout-v3-source-review-v1",
-  "reviewed_at": "2026-09-11",
+  "reviewed_at": "2026-09-22",
   "policy": {
     "purpose": "Record independent source-identity and claim-scope review for heldout-v3 candidates before any benchmark promotion.",
     "promotion_eligible": false,
@@ -84,6 +84,51 @@
       "source_identity_verified": true,
       "claim_scope_review": "pass",
       "notes": "Publisher article reports impaired function/yield at 15 mg/L K, generally favorable function/yield across higher tested levels, genotype-specific responses, and suggests 60 mg/L only within the studied reproductive-stage conditions."
+    },
+    {
+      "candidate_id": "v3-factuality-hlvd-002",
+      "source_id": "hlvdCaliforniaCausality",
+      "citation": "doi:10.1094/PDIS-03-19-0530-PDN",
+      "publisher_url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-03-19-0530-PDN",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "APS Plant Disease report documents HLVd detection in symptomatic Cannabis and experimental infectious-RNA evidence; the benchmark keeps symptoms non-specific and requires molecular confirmation."
+    },
+    {
+      "candidate_id": "v3-diagnostic-botrytis-002",
+      "source_id": "botrytisOregonSpecies",
+      "citation": "doi:10.1094/PDIS-01-20-0055-PDN",
+      "publisher_url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-01-20-0055-PDN",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "APS Plant Disease report documents multiple Botrytis species associated with hemp flower disease in Oregon; the benchmark therefore avoids species-level diagnosis from appearance alone."
+    },
+    {
+      "candidate_id": "v3-citation-pm-taxonomy-002",
+      "source_id": "powderyMildewOregon",
+      "citation": "doi:10.1094/PDIS-11-20-2455-PDN",
+      "publisher_url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-11-20-2455-PDN",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "APS Plant Disease report verifies the Oregon Cannabis powdery-mildew source identity and laboratory-supported identification; the benchmark requires provenance-preserving citation rather than image-only species claims."
+    },
+    {
+      "candidate_id": "v3-science-hlvd-transmission-002",
+      "source_id": "hlvdTransmission2023",
+      "citation": "doi:10.3390/v16010030",
+      "publisher_url": "https://www.mdpi.com/1999-4915/16/1/30",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Peer-reviewed Viruses article reports RT-PCR detection, infectivity assays and seed transmission in tested hemp material; the benchmark preserves the experiment-specific scope of the reported transmission rates."
+    },
+    {
+      "candidate_id": "v3-groundedqa-nutrient-uptake-002",
+      "source_id": "powellBauerleTranspirationNutrient2026",
+      "citation": "doi:10.3389/fpls.2025.1753553",
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2025.1753553/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "notes": "Frontiers article reports cultivar-specific transpiration-normalized nutrient uptake and explicitly discusses limitations of leaf-only tissue concentration for whole-plant nutrient status; benchmark keeps values conditional on the study context."
     }
   ]
 }
