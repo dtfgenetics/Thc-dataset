@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - 'scripts/source_identity.py'
+      - 'scripts/build-model-corpus.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - 'scripts/test-source-identity-parity.py'
       - 'scripts/test-semantic-leakage-source-identity-parity.py'
