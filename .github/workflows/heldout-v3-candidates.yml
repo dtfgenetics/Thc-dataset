@@ -12,6 +12,7 @@ on:
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
+      - 'scripts/audit-model-eval-coverage.py'
       - 'scripts/source_identity.py'
       - '.github/workflows/heldout-v3-candidates.yml'
   push:
@@ -26,6 +27,7 @@ on:
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
+      - 'scripts/audit-model-eval-coverage.py'
       - 'scripts/source_identity.py'
       - '.github/workflows/heldout-v3-candidates.yml'
 
@@ -44,6 +46,13 @@ jobs:
         run: python scripts/validate-heldout-v3-candidates.py
       - name: Validate heldout-v3 structured field types
         run: python scripts/validate-heldout-v3-field-types.py
+      - name: Audit heldout-v3 promotion coverage readiness
+        run: |
+          if python scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v3_candidates.jsonl --require-replicated-slices; then
+            echo "heldout-v3 has replicated promotion coverage"
+          else
+            echo "heldout-v3 remains candidate-only: replicated promotion coverage is not yet satisfied"
+          fi
       - name: Self-test candidate leakage auditor
         run: python scripts/audit-model-eval-candidate-leakage.py --self-test
       - name: Audit candidate leakage against training, dev, and heldout-v2
