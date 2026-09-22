@@ -17,7 +17,7 @@ GENERIC = {
     "feeding", "flower", "fungal", "fungus", "growth", "hemp", "high", "injury", "leaf",
     "leaves", "light", "mold", "nutrient", "other", "pathogen", "plant", "plants",
     "response", "root", "sativa", "species", "spot", "state", "stress", "symptom",
-    "symptoms", "toxicity", "viral", "virus", "visual", "water", "white",
+    "symptoms", "toxicity", "treatment", "viral", "virus", "visual", "water", "white",
 }
 
 
@@ -70,15 +70,18 @@ def self_test() -> None:
     profiles = [
         {"id": "calcium", "name": "Calcium deficiency", "slug": "calcium-deficiency", "reviewStatus": "reviewed"},
         {"id": "magnesium", "name": "Magnesium deficiency", "slug": "magnesium-deficiency", "reviewStatus": "reviewed"},
+        {"id": "treatment-response", "name": "Treatment response", "slug": "treatment-response", "reviewStatus": "reviewed"},
     ]
     owners = build_anchor_owners(profiles)
     rows = [
         {"claim": "Magnesium deficiency can affect older leaves.", "source_id": "foreign"},
+        {"claim": "A treatment response can be useful experimental context.", "source_id": "generic-treatment"},
         {"claim": "Nutrient disorders can produce overlapping visual symptoms.", "source_id": "neutral"},
         {"claim": "Calcium deficiency can affect developing tissues.", "source_id": "target"},
     ]
     ranked = rank_sft_evidence(profiles[0], rows, owners)
-    assert [row["source_id"] for row in ranked] == ["target", "neutral", "foreign"], ranked
+    assert [row["source_id"] for row in ranked] == ["target", "generic-treatment", "neutral", "foreign"], ranked
+    assert "treatment" not in tokens("A treatment response can be useful experimental context.")
 
 
 if __name__ == "__main__":
