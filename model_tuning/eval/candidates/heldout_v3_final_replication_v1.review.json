@@ -1,0 +1,11 @@
+{
+  "schema_version": "grow-doc-eval-candidate-source-review-v1",
+  "reviewed_at": "2026-09-22",
+  "status": "candidate_only_not_promotion_eligible",
+  "rag_first": true,
+  "reviews": [
+    {"candidate_id":"candidate-education-seedling-sex-002","source_id":"campbellSeedlingSex2021","citation":"doi:10.1038/s41598-021-96311-w","publisher_url":"https://www.nature.com/articles/s41598-021-96311-w","source_identity_verified":true,"claim_scope_review":"pass","notes":"Scientific Reports study examined 112 plants from two hemp cultivars; sex-linked seedling morphology was limited/cultivar-dependent and co-sexual inference was explicitly preliminary."},
+    {"candidate_id":"candidate-hallucination-green-senescence-002","source_id":"bauerleLeafAge2020","citation":"doi:10.3390/plants9020271","publisher_url":"https://www.mdpi.com/2223-7747/9/2/271","source_identity_verified":true,"claim_scope_review":"pass","notes":"Plants study followed hemp leaves after full expansion and reported declining photosynthetic capacity while leaves remained green; candidate does not convert the physiology result into a visual maturity rule."},
+    {"candidate_id":"candidate-regression-nitrogen-optimum-002","source_id":"salonerNitrogen2020","citation":"doi:10.3389/fpls.2020.572293","publisher_url":"https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.572293/full","source_identity_verified":true,"claim_scope_review":"pass","notes":"Frontiers study tested one medical-Cannabis cultivar under controlled long-photoperiod conditions across five N concentrations; candidate preserves the experiment-specific scope and rejects color-only toxicity diagnosis."}
+  ]
+}
