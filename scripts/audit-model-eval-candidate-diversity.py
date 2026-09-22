@@ -30,7 +30,6 @@ DEFAULT_MANIFESTS = (
 DEFAULT_DIRECT_DATASETS = (
     ROOT / "model_tuning/eval/heldout_v3_candidates.jsonl",
 )
-DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 
 
 def load_jsonl(path: pathlib.Path) -> list[dict]:
