@@ -1,0 +1,312 @@
+/* Visual refinement pass — reduce dead space, improve hierarchy, and keep the diagnostic workflow primary. */
+
+:root {
+  --gd-content: 1360px;
+  --gd-radius: 16px;
+  --gd-radius-sm: 10px;
+}
+
+.site-header {
+  min-height: 64px;
+}
+
+.desktop-nav {
+  border-color: rgba(201,225,209,.08);
+  background: rgba(255,255,255,.012);
+}
+
+.desktop-nav button {
+  min-height: 34px;
+  padding-inline: 14px;
+}
+
+.diagnostic-page.grow-doc-workspace {
+  padding-top: 24px;
+}
+
+.grow-doc-workspace .investigation-manager {
+  margin-bottom: 12px;
+}
+
+/* The previous hero consumed too much of the first viewport. Keep the message, but make the tool visible sooner. */
+.grow-doc-hero {
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, .55fr);
+  gap: clamp(28px, 4vw, 56px);
+  min-height: 244px;
+  padding: clamp(28px, 4vw, 48px);
+  border-radius: 18px 18px 0 0;
+  box-shadow: 0 18px 52px rgba(0,0,0,.22);
+}
+
+.grow-doc-hero h1 {
+  max-width: 760px;
+  margin-bottom: 14px;
+  font-size: clamp(38px, 4.5vw, 58px);
+  line-height: 1;
+  letter-spacing: -.05em;
+}
+
+.grow-doc-hero .hero-copy > p {
+  max-width: 700px;
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.62;
+}
+
+.grow-doc-hero-note {
+  padding-left: 22px;
+}
+
+.grow-doc-hero-note ol {
+  gap: 13px;
+}
+
+.grow-doc-stepbar {
+  margin-bottom: 20px;
+}
+
+.grow-doc-stepbar > div {
+  min-height: 60px;
+  padding: 10px 14px;
+}
+
+.grow-doc-stepbar > div > span {
+  width: 28px;
+  height: 28px;
+}
+
+/* Give the working area more room than the summary rail and avoid a giant empty desktop gutter. */
+.diagnostic-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 360px);
+  gap: 18px;
+}
+
+.workflow-column {
+  gap: 14px;
+}
+
+.evidence-section,
+.context-section,
+.visual-observation-section {
+  padding: clamp(20px, 2.4vw, 30px);
+}
+
+.section-heading {
+  gap: 18px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+}
+
+.section-heading h2 {
+  font-size: clamp(22px, 1.9vw, 28px);
+}
+
+.primary-evidence-grid {
+  grid-template-columns: 1.18fr 1fr;
+  gap: 12px;
+}
+
+.upload-tile {
+  min-height: 210px;
+}
+
+.primary-evidence-grid .evidence-slot:first-child .upload-tile {
+  min-height: 290px;
+}
+
+.evidence-slot.compact .upload-tile {
+  min-height: 150px;
+}
+
+.upload-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+
+.optional-evidence,
+.context-disclosure,
+.technical-details {
+  margin-top: 14px;
+}
+
+.optional-evidence summary,
+.context-disclosure summary,
+.technical-details summary,
+.symptom-picker > button {
+  min-height: 54px;
+}
+
+.result-panel {
+  top: 80px;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 18px 54px rgba(0,0,0,.22);
+}
+
+.result-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+}
+
+.result-panel h2 {
+  font-size: clamp(24px, 2.15vw, 30px);
+}
+
+.evidence-tally {
+  margin: 18px 0;
+}
+
+.evidence-tally > div {
+  padding-block: 12px;
+}
+
+/* Secondary surfaces should read as one application, not a collection of differently styled pages. */
+.view-container,
+.atlas-page {
+  width: min(var(--gd-content), calc(100% - 40px));
+  padding-top: 28px;
+}
+
+.view-intro {
+  max-width: 820px;
+  margin-bottom: 20px;
+}
+
+.view-intro h1 {
+  margin-bottom: 8px;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.02;
+  letter-spacing: -.045em;
+}
+
+.library-tools,
+.qa-panel,
+.detail-block,
+.confirmation-box,
+.sources-block {
+  border-radius: 14px !important;
+}
+
+.issue-row {
+  border-radius: 11px !important;
+}
+
+/* Tablet: stack the result after the workflow. Showing an empty result card before evidence creates a false dead-end. */
+@media (max-width: 900px) {
+  .diagnostic-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .result-panel {
+    position: static;
+    order: initial;
+  }
+
+  .primary-evidence-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .primary-evidence-grid .evidence-slot:first-child .upload-tile,
+  .primary-evidence-grid .upload-tile {
+    min-height: 230px;
+  }
+}
+
+@media (max-width: 680px) {
+  .diagnostic-page.grow-doc-workspace {
+    padding: 10px 10px 54px;
+  }
+
+  .grow-doc-hero {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    min-height: 0;
+    padding: 24px 18px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .grow-doc-hero h1 {
+    max-width: 11ch;
+    margin-bottom: 12px;
+    font-size: clamp(34px, 10.4vw, 43px);
+    line-height: .98;
+  }
+
+  .grow-doc-hero .hero-copy > p {
+    font-size: 13px;
+    line-height: 1.58;
+  }
+
+  .grow-doc-hero-note {
+    padding: 18px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(201,225,209,.12);
+  }
+
+  .grow-doc-stepbar {
+    padding-inline: 4px;
+  }
+
+  .grow-doc-stepbar > div {
+    min-height: 54px;
+    padding: 8px 5px;
+  }
+
+  .grow-doc-stepbar > div > span {
+    width: 26px;
+    height: 26px;
+  }
+
+  .grow-doc-stepbar small {
+    display: none;
+  }
+
+  .evidence-section,
+  .context-section,
+  .visual-observation-section {
+    padding: 17px 14px;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .primary-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-evidence-grid .evidence-slot:first-child .upload-tile,
+  .primary-evidence-grid .upload-tile {
+    min-height: 190px;
+  }
+
+  .optional-evidence-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .optional-evidence-grid .upload-tile {
+    min-height: 150px;
+  }
+
+  .result-panel {
+    padding: 20px 16px;
+  }
+
+  .view-container,
+  .atlas-page {
+    width: calc(100% - 20px);
+    padding-top: 20px;
+  }
+
+  .view-intro h1 {
+    font-size: 34px;
+  }
+}
