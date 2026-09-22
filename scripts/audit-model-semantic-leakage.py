@@ -17,7 +17,7 @@ import json
 import pathlib
 import re
 import sys
-from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
+from source_identity import canonical_source_identity
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
@@ -84,52 +84,6 @@ def similarity(left: str, right: str) -> tuple[float, float, float]:
     jaccard = overlap / len(lt | rt)
     length_ratio = min(len(lt), len(rt)) / max(len(lt), len(rt))
     return containment, jaccard, length_ratio
-
-
-def canonical_source_identity(value: str) -> str:
-    """Normalize DOI/URL aliases for leakage comparison without rewriting source metadata."""
-    raw = (value or "").strip()
-    if not raw:
-        return ""
-    lowered = raw.lower()
-    if lowered.startswith("url:"):
-        return canonical_source_identity(raw[4:].strip())
-    if lowered.startswith("doi:"):
-        payload = raw[4:].strip()
-        if not payload:
-            return ""
-        if payload.lower().startswith(("http://", "https://")):
-            canonical = canonical_source_identity(payload)
-            return canonical if canonical.startswith("doi:") else f"doi:{payload.lower()}"
-        return f"doi:{payload.lower()}"
-    if DOI_RE.fullmatch(raw):
-        return f"doi:{raw.lower()}"
-    parsed = urlsplit(raw)
-    if parsed.scheme.lower() in {"http", "https"} and parsed.netloc:
-        host = (parsed.hostname or "").lower()
-        path = parsed.path or ""
-        if host in {"doi.org", "www.doi.org", "dx.doi.org"}:
-            payload = path.lstrip("/")
-            return f"doi:{payload.lower()}" if payload else ""
-
-        # Source identity is transport-independent for HTTP(S): canonicalize to
-        # HTTPS and remove only default ports. This affects comparison only;
-        # stored citation/source bytes are never rewritten.
-        port = parsed.port
-        netloc = host
-        if port and not ((parsed.scheme.lower() == "http" and port == 80) or (parsed.scheme.lower() == "https" and port == 443)):
-            netloc = f"{host}:{port}"
-
-        normalized_path = path.rstrip("/") or "/"
-        query_pairs = []
-        for key, query_value in parse_qsl(parsed.query, keep_blank_values=True):
-            lowered_key = key.lower()
-            if lowered_key.startswith("utm_") or lowered_key in TRACKING_QUERY_KEYS:
-                continue
-            query_pairs.append((key, query_value))
-        normalized_query = urlencode(query_pairs, doseq=True)
-        return urlunsplit(("https", netloc, normalized_path, normalized_query, ""))
-    return raw
 
 
 def canonical_sources(row: dict) -> set[str]:
