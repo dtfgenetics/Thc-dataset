@@ -1,0 +1,54 @@
+name: Validate Grow Doc Heldout V3 Migration State
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
+      - 'model_tuning/config/base_model_candidates_v1.json'
+      - 'scripts/validate-base-model-candidates.py'
+      - 'scripts/validate-base-model-research.py'
+      - 'scripts/run-base-vs-rag-experiment.py'
+      - 'scripts/validate-base-vs-rag-candidate-binding.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'scripts/evaluate-rag-depth.py'
+      - 'scripts/audit-required-source-membership.py'
+      - 'scripts/validate-model-eval.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/evaluate-sft-relevance-rerank.py'
+      - 'scripts/validate-heldout-v3-migration-state.py'
+      - '.github/workflows/heldout-v3-migration-state.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
+      - 'model_tuning/config/base_model_candidates_v1.json'
+      - 'scripts/validate-base-model-candidates.py'
+      - 'scripts/validate-base-model-research.py'
+      - 'scripts/run-base-vs-rag-experiment.py'
+      - 'scripts/validate-base-vs-rag-candidate-binding.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'scripts/evaluate-rag-depth.py'
+      - 'scripts/audit-required-source-membership.py'
+      - 'scripts/validate-model-eval.py'
+      - 'scripts/build-grounded-qa.py'
+      - 'scripts/split-model-sft.py'
+      - 'scripts/evaluate-sft-relevance-rerank.py'
+      - 'scripts/validate-heldout-v3-migration-state.py'
+      - '.github/workflows/heldout-v3-migration-state.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Enforce atomic active-benchmark migration
+        run: python scripts/validate-heldout-v3-migration-state.py
