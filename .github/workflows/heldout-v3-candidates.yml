@@ -71,6 +71,11 @@ jobs:
       - name: Test deterministic frozen Heldout-v3 materialization
         run: |
           python scripts/freeze-heldout-v3.py --output /tmp/heldout-v3.jsonl --manifest /tmp/heldout-v3.manifest.json
+          cp /tmp/heldout-v3.jsonl /tmp/heldout-v3.first.jsonl
+          cp /tmp/heldout-v3.manifest.json /tmp/heldout-v3.first.manifest.json
+          python scripts/freeze-heldout-v3.py --output /tmp/heldout-v3.jsonl --manifest /tmp/heldout-v3.manifest.json
+          cmp /tmp/heldout-v3.first.jsonl /tmp/heldout-v3.jsonl
+          cmp /tmp/heldout-v3.first.manifest.json /tmp/heldout-v3.manifest.json
           python - <<'PY'
           import hashlib
           import json
@@ -87,7 +92,7 @@ jobs:
           assert len(manifest['inputs_sha256'])==4
           for rel, expected in manifest['inputs_sha256'].items():
               assert hashlib.sha256(Path(rel).read_bytes()).hexdigest()==expected, rel
-          print('frozen heldout-v3 materialization + provenance: PASS')
+          print('frozen heldout-v3 deterministic materialization + provenance: PASS')
           PY
       - name: Report heldout-v3 per-slice promotion gaps
         run: python scripts/report-heldout-promotion-gaps.py
