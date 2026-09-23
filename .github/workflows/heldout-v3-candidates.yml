@@ -68,13 +68,8 @@ jobs:
           PY
       - name: Report heldout-v3 per-slice promotion gaps
         run: python scripts/report-heldout-promotion-gaps.py
-      - name: Audit heldout-v3 promotion coverage readiness
-        run: |
-          if python scripts/audit-model-eval-coverage.py model_tuning/eval/heldout_v3_candidates.jsonl --require-replicated-slices; then
-            echo "heldout-v3 has replicated promotion coverage"
-          else
-            echo "heldout-v3 remains candidate-only: replicated promotion coverage is not yet satisfied"
-          fi
+      - name: Audit combined 16-case promotion-preview coverage readiness
+        run: python scripts/audit-model-eval-coverage.py /tmp/heldout-v3-promotion-preview.jsonl --require-replicated-slices
       - name: Self-test candidate leakage auditor
         run: python scripts/audit-model-eval-candidate-leakage.py --self-test
       - name: Audit candidate leakage against training, dev, and heldout-v2
