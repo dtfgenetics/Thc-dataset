@@ -9,6 +9,7 @@ on:
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
+      - 'scripts/build-heldout-v3-promotion-preview.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
@@ -25,6 +26,7 @@ on:
       - 'data/diagnostic-profiles.jsonl'
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
+      - 'scripts/build-heldout-v3-promotion-preview.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
@@ -48,6 +50,22 @@ jobs:
         run: python scripts/validate-heldout-v3-candidates.py
       - name: Validate heldout-v3 structured field types
         run: python scripts/validate-heldout-v3-field-types.py
+      - name: Build fail-closed 16-case promotion preview
+        run: python scripts/build-heldout-v3-promotion-preview.py --output /tmp/heldout-v3-promotion-preview.jsonl
+      - name: Verify promotion preview shape and candidate-only state
+        run: |
+          python - <<'PY'
+          import json
+          from collections import Counter
+          from pathlib import Path
+          rows=[json.loads(x) for x in Path('/tmp/heldout-v3-promotion-preview.jsonl').read_text().splitlines() if x.strip()]
+          counts=Counter(r['category'] for r in rows)
+          assert len(rows)==16, len(rows)
+          assert len(counts)==8, counts
+          assert set(counts.values())=={2}, counts
+          assert all(r.get('promotion_eligible') is False for r in rows)
+          print('promotion preview shape: PASS', dict(sorted(counts.items())))
+          PY
       - name: Report heldout-v3 per-slice promotion gaps
         run: python scripts/report-heldout-promotion-gaps.py
       - name: Audit heldout-v3 promotion coverage readiness
