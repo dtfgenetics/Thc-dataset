@@ -10,6 +10,7 @@ on:
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/build-heldout-v3-promotion-preview.py'
+      - 'scripts/freeze-heldout-v3.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
@@ -27,6 +28,7 @@ on:
       - 'scripts/validate-heldout-v3-candidates.py'
       - 'scripts/validate-heldout-v3-field-types.py'
       - 'scripts/build-heldout-v3-promotion-preview.py'
+      - 'scripts/freeze-heldout-v3.py'
       - 'scripts/audit-model-eval-candidate-leakage.py'
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
@@ -65,6 +67,21 @@ jobs:
           assert set(counts.values())=={2}, counts
           assert all(r.get('promotion_eligible') is False for r in rows)
           print('promotion preview shape: PASS', dict(sorted(counts.items())))
+          PY
+      - name: Test deterministic frozen Heldout-v3 materialization
+        run: |
+          python scripts/freeze-heldout-v3.py --output /tmp/heldout-v3.jsonl --manifest /tmp/heldout-v3.manifest.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          rows=[json.loads(x) for x in Path('/tmp/heldout-v3.jsonl').read_text().splitlines() if x.strip()]
+          manifest=json.loads(Path('/tmp/heldout-v3.manifest.json').read_text())
+          assert len(rows)==16
+          assert manifest['cases']==16
+          assert manifest['policy']=='frozen_evaluation_only_never_training'
+          assert all('candidate_status' not in r and 'promotion_eligible' not in r for r in rows)
+          assert all(r.get('must_cite') and r.get('source_metadata') for r in rows)
+          print('frozen heldout-v3 materialization: PASS')
           PY
       - name: Report heldout-v3 per-slice promotion gaps
         run: python scripts/report-heldout-promotion-gaps.py
