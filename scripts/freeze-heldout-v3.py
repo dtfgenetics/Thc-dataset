@@ -27,6 +27,10 @@ def load_builder():
     return module
 
 
+def sha256_file(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -59,12 +63,20 @@ def main() -> None:
             (row.get("source_metadata") or {}).get("source_id") for row in frozen
             if (row.get("source_metadata") or {}).get("source_id")
         })
+        inputs = {
+            str(builder.BASE.relative_to(ROOT)): sha256_file(builder.BASE),
+            str(builder.FINAL.relative_to(ROOT)): sha256_file(builder.FINAL),
+            str(builder.REVIEW.relative_to(ROOT)): sha256_file(builder.REVIEW),
+            str(BUILDER.relative_to(ROOT)): sha256_file(BUILDER),
+        }
         manifest = {
+            "schema_version": "grow-doc-heldout-v3-freeze-manifest-v1",
             "artifact": str(args.output),
             "sha256": digest,
             "cases": len(frozen),
             "categories": sorted({row["category"] for row in frozen}),
             "source_ids": source_ids,
+            "inputs_sha256": inputs,
             "policy": "frozen_evaluation_only_never_training",
         }
         args.manifest.parent.mkdir(parents=True, exist_ok=True)
