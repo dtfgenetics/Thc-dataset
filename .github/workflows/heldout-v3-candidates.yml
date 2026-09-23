@@ -72,16 +72,22 @@ jobs:
         run: |
           python scripts/freeze-heldout-v3.py --output /tmp/heldout-v3.jsonl --manifest /tmp/heldout-v3.manifest.json
           python - <<'PY'
+          import hashlib
           import json
           from pathlib import Path
           rows=[json.loads(x) for x in Path('/tmp/heldout-v3.jsonl').read_text().splitlines() if x.strip()]
           manifest=json.loads(Path('/tmp/heldout-v3.manifest.json').read_text())
           assert len(rows)==16
+          assert manifest['schema_version']=='grow-doc-heldout-v3-freeze-manifest-v1'
           assert manifest['cases']==16
           assert manifest['policy']=='frozen_evaluation_only_never_training'
           assert all('candidate_status' not in r and 'promotion_eligible' not in r for r in rows)
           assert all(r.get('must_cite') and r.get('source_metadata') for r in rows)
-          print('frozen heldout-v3 materialization: PASS')
+          assert manifest['sha256']==hashlib.sha256(Path('/tmp/heldout-v3.jsonl').read_bytes()).hexdigest()
+          assert len(manifest['inputs_sha256'])==4
+          for rel, expected in manifest['inputs_sha256'].items():
+              assert hashlib.sha256(Path(rel).read_bytes()).hexdigest()==expected, rel
+          print('frozen heldout-v3 materialization + provenance: PASS')
           PY
       - name: Report heldout-v3 per-slice promotion gaps
         run: python scripts/report-heldout-promotion-gaps.py
