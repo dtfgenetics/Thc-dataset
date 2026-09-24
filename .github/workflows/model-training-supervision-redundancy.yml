@@ -10,6 +10,7 @@ on:
       - 'scripts/build-training-eligible-supervision.py'
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
+      - 'scripts/audit-training-supervision-source-overlap.py'
       - 'scripts/audit-training-cross-task-duplicates.py'
       - 'scripts/audit-training-supervision-concentration.py'
       - 'scripts/validate-training-supervision-concentration.py'
@@ -24,6 +25,7 @@ on:
       - 'scripts/build-training-eligible-supervision.py'
       - 'scripts/audit-model-source-evidence-quality.py'
       - 'scripts/audit-training-supervision-redundancy.py'
+      - 'scripts/audit-training-supervision-source-overlap.py'
       - 'scripts/audit-training-cross-task-duplicates.py'
       - 'scripts/audit-training-supervision-concentration.py'
       - 'scripts/validate-training-supervision-concentration.py'
@@ -40,6 +42,7 @@ jobs:
       - name: Self-test redundancy and concentration audits
         run: |
           python3 scripts/audit-training-supervision-redundancy.py --self-test
+          python3 scripts/audit-training-supervision-source-overlap.py --self-test
           python3 scripts/audit-training-cross-task-duplicates.py --self-test
           python3 scripts/audit-training-supervision-concentration.py --self-test
           python3 scripts/validate-training-supervision-concentration.py --self-test
@@ -48,6 +51,11 @@ jobs:
         run: |
           set -o pipefail
           python3 scripts/audit-training-supervision-redundancy.py | tee training-supervision-redundancy-report.json
+      - name: Add source provenance to semantic redundancy review
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 scripts/audit-training-supervision-source-overlap.py | tee training-supervision-source-overlap-report.json
       - name: Audit cross-task exact supervision duplicates
         shell: bash
         run: |
@@ -70,6 +78,7 @@ jobs:
           name: training-supervision-quality-report
           path: |
             training-supervision-redundancy-report.json
+            training-supervision-source-overlap-report.json
             training-cross-task-duplicates-report.json
             training-supervision-concentration-report.json
             training-supervision-concentration-validation-report.json
