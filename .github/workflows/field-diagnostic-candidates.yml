@@ -1,0 +1,32 @@
+name: Field Diagnostic Candidates
+
+on:
+  pull_request:
+    paths:
+      - 'model_tuning/eval/FIELD_DIAGNOSTIC_BENCHMARK.md'
+      - 'model_tuning/eval/schemas/field_diagnostic_case_v0.schema.json'
+      - 'model_tuning/eval/field_diagnostic_candidates.jsonl'
+      - 'scripts/validate-field-diagnostic-candidates.py'
+      - '.github/workflows/field-diagnostic-candidates.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'model_tuning/eval/FIELD_DIAGNOSTIC_BENCHMARK.md'
+      - 'model_tuning/eval/schemas/field_diagnostic_case_v0.schema.json'
+      - 'model_tuning/eval/field_diagnostic_candidates.jsonl'
+      - 'scripts/validate-field-diagnostic-candidates.py'
+      - '.github/workflows/field-diagnostic-candidates.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate candidate contract and isolation boundary
+        run: python scripts/validate-field-diagnostic-candidates.py
