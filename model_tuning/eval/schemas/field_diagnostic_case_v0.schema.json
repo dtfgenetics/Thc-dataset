@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/grow-doc-field-diagnostic-case-v0.schema.json",
+  "title": "Grow Doc Field Diagnostic Benchmark Case v0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version","case_id","status","evaluation_only_never_training","case_families","media","expected","evidence"],
+  "properties": {
+    "schema_version": {"const": "grow-doc-field-diagnostic-v0"},
+    "case_id": {"type":"string","pattern":"^gdfd-[a-z0-9][a-z0-9._-]*$"},
+    "status": {"enum":["candidate","reviewed_candidate","frozen"]},
+    "evaluation_only_never_training": {"const": true},
+    "case_families": {
+      "type":"array","minItems":1,"uniqueItems":true,
+      "items":{"enum":["clean","domain_shift","early_symptom","late_symptom","lookalike","multi_stressor","healthy_control","mechanical_damage","ood","insufficient_information","adversarial_retrieval","temporal","localization"]}
+    },
+    "media": {
+      "type":"array","minItems":1,
+      "items":{"type":"object","additionalProperties":false,
+        "required":["media_id","media_type","sha256","provenance","license"],
+        "properties":{
+          "media_id":{"type":"string"},"media_type":{"enum":["image","video"]},
+          "sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
+          "provenance":{"type":"string","minLength":1},"license":{"type":"string","minLength":1},
+          "capture_context":{"type":"object","additionalProperties":true}
+        }}
+    },
+    "optional_case_context":{"type":"object","additionalProperties":true},
+    "expected": {
+      "type":"object","additionalProperties":false,
+      "required":["observations","differential","uncertainty"],
+      "properties":{
+        "observations":{"type":"array","items":{"type":"object","additionalProperties":false,
+          "required":["finding","visibility","confidence"],
+          "properties":{
+            "finding":{"type":"string","minLength":1},
+            "visibility":{"enum":["direct","supported_inference","unknown"]},
+            "confidence":{"type":"number","minimum":0,"maximum":1},
+            "organ":{"type":["string","null"]},
+            "plant_location":{"type":["string","null"]},
+            "distribution":{"type":["string","null"]},
+            "pattern":{"type":["string","null"]},
+            "severity":{"type":["string","null"]},
+            "localization_ids":{"type":"array","items":{"type":"string"}}
+          }}},
+        "differential":{"type":"array","minItems":1,"items":{"type":"object","additionalProperties":false,
+          "required":["label","rank","acceptable"],
+          "properties":{"label":{"type":"string"},"rank":{"type":"integer","minimum":1},"acceptable":{"type":"boolean"},"discriminating_checks":{"type":"array","items":{"type":"string"}}}}},
+        "uncertainty":{"type":"object","additionalProperties":false,
+          "required":["abstention_expected","reason"],
+          "properties":{"abstention_expected":{"type":"boolean"},"reason":{"type":"string"},"max_justified_confidence":{"type":"number","minimum":0,"maximum":1}}},
+        "localizations":{"type":"array","items":{"type":"object","additionalProperties":true}}
+      }
+    },
+    "evidence": {
+      "type":"array",
+      "items":{"type":"object","additionalProperties":false,
+        "required":["source_id","citation","claim_scope","evidence_tier","directness"],
+        "properties":{
+          "source_id":{"type":"string"},"citation":{"type":"string","minLength":1},
+          "doi":{"type":["string","null"]},"url":{"type":["string","null"]},
+          "species":{"type":["string","null"]},"cultivar":{"type":["string","null"]},
+          "growth_stage":{"type":["string","null"]},"environment":{"type":["string","null"]},
+          "medium":{"type":["string","null"]},"treatment":{"type":["string","null"]},
+          "study_type":{"type":["string","null"]},"sample_size":{"type":["integer","null"],"minimum":1},
+          "geography":{"type":["string","null"]},"publication_year":{"type":["integer","null"],"minimum":1800,"maximum":2100},
+          "evidence_tier":{"enum":["primary_peer_reviewed","review_peer_reviewed","institutional","reference_database","other_reviewed"]},
+          "directness":{"enum":["direct","supporting","background","conflicting"]},
+          "claim_scope":{"type":"string","minLength":1}
+        }}
+    },
+    "adversarial_evidence":{"type":"array","items":{"type":"object","additionalProperties":true}},
+    "review":{"type":"object","additionalProperties":true}
+  }
+}
