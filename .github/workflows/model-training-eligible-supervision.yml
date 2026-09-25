@@ -8,6 +8,7 @@ on:
       - 'scripts/build-model-corpus.py'
       - 'scripts/build-grounded-qa.py'
       - 'scripts/build-training-eligible-supervision.py'
+      - 'scripts/freeze-training-eligible-snapshot.py'
       - 'scripts/audit-model-source-evidence-quality.py'
       - '.github/workflows/model-training-eligible-supervision.yml'
   workflow_dispatch:
@@ -24,3 +25,5 @@ jobs:
         run: python3 scripts/build-training-eligible-supervision.py --self-test
       - name: Validate current strong-evidence supervision lane
         run: python3 scripts/build-training-eligible-supervision.py --check-only
+      - name: Self-test frozen training snapshot manifest
+        run: python3 scripts/freeze-training-eligible-snapshot.py --self-test
