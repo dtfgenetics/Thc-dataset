@@ -34,7 +34,7 @@
     "validate:training-dataset-manifest": "python3 scripts/build-training-dataset-manifest.py --self-test",
     "validate:model-scorer": "python3 scripts/score-model-eval.py --self-test",
     "validate:model-run-manifest": "python3 scripts/validate-model-run-manifest.py --self-test && python3 scripts/validate-adapter-training-provenance.py --self-test",
-    "validate:model-runner": "python3 scripts/run-model-eval.py --self-test",
+    "validate:model-runner": "python3 scripts/run-model-eval.py --self-test && python3 scripts/run-provenance-bound-adapter-eval.py --self-test",
     "validate:base-vs-rag-launcher": "python3 scripts/run-base-vs-rag-experiment.py --self-test",
     "validate:rag-snapshot": "python3 scripts/build-rag-eval-snapshot.py --self-test",
     "validate:qlora-config": "python3 scripts/validate-qlora-config.py && python3 scripts/validate-qlora-config.py --self-test",
