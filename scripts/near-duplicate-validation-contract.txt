@@ -1,0 +1,3 @@
+Canonical command: python scripts/run-grow-doc-near-duplicate-validation.py
+Compatibility command: python scripts/validate-grow-doc-near-duplicate-audit.py
+CI must execute the canonical command.
