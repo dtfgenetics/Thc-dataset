@@ -155,6 +155,7 @@ export interface CaseTrendSummary {
   changes: string[]
   recommendedNextStep: string
   rationale: string
+  recentFollowUps: Array<{ createdAt: string; outcome: string; note: string }>
 }
 
 export interface GrowLogEntry {
