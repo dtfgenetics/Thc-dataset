@@ -1,0 +1,1 @@
+The near-duplicate audit is not considered verified until the exact branch head completes the `Grow Doc Near-Duplicate Audit` GitHub Actions workflow successfully. Do not merge or report the validator as passing based only on file creation or static inspection.
