@@ -1,0 +1,32 @@
+name: Grow Doc Dataset Dedup and Provenance
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-grow-doc-dedup.py'
+      - 'scripts/validate-grow-doc-dedup.py'
+      - 'tests/test_grow_doc_dedup.py'
+      - '.github/workflows/grow-doc-dedup-provenance.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/audit-grow-doc-dedup.py'
+      - 'scripts/validate-grow-doc-dedup.py'
+      - 'tests/test_grow_doc_dedup.py'
+      - '.github/workflows/grow-doc-dedup-provenance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-dataset-gates:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate exact dedup, leakage, and provenance behavior
+        run: python scripts/validate-grow-doc-dedup.py
