@@ -21,6 +21,8 @@ export function summarizeCaseTrend(
   history: GrowLogEntry[],
   results: Differential[],
 ): CaseTrendSummary {
+  const evidenceSuggestions = rankNextEvidence(results)
+  const prioritized = evidenceSuggestions[0]
   if (!history.length) {
     return {
       trend: 'insufficient',
@@ -78,8 +80,6 @@ export function summarizeCaseTrend(
 
   const top = results[0]
   const runnerUp = results[1]
-  const evidenceSuggestions = rankNextEvidence(results)
-  const prioritized = evidenceSuggestions[0]
   let recommendedNextStep = prioritized?.label ?? top?.issue.confirmation[0] ?? 'Capture a consistent whole-plant and affected-tissue follow-up set.'
   let rationale = prioritized
     ? prioritized.reason
