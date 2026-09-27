@@ -1,5 +1,6 @@
 import responsePolicies from '../../backend/config/diagnostic-response-policy.json'
 import type { Differential, EvidenceFile, GrowContext, GrowLogEntry, IssueRecord } from '../types'
+import { inspectImageElement } from './image-quality'
 
 const normalise = (value: string) => value.trim().toLowerCase()
 
@@ -310,14 +311,17 @@ export async function inspectEvidenceFile(file: File) {
       if (metadata.width < 720 || metadata.height < 480) notes.push('Low video resolution; fine symptom detail may be missing.')
       return { ...metadata, quality: notes.length ? 'review' as const : 'good' as const, notes }
     }
-    const dimensions = await new Promise<{ width: number; height: number }>((resolve, reject) => {
-      const image = new Image()
-      image.onload = () => resolve({ width: image.naturalWidth, height: image.naturalHeight })
-      image.onerror = reject
-      image.src = url
+    const image = await new Promise<HTMLImageElement>((resolve, reject) => {
+      const element = new Image()
+      element.onload = () => resolve(element)
+      element.onerror = reject
+      element.src = url
     })
+    const dimensions = { width: image.naturalWidth, height: image.naturalHeight }
     if (dimensions.width < 900 || dimensions.height < 700) notes.push('Low resolution; retake closer or at a higher setting.')
     if (Math.max(dimensions.width, dimensions.height) / Math.min(dimensions.width, dimensions.height) > 3) notes.push('Very narrow crop; include more surrounding tissue.')
+    const qualityAssessment = inspectImageElement(image)
+    if (qualityAssessment?.notes.length) notes.push(...qualityAssessment.notes)
     return { ...dimensions, quality: notes.length ? 'review' as const : 'good' as const, notes }
   } finally { URL.revokeObjectURL(url) }
 }
