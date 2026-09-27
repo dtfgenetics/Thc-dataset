@@ -89,3 +89,40 @@ Revisit only for repeat-photo alignment, geometric comparison, or validated imag
 
 ### Generic rules engines
 Revisit only if Grow Doc evolves into a much larger declarative rule authoring platform where domain editors need to modify conditions without TypeScript changes. Preserve all current confidence and confirmation boundaries if that transition ever occurs.
+
+
+## Diagnostic image preprocessing — Cropper.js benchmark
+
+### Cropper.js 2.2.0
+Repository: https://github.com/fengyuanchen/cropperjs  
+License: MIT.
+
+Reviewed capabilities:
+- movable/resizable crop selections;
+- zoom;
+- pan/translation;
+- rotation;
+- touch/pointer interaction;
+- canvas export through the current v2 selection API.
+
+Decision for this pass: **benchmark and adapt the interaction contract, do not add the npm dependency yet.**
+
+Reason:
+Grow Doc CI uses `npm ci`. Cropper.js 2.x publishes generated bundles from a multi-package `@cropper/*` workspace, so adding the dependency correctly requires a regenerated lockfile and full transitive dependency update. The current environment cannot safely regenerate that lock without risking an invalid CI state.
+
+Action taken instead:
+- added `src/components/ImageDetailEditor.tsx` using native browser Canvas;
+- added zoom, pan, rotate and a 4:3 derived diagnostic detail view;
+- retained the original `EvidenceFile.file` unchanged;
+- added optional `analysisFile`, `analysisPreviewUrl` and transform metadata;
+- visual-analysis requests now send the original image first and the derived symptom detail second;
+- users can return to the original-only analysis path at any time;
+- derived object URLs are explicitly revoked;
+- mobile layout and Escape-to-close behavior are included;
+- added deterministic source-contract validation and a unit test for original+derived media ordering.
+
+Evidence boundary:
+A crop is a derived observational aid. It is never treated as replacement ground truth, never overwrites the source upload, and never upgrades diagnostic certainty by itself.
+
+Future dependency trigger:
+Adopt Cropper.js directly when the package pipeline can regenerate and review `package-lock.json` cleanly, or if the native editor needs freeform crop handles/multi-selection beyond the current focused symptom-detail workflow.
