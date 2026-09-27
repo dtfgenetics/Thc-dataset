@@ -89,11 +89,15 @@ async function videoFrames(file: File): Promise<Array<{ blob: Blob; name: string
   }
 }
 
+export function preferredAnalysisFile(item: EvidenceFile) {
+  return item.analysisFile ?? item.file
+}
+
 async function buildObservationMedia(evidence: EvidenceFile[]) {
   const media: Array<{ blob: Blob; name: string }> = []
   for (const item of evidence) {
     if (item.file.type.startsWith('image/')) {
-      const analysisFile = item.analysisFile ?? item.file
+      const analysisFile = preferredAnalysisFile(item)
       media.push({ blob: analysisFile, name: analysisFile.name || `${item.slot}.jpg` })
       continue
     }
