@@ -1,5 +1,6 @@
 import { AlertTriangle, ArrowRight, CheckCircle2, ChevronDown, FileImage, FlaskConical, History, Leaf, Search, ShieldCheck } from 'lucide-react'
 import type { CaseTrendSummary, Differential, EvidenceFile, GrowContext } from '../types'
+import { buildDifferentialMatrix } from '../lib/differential-matrix'
 
 interface DiagnosticResultProps {
   evidence: EvidenceFile[]
@@ -64,6 +65,7 @@ export function DiagnosticResult({ evidence, context, results, reviewed, caseTre
   const runnerUp = results[1]
   const scoreMargin = runnerUp ? top.score - runnerUp.score : undefined
   const discriminators = discriminatingEvidence(top, runnerUp, context)
+  const matrix = buildDifferentialMatrix(results, context)
 
   return (
     <aside className="result-panel result-ready" aria-live="polite">
@@ -102,6 +104,17 @@ export function DiagnosticResult({ evidence, context, results, reviewed, caseTre
           {caseTrend.changes.length ? <div className="evidence-list"><strong><History size={17} /> What changed</strong><ul>{caseTrend.changes.map((item) => <li key={item}>{item}</li>)}</ul><small>Overall case trend: {caseTrend.trend}.</small></div> : null}
           {top.contradicting.length ? <div className="evidence-list negative"><strong><AlertTriangle size={17} /> Evidence against</strong><ul>{top.contradicting.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
           {runnerUp ? <div className="missing-evidence"><strong>Why this ranks above {runnerUp.issue.name}</strong><p>{top.issue.name} currently leads by {scoreMargin?.toFixed(1)} ranking points. A small margin means the order can change when better evidence is added.</p></div> : null}
+          {matrix.rows.length > 1 ? <div className="differential-matrix-wrap">
+            <strong>Differential evidence matrix</strong>
+            <div className="differential-matrix-scroll">
+              <table className="differential-matrix">
+                <thead><tr><th>Candidate</th><th>Confidence</th><th>Score</th><th>Support</th><th>Against</th><th>Missing</th></tr></thead>
+                <tbody>{matrix.rows.map((row) => <tr key={row.slug}><th scope="row">{row.name}</th><td>{row.confidence}</td><td>{row.score.toFixed(1)}</td><td>{row.supportCount}</td><td>{row.contradictionCount}</td><td>{row.missingCount}</td></tr>)}</tbody>
+              </table>
+            </div>
+            {matrix.separatingEvidence.length ? <div className="evidence-list"><strong><Search size={17} /> Candidate-specific evidence to look for</strong><ul>{matrix.separatingEvidence.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
+            <small>Counts summarize the current rule-based evidence record; they are not probabilities or laboratory confirmation.</small>
+          </div> : null}
           {discriminators.length ? <div className="evidence-list"><strong><Search size={17} /> Best evidence to separate the top two</strong><ul>{discriminators.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
           <div className="missing-evidence"><strong>What would improve confidence</strong><p>{top.missing.slice(0, 4).join(' · ') || 'No additional structured fields required'}</p></div>
         </div>
