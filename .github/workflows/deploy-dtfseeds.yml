@@ -1,19 +1,7 @@
-name: Deploy THC Grow Doc to dtfseeds.com
+name: Legacy Manual FTP Deploy — THC Grow Doc
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
-    paths:
-      - 'src/**'
-      - 'public/**'
-      - 'index.html'
-      - 'vite.config.ts'
-      - 'server.mjs'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'scripts/publish-reference-media.mjs'
-      - '.github/workflows/deploy-dtfseeds.yml'
 
 permissions:
   contents: read
@@ -24,7 +12,7 @@ concurrency:
 
 jobs:
   deploy:
-    name: Build and deploy to Hostinger
+    name: Build and deploy to Hostinger (legacy manual fallback)
     runs-on: ubuntu-latest
     environment: production
     steps:
