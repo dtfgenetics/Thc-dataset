@@ -103,6 +103,14 @@ export interface EvidenceFile {
   height?: number
   quality: 'checking' | 'good' | 'review'
   notes: string[]
+  analysisFile?: File
+  analysisPreviewUrl?: string
+  analysisTransform?: {
+    zoom: number
+    rotation: number
+    panX: number
+    panY: number
+  }
 }
 
 export type EvidenceSlot = 'whole-plant' | 'close-up' | 'underside' | 'root-crown' | 'video'
