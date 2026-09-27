@@ -25,8 +25,10 @@ export function summarizeCaseTrend(
     return {
       trend: 'insufficient',
       changes: [],
-      recommendedNextStep: results[0]?.missing[0] ?? 'Add a follow-up observation after the next meaningful plant or environment change.',
-      rationale: 'There is not yet a prior follow-up record to compare against the current investigation.',
+      recommendedNextStep: prioritized?.label ?? results[0]?.issue.confirmation[0] ?? 'Add a follow-up observation after the next meaningful plant or environment change.',
+      rationale: prioritized
+        ? `There is not yet a prior follow-up record. ${prioritized.reason}`
+        : 'There is not yet a prior follow-up record to compare against the current investigation.',
       recentFollowUps: [],
     }
   }
@@ -86,8 +88,9 @@ export function summarizeCaseTrend(
       : 'The current evidence does not yet support a ranked differential, so add a discriminating observation rather than guessing.'
 
   if (top && runnerUp && top.score - runnerUp.score < 2) {
-    recommendedNextStep = top.missing.find((item) => item.includes('discriminating')) ?? top.issue.confirmation[0] ?? runnerUp.issue.confirmation[0] ?? recommendedNextStep
-    rationale = `The leading hypotheses are close (${top.issue.name} vs ${runnerUp.issue.name}); prioritize evidence that separates those two explanations.`
+    rationale = prioritized
+      ? `The leading hypotheses are close (${top.issue.name} vs ${runnerUp.issue.name}). ${prioritized.reason}`
+      : `The leading hypotheses are close (${top.issue.name} vs ${runnerUp.issue.name}); prioritize evidence that separates those two explanations.`
   }
 
   return { trend, changes, recommendedNextStep, rationale, recentFollowUps }
