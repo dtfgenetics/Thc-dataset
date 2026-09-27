@@ -1,6 +1,7 @@
 import { AlertTriangle, ArrowRight, CheckCircle2, ChevronDown, FileImage, FlaskConical, History, Leaf, Search, ShieldCheck } from 'lucide-react'
 import type { CaseTrendSummary, Differential, EvidenceFile, GrowContext } from '../types'
 import { buildDifferentialMatrix } from '../lib/differential-matrix'
+import { rankNextEvidence } from '../lib/evidence-priority'
 
 interface DiagnosticResultProps {
   evidence: EvidenceFile[]
@@ -66,6 +67,7 @@ export function DiagnosticResult({ evidence, context, results, reviewed, caseTre
   const scoreMargin = runnerUp ? top.score - runnerUp.score : undefined
   const discriminators = discriminatingEvidence(top, runnerUp, context)
   const matrix = buildDifferentialMatrix(results, context)
+  const nextEvidence = rankNextEvidence(results, 3)
 
   return (
     <aside className="result-panel result-ready" aria-live="polite">
@@ -118,6 +120,7 @@ export function DiagnosticResult({ evidence, context, results, reviewed, caseTre
           </div> : null}
           {discriminators.length ? <div className="evidence-list"><strong><Search size={17} /> Best evidence to separate the top two</strong><ul>{discriminators.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
           <div className="missing-evidence"><strong>What would improve confidence</strong><p>{top.missing.slice(0, 4).join(' · ') || 'No additional structured fields required'}</p></div>
+          {nextEvidence.length ? <div className="evidence-priority-list"><strong><Search size={17} /> Ranked next evidence</strong><ol>{nextEvidence.map((item) => <li key={item.label}><b>{item.label}</b><span>{item.reason}</span></li>)}</ol><small>Priority reflects missing evidence and how well a check may separate the leading differentials. It is not a probability estimate.</small></div> : null}
         </div>
       </details>
 
