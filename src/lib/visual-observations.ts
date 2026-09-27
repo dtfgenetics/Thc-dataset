@@ -93,7 +93,8 @@ async function buildObservationMedia(evidence: EvidenceFile[]) {
   const media: Array<{ blob: Blob; name: string }> = []
   for (const item of evidence) {
     if (item.file.type.startsWith('image/')) {
-      media.push({ blob: item.file, name: item.file.name || `${item.slot}.jpg` })
+      const analysisFile = item.analysisFile ?? item.file
+      media.push({ blob: analysisFile, name: analysisFile.name || `${item.slot}.jpg` })
       continue
     }
     if (item.file.type.startsWith('video/')) {
