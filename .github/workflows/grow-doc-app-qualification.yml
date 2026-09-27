@@ -1,0 +1,80 @@
+name: Grow Doc App Qualification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.*'
+      - 'tsconfig*.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/publish-reference-media.mjs'
+      - 'reference-media/**'
+      - '.github/workflows/grow-doc-app-qualification.yml'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'public/**'
+      - 'index.html'
+      - 'vite.config.*'
+      - 'tsconfig*.json'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'scripts/publish-reference-media.mjs'
+      - 'reference-media/**'
+      - '.github/workflows/grow-doc-app-qualification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: grow-doc-app-qualification-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qualify-app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: TypeScript application check
+        run: npm run check
+
+      - name: Run application tests
+        run: npm test
+
+      - name: Validate visual observation PHP proxy
+        run: php -l public/api/visual-observations.php
+
+      - name: Build deployable application
+        run: npm run build
+
+      - name: Verify production bundle contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s dist/index.html
+          test -f dist/api/visual-observations.php
+          test -d dist/reference-media/crops
+          test ! -e dist/reference-media/original
+          test "$(find dist/reference-media/crops -type f | wc -l | tr -d ' ')" = "66"
+
+      - name: Upload qualified application bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: grow-doc-qualified-dist
+          path: dist
+          if-no-files-found: error
