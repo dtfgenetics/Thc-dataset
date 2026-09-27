@@ -88,7 +88,7 @@ export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUpload
   return (
     <section className="evidence-section" aria-labelledby="evidence-title">
       <div className="section-heading">
-        <div><span>Step 1 · one photo is enough</span><h2 id="evidence-title">Add the clearest view you have</h2></div>
+        <div><span>Step 1 · Start with a clear photo</span><h2 id="evidence-title">One photo is enough to get a first result</h2></div>
         <p>Use either tile below. The affected-area view is usually the fastest start; a whole-plant photo also works. Extra views improve context but never unlock the first review.</p>
       </div>
 
