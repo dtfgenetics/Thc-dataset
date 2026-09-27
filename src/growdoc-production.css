@@ -585,3 +585,5 @@ button { -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .001ms !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; }
 }
+
+.differential-matrix-wrap{padding:12px;border:1px solid rgba(201,225,209,.08);border-radius:9px;background:rgba(255,255,255,.012)}.differential-matrix-wrap>strong{display:block;color:#d8e5dc;font-size:9px;text-transform:uppercase;letter-spacing:.05em}.differential-matrix-scroll{margin-top:8px;overflow-x:auto}.differential-matrix{width:100%;min-width:560px;border-collapse:collapse;font-size:10px}.differential-matrix th,.differential-matrix td{padding:7px 8px;border-bottom:1px solid rgba(201,225,209,.08);text-align:left;vertical-align:top}.differential-matrix thead th{color:var(--gd-subtle);font-size:8px;text-transform:uppercase;letter-spacing:.04em}.differential-matrix tbody th{color:#eef7f0;font-weight:800}.differential-matrix-wrap>small{display:block;margin-top:8px;color:var(--gd-subtle);line-height:1.45}
