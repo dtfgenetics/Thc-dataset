@@ -1,4 +1,5 @@
 import type { CaseTrendSummary, Differential, GrowContext, GrowLogEntry } from '../types'
+import { rankNextEvidence } from './evidence-priority'
 
 const numberFrom = (value?: string) => {
   if (!value) return undefined
@@ -75,10 +76,14 @@ export function summarizeCaseTrend(
 
   const top = results[0]
   const runnerUp = results[1]
-  let recommendedNextStep = top?.missing[0] ?? top?.issue.confirmation[0] ?? 'Capture a consistent whole-plant and affected-tissue follow-up set.'
-  let rationale = top
-    ? `This is the highest-value missing evidence for the current leading hypothesis, ${top.issue.name}.`
-    : 'The current evidence does not yet support a ranked differential, so add a discriminating observation rather than guessing.'
+  const evidenceSuggestions = rankNextEvidence(results)
+  const prioritized = evidenceSuggestions[0]
+  let recommendedNextStep = prioritized?.label ?? top?.issue.confirmation[0] ?? 'Capture a consistent whole-plant and affected-tissue follow-up set.'
+  let rationale = prioritized
+    ? prioritized.reason
+    : top
+      ? `Use the next confirmation step for the current leading hypothesis, ${top.issue.name}.`
+      : 'The current evidence does not yet support a ranked differential, so add a discriminating observation rather than guessing.'
 
   if (top && runnerUp && top.score - runnerUp.score < 2) {
     recommendedNextStep = top.missing.find((item) => item.includes('discriminating')) ?? top.issue.confirmation[0] ?? runnerUp.issue.confirmation[0] ?? recommendedNextStep
