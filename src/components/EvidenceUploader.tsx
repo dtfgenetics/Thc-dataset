@@ -3,8 +3,8 @@ import { useRef } from 'react'
 import type { EvidenceFile, EvidenceSlot } from '../types'
 
 const primarySlots: Array<{ id: EvidenceSlot; title: string; guidance: string; accept: string }> = [
-  { id: 'whole-plant', title: 'Whole plant', guidance: 'Include the pot and full canopy when possible.', accept: 'image/jpeg,image/png,image/webp' },
-  { id: 'close-up', title: 'Affected area', guidance: 'Fill the frame with the clearest symptom. You can add up to four close-ups.', accept: 'image/jpeg,image/png,image/webp' },
+  { id: 'close-up', title: 'Affected area', guidance: 'Best quick start: fill the frame with the clearest symptom. You can add up to four close-ups.', accept: 'image/jpeg,image/png,image/webp' },
+  { id: 'whole-plant', title: 'Whole plant', guidance: 'Also works as your first photo; include the pot and full canopy when possible.', accept: 'image/jpeg,image/png,image/webp' },
 ]
 
 const extraSlots: Array<{ id: EvidenceSlot; title: string; guidance: string; accept: string }> = [
@@ -88,8 +88,8 @@ export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUpload
   return (
     <section className="evidence-section" aria-labelledby="evidence-title">
       <div className="section-heading">
-        <div><span>Step 1</span><h2 id="evidence-title">Start with a clear photo</h2></div>
-        <p>One useful image is enough to begin. Add extra views only when they help separate look-alikes.</p>
+        <div><span>Step 1 · Start with a clear photo</span><h2 id="evidence-title">One photo is enough to get a first result</h2></div>
+        <p>Use either tile below. The affected-area view is usually the fastest start; a whole-plant photo also works. Extra views improve context but never unlock the first review.</p>
       </div>
 
       <div className="primary-evidence-grid">
