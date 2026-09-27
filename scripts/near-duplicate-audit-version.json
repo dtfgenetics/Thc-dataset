@@ -1,0 +1,8 @@
+{
+  "schema_version": "grow-doc-near-duplicate-audit-v1",
+  "prompt_threshold": 0.82,
+  "pair_threshold": 0.88,
+  "shingle_size": 3,
+  "policy": "train-eval-near-duplicates-fail-closed",
+  "deletion_policy": "report-only-no-silent-deletion"
+}
