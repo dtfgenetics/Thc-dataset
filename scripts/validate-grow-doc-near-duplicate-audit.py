@@ -8,7 +8,7 @@ import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 AUDITOR = ROOT / "scripts" / "audit-grow-doc-near-duplicates.py"
-TEST = ROOT / "tests" / "test_grow_doc_near_duplicate_audit.py"
+TESTS = ROOT / "tests"
 
 
 def run(*args: str) -> None:
@@ -18,7 +18,7 @@ def run(*args: str) -> None:
 def main() -> int:
     run("-m", "py_compile", str(AUDITOR))
     run(str(AUDITOR), "--self-test")
-    run("-m", "unittest", str(TEST.relative_to(ROOT)), "-v")
+    run("-m", "unittest", "discover", "-s", str(TESTS), "-p", "test_grow_doc_near_duplicate_audit.py", "-v")
     print("Grow Doc near-duplicate validation: PASS")
     return 0
 
