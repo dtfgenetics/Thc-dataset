@@ -26,11 +26,18 @@ export function summarizeCaseTrend(
       changes: [],
       recommendedNextStep: results[0]?.missing[0] ?? 'Add a follow-up observation after the next meaningful plant or environment change.',
       rationale: 'There is not yet a prior follow-up record to compare against the current investigation.',
+      recentFollowUps: [],
     }
   }
 
   const changes: string[] = []
-  const latest = [...history].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))[0]
+  const orderedHistory = [...history].sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt))
+  const latest = orderedHistory[0]
+  const recentFollowUps = orderedHistory.slice(0, 5).map((entry) => ({
+    createdAt: entry.createdAt,
+    outcome: entry.outcome,
+    note: entry.note,
+  }))
   const currentPh = numberFrom(context.ph)
   const previousPh = latestComparable(history, 'ph')
   if (currentPh !== undefined && previousPh?.value !== undefined) {
@@ -59,7 +66,7 @@ export function summarizeCaseTrend(
     changes.push(`stage changed from ${latest.stage} to ${context.stage}`)
   }
 
-  const recentOutcomes = history.slice(0, 3).map((entry) => normalise(entry.outcome))
+  const recentOutcomes = orderedHistory.slice(0, 3).map((entry) => normalise(entry.outcome))
   let trend: CaseTrendSummary['trend'] = 'stable'
   if (recentOutcomes.includes('worsening') && recentOutcomes.includes('improving')) trend = 'mixed'
   else if (recentOutcomes[0] === 'worsening') trend = 'worsening'
@@ -78,5 +85,5 @@ export function summarizeCaseTrend(
     rationale = `The leading hypotheses are close (${top.issue.name} vs ${runnerUp.issue.name}); prioritize evidence that separates those two explanations.`
   }
 
-  return { trend, changes, recommendedNextStep, rationale }
+  return { trend, changes, recommendedNextStep, rationale, recentFollowUps }
 }
