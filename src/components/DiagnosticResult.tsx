@@ -41,9 +41,9 @@ export function DiagnosticResult({ evidence, context, results, reviewed, caseTre
         <div className="result-icon"><Search /></div>
         <span>Your result</span>
         <h2>{evidenceReady ? 'Ready for a first review' : 'Add a plant photo to begin'}</h2>
-        <p>{evidenceReady ? 'Review the current evidence to compare the most plausible causes and get the safest next step.' : 'Start with one clear whole-plant or affected-area photo. Extra measurements are optional.'}</p>
+        <p>{evidenceReady ? 'Review the current evidence to compare the most plausible causes and get the safest next step.' : 'One clear affected-area or whole-plant photo is enough for the first review. Extra views and measurements can improve confidence later.'}</p>
         <div className="evidence-tally"><div><strong>{evidence.length}</strong><small>media</small></div><div><strong>{context.symptoms.length}</strong><small>confirmed signs</small></div><div><strong>{[context.stage, context.medium, context.ph, context.ec].filter(Boolean).length}</strong><small>extra details</small></div></div>
-        <button className="primary-button" onClick={onReview} disabled={!evidenceReady}>Review this plant <ArrowRight size={18} /></button>
+        <button className="primary-button" onClick={onReview} disabled={!evidenceReady}>Get first result <ArrowRight size={18} /></button>
         <small className="result-disclaimer">Grow Doc compares evidence and reports uncertainty. Some problems still require microscopy, root-zone measurements, or laboratory confirmation.</small>
       </aside>
     )
