@@ -8,6 +8,15 @@ const context:GrowContext={stage:'Vegetative',medium:'Soil',ph:'6.2',ec:'1.3',wa
 const entry=(createdAt:string,outcome:string,note:string):GrowLogEntry=>({id:createdAt,createdAt,plantName:'A',note,outcome,stage:'Vegetative',medium:'Soil',ph:'6.1',ec:'1.2',watering:'evenly moist',symptoms:['sign']})
 
 describe('Grow Doc case trend follow-up sequence',()=>{
+  it('uses ranked evidence even before a prior follow-up exists',()=>{
+    const labIssue={...issue,name:'Lab candidate',confirmation:['validated laboratory test']}
+    const labDiff:{[K in keyof Differential]:Differential[K]}={...differential,issue:labIssue,missing:['validated laboratory test','whole-plant view']}
+    const result=summarizeCaseTrend(context,[],[labDiff])
+    expect(result.recommendedNextStep).toBe('validated laboratory test')
+    expect(result.rationale).toMatch(/There is not yet a prior follow-up record/)
+  })
+
+
   it('sorts recent follow-ups newest first before classifying the trend',()=>{
     const history=[
       entry('2026-09-01T00:00:00.000Z','Improving','older'),
