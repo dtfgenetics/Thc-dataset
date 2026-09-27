@@ -24,7 +24,7 @@ for (const marker of ['analysisFile?: File','analysisPreviewUrl?: string','analy
   ok(files.types.includes(marker), `evidence contract missing: ${marker}`)
 }
 
-ok(files.observations.includes('item.analysisFile ?? item.file'), 'visual analysis must prefer derived view with original fallback')
+ok(files.observations.includes("item.analysisFile ? [item.file, item.analysisFile] : [item.file]"), 'visual analysis must send original plus derived detail')
 ok(files.app.includes('URL.revokeObjectURL(item.analysisPreviewUrl)'), 'derived preview URLs must be revoked')
 ok(files.uploader.includes('Use original for analysis'), 'learner must be able to return to original analysis view')
 ok(files.uploader.includes('Derived detail active · original retained'), 'UI must disclose derived view state')
