@@ -101,3 +101,27 @@ Action taken:
 - added regression tests for mixed/improving/worsening ordering behavior.
 
 This improves auditability: the displayed overall trend can be traced back to the actual recent follow-up records rather than appearing as an unexplained status label.
+
+
+## Ranked next-evidence suggestions
+
+Action taken:
+- added `src/lib/evidence-priority.ts`;
+- added deterministic coverage in `src/lib/evidence-priority.test.ts`;
+- integrated the ranking into `summarizeCaseTrend()`.
+
+The old follow-up guidance mostly selected the leading differential's first missing-evidence item. The new logic ranks missing evidence across the top three candidates and prefers checks that both matter clinically/diagnostically and separate candidates.
+
+Priority factors include:
+- validated laboratory confirmation;
+- microscopy where required;
+- root/crown, underside, whole-plant and close-up views;
+- measured pH and EC;
+- watering/substrate-moisture context;
+- candidate-specific missing evidence;
+- whether the evidence is missing from the leader or runner-up;
+- whether the same evidence is missing from every candidate.
+
+Shared gaps remain useful for raising overall confidence, but candidate-specific evidence is preferred when it can distinguish competing explanations.
+
+This is still a transparent heuristic, not a probability model or automated medical-style test-selection engine. The user-facing rationale explains whether a suggestion is candidate-specific or shared across the leading hypotheses.
