@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - 'scripts/audit-grow-doc-near-duplicates.py'
+      - 'scripts/validate-grow-doc-near-duplicate-audit.py'
       - 'tests/test_grow_doc_near_duplicate_audit.py'
       - '.github/workflows/grow-doc-near-duplicate-audit.yml'
   push:
     branches: [main]
     paths:
       - 'scripts/audit-grow-doc-near-duplicates.py'
+      - 'scripts/validate-grow-doc-near-duplicate-audit.py'
       - 'tests/test_grow_doc_near_duplicate_audit.py'
       - '.github/workflows/grow-doc-near-duplicate-audit.yml'
   workflow_dispatch:
@@ -26,9 +28,5 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Compile auditor
-        run: python -m py_compile scripts/audit-grow-doc-near-duplicates.py
-      - name: Run auditor self-test
-        run: python scripts/audit-grow-doc-near-duplicates.py --self-test
-      - name: Run regression tests
-        run: python -m unittest tests/test_grow_doc_near_duplicate_audit.py -v
+      - name: Validate near-duplicate audit
+        run: python scripts/validate-grow-doc-near-duplicate-audit.py
