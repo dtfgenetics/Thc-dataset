@@ -125,3 +125,6 @@ Priority factors include:
 Shared gaps remain useful for raising overall confidence, but candidate-specific evidence is preferred when it can distinguish competing explanations.
 
 This is still a transparent heuristic, not a probability model or automated medical-style test-selection engine. The user-facing rationale explains whether a suggestion is candidate-specific or shared across the leading hypotheses.
+
+
+The result panel now also exposes the top three ranked next-evidence suggestions in the technical details. Each suggestion includes the evidence item plus a plain-language explanation of whether it is shared across all leading candidates or specifically useful for separating one candidate from the others.
