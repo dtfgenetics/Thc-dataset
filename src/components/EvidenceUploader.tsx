@@ -1,6 +1,7 @@
-import { AlertCircle, Camera, Check, FileVideo, ImagePlus, LoaderCircle, Plus, Trash2 } from 'lucide-react'
-import { useRef } from 'react'
+import { AlertCircle, Camera, Check, FileVideo, ImagePlus, LoaderCircle, Plus, ScanSearch, Trash2 } from 'lucide-react'
+import { useRef, useState } from 'react'
 import type { EvidenceFile, EvidenceSlot } from '../types'
+import { ImageDetailEditor } from './ImageDetailEditor'
 
 const primarySlots: Array<{ id: EvidenceSlot; title: string; guidance: string; accept: string }> = [
   { id: 'whole-plant', title: 'Whole plant', guidance: 'Include the pot and full canopy when possible.', accept: 'image/jpeg,image/png,image/webp' },
@@ -17,10 +18,13 @@ interface EvidenceUploaderProps {
   evidence: EvidenceFile[]
   onFiles: (slot: EvidenceSlot, files: FileList) => void
   onRemove: (id: string) => void
+  onDerivedView: (id: string, file: File | null, transform?: EvidenceFile['analysisTransform']) => void
 }
 
-export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUploaderProps) {
+export function EvidenceUploader({ evidence, onFiles, onRemove, onDerivedView }: EvidenceUploaderProps) {
   const inputRefs = useRef<Partial<Record<EvidenceSlot, HTMLInputElement | null>>>({})
+  const [editingId, setEditingId] = useState<string>()
+  const editing = evidence.find((item) => item.id === editingId)
 
   const renderSlot = (slot: (typeof primarySlots)[number], compact = false) => {
     const items = evidence.filter((item) => item.slot === slot.id)
@@ -80,6 +84,14 @@ export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUpload
           </div>
         ) : null}
 
+        {item && item.file.type.startsWith('image/') ? (
+          <div className="evidence-detail-actions">
+            <button type="button" onClick={() => setEditingId(item.id)}><ScanSearch size={15} /> Crop / rotate detail</button>
+            {item.analysisFile ? <button type="button" onClick={() => onDerivedView(item.id, null)}>Use original for analysis</button> : null}
+            {item.analysisFile ? <span>Derived detail active · original retained</span> : <span>Original image used for analysis</span>}
+          </div>
+        ) : null}
+
         {item?.notes.length ? <ul className="quality-notes">{item.notes.map((note) => <li key={note}>{note}</li>)}</ul> : null}
       </div>
     )
@@ -104,6 +116,15 @@ export function EvidenceUploader({ evidence, onFiles, onRemove }: EvidenceUpload
       </details>
 
       <div className="privacy-note"><Check size={16} /><span>Your upload is for this diagnostic session. It is not added to the training dataset without separate explicit consent.</span></div>
+
+      {editing ? (
+        <ImageDetailEditor
+          source={editing.file}
+          open
+          onClose={() => setEditingId(undefined)}
+          onApply={(file, transform) => onDerivedView(editing.id, file, transform)}
+        />
+      ) : null}
     </section>
   )
 }
