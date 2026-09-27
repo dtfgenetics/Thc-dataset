@@ -171,9 +171,9 @@ export default function App() {
           </section>
 
           <div className="grow-doc-stepbar" aria-label="Diagnostic workflow">
-            <div><span>01</span><strong>Upload</strong><small>Start with the plant</small></div>
-            <div><span>02</span><strong>Review</strong><small>Confirm visible signs</small></div>
-            <div><span>03</span><strong>Act</strong><small>Get the next step</small></div>
+            <div><span>01</span><strong>Add photo</strong><small>One clear view is enough</small></div>
+            <div><span>02</span><strong>Get result</strong><small>Compare plausible causes</small></div>
+            <div><span>03</span><strong>Verify</strong><small>Check the next useful clue</small></div>
           </div>
 
           <div className="diagnostic-layout">
