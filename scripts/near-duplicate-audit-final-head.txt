@@ -1,1 +1,1 @@
-This branch must be evaluated at its exact head; this marker is informational only.
+FINAL HEAD — NO SUCCESS CLAIM UNTIL CI
