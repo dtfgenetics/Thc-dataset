@@ -89,3 +89,15 @@ Revisit only for repeat-photo alignment, geometric comparison, or validated imag
 
 ### Generic rules engines
 Revisit only if Grow Doc evolves into a much larger declarative rule authoring platform where domain editors need to modify conditions without TypeScript changes. Preserve all current confidence and confirmation boundaries if that transition ever occurs.
+
+
+## Follow-up evidence sequence
+
+Action taken:
+- case history is now sorted by timestamp before recent-outcome classification;
+- the newest five follow-ups are exposed in the diagnostic result;
+- each follow-up shows date, recorded outcome and note;
+- trend classification now uses the deterministically ordered recent records rather than relying on storage order;
+- added regression tests for mixed/improving/worsening ordering behavior.
+
+This improves auditability: the displayed overall trend can be traced back to the actual recent follow-up records rather than appearing as an unexplained status label.
