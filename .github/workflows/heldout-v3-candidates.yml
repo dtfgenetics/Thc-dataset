@@ -3,44 +3,15 @@ name: Validate Grow Doc Heldout V3 Candidates
 on:
   pull_request:
     paths:
-      - 'model_tuning/eval/heldout_v3_candidates.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
-      - 'model_tuning/eval/candidates/**'
-      - 'data/diagnostic-profiles.jsonl'
-      - 'scripts/validate-heldout-v3-candidates.py'
-      - 'scripts/validate-heldout-v3-field-types.py'
-      - 'scripts/validate-heldout-v3-alternate-challenges.py'
-      - 'scripts/build-heldout-v3-promotion-preview.py'
-      - 'scripts/freeze-heldout-v3.py'
-      - 'scripts/audit-model-eval-candidate-leakage.py'
-      - 'scripts/audit-model-eval-candidate-diversity.py'
-      - 'scripts/audit-model-semantic-leakage.py'
-      - 'scripts/audit-model-eval-coverage.py'
-      - 'scripts/report-heldout-promotion-gaps.py'
-      - 'scripts/source_identity.py'
+      - 'data/grow-doc/**'
+      - 'scripts/**heldout-v3**'
       - '.github/workflows/heldout-v3-candidates.yml'
   push:
     branches: [main]
     paths:
-      - 'model_tuning/eval/heldout_v3_candidates.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
-      - 'model_tuning/eval/candidates/**'
-      - 'data/diagnostic-profiles.jsonl'
-      - 'scripts/validate-heldout-v3-candidates.py'
-      - 'scripts/validate-heldout-v3-field-types.py'
-      - 'scripts/validate-heldout-v3-alternate-challenges.py'
-      - 'scripts/build-heldout-v3-promotion-preview.py'
-      - 'scripts/freeze-heldout-v3.py'
-      - 'scripts/audit-model-eval-candidate-leakage.py'
-      - 'scripts/audit-model-eval-candidate-diversity.py'
-      - 'scripts/audit-model-semantic-leakage.py'
-      - 'scripts/audit-model-eval-coverage.py'
-      - 'scripts/report-heldout-promotion-gaps.py'
-      - 'scripts/source_identity.py'
+      - 'data/grow-doc/**'
+      - 'scripts/**heldout-v3**'
       - '.github/workflows/heldout-v3-candidates.yml'
-
-permissions:
-  contents: read
 
 jobs:
   validate:
@@ -49,16 +20,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
-      - name: Validate heldout-v3 candidate benchmark additions
+          python-version: '3.11'
+      - name: Validate heldout-v3 candidates
         run: python scripts/validate-heldout-v3-candidates.py
-      - name: Validate heldout-v3 structured field types
-        run: python scripts/validate-heldout-v3-field-types.py
-      - name: Validate alternate heldout-v3 challenge candidates
+      - name: Validate heldout-v3 structured fields
+        run: python scripts/validate-heldout-v3-structured-fields.py
+      - name: Validate alternate heldout-v3 challenges
         run: python scripts/validate-heldout-v3-alternate-challenges.py
-      - name: Build fail-closed 16-case promotion preview
+      - name: Build combined 16-case promotion preview
         run: python scripts/build-heldout-v3-promotion-preview.py --output /tmp/heldout-v3-promotion-preview.jsonl
-      - name: Verify promotion preview shape and candidate-only state
+      - name: Verify promotion preview shape
         run: |
           python - <<'PY'
           import json
@@ -93,7 +64,14 @@ jobs:
           assert all('candidate_status' not in r and 'promotion_eligible' not in r for r in rows)
           assert all(r.get('must_cite') and r.get('source_metadata') for r in rows)
           assert manifest['sha256']==hashlib.sha256(Path('/tmp/heldout-v3.jsonl').read_bytes()).hexdigest()
-          assert len(manifest['inputs_sha256'])==4
+          expected_inputs={
+              'data/grow-doc/eval/heldout_v3_candidates.jsonl',
+              'data/grow-doc/eval/heldout_v3_final_replication_candidates.jsonl',
+              'data/grow-doc/eval/heldout_v3_source_review.jsonl',
+              'scripts/build-heldout-v3-promotion-preview.py',
+              'scripts/freeze-heldout-v3.py',
+          }
+          assert set(manifest['inputs_sha256'])==expected_inputs, manifest['inputs_sha256']
           for rel, expected in manifest['inputs_sha256'].items():
               assert hashlib.sha256(Path(rel).read_bytes()).hexdigest()==expected, rel
           print('frozen heldout-v3 deterministic materialization + provenance: PASS')
