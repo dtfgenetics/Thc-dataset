@@ -95,8 +95,8 @@ jobs:
           assert manifest['sha256']==hashlib.sha256(Path('/tmp/heldout-v3.jsonl').read_bytes()).hexdigest()
           expected_inputs={
               'model_tuning/eval/heldout_v3_candidates.jsonl',
-              'model_tuning/eval/candidates/heldout_v3_final_replication_candidates.jsonl',
-              'model_tuning/eval/candidates/heldout_v3_source_review.jsonl',
+              'model_tuning/eval/candidates/heldout_v3_final_replication_v1.jsonl',
+              'model_tuning/eval/candidates/heldout_v3_final_replication_v1.review.json',
               'scripts/build-heldout-v3-promotion-preview.py',
               'scripts/freeze-heldout-v3.py',
           }
