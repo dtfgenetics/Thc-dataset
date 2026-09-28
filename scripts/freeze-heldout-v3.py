@@ -16,6 +16,7 @@ import importlib.util
 
 ROOT = Path(__file__).resolve().parents[1]
 BUILDER = ROOT / "scripts/build-heldout-v3-promotion-preview.py"
+FREEZER = Path(__file__).resolve()
 
 
 def load_builder():
@@ -68,6 +69,7 @@ def main() -> None:
             str(builder.FINAL.relative_to(ROOT)): sha256_file(builder.FINAL),
             str(builder.REVIEW.relative_to(ROOT)): sha256_file(builder.REVIEW),
             str(BUILDER.relative_to(ROOT)): sha256_file(BUILDER),
+            str(FREEZER.relative_to(ROOT)): sha256_file(FREEZER),
         }
         manifest = {
             "schema_version": "grow-doc-heldout-v3-freeze-manifest-v1",
