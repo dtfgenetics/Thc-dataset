@@ -5,6 +5,7 @@ on:
     paths:
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'model_tuning/eval/heldout_v3.jsonl'
+      - 'model_tuning/eval/heldout_v3.manifest.json'
       - 'model_tuning/config/base_model_candidates_v1.json'
       - 'scripts/validate-base-model-candidates.py'
       - 'scripts/validate-base-model-research.py'
@@ -24,6 +25,7 @@ on:
     paths:
       - 'model_tuning/eval/heldout_v2.jsonl'
       - 'model_tuning/eval/heldout_v3.jsonl'
+      - 'model_tuning/eval/heldout_v3.manifest.json'
       - 'model_tuning/config/base_model_candidates_v1.json'
       - 'scripts/validate-base-model-candidates.py'
       - 'scripts/validate-base-model-research.py'
