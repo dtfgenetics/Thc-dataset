@@ -1,0 +1,45 @@
+{
+  "schema_version": "grow-doc-heldout-v3-gap-source-research-v1",
+  "promotion_eligible": false,
+  "rag_first": true,
+  "purpose": "Independently source the remaining heldout-v3 replication slices without promoting cases or contaminating training data.",
+  "target_slices": ["hallucination", "education", "regression"],
+  "sources": [
+    {
+      "target_slice": "hallucination",
+      "source_id": "andersonFertigation2021",
+      "title": "Response of essential oil hemp (Cannabis sativa L.) growth, biomass, and cannabinoid profiles to varying fertigation rates",
+      "doi": "10.1371/journal.pone.0252985",
+      "year": 2021,
+      "publisher_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0252985",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "candidate_direction": "Refuse to turn the experiment's 50 ppm N result into a universal Cannabis fertigation optimum; retain cultivar, fertilizer formulation, irrigation EC, container, lighting, and management context.",
+      "evidence_notes": "Five essential-oil hemp cultivars received six fertilizer rates. The study reported best performance at 50 ppm N under its conditions and explicitly cautioned that results may differ with cultivar, environment, and management."
+    },
+    {
+      "target_slice": "education",
+      "source_id": "zhangPhotoperiod2021",
+      "title": "Photoperiodic Flowering Response of Essential Oil, Grain, and Fiber Hemp (Cannabis sativa L.) Cultivars",
+      "doi": "10.3389/fpls.2021.694153",
+      "year": 2021,
+      "publisher_url": "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2021.694153/full",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "candidate_direction": "Teach that critical photoperiod is genotype-dependent and that even same-named cultivars from different sources can behave differently; do not teach one universal flowering trigger.",
+      "evidence_notes": "The controlled study tested 27 hemp cultivars across multiple photoperiods, found cultivar-dependent flowering responses, and reported different behavior among same-named cultivars obtained from different sources."
+    },
+    {
+      "target_slice": "regression",
+      "source_id": "duongHydricResponse2023",
+      "title": "Variation in Hydric Response of Two Industrial Hemp Varieties (Cannabis sativa) to Induced Water Stress",
+      "doi": "10.3390/horticulturae9040431",
+      "year": 2023,
+      "publisher_url": "https://www.mdpi.com/2311-7524/9/4/431",
+      "source_identity_verified": true,
+      "claim_scope_review": "pass",
+      "candidate_direction": "Catch regressions that convert cultivar-specific drought responses into a universal irrigation rule or claim that water stress necessarily increases THC/CBD concentration.",
+      "evidence_notes": "Two essential-oil hemp cultivars showed different water-stress strategies; water stress did not significantly affect THC/CBD concentration in the study, while cultivar-specific water use and yield responses differed."
+    }
+  ]
+}
