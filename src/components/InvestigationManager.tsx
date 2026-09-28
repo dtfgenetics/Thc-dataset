@@ -1,5 +1,6 @@
-import { FolderOpen, Plus } from 'lucide-react'
+import { Download, FolderOpen, Plus } from 'lucide-react'
 import type { InvestigationCase } from '../types'
+import { investigationExportFilename, serializeInvestigationExport } from '../lib/investigations'
 import './InvestigationManager.css'
 
 interface InvestigationManagerProps {
@@ -11,11 +12,21 @@ interface InvestigationManagerProps {
 }
 
 export function InvestigationManager({ active, cases, onActivate, onCreate, onRename }: InvestigationManagerProps) {
+  const exportActiveCase = () => {
+    const blob = new Blob([serializeInvestigationExport(active)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    link.download = investigationExportFilename(active)
+    link.click()
+    URL.revokeObjectURL(url)
+  }
+
   return (
     <section className="investigation-manager" aria-label="Grow Doc investigations">
       <div className="investigation-manager-heading">
         <div><span>Case management</span><strong>{cases.length} saved investigation{cases.length === 1 ? '' : 's'}</strong></div>
-        <button className="secondary-button" type="button" onClick={onCreate}><Plus size={16} /> New case</button>
+        <div className="investigation-manager-actions"><button className="secondary-button" type="button" onClick={exportActiveCase}><Download size={16} /> Export case</button><button className="secondary-button" type="button" onClick={onCreate}><Plus size={16} /> New case</button></div>
       </div>
       <div className="investigation-manager-controls">
         <label>
