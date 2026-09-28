@@ -1,6 +1,7 @@
 .investigation-manager { margin: 0 0 28px; padding: 18px; border: 1px solid var(--line-dark); border-radius: 18px; background: color-mix(in srgb, var(--panel) 92%, transparent); }
 .investigation-manager-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
-.investigation-manager-heading div { display: grid; gap: 3px; }
+.investigation-manager-heading > div:first-child { display: grid; gap: 3px; }
+.investigation-manager-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
 .investigation-manager-heading span { font-size: .76rem; text-transform: uppercase; letter-spacing: .12em; opacity: .72; }
 .investigation-manager-controls { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(260px, 1fr); gap: 14px; }
 .investigation-manager label { display: grid; gap: 7px; font-size: .8rem; font-weight: 700; }
@@ -14,7 +15,9 @@
 .investigation-timeline small { opacity: .72; }
 .investigation-manager-empty { margin: 14px 0 0; opacity: .72; }
 @media (max-width: 720px) {
-  .investigation-manager-heading { align-items: flex-start; }
+  .investigation-manager-heading { align-items: flex-start; flex-direction: column; }
+  .investigation-manager-actions { width: 100%; justify-content: stretch; }
+  .investigation-manager-actions .secondary-button { flex: 1 1 160px; }
   .investigation-manager-controls { grid-template-columns: 1fr; }
   .investigation-timeline article { grid-template-columns: 1fr; gap: 4px; }
 }
