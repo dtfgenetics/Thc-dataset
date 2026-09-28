@@ -52,6 +52,8 @@ jobs:
         run: python scripts/validate-heldout-v3-candidates.py
       - name: Validate heldout-v3 structured field types
         run: python scripts/validate-heldout-v3-field-types.py
+      - name: Validate alternate heldout-v3 challenge candidates
+        run: python scripts/validate-heldout-v3-alternate-challenges.py
       - name: Build fail-closed 16-case promotion preview
         run: python scripts/build-heldout-v3-promotion-preview.py --output /tmp/heldout-v3-promotion-preview.jsonl
       - name: Verify promotion preview shape and candidate-only state
