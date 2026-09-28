@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
+import hashlib
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 V3 = ROOT / "model_tuning/eval/heldout_v3.jsonl"
+V3_MANIFEST = ROOT / "model_tuning/eval/heldout_v3.manifest.json"
 
 # Only files that directly bind the active benchmark belong here. Validators
 # that derive the benchmark transitively from the registry/launcher must not
@@ -23,10 +26,38 @@ DIRECT_CONSUMERS = [
 ]
 
 
+def validate_v3_manifest(errors):
+    if not V3.exists():
+        if V3_MANIFEST.exists():
+            errors.append("heldout_v3.manifest.json exists without heldout_v3.jsonl")
+        return
+    if not V3_MANIFEST.exists():
+        errors.append("heldout_v3.jsonl exists without heldout_v3.manifest.json")
+        return
+    try:
+        manifest = json.loads(V3_MANIFEST.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"invalid heldout-v3 manifest: {exc}")
+        return
+    expected_sha = hashlib.sha256(V3.read_bytes()).hexdigest()
+    if manifest.get("schema_version") != "grow-doc-heldout-v3-freeze-manifest-v1":
+        errors.append("heldout-v3 manifest has unexpected schema_version")
+    if manifest.get("sha256") != expected_sha:
+        errors.append("heldout-v3 manifest SHA-256 does not match frozen benchmark bytes")
+    if manifest.get("cases") != 16:
+        errors.append("heldout-v3 manifest must record exactly 16 cases")
+    if manifest.get("policy") != "frozen_evaluation_only_never_training":
+        errors.append("heldout-v3 manifest missing frozen evaluation-only policy")
+    inputs = manifest.get("inputs_sha256")
+    if not isinstance(inputs, dict) or "scripts/freeze-heldout-v3.py" not in inputs:
+        errors.append("heldout-v3 manifest must bind the freezer in inputs_sha256")
+
+
 def main():
     expected = "heldout_v3.jsonl" if V3.exists() else "heldout_v2.jsonl"
     forbidden = "heldout_v2.jsonl" if V3.exists() else "heldout_v3.jsonl"
     errors = []
+    validate_v3_manifest(errors)
     for rel in DIRECT_CONSUMERS:
         path = ROOT / rel
         if not path.exists():
