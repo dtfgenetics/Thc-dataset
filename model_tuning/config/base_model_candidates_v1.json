@@ -3,10 +3,10 @@
   "purpose": "Pre-training base-model comparison registry. Registry eligibility does not imply a training run or promotion.",
   "benchmark_contract": {
     "heldout_path": "model_tuning/eval/heldout_v3.jsonl",
-    "heldout_git_blob_sha": "781888018f6bc3d3117838eaaaf6708bdea112d7",
+    "heldout_git_blob_sha": "8eb2f3c6f2e58203709d8d93c3b6f463f0aa01bc",
     "rag_snapshot_path": "model_tuning/rag_snapshots/heldout_v3.jsonl",
     "rag_builder_path": "scripts/build-rag-eval-snapshot.py",
-    "rag_builder_git_blob_sha": "4afb8857eb9dd3c093e3f5be7c0dc4e72d7e8e91",
+    "rag_builder_git_blob_sha": "02b7c512a8d05af793e7092847145c420e8c445f",
     "required_slices": [
       "factuality",
       "diagnostic",
