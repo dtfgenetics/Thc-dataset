@@ -39,7 +39,8 @@
     "validate:rag-snapshot": "python3 scripts/build-rag-eval-snapshot.py --self-test",
     "validate:qlora-config": "python3 scripts/validate-qlora-config.py && python3 scripts/validate-qlora-config.py --self-test",
     "validate:qlora-dependencies": "python3 scripts/verify-qlora-dependency-contract.py && python3 scripts/verify-qlora-dependency-contract.py --self-test",
-    "validate:qlora-trainer": "python3 scripts/train-grow-doc-qlora.py --self-test"
+    "validate:qlora-trainer": "python3 scripts/train-grow-doc-qlora.py --self-test",
+    "validate:model-improvement-planner": "python3 scripts/plan-grow-doc-improvements.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
