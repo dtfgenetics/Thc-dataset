@@ -77,8 +77,8 @@ def validate(path: Path) -> list[str]:
             fail(errors, f"required_slices missing: {sorted(missing)}")
 
     heldout_path = policy.get("heldout_path")
-    if heldout_path != "model_tuning/eval/heldout_v2.jsonl":
-        fail(errors, "heldout_path must remain model_tuning/eval/heldout_v2.jsonl")
+    if heldout_path != "model_tuning/eval/heldout_v3.jsonl":
+        fail(errors, "heldout_path must remain model_tuning/eval/heldout_v3.jsonl")
 
     candidates = data.get("candidates")
     if not isinstance(candidates, list) or not candidates:
