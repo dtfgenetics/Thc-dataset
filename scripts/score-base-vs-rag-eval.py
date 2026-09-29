@@ -218,7 +218,7 @@ def self_test() -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--eval", default="model_tuning/eval/heldout_v2.jsonl")
+    parser.add_argument("--eval", default="model_tuning/eval/heldout_v3.jsonl")
     parser.add_argument("--base-reviewed")
     parser.add_argument("--rag-reviewed")
     parser.add_argument("--base-raw")

@@ -1,8 +1,8 @@
 # Grow Doc checkpoint scoring and promotion
 
-`heldout_v2.jsonl` is the current frozen promotion benchmark and must never be included in SFT, preference, retrieval-training, RAG-corpus tuning, adapter-training, adapter-merge, or model-soup inputs.
+`heldout_v3.jsonl` is the current frozen promotion benchmark and must never be included in SFT, preference, retrieval-training, RAG-corpus tuning, adapter-training, adapter-merge, or model-soup inputs.
 
-`heldout_v1.jsonl` remains a legacy regression set. It may be run to detect historical regressions, but it must not replace `heldout_v2.jsonl` for current checkpoint promotion decisions. Neither held-out set may be used as training data or as a source for hand-tuning answers.
+`heldout_v1.jsonl` remains a legacy regression set. It may be run to detect historical regressions, but it must not replace `heldout_v3.jsonl` for current checkpoint promotion decisions. Neither held-out set may be used as training data or as a source for hand-tuning answers.
 
 ## Prediction format
 
@@ -28,7 +28,7 @@ python3 scripts/score-model-eval.py \
 
 The current promotion rule requires at least +2.0 percentage points in aggregate score and no regression on any protected held-out slice: factuality, diagnostic, hallucination resistance, citation accuracy, science, education, grounded QA, or regression. The scorer refuses promotion comparisons that lack reviewed semantic judgments.
 
-For current promotion work, predictions and baselines must correspond to the exact `heldout_v2.jsonl` case set and the same pinned runtime contract. `heldout_v1.jsonl` results should be reported separately as legacy regression evidence rather than mixed into the promotion aggregate.
+For current promotion work, predictions and baselines must correspond to the exact `heldout_v3.jsonl` case set and the same pinned runtime contract. `heldout_v1.jsonl` results should be reported separately as legacy regression evidence rather than mixed into the promotion aggregate.
 
 ## Interpretation
 
