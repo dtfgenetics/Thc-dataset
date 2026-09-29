@@ -6,7 +6,7 @@ This directory is intentionally separate from the vision/reference-media admissi
 
 `data/model-training-readiness.json` currently reports zero training-eligible vision samples. Do not train a Cannabis visual-diagnosis adapter from reference crops or display-only media. Vision supervision stays blocked until rights, human review, confirmation evidence, source-group isolation, and duplicate/leakage gates pass.
 
-No real Grow Doc model training, adapter promotion, adapter merge, model soup, or deployment is implied by the files in this directory. The first compute experiment remains the exact Qwen3-8B base-only versus base-plus-frozen-RAG comparison on `heldout_v2`.
+No real Grow Doc model training, adapter promotion, adapter merge, model soup, or deployment is implied by the files in this directory. The first compute experiment remains the exact Qwen3-8B base-only versus base-plus-frozen-RAG comparison on `heldout_v3`.
 
 ## Strategy
 
@@ -18,7 +18,7 @@ No real Grow Doc model training, adapter promotion, adapter merge, model soup, o
 
 ## Dataset lanes
 
-- `eval/heldout_v2.jsonl`: current locked behavioral/factuality evaluation set. Never use it for training, prompt tuning, adapter-selection example generation, or retrieval demonstrations.
+- `eval/heldout_v3.jsonl`: current locked behavioral/factuality evaluation set. Never use it for training, prompt tuning, adapter-selection example generation, or retrieval demonstrations.
 - `generated/splits/train_sft_v1.jsonl` and `generated/splits/dev_sft_v1.jsonl`: source-component-isolated supervised behavior examples.
 - `generated/splits/train_grounded_qa_mixture_v1.jsonl`: deterministic, profile-balanced grounded-QA subset used in the actual training mixture. It is capped at 20% of training rows.
 - `generated/splits/dev_grounded_qa_v1.jsonl`: development grounded-QA lane; never mixed into training.
@@ -147,8 +147,8 @@ The frozen evaluation retriever uses `grow-doc-field-weighted-idf-v2`. Ranking i
 
 ## Experiment order
 
-1. Freeze the exact base model/tokenizer/template/dependency contract, `heldout_v2`, decoding settings, and training artifacts.
-2. Materialize the exact frozen `heldout_v2` RAG snapshot and record required-source retrieval coverage without feeding held-out labels into ranking.
+1. Freeze the exact base model/tokenizer/template/dependency contract, `heldout_v3`, decoding settings, and training artifacts.
+2. Materialize the exact frozen `heldout_v3` RAG snapshot and record required-source retrieval coverage without feeding held-out labels into ranking.
 3. Pass the base-vs-RAG hardware/runtime preflight on BF16-capable CUDA hardware with at least 20 GiB VRAM.
 4. Run `scripts/run-base-vs-rag-experiment.py` to compare the untuned pinned base model without retrieval against the identical base model with the frozen snapshot.
 5. Blind-review and score both arms using the dedicated base-vs-RAG workflow. Use that result to decide whether QLoRA is justified.
