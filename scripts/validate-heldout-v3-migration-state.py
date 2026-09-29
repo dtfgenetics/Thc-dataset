@@ -56,6 +56,7 @@ def validate_v3_manifest(errors):
 def main():
     expected = "heldout_v3.jsonl" if V3.exists() else "heldout_v2.jsonl"
     forbidden = "heldout_v2.jsonl" if V3.exists() else "heldout_v3.jsonl"
+    forbidden_rag_manifest = "heldout_v2.manifest.json" if V3.exists() else "heldout_v3.manifest.json"
     errors = []
     validate_v3_manifest(errors)
     for rel in DIRECT_CONSUMERS:
@@ -68,6 +69,8 @@ def main():
             errors.append(f"{rel}: missing {expected}")
         if forbidden in text:
             errors.append(f"{rel}: partial migration reference to {forbidden}")
+        if forbidden_rag_manifest in text:
+            errors.append(f"{rel}: partial migration reference to {forbidden_rag_manifest}")
     if errors:
         raise SystemExit("migration-state check failed:\n- " + "\n- ".join(errors))
     print(f"migration state: PASS direct_consumers={len(DIRECT_CONSUMERS)}")
