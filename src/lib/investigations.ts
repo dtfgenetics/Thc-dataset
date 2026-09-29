@@ -57,3 +57,23 @@ export function activateInvestigation(id: string) {
   localStorage.setItem(ACTIVE_CASE_KEY, id)
   return match
 }
+
+export function investigationExportFilename(investigation: InvestigationCase) {
+  const safeName = (investigation.plantName || 'grow-doc-case')
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 48) || 'grow-doc-case'
+  const date = (investigation.updatedAt || investigation.createdAt || new Date().toISOString()).slice(0, 10)
+  return `thc-grow-doc-${safeName}-${date}.json`
+}
+
+export function serializeInvestigationExport(investigation: InvestigationCase) {
+  return JSON.stringify({
+    schemaVersion: 1,
+    product: 'THC Grow Doc',
+    exportedAt: new Date().toISOString(),
+    investigation,
+  }, null, 2) + '\n'
+}
