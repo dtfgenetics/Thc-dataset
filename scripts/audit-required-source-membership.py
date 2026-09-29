@@ -15,7 +15,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 RAG_IMPL = ROOT / "scripts/build-rag-eval-snapshot.py"
 CLAIMS = ROOT / "model_tuning/generated/rag/claims_v1.jsonl"
-BENCH = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+BENCH = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 spec = importlib.util.spec_from_file_location("rag_eval", RAG_IMPL)
 if spec is None or spec.loader is None:

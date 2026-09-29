@@ -23,9 +23,9 @@ MODEL_REVISION = "b968826d9c46dd6066d109eabc6255188de91218"
 TOKENIZER_REVISION = MODEL_REVISION
 CHAT_TEMPLATE_SHA256 = "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8"
 DEPENDENCY_LOCK_SHA256 = "ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e"
-BENCHMARK = "model_tuning/eval/heldout_v2.jsonl"
-RAG_SNAPSHOT = "model_tuning/rag_snapshots/heldout_v2.jsonl"
-RAG_MANIFEST = "model_tuning/rag_snapshots/heldout_v2.manifest.json"
+BENCHMARK = "model_tuning/eval/heldout_v3.jsonl"
+RAG_SNAPSHOT = "model_tuning/rag_snapshots/heldout_v3.jsonl"
+RAG_MANIFEST = "model_tuning/rag_snapshots/heldout_v3.manifest.json"
 REQUIREMENTS = ROOT / "model_tuning/requirements.in"
 DIRECT_PACKAGES = ("torch", "transformers", "peft", "bitsandbytes", "accelerate")
 STRICT_EVALUATOR = ROOT / "scripts/run-model-eval-strict.py"
@@ -322,10 +322,10 @@ def self_test() -> None:
     assert cmd[cmd.index("--tokenizer-chat-template-sha256") + 1] == CHAT_TEMPLATE_SHA256
     assert cmd[cmd.index("--scorer-revision") + 1] == "a" * 40
     assert tracked_dirty_paths("") == []
-    fixture_status = " M model_tuning/generated/rag/claims_v1.jsonl\nM  model_tuning/rag_snapshots/heldout_v2.jsonl\n"
+    fixture_status = " M model_tuning/generated/rag/claims_v1.jsonl\nM  model_tuning/rag_snapshots/heldout_v3.jsonl\n"
     assert tracked_dirty_paths(fixture_status) == [
         "model_tuning/generated/rag/claims_v1.jsonl",
-        "model_tuning/rag_snapshots/heldout_v2.jsonl",
+        "model_tuning/rag_snapshots/heldout_v3.jsonl",
     ]
     try:
         validate_post_regeneration_status(fixture_status)

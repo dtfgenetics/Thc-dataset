@@ -1,0 +1,42 @@
+{
+  "schema_version": "grow-doc-heldout-v3-freeze-manifest-v1",
+  "artifact": "model_tuning/eval/heldout_v3.jsonl",
+  "sha256": "f63a66ab829de20adda74c18a5c5f0fdf07905bc631e53d02de7c3ff62f1f3e0",
+  "cases": 16,
+  "categories": [
+    "citation_accuracy",
+    "diagnostic",
+    "education",
+    "factuality",
+    "grounded_qa",
+    "hallucination",
+    "regression",
+    "science"
+  ],
+  "source_ids": [
+    "bauerleLeafAge2020",
+    "botrytisOregonSpecies",
+    "campbellSeedlingSex2021",
+    "hlvdCaliforniaCausality",
+    "hlvdTransmission2023",
+    "llewellynLightUv2022",
+    "malikAminoAcids2022",
+    "moradMagnesium2023",
+    "morelloSpectrum2022",
+    "morganDrought2024",
+    "powderyMildewOregon",
+    "powellBauerleTranspirationNutrient2026",
+    "rodriguezMorrisonUvb2021",
+    "salonerNitrogen2020",
+    "salonerPotassium2022",
+    "westmorelandPhosphorus2022"
+  ],
+  "inputs_sha256": {
+    "model_tuning/eval/heldout_v3_candidates.jsonl": "4cb4b8edd13f0cf3be7247e5d5625dda449dfaed843cb7aa15b76dcf59a94890",
+    "model_tuning/eval/candidates/heldout_v3_final_replication_v1.jsonl": "b28336dcf5e034c6d1bc873869ee41e8d089ffd1b7c1faf0cc9ec7b275db9ffc",
+    "model_tuning/eval/candidates/heldout_v3_final_replication_v1.review.json": "b3fb6365865a0e705f85c39e9ff4bd8b86cad23ef6c4bd61c9763ccdcc391de8",
+    "scripts/build-heldout-v3-promotion-preview.py": "d19090c89849d668ca5a78a05e05ae32551146d3348d896dd3356d17ba8ed3e2",
+    "scripts/freeze-heldout-v3.py": "28e36d5388cbaf04e310392de25d128e4fad605f61fcb55b198a4889b8103720"
+  },
+  "policy": "frozen_evaluation_only_never_training"
+}

@@ -48,14 +48,14 @@ def validate(path: Path) -> None:
         fail('schema_version must be 1')
     contract = data.get('benchmark_contract') or {}
     heldout_path = contract.get('heldout_path')
-    if heldout_path != 'model_tuning/eval/heldout_v2.jsonl':
-        fail('benchmark contract must use heldout_v2.jsonl')
+    if heldout_path != 'model_tuning/eval/heldout_v3.jsonl':
+        fail('benchmark contract must use heldout_v3.jsonl')
     heldout_blob = contract.get('heldout_git_blob_sha')
     if not SHA40.fullmatch(heldout_blob or ''):
         fail('benchmark contract must pin heldout_git_blob_sha')
     if git_blob_sha(Path(heldout_path)) != heldout_blob:
         fail('heldout_v2 content does not match frozen heldout_git_blob_sha')
-    if contract.get('rag_snapshot_path') != 'model_tuning/rag_snapshots/heldout_v2.jsonl':
+    if contract.get('rag_snapshot_path') != 'model_tuning/rag_snapshots/heldout_v3.jsonl':
         fail('benchmark contract must use the heldout_v2 RAG snapshot path')
     rag_builder_path = contract.get('rag_builder_path')
     if rag_builder_path != 'scripts/build-rag-eval-snapshot.py':

@@ -15,7 +15,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 BASE_PATH = ROOT / "scripts/build-rag-eval-snapshot.py"
 CLAIMS = ROOT / "model_tuning/generated/rag/claims_v1.jsonl"
-BENCH = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+BENCH = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 DEPTHS = (1, 3, 5, 7, 10, 15, 20)
 REQUIRED_COMPLETE_DEPTH = 5
 

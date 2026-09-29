@@ -194,7 +194,7 @@ def self_test() -> int:
 
 def main() -> int:
     ap=argparse.ArgumentParser()
-    ap.add_argument("path", nargs="?", default="model_tuning/eval/heldout_v2.jsonl")
+    ap.add_argument("path", nargs="?", default="model_tuning/eval/heldout_v3.jsonl")
     ap.add_argument("--self-test",action="store_true")
     args=ap.parse_args()
     if args.self_test:

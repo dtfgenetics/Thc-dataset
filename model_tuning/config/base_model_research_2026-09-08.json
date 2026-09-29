@@ -4,7 +4,7 @@
   "purpose": "Research-only candidate update. Entries are not benchmark-eligible or training-eligible until exact runtime, prompt, revision, hardware, and frozen heldout/RAG contracts are verified.",
   "selection_policy": {
     "rag_first": true,
-    "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
+    "heldout_path": "model_tuning/eval/heldout_v3.jsonl",
     "required_slices": ["factuality", "diagnostic", "hallucination", "citation_accuracy", "science", "education", "grounded_qa", "regression"],
     "promotion_rule": "Compare on identical frozen heldout and RAG snapshots. Do not train, merge, soup, or promote from upstream benchmark claims alone."
   },
@@ -41,7 +41,7 @@
         "freeze an explicit deterministic Grow Doc decoding contract; do not inherit upstream sampling defaults",
         "verify compatible pinned Transformers/PEFT/bitsandbytes runtime for qwen3_5_moe",
         "verify BF16/quantized hardware envelope",
-        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+        "bind exact revision to frozen heldout-v3 and RAG snapshot"
       ],
       "notes": "Upstream reports 35B total parameters with 3B activated and Apache-2.0 licensing. Treat upstream benchmark tables as discovery evidence only, not Grow Doc evaluation results. Runtime observations document upstream behavior but do not make this candidate benchmark-eligible."
     },
@@ -60,7 +60,7 @@
         "freeze exact revision/tokenizer/processor/template hashes",
         "verify deterministic decoding and dependency contracts",
         "verify hardware envelope",
-        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+        "bind exact revision to frozen heldout-v3 and RAG snapshot"
       ],
       "notes": "Research-only. Newer version number is not evidence of better Grow Doc factuality or diagnostics; it must beat the frozen Qwen3-8B baseline under the project benchmark contract."
     },
@@ -82,7 +82,7 @@
         "freeze an explicit deterministic Grow Doc decoding contract",
         "verify compatible pinned Transformers/PEFT/bitsandbytes runtime for qwen3_5",
         "verify BF16/quantized hardware envelope",
-        "bind exact revision to frozen heldout-v2 and RAG snapshot"
+        "bind exact revision to frozen heldout-v3 and RAG snapshot"
       ],
       "notes": "Research-only. The model is close enough in size to the Qwen3-8B baseline to be an informative challenger, but upstream model-card or community benchmark results are not Grow Doc evidence. Do not benchmark or tune until the prompt contract is defect-free and immutable."
     }
