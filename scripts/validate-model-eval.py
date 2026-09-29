@@ -119,14 +119,32 @@ def validate(path: pathlib.Path, *, require_all_categories: bool = True) -> list
             if not isinstance(bindings, list) or len(bindings) != len(points):
                 errors.append(f"{path}:{lineno}: claim_source_bindings must contain one binding per expected_point")
             else:
+                seen_point_indexes=set()
                 for index, binding in enumerate(bindings):
-                    if not isinstance(binding, list) or not binding:
-                        errors.append(f"{path}:{lineno}: claim_source_bindings[{index}] must be a non-empty citation list")
+                    # Historical eval rows used a direct citation-list binding. Heldout-v3
+                    # uses the canonical structured form with an explicit point index.
+                    if isinstance(binding, dict):
+                        point_index=binding.get("expected_point_index")
+                        citations=binding.get("citations")
+                        if not isinstance(point_index, int) or point_index < 0 or point_index >= len(points):
+                            errors.append(f"{path}:{lineno}: claim_source_bindings[{index}] has invalid expected_point_index {point_index!r}")
+                            continue
+                        if point_index in seen_point_indexes:
+                            errors.append(f"{path}:{lineno}: claim_source_bindings duplicates expected_point_index {point_index}")
+                        seen_point_indexes.add(point_index)
+                    else:
+                        point_index=index
+                        citations=binding
+                    if not isinstance(citations, list) or not citations:
+                        errors.append(f"{path}:{lineno}: claim_source_bindings[{index}] must contain a non-empty citation list")
                         continue
-                    for cite in binding:
+                    for cite in citations:
                         canonical=canonical_source_id(cite) if isinstance(cite, str) else ""
                         if not canonical or canonical not in canonical_cites:
                             errors.append(f"{path}:{lineno}: claim_source_bindings[{index}] references citation outside must_cite: {cite!r}")
+                structured=[binding for binding in bindings if isinstance(binding, dict)]
+                if structured and seen_point_indexes != set(range(len(points))):
+                    errors.append(f"{path}:{lineno}: structured claim_source_bindings must cover every expected_point_index exactly once")
 
     if require_all_categories:
         missing_categories=sorted(category for category, count in category_counts.items() if count == 0)
