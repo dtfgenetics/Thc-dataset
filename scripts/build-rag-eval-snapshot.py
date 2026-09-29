@@ -310,7 +310,7 @@ def main() -> int:
     ap.add_argument("--claims", type=Path, default=Path("model_tuning/generated/rag/claims_v1.jsonl"))
     ap.add_argument("--benchmark", type=Path, default=Path("model_tuning/eval/heldout_v3.jsonl"))
     ap.add_argument("--output", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v3.jsonl"))
-    ap.add_argument("--manifest", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v2.manifest.json"))
+    ap.add_argument("--manifest", type=Path, default=Path("model_tuning/rag_snapshots/heldout_v3.manifest.json"))
     ap.add_argument("--top-k", type=int, default=5)
     args = ap.parse_args()
     if args.self_test:
