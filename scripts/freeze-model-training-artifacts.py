@@ -231,7 +231,9 @@ def self_test() -> None:
     if missing:
         raise AssertionError(f"missing freezer dependencies: {missing}")
 
-    assert HELDOUT == ROOT / "model_tuning/eval/heldout_v3.jsonl"\n    assert "heldout_v2.jsonl" not in Path(__file__).read_text(encoding="utf-8")\n    assert grounded_qa_limit(144, 0.20) == 36
+    assert HELDOUT == ROOT / "model_tuning/eval/heldout_v3.jsonl"
+    assert "heldout_v2.jsonl" not in pathlib.Path(__file__).read_text(encoding="utf-8")
+    assert grounded_qa_limit(144, 0.20) == 36
     rows = [
         {"id": f"q{i}", "profile_id": f"p{i % 5}", "source_ids": [f"s{i}"]}
         for i in range(20)
