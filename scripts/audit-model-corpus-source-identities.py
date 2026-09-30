@@ -23,7 +23,7 @@ from source_identity import canonical_source_identity, canonical_sources
 
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 
 def load_module(path: pathlib.Path, name: str):
