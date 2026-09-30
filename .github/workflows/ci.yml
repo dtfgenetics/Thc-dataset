@@ -97,7 +97,7 @@ jobs:
             model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl \
             model_tuning/generated/splits/dev_sft_v1.jsonl \
             model_tuning/generated/splits/dev_grounded_qa_v1.jsonl \
-            model_tuning/eval/heldout_v2.jsonl \
+            model_tuning/eval/heldout_v3.jsonl \
             --fail-on-missing-provenance \
             --report model_tuning/generated/audits/dedup_leakage_v1.json
       - name: Retain pre-verification model artifacts
@@ -114,9 +114,9 @@ jobs:
         run: |
           python3 scripts/build-rag-eval-snapshot.py \
             --claims model_tuning/generated/rag/claims_v1.jsonl \
-            --benchmark model_tuning/eval/heldout_v2.jsonl \
-            --output model_tuning/rag_snapshots/heldout_v2.jsonl \
-            --manifest model_tuning/rag_snapshots/heldout_v2.manifest.json \
+            --benchmark model_tuning/eval/heldout_v3.jsonl \
+            --output model_tuning/rag_snapshots/heldout_v3.jsonl \
+            --manifest model_tuning/rag_snapshots/heldout_v3.manifest.json \
             --top-k 5
       - name: Validate strict no-offload evaluator
         run: python3 scripts/run-model-eval-strict.py --strict-self-test
