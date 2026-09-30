@@ -233,7 +233,7 @@ def training_eval_fingerprints(eval_path: pathlib.Path) -> set[str]:
 
 def training_eval_source_ids(eval_path: pathlib.Path) -> set[str]:
     reserved: set[str] = set()
-    for path in training_isolation_paths(eval_path):
+    for path in training_isolation_paths(eval_path, DEFAULT_EVAL):
         reserved.update(eval_source_ids(path))
     return reserved
 
