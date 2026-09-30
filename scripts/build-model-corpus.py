@@ -17,11 +17,11 @@ import sys
 from collections import Counter
 from source_identity import canonical_source_identity, canonical_sources
 from sft_evidence_ranking import build_anchor_owners, rank_sft_evidence
+from training_isolation import display_repo_path, training_isolation_paths
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
-LEGACY_TRAINING_HOLDOUTS = (ROOT / "model_tuning/eval/heldout_v2.jsonl",)
 DEFAULT_OUT = ROOT / "model_tuning/generated"
 
 
@@ -224,19 +224,9 @@ def eval_source_ids(path: pathlib.Path) -> set[str]:
     return reserved
 
 
-def training_isolation_paths(eval_path: pathlib.Path) -> list[pathlib.Path]:
-    """Keep historical benchmark identities out of training after benchmark promotion."""
-    paths = [eval_path]
-    if eval_path.resolve() == DEFAULT_EVAL.resolve():
-        for legacy in LEGACY_TRAINING_HOLDOUTS:
-            if legacy.exists() and legacy.resolve() != eval_path.resolve():
-                paths.append(legacy)
-    return paths
-
-
 def training_eval_fingerprints(eval_path: pathlib.Path) -> set[str]:
     fingerprints: set[str] = set()
-    for path in training_isolation_paths(eval_path):
+    for path in training_isolation_paths(eval_path, DEFAULT_EVAL):
         fingerprints.update(eval_fingerprints(path))
     return fingerprints
 
@@ -329,7 +319,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
     quarantine = []
     seen_profiles = set()
     duplicate_profiles = []
-    isolation_paths = training_isolation_paths(eval_path)
+    isolation_paths = training_isolation_paths(eval_path, DEFAULT_EVAL)
     eval_fps = training_eval_fingerprints(eval_path)
     heldout_sources = training_eval_source_ids(eval_path)
     heldout_source_exclusions = 0
@@ -408,7 +398,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "merged_provenance_links": merged_provenance_links,
         "multi_source_claims": multi_source_claims,
         "heldout_source_ids": len(heldout_sources),
-        "training_isolation_eval_files": [str(path.relative_to(ROOT)) for path in isolation_paths],
+        "training_isolation_eval_files": [display_repo_path(path) for path in isolation_paths],
         "heldout_profiles_excluded_from_sft": len(heldout_profiles_excluded),
         "heldout_source_collision_exclusions": heldout_source_exclusions,
         "sft_tasks": dict(Counter(x["task"] for x in sft)),
