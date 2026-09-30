@@ -2,6 +2,17 @@ name: Grow Doc base vs RAG GPU benchmark
 
 on:
   workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - '.github/workflows/model-base-vs-rag-gpu.yml'
+      - 'scripts/run-base-vs-rag-experiment.py'
+      - 'scripts/run-model-eval-strict.py'
+      - 'scripts/build-rag-eval-snapshot.py'
+      - 'model_tuning/config/base_model_candidates_v1.json'
+      - 'model_tuning/eval/heldout_v3.jsonl'
+      - 'model_tuning/rag_snapshots/heldout_v3.jsonl'
+      - 'model_tuning/rag_snapshots/heldout_v3.manifest.json'
 
 permissions:
   contents: read
@@ -12,6 +23,7 @@ concurrency:
 
 jobs:
   benchmark:
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: [self-hosted, linux, x64, growdoc-gpu]
     timeout-minutes: 180
     env:
