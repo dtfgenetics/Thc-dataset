@@ -141,6 +141,7 @@ class QLoRARuntimeContract:
     precision: dict[str, Any]
     lora: dict[str, Any]
     training: dict[str, Any]
+    evaluation: dict[str, Any]
 
     def as_dict(self) -> dict[str, Any]:
         return {
@@ -155,6 +156,7 @@ class QLoRARuntimeContract:
             "precision": dict(self.precision),
             "lora": dict(self.lora),
             "training": dict(self.training),
+            "evaluation": dict(self.evaluation),
         }
 
 
@@ -163,6 +165,7 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
     precision_raw = section_values(text, "precision")
     lora_raw = section_values(text, "lora")
     training_raw = section_values(text, "training")
+    evaluation_raw = section_values(text, "evaluation")
     targets = list_values(text, "lora", "target_modules")
 
     required_training = {
@@ -238,6 +241,10 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
         "checkpoint_selection": training_raw["checkpoint_selection"],
     }
 
+    evaluation = {
+        "heldout_path": require(evaluation_raw, "heldout_path", "evaluation.heldout_path"),
+    }
+
     max_seq_length = parse_int(training_raw["max_seq_length"], "training.max_seq_length")
     if max_seq_length <= 0 or training_seed < 0:
         raise ContractError("max_seq_length must be positive and seed must be non-negative")
@@ -258,6 +265,7 @@ def load_runtime_contract(text: str) -> QLoRARuntimeContract:
         precision=precision,
         lora=lora,
         training=training,
+        evaluation=evaluation,
     )
 
 
@@ -285,6 +293,7 @@ def self_test() -> None:
     assert contract.training["per_device_eval_batch_size"] == 1
     assert contract.training["gradient_accumulation_steps"] == 16
     assert contract.training["metric_for_best_model"] == "eval_loss"
+    assert contract.evaluation["heldout_path"] == "model_tuning/eval/heldout_v3.jsonl"
 
     changed = load_runtime_contract(text.replace("learning_rate: 0.0001", "learning_rate: 0.0002", 1))
     assert changed.training["learning_rate"] == 0.0002
