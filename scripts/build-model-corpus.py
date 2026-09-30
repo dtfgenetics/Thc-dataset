@@ -20,7 +20,7 @@ from sft_evidence_ranking import build_anchor_owners, rank_sft_evidence
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 DEFAULT_OUT = ROOT / "model_tuning/generated"
 
 
