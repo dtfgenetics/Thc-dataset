@@ -20,7 +20,7 @@ from collections import defaultdict
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "model_tuning/generated"
-HELDOUT = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 MIXTURE_VERSION = "grounded-qa-balanced-v1"
 MIXTURE_SEED = 420
 MAX_GROUNDED_QA_FRACTION = 0.20
@@ -119,8 +119,8 @@ def freeze(out: pathlib.Path) -> dict:
 
     # Raw corpus builders remain research/candidate generators. The training split
     # is materialized only after strict supplied-claim grounding is enforced.
-    run("scripts/build-model-corpus.py", "--out", str(out))
-    run("scripts/split-model-training-grounded.py", "--out", str(out / "splits"))
+    run("scripts/build-model-corpus.py", "--eval", str(HELDOUT), "--out", str(out))
+    run("scripts/split-model-training-grounded.py", "--eval", str(HELDOUT), "--out", str(out / "splits"))
 
     source_split_manifest = out / "splits/split_manifest_v1.json"
     source_train_qa = out / "splits/train_grounded_qa_v1.jsonl"
@@ -191,7 +191,7 @@ def freeze(out: pathlib.Path) -> dict:
         "schema_version": "grow-doc-training-artifact-lock-v3",
         "policy": "byte-level freeze of supplied-claim-grounded leak-safe split, capped training mixture, retrieval, quarantine, and heldout provenance; no model run implied",
         "grounding_policy": "supplied_claims_only_v1",
-        "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
+        "heldout_path": str(HELDOUT.relative_to(ROOT)),
         "heldout_sha256": sha256(HELDOUT),
         "corpus_manifest_path": "model_tuning/generated/manifest_v1.json",
         "corpus_manifest_sha256": sha256(out / "manifest_v1.json"),
@@ -231,6 +231,8 @@ def self_test() -> None:
     if missing:
         raise AssertionError(f"missing freezer dependencies: {missing}")
 
+    assert HELDOUT == ROOT / "model_tuning/eval/heldout_v3.jsonl"
+    assert HELDOUT.name == "heldout_v3.jsonl"
     assert grounded_qa_limit(144, 0.20) == 36
     rows = [
         {"id": f"q{i}", "profile_id": f"p{i % 5}", "source_ids": [f"s{i}"]}

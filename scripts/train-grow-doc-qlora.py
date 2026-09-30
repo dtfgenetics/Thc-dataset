@@ -448,7 +448,7 @@ def train(output_dir: Path) -> None:
         "best_model_checkpoint": trainer.state.best_model_checkpoint,
         "adapter_merge_performed": False,
         "deployment_performed": False,
-        "next_gate": "external heldout_v2 evaluation and promotion scorer",
+        "next_gate": f"external {Path(contract.evaluation['heldout_path']).stem} evaluation and promotion scorer",
     }
     manifest_path = output_dir / "training-run-manifest.json"
     manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -472,6 +472,10 @@ def self_test() -> None:
     assert scalar(text, "forbid_auto_device_map") == "true"
     assert scalar(text, "forbid_cpu_disk_offload") == "true"
     assert contract.training["checkpoint_selection"] == "dev_eval_loss_then_external_heldout_promotion_gate"
+    assert contract.evaluation["heldout_path"] == "model_tuning/eval/heldout_v3.jsonl"
+    assert Path(contract.evaluation["heldout_path"]).stem == "heldout_v3"
+    expected_next_gate = f"external {Path(contract.evaluation['heldout_path']).stem} evaluation and promotion scorer"
+    assert expected_next_gate == "external heldout_v3 evaluation and promotion scorer"
     assert mapped["training"]["load_best_model_at_end"] is True
     assert mapped["training"]["metric_for_best_model"] == "eval_loss"
     assert mapped["training"]["greater_is_better"] is False
