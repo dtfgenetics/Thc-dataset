@@ -249,8 +249,8 @@ def run_experiment(output_root: Path) -> Path:
 
     base_dir = output_root / "base_only"
     rag_dir = output_root / "base_plus_rag"
-    subprocess.run(common_eval_args(repo_revision, base_dir, "qwen3-8b-base-heldout-v2"), cwd=ROOT, check=True)
-    rag_cmd = common_eval_args(repo_revision, rag_dir, "qwen3-8b-base-rag-heldout-v2") + [
+    subprocess.run(common_eval_args(repo_revision, base_dir, "qwen3-8b-base-heldout-v3"), cwd=ROOT, check=True)
+    rag_cmd = common_eval_args(repo_revision, rag_dir, "qwen3-8b-base-rag-heldout-v3") + [
         "--retrieval-snapshot", RAG_SNAPSHOT,
         "--retrieval-manifest", RAG_MANIFEST,
     ]
