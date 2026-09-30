@@ -84,7 +84,7 @@ def audit_rows(rag_rows: list[dict], sft_rows: list[dict], heldout_sources) -> d
 def run(input_path: pathlib.Path, eval_path: pathlib.Path) -> dict:
     corpus = load_module(CORPUS_BUILDER, "grow_doc_corpus_for_canonical_identity_audit")
     rag, sft, _, _ = corpus.build(input_path, eval_path)
-    return audit_rows(rag, sft, corpus.eval_source_ids(eval_path))
+    return audit_rows(rag, sft, corpus.training_eval_source_ids(eval_path))
 
 
 def expect_audit_failure(rag_rows, sft_rows, heldout_sources, expected: str) -> None:
