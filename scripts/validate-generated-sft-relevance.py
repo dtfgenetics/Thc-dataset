@@ -13,7 +13,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 BUILDER_PATH = ROOT / "scripts/build-model-corpus.py"
 AUDIT_PATH = ROOT / "scripts/audit-sft-profile-relevance.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 EVIDENCE_RE = re.compile(r"^\[([^\]]+)\]\s+(.+)$")
 
 
