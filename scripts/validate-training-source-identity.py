@@ -21,7 +21,7 @@ DEFAULT_TRAIN_SFT = ROOT / "model_tuning/generated/splits/train_sft_v1.jsonl"
 DEFAULT_DEV_SFT = ROOT / "model_tuning/generated/splits/dev_sft_v1.jsonl"
 DEFAULT_TRAIN_GQA = ROOT / "model_tuning/generated/splits/train_grounded_qa_v1.jsonl"
 DEFAULT_DEV_GQA = ROOT / "model_tuning/generated/splits/dev_grounded_qa_v1.jsonl"
-DEFAULT_HELDOUT = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 
 def canonical_source_id(value: str) -> str:
