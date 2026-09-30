@@ -23,7 +23,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 
 def load_module(path: pathlib.Path, name: str):
