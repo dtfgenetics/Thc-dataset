@@ -471,7 +471,10 @@ def self_test() -> None:
     assert scalar(text, "device_map") == "single_visible_gpu"
     assert scalar(text, "forbid_auto_device_map") == "true"
     assert scalar(text, "forbid_cpu_disk_offload") == "true"
-    assert contract.training["checkpoint_selection"] == "dev_eval_loss_then_external_heldout_promotion_gate"\n    assert contract.evaluation["heldout_path"] == "model_tuning/eval/heldout_v3.jsonl"\n    assert Path(contract.evaluation["heldout_path"]).stem == "heldout_v3"\n    assert "external heldout_v2 evaluation" not in Path(__file__).read_text(encoding="utf-8")
+    assert contract.training["checkpoint_selection"] == "dev_eval_loss_then_external_heldout_promotion_gate"
+    assert contract.evaluation["heldout_path"] == "model_tuning/eval/heldout_v3.jsonl"
+    assert Path(contract.evaluation["heldout_path"]).stem == "heldout_v3"
+    assert "external heldout_v2 evaluation" not in Path(__file__).read_text(encoding="utf-8")
     assert mapped["training"]["load_best_model_at_end"] is True
     assert mapped["training"]["metric_for_best_model"] == "eval_loss"
     assert mapped["training"]["greater_is_better"] is False
