@@ -16,10 +16,11 @@ import sys
 import tempfile
 from collections import Counter
 
+from training_isolation import display_repo_path, training_isolation_paths
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
-LEGACY_TRAINING_HOLDOUTS = (ROOT / "model_tuning/eval/heldout_v2.jsonl",)
 DEFAULT_OUT = ROOT / "model_tuning/generated/grounded_qa/qa_v1.jsonl"
 
 
@@ -95,19 +96,9 @@ def heldout_source_ids(path: pathlib.Path) -> set[str]:
     return reserved
 
 
-def training_isolation_paths(eval_path: pathlib.Path) -> list[pathlib.Path]:
-    """Keep sources from superseded frozen benchmarks out of weight-training data."""
-    paths = [eval_path]
-    if eval_path.resolve() == DEFAULT_EVAL.resolve():
-        for legacy in LEGACY_TRAINING_HOLDOUTS:
-            if legacy.exists() and legacy.resolve() != eval_path.resolve():
-                paths.append(legacy)
-    return paths
-
-
 def training_heldout_source_ids(eval_path: pathlib.Path) -> set[str]:
     reserved: set[str] = set()
-    for path in training_isolation_paths(eval_path):
+    for path in training_isolation_paths(eval_path, DEFAULT_EVAL):
         reserved.update(heldout_source_ids(path))
     return reserved
 
@@ -127,7 +118,7 @@ def source_metadata(source: dict) -> dict:
 
 
 def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict], dict]:
-    isolation_paths = training_isolation_paths(eval_path)
+    isolation_paths = training_isolation_paths(eval_path, DEFAULT_EVAL)
     reserved = training_heldout_source_ids(eval_path)
     records = []
     seen = set()
@@ -196,7 +187,7 @@ def build(input_path: pathlib.Path, eval_path: pathlib.Path) -> tuple[list[dict]
         "reviewed_profiles": reviewed_profiles,
         "grounded_qa_examples": len(records),
         "heldout_source_ids": len(reserved),
-        "training_isolation_eval_files": [str(path.relative_to(ROOT)) for path in isolation_paths],
+        "training_isolation_eval_files": [display_repo_path(path) for path in isolation_paths],
         "heldout_source_collisions": len(collisions),
         "skipped": dict(skipped),
         "input_sha256": hashlib.sha256(input_path.read_bytes()).hexdigest(),
