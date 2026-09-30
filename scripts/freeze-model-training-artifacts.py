@@ -18,9 +18,9 @@ import subprocess
 import sys
 from collections import defaultdict
 
-ROOT = pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "model_tuning/generated"
-HELDOUT = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 MIXTURE_VERSION = "grounded-qa-balanced-v1"
 MIXTURE_SEED = 420
 MAX_GROUNDED_QA_FRACTION = 0.20
@@ -191,7 +191,7 @@ def freeze(out: pathlib.Path) -> dict:
         "schema_version": "grow-doc-training-artifact-lock-v3",
         "policy": "byte-level freeze of supplied-claim-grounded leak-safe split, capped training mixture, retrieval, quarantine, and heldout provenance; no model run implied",
         "grounding_policy": "supplied_claims_only_v1",
-        "heldout_path": "model_tuning/eval/heldout_v2.jsonl",
+        "heldout_path": str(HELDOUT.relative_to(ROOT)),
         "heldout_sha256": sha256(HELDOUT),
         "corpus_manifest_path": "model_tuning/generated/manifest_v1.json",
         "corpus_manifest_sha256": sha256(out / "manifest_v1.json"),
@@ -231,7 +231,7 @@ def self_test() -> None:
     if missing:
         raise AssertionError(f"missing freezer dependencies: {missing}")
 
-    assert grounded_qa_limit(144, 0.20) == 36
+    assert HELDOUT == ROOT / "model_tuning/eval/heldout_v3.jsonl"\n    assert "heldout_v2.jsonl" not in Path(__file__).read_text(encoding="utf-8")\n    assert grounded_qa_limit(144, 0.20) == 36
     rows = [
         {"id": f"q{i}", "profile_id": f"p{i % 5}", "source_ids": [f"s{i}"]}
         for i in range(20)
