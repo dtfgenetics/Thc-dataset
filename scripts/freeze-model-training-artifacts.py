@@ -18,7 +18,7 @@ import subprocess
 import sys
 from collections import defaultdict
 
-ROOT = pathlib.pathlib.Path(__file__).resolve().parents[1]
+ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "model_tuning/generated"
 HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 MIXTURE_VERSION = "grounded-qa-balanced-v1"
