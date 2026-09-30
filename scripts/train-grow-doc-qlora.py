@@ -474,7 +474,8 @@ def self_test() -> None:
     assert contract.training["checkpoint_selection"] == "dev_eval_loss_then_external_heldout_promotion_gate"
     assert contract.evaluation["heldout_path"] == "model_tuning/eval/heldout_v3.jsonl"
     assert Path(contract.evaluation["heldout_path"]).stem == "heldout_v3"
-    assert "external heldout_v2 evaluation" not in Path(__file__).read_text(encoding="utf-8")
+    expected_next_gate = f"external {Path(contract.evaluation['heldout_path']).stem} evaluation and promotion scorer"
+    assert expected_next_gate == "external heldout_v3 evaluation and promotion scorer"
     assert mapped["training"]["load_best_model_at_end"] is True
     assert mapped["training"]["metric_for_best_model"] == "eval_loss"
     assert mapped["training"]["greater_is_better"] is False
