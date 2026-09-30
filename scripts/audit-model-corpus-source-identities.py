@@ -23,7 +23,7 @@ from source_identity import canonical_source_identity, canonical_sources
 
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 
 def load_module(path: pathlib.Path, name: str):
@@ -84,7 +84,7 @@ def audit_rows(rag_rows: list[dict], sft_rows: list[dict], heldout_sources) -> d
 def run(input_path: pathlib.Path, eval_path: pathlib.Path) -> dict:
     corpus = load_module(CORPUS_BUILDER, "grow_doc_corpus_for_canonical_identity_audit")
     rag, sft, _, _ = corpus.build(input_path, eval_path)
-    return audit_rows(rag, sft, corpus.eval_source_ids(eval_path))
+    return audit_rows(rag, sft, corpus.training_eval_source_ids(eval_path))
 
 
 def expect_audit_failure(rag_rows, sft_rows, heldout_sources, expected: str) -> None:

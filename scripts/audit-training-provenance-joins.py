@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CORPUS_BUILDER = ROOT / "scripts/build-model-corpus.py"
 GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-HELDOUT = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 
 
 def load_module(path: Path, name: str):
