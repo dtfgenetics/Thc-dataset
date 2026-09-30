@@ -56,13 +56,15 @@ def enrich(report: dict, records: list[dict]) -> dict:
     output = dict(report)
     output["schema_version"] = "grow-doc-training-supervision-source-overlap-v1"
     output["near_duplicate_review_queue"] = enriched
+    missing_source_pairs = sum(
+        1 for row in enriched if not row["left_source_ids"] or not row["right_source_ids"]
+    )
     output["near_duplicate_source_summary"] = {
         "shared_source_pairs": same_source_pairs,
         "independent_source_pairs": independent_source_pairs,
-        "pairs_missing_source_metadata": sum(
-            1 for row in enriched if not row["left_source_ids"] or not row["right_source_ids"]
-        ),
+        "pairs_missing_source_metadata": missing_source_pairs,
     }
+    output["source_metadata_hard_errors"] = missing_source_pairs
     return output
 
 
@@ -96,6 +98,12 @@ def self_test() -> None:
     assert report["near_duplicate_source_summary"]["shared_source_pairs"] == 1
     assert report["near_duplicate_source_summary"]["independent_source_pairs"] == 1
     assert report["near_duplicate_source_summary"]["pairs_missing_source_metadata"] == 0
+    assert report["source_metadata_hard_errors"] == 0
+    missing = enrich(
+        {"near_duplicate_review_queue": [{"task": "science_education", "left_id": "a", "right_id": "missing", "token_jaccard": 0.9}]},
+        records,
+    )
+    assert missing["source_metadata_hard_errors"] == 1
     print("training supervision source-overlap self-test: PASS")
 
 
@@ -118,6 +126,13 @@ def main() -> int:
     print(json.dumps(report, indent=2, sort_keys=True))
     if report.get("hard_errors"):
         print("training supervision source-overlap: FAIL (upstream exact duplicates)", file=sys.stderr)
+        return 1
+    if report.get("source_metadata_hard_errors"):
+        print(
+            "training supervision source-overlap: FAIL "
+            f"({report['source_metadata_hard_errors']} near-duplicate pairs missing source metadata)",
+            file=sys.stderr,
+        )
         return 1
     print("training supervision source-overlap: PASS")
     return 0
