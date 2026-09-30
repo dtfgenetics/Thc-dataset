@@ -19,7 +19,7 @@ GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 SPLITTER = ROOT / "scripts/split-model-sft.py"
 GROUNDING = ROOT / "scripts/enforce-supplied-claim-grounding.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_EVAL = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 DEFAULT_OUT = ROOT / "model_tuning/generated/splits"
 
 
