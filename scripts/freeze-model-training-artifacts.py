@@ -119,8 +119,8 @@ def freeze(out: pathlib.Path) -> dict:
 
     # Raw corpus builders remain research/candidate generators. The training split
     # is materialized only after strict supplied-claim grounding is enforced.
-    run("scripts/build-model-corpus.py", "--out", str(out))
-    run("scripts/split-model-training-grounded.py", "--out", str(out / "splits"))
+    run("scripts/build-model-corpus.py", "--eval", str(HELDOUT), "--out", str(out))
+    run("scripts/split-model-training-grounded.py", "--eval", str(HELDOUT), "--out", str(out / "splits"))
 
     source_split_manifest = out / "splits/split_manifest_v1.json"
     source_train_qa = out / "splits/train_grounded_qa_v1.jsonl"
@@ -232,7 +232,7 @@ def self_test() -> None:
         raise AssertionError(f"missing freezer dependencies: {missing}")
 
     assert HELDOUT == ROOT / "model_tuning/eval/heldout_v3.jsonl"
-    assert "heldout_v2.jsonl" not in pathlib.Path(__file__).read_text(encoding="utf-8")
+    assert HELDOUT.name == "heldout_v3.jsonl"
     assert grounded_qa_limit(144, 0.20) == 36
     rows = [
         {"id": f"q{i}", "profile_id": f"p{i % 5}", "source_ids": [f"s{i}"]}
