@@ -23,7 +23,7 @@ concurrency:
 
 jobs:
   benchmark:
-    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.draft == false)
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: [self-hosted, linux, x64, growdoc-gpu]
     timeout-minutes: 180
     env:
