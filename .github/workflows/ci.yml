@@ -12,8 +12,8 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -101,7 +101,7 @@ jobs:
             --fail-on-missing-provenance \
             --report model_tuning/generated/audits/dedup_leakage_v1.json
       - name: Retain pre-verification model artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-model-training-artifacts-preverify
           path: model_tuning/generated
@@ -129,13 +129,13 @@ jobs:
       - name: Validate base-vs-RAG decision gate
         run: python3 scripts/validate-base-vs-rag-decision.py --self-test
       - name: Upload frozen model training artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-model-training-artifacts
           path: model_tuning/generated
           if-no-files-found: error
       - name: Upload frozen heldout v2 RAG snapshot
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-heldout-v2-rag-snapshot
           path: model_tuning/rag_snapshots
