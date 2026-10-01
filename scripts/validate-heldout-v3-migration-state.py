@@ -27,7 +27,6 @@ DIRECT_CONSUMERS = [
     "scripts/prepare-base-rag-blind-review.py",
     "scripts/validate-adapter-combination-policy.py",
     "model_tuning/config/adapter_combination_policy_v1.json",
-    "scripts/audit-model-eval-candidate-leakage.py",
 ]
 
 
