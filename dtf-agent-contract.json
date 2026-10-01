@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "repository": "dtfgenetics/Thc-dataset",
+  "controlRepository": "dtfgenetics/Thc",
+  "defaultBranch": "main",
+  "canonicalDomains": [
+    "Grow Doc application",
+    "diagnostic taxonomy",
+    "diagnostic rules",
+    "reference metadata",
+    "model evaluation/training control"
+  ],
+  "sourceRoots": [
+    "src/",
+    "dataset/",
+    "model_tuning/",
+    "scripts/",
+    "public/",
+    "docs/",
+    "package.json",
+    "AGENTS.md",
+    "server.mjs"
+  ],
+  "protectedPaths": [
+    ".github/workflows/deploy-dtfseeds.yml",
+    ".github/workflows/**",
+    ".env*"
+  ],
+  "verificationProfiles": {
+    "default": {
+      "commands": [
+        "npm run check",
+        "npm test",
+        "npm run build"
+      ],
+      "ciAuthoritative": true
+    },
+    "data": {
+      "commands": [
+        "npm run validate:sources",
+        "npm run validate:acquisition",
+        "npm run validate:transfer",
+        "npm run validate:diagnostic-profiles",
+        "npm run validate:data-release"
+      ],
+      "ciAuthoritative": true
+    },
+    "model": {
+      "commands": [
+        "npm run validate:model-eval",
+        "npm run validate:model-eval-candidates",
+        "npm run validate:model-eval-coverage",
+        "npm run validate:model-corpus-quality"
+      ],
+      "ciAuthoritative": true
+    },
+    "app": {
+      "commands": [
+        "npm run check",
+        "npm test",
+        "npm run build"
+      ],
+      "ciAuthoritative": true
+    }
+  },
+  "production": {
+    "directMutation": "manual-only",
+    "integrationOwner": "dtfgenetics/Thc",
+    "route": "/thc-grow-doc/",
+    "manualWorkflow": ".github/workflows/deploy-dtfseeds.yml",
+    "notes": "A successful build is not proof of production publication; live route verification is required."
+  }
+}
