@@ -38,7 +38,7 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Self-test redundancy and concentration audits
         run: |
           python3 scripts/audit-training-supervision-redundancy.py --self-test
@@ -73,7 +73,7 @@ jobs:
           python3 scripts/validate-training-supervision-concentration.py | tee training-supervision-concentration-validation-report.json
       - name: Upload redundancy and concentration reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: training-supervision-quality-report
           path: |
