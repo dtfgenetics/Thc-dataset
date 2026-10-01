@@ -49,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Self-test canonical source identity audit
         run: python scripts/validate-training-source-identity.py --self-test
       - name: Validate shared source identity contract and consumer parity

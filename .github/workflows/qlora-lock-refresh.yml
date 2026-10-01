@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v5
@@ -34,7 +34,7 @@ jobs:
           sha256sum model_tuning/requirements.lock.candidate | tee qlora-lock-candidate.sha256
 
       - name: Upload candidate for review
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: qlora-requirements-lock-candidate
           path: |

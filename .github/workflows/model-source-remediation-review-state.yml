@@ -27,7 +27,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -38,7 +38,7 @@ jobs:
       - name: Build remediation review-state report
         run: python3 scripts/audit-model-source-remediation-review-state.py --top 100 > source-remediation-review-state.json
       - name: Upload remediation review-state report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-source-remediation-review-state
           path: source-remediation-review-state.json
