@@ -23,6 +23,10 @@ DIRECT_CONSUMERS = [
     "scripts/build-grounded-qa.py",
     "scripts/split-model-sft.py",
     "scripts/evaluate-sft-relevance-rerank.py",
+    "scripts/audit-split-source-identities.py",
+    "scripts/prepare-base-rag-blind-review.py",
+    "scripts/validate-adapter-combination-policy.py",
+    "model_tuning/config/adapter_combination_policy_v1.json",
 ]
 
 

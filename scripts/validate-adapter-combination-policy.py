@@ -55,8 +55,8 @@ def validate(path: Path, *, report_root: Path = Path('.')) -> None:
     data = json.loads(path.read_text())
     if data.get('schema_version') != 1:
         fail('schema_version must be 1')
-    if data.get('benchmark') != 'model_tuning/eval/heldout_v2.jsonl':
-        fail('adapter combination policy must use heldout_v2.jsonl')
+    if data.get('benchmark') != 'model_tuning/eval/heldout_v3.jsonl':
+        fail('adapter combination policy must use heldout_v3.jsonl')
     if set(data.get('required_slices') or []) != REQUIRED_SLICES:
         fail('required_slices must match all protected promotion slices')
     if data.get('minimum_aggregate_gain') != 0.02:
