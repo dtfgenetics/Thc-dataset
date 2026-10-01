@@ -9,7 +9,7 @@ on:
       - 'scripts/evaluate-sft-relevance-rerank.py'
       - 'scripts/audit-sft-profile-relevance.py'
       - 'data/diagnostic-profiles.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - '.github/workflows/model-sft-relevance-rerank.yml'
   workflow_dispatch:
 

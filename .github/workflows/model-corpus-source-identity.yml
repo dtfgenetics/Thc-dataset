@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - 'data/diagnostic-profiles.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - 'scripts/build-model-corpus.py'
       - 'scripts/source_identity.py'
       - 'scripts/test-rag-provenance-dedupe.py'
@@ -14,7 +14,7 @@ on:
     branches: [main]
     paths:
       - 'data/diagnostic-profiles.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - 'scripts/build-model-corpus.py'
       - 'scripts/source_identity.py'
       - 'scripts/test-rag-provenance-dedupe.py'
