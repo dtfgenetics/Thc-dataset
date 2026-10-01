@@ -32,7 +32,7 @@ jobs:
   cadence:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Freeze exact training mixture
         run: python3 scripts/freeze-model-training-artifacts.py
       - name: Validate dataset-aware QLoRA checkpoint cadence
