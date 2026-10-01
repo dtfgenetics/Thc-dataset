@@ -24,6 +24,9 @@ concurrency:
 jobs:
   benchmark:
     if: github.event_name == 'workflow_dispatch' || (github.event_name == 'pull_request' && github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository)
+    # This job intentionally targets a dedicated runner. If no online runner has
+    # every label below, GitHub will leave the job queued instead of silently
+    # falling back to CPU or an unqualified GPU.
     runs-on: [self-hosted, linux, x64, growdoc-gpu]
     timeout-minutes: 180
     env:
@@ -57,6 +60,17 @@ jobs:
             command -v nvidia-smi >/dev/null && nvidia-smi || true
           } > model_tuning/runs/base_vs_rag_v1/runner-diagnostics.txt 2>&1
           cat model_tuning/runs/base_vs_rag_v1/runner-diagnostics.txt
+
+      - name: Assert dedicated Grow Doc GPU runner contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${RUNNER_OS:-}" = "Linux"
+          test "${RUNNER_ARCH:-}" = "X64"
+          command -v nvidia-smi >/dev/null
+          command -v python3 >/dev/null
+          command -v uv >/dev/null
+          nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
 
       - name: Verify qualifying GPU and pinned runtime
         shell: bash
