@@ -27,6 +27,9 @@ GQA_BUILDER = ROOT / "scripts/build-grounded-qa.py"
 EVIDENCE_AUDIT = ROOT / "scripts/audit-model-source-evidence-quality.py"
 STRONG_TIERS = {"scholarly_doi", "institutional_web"}
 TOKEN_RE = re.compile(r"[a-z0-9]+")
+NEAR_DUP_MIN_TOKENS = 8
+NEAR_DUP_CONTAINMENT = 0.90
+NEAR_DUP_JACCARD = 0.80
 SOURCE_ID_RE = re.compile(r"(?:doi|url|source):\S+", re.IGNORECASE)
 
 
@@ -97,11 +100,25 @@ def assistant_supervision_key(record: dict) -> tuple[str, str]:
     return str(record.get("task") or "<missing-task>"), normalized
 
 
+def near_duplicate_supervision(left: tuple[str, str], right: tuple[str, str]) -> tuple[bool, float, float]:
+    if left[0] != right[0] or not left[1] or not right[1]:
+        return False, 0.0, 0.0
+    lt = set(left[1].split())
+    rt = set(right[1].split())
+    if min(len(lt), len(rt)) < NEAR_DUP_MIN_TOKENS:
+        return False, 0.0, 0.0
+    overlap = len(lt & rt)
+    containment = overlap / min(len(lt), len(rt))
+    jaccard = overlap / len(lt | rt)
+    return containment >= NEAR_DUP_CONTAINMENT and jaccard >= NEAR_DUP_JACCARD, containment, jaccard
+
+
 def deduplicate_training_supervision(records: list[dict]) -> tuple[list[dict], list[dict]]:
     """Keep the first deterministic supervision payload and report all later duplicates."""
     kept: list[dict] = []
     first_by_key: dict[tuple[str, str], dict] = {}
     excluded: list[dict] = []
+    retained_keys: list[tuple[tuple[str, str], dict]] = []
     for record in records:
         key = assistant_supervision_key(record)
         if not key[1]:
@@ -109,7 +126,28 @@ def deduplicate_training_supervision(records: list[dict]) -> tuple[list[dict], l
             continue
         first = first_by_key.get(key)
         if first is None:
+            near_match = None
+            for retained_key, retained_record in retained_keys:
+                is_near, containment, jaccard = near_duplicate_supervision(key, retained_key)
+                if is_near:
+                    near_match = (retained_record, containment, jaccard)
+                    break
+            if near_match is not None:
+                retained_record, containment, jaccard = near_match
+                excluded.append({
+                    "id": str(record.get("id") or "<missing-id>"),
+                    "profile_id": str(record.get("profile_id") or "<missing-profile>"),
+                    "task": str(record.get("task") or "<missing-task>"),
+                    "retained_id": str(retained_record.get("id") or "<missing-id>"),
+                    "retained_profile_id": str(retained_record.get("profile_id") or "<missing-profile>"),
+                    "source_ids": [str(x) for x in (record.get("source_ids") or [])],
+                    "dedup_reason": "near_duplicate_assistant_supervision",
+                    "containment": round(containment, 3),
+                    "jaccard": round(jaccard, 3),
+                })
+                continue
             first_by_key[key] = record
+            retained_keys.append((key, record))
             kept.append(record)
             continue
         excluded.append(
@@ -120,6 +158,7 @@ def deduplicate_training_supervision(records: list[dict]) -> tuple[list[dict], l
                 "retained_id": str(first.get("id") or "<missing-id>"),
                 "retained_profile_id": str(first.get("profile_id") or "<missing-profile>"),
                 "source_ids": [str(x) for x in (record.get("source_ids") or [])],
+                "dedup_reason": "exact_assistant_supervision",
             }
         )
     return kept, excluded
@@ -158,12 +197,14 @@ def evaluate(records: list[dict], tiers: dict[str, str], corpus) -> tuple[list[d
             "mixed_tier_behavior": "exclude from weight-training candidate lane; keep available for remediation/retrieval",
             "weak_only_behavior": "exclude from weight-training candidate lane; keep available for remediation/retrieval",
             "unknown_provenance_behavior": "hard error",
-            "exact_supervision_duplicate_behavior": "retain one deterministic record in weight-training lane; preserve canonical RAG/GQA records and provenance",
+            "supervision_duplicate_behavior": "retain one deterministic exact/near-duplicate assistant target per task in weight-training lane; preserve canonical RAG/GQA records and provenance",
         },
         "candidate_examples": len(records),
         "training_eligible_examples_before_dedup": len(eligible),
         "training_eligible_examples": len(deduplicated),
-        "exact_supervision_duplicates_excluded": len(duplicate_queue),
+        "supervision_duplicates_excluded": len(duplicate_queue),
+        "exact_supervision_duplicates_excluded": sum(1 for row in duplicate_queue if row.get("dedup_reason") == "exact_assistant_supervision"),
+        "near_supervision_duplicates_excluded": sum(1 for row in duplicate_queue if row.get("dedup_reason") == "near_duplicate_assistant_supervision"),
         "exact_supervision_duplicate_queue": duplicate_queue,
         "mixed_tier_examples": counts["mixed_tier"],
         "weak_only_examples": counts["weak_only"],
@@ -244,6 +285,7 @@ def self_test() -> None:
     assert report["training_eligible_examples_before_dedup"] == 4
     assert report["training_eligible_examples"] == 3
     assert report["exact_supervision_duplicates_excluded"] == 1
+    assert report["near_supervision_duplicates_excluded"] == 0
     assert report["exact_supervision_duplicate_queue"][0]["retained_id"] == "dup-a"
     assert report["weak_only_examples"] == 1
     assert report["mixed_tier_examples"] == 1
