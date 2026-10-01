@@ -286,6 +286,10 @@ def self_test() -> None:
     assert report["training_eligible_examples"] == 3
     assert report["exact_supervision_duplicates_excluded"] == 1
     assert report["near_supervision_duplicates_excluded"] == 0
+    left = ("grounded_qa", "alpha beta gamma delta epsilon zeta eta theta iota kappa")
+    right = ("grounded_qa", "alpha beta gamma delta epsilon zeta eta theta iota kappa lambda")
+    assert near_duplicate_supervision(left, right)[0] is True
+    assert near_duplicate_supervision(("science_education", left[1]), right)[0] is False
     assert report["exact_supervision_duplicate_queue"][0]["retained_id"] == "dup-a"
     assert report["weak_only_examples"] == 1
     assert report["mixed_tier_examples"] == 1
