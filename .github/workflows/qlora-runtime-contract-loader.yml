@@ -21,7 +21,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Self-test typed runtime contract loader
         run: python scripts/qlora_runtime_contract.py --self-test
       - name: Validate active runtime contract
