@@ -30,7 +30,7 @@ jobs:
       PYTHONUNBUFFERED: "1"
       TOKENIZERS_PARALLELISM: "false"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
@@ -87,7 +87,7 @@ jobs:
 
       - name: Upload benchmark outputs
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-base-vs-rag-${{ github.sha }}
           path: model_tuning/runs/base_vs_rag_v1/
@@ -96,7 +96,7 @@ jobs:
 
       - name: Upload failed-preflight diagnostics
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-base-vs-rag-preflight-${{ github.sha }}
           path: |
