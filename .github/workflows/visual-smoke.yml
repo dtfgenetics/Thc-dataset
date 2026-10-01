@@ -31,10 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Node 22
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: npm
@@ -79,7 +79,7 @@ jobs:
           npx --yes playwright@1.55.0 screenshot --browser chromium --viewport-size '390,844' --full-page http://127.0.0.1:4173/thc-grow-doc/ visual-smoke/growdoc-mobile.png
 
       - name: Upload rendered visual evidence
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-visual-smoke
           path: visual-smoke/*.png
