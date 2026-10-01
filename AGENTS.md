@@ -39,3 +39,22 @@ If deployment credentials are unavailable, report the deployment as blocked; do 
 ## Failure protocol
 
 When CI or deployment fails, inspect the exact failed job and log first. Fix the root cause, rerun the relevant validation, and distinguish code/data failures from credentials, networking, or production-host failures. Do not repeatedly rerun the same failing production mutation without new evidence.
+## Parallel chat/session contract
+
+Every concurrent Grow Doc task must use a unique branch:
+
+`work/grow-doc/<task>/<session-id>`
+
+Separate chats/agents must not share one mutable branch. Start from current `main`, keep application/data/model changes in this canonical repository, and use one PR per session.
+
+Before integration, run at least:
+
+```bash
+npm run check
+npm test
+npm run build
+```
+
+Dataset/model work must also preserve the relevant provenance/evaluation validators. If another session touches the same file, dataset slice, model-control artifact, or release package, continue development independently but reconcile that overlap before merge.
+
+After merge, production integration must reference the exact validated canonical commit/artifact. Do not author a permanent fix in the `dtfgenetics/Thc` deployment copy.
