@@ -20,7 +20,7 @@ jobs:
   validate-training-evidence:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - name: Self-test training-eligible builder
         run: python3 scripts/build-training-eligible-supervision.py --self-test
       - name: Validate current strong-evidence supervision lane
@@ -34,7 +34,7 @@ jobs:
       - name: Verify frozen training snapshot
         run: python3 scripts/freeze-training-eligible-snapshot.py --check-only
       - name: Upload frozen training snapshot
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: grow-doc-training-eligible-snapshot
           path: |
