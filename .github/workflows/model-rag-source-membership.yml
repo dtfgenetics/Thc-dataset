@@ -7,7 +7,7 @@ on:
       - 'scripts/build-rag-eval-snapshot.py'
       - 'scripts/build-model-corpus.py'
       - 'data/**'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - '.github/workflows/model-rag-source-membership.yml'
 
 permissions:
