@@ -4,8 +4,8 @@
 Hard failures:
 - canonical source overlap with current SFT or grounded-QA candidates;
 - exact normalized prompt overlap with current SFT or grounded-QA candidates;
-- canonical source overlap with frozen heldout_v2;
-- exact normalized prompt overlap with frozen heldout_v2.
+- canonical source overlap with the active frozen heldout_v3;
+- exact normalized prompt overlap with the active frozen heldout_v3.
 
 High-similarity semantic pairs are reported for independent human review rather
 than auto-deleted, because scientifically distinct diagnostic cases can share
@@ -22,7 +22,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SEMANTIC_AUDIT = ROOT / "scripts/audit-model-semantic-leakage.py"
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
-DEFAULT_HELDOUT = ROOT / "model_tuning/eval/heldout_v2.jsonl"
+DEFAULT_HELDOUT = ROOT / "model_tuning/eval/heldout_v3.jsonl"
 DEFAULT_MANIFESTS = (
     ROOT / "model_tuning/eval/candidates/pathogen_expansion_v1.manifest.json",
     ROOT / "model_tuning/eval/candidates/heldout_v3_expansion_v1.manifest.json",
@@ -114,22 +114,22 @@ def audit_all(
     heldout_report = semantic.audit(eval_rows_as_training(candidate_rows, "candidate_eval"), heldout_rows)
 
     errors = [f"training/dev: {value}" for value in corpus_report["errors"]]
-    errors.extend(f"heldout_v2: {value}" for value in heldout_report["errors"])
+    errors.extend(f"heldout_v3: {value}" for value in heldout_report["errors"])
     return {
         "candidate_records": len(candidate_rows),
         "training_and_grounded_qa_records_checked": len(training_rows),
-        "heldout_v2_records_checked": len(heldout_rows),
+        "heldout_v3_records_checked": len(heldout_rows),
         "hard_leakage_errors": len(errors),
         "errors": errors,
         "training_dev_near_duplicate_pairs": corpus_report["near_duplicate_pairs"],
         "training_dev_near_duplicate_examples": corpus_report["near_duplicate_examples"],
-        "heldout_v2_near_duplicate_pairs": heldout_report["near_duplicate_pairs"],
-        "heldout_v2_near_duplicate_examples": heldout_report["near_duplicate_examples"],
+        "heldout_v3_near_duplicate_pairs": heldout_report["near_duplicate_pairs"],
+        "heldout_v3_near_duplicate_examples": heldout_report["near_duplicate_examples"],
         "policy": {
             "canonical_source_overlap_with_training_dev": "fail",
             "exact_prompt_overlap_with_training_dev": "fail",
-            "canonical_source_overlap_with_heldout_v2": "fail",
-            "exact_prompt_overlap_with_heldout_v2": "fail",
+            "canonical_source_overlap_with_heldout_v3": "fail",
+            "exact_prompt_overlap_with_heldout_v3": "fail",
             "semantic_near_duplicate": "report_for_independent_human_review",
             "candidate_status_after_pass": "candidate_only_not_promotion_eligible",
         },
