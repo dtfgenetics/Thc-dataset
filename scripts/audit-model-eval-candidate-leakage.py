@@ -4,8 +4,8 @@
 Hard failures:
 - canonical source overlap with current SFT or grounded-QA candidates;
 - exact normalized prompt overlap with current SFT or grounded-QA candidates;
-- canonical source overlap with frozen heldout_v2;
-- exact normalized prompt overlap with frozen heldout_v2.
+- canonical source overlap with frozen heldout_v2 (the prior benchmark);
+- exact normalized prompt overlap with frozen heldout_v2 (the prior benchmark).
 
 High-similarity semantic pairs are reported for independent human review rather
 than auto-deleted, because scientifically distinct diagnostic cases can share
@@ -128,8 +128,8 @@ def audit_all(
         "policy": {
             "canonical_source_overlap_with_training_dev": "fail",
             "exact_prompt_overlap_with_training_dev": "fail",
-            "canonical_source_overlap_with_heldout_v2": "fail",
-            "exact_prompt_overlap_with_heldout_v2": "fail",
+            "canonical_source_overlap_with_prior_heldout_v2": "fail",
+            "exact_prompt_overlap_with_prior_heldout_v2": "fail",
             "semantic_near_duplicate": "report_for_independent_human_review",
             "candidate_status_after_pass": "candidate_only_not_promotion_eligible",
         },
