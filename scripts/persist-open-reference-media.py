@@ -217,16 +217,16 @@ def main():
             if not data or len(data) > MAX_BYTES:
                 raise ValueError(f'invalid image byte size {len(data)}')
         except urllib.error.HTTPError as exc:
-            if candidate.get('required_fetch'):
-                raise SystemExit(f"{candidate['id']}: required image fetch failed HTTP {exc.code}")
             preserved = preserve_previous(candidate, previous, results)
+            if candidate.get('required_fetch') and not preserved:
+                raise SystemExit(f"{candidate['id']}: required image fetch failed HTTP {exc.code} and no verified local copy exists")
             unavailable.append(unavailable_record(candidate, f'HTTP {exc.code}: {exc.reason}', exc.code, preserved))
             print(f"UNAVAILABLE {candidate['id']} HTTP {exc.code} preserved={preserved}")
             continue
         except (urllib.error.URLError, TimeoutError, ValueError) as exc:
-            if candidate.get('required_fetch'):
-                raise SystemExit(f"{candidate['id']}: required image fetch failed: {exc}")
             preserved = preserve_previous(candidate, previous, results)
+            if candidate.get('required_fetch') and not preserved:
+                raise SystemExit(f"{candidate['id']}: required image fetch failed: {exc}; no verified local copy exists")
             unavailable.append(unavailable_record(candidate, str(exc), None, preserved))
             print(f"UNAVAILABLE {candidate['id']} {exc} preserved={preserved}")
             continue
