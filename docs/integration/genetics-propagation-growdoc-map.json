@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0.0",
+  "authority": "dtfgenetics/Thc-dataset",
+  "legacyProvenance": [
+    "dtfgenetics/dtf-thc-hub:integration/genetics-growdoc-issues",
+    "dtfgenetics/dtf-thc-hub:integration/genetics-growdoc-targets"
+  ],
+  "purpose": "Map the THC genetics/propagation education modules to existing canonical Grow Doc diagnostic profiles without creating duplicate diagnoses.",
+  "rules": {
+    "reuseExistingIssueIds": true,
+    "conditionSignalsAreContextNotDiagnoses": true,
+    "noSingleSymptomDiagnosis": true,
+    "labConfirmationRequiredWhereSpecified": true,
+    "doNotCreateDuplicateIssues": true
+  },
+  "canonicalIssueSlugs": {
+    "hlvd": "hop-latent-viroid",
+    "rootBinding": "root-binding-container-stress",
+    "pythium": "pythium-root-rot",
+    "fungusGnats": "fungus-gnats-root-feeding",
+    "rootAphid": "rice-root-aphid",
+    "hempRussetMite": "hemp-russet-mite"
+  },
+  "modules": [
+    {
+      "moduleId": "THC-PROP-001",
+      "title": "Genetic Identity, Provenance, and Cultivar Claims",
+      "growDocIssueSlugs": [
+        "hop-latent-viroid"
+      ],
+      "reason": "Use provenance, mother-stock history, and verified pathogen status as diagnostic context; visual symptoms do not authenticate cultivar identity or confirm viroid status."
+    },
+    {
+      "moduleId": "THC-PROP-002",
+      "title": "Crop Planning, Plant Counts, Timing, and Risk",
+      "growDocIssueSlugs": [
+        "root-binding-container-stress",
+        "hop-latent-viroid"
+      ],
+      "reason": "Crop planning should account for transplant readiness, source-stock risk, quarantine, and verified health constraints rather than schedule alone."
+    },
+    {
+      "moduleId": "THC-PROP-003",
+      "title": "Mother Stock Health, Records, and Cutting Selection",
+      "growDocIssueSlugs": [
+        "hop-latent-viroid",
+        "hemp-russet-mite"
+      ],
+      "reason": "Mother stock can carry pests and viroids into propagation; use direct inspection/testing and existing differentials."
+    },
+    {
+      "moduleId": "THC-PROP-004",
+      "title": "Cutting Selection, Sanitation, Rooting Media, and Auxin Context",
+      "growDocIssueSlugs": [
+        "pythium-root-rot",
+        "fungus-gnats-root-feeding",
+        "rice-root-aphid"
+      ],
+      "reason": "Cutting sanitation and rooting-media conditions intersect with existing root-pathogen and root-zone pest differentials."
+    },
+    {
+      "moduleId": "THC-PROP-005",
+      "title": "Rooting Environment, Acclimation, Hardening, and Clone Release",
+      "growDocIssueSlugs": [
+        "root-binding-container-stress",
+        "pythium-root-rot",
+        "fungus-gnats-root-feeding",
+        "rice-root-aphid"
+      ],
+      "reason": "Clone release/acclimation requires separating root restriction, moisture/oxygen stress, root pathogens, and root-zone pests."
+    },
+    {
+      "moduleId": "THC-PROP-006",
+      "title": "Tissue Culture, Genetic Preservation, Propagation Failure, and CAPA",
+      "growDocIssueSlugs": [
+        "hop-latent-viroid",
+        "pythium-root-rot",
+        "hemp-russet-mite",
+        "fungus-gnats-root-feeding",
+        "rice-root-aphid"
+      ],
+      "reason": "Propagation-failure investigation should reuse existing pest, pathogen, root-zone and viroid differentials while retaining laboratory confirmation boundaries."
+    }
+  ]
+}
