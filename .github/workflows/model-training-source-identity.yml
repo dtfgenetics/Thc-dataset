@@ -17,7 +17,7 @@ on:
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - 'data/diagnostic-profiles.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - 'model_tuning/config/qlora_8b.yaml'
       - '.github/workflows/model-training-source-identity.yml'
   push:
@@ -37,7 +37,7 @@ on:
       - 'scripts/audit-model-eval-candidate-diversity.py'
       - 'scripts/audit-model-semantic-leakage.py'
       - 'data/diagnostic-profiles.jsonl'
-      - 'model_tuning/eval/heldout_v2.jsonl'
+      - 'model_tuning/eval/heldout_v3.jsonl'
       - 'model_tuning/config/qlora_8b.yaml'
       - '.github/workflows/model-training-source-identity.yml'
 
