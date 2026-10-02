@@ -1,0 +1,9 @@
+{
+  "schema_version": "grow-doc-trait-registry-v1",
+  "policy": {
+    "reviewed_only": true,
+    "unresolved_action": "quarantine",
+    "automatic_external_mapping": false
+  },
+  "traits": []
+}
