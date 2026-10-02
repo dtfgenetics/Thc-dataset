@@ -26,6 +26,9 @@ on:
       - "dataset/generated/tool_data/source_catalog_v1.json"
       - "scripts/normalize-reviewed-claims.py"
       - "dataset/schemas/reviewed_claim_v1.schema.json"
+      - "scripts/publish-reviewed-rag-claims.py"
+      - "scripts/test-rag-claim-publication.py"
+      - "dataset/fixtures/tool_bundle/reviewed_claims_fixture.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -67,3 +70,5 @@ jobs:
           python3 scripts/test-tool-data-bundle-materialization.py
           python3 scripts/build-tool-source-catalog.py --self-test
           python3 scripts/normalize-reviewed-claims.py --self-test
+          python3 scripts/publish-reviewed-rag-claims.py --self-test
+          python3 scripts/test-rag-claim-publication.py
