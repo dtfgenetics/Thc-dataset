@@ -3,7 +3,107 @@
   "policy": {
     "reviewed_only": true,
     "unresolved_action": "quarantine",
-    "automatic_external_mapping": false
+    "automatic_external_mapping": false,
+    "external_ontology_ids_require_verification": true,
+    "measurement_source": "usda_hemp_phenotyping_handbook_v4_2025",
+    "experiment_metadata_standard": "miappe_v1_2_2024"
   },
-  "traits": []
+  "traits": [
+    {
+      "trait_id": "THC-TRAIT-0001",
+      "preferred_name": "Plant height",
+      "aliases": ["height", "plant_height"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "length",
+      "preferred_unit": "cm",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0002",
+      "preferred_name": "Stem diameter",
+      "aliases": ["stem width", "stem_diameter"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "length",
+      "preferred_unit": "mm",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0003",
+      "preferred_name": "Days to flowering",
+      "aliases": ["days_to_flower", "days to flower"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "time",
+      "preferred_unit": "day",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0004",
+      "preferred_name": "Fresh biomass",
+      "aliases": ["fresh weight", "fresh_biomass"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "mass",
+      "preferred_unit": "g",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0005",
+      "preferred_name": "Dry biomass",
+      "aliases": ["dry weight", "dry_biomass"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "mass",
+      "preferred_unit": "g",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0006",
+      "preferred_name": "Seed mass",
+      "aliases": ["seed weight", "seed_mass"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "mass",
+      "preferred_unit": "g",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0007",
+      "preferred_name": "Germination time",
+      "aliases": ["time to germination", "germination_time"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "time",
+      "preferred_unit": "day",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "trait_id": "THC-TRAIT-0008",
+      "preferred_name": "Internode length",
+      "aliases": ["internodal length", "internode_length"],
+      "ontology": "DTF THC controlled trait vocabulary",
+      "external_mappings": [],
+      "mapping_state": "external_mapping_pending",
+      "dimension": "length",
+      "preferred_unit": "mm",
+      "reviewed": true,
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    }
+  ]
 }
