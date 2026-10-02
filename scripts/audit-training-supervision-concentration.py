@@ -294,8 +294,10 @@ def self_test() -> None:
     assert report["baseline_comparison"]["new_task_families"] == ["science_education"]
     assert report["baseline_comparison"]["missing_baseline_task_families"] == ["legacy_task"]
     regressions = concentration_regressions(report)
-    assert len(regressions) == 1
-    assert regressions[0]["metric"] == "top_task_example_share"
+    assert {item["metric"] for item in regressions} == {
+        "top_source_example_share",
+        "top_task_example_share",
+    }
 
     safe = json.loads(json.dumps(report))
     safe["baseline_comparison"]["metric_deltas"]["top_task_example_share"] = 0.10
