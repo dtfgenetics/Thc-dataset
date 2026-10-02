@@ -1,0 +1,60 @@
+{
+  "schema_version": "grow-doc-task-registry-v1",
+  "tasks": [
+    {
+      "id": "GD-SYS-001",
+      "lane": "system",
+      "priority": "P0",
+      "status": "active",
+      "title": "Canonical contribution status and receipts"
+    },
+    {
+      "id": "GD-RAG-001",
+      "lane": "rag",
+      "priority": "P0",
+      "status": "active",
+      "title": "Expand independently reviewed Cannabis scientific claims",
+      "requirements": [
+        "canonical source identity",
+        "citation locator",
+        "scope and limitations",
+        "rights review",
+        "claim review"
+      ],
+      "forbidden": [
+        "direct weight-training promotion"
+      ]
+    },
+    {
+      "id": "GD-EVAL-001",
+      "lane": "eval",
+      "priority": "P0",
+      "status": "active",
+      "title": "Expand independent protected-slice challenges",
+      "requirements": [
+        "no train/dev source overlap",
+        "no prompt leakage",
+        "independent source identity"
+      ],
+      "forbidden": [
+        "training use"
+      ]
+    },
+    {
+      "id": "GD-VISION-001",
+      "lane": "vision",
+      "priority": "P0",
+      "status": "blocked",
+      "title": "Acquire independent confirmed Cannabis diagnostic media",
+      "blocker": "zero current training-eligible vision samples"
+    },
+    {
+      "id": "GD-COMPUTE-001",
+      "lane": "compute",
+      "priority": "P0",
+      "status": "blocked",
+      "title": "Run frozen Qwen3-8B base-vs-RAG benchmark",
+      "blocker": "qualifying growdoc-gpu execution not yet verified"
+    }
+  ]
+}
