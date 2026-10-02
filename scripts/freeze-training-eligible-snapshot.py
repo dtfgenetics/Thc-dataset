@@ -76,6 +76,17 @@ def build_manifest(directory: pathlib.Path, revision: str) -> dict:
     }
 
 
+def verify_manifest(path: pathlib.Path, expected: dict) -> None:
+    if not path.is_file():
+        raise FileNotFoundError(f"missing training snapshot manifest: {path}")
+    try:
+        actual = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"{path}: invalid JSON: {exc}") from exc
+    if actual != expected:
+        raise ValueError("training snapshot manifest does not match current artifact bytes/metadata")
+
+
 def self_test() -> None:
     import tempfile
 
@@ -88,6 +99,17 @@ def self_test() -> None:
         assert manifest["total_examples"] == 3
         assert [x["jsonl_rows"] for x in manifest["artifacts"]] == [2, 1]
         assert all(len(x["sha256"]) == 64 for x in manifest["artifacts"])
+        manifest_path = directory / "snapshot_manifest.json"
+        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        verify_manifest(manifest_path, manifest)
+        (directory / "sft_v1.jsonl").write_text('{"id":"a"}\n{"id":"changed"}\n', encoding="utf-8")
+        changed = build_manifest(directory, "deadbeef")
+        try:
+            verify_manifest(manifest_path, changed)
+        except ValueError:
+            pass
+        else:
+            raise AssertionError("snapshot verification must reject changed artifact bytes")
     print("training snapshot freeze self-test: PASS")
 
 
@@ -108,7 +130,13 @@ def main() -> int:
         print(f"ERROR: {exc}", file=sys.stderr)
         return 1
     print(json.dumps(manifest, indent=2, sort_keys=True))
-    if not args.check_only:
+    if args.check_only:
+        try:
+            verify_manifest(args.manifest, manifest)
+        except (OSError, ValueError) as exc:
+            print(f"ERROR: {exc}", file=sys.stderr)
+            return 1
+    else:
         args.manifest.parent.mkdir(parents=True, exist_ok=True)
         args.manifest.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print("training snapshot freeze: PASS")
