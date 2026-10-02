@@ -24,44 +24,160 @@
   },
   "seed_compounds": [
     {
+      "compound_id": "pubchem:2543",
+      "cid": 2543,
+      "preferred_name": "Cannabinol",
+      "aliases": [
+        "CBN"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/2543"
+    },
+    {
+      "compound_id": "pubchem:6654",
+      "cid": 6654,
+      "preferred_name": "alpha-Pinene",
+      "aliases": [
+        "α-Pinene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/6654"
+    },
+    {
+      "compound_id": "pubchem:11463",
+      "cid": 11463,
+      "preferred_name": "Terpinolene",
+      "aliases": [
+        "alpha-Terpinolene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/11463"
+    },
+    {
+      "compound_id": "pubchem:14896",
+      "cid": 14896,
+      "preferred_name": "beta-Pinene",
+      "aliases": [
+        "β-Pinene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/14896"
+    },
+    {
       "compound_id": "pubchem:16078",
       "cid": 16078,
       "preferred_name": "Tetrahydrocannabinol",
-      "aliases": ["delta9-THC", "THC"],
+      "aliases": [
+        "delta9-THC",
+        "THC"
+      ],
       "class": "phytocannabinoid",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078"
     },
     {
-      "compound_id": "pubchem:644019",
-      "cid": 644019,
-      "preferred_name": "Cannabidiol",
-      "aliases": ["CBD"],
+      "compound_id": "pubchem:30219",
+      "cid": 30219,
+      "preferred_name": "Cannabichromene",
+      "aliases": [
+        "CBC"
+      ],
       "class": "phytocannabinoid",
-      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/644019"
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/30219"
     },
     {
-      "compound_id": "pubchem:5315659",
-      "cid": 5315659,
-      "preferred_name": "Cannabigerol",
-      "aliases": ["CBG"],
+      "compound_id": "pubchem:31253",
+      "cid": 31253,
+      "preferred_name": "Myrcene",
+      "aliases": [
+        "beta-Myrcene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/31253"
+    },
+    {
+      "compound_id": "pubchem:93147",
+      "cid": 93147,
+      "preferred_name": "Tetrahydrocannabivarin",
+      "aliases": [
+        "THCV",
+        "delta9-THCV"
+      ],
       "class": "phytocannabinoid",
-      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315659"
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/93147"
     },
     {
       "compound_id": "pubchem:440917",
       "cid": 440917,
       "preferred_name": "(+)-Limonene",
-      "aliases": ["D-Limonene", "(R)-(+)-Limonene"],
+      "aliases": [
+        "D-Limonene",
+        "(R)-(+)-Limonene"
+      ],
       "class": "monoterpene",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/440917"
+    },
+    {
+      "compound_id": "pubchem:443158",
+      "cid": 443158,
+      "preferred_name": "(-)-Linalool",
+      "aliases": [
+        "(R)-(-)-Linalool",
+        "(3R)-Linalool"
+      ],
+      "class": "monoterpene_alcohol",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/443158"
+    },
+    {
+      "compound_id": "pubchem:644019",
+      "cid": 644019,
+      "preferred_name": "Cannabidiol",
+      "aliases": [
+        "CBD"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/644019"
     },
     {
       "compound_id": "pubchem:5281515",
       "cid": 5281515,
       "preferred_name": "(-)-Caryophyllene",
-      "aliases": ["beta-Caryophyllene", "(-)-trans-Caryophyllene"],
+      "aliases": [
+        "beta-Caryophyllene",
+        "(-)-trans-Caryophyllene"
+      ],
       "class": "sesquiterpene",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281515"
+    },
+    {
+      "compound_id": "pubchem:5281520",
+      "cid": 5281520,
+      "preferred_name": "Humulene",
+      "aliases": [
+        "alpha-Humulene",
+        "α-Humulene"
+      ],
+      "class": "sesquiterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281520"
+    },
+    {
+      "compound_id": "pubchem:5315659",
+      "cid": 5315659,
+      "preferred_name": "Cannabigerol",
+      "aliases": [
+        "CBG"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315659"
+    },
+    {
+      "compound_id": "pubchem:11601669",
+      "cid": 11601669,
+      "preferred_name": "Cannabidivarin",
+      "aliases": [
+        "CBDV"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/11601669"
     }
   ]
 }
