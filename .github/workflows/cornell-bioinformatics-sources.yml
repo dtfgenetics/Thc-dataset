@@ -10,6 +10,7 @@ on:
       - "scripts/collect-ncbi-genome-metadata.py"
       - "scripts/normalize-ncbi-biosample.py"
       - "scripts/resolve-bioinformatics-identities.py"
+      - "scripts/export-brapi-germplasm.py"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -41,3 +42,4 @@ jobs:
           python3 scripts/collect-ncbi-genome-metadata.py --self-test
           python3 scripts/normalize-ncbi-biosample.py --self-test
           python3 scripts/resolve-bioinformatics-identities.py --self-test
+          python3 scripts/export-brapi-germplasm.py --self-test
