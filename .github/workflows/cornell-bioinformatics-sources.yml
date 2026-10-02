@@ -24,6 +24,8 @@ on:
       - "dataset/fixtures/tool_bundle/germplasm_fixture.json"
       - "scripts/build-tool-source-catalog.py"
       - "dataset/generated/tool_data/source_catalog_v1.json"
+      - "scripts/normalize-reviewed-claims.py"
+      - "dataset/schemas/reviewed_claim_v1.schema.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -64,3 +66,4 @@ jobs:
           python3 scripts/validate-tool-data-bundle.py --self-test
           python3 scripts/test-tool-data-bundle-materialization.py
           python3 scripts/build-tool-source-catalog.py --self-test
+          python3 scripts/normalize-reviewed-claims.py --self-test
