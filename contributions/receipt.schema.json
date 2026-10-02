@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grow Doc contribution receipt v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contribution_id",
+    "task_id",
+    "lane",
+    "base_commit",
+    "branch",
+    "changed_paths",
+    "source_ids",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grow-doc-contribution-receipt-v1"
+    },
+    "contribution_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^GD-[A-Z]+-[0-9]{3,}$"
+    },
+    "lane": {
+      "enum": [
+        "rag",
+        "diagnostic",
+        "sft",
+        "grounded_qa",
+        "eval",
+        "vision",
+        "compute",
+        "system"
+      ]
+    },
+    "base_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,40}$"
+    },
+    "branch": {
+      "type": "string",
+      "pattern": "^work/grow-doc/"
+    },
+    "changed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "validation": {
+      "type": "object"
+    },
+    "weight_training_eligible": {
+      "type": "boolean"
+    },
+    "training_eligible": {
+      "type": "boolean"
+    },
+    "human_reviewed": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

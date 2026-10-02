@@ -58,3 +58,7 @@ npm run build
 Dataset/model work must also preserve the relevant provenance/evaluation validators. If another session touches the same file, dataset slice, model-control artifact, or release package, continue development independently but reconcile that overlap before merge.
 
 After merge, production integration must reference the exact validated canonical commit/artifact. Do not author a permanent fix in the `dtfgenetics/Thc` deployment copy.
+
+## Contribution task claims
+
+Before editing a canonical Grow Doc dataset/model slice, select an active task from `contributions/tasks.json` and record the session in `contributions/claims.json`. One active task may have only one session claim at a time. Blocked tasks cannot be claimed. The claim branch must follow `work/grow-doc/<task>/<session-id>`. Release the claim when the PR is merged/closed. Every data/model contribution should carry a receipt conforming to `contributions/receipt.schema.json`; RAG facts and evaluation cases must remain in their non-training lanes unless a separate reviewed promotion contract explicitly authorizes otherwise.
