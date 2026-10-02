@@ -19,6 +19,9 @@ on:
       - "dataset/schemas/phenotype_observation_v1.schema.json"
       - "scripts/resolve-trait-ontology-units.py"
       - "dataset/traits/trait_registry_v1.json"
+      - "scripts/validate-tool-data-bundle.py"
+      - "scripts/test-tool-data-bundle-materialization.py"
+      - "dataset/fixtures/tool_bundle/germplasm_fixture.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -56,3 +59,5 @@ jobs:
           python3 scripts/build-tool-data-bundle.py --self-test
           python3 scripts/normalize-phenotype-observations.py --self-test
           python3 scripts/resolve-trait-ontology-units.py --self-test
+          python3 scripts/validate-tool-data-bundle.py --self-test
+          python3 scripts/test-tool-data-bundle-materialization.py
