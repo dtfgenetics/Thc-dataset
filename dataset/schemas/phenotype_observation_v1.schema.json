@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grow Doc phenotype observation v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trait_id",
+    "value",
+    "source_id",
+    "evidence_tier",
+    "review_state",
+    "rag_eligible",
+    "weight_training_eligible",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grow-doc-phenotype-observation-v1"
+    },
+    "grin_accession": {
+      "type": "string",
+      "minLength": 1
+    },
+    "biosample_accession": {
+      "type": "string",
+      "minLength": 1
+    },
+    "brapi_germplasm_db_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trait_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {},
+    "unit": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "citation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "environment": {
+      "type": "object"
+    },
+    "treatment": {
+      "type": "object"
+    },
+    "method": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "observed_at": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence_tier": {
+      "type": "string"
+    },
+    "review_state": {
+      "type": "string"
+    },
+    "rag_eligible": {
+      "type": "boolean"
+    },
+    "weight_training_eligible": {
+      "const": false
+    },
+    "record_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "grin_accession"
+      ]
+    },
+    {
+      "required": [
+        "biosample_accession"
+      ]
+    },
+    {
+      "required": [
+        "brapi_germplasm_db_id"
+      ]
+    }
+  ],
+  "additionalProperties": false
+}
