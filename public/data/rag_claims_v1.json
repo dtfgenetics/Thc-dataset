@@ -1,0 +1,28 @@
+{
+  "schema_version": "grow-doc-rag-claims-published-v1",
+  "publication_policy": {
+    "reviewed_claims_only": true,
+    "weight_training_eligible": false
+  },
+  "claims": [
+    {
+      "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "The dissertation reports mapping two major flowering-time loci on chromosome 1, named Autoflower1 and Early1.",
+      "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation flowering-time genetics",
+        "trait": "flowering time"
+      },
+      "limitations": [
+        "Treat as a result from the dissertation's studied germplasm and analyses; do not generalize the loci as sufficient to predict flowering behavior in every Cannabis genotype."
+      ],
+      "rights_state": "reviewed"
+    }
+  ],
+  "inputs": {
+    "reviewed_claims_sha256": "9982cbb22755abfd517b73d360a98d0276a4f811748122d03a8ea863274b12f1",
+    "source_catalog_sha256": "19c7a21482e6065f4583816e0f9d7905296e6f698bedbeb5b6a503b37113465b"
+  }
+}
