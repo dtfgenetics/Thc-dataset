@@ -17,6 +17,8 @@ on:
       - "dataset/tool_data_bundle_spec_v1.json"
       - "scripts/normalize-phenotype-observations.py"
       - "dataset/schemas/phenotype_observation_v1.schema.json"
+      - "scripts/resolve-trait-ontology-units.py"
+      - "dataset/traits/trait_registry_v1.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -53,3 +55,4 @@ jobs:
           python3 scripts/test-grin-to-brapi-contract.py
           python3 scripts/build-tool-data-bundle.py --self-test
           python3 scripts/normalize-phenotype-observations.py --self-test
+          python3 scripts/resolve-trait-ontology-units.py --self-test
