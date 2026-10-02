@@ -1,5 +1,34 @@
 {
   "schema_version": "grow-doc-tool-data-bundle-spec-v1",
-  "bundle_version": "1",
-  "artifacts": []
+  "bundle_version": "2",
+  "artifacts": [
+    {
+      "role": "source_catalog",
+      "path": "dataset/generated/tool_data/source_catalog_v1.json",
+      "schema_version": "grow-doc-tool-source-catalog-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "chemistry",
+      "path": "dataset/generated/tool_data/chemistry_catalog_v1.json",
+      "schema_version": "grow-doc-chemistry-catalog-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "traits",
+      "path": "dataset/traits/trait_registry_v1.json",
+      "schema_version": "grow-doc-trait-registry-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "rag_claims",
+      "path": "dataset/generated/tool_data/rag_claims_v1.json",
+      "schema_version": "grow-doc-rag-claims-published-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    }
+  ]
 }
