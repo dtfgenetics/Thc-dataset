@@ -352,7 +352,7 @@ def main() -> int:
         return 1
     print(json.dumps(report, indent=2, sort_keys=True))
     if report["hard_errors"]:
-        print(f"training supervision concentration audit: FAIL ({report[\'hard_errors\']} concentration regressions)", file=sys.stderr)
+        print(f"training supervision concentration audit: FAIL ({report['hard_errors']} concentration regressions)", file=sys.stderr)
         return 1
     print("training supervision concentration audit: PASS")
     return 0
