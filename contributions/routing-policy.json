@@ -1,0 +1,132 @@
+{
+  "schema_version": "grow-doc-routing-policy-v1",
+  "lanes": {
+    "rag": {
+      "allowed_prefixes": [
+        "dataset/claims/",
+        "dataset/registry/",
+        "model_tuning/rag/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/eval/",
+        "model_tuning/generated/",
+        "model_tuning/runs/"
+      ],
+      "required_validators": [
+        "validate:sources",
+        "validate:model-source-evidence-quality",
+        "validate:model-semantic-leakage"
+      ],
+      "training_eligible": false
+    },
+    "diagnostic": {
+      "allowed_prefixes": [
+        "src/data/",
+        "data/profiles/",
+        "dataset/registry/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/eval/",
+        "model_tuning/runs/"
+      ],
+      "required_validators": [
+        "validate:diagnostic-profiles",
+        "validate:sources",
+        "validate:data-release"
+      ]
+    },
+    "sft": {
+      "allowed_prefixes": [
+        "model_tuning/corpus/",
+        "model_tuning/sft/",
+        "dataset/claims/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/eval/heldout_",
+        "model_tuning/runs/"
+      ],
+      "required_validators": [
+        "validate:model-corpus-quality",
+        "validate:model-example-evidence-tiers",
+        "validate:model-semantic-leakage",
+        "validate:model-grounding"
+      ]
+    },
+    "grounded_qa": {
+      "allowed_prefixes": [
+        "model_tuning/grounded_qa/",
+        "dataset/claims/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/eval/heldout_",
+        "model_tuning/runs/"
+      ],
+      "required_validators": [
+        "validate:grounded-qa",
+        "validate:model-semantic-leakage",
+        "validate:model-grounding"
+      ]
+    },
+    "eval": {
+      "allowed_prefixes": [
+        "model_tuning/eval/candidates/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/corpus/",
+        "model_tuning/sft/",
+        "model_tuning/generated/"
+      ],
+      "required_validators": [
+        "validate:model-eval-candidates",
+        "validate:model-eval-candidate-leakage"
+      ],
+      "training_eligible": false
+    },
+    "vision": {
+      "allowed_prefixes": [
+        "dataset/acquisition/",
+        "data/reference-",
+        "images/reference/"
+      ],
+      "forbidden_prefixes": [
+        "data/training-eligible-media.json",
+        "data/splits/"
+      ],
+      "required_validators": [
+        "validate:acquisition",
+        "validate:data-release"
+      ],
+      "default_training_eligible": false
+    },
+    "compute": {
+      "allowed_prefixes": [
+        "model_tuning/config/",
+        "scripts/",
+        "model_tuning/reviews/"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/runs/"
+      ],
+      "required_validators": [
+        "validate:qlora-config",
+        "validate:model-runner"
+      ]
+    },
+    "system": {
+      "allowed_prefixes": [
+        "contributions/",
+        "scripts/",
+        "package.json",
+        ".github/workflows/",
+        "AGENTS.md"
+      ],
+      "forbidden_prefixes": [
+        "model_tuning/eval/heldout_"
+      ],
+      "required_validators": [
+        "validate:grow-doc-contributions",
+        "validate:grow-doc-claims"
+      ]
+    }
+  }
+}
