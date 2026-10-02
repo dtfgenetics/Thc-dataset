@@ -50,7 +50,8 @@
     "validate:source-intake": "python3 scripts/intake-grow-doc-sources.py --self-test",
     "validate:claim-relationships": "python3 scripts/validate-claim-relationships.py && python3 scripts/validate-claim-relationships.py --self-test",
     "validate:external-source-registries": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py",
-    "validate:pubchem-collector": "python3 scripts/collect-pubchem-compound.py --self-test"
+    "validate:pubchem-collector": "python3 scripts/collect-pubchem-compound.py --self-test",
+    "validate:bioinformatics-contracts": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py && python3 scripts/collect-pubchem-compound.py --self-test && python3 scripts/normalize-usda-grin-germplasm.py --self-test && python3 scripts/export-brapi-germplasm.py --self-test && python3 scripts/test-grin-to-brapi-contract.py && python3 scripts/resolve-trait-ontology-units.py --self-test && python3 scripts/normalize-phenotype-observations.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
