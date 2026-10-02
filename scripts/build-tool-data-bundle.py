@@ -5,7 +5,7 @@ import argparse, hashlib, json
 from pathlib import Path
 
 SCHEMA="grow-doc-tool-data-bundle-v1"
-ALLOWED_ROLES={"germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants"}
+ALLOWED_ROLES={"source_catalog","chemistry","germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants"}
 def sha(path:Path)->str:
     h=hashlib.sha256()
     with path.open("rb") as f:
