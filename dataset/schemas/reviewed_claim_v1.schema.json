@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grow Doc reviewed claim v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "source_id",
+    "claim",
+    "citation_locator",
+    "scope",
+    "limitations",
+    "review_state",
+    "rights_state",
+    "citation_verified",
+    "rag_eligible",
+    "weight_training_eligible",
+    "claim_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grow-doc-reviewed-claim-v1"
+    },
+    "source_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claim": {
+      "type": "string",
+      "minLength": 1
+    },
+    "citation_locator": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_state": {
+      "type": "string"
+    },
+    "rights_state": {
+      "type": "string"
+    },
+    "citation_verified": {
+      "type": "boolean"
+    },
+    "rag_eligible": {
+      "type": "boolean"
+    },
+    "weight_training_eligible": {
+      "const": false
+    },
+    "claim_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    }
+  },
+  "additionalProperties": false
+}
