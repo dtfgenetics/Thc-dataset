@@ -35,9 +35,6 @@ def catalog_record(s: dict) -> dict:
         "weight_training_eligible":False,
         "heldout_eligible":False,
     })
-    rec["record_sha256"]=hashlib.sha256(
-        json.dumps(rec,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode("utf-8")
-    ).hexdigest()
     return rec
 
 def build(registries: list[dict]) -> dict:
@@ -97,7 +94,7 @@ def main()->int:
     registries=[json.loads(p.read_text(encoding="utf-8")) for p in a.registry]
     o=build(registries)
     a.output.parent.mkdir(parents=True,exist_ok=True)
-    a.output.write_text(json.dumps(o,indent=2,sort_keys=True)+"\n",encoding="utf-8")
+    a.output.write_text(json.dumps(o,indent=2)+"\n",encoding="utf-8")
     return 0
 
 if __name__=="__main__":
