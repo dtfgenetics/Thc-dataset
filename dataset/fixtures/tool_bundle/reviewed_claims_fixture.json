@@ -1,0 +1,24 @@
+{
+  "schema_version": "grow-doc-reviewed-claim-v1",
+  "fixture_only": true,
+  "claims": [
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "Synthetic publication-path fixture; not a scientific claim.",
+      "citation_locator": "fixture:1",
+      "scope": {
+        "purpose": "pipeline_test"
+      },
+      "limitations": [
+        "Synthetic fixture only."
+      ],
+      "review_state": "pending",
+      "rights_state": "review_required",
+      "citation_verified": false,
+      "rag_eligible": false,
+      "weight_training_eligible": false,
+      "claim_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
