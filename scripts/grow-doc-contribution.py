@@ -16,6 +16,18 @@ def status():
  eligible=int(ready["visionLayer"]["trainingEligibleSamples"])
  if eligible==0 and (ready["readyForSupervisedCannabisDiagnosisTraining"] or split["ready"]): errors.append("vision training must remain blocked with zero eligible samples")
  return {"schema_version":"grow-doc-contribution-status-v1","ok":not errors,"reference_media":{"originals":o,"crops":c,"total":total,"training_eligible":eligible},"supervised_vision_ready":bool(ready["readyForSupervisedCannabisDiagnosisTraining"]),"tasks":{"total":len(tasks),"active":sum(x.get("status")=="active" for x in tasks),"blocked":sum(x.get("status")=="blocked" for x in tasks)},"canonical_hashes":{"reference_manifest":digest("images/reference/manifest.json"),"crop_manifest":digest("images/reference/crops-manifest.json"),"model_readiness":digest("data/model-training-readiness.json"),"split_manifest":digest("data/splits/manifest.json")},"errors":errors}
+def validate_claims():
+ tasks={x["id"]:x for x in load("contributions/tasks.json")["tasks"]}
+ rows=load("contributions/claims.json").get("claims",[]);e=[];seen={}
+ for r in rows:
+  tid=str(r.get("task_id",""));sid=str(r.get("session_id",""));branch=str(r.get("branch",""))
+  if tid not in tasks:e.append(f"unknown claimed task: {tid}");continue
+  if tasks[tid].get("status")=="blocked":e.append(f"blocked task cannot be claimed: {tid}")
+  if not sid:e.append(f"{tid}: session_id required")
+  if not branch.startswith("work/grow-doc/"):e.append(f"{tid}: invalid branch")
+  if tid in seen:e.append(f"task collision: {tid} claimed by {seen[tid]} and {sid}")
+  else:seen[tid]=sid
+ return e
 def validate_receipt(p):
  r=json.loads(p.read_text(encoding="utf-8")); e=[]
  for k in ("schema_version","contribution_id","task_id","lane","base_commit","branch","changed_paths","source_ids","validation"):
@@ -27,7 +39,7 @@ def validate_receipt(p):
  if r.get("lane")=="vision" and r.get("training_eligible") is True and not r.get("human_reviewed"):e.append("vision training eligibility requires human review")
  return e
 def self_test():
- s=status();assert s["ok"],s["errors"]
+ s=status();assert s["ok"],s["errors"];assert not validate_claims()
  import tempfile
  good={"schema_version":"grow-doc-contribution-receipt-v1","contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"abc","branch":"work/grow-doc/x/y","changed_paths":[],"source_ids":[],"validation":{},"weight_training_eligible":False}
  with tempfile.TemporaryDirectory() as d:
@@ -35,8 +47,10 @@ def self_test():
   good["weight_training_eligible"]=True;p.write_text(json.dumps(good));assert validate_receipt(p)
  print("Grow Doc contribution controller self-test: PASS")
 def main():
- a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
+ a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--self-test",action="store_true");x=a.parse_args()
  if x.self_test:self_test();return 0
+ if x.validate_claims:
+  e=validate_claims();print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
  if x.validate_receipt:
   e=validate_receipt(x.validate_receipt);print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
  s=status();print(json.dumps(s,indent=2,sort_keys=True));return 0 if s["ok"] else 2
