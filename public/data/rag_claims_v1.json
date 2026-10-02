@@ -1,28 +1,33 @@
 {
-  "schema_version": "grow-doc-rag-claims-published-v1",
-  "publication_policy": {
-    "reviewed_claims_only": true,
-    "weight_training_eligible": false
-  },
   "claims": [
     {
-      "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d",
-      "source_id": "cornell_toth_hemp_genetics_2022",
-      "claim": "The dissertation reports mapping two major flowering-time loci on chromosome 1, named Autoflower1 and Early1.",
       "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "claim": "The dissertation reports mapping two major flowering-time loci on chromosome 1, named Autoflower1 and Early1.",
+      "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "Treat as a result from the dissertation's studied germplasm and analyses; do not generalize the loci as sufficient to predict flowering behavior in every Cannabis genotype."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
       "scope": {
         "organism": "Cannabis sativa (hemp)",
         "study_context": "Jacob Toth 2022 Cornell PhD dissertation flowering-time genetics",
         "trait": "flowering time"
       },
-      "limitations": [
-        "Treat as a result from the dissertation's studied germplasm and analyses; do not generalize the loci as sufficient to predict flowering behavior in every Cannabis genotype."
-      ],
-      "rights_state": "reviewed"
+      "source_id": "cornell_toth_hemp_genetics_2022"
     }
   ],
   "inputs": {
+    "claim_relationships_sha256": "6578e467a7105b2e1c483cf19bb398a2648f172022eda4a4048dde7f9cdf191a",
     "reviewed_claims_sha256": "9982cbb22755abfd517b73d360a98d0276a4f811748122d03a8ea863274b12f1",
     "source_catalog_sha256": "7f2327a31ffd4ff04cfd1b9a19cbf19c992a5338526fafa6daa331aec7e9c82e"
-  }
+  },
+  "publication_policy": {
+    "approved_relationships_attached": true,
+    "approved_superseded_claims_excluded_from_retrieval": true,
+    "reviewed_claims_only": true,
+    "weight_training_eligible": false
+  },
+  "schema_version": "grow-doc-rag-claims-published-v1"
 }
