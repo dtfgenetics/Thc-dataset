@@ -1,0 +1,59 @@
+{
+  "schema_version": "grow-doc-external-bioinformatics-source-registry-v1",
+  "policy": {
+    "rag_first": true,
+    "weight_training_default": false,
+    "heldout_default": false,
+    "require_source_identity": true,
+    "require_rights_review_before_redistribution": true,
+    "purpose": "Register authoritative external bioinformatics and germplasm sources without copying unreviewed content into model weights."
+  },
+  "sources": [
+    {
+      "source_id": "cornell_hemp_usda_ars_germplasm_2024",
+      "organization": "Cornell University / USDA-ARS",
+      "title": "The USDA-ARS Hemp Germplasm Repository",
+      "source_type": "institutional_factsheet",
+      "canonical_url": "https://hemp.cals.cornell.edu/resources/reports-factsheets/2024-factsheets/the-usda-ars-hemp-germplasm-repository/",
+      "retrieval_topics": ["germplasm", "passport_metadata", "phenotypes", "cannabinoids", "pathogen_resistance", "genomics"],
+      "evidence_tier": "institutional_primary",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false,
+      "rights_status": "review_required",
+      "notes": "Use as institutional context. Time-varying accession counts must be refreshed from GRIN-Global rather than frozen from this 2024 factsheet."
+    },
+    {
+      "source_id": "usda_grin_cannabis_sativa_taxon_8862",
+      "organization": "USDA Agricultural Research Service",
+      "title": "GRIN-Global Cannabis sativa L. taxon 8862",
+      "source_type": "germplasm_database",
+      "canonical_url": "https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomydetail?id=8862",
+      "taxon": {"scientific_name": "Cannabis sativa L.", "grin_nomen_number": 8862},
+      "retrieval_topics": ["taxonomy", "germplasm", "accessions", "genomic_links", "passport_metadata"],
+      "evidence_tier": "government_primary",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false,
+      "rights_status": "government_source_review_required",
+      "volatile_fields": ["accession_counts", "availability", "genomic_data_availability"],
+      "notes": "Refresh volatile fields at ingestion time; preserve retrieval timestamp."
+    },
+    {
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "organization": "Cornell University",
+      "title": "Elucidating the Genetic Control of Qualitative Traits in Hemp",
+      "author": "Jacob Toth",
+      "source_type": "doctoral_dissertation",
+      "canonical_url": "https://ecommons.cornell.edu/entities/publication/2e01f4c6-f0bc-4fe6-a800-568535c523f5",
+      "persistent_ids": {"doi": "10.7298/bvsc-7x71", "hdl": "1813/112073"},
+      "retrieval_topics": ["chemotype", "sex_markers", "marker_assisted_selection", "hemp_breeding", "genetics"],
+      "evidence_tier": "scholarly_primary",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false,
+      "rights_status": "repository_rights_review_required",
+      "notes": "Index metadata/claims with page-level citations after document-rights review; do not treat dissertation-derived claims as universal without study context."
+    }
+  ]
+}

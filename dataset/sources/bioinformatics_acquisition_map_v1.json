@@ -1,0 +1,73 @@
+{
+  "schema_version": "grow-doc-bioinformatics-acquisition-map-v1",
+  "policy": {
+    "rag_first": true,
+    "download_raw_sequence_by_default": false,
+    "preserve_accessions": true,
+    "preserve_source_citations": true,
+    "training_requires_separate_review": true,
+    "heldout_requires_independent_source_selection": true
+  },
+  "resources": [
+    {
+      "resource_id": "ncbi_prjna1193891_cornell_stack_2024",
+      "provider": "NCBI",
+      "submitted_by": ["Cornell University", "University of Wisconsin-Madison Biotechnology Center", "Oregon CBD"],
+      "kind": "bioproject",
+      "accession": "PRJNA1193891",
+      "organism_taxid": 3483,
+      "content": ["genome_assembly", "raw_sequence_reads", "biosample"],
+      "scope_note": "Seven hemp individuals: two XY and five XX/monoecious; use accession joins, not cultivar-name joins.",
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1193891",
+      "ingestion": "metadata_first",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "resource_id": "ncbi_prjna904266_cannabis_pangenome",
+      "provider": "NCBI",
+      "kind": "bioproject",
+      "accession": "PRJNA904266",
+      "organism_taxid": 3483,
+      "content": ["pangenome", "genome_assembly", "raw_sequence_reads", "biosample", "usda_ars_germplasm_links"],
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA904266",
+      "ingestion": "metadata_first",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "resource_id": "ncbi_prjna1037132_cannabis_refseq",
+      "provider": "NCBI",
+      "kind": "refseq_bioproject",
+      "accession": "PRJNA1037132",
+      "assembly_accession": "GCF_029168945.1",
+      "organism_taxid": 3483,
+      "content": ["reference_genome", "gene_annotation", "transcripts", "proteins"],
+      "canonical_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1037132",
+      "ingestion": "metadata_first",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "resource_id": "brapi_v2_1",
+      "provider": "BrAPI Community",
+      "kind": "open_api_standard",
+      "content": ["germplasm", "pedigree", "crosses", "seed_lots", "phenotypes", "traits", "observations", "samples", "variants", "calls"],
+      "canonical_url": "https://github.com/plantbreeding/BrAPI",
+      "license": "MIT",
+      "integration_role": "canonical interchange contract for breeding/genotype/phenotype records",
+      "rag_eligible": false,
+      "weight_training_eligible": false
+    },
+    {
+      "resource_id": "breeding_insight_open_source",
+      "provider": "Breeding Insight",
+      "kind": "software_ecosystem",
+      "canonical_url": "https://github.com/Breeding-Insight",
+      "content": ["brapi_clients", "breeding_api", "web_ui", "docker_stack", "genomic_analysis"],
+      "integration_role": "reference implementation and reusable open-source components; review each repository license before reuse",
+      "rag_eligible": false,
+      "weight_training_eligible": false
+    }
+  ]
+}

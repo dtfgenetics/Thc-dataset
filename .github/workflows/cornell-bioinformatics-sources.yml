@@ -1,0 +1,45 @@
+name: Validate Cornell bioinformatics sources
+
+on:
+  pull_request:
+    paths:
+      - "dataset/sources/cornell_bioinformatics_registry_v1.json"
+      - "dataset/sources/bioinformatics_acquisition_map_v1.json"
+      - "scripts/validate-cornell-bioinformatics-registry.py"
+      - "scripts/validate-bioinformatics-acquisition-map.py"
+      - "scripts/collect-ncbi-genome-metadata.py"
+      - "scripts/normalize-ncbi-biosample.py"
+      - "scripts/resolve-bioinformatics-identities.py"
+      - "scripts/export-brapi-germplasm.py"
+      - "docs/BIOINFORMATICS_ARCHITECTURE.md"
+      - ".github/workflows/cornell-bioinformatics-sources.yml"
+  push:
+    branches: [main]
+    paths:
+      - "dataset/sources/cornell_bioinformatics_registry_v1.json"
+      - "dataset/sources/bioinformatics_acquisition_map_v1.json"
+      - "scripts/validate-cornell-bioinformatics-registry.py"
+      - "scripts/validate-bioinformatics-acquisition-map.py"
+      - "scripts/collect-ncbi-genome-metadata.py"
+      - "scripts/normalize-ncbi-biosample.py"
+      - "docs/BIOINFORMATICS_ARCHITECTURE.md"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Validate source identities and ingestion policy
+        run: |
+          python3 scripts/validate-cornell-bioinformatics-registry.py
+          python3 scripts/validate-bioinformatics-acquisition-map.py
+          python3 scripts/collect-ncbi-genome-metadata.py --self-test
+          python3 scripts/normalize-ncbi-biosample.py --self-test
+          python3 scripts/resolve-bioinformatics-identities.py --self-test
+          python3 scripts/export-brapi-germplasm.py --self-test
