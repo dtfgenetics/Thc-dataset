@@ -9,6 +9,7 @@ Build a provenance-preserving Cannabis/plant bioinformatics layer that can serve
 - Breeding/germplasm/phenotype/genotype interchange: BrAPI 2.1.
 - Germplasm passport identity: USDA GRIN-Global + MCPD-compatible fields where available.
 - Plant trait semantics: Crop Ontology identifiers; MIAPPE-compatible experiment metadata where available.
+- Chemical identity: PubChem CID + InChIKey; preserve stereochemistry-specific records rather than collapsing compounds by common name.
 - Taxonomy: NCBI Taxonomy IDs plus provider accession IDs.
 - Sequence identities: NCBI RefSeq/GenBank accessions with assembly version required.
 - Variant storage/exchange: VCF/BCF for files; GA4GH VRS identifiers for normalized application-level variant identity.
@@ -38,6 +39,7 @@ Never join records solely by cultivar/strain display name. Prefer provider acces
 - NCBI SRA metadata: run/experiment/sample accession manifests; sequence downloads only by explicit job.
 - USDA GRIN-Global: Cannabis taxon/accession/passport/availability/descriptor metadata.
 - Cornell/eCommons: scholarly metadata and stable DOI/Handle identities.
+- PubChem PUG REST: canonical cannabinoid/terpene compound identity and database-reported molecular properties; biological-effect claims require separate evidence.
 - BrAPI: generic client for germplasm, pedigree, crosses, seed lots, studies, observations, traits, samples, references, variants and calls.
 - Ontology resolver: Crop Ontology and NCBI Taxonomy identifiers.
 - Variant normalizer: reference-version-aware VCF normalization and optional GA4GH VRS computed identifiers.
@@ -75,10 +77,11 @@ Do not vendor or copy third-party code until its exact repository license and de
 1. Source/software registry and deterministic validator.
 2. NCBI metadata collector with fixture-based tests and snapshot manifest.
 3. GRIN accession collector/normalizer.
-4. Canonical identity/join schema.
-5. BrAPI-compatible normalized JSON records.
-6. Trait/ontology resolver.
-7. RAG claim builder preserving accession/citation metadata.
-8. Quarantine/conflict pipeline.
-9. Independent evaluation-candidate builder.
-10. Only then derive reviewed SFT/grounded-QA examples and measure training-lane deduplication/concentration.
+4. PubChem compound collector/normalizer with CID/InChIKey identity.
+5. Canonical identity/join schema.
+6. BrAPI-compatible normalized JSON records.
+7. Trait/ontology resolver.
+8. RAG claim builder preserving accession/citation metadata.
+9. Quarantine/conflict pipeline.
+10. Independent evaluation-candidate builder.
+11. Only then derive reviewed SFT/grounded-QA examples and measure training-lane deduplication/concentration.
