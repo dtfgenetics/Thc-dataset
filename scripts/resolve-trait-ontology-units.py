@@ -15,7 +15,7 @@ def load_registry(path:Path)->dict:
         tid=str(t.get("trait_id","")).strip()
         if not tid or not t.get("reviewed",False): continue
         for a in [t.get("preferred_name"),*(t.get("aliases") or [])]:
-            if a: out[str(a).strip().lower()]={"trait_id":tid,"preferred_name":t.get("preferred_name"),"ontology":t.get("ontology")}
+            if a: out[str(a).strip().lower()]={"trait_id":tid,"preferred_name":t.get("preferred_name"),"ontology":t.get("ontology"),"external_mappings":t.get("external_mappings") or [],"mapping_state":t.get("mapping_state"),"dimension":t.get("dimension"),"preferred_unit":t.get("preferred_unit"),"source_id":t.get("source_id")}
     return out
 def resolve(name:str,registry:dict)->dict:
     hit=registry.get(str(name).strip().lower())
@@ -28,7 +28,7 @@ def normalize_unit(value,unit:str,dimension:str)->dict:
 def self_test(tmp:Path):
     p=tmp/"r.json"; p.write_text(json.dumps({"traits":[{"trait_id":"CO:test:1","preferred_name":"Plant height","aliases":["height"],"ontology":"Crop Ontology","reviewed":True},{"trait_id":"x","preferred_name":"Secret","reviewed":False}]}))
     r=load_registry(p); assert resolve("HEIGHT",r)["trait_id"]=="CO:test:1"
-    assert normalize_unit(12.5,"cm","length")["canonical_value"]==125.0
+    assert resolve("HEIGHT",r)["preferred_name"]=="Plant height"\n    assert normalize_unit(12.5,"cm","length")["canonical_value"]==125.0
     for fn in (lambda:resolve("Secret",r),lambda:normalize_unit(1,"ppm","length")):
         try:fn(); raise AssertionError("unsafe mapping accepted")
         except ValueError:pass
