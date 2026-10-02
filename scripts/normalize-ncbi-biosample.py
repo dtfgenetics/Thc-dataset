@@ -6,7 +6,7 @@ from pathlib import Path
 
 SCHEMA="grow-doc-ncbi-biosample-normalized-v1"
 ALIASES={
-    "cultivar":"cultivar",
+    "cultivar":"cultivar",\n    "cultivar/accession":"cultivar",
     "cultivar accession":"cultivar",
     "cultivar_accession":"cultivar",
     "breed":"breed",
