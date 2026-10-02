@@ -100,6 +100,16 @@ jobs:
             model_tuning/eval/heldout_v3.jsonl \
             --fail-on-missing-provenance \
             --report model_tuning/generated/audits/dedup_leakage_v1.json
+      - name: Audit frozen training near-duplicates and held-out contamination
+        run: |
+          python3 scripts/audit-grow-doc-near-duplicates.py --self-test
+          python3 scripts/audit-grow-doc-near-duplicates.py \
+            model_tuning/generated/splits/train_sft_v1.jsonl \
+            model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl \
+            model_tuning/generated/splits/dev_sft_v1.jsonl \
+            model_tuning/generated/splits/dev_grounded_qa_v1.jsonl \
+            model_tuning/eval/heldout_v3.jsonl \
+            --report model_tuning/generated/audits/near_duplicate_leakage_v1.json
       - name: Retain pre-verification model artifacts
         uses: actions/upload-artifact@v7
         with:
