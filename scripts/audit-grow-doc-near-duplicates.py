@@ -177,7 +177,7 @@ def self_test() -> None:
             {"id": "train-light", "question": "Explain photosynthetic photon flux density for growers.", "answer": "PPFD describes photon flux density in the PAR waveband.", "source_id": "src-light"},
             {"id": "train-light-paraphrase", "question": "Explain photosynthetic photon flux density for a grower.", "answer": "PPFD describes photon flux density across the PAR waveband.", "source_id": "src-light-2"},
         ]
-        eval_row = {"id": "eval-vpd", "question": "What does vapor pressure deficit describe inside a grow room?", "expected_points": ["It describes the vapor-pressure difference that drives transpiration."], "must_cite": ["src-eval"]}
+        eval_row = {"id": "eval-vpd", "question": "What does vapor pressure deficit describe in a grow room?", "expected_points": ["It describes the vapor-pressure difference driving transpiration."], "must_cite": ["src-eval"]}
         train.write_text("\n".join(json.dumps(r) for r in train_rows) + "\n", encoding="utf-8")
         heldout.write_text(json.dumps(eval_row) + "\n", encoding="utf-8")
         report = audit([train, heldout], prompt_threshold=0.70, pair_threshold=0.75)
