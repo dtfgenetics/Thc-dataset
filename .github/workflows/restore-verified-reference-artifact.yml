@@ -19,7 +19,7 @@ jobs:
   restore:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Download previously verified 25-image artifact
         uses: actions/download-artifact@v4
@@ -79,7 +79,7 @@ jobs:
           git push origin main
 
       - name: Upload restored verification snapshot
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: restored-verified-reference-corpus
           path: |
