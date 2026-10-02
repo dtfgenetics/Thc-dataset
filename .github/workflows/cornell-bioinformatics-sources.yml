@@ -82,8 +82,20 @@ jobs:
           python3 scripts/validate-tool-data-bundle.py --self-test
           python3 scripts/test-tool-data-bundle-materialization.py
           python3 scripts/build-tool-source-catalog.py --self-test
+          python3 scripts/build-tool-source-catalog.py \
+            --registry dataset/sources/cornell_bioinformatics_registry_v1.json \
+            --registry dataset/sources/pubchem_chemistry_registry_v1.json \
+            --registry dataset/sources/plant_phenotyping_standards_registry_v1.json \
+            --output /tmp/source_catalog_v1.json
+          cmp /tmp/source_catalog_v1.json dataset/generated/tool_data/source_catalog_v1.json
           python3 scripts/normalize-reviewed-claims.py --self-test
           python3 scripts/publish-reviewed-rag-claims.py --self-test
+          python3 scripts/publish-reviewed-rag-claims.py \
+            --claims dataset/reviewed/cornell_reviewed_claims_v1.json \
+            --catalog dataset/generated/tool_data/source_catalog_v1.json \
+            --output /tmp/rag_claims_v1.json
+          cmp /tmp/rag_claims_v1.json dataset/generated/tool_data/rag_claims_v1.json
+          cmp /tmp/rag_claims_v1.json public/data/rag_claims_v1.json
           python3 scripts/test-rag-claim-publication.py
           python3 scripts/validate-public-rag-release.py
           python3 scripts/validate-production-rag-artifact.py
