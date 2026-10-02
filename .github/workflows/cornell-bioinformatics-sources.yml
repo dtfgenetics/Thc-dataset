@@ -29,6 +29,11 @@ on:
       - "scripts/publish-reviewed-rag-claims.py"
       - "scripts/test-rag-claim-publication.py"
       - "dataset/fixtures/tool_bundle/reviewed_claims_fixture.json"
+      - "scripts/validate-public-rag-release.py"
+      - "public/data/rag_claims_v1.json"
+      - "scripts/validate-production-rag-artifact.py"
+      - "dataset/generated/tool_data/rag_claims_v1.json"
+      - "dataset/reviewed/cornell_reviewed_claims_v1.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -72,3 +77,5 @@ jobs:
           python3 scripts/normalize-reviewed-claims.py --self-test
           python3 scripts/publish-reviewed-rag-claims.py --self-test
           python3 scripts/test-rag-claim-publication.py
+          python3 scripts/validate-public-rag-release.py
+          python3 scripts/validate-production-rag-artifact.py
