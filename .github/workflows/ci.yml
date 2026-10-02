@@ -26,6 +26,7 @@ jobs:
       - run: npm run validate:grow-doc-claims
       - run: npm run validate:source-intake
       - run: npm run validate:claim-relationships
+      - run: npm run validate:bioinformatics-contracts
       - run: npm run validate:model-eval
       - run: npm run validate:model-base-candidates
       - name: Validate base-vs-RAG candidate binding
