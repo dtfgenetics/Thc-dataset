@@ -6,6 +6,7 @@ from pathlib import Path
 SCHEMA="grow-doc-rag-claims-published-v1"
 def h(b:bytes)->str:return hashlib.sha256(b).hexdigest()
 def publish(claims_doc:dict,catalog_doc:dict,relationships_doc:dict|None=None)->dict:
+ relationship_aware=relationships_doc is not None
  relationships_doc=relationships_doc or {"relationships":[]}
  approved=[r for r in relationships_doc.get("relationships",[]) if r.get("review_state")=="approved"]
  superseded={r.get("right_claim_sha256") for r in approved if r.get("relationship")=="supersedes"}
@@ -25,11 +26,14 @@ def publish(claims_doc:dict,catalog_doc:dict,relationships_doc:dict|None=None)->
   if c.get("review_state")!="approved" or c.get("citation_verified") is not True:raise ValueError("invalid promoted claim")
   if c.get("rights_state") not in {"reviewed","government_source_reviewed"}:raise ValueError("invalid rights state for promoted claim")
   row={k:c.get(k) for k in ("claim_sha256","source_id","claim","citation_locator","scope","limitations","rights_state")}
-  row["relationships"]=sorted(related.get(c.get("claim_sha256"),[]),key=lambda x:(x["relationship"],x["related_claim_sha256"] or ""))
-  row["has_reviewed_conflict"]=any(x["relationship"]=="contradicts" for x in row["relationships"])
+  if relationship_aware:
+   row["relationships"]=sorted(related.get(c.get("claim_sha256"),[]),key=lambda x:(x["relationship"],x["related_claim_sha256"] or ""))
+   row["has_reviewed_conflict"]=any(x["relationship"]=="contradicts" for x in row["relationships"])
   rows.append(row)
  rows.sort(key=lambda x:(x["source_id"],x["claim_sha256"]))
- return {"schema_version":SCHEMA,"publication_policy":{"reviewed_claims_only":True,"weight_training_eligible":False,"approved_superseded_claims_excluded_from_retrieval":True,"approved_relationships_attached":True},"claims":rows}
+ policy={"reviewed_claims_only":True,"weight_training_eligible":False}
+ if relationship_aware:policy.update({"approved_superseded_claims_excluded_from_retrieval":True,"approved_relationships_attached":True})
+ return {"schema_version":SCHEMA,"publication_policy":policy,"claims":rows}
 def self_test():
  cat={"sources":[{"source_id":"s"}]};base={"claim_sha256":"a"*64,"source_id":"s","claim":"Scoped result.","citation_locator":"p.1","scope":{"population":"x"},"limitations":[],"review_state":"approved","rights_state":"reviewed","citation_verified":True,"weight_training_eligible":False}
  out=publish({"claims":[{**base,"rag_eligible":False},{**base,"claim_sha256":"b"*64,"rag_eligible":True}]},cat)
