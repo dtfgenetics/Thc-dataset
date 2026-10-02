@@ -44,6 +44,19 @@ on:
   push:
     branches: [main]
     paths:
+      - "scripts/resolve-bioinformatics-identities.py"
+      - "scripts/export-brapi-germplasm.py"
+      - "scripts/normalize-usda-grin-germplasm.py"
+      - "scripts/test-grin-to-brapi-contract.py"
+      - "scripts/build-tool-data-bundle.py"
+      - "scripts/normalize-phenotype-observations.py"
+      - "scripts/resolve-trait-ontology-units.py"
+      - "dataset/traits/trait_registry_v1.json"
+      - "scripts/validate-tool-data-bundle.py"
+      - "scripts/build-tool-source-catalog.py"
+      - "dataset/generated/tool_data/source_catalog_v1.json"
+      - "dataset/generated/tool_data/rag_claims_v1.json"
+      - "dataset/reviewed/cornell_reviewed_claims_v1.json"
       - "dataset/sources/pubchem_chemistry_registry_v1.json"
       - "dataset/sources/plant_phenotyping_standards_registry_v1.json"
       - "scripts/validate-pubchem-chemistry-registry.py"
