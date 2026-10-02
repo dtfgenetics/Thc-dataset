@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse,hashlib,json
 from pathlib import Path
 SCHEMA="grow-doc-tool-data-bundle-v1"
-ROLES={"germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants"}
+ROLES={"source_catalog","chemistry","germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants"}
 def digest(p:Path):
     h=hashlib.sha256()
     with p.open("rb") as f:
