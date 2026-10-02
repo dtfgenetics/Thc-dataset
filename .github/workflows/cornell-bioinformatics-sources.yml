@@ -4,8 +4,13 @@ on:
   pull_request:
     paths:
       - "dataset/sources/cornell_bioinformatics_registry_v1.json"
+      - "dataset/sources/pubchem_chemistry_registry_v1.json"
+      - "dataset/sources/plant_phenotyping_standards_registry_v1.json"
       - "dataset/sources/bioinformatics_acquisition_map_v1.json"
       - "scripts/validate-cornell-bioinformatics-registry.py"
+      - "scripts/validate-pubchem-chemistry-registry.py"
+      - "scripts/validate-plant-phenotyping-source-registry.py"
+      - "scripts/collect-pubchem-compound.py"
       - "scripts/validate-bioinformatics-acquisition-map.py"
       - "scripts/collect-ncbi-genome-metadata.py"
       - "scripts/normalize-ncbi-biosample.py"
@@ -61,6 +66,9 @@ jobs:
       - name: Validate source identities and ingestion policy
         run: |
           python3 scripts/validate-cornell-bioinformatics-registry.py
+          python3 scripts/validate-pubchem-chemistry-registry.py
+          python3 scripts/validate-plant-phenotyping-source-registry.py
+          python3 scripts/collect-pubchem-compound.py --self-test
           python3 scripts/validate-bioinformatics-acquisition-map.py
           python3 scripts/collect-ncbi-genome-metadata.py --self-test
           python3 scripts/normalize-ncbi-biosample.py --self-test
