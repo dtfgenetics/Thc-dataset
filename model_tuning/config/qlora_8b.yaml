@@ -22,6 +22,7 @@ reproducibility:
 
 hardware:
   require_cuda: true
+  require_bf16_support: true
   require_single_visible_cuda_device: true
   expected_visible_cuda_device_count: 1
   device_map: single_visible_gpu
