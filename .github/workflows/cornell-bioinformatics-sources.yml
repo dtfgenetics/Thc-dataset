@@ -4,7 +4,7 @@ on:
   pull_request:
     paths:
       - "dataset/sources/cornell_bioinformatics_registry_v1.json"
-      - "scripts/validate-cornell-bioinformatics-registry.py"
+      - "scripts/validate-cornell-bioinformatics-registry.py"\n      - "dataset/sources/bioinformatics_acquisition_map_v1.json"\n      - "scripts/validate-bioinformatics-acquisition-map.py"\n      - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
     branches: [main]
@@ -24,4 +24,4 @@ jobs:
         with:
           python-version: "3.12"
       - name: Validate source identities and ingestion policy
-        run: python3 scripts/validate-cornell-bioinformatics-registry.py
+        run: |\n          python3 scripts/validate-cornell-bioinformatics-registry.py\n          python3 scripts/validate-bioinformatics-acquisition-map.py
