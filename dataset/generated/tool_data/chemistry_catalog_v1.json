@@ -1,0 +1,273 @@
+{
+  "schema_version": "grow-doc-chemistry-catalog-v1",
+  "policy": {
+    "canonical_provider": "PubChem",
+    "stable_identity": "CID",
+    "database_identity_is_not_effect_evidence": true,
+    "weight_training_default": false,
+    "heldout_default": false
+  },
+  "compounds": [
+    {
+      "compound_id": "pubchem:2543",
+      "provider": "PubChem",
+      "provider_id": "2543",
+      "preferred_name": "Cannabinol",
+      "aliases": [
+        "CBN"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/2543",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:6654",
+      "provider": "PubChem",
+      "provider_id": "6654",
+      "preferred_name": "alpha-Pinene",
+      "aliases": [
+        "α-Pinene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/6654",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:11463",
+      "provider": "PubChem",
+      "provider_id": "11463",
+      "preferred_name": "Terpinolene",
+      "aliases": [
+        "alpha-Terpinolene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/11463",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:14896",
+      "provider": "PubChem",
+      "provider_id": "14896",
+      "preferred_name": "beta-Pinene",
+      "aliases": [
+        "β-Pinene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/14896",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:16078",
+      "provider": "PubChem",
+      "provider_id": "16078",
+      "preferred_name": "Tetrahydrocannabinol",
+      "aliases": [
+        "delta9-THC",
+        "THC"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/16078",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:30219",
+      "provider": "PubChem",
+      "provider_id": "30219",
+      "preferred_name": "Cannabichromene",
+      "aliases": [
+        "CBC"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/30219",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:31253",
+      "provider": "PubChem",
+      "provider_id": "31253",
+      "preferred_name": "Myrcene",
+      "aliases": [
+        "beta-Myrcene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/31253",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:93147",
+      "provider": "PubChem",
+      "provider_id": "93147",
+      "preferred_name": "Tetrahydrocannabivarin",
+      "aliases": [
+        "THCV",
+        "delta9-THCV"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/93147",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:440917",
+      "provider": "PubChem",
+      "provider_id": "440917",
+      "preferred_name": "(+)-Limonene",
+      "aliases": [
+        "D-Limonene",
+        "(R)-(+)-Limonene"
+      ],
+      "class": "monoterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/440917",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:443158",
+      "provider": "PubChem",
+      "provider_id": "443158",
+      "preferred_name": "(-)-Linalool",
+      "aliases": [
+        "(R)-(-)-Linalool",
+        "(3R)-Linalool"
+      ],
+      "class": "monoterpene_alcohol",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/443158",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:644019",
+      "provider": "PubChem",
+      "provider_id": "644019",
+      "preferred_name": "Cannabidiol",
+      "aliases": [
+        "CBD"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/644019",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:5281515",
+      "provider": "PubChem",
+      "provider_id": "5281515",
+      "preferred_name": "(-)-Caryophyllene",
+      "aliases": [
+        "beta-Caryophyllene",
+        "(-)-trans-Caryophyllene"
+      ],
+      "class": "sesquiterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281515",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:5281520",
+      "provider": "PubChem",
+      "provider_id": "5281520",
+      "preferred_name": "Humulene",
+      "aliases": [
+        "alpha-Humulene",
+        "α-Humulene"
+      ],
+      "class": "sesquiterpene",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281520",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:5315659",
+      "provider": "PubChem",
+      "provider_id": "5315659",
+      "preferred_name": "Cannabigerol",
+      "aliases": [
+        "CBG"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5315659",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "compound_id": "pubchem:11601669",
+      "provider": "PubChem",
+      "provider_id": "11601669",
+      "preferred_name": "Cannabidivarin",
+      "aliases": [
+        "CBDV"
+      ],
+      "class": "phytocannabinoid",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/11601669",
+      "source_id": "pubchem_pug_rest",
+      "identity_scope": "chemical_identity_only",
+      "properties_status": "fetch_with_collect_pubchem_compound",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    }
+  ]
+}
