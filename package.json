@@ -42,7 +42,9 @@
     "validate:qlora-dependencies": "python3 scripts/verify-qlora-dependency-contract.py && python3 scripts/verify-qlora-dependency-contract.py --self-test",
     "validate:qlora-trainer": "python3 scripts/train-grow-doc-qlora.py --self-test",
     "validate:model-improvement-planner": "python3 scripts/plan-grow-doc-improvements.py --self-test",
-    "validate:portable-rag-eval": "python3 scripts/export-portable-rag-eval.py --self-test"
+    "validate:portable-rag-eval": "python3 scripts/export-portable-rag-eval.py --self-test",
+    "status:grow-doc": "python3 scripts/grow-doc-contribution.py",
+    "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
