@@ -55,8 +55,11 @@ jobs:
           pending = json.loads(Path('dataset/training/unpanelized-reference-originals.json').read_text())
           assert admission['summary']['trainingEligibleCount'] == 0
           assert all(not row['trainingEligible'] for row in admission['panels'])
-          assert admission['summary']['panelCropCount'] == 66
-          assert pending['summary']['persistedOriginalCount'] == 25
+          assert admission['summary']['panelCropCount'] == len(admission['panels'])
+          assert pending['summary']['persistedOriginalCount'] == len(pending['records'])
+          status_counts = pending['summary']['statusCounts']
+          assert sum(status_counts.values()) == pending['summary']['persistedOriginalCount']
+          assert pending['summary']['currentlyPanelizedOriginalCount'] + pending['summary']['unpanelizedOriginalCount'] == pending['summary']['persistedOriginalCount']
           assert all(not row['trainingEligible'] for row in pending['records'])
           print('admission', admission['summary'])
           print('unpanelized', pending['summary'])
