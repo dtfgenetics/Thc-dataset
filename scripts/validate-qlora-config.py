@@ -85,6 +85,7 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
         errors.append("starter deterministic Qwen3 baseline requires tokenizer_chat_template_kwargs_enable_thinking: false")
 
     reproducibility = section(text, "reproducibility")
+    hardware = section(text, "hardware")
     precision = section(text, "precision")
     training_data = section(text, "training_data")
     training = section(text, "training")
@@ -101,6 +102,9 @@ def validate_text(text: str, *, allow_placeholders: bool = True) -> list[str]:
     ):
         if bool_value(scalar(reproducibility, key)) is not True:
             errors.append(f"reproducibility.{key} must be true")
+
+    if bool_value(scalar(hardware, "require_bf16_support")) is not True:
+        errors.append("hardware.require_bf16_support must be true for bfloat16 QLoRA")
 
     if bool_value(scalar(precision, "load_in_4bit")) is not True:
         errors.append("QLoRA contract requires precision.load_in_4bit: true")
@@ -224,6 +228,8 @@ def self_test() -> None:
     assert any("enable_thinking" in error for error in validate_text(tampered))
     tampered = base.replace("tokenizer_chat_template_kwargs_enable_thinking: false\n", "")
     assert any("enable_thinking" in error for error in validate_text(tampered))
+    tampered = base.replace("require_bf16_support: true", "require_bf16_support: false")
+    assert any("require_bf16_support" in error for error in validate_text(tampered))
     tampered = base.replace("load_best_model_at_end: true", "load_best_model_at_end: false")
     assert any("load_best_model_at_end" in error for error in validate_text(tampered))
     tampered = base.replace("metric_for_best_model: eval_loss", "metric_for_best_model: train_loss")
