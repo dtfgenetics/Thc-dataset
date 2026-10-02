@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grow Doc contribution receipt v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contribution_id",
+    "task_id",
+    "lane",
+    "base_commit",
+    "branch",
+    "changed_paths",
+    "source_ids",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grow-doc-contribution-receipt-v1"
+    },
+    "contribution_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^GD-[A-Z]+-[0-9]{3,}$"
+    },
+    "lane": {
+      "enum": [
+        "rag",
+        "diagnostic",
+        "sft",
+        "grounded_qa",
+        "eval",
+        "vision",
+        "compute",
+        "system"
+      ]
+    },
+    "base_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{7,64}$"
+    },
+    "branch": {
+      "type": "string",
+      "pattern": "^work/grow-doc/"
+    },
+    "changed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "validation": {
+      "type": "object",
+      "required": [
+        "required",
+        "completed"
+      ],
+      "properties": {
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "completed": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "training_eligible": {
+      "type": "boolean"
+    },
+    "weight_training_eligible": {
+      "type": "boolean"
+    },
+    "human_reviewed": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "lane": {
+            "const": "rag"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "weight_training_eligible"
+        ],
+        "properties": {
+          "weight_training_eligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "lane": {
+            "const": "eval"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "training_eligible"
+        ],
+        "properties": {
+          "training_eligible": {
+            "const": false
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}
