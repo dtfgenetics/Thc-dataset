@@ -6,6 +6,36 @@
   },
   "claims": [
     {
+      "claim_sha256": "627518d9951640273f010309cb556c83ecceebd1f7738e73c7fd76252e3e8b9e",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "The dissertation reports Cannabis accessions that flowered under continuous light and interprets those results as suggesting multiple genes can control photoperiod insensitivity in the studied germplasm.",
+      "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; accessions evaluated under continuous light",
+        "trait": "photoperiod insensitivity"
+      },
+      "limitations": [
+        "The result is evidence from the studied accessions and supports a multi-gene interpretation; it does not establish a universal genetic architecture for every photoperiod-insensitive Cannabis line."
+      ],
+      "rights_state": "reviewed"
+    },
+    {
+      "claim_sha256": "8f8bafbbc541efa426219ce535564907f5982880a9d7d2d013beed144a5f91dc",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "In the dissertation's high-CBD cultivars, a flowering-stage time-course under several biotic and abiotic stresses found the CBD:THC ratio was essentially fixed.",
+      "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; high-CBD cultivars under studied biotic and abiotic stresses",
+        "trait": "CBD:THC ratio during flowering"
+      },
+      "limitations": [
+        "This is scoped to the high-CBD cultivars, flowering-stage time course, and stresses studied in the dissertation; do not generalize the ratio as invariant across all Cannabis genetics or environments."
+      ],
+      "rights_state": "reviewed"
+    },
+    {
       "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d",
       "source_id": "cornell_toth_hemp_genetics_2022",
       "claim": "The dissertation reports mapping two major flowering-time loci on chromosome 1, named Autoflower1 and Early1.",
@@ -22,7 +52,7 @@
     }
   ],
   "inputs": {
-    "reviewed_claims_sha256": "9982cbb22755abfd517b73d360a98d0276a4f811748122d03a8ea863274b12f1",
+    "reviewed_claims_sha256": "8b9ede3127421df8852ac3937f1c899c50a512d0dad42af13c06eaee146f46b0",
     "source_catalog_sha256": "7f2327a31ffd4ff04cfd1b9a19cbf19c992a5338526fafa6daa331aec7e9c82e"
   }
 }
