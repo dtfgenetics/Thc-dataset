@@ -13,6 +13,8 @@ on:
       - "scripts/export-brapi-germplasm.py"
       - "scripts/normalize-usda-grin-germplasm.py"
       - "scripts/test-grin-to-brapi-contract.py"
+      - "scripts/build-tool-data-bundle.py"
+      - "dataset/tool_data_bundle_spec_v1.json"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -47,3 +49,4 @@ jobs:
           python3 scripts/export-brapi-germplasm.py --self-test
           python3 scripts/normalize-usda-grin-germplasm.py --self-test
           python3 scripts/test-grin-to-brapi-contract.py
+          python3 scripts/build-tool-data-bundle.py --self-test
