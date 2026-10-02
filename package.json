@@ -47,7 +47,8 @@
     "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test",
     "validate:grow-doc-claims": "python3 scripts/grow-doc-contribution.py --validate-claims",
     "route:grow-doc": "python3 scripts/grow-doc-contribution.py --route-manifest",
-    "validate:source-intake": "python3 scripts/intake-grow-doc-sources.py --self-test"
+    "validate:source-intake": "python3 scripts/intake-grow-doc-sources.py --self-test",
+    "validate:claim-relationships": "python3 scripts/validate-claim-relationships.py && python3 scripts/validate-claim-relationships.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

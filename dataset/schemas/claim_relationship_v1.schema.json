@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Grow Doc claim relationship v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "relationship_id",
+    "left_claim_sha256",
+    "right_claim_sha256",
+    "relationship",
+    "scope_comparison",
+    "review_state",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "grow-doc-claim-relationship-v1"
+    },
+    "relationship_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "left_claim_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "right_claim_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "relationship": {
+      "enum": [
+        "supports",
+        "qualifies",
+        "contradicts",
+        "supersedes"
+      ]
+    },
+    "scope_comparison": {
+      "type": "object",
+      "minProperties": 1
+    },
+    "review_state": {
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "citation_locator"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "citation_locator": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}
