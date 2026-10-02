@@ -10,13 +10,13 @@
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
   "referenceCandidateCount": 25,
-  "localReferenceImageBinaryCount": 25,
+  "localReferenceImageBinaryCount": 28,
   "referenceUnavailableCount": 0,
   "referencePanelCropCount": 66,
   "referencePanelCropSourceGroupCount": 9,
   "referenceManualCropCount": 12,
   "referenceGridDerivedCropCount": 54,
-  "totalPersistedReferenceImageFiles": 91,
+  "totalPersistedReferenceImageFiles": 94,
   "trainingEligibleMediaCount": 0,
   "supervisedTrainingReady": false,
   "files": {
@@ -68,7 +68,7 @@
     "sourceWorkflowRun": 32080877843,
     "artifactId": 9305073118,
     "artifactZipSha256": "0da03e15ffde7c7dd8fbe6c53fcd18e2cee1b393c0f01d0007b5538c63ed8b77",
-    "restoredRecordCount": 25,
+    "restoredRecordCount": 28,
     "unavailableCount": 0
   },
   "tooling": {
@@ -87,7 +87,7 @@
     "coverageExpansionResult": "triple-verified",
     "cleanRoomVerificationPullRequest": 26,
     "cleanRoomVerificationMerged": false,
-    "referenceBinaryResult": "25-of-25-validated-hashed-and-persisted",
+    "referenceBinaryResult": "28-of-28-validated-hashed-and-persisted",
     "referenceCropResult": "66-crops-validated-hashed-and-persisted",
     "byteLevelValidation": "scripts/validate-data-release.mjs recomputes SHA-256 for every persisted original and crop"
   },
@@ -95,12 +95,12 @@
     "typescriptSources": "The reviewed application catalog is canonical. Generated JSON, JSONL, CSV and diagnostic index are materialized from the same catalog used by the app.",
     "sourceErrata": "Known source errata and taxonomy corrections are normalized before app use and export.",
     "complexLabels": "Pythium, Fusarium and Sclerotinia remain syndrome/complex labels where visual evidence cannot reliably resolve species; new literature augments those profiles instead of creating false species-level image classes.",
-    "referenceBinaries": "Twenty-five rights-cleared original references and sixty-six source-grouped panel derivatives remain reference evidence, not supervised model ground truth.",
+    "referenceBinaries": "Twenty-eight rights-cleared original references and sixty-six source-grouped panel derivatives remain reference evidence, not supervised model ground truth.",
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
     "The 61-profile diagnostic knowledge release is triple-verified, but the image corpus is still not statistically sufficient for supervised Cannabis diagnosis training.",
-    "Ninety-one source-controlled reference images are evidence/context images, not 91 independent training samples; many are related scientific panels and must stay source-grouped.",
+    "Ninety-four source-controlled reference images are evidence/context images, not 94 independent training samples; many are related scientific panels and must stay source-grouped.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
     "New insect profiles require organism evidence because feeding damage alone is generally not species-specific."
