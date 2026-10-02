@@ -1,0 +1,15 @@
+{
+  "schema_version": "grow-doc-tool-fixture-v1",
+  "fixture_only": true,
+  "not_scientific_evidence": true,
+  "records": [
+    {
+      "grin_accession": "TEST-PI-0001",
+      "cultivar_name": "Synthetic fixture",
+      "source_id": "fixture:test",
+      "review_state": "fixture_only",
+      "rag_eligible": false,
+      "weight_training_eligible": false
+    }
+  ]
+}
