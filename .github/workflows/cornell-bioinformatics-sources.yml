@@ -44,6 +44,14 @@ on:
   push:
     branches: [main]
     paths:
+      - "dataset/sources/pubchem_chemistry_registry_v1.json"
+      - "dataset/sources/plant_phenotyping_standards_registry_v1.json"
+      - "scripts/validate-pubchem-chemistry-registry.py"
+      - "scripts/validate-plant-phenotyping-source-registry.py"
+      - "scripts/collect-pubchem-compound.py"
+      - "scripts/build-chemistry-catalog.py"
+      - "dataset/generated/tool_data/chemistry_catalog_v1.json"
+      - "dataset/tool_data_bundle_spec_v1.json"
       - "dataset/sources/cornell_bioinformatics_registry_v1.json"
       - "dataset/sources/bioinformatics_acquisition_map_v1.json"
       - "scripts/validate-cornell-bioinformatics-registry.py"
@@ -77,9 +85,21 @@ jobs:
           python3 scripts/normalize-usda-grin-germplasm.py --self-test
           python3 scripts/test-grin-to-brapi-contract.py
           python3 scripts/build-tool-data-bundle.py --self-test
+          python3 scripts/build-chemistry-catalog.py --self-test
           python3 scripts/normalize-phenotype-observations.py --self-test
           python3 scripts/resolve-trait-ontology-units.py --self-test
           python3 scripts/validate-tool-data-bundle.py --self-test
+          python3 scripts/build-chemistry-catalog.py \
+            --registry dataset/sources/pubchem_chemistry_registry_v1.json \
+            --output /tmp/chemistry_catalog_v1.json
+          cmp /tmp/chemistry_catalog_v1.json dataset/generated/tool_data/chemistry_catalog_v1.json
+          python3 scripts/build-tool-data-bundle.py \
+            --root . \
+            --spec dataset/tool_data_bundle_spec_v1.json \
+            --output /tmp/tool_data_bundle_v1.json
+          python3 scripts/validate-tool-data-bundle.py \
+            --root . \
+            --manifest /tmp/tool_data_bundle_v1.json
           python3 scripts/test-tool-data-bundle-materialization.py
           python3 scripts/build-tool-source-catalog.py --self-test
           python3 scripts/build-tool-source-catalog.py \
