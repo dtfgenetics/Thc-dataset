@@ -1,0 +1,63 @@
+{
+  "schema_version": "grow-doc-plant-phenotyping-source-registry-v1",
+  "policy": {
+    "rag_first": true,
+    "weight_training_default": false,
+    "heldout_default": false,
+    "require_source_identity": true,
+    "require_rights_review_before_redistribution": true,
+    "purpose": "Register plant phenotyping standards and authoritative hemp descriptor/protocol sources used to govern trait and observation metadata."
+  },
+  "sources": [
+    {
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "organization": "USDA Agricultural Research Service",
+      "title": "USDA Hemp Phenotyping and Protocol Handbook, Version 4",
+      "source_type": "government_phenotyping_handbook",
+      "canonical_url": "https://www.ars.usda.gov/northeast-area/geneva-ny/plant-genetic-resources-unit-pgru/docs/hemp-descriptors/",
+      "persistent_ids": {
+        "version": "4.0",
+        "published": "2025-12-16"
+      },
+      "retrieval_topics": [
+        "hemp_phenotyping",
+        "descriptors",
+        "germplasm",
+        "measurement_protocols",
+        "cannabinoid_assay",
+        "seed_viability"
+      ],
+      "evidence_tier": "government_primary",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false,
+      "rights_status": "government_source_review_required",
+      "notes": "Use as the primary hemp-specific descriptor/protocol authority for controlled trait vocabulary and measurement-method provenance. Preserve handbook version on derived records."
+    },
+    {
+      "source_id": "miappe_v1_2_2024",
+      "organization": "MIAPPE / EMBL-EBI",
+      "title": "Minimum Information About Plant Phenotyping Experiments (MIAPPE) v1.2",
+      "source_type": "community_data_standard",
+      "canonical_url": "https://www.miappe.org/releases/",
+      "persistent_ids": {
+        "version": "1.2",
+        "released": "2024-10"
+      },
+      "retrieval_topics": [
+        "phenotyping_metadata",
+        "study_metadata",
+        "biological_material",
+        "observation_variables",
+        "environment",
+        "treatments"
+      ],
+      "evidence_tier": "community_standard",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "heldout_eligible": false,
+      "rights_status": "standard_source_review_required",
+      "notes": "Use to structure experiment and observation metadata. MIAPPE compatibility does not imply that any biological claim or cultivation target is validated."
+    }
+  ]
+}
