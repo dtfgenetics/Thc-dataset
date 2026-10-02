@@ -11,6 +11,8 @@ on:
       - "scripts/normalize-ncbi-biosample.py"
       - "scripts/resolve-bioinformatics-identities.py"
       - "scripts/export-brapi-germplasm.py"
+      - "scripts/normalize-usda-grin-germplasm.py"
+      - "scripts/test-grin-to-brapi-contract.py"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -43,3 +45,5 @@ jobs:
           python3 scripts/normalize-ncbi-biosample.py --self-test
           python3 scripts/resolve-bioinformatics-identities.py --self-test
           python3 scripts/export-brapi-germplasm.py --self-test
+          python3 scripts/normalize-usda-grin-germplasm.py --self-test
+          python3 scripts/test-grin-to-brapi-contract.py
