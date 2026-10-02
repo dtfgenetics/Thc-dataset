@@ -20,6 +20,46 @@
       "rag_eligible": true,
       "weight_training_eligible": false,
       "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "In the dissertation's high-CBD cultivars, a flowering-stage time-course under several biotic and abiotic stresses found the CBD:THC ratio was essentially fixed.",
+      "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; high-CBD cultivars under studied biotic and abiotic stresses",
+        "trait": "CBD:THC ratio during flowering"
+      },
+      "limitations": [
+        "This is scoped to the high-CBD cultivars, flowering-stage time course, and stresses studied in the dissertation; do not generalize the ratio as invariant across all Cannabis genetics or environments."
+      ],
+      "review_state": "approved",
+      "rights_state": "reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "8f8bafbbc541efa426219ce535564907f5982880a9d7d2d013beed144a5f91dc"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "claim": "The dissertation reports Cannabis accessions that flowered under continuous light and interprets those results as suggesting multiple genes can control photoperiod insensitivity in the studied germplasm.",
+      "citation_locator": "Abstract (repository record; dissertation p. ii)",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; accessions evaluated under continuous light",
+        "trait": "photoperiod insensitivity"
+      },
+      "limitations": [
+        "The result is evidence from the studied accessions and supports a multi-gene interpretation; it does not establish a universal genetic architecture for every photoperiod-insensitive Cannabis line."
+      ],
+      "review_state": "approved",
+      "rights_state": "reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "627518d9951640273f010309cb556c83ecceebd1f7738e73c7fd76252e3e8b9e"
     }
   ]
 }
