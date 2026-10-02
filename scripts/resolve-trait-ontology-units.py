@@ -28,7 +28,8 @@ def normalize_unit(value,unit:str,dimension:str)->dict:
 def self_test(tmp:Path):
     p=tmp/"r.json"; p.write_text(json.dumps({"traits":[{"trait_id":"CO:test:1","preferred_name":"Plant height","aliases":["height"],"ontology":"Crop Ontology","reviewed":True},{"trait_id":"x","preferred_name":"Secret","reviewed":False}]}))
     r=load_registry(p); assert resolve("HEIGHT",r)["trait_id"]=="CO:test:1"
-    assert resolve("HEIGHT",r)["preferred_name"]=="Plant height"\n    assert normalize_unit(12.5,"cm","length")["canonical_value"]==125.0
+    assert resolve("HEIGHT",r)["preferred_name"]=="Plant height"
+    assert normalize_unit(12.5,"cm","length")["canonical_value"]==125.0
     for fn in (lambda:resolve("Secret",r),lambda:normalize_unit(1,"ppm","length")):
         try:fn(); raise AssertionError("unsafe mapping accepted")
         except ValueError:pass
