@@ -16,6 +16,19 @@ def status():
  eligible=int(ready["visionLayer"]["trainingEligibleSamples"])
  if eligible==0 and (ready["readyForSupervisedCannabisDiagnosisTraining"] or split["ready"]): errors.append("vision training must remain blocked with zero eligible samples")
  return {"schema_version":"grow-doc-contribution-status-v1","ok":not errors,"reference_media":{"originals":o,"crops":c,"total":total,"training_eligible":eligible},"supervised_vision_ready":bool(ready["readyForSupervisedCannabisDiagnosisTraining"]),"tasks":{"total":len(tasks),"active":sum(x.get("status")=="active" for x in tasks),"blocked":sum(x.get("status")=="blocked" for x in tasks)},"canonical_hashes":{"reference_manifest":digest("images/reference/manifest.json"),"crop_manifest":digest("images/reference/crops-manifest.json"),"model_readiness":digest("data/model-training-readiness.json"),"split_manifest":digest("data/splits/manifest.json")},"errors":errors}
+def route_manifest(p):
+ m=json.loads(p.read_text(encoding="utf-8")); policy=load("contributions/routing-policy.json"); tasks={x["id"]:x for x in load("contributions/tasks.json")["tasks"]};e=[]
+ lane=m.get("lane");tid=m.get("task_id");paths=m.get("changed_paths",[])
+ if lane not in policy["lanes"]:e.append("unknown lane");return {"ok":False,"errors":e}
+ if tid not in tasks:e.append("unknown task_id")
+ elif tasks[tid].get("lane")!=lane:e.append(f"task lane {tasks[tid].get('lane')} != manifest lane {lane}")
+ rule=policy["lanes"][lane]
+ for path in paths:
+  if any(path.startswith(x) for x in rule.get("forbidden_prefixes",[])):e.append(f"forbidden path for {lane}: {path}")
+  if not any(path==x or path.startswith(x) for x in rule.get("allowed_prefixes",[])):e.append(f"path outside {lane} routing policy: {path}")
+ receipt={"schema_version":"grow-doc-contribution-receipt-v1","contribution_id":m.get("contribution_id",""),"task_id":tid,"lane":lane,"base_commit":m.get("base_commit",""),"branch":m.get("branch",""),"changed_paths":paths,"source_ids":m.get("source_ids",[]),"validation":{"required":rule.get("required_validators",[]),"completed":[]} }
+ if rule.get("training_eligible") is False:receipt["training_eligible"]=False;receipt["weight_training_eligible"]=False
+ return {"ok":not e,"errors":e,"required_validators":rule.get("required_validators",[]),"receipt":receipt}
 def validate_claims():
  tasks={x["id"]:x for x in load("contributions/tasks.json")["tasks"]}
  rows=load("contributions/claims.json").get("claims",[]);e=[];seen={}
@@ -45,10 +58,15 @@ def self_test():
  with tempfile.TemporaryDirectory() as d:
   p=pathlib.Path(d)/"r.json";p.write_text(json.dumps(good));assert not validate_receipt(p)
   good["weight_training_eligible"]=True;p.write_text(json.dumps(good));assert validate_receipt(p)
+ bad={"contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"abcdef1","branch":"work/grow-doc/x/y","changed_paths":["model_tuning/eval/heldout_v3.jsonl"],"source_ids":[]}
+ with tempfile.TemporaryDirectory() as d:
+  p=pathlib.Path(d)/"m.json";p.write_text(json.dumps(bad));assert not route_manifest(p)["ok"]
  print("Grow Doc contribution controller self-test: PASS")
 def main():
- a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--self-test",action="store_true");x=a.parse_args()
+ a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--route-manifest",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
  if x.self_test:self_test();return 0
+ if x.route_manifest:
+  r=route_manifest(x.route_manifest);print(json.dumps(r,indent=2,sort_keys=True));return 0 if r["ok"] else 2
  if x.validate_claims:
   e=validate_claims();print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
  if x.validate_receipt:
