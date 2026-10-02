@@ -221,6 +221,8 @@ def load_runtime():
 def verify_cuda_hardware_contract(torch, config_text: str) -> dict[str, Any]:
     if scalar(config_text, "require_cuda") != "true":
         raise RuntimeError("hardware.require_cuda must remain true for a real QLoRA run")
+    if scalar(config_text, "require_bf16_support") != "true":
+        raise RuntimeError("hardware.require_bf16_support must remain true")
     if scalar(config_text, "require_single_visible_cuda_device") != "true":
         raise RuntimeError("hardware.require_single_visible_cuda_device must remain true")
     if scalar(config_text, "expected_visible_cuda_device_count") != "1":
@@ -233,6 +235,8 @@ def verify_cuda_hardware_contract(torch, config_text: str) -> dict[str, Any]:
         raise RuntimeError("hardware.forbid_cpu_disk_offload must remain true")
     if not torch.cuda.is_available():
         raise RuntimeError("QLoRA real run requires CUDA; CPU fallback is disabled")
+    if not torch.cuda.is_bf16_supported():
+        raise RuntimeError("QLoRA real run requires native CUDA BF16 support; unsupported GPU refused")
     device_count = torch.cuda.device_count()
     if device_count != 1:
         raise RuntimeError(
@@ -244,6 +248,7 @@ def verify_cuda_hardware_contract(torch, config_text: str) -> dict[str, Any]:
     capability = torch.cuda.get_device_capability(0)
     return {
         "visible_cuda_device_count": device_count,
+        "bf16_supported": True,
         "device_index": 0,
         "device_name": torch.cuda.get_device_name(0),
         "total_memory_bytes": int(props.total_memory),
