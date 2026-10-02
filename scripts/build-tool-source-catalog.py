@@ -5,7 +5,7 @@ Source catalog records remain metadata-only. Inclusion never promotes a source
 into a reviewed scientific claim, training example, or held-out benchmark.
 """
 from __future__ import annotations
-import argparse, hashlib, json
+import argparse, json
 from pathlib import Path
 
 SCHEMA="grow-doc-tool-source-catalog-v1"
