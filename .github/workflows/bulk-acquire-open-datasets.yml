@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Download maintained PlantVillage archive
         shell: bash
@@ -60,7 +60,7 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Clone PlantDoc classification source
         shell: bash
@@ -99,7 +99,7 @@ jobs:
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Clone PlantDoc detection source
         shell: bash
@@ -138,7 +138,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - uses: actions/checkout@v7
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with: {python-version: '3.12'}
       - name: Clone author-provided alternate data repository
         shell: bash
