@@ -3,7 +3,8 @@
   "policy": {
     "catalog_only": true,
     "claim_promotion_requires_review": true,
-    "weight_training_default": false
+    "weight_training_default": false,
+    "heldout_default": false
   },
   "sources": [
     {
@@ -22,10 +23,12 @@
       ],
       "evidence_tier": "institutional_primary",
       "rights_status": "review_required",
+      "notes": "Use as institutional context. Time-varying accession counts must be refreshed from GRIN-Global rather than frozen from this 2024 factsheet.",
       "catalog_only": true,
       "scientific_claim_reviewed": false,
       "rag_claim_eligible": false,
-      "weight_training_eligible": false
+      "weight_training_eligible": false,
+      "heldout_eligible": false
     },
     {
       "source_id": "cornell_toth_hemp_genetics_2022",
@@ -46,10 +49,28 @@
       ],
       "evidence_tier": "scholarly_primary",
       "rights_status": "repository_rights_review_required",
+      "notes": "Index metadata/claims with page-level citations after document-rights review; do not treat dissertation-derived claims as universal without study context.",
       "catalog_only": true,
       "scientific_claim_reviewed": false,
       "rag_claim_eligible": false,
-      "weight_training_eligible": false
+      "weight_training_eligible": false,
+      "heldout_eligible": false
+    },
+    {
+      "source_id": "pubchem_pug_rest",
+      "organization": "National Library of Medicine / National Center for Biotechnology Information",
+      "title": "PubChem",
+      "source_type": "government_chemical_database",
+      "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/",
+      "api_base": "https://pubchem.ncbi.nlm.nih.gov/rest/pug",
+      "evidence_tier": "government_primary_database",
+      "rights_status": "government_source_review_required",
+      "notes": "Use PubChem CID as the stable provider identifier. Preserve retrieval timestamp and response checksum. Compound records establish chemical identity and database-reported properties; they do not by themselves establish cannabis-specific biological effects.",
+      "catalog_only": true,
+      "scientific_claim_reviewed": false,
+      "rag_claim_eligible": false,
+      "weight_training_eligible": false,
+      "heldout_eligible": false
     },
     {
       "source_id": "usda_grin_cannabis_sativa_taxon_8862",
@@ -71,10 +92,12 @@
         "availability",
         "genomic_data_availability"
       ],
+      "notes": "Refresh volatile fields at ingestion time; preserve retrieval timestamp.",
       "catalog_only": true,
       "scientific_claim_reviewed": false,
       "rag_claim_eligible": false,
-      "weight_training_eligible": false
+      "weight_training_eligible": false,
+      "heldout_eligible": false
     }
   ]
 }
