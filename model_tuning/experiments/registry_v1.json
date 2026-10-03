@@ -1,0 +1,50 @@
+{
+  "schema_version": "grow-doc-experiment-registry-v1",
+  "policy": {
+    "append_only_intent": true,
+    "retain_failed_and_aborted_runs": true,
+    "registry_never_authorizes_promotion": true,
+    "required_protected_slices": [
+      "factuality",
+      "diagnostic",
+      "hallucination",
+      "citation_accuracy",
+      "science",
+      "education",
+      "grounded_qa",
+      "regression"
+    ]
+  },
+  "experiments": [
+    {
+      "experiment_id": "exp-qwen3-8b-base-vs-rag-001",
+      "task_id": "GD-COMPUTE-001",
+      "kind": "base_vs_rag",
+      "status": "blocked",
+      "candidate_ids": [
+        "qwen3-8b-primary"
+      ],
+      "code_revision": null,
+      "benchmark_path": "model_tuning/eval/heldout_v3.jsonl",
+      "required_slices": [
+        "factuality",
+        "diagnostic",
+        "hallucination",
+        "citation_accuracy",
+        "science",
+        "education",
+        "grounded_qa",
+        "regression"
+      ],
+      "started_at": null,
+      "finished_at": null,
+      "run_manifest_refs": [],
+      "promotion_decision_ref": null,
+      "outcome": {
+        "promotion_eligible": false,
+        "failure_stage": null,
+        "reason": "qualifying growdoc-gpu execution not yet verified"
+      }
+    }
+  ]
+}
