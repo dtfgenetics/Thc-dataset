@@ -70,7 +70,8 @@
     "validate:ci-validator-coverage": "python3 scripts/validate-grow-doc-ci-coverage.py --self-test && python3 scripts/validate-grow-doc-ci-coverage.py",
     "validate:model-source-identity-contract": "python3 scripts/test-source-identity-contract.py && python3 scripts/test-source-identity-parity.py && python3 scripts/test-source-identity-consumer-parity.py && python3 scripts/test-semantic-leakage-source-identity-parity.py && python3 scripts/audit-split-source-identities.py --self-test",
     "validate:model-deploy-contract": "python3 scripts/validate-grow-doc-deploy-contract.py --self-test && python3 scripts/validate-grow-doc-deploy-contract.py",
-    "validate:model-vision-source-candidates": "python3 scripts/validate-grow-doc-vision-source-candidates.py --self-test && python3 scripts/validate-grow-doc-vision-source-candidates.py"
+    "validate:model-vision-source-candidates": "python3 scripts/validate-grow-doc-vision-source-candidates.py --self-test && python3 scripts/validate-grow-doc-vision-source-candidates.py",
+    "validate:model-vision-admission-review": "python3 scripts/build-grow-doc-vision-admission-review.py --self-test --check"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
