@@ -534,7 +534,7 @@ def main() -> int:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--output-dir", default="model_tuning/runs/latest")
     p.add_argument("--run-id", default="grow-doc-eval")
-    p.add_argument("--code-revision", required=True, help="Exact 40-character repository commit SHA that produced this evaluation")
+    p.add_argument("--code-revision", default=None, help="Exact 40-character repository commit SHA that produced this evaluation")
     p.add_argument("--scorer-revision", default="UNPINNED")
     args = p.parse_args()
     if args.self_test:
