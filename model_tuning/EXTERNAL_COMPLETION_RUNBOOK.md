@@ -1,6 +1,6 @@
 # Grow Doc external completion runbook
 
-This runbook covers the three external blockers recorded in `model_tuning/project_completion_v1.json`. It does not authorize bypassing CI, training, promotion, or deployment.
+This runbook covers the four external blockers recorded in `model_tuning/project_completion_v1.json`. It does not authorize bypassing CI, training, promotion, or deployment.
 
 ## EXT-GOV-001 — protect main
 
@@ -60,9 +60,15 @@ Required evidence includes:
 
 Symptom-only imagery, cross-crop images, and rights-unknown media remain reference-only or excluded.
 
+## EXT-DEPLOY-001 — verified production publication
+
+Production deployment remains fail-closed until the four FTP secrets are restored privately in GitHub Actions. Never place credential values in source, logs, PRs, or issues.
+
+The legacy manual fallback now accepts only an exact 40-character commit SHA already reachable from `main`. After credentials are restored, dispatch `.github/workflows/deploy-dtfseeds.yml` with that exact SHA. A successful deployment must build cleanly and publish `dist/deploy-version.txt`; verify the production path `/thc-grow-doc/deploy-version.txt` reports the expected commit before closing issue #95.
+
 ## Completion boundary
 
-Until all three blockers are actually cleared, do not claim:
+Until all four blockers are actually cleared, do not claim:
 - RAG benchmark improvement;
 - QLoRA training success;
 - checkpoint superiority;
