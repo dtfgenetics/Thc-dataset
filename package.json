@@ -64,7 +64,8 @@
     "validate:grow-doc-agent-state": "python3 scripts/validate-grow-doc-agent-state.py --self-test && python3 scripts/validate-grow-doc-agent-state.py",
     "validate:diagnostic-abstention-dev": "python3 scripts/validate-diagnostic-abstention-candidates.py",
     "validate:model-readme-contract": "python3 scripts/validate-grow-doc-readme-contract.py --self-test && python3 scripts/validate-grow-doc-readme-contract.py",
-    "validate:model-checkpoint-registry": "python3 scripts/validate-grow-doc-checkpoint-registry.py --self-test && python3 scripts/validate-grow-doc-checkpoint-registry.py"
+    "validate:model-checkpoint-registry": "python3 scripts/validate-grow-doc-checkpoint-registry.py --self-test && python3 scripts/validate-grow-doc-checkpoint-registry.py",
+    "validate:model-project-completion": "python3 scripts/validate-grow-doc-project-completion.py --self-test && python3 scripts/validate-grow-doc-project-completion.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
