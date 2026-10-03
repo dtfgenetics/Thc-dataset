@@ -17,7 +17,11 @@
     "referenceCrops": 66,
     "totalReferenceImages": 94,
     "trainingEligibleSamples": 0,
-    "referenceOnlyPolicy": "No sample under images/reference/original or images/reference/crops may enter a supervised training split unless a reviewed annotation explicitly changes trainingEligible to true and all source-group/split gates pass."
+    "referenceOnlyPolicy": "No sample under images/reference/original or images/reference/crops may enter a supervised training split unless a reviewed annotation explicitly changes trainingEligible to true and all source-group/split gates pass.",
+    "humanAdmissionReviewQueue": "dataset/reviewed/vision_admission_review_queue_v1.json",
+    "humanAdmissionReviewQueueSamples": 66,
+    "humanAdmissionReviewQueueSourceGroups": 9,
+    "humanAdmissionReviewPolicy": "The queue is triage only: all records remain trainingEligible=false and pending-human-review. Automated priority never grants admission."
   },
   "minimumUnlockRequirements": {
     "minimumConfirmedCannabisImagesPerP0Class": 50,
@@ -34,11 +38,24 @@
     "requireConfirmationEvidenceAppropriateToDiagnosis": true
   },
   "confirmationExamples": {
-    "nutrientDisorder": ["controlled withholding or dose-response evidence", "tissue/root-zone analytical evidence", "documented treatment context"],
-    "miteOrInsect": ["organism visible or expert/microscope identification", "host damage paired with organism evidence where possible"],
-    "fungalOrRootPathogen": ["culture, microscopy, molecular identification, or pathogenicity evidence appropriate to the claim"],
-    "virusViroidPhytoplasma": ["PCR/RT-PCR/sequence or other accepted molecular confirmation"],
-    "abioticStress": ["measured environmental/root-zone exposure linked to the photographed plant"]
+    "nutrientDisorder": [
+      "controlled withholding or dose-response evidence",
+      "tissue/root-zone analytical evidence",
+      "documented treatment context"
+    ],
+    "miteOrInsect": [
+      "organism visible or expert/microscope identification",
+      "host damage paired with organism evidence where possible"
+    ],
+    "fungalOrRootPathogen": [
+      "culture, microscopy, molecular identification, or pathogenicity evidence appropriate to the claim"
+    ],
+    "virusViroidPhytoplasma": [
+      "PCR/RT-PCR/sequence or other accepted molecular confirmation"
+    ],
+    "abioticStress": [
+      "measured environmental/root-zone exposure linked to the photographed plant"
+    ]
   },
   "doNotUseAsTrainingGroundTruth": [
     "whole scientific composites containing multiple labels",
