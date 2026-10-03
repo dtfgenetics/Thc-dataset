@@ -112,9 +112,20 @@ def self_test():
     try: validate_doc(bad,experiments,readiness,checkpoints)
     except ValueError: pass
     else: raise AssertionError("false compute completion must fail")
-    bad=json.loads(json.dumps(doc));bad_readiness={"readyForSupervisedCannabisDiagnosisTraining":True,"visionLayer":{"trainingEligibleSamples":1}}
-    try: validate_doc(bad,bad_readiness,bad_readiness,checkpoints)
-    except Exception: pass
+    bad_readiness={"readyForSupervisedCannabisDiagnosisTraining":True,"visionLayer":{"trainingEligibleSamples":1}}
+    try:
+        validate_doc(doc,experiments,bad_readiness,checkpoints)
+    except ValueError as exc:
+        assert "vision eligibility changes" in str(exc)
+    else:
+        raise AssertionError("false vision completion must fail")
+    bad_experiments={"experiments":[{"experiment_id":"exp-qwen3-8b-base-vs-rag-001","status":"succeeded"}]}
+    try:
+        validate_doc(doc,bad_experiments,readiness,checkpoints)
+    except ValueError as exc:
+        assert "experiment leaves blocked state" in str(exc)
+    else:
+        raise AssertionError("stale compute blocker must fail after experiment status changes")
     print("Grow Doc project completion self-test: PASS")
 
 def main():
