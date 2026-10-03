@@ -23,5 +23,10 @@
       "validate:grow-doc-contributions",
       "validate:grow-doc-claims"
     ]
+  },
+  "integration": {
+    "pr_number": 383,
+    "commit": "693638a6cf6da3199174d364aa9a832501e5107b",
+    "method": "squash"
   }
 }
