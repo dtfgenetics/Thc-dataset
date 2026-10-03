@@ -41,8 +41,8 @@
         "dataset/claims/",
         "dataset/registry/",
         "model_tuning/rag/",
-        "dataset/generated/tool_data/",
-        "public/data/"
+        "dataset/generated/tool_data/rag_claims_v1.json",
+        "public/data/rag_claims_v1.json"
       ],
       "required_validators": [
         "validate:sources",
@@ -72,10 +72,7 @@
         "GD-RAG-001"
       ],
       "allowed_paths": [
-        "model_tuning/grounded_qa/",
-        "scripts/",
-        "package.json",
-        ".github/workflows/"
+        "model_tuning/grounded_qa/"
       ],
       "required_validators": [
         "validate:reviewed-claim-grounded-qa",
