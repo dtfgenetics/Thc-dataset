@@ -82,6 +82,7 @@ jobs:
       - run: npm run validate:model-checkpoint-registry
       - run: npm run validate:model-project-completion
       - run: npm run validate:model-external-blockers
+      - run: npm run validate:model-deploy-contract
       - run: npm run validate:model-improvement-planner
       - run: npm run validate:portable-rag-eval
       - run: npm run validate:ci-validator-coverage
