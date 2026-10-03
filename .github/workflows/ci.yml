@@ -77,6 +77,7 @@ jobs:
       - run: npm run validate:model-run-manifest
       - run: npm run validate:model-experiment-registry
       - run: npm run validate:model-checkpoint-registry
+      - run: npm run validate:model-project-completion
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
