@@ -5,7 +5,7 @@
       "id": "GD-SYS-001",
       "lane": "system",
       "priority": "P0",
-      "status": "active",
+      "status": "done",
       "title": "Canonical contribution status and receipts",
       "evidence_gap": "Parallel agents need machine-checkable ownership, routing, receipts, and completion rules.",
       "dependencies": [],
@@ -65,7 +65,7 @@
       "id": "GD-GQA-001",
       "lane": "grounded_qa",
       "priority": "P0",
-      "status": "active",
+      "status": "done",
       "title": "Materialize reviewed claims into supplied-evidence behavior QA",
       "evidence_gap": "Reviewed RAG facts need behavior examples that teach citation, scope, and abstention without requiring facts to be memorized in weights.",
       "dependencies": [
@@ -91,7 +91,7 @@
       "id": "GD-EVAL-001",
       "lane": "eval",
       "priority": "P0",
-      "status": "active",
+      "status": "done",
       "title": "Expand independent protected-slice challenges",
       "evidence_gap": "Protected factuality, diagnostics, hallucination, citation accuracy, grounded-QA and regression slices need independent evidence coverage.",
       "dependencies": [
