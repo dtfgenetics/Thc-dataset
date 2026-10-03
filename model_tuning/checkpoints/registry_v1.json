@@ -1,0 +1,13 @@
+{
+  "schema_version": "grow-doc-checkpoint-registry-v1",
+  "policy": {
+    "retain_rejected_and_failed_artifacts": true,
+    "require_exact_artifact_sha256": true,
+    "require_training_snapshot_sha256": true,
+    "require_config_sha256": true,
+    "require_code_revision": true,
+    "require_runtime_hardware_provenance": true,
+    "registry_never_authorizes_promotion": true
+  },
+  "checkpoints": []
+}

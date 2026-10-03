@@ -3,6 +3,10 @@ name: Grow Doc base vs RAG GPU benchmark
 on:
   workflow_dispatch:
     inputs:
+      commit_sha:
+        description: 'Exact 40-character commit SHA already reachable from main'
+        required: true
+        type: string
       preflight_only:
         description: 'Validate runner/runtime/input contract without model inference'
         required: false
@@ -12,7 +16,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: grow-doc-base-vs-rag-gpu-${{ github.ref }}
+  group: grow-doc-base-vs-rag-gpu-${{ inputs.commit_sha }}
   cancel-in-progress: false
 
 jobs:
@@ -25,18 +29,33 @@ jobs:
     env:
       PYTHONUNBUFFERED: "1"
       TOKENIZERS_PARALLELISM: "false"
+      TARGET_SHA: ${{ inputs.commit_sha }}
     steps:
+      - name: Validate requested immutable commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${TARGET_SHA}" =~ ^[0-9a-f]{40}$ ]]
+
       - uses: actions/checkout@v7
         with:
-          ref: ${{ github.sha }}
+          ref: ${{ inputs.commit_sha }}
           fetch-depth: 0
+
+      - name: Require requested commit to already be on main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --no-tags
+          test "$(git rev-parse HEAD)" = "${TARGET_SHA}"
+          git merge-base --is-ancestor "${TARGET_SHA}" origin/main
 
       - name: Verify clean pinned checkout
         shell: bash
         run: |
           set -euo pipefail
           test -z "$(git status --porcelain)"
-          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          test "$(git rev-parse HEAD)" = "${TARGET_SHA}"
 
       - name: Record runner diagnostics
         shell: bash
@@ -44,7 +63,7 @@ jobs:
           set -euo pipefail
           mkdir -p model_tuning/runs/base_vs_rag_v1
           {
-            echo "github_sha=${GITHUB_SHA}"
+            echo "github_sha=${TARGET_SHA}"
             echo "runner_name=${RUNNER_NAME:-unknown}"
             echo "runner_os=${RUNNER_OS:-unknown}"
             echo "runner_arch=${RUNNER_ARCH:-unknown}"
@@ -75,7 +94,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          test "$(git rev-parse HEAD)" = "${TARGET_SHA}"
           test -z "$(git status --porcelain --untracked-files=no)"
 
       - name: Stop after successful preflight when requested
@@ -95,14 +114,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
+          test "$(git rev-parse HEAD)" = "${TARGET_SHA}"
           test -z "$(git status --porcelain --untracked-files=no)"
 
       - name: Upload benchmark outputs
         if: success() && (github.event_name != 'workflow_dispatch' || !inputs.preflight_only)
         uses: actions/upload-artifact@v7
         with:
-          name: grow-doc-base-vs-rag-${{ github.sha }}
+          name: grow-doc-base-vs-rag-${{ inputs.commit_sha }}
           path: model_tuning/runs/base_vs_rag_v1/
           if-no-files-found: error
           retention-days: 30
@@ -111,7 +130,7 @@ jobs:
         if: success() && github.event_name == 'workflow_dispatch' && inputs.preflight_only
         uses: actions/upload-artifact@v7
         with:
-          name: grow-doc-base-vs-rag-preflight-${{ github.sha }}
+          name: grow-doc-base-vs-rag-preflight-${{ inputs.commit_sha }}
           path: |
             model_tuning/runs/base_vs_rag_v1/runner-diagnostics.txt
             model_tuning/runs/base_vs_rag_v1/preflight.txt
@@ -122,7 +141,7 @@ jobs:
         if: failure()
         uses: actions/upload-artifact@v7
         with:
-          name: grow-doc-base-vs-rag-preflight-${{ github.sha }}
+          name: grow-doc-base-vs-rag-preflight-${{ inputs.commit_sha }}
           path: |
             model_tuning/runs/base_vs_rag_v1/runner-diagnostics.txt
             model_tuning/runs/base_vs_rag_v1/preflight.txt
