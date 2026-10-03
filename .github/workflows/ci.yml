@@ -83,6 +83,7 @@ jobs:
       - run: npm run validate:model-project-completion
       - run: npm run validate:model-external-blockers
       - run: npm run validate:model-vision-source-candidates
+      - run: npm run validate:model-vision-admission-review
       - run: npm run validate:model-deploy-contract
       - run: npm run validate:model-improvement-planner
       - run: npm run validate:portable-rag-eval
