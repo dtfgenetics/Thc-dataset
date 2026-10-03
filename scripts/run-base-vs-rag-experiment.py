@@ -203,6 +203,7 @@ def common_eval_args(repo_revision: str, output_dir: Path, run_id: str) -> list[
         "--max-new-tokens", "512",
         "--seed", "420",
         "--scorer-revision", repo_revision,
+        "--code-revision", repo_revision,
         "--output-dir", str(output_dir),
         "--run-id", run_id,
     ]
@@ -321,6 +322,7 @@ def self_test() -> None:
     assert cmd[cmd.index("--model-revision") + 1] == MODEL_REVISION
     assert cmd[cmd.index("--tokenizer-chat-template-sha256") + 1] == CHAT_TEMPLATE_SHA256
     assert cmd[cmd.index("--scorer-revision") + 1] == "a" * 40
+    assert cmd[cmd.index("--code-revision") + 1] == "a" * 40
     assert tracked_dirty_paths("") == []
     fixture_status = " M model_tuning/generated/rag/claims_v1.jsonl\nM  model_tuning/rag_snapshots/heldout_v3.jsonl\n"
     assert tracked_dirty_paths(fixture_status) == [
