@@ -2,6 +2,11 @@ name: Legacy Manual FTP Deploy — THC Grow Doc
 
 on:
   workflow_dispatch:
+    inputs:
+      commit_sha:
+        description: 'Exact 40-character commit SHA already reachable from main'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -15,9 +20,28 @@ jobs:
     name: Build and deploy to Hostinger (legacy manual fallback)
     runs-on: ubuntu-latest
     environment: production
+    env:
+      TARGET_SHA: ${{ inputs.commit_sha }}
     steps:
+      - name: Validate requested immutable commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "${TARGET_SHA}" =~ ^[0-9a-f]{40}$ ]]
+
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.commit_sha }}
+          fetch-depth: 0
+
+      - name: Require requested commit to already be on main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main --no-tags
+          test "$(git rev-parse HEAD)" = "${TARGET_SHA}"
+          git merge-base --is-ancestor "${TARGET_SHA}" origin/main
 
       - name: Setup Node 22
         uses: actions/setup-node@v7
@@ -51,7 +75,7 @@ jobs:
       - name: Add deployment marker
         run: |
           echo "deployed_at=$(date -u +'%Y-%m-%dT%H:%M:%SZ')" > dist/deploy-version.txt
-          echo "commit=${GITHUB_SHA}" >> dist/deploy-version.txt
+          echo "commit=${TARGET_SHA}" >> dist/deploy-version.txt
           echo "repo=${GITHUB_REPOSITORY}" >> dist/deploy-version.txt
 
       - name: Deploy dist to dtfseeds.com via FTP
