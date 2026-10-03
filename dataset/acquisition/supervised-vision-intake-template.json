@@ -1,0 +1,88 @@
+{
+  "schema_version": "grow-doc-supervised-vision-intake-v1",
+  "intake_id": "REPLACE",
+  "status": "draft",
+  "sample": {
+    "sampleId": "REPLACE",
+    "assetId": "REPLACE",
+    "parentAssetId": null,
+    "sourceGroupId": "REPLACE",
+    "sourceUrl": null,
+    "localPath": null,
+    "sha256": null,
+    "perceptualHash": null,
+    "hostSpecies": "Cannabis sativa",
+    "hostContext": "cannabis",
+    "cultivar": null,
+    "plantId": null,
+    "diagnosis": {
+      "profileId": "REPLACE",
+      "name": "REPLACE",
+      "mechanism": null,
+      "differentialIds": []
+    },
+    "labelStatus": "unresolved",
+    "evidenceTier": "D-symptom-only",
+    "confirmationMethod": [],
+    "stage": null,
+    "severity": null,
+    "affectedOrgan": [],
+    "canopyPosition": "unknown",
+    "view": "other",
+    "boundingBoxes": [],
+    "capture": {
+      "date": null,
+      "lighting": null,
+      "camera": null,
+      "whiteBalanceControlled": null,
+      "scalePresent": null
+    },
+    "rootZoneMeasurements": {
+      "pH": null,
+      "ec": null,
+      "ecUnit": null,
+      "waterContent": null,
+      "temperatureC": null
+    },
+    "rights": {
+      "license": null,
+      "creator": null,
+      "requiredAttribution": null,
+      "displayPermission": "unknown",
+      "trainingPermission": "unknown"
+    },
+    "trainingEligible": false,
+    "splitStatus": "unassigned",
+    "exclusionReasons": [
+      "draft intake; not yet rights/science/annotation approved"
+    ],
+    "review": {
+      "scientificReview": "pending",
+      "rightsReview": "pending",
+      "annotationReview": "pending"
+    }
+  },
+  "admission_checks": {
+    "rights_evidence_attached": false,
+    "diagnosis_confirmation_attached": false,
+    "human_scientific_review_complete": false,
+    "human_rights_review_complete": false,
+    "human_annotation_review_complete": false,
+    "sha256_computed": false,
+    "perceptual_hash_computed": false,
+    "source_group_assigned": false,
+    "plant_capture_group_assigned": false,
+    "exact_duplicate_check_passed": false,
+    "near_duplicate_check_passed": false,
+    "split_group_isolation_passed": false,
+    "class_coverage_gate_passed": false,
+    "healthy_control_gate_passed": false,
+    "lookalike_negative_gate_passed": false
+  },
+  "policy": {
+    "default_training_eligible": false,
+    "cannot_promote_from_visual_symptoms_alone": true,
+    "cannot_promote_cross_crop_as_cannabis_ground_truth": true,
+    "cannot_promote_without_training_permission": true
+  }
+}
