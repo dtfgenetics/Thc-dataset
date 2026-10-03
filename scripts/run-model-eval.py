@@ -345,6 +345,7 @@ def execute(args: argparse.Namespace, mock: bool = False) -> tuple[Path, Path]:
     manifest = {
         "schema_version": "grow-doc-eval-run-v1",
         "run_id": args.run_id,
+        "code_revision": args.code_revision,
         "created_at": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
         "model": {
             "repository": args.model_repo, "revision": args.model_revision, "dtype": args.dtype,
@@ -438,7 +439,7 @@ def self_test() -> None:
         }
         snapshot_manifest.write_text(json.dumps(v2_manifest), encoding="utf-8")
         a = argparse.Namespace(
-            benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001",
+            benchmark=str(bench), output_dir=str(root / "out"), run_id="self-test-0001", code_revision="a" * 40,
             model_repo="Qwen/Qwen3-8B", model_revision="1234567", tokenizer_repo="Qwen/Qwen3-8B", tokenizer_revision="1234567",
             tokenizer_chat_template_sha256=digest, enable_thinking=False, adapter_repo=None, adapter_revision=None, dtype="bfloat16", temperature=0.0,
             top_p=1.0, max_new_tokens=64, do_sample=False, seed=42, scorer_revision="1234567",
@@ -450,6 +451,7 @@ def self_test() -> None:
         assert response["rendered_prompt_sha256"]
         assert response["retrieval"]["claim_ids"] == ["rag-001"]
         manifest_data = json.loads(manifest.read_text(encoding="utf-8"))
+        assert manifest_data["code_revision"] == "a" * 40
         assert manifest_data["tokenizer"]["chat_template_method"] == CHAT_TEMPLATE_METHOD
         assert manifest_data["tokenizer"]["chat_template_kwargs"] == {"enable_thinking": False}
         assert len(manifest_data["tokenizer"]["chat_template_sha256"]) == 64
@@ -532,11 +534,14 @@ def main() -> int:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--output-dir", default="model_tuning/runs/latest")
     p.add_argument("--run-id", default="grow-doc-eval")
+    p.add_argument("--code-revision", default=None, help="Exact 40-character repository commit SHA that produced this evaluation")
     p.add_argument("--scorer-revision", default="UNPINNED")
     args = p.parse_args()
     if args.self_test:
         self_test()
         return 0
+    if not isinstance(args.code_revision, str) or len(args.code_revision) != 40 or any(ch not in "0123456789abcdef" for ch in args.code_revision):
+        raise SystemExit("code revision must be pinned as an exact lowercase 40-character Git commit SHA")
     for label, value in [("model", args.model_revision), ("tokenizer", args.tokenizer_revision), ("scorer", args.scorer_revision)]:
         if value == "UNPINNED" or len(value) < 7:
             raise SystemExit(f"{label} revision must be pinned")

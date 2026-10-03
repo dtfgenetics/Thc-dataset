@@ -50,13 +50,16 @@ def require_finite_number(value: Any, path: str) -> float:
 def validate_manifest(data: dict[str, Any]) -> None:
     require_keys(
         data,
-        {"schema_version", "run_id", "created_at", "model", "tokenizer", "decoding", "evaluation", "runtime", "artifacts"},
-        {"schema_version", "run_id", "created_at", "model", "tokenizer", "decoding", "retrieval", "evaluation", "runtime", "artifacts"},
+        {"schema_version", "run_id", "created_at", "code_revision", "model", "tokenizer", "decoding", "evaluation", "runtime", "artifacts"},
+        {"schema_version", "run_id", "created_at", "code_revision", "model", "tokenizer", "decoding", "retrieval", "evaluation", "runtime", "artifacts"},
         "$",
     )
     if data["schema_version"] != "grow-doc-eval-run-v1":
         raise ValidationError("$.schema_version: unsupported schema version")
     require_string(data["run_id"], "$.run_id", 8)
+    code_revision = require_string(data["code_revision"], "$.code_revision", 40)
+    if not re.fullmatch(r"[0-9a-f]{40}", code_revision):
+        raise ValidationError("$.code_revision: expected exact lowercase 40-character Git commit SHA")
     created_at = require_string(data["created_at"], "$.created_at")
     try:
         datetime.fromisoformat(created_at.replace("Z", "+00:00"))
@@ -175,6 +178,7 @@ def valid_fixture() -> dict[str, Any]:
     return {
         "schema_version": "grow-doc-eval-run-v1",
         "run_id": "baseline-qwen3-8b-0001",
+        "code_revision": "b" * 40,
         "created_at": "2026-09-03T14:00:00Z",
         "model": {"repository": "Qwen/Qwen3-8B", "revision": "1234567", "dtype": "bfloat16", "adapter": None},
         "tokenizer": {
@@ -203,6 +207,10 @@ def expect_invalid(data: dict[str, Any], message: str) -> None:
 def self_test() -> None:
     good = valid_fixture()
     validate_manifest(good)
+
+    bad_revision = json.loads(json.dumps(good))
+    bad_revision["code_revision"] = "short"
+    expect_invalid(bad_revision, "invalid code revision was accepted")
 
     bad_sha = json.loads(json.dumps(good))
     bad_sha["artifacts"]["responses_sha256"] = "not-a-sha"

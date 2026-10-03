@@ -8,6 +8,7 @@
     "schema_version",
     "run_id",
     "created_at",
+    "code_revision",
     "model",
     "tokenizer",
     "decoding",
@@ -19,6 +20,7 @@
     "schema_version": {"const": "grow-doc-eval-run-v1"},
     "run_id": {"type": "string", "minLength": 8},
     "created_at": {"type": "string", "format": "date-time"},
+    "code_revision": {"type": "string", "pattern": "^[0-9a-f]{40}$"},
     "model": {
       "type": "object",
       "additionalProperties": false,
