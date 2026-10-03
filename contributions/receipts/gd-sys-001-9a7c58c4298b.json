@@ -1,0 +1,27 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "gd-sys-001-9a7c58c4298b",
+  "task_id": "GD-SYS-001",
+  "lane": "system",
+  "base_commit": "e86e249400846f72d43f87a81c6b4ba1c4b40ae7",
+  "head_commit": "9a7c58c4298b936a37ad28becaac78d13a9aeee2",
+  "branch": "work/grow-doc/git-receipt-generation/20261002-2015",
+  "changed_paths": [
+    "contributions/README.md",
+    "contributions/schemas/contribution-receipt-v1.schema.json",
+    "package.json",
+    "scripts/generate-grow-doc-receipt.py",
+    "scripts/grow-doc-contribution.py"
+  ],
+  "source_ids": [],
+  "validation": {
+    "required": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims"
+    ],
+    "completed": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims"
+    ]
+  }
+}
