@@ -29,7 +29,11 @@
         "required pull-request reviews configured as desired",
         "required status checks include the current validation suite",
         "direct unreviewed pushes to main prevented"
-      ]
+      ],
+      "tracking_issue": {
+        "number": 398,
+        "url": "https://github.com/dtfgenetics/Thc-dataset/issues/398"
+      }
     },
     {
       "id": "EXT-COMPUTE-001",
@@ -43,7 +47,11 @@
         "preflight passes",
         "base and RAG arms complete",
         "blinded review and protected-slice scoring complete"
-      ]
+      ],
+      "tracking_issue": {
+        "number": 399,
+        "url": "https://github.com/dtfgenetics/Thc-dataset/issues/399"
+      }
     },
     {
       "id": "EXT-VISION-001",
@@ -57,7 +65,11 @@
         "diagnosis confirmation evidence recorded",
         "source-group and near-duplicate isolation pass",
         "minimum controls/negatives/class coverage thresholds met"
-      ]
+      ],
+      "tracking_issue": {
+        "number": 400,
+        "url": "https://github.com/dtfgenetics/Thc-dataset/issues/400"
+      }
     }
   ],
   "non_blocking_continuous_work": [
