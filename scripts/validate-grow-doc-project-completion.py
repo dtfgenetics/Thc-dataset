@@ -24,8 +24,8 @@ EXPECTED_CONTROLS={
  "checkpoint-artifact-registry",
  "gpu-workflow-exact-main-sha-gate",
 }
-EXPECTED_EXTERNAL={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001"}
-EXPECTED_ISSUES={"EXT-GOV-001":398,"EXT-COMPUTE-001":399,"EXT-VISION-001":400}
+EXPECTED_EXTERNAL={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001","EXT-DEPLOY-001"}
+EXPECTED_ISSUES={"EXT-GOV-001":398,"EXT-COMPUTE-001":399,"EXT-VISION-001":400,"EXT-DEPLOY-001":95}
 
 def fail(msg): raise ValueError(msg)
 def load(path): return json.loads(path.read_text(encoding="utf-8"))
@@ -43,7 +43,7 @@ def validate_doc(doc, experiments, readiness, checkpoints):
         fail("completed_controls must exactly match the locked engineering control set")
     blockers=doc.get("external_blockers")
     if not isinstance(blockers,list) or {x.get("id") for x in blockers}!=EXPECTED_EXTERNAL:
-        fail("external_blockers must contain governance, compute, and vision blockers")
+        fail("external_blockers must contain governance, compute, vision, and deployment blockers")
     by_id={x["id"]:x for x in blockers}
     for bid,item in by_id.items():
         if item.get("state")!="blocked":
@@ -114,6 +114,7 @@ def self_test():
         {"id":"EXT-GOV-001","state":"blocked","owner":"admin","evidence":"none","completion_criteria":["protect"],"tracking_issue":{"number":398,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/398"}},
         {"id":"EXT-COMPUTE-001","state":"blocked","owner":"gpu","evidence":"blocked","completion_criteria":["run"],"tracking_issue":{"number":399,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/399"}},
         {"id":"EXT-VISION-001","state":"blocked","owner":"data","evidence":"0","completion_criteria":["collect"],"tracking_issue":{"number":400,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/400"}},
+        {"id":"EXT-DEPLOY-001","state":"blocked","owner":"deploy","evidence":"secrets unavailable","completion_criteria":["restore and deploy"],"tracking_issue":{"number":95,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/95"}},
       ],
       "non_blocking_continuous_work":[],
       "prohibited_claims_until_unblocked":[
