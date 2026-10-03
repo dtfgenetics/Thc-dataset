@@ -70,6 +70,24 @@
         "number": 400,
         "url": "https://github.com/dtfgenetics/Thc-dataset/issues/400"
       }
+    },
+    {
+      "id": "EXT-DEPLOY-001",
+      "title": "Restore production deployment credentials and publish verified main",
+      "state": "blocked",
+      "owner": "repository-admin-and-deployment-operator",
+      "evidence": "Issue #95 remains open; current production path is a manual legacy FTP fallback requiring four GitHub secrets that cannot be inspected or restored through the current connector",
+      "completion_criteria": [
+        "DTFSEEDS_FTP_SERVER, DTFSEEDS_FTP_USERNAME, DTFSEEDS_FTP_PASSWORD, and DTFSEEDS_FTP_SERVER_DIR restored privately in GitHub Actions production/repository secrets",
+        "manual deploy workflow dispatched with an exact 40-character commit SHA already reachable from main",
+        "credential preflight passes",
+        "production build and FTP deployment complete successfully",
+        "/thc-grow-doc/deploy-version.txt reports the exact deployed main commit"
+      ],
+      "tracking_issue": {
+        "number": 95,
+        "url": "https://github.com/dtfgenetics/Thc-dataset/issues/95"
+      }
     }
   ],
   "non_blocking_continuous_work": [
