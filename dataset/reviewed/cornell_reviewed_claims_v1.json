@@ -24,42 +24,103 @@
     {
       "schema_version": "grow-doc-reviewed-claim-v1",
       "source_id": "cornell_toth_hemp_genetics_2022",
-      "claim": "In the dissertation's high-CBD cultivars, a flowering-stage time-course under several biotic and abiotic stresses found the CBD:THC ratio was essentially fixed.",
-      "citation_locator": "Abstract (repository record; dissertation p. ii)",
-      "scope": {
-        "organism": "Cannabis sativa (hemp)",
-        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; high-CBD cultivars under studied biotic and abiotic stresses",
-        "trait": "CBD:THC ratio during flowering"
-      },
-      "limitations": [
-        "This is scoped to the high-CBD cultivars, flowering-stage time course, and stresses studied in the dissertation; do not generalize the ratio as invariant across all Cannabis genetics or environments."
-      ],
       "review_state": "approved",
       "rights_state": "reviewed",
       "citation_verified": true,
       "rag_eligible": true,
       "weight_training_eligible": false,
-      "claim_sha256": "8f8bafbbc541efa426219ce535564907f5982880a9d7d2d013beed144a5f91dc"
+      "claim": "The dissertation reports development and application of molecular tools to distinguish cannabinoid chemotype and plant sex in hemp.",
+      "citation_locator": "Cornell eCommons repository abstract",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "molecular breeding tools"
+      },
+      "limitations": [
+        "The repository abstract summarizes dissertation results; use the full dissertation for assay design, marker identities, validation populations, and performance estimates."
+      ],
+      "claim_sha256": "86870f0452c332cbba1cf6bac1baf5188d96dd7a692ddc1852147b9250add1fc"
     },
     {
       "schema_version": "grow-doc-reviewed-claim-v1",
       "source_id": "cornell_toth_hemp_genetics_2022",
-      "claim": "The dissertation reports Cannabis accessions that flowered under continuous light and interprets those results as suggesting multiple genes can control photoperiod insensitivity in the studied germplasm.",
-      "citation_locator": "Abstract (repository record; dissertation p. ii)",
-      "scope": {
-        "organism": "Cannabis sativa (hemp)",
-        "study_context": "Jacob Toth 2022 Cornell PhD dissertation; accessions evaluated under continuous light",
-        "trait": "photoperiod insensitivity"
-      },
-      "limitations": [
-        "The result is evidence from the studied accessions and supports a multi-gene interpretation; it does not establish a universal genetic architecture for every photoperiod-insensitive Cannabis line."
-      ],
       "review_state": "approved",
       "rights_state": "reviewed",
       "citation_verified": true,
       "rag_eligible": true,
       "weight_training_eligible": false,
-      "claim_sha256": "627518d9951640273f010309cb556c83ecceebd1f7738e73c7fd76252e3e8b9e"
+      "claim": "The dissertation reports that marker-assisted selection using the developed tools contributed to development of a new hemp cultivar.",
+      "citation_locator": "Cornell eCommons repository abstract",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "marker-assisted selection"
+      },
+      "limitations": [
+        "The abstract does not establish that the same marker-assisted selection workflow or marker performance generalizes to every breeding population."
+      ],
+      "claim_sha256": "0b9b6039840d28a467f8ad60052c45431dd609f8905e470976926b6bf2ec6fa4"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "review_state": "approved",
+      "rights_state": "reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim": "The dissertation reports evidence suggesting that a Cannabis plant carrying two Y chromosomes and no X chromosome is likely inviable.",
+      "citation_locator": "Cornell eCommons repository abstract",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "sex chromosome genetics"
+      },
+      "limitations": [
+        "The abstract describes this as a likely conclusion; preserve that uncertainty and do not restate it as a universal experimentally proven rule for all Cannabis germplasm."
+      ],
+      "claim_sha256": "adde025553922a56acb3c266c18041fc0257036282cb699f98c7d16cd1e468e6"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "review_state": "approved",
+      "rights_state": "reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim": "In the dissertation's high-CBD cultivars, a flowering time-course across several biotic and abiotic stresses found the CBD:THC ratio was essentially fixed.",
+      "citation_locator": "Cornell eCommons repository abstract",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "population": "high-CBD cultivars studied in the dissertation",
+        "topic": "cannabinoid ratio stability"
+      },
+      "limitations": [
+        "This is explicitly scoped to the high-CBD cultivars and experimental conditions studied; it should not be generalized to all cultivars, chemotypes, stresses, or production environments."
+      ],
+      "claim_sha256": "e1020dbe4c047446701992f6ba036bc10f367ba73320129661e44fcbcc2fb9c7"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "cornell_toth_hemp_genetics_2022",
+      "review_state": "approved",
+      "rights_state": "reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim": "The dissertation reports that some accessions were induced to flower under continuous light, which suggests multiple genes may control photoperiod insensitivity in Cannabis sativa germplasm.",
+      "citation_locator": "Cornell eCommons repository abstract",
+      "scope": {
+        "organism": "Cannabis sativa",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "photoperiod insensitivity"
+      },
+      "limitations": [
+        "The abstract frames the genetic interpretation as a suggestion; do not treat the number, identity, or effects of causal genes as established from this statement alone."
+      ],
+      "claim_sha256": "e1d18e3daac2933279938e11a5ebec98233ef4ec15f5d538b84aa26e402cb231"
     }
   ]
 }
