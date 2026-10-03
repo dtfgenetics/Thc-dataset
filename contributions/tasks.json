@@ -1,12 +1,30 @@
 {
-  "schema_version": "grow-doc-task-registry-v1",
+  "schema_version": "grow-doc-task-registry-v2",
   "tasks": [
     {
       "id": "GD-SYS-001",
       "lane": "system",
       "priority": "P0",
       "status": "active",
-      "title": "Canonical contribution status and receipts"
+      "title": "Canonical contribution status and receipts",
+      "evidence_gap": "Parallel agents need machine-checkable ownership, routing, receipts, and completion rules.",
+      "dependencies": [],
+      "allowed_paths": [
+        "contributions/",
+        "scripts/",
+        "package.json",
+        ".github/workflows/",
+        "AGENTS.md"
+      ],
+      "required_validators": [
+        "validate:grow-doc-contributions",
+        "validate:grow-doc-claims"
+      ],
+      "definition_of_done": [
+        "task registry validates",
+        "receipt schema remains fail-closed",
+        "parallel task collisions are rejected"
+      ]
     },
     {
       "id": "GD-RAG-001",
@@ -14,15 +32,62 @@
       "priority": "P0",
       "status": "active",
       "title": "Expand independently reviewed Cannabis scientific claims",
-      "requirements": [
-        "canonical source identity",
-        "citation locator",
-        "scope and limitations",
-        "rights review",
-        "claim review"
+      "evidence_gap": "Reviewed scientific claims remain sparse relative to Grow Doc diagnostic and cultivation coverage.",
+      "dependencies": [
+        "GD-SYS-001"
+      ],
+      "allowed_paths": [
+        "dataset/reviewed/",
+        "dataset/claims/",
+        "dataset/registry/",
+        "model_tuning/rag/",
+        "dataset/generated/tool_data/",
+        "public/data/"
+      ],
+      "required_validators": [
+        "validate:sources",
+        "validate:source-intake",
+        "validate:model-source-evidence-quality",
+        "validate:model-semantic-leakage"
+      ],
+      "definition_of_done": [
+        "canonical source identity recorded",
+        "citation locator verified",
+        "scope and limitations explicit",
+        "rights review recorded",
+        "RAG claim is weight_training_eligible=false"
       ],
       "forbidden": [
         "direct weight-training promotion"
+      ]
+    },
+    {
+      "id": "GD-GQA-001",
+      "lane": "grounded_qa",
+      "priority": "P0",
+      "status": "active",
+      "title": "Materialize reviewed claims into supplied-evidence behavior QA",
+      "evidence_gap": "Reviewed RAG facts need behavior examples that teach citation, scope, and abstention without requiring facts to be memorized in weights.",
+      "dependencies": [
+        "GD-RAG-001"
+      ],
+      "allowed_paths": [
+        "model_tuning/grounded_qa/",
+        "scripts/",
+        "package.json",
+        ".github/workflows/"
+      ],
+      "required_validators": [
+        "validate:reviewed-claim-grounded-qa",
+        "validate:model-semantic-leakage",
+        "validate:model-grounding"
+      ],
+      "definition_of_done": [
+        "every factual sentence is present in supplied evidence",
+        "reviewed claim and source IDs preserved",
+        "held-out source identities excluded",
+        "artifact generation is deterministic",
+        "training admission remains a separate gate"
       ]
     },
     {
@@ -31,10 +96,23 @@
       "priority": "P0",
       "status": "active",
       "title": "Expand independent protected-slice challenges",
-      "requirements": [
+      "evidence_gap": "Protected factuality, diagnostics, hallucination, citation accuracy, grounded-QA and regression slices need independent evidence coverage.",
+      "dependencies": [
+        "GD-SYS-001"
+      ],
+      "allowed_paths": [
+        "model_tuning/eval/candidates/"
+      ],
+      "required_validators": [
+        "validate:model-eval-candidates",
+        "validate:model-eval-candidate-leakage",
+        "validate:model-eval-coverage"
+      ],
+      "definition_of_done": [
         "no train/dev source overlap",
         "no prompt leakage",
-        "independent source identity"
+        "independent source identity",
+        "training_eligible=false"
       ],
       "forbidden": [
         "training use"
@@ -46,6 +124,26 @@
       "priority": "P0",
       "status": "blocked",
       "title": "Acquire independent confirmed Cannabis diagnostic media",
+      "evidence_gap": "Reference media exists but no sample currently satisfies supervised Cannabis diagnosis training eligibility.",
+      "dependencies": [
+        "GD-SYS-001"
+      ],
+      "allowed_paths": [
+        "dataset/acquisition/",
+        "data/reference-",
+        "images/reference/"
+      ],
+      "required_validators": [
+        "validate:acquisition",
+        "validate:data-release"
+      ],
+      "definition_of_done": [
+        "rights cleared",
+        "human diagnostic review complete",
+        "confirmation evidence recorded",
+        "source-group and near-duplicate isolation pass",
+        "healthy controls and look-alike negatives represented"
+      ],
       "blocker": "zero current training-eligible vision samples"
     },
     {
@@ -54,6 +152,26 @@
       "priority": "P0",
       "status": "blocked",
       "title": "Run frozen Qwen3-8B base-vs-RAG benchmark",
+      "evidence_gap": "Model or adapter promotion cannot be justified without a verified frozen benchmark on qualifying GPU execution.",
+      "dependencies": [
+        "GD-EVAL-001"
+      ],
+      "allowed_paths": [
+        "model_tuning/config/",
+        "scripts/",
+        "model_tuning/reviews/"
+      ],
+      "required_validators": [
+        "validate:qlora-config",
+        "validate:model-runner",
+        "validate:base-vs-rag-launcher"
+      ],
+      "definition_of_done": [
+        "exact immutable commit evaluated",
+        "base and RAG use identical benchmark/runtime contract",
+        "protected-slice results reviewed",
+        "artifact hashes and hardware/runtime provenance retained"
+      ],
       "blocker": "qualifying growdoc-gpu execution not yet verified"
     }
   ]
