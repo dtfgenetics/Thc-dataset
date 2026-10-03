@@ -164,6 +164,7 @@ jobs:
           if-no-files-found: error
       - run: npm run check
       - run: npm test
+      - run: npm run validate:image-preprocessing
       - name: Validate visual observation PHP proxy
         run: php -l public/api/visual-observations.php
       - run: npm run build
