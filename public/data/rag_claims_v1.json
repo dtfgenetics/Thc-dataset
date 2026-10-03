@@ -1,6 +1,92 @@
 {
   "claims": [
     {
+      "citation_locator": "Cornell eCommons repository abstract",
+      "claim": "The dissertation reports that marker-assisted selection using the developed tools contributed to development of a new hemp cultivar.",
+      "claim_sha256": "0b9b6039840d28a467f8ad60052c45431dd609f8905e470976926b6bf2ec6fa4",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "The abstract does not establish that the same marker-assisted selection workflow or marker performance generalizes to every breeding population."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "marker-assisted selection"
+      },
+      "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
+      "citation_locator": "Cornell eCommons repository abstract",
+      "claim": "The dissertation reports development and application of molecular tools to distinguish cannabinoid chemotype and plant sex in hemp.",
+      "claim_sha256": "86870f0452c332cbba1cf6bac1baf5188d96dd7a692ddc1852147b9250add1fc",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "The repository abstract summarizes dissertation results; use the full dissertation for assay design, marker identities, validation populations, and performance estimates."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "molecular breeding tools"
+      },
+      "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
+      "citation_locator": "Cornell eCommons repository abstract",
+      "claim": "The dissertation reports evidence suggesting that a Cannabis plant carrying two Y chromosomes and no X chromosome is likely inviable.",
+      "claim_sha256": "adde025553922a56acb3c266c18041fc0257036282cb699f98c7d16cd1e468e6",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "The abstract describes this as a likely conclusion; preserve that uncertainty and do not restate it as a universal experimentally proven rule for all Cannabis germplasm."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "sex chromosome genetics"
+      },
+      "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
+      "citation_locator": "Cornell eCommons repository abstract",
+      "claim": "In the dissertation's high-CBD cultivars, a flowering time-course across several biotic and abiotic stresses found the CBD:THC ratio was essentially fixed.",
+      "claim_sha256": "e1020dbe4c047446701992f6ba036bc10f367ba73320129661e44fcbcc2fb9c7",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is explicitly scoped to the high-CBD cultivars and experimental conditions studied; it should not be generalized to all cultivars, chemotypes, stresses, or production environments."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
+      "scope": {
+        "organism": "Cannabis sativa (hemp)",
+        "population": "high-CBD cultivars studied in the dissertation",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "cannabinoid ratio stability"
+      },
+      "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
+      "citation_locator": "Cornell eCommons repository abstract",
+      "claim": "The dissertation reports that some accessions were induced to flower under continuous light, which suggests multiple genes may control photoperiod insensitivity in Cannabis sativa germplasm.",
+      "claim_sha256": "e1d18e3daac2933279938e11a5ebec98233ef4ec15f5d538b84aa26e402cb231",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "The abstract frames the genetic interpretation as a suggestion; do not treat the number, identity, or effects of causal genes as established from this statement alone."
+      ],
+      "relationships": [],
+      "rights_state": "reviewed",
+      "scope": {
+        "organism": "Cannabis sativa",
+        "study_context": "Jacob Toth 2022 Cornell PhD dissertation",
+        "topic": "photoperiod insensitivity"
+      },
+      "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
       "citation_locator": "Abstract (repository record; dissertation p. ii)",
       "claim": "The dissertation reports mapping two major flowering-time loci on chromosome 1, named Autoflower1 and Early1.",
       "claim_sha256": "fc51e1463a817f7845513251a7abe0e459c52c972806e1d2ee189de54df0015d",
@@ -16,11 +102,97 @@
         "trait": "flowering time"
       },
       "source_id": "cornell_toth_hemp_genetics_2022"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 8.1 Chemotype",
+      "claim": "For hemp cannabinoid phenotyping, USDA-ARS advises analyzing samples from individual plants rather than pooling when chemotype segregation could be masked.",
+      "claim_sha256": "1fc4e72b5fe26bb456e1a2b6a47961e5c9ea2976e5a47c0f5bb21241cb3a6698",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This recommendation is for phenotyping and germplasm characterization; sampling design should match the study question, population structure, analytical method, and regulatory context."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "chemotype phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 6.4 Germination & Viability, SPROUT TEST",
+      "claim": "The USDA-ARS PGRU hemp sprout test uses four subsamples of 50 seeds, counts normal sprouts at 7, 14, and 21 days, and calculates germination percentage from sprouted seeds divided by total seeds.",
+      "claim_sha256": "40a659d2b8adf7fa53fafd3ba3746b0179f3266a321403ec469d3fa2e894c980",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "Treat these as a documented phenotyping protocol, not a universal commercial germination standard; storage history, dormancy, substrate, sanitation, and laboratory objectives can require different procedures."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "protocol_context": "USDA-ARS PGRU hemp germplasm laboratory",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "seed germination phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 8.2 Cannabinoids",
+      "claim": "The USDA handbook cautions that cannabinoid content varies with sampling position on the plant and advises against decarboxylating samples before instrumental cannabinoid evaluation because heating can introduce error through variable volatilization.",
+      "claim_sha256": "622a0a961c5a228124651327121b7a60aa9b865bc2dc1a717041ee1d04020597",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is analytical-method guidance from the handbook; exact sampling, drying, extraction, and instrument conditions must be recorded and matched to the intended measurement purpose."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "cannabinoid analytical sampling"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 1.2 Objectives",
+      "claim": "USDA Hemp Phenotyping and Protocol Handbook Version 4 states that its objective includes helping breeders and researchers identify accessions with specific traits for hemp improvement programs.",
+      "claim_sha256": "bd559693790b5f5023b09d8b82494df0b7be737d610504833c0d10895dbc045a",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This describes the handbook's stated purpose; it is not evidence that any individual descriptor predicts breeding value or agronomic performance."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0, published 2025-12-16",
+        "topic": "germplasm phenotyping objectives"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 6.4 Germination & Viability, VIABILITY TEST summary",
+      "claim": "The USDA handbook describes tetrazolium viability testing as a way to distinguish ungerminated but viable dormant hemp seed from dead, nonviable seed by staining living embryo tissue.",
+      "claim_sha256": "f12ad5ed0b828e60b9d59b72572989330b94b11ceefac6601418381fa758323d",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "The handbook provides a specific laboratory protocol and interpretation criteria; viability classification depends on correct preparation, staining conditions, and trained interpretation."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "seed viability phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     }
   ],
   "inputs": {
     "claim_relationships_sha256": "6578e467a7105b2e1c483cf19bb398a2648f172022eda4a4048dde7f9cdf191a",
-    "reviewed_claims_sha256": "9982cbb22755abfd517b73d360a98d0276a4f811748122d03a8ea863274b12f1",
+    "reviewed_claims_sha256": "bda73f003c1d8516c649a76dbcd83c5cab13a2a12b376245f5cb49722b2488a0",
     "source_catalog_sha256": "7f2327a31ffd4ff04cfd1b9a19cbf19c992a5338526fafa6daa331aec7e9c82e"
   },
   "publication_policy": {
