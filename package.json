@@ -61,7 +61,8 @@
     "validate:grow-doc-receipt-history": "python3 scripts/validate-grow-doc-receipt-history.py --self-test && python3 scripts/validate-grow-doc-receipt-history.py",
     "validate:model-experiment-registry": "python3 scripts/validate-grow-doc-experiment-registry.py --self-test && python3 scripts/validate-grow-doc-experiment-registry.py",
     "validate:image-preprocessing": "node scripts/validate-diagnostic-image-preprocessing.mjs",
-    "validate:grow-doc-agent-state": "python3 scripts/validate-grow-doc-agent-state.py --self-test && python3 scripts/validate-grow-doc-agent-state.py"
+    "validate:grow-doc-agent-state": "python3 scripts/validate-grow-doc-agent-state.py --self-test && python3 scripts/validate-grow-doc-agent-state.py",
+    "validate:diagnostic-abstention-dev": "python3 scripts/validate-diagnostic-abstention-candidates.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
