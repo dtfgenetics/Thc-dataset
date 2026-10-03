@@ -44,7 +44,7 @@
     "validate:model-improvement-planner": "python3 scripts/plan-grow-doc-improvements.py --self-test",
     "validate:portable-rag-eval": "python3 scripts/export-portable-rag-eval.py --self-test",
     "status:grow-doc": "python3 scripts/grow-doc-contribution.py",
-    "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test && python3 scripts/grow-doc-contribution.py --validate-receipts-dir contributions/receipts",
+    "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test && python3 scripts/generate-grow-doc-receipt.py --self-test && python3 scripts/grow-doc-contribution.py --validate-receipts-dir contributions/receipts",
     "validate:grow-doc-claims": "python3 scripts/grow-doc-contribution.py --validate-claims",
     "route:grow-doc": "python3 scripts/grow-doc-contribution.py --route-manifest",
     "validate:source-intake": "python3 scripts/intake-grow-doc-sources.py --self-test",
@@ -56,7 +56,8 @@
     "validate:tool-data-bundle-production": "python3 scripts/build-tool-data-bundle.py --root . --spec dataset/tool_data_bundle_spec_v1.json --output /tmp/tool_data_bundle_v1.json && python3 scripts/validate-tool-data-bundle.py --root . --manifest /tmp/tool_data_bundle_v1.json",
     "validate:training-supervision-concentration": "python3 scripts/audit-training-supervision-concentration.py --self-test && python3 scripts/audit-training-supervision-concentration.py",
     "validate:grow-doc-task-registry": "python3 scripts/validate-grow-doc-task-registry.py --self-test && python3 scripts/validate-grow-doc-task-registry.py",
-    "validate:reviewed-claim-grounded-qa": "python3 scripts/build-reviewed-claim-grounded-qa.py --self-test && python3 scripts/build-reviewed-claim-grounded-qa.py --check-only"
+    "validate:reviewed-claim-grounded-qa": "python3 scripts/build-reviewed-claim-grounded-qa.py --self-test && python3 scripts/build-reviewed-claim-grounded-qa.py --check-only",
+    "receipt:grow-doc": "python3 scripts/generate-grow-doc-receipt.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

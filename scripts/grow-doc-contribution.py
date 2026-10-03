@@ -56,7 +56,7 @@ def route_manifest(p):
  if task is None or rule is None:return {"ok":False,"errors":e}
  e.extend(validate_paths(lane,task,rule,paths))
  required=stable_union(rule.get("required_validators"),task.get("required_validators"))
- receipt={"schema_version":RECEIPT_SCHEMA,"contribution_id":m.get("contribution_id",""),"task_id":tid,"lane":lane,"base_commit":m.get("base_commit",""),"branch":m.get("branch",""),"changed_paths":paths,"source_ids":m.get("source_ids",[]),"validation":{"required":required,"completed":[]}}
+ receipt={"schema_version":RECEIPT_SCHEMA,"contribution_id":m.get("contribution_id",""),"task_id":tid,"lane":lane,"base_commit":m.get("base_commit",""),"head_commit":m.get("head_commit",""),"branch":m.get("branch",""),"changed_paths":paths,"source_ids":m.get("source_ids",[]),"validation":{"required":required,"completed":[]}}
  if rule.get("training_eligible") is False:receipt["training_eligible"]=False;receipt["weight_training_eligible"]=False
  if lane=="rag":receipt["weight_training_eligible"]=False
  return {"ok":not e,"errors":e,"required_validators":required,"receipt":receipt}
@@ -75,15 +75,17 @@ def validate_claims():
 
 def validate_receipt_data(r):
  e=[]
- required_fields=("schema_version","contribution_id","task_id","lane","base_commit","branch","changed_paths","source_ids","validation")
+ required_fields=("schema_version","contribution_id","task_id","lane","base_commit","head_commit","branch","changed_paths","source_ids","validation")
  for k in required_fields:
   if k not in r:e.append(f"missing {k}")
  if r.get("schema_version")!=RECEIPT_SCHEMA:e.append("unsupported schema_version")
  lane=r.get("lane");tid=r.get("task_id")
  if lane not in LANES:e.append("invalid lane");return e
  if not isinstance(r.get("contribution_id"),str) or not r.get("contribution_id","").strip():e.append("contribution_id required")
- base=str(r.get("base_commit",""))
- if len(base)<7 or len(base)>64 or any(c not in "0123456789abcdef" for c in base):e.append("base_commit must be lowercase hex with length 7-64")
+ base=str(r.get("base_commit",""));head=str(r.get("head_commit",""))
+ if len(base)!=40 or any(c not in "0123456789abcdef" for c in base):e.append("base_commit must be an exact lowercase 40-character Git commit SHA")
+ if len(head)!=40 or any(c not in "0123456789abcdef" for c in head):e.append("head_commit must be an exact lowercase 40-character Git commit SHA")
+ if base==head:e.append("base_commit and head_commit must differ")
  if not isinstance(r.get("branch"),str) or not r.get("branch","").startswith("work/grow-doc/"):e.append("branch must start with work/grow-doc/")
  source_ids=r.get("source_ids")
  if not isinstance(source_ids,list) or any(not isinstance(x,str) or not x.strip() for x in source_ids):e.append("source_ids must be a list of non-empty strings")
@@ -123,12 +125,12 @@ def self_test():
  s=status();assert s["ok"],s["errors"];assert not validate_claims()
  task,rule,e=route_contract("rag","GD-RAG-001");assert not e
  required=stable_union(rule.get("required_validators"),task.get("required_validators"))
- good={"schema_version":RECEIPT_SCHEMA,"contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"abcdef1","branch":"work/grow-doc/x/y","changed_paths":["dataset/reviewed/test.json"],"source_ids":["doi:10.test/example"],"validation":{"required":required,"completed":required},"weight_training_eligible":False}
+ good={"schema_version":RECEIPT_SCHEMA,"contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"a"*40,"head_commit":"b"*40,"branch":"work/grow-doc/x/y","changed_paths":["dataset/reviewed/test.json"],"source_ids":["doi:10.test/example"],"validation":{"required":required,"completed":required},"weight_training_eligible":False}
  assert not validate_receipt_data(good)
  bad=json.loads(json.dumps(good));bad["validation"]["completed"]=bad["validation"]["completed"][:-1];assert any("not completed" in x for x in validate_receipt_data(bad))
  bad=json.loads(json.dumps(good));bad["changed_paths"]=["model_tuning/eval/heldout_v3.jsonl"];assert any("forbidden path" in x or "outside" in x for x in validate_receipt_data(bad))
  bad=json.loads(json.dumps(good));bad["weight_training_eligible"]=True;assert any("must not be weight-training eligible" in x for x in validate_receipt_data(bad))
- manifest={"contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"abcdef1","branch":"work/grow-doc/x/y","changed_paths":["dataset/reviewed/test.json"],"source_ids":["doi:10.test/example"]}
+ manifest={"contribution_id":"x","task_id":"GD-RAG-001","lane":"rag","base_commit":"a"*40,"head_commit":"b"*40,"branch":"work/grow-doc/x/y","changed_paths":["dataset/reviewed/test.json"],"source_ids":["doi:10.test/example"]}
  with tempfile.TemporaryDirectory() as d:
   p=pathlib.Path(d)/"m.json";p.write_text(json.dumps(manifest));r=route_manifest(p);assert r["ok"];assert r["required_validators"]==required
  print("Grow Doc contribution controller self-test: PASS")
