@@ -1,15 +1,18 @@
 {
   "schema_version": "grow-doc-agent-state-v1",
-  "updated_at": "2026-10-03T15:55:00Z",
-  "last_verified_main_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
-  "current_work_item": "Align documented frozen QLoRA contract and completion state with verified artifacts",
-  "status": "ready_for_ci",
-  "branch": "work/grow-doc/frozen-contract-drift-20261003",
+  "updated_at": "2026-10-03T16:10:00Z",
+  "last_verified_main_sha": "b26d42dfe1205b49b0461c4fb34a6a669c90cb75",
+  "current_work_item": "Run frozen Qwen3-8B base-vs-RAG benchmark on qualifying GPU",
+  "status": "blocked_external",
+  "branch": null,
   "pr_number": null,
-  "blocker": null,
-  "last_narrow_test": "pending: python3 scripts/validate-grow-doc-readme-contract.py",
+  "blocker": {
+    "type": "compute",
+    "reason": "No verified online GitHub self-hosted growdoc-gpu runner; Hugging Face managed L4 and Zero-A10G dispatch attempts both returned HTTP 402 Payment Required before startup."
+  },
+  "last_narrow_test": "npm run validate:model-readme-contract",
   "last_broad_test": "Validate THC Grow Doc",
-  "last_broad_test_result": "pending",
+  "last_broad_test_result": "success",
   "completed": [
     {
       "id": "multisource-reviewed-gqa",
@@ -28,6 +31,12 @@
       "merged_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
       "pr_number": 393,
       "result": "3 development-only diagnostic abstention challenges merged; full validation green"
+    },
+    {
+      "id": "frozen-contract-doc-alignment",
+      "merged_sha": "b26d42dfe1205b49b0461c4fb34a6a669c90cb75",
+      "pr_number": 394,
+      "result": "README/Qwen3 frozen contract hashes and 176-row mixture aligned; CI drift validator merged and full validation green"
     }
   ],
   "dataset_counts_or_eval_metrics": {
@@ -39,9 +48,15 @@
     "frozen_training_rows": 176,
     "frozen_training_sft_rows": 141,
     "frozen_training_grounded_qa_rows": 35,
-    "frozen_training_grounded_qa_fraction": 0.198863636364
+    "frozen_training_grounded_qa_fraction": 0.198863636364,
+    "text_model_baseline_release_ready": true,
+    "heldout_v3_cases": 16,
+    "heldout_v3_sources": 16,
+    "rag_claims": 695,
+    "quarantine_records": 27,
+    "training_eligible_vision_samples": 0
   },
-  "next_action": "Validate README/config/generated-lock contract in CI. After merge, the remaining text-model blocker is external GPU execution for the frozen base-vs-RAG benchmark; vision training remains intentionally blocked until rights-cleared confirmed image thresholds are met.",
+  "next_action": "Provide a qualifying BF16 GPU environment (>=20 GiB VRAM) or enable GPU billing/credits, then run the frozen base-vs-RAG preflight and benchmark. Do not start QLoRA until those measured results show residual behavior gaps.",
   "deferred_blockers": [
     {
       "type": "compute",
