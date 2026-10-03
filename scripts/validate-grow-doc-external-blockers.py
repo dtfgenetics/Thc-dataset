@@ -36,7 +36,7 @@ def validate_template():
 def validate_completion_links():
     d=json.loads(COMPLETION.read_text(encoding="utf-8"))
     ids={x.get("id") for x in d.get("external_blockers",[])}
-    if ids!={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001"}:
+    if ids!={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001","EXT-DEPLOY-001"}:
         fail("completion manifest external blockers drifted")
 
 def self_test():
