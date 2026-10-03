@@ -1,0 +1,104 @@
+{
+  "schema_version": "grow-doc-vision-source-candidates-v1",
+  "reviewed_at_utc": "2026-10-03T22:48:00Z",
+  "policy": {
+    "candidate_registry_never_grants_training_eligibility": true,
+    "exact_child_asset_rights_must_be_verified": true,
+    "human_scientific_review_required": true,
+    "source_group_and_duplicate_controls_required": true
+  },
+  "sources": [
+    {
+      "source_id": "adelaide-hemp-phenotyping-2025",
+      "title": "Data for phenotyping of industrial hemp (Cannabis sativa L.) experiments",
+      "canonical_url": "https://figshare.com/articles/dataset/Data_for_phenotyping_of_industrial_hemp_i_Cannabis_sativa_i_L_experiments/29097107",
+      "persistent_ids": [
+        "doi:10.25909/29097107"
+      ],
+      "related_image_dois": [
+        "doi:10.25909/23211779.v1",
+        "doi:10.25909/23211776.v1"
+      ],
+      "host_species": "Cannabis sativa",
+      "scope": [
+        "industrial hemp",
+        "water deficit",
+        "high-throughput phenotyping",
+        "growth response"
+      ],
+      "parent_record_license": "CC BY 4.0",
+      "rights_status": "parent record open; verify exact child image-dataset license and per-file terms before acquisition",
+      "scientific_status": "peer-reviewed study-linked phenotyping release",
+      "intended_lane": "candidate-supervised-environmental-stress",
+      "training_eligible": false,
+      "blockers": [
+        "verify exact child image-dataset license/terms",
+        "map images to treatment/control metadata and plant IDs",
+        "compute SHA-256 and perceptual hashes",
+        "assign sourceGroupId and plant/capture groups",
+        "human scientific and annotation review",
+        "duplicate/leakage and split-group isolation",
+        "class/control coverage review"
+      ],
+      "notes": "High-value Cannabis-specific drought/water-deficit candidate. Do not infer disease labels; only treatment-grounded environmental-stress supervision is potentially admissible."
+    },
+    {
+      "source_id": "cornell-hemp-media",
+      "title": "Cornell Hemp Media",
+      "canonical_url": "https://hemp.cals.cornell.edu/media/",
+      "persistent_ids": [],
+      "related_image_dois": [],
+      "host_species": "Cannabis sativa",
+      "scope": [
+        "hemp",
+        "powdery mildew",
+        "insect damage",
+        "stressed plants",
+        "roots",
+        "field and greenhouse reference imagery"
+      ],
+      "parent_record_license": "copyright-protected; educational/non-profit use with attribution stated by Cornell",
+      "rights_status": "reference-use permission stated; ML/training permission not explicit",
+      "scientific_status": "Cornell University hemp program media",
+      "intended_lane": "reference-only",
+      "training_eligible": false,
+      "blockers": [
+        "obtain explicit training/ML reuse permission or confirm license covers training",
+        "preserve creator/attribution per asset",
+        "verify diagnosis/condition metadata per image",
+        "human scientific review",
+        "hashing and source-group isolation"
+      ],
+      "notes": "Useful reference media but must not be promoted to supervised training solely from educational-use permission."
+    },
+    {
+      "source_id": "zenodo-hemp-root-shoot-diversity-2025",
+      "title": "Images and parameters for manuscript on Hemp root and shoot diversity",
+      "canonical_url": "https://zenodo.org/records/17783092",
+      "persistent_ids": [
+        "doi:10.5281/zenodo.17783092"
+      ],
+      "related_image_dois": [],
+      "host_species": "Cannabis sativa",
+      "scope": [
+        "root architecture",
+        "root crown",
+        "shoot morphology",
+        "genotype diversity"
+      ],
+      "parent_record_license": "not verified in current audit",
+      "rights_status": "quarantine until exact record/file license is verified",
+      "scientific_status": "study-linked hemp phenotyping images with genotype metadata",
+      "intended_lane": "reference-or-healthy-morphology-candidate",
+      "training_eligible": false,
+      "blockers": [
+        "verify exact license and training permission",
+        "download exact assets and metadata",
+        "map genotype/sample identities",
+        "hash and group images",
+        "human scientific/annotation review"
+      ],
+      "notes": "Potential healthy/root morphology coverage; not a disease-label source."
+    }
+  ]
+}
