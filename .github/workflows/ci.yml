@@ -31,6 +31,7 @@ jobs:
       - run: npm run validate:source-intake
       - run: npm run validate:claim-relationships
       - run: npm run validate:bioinformatics-contracts
+      - run: npm run validate:tool-data-bundle-production
       - run: npm run validate:model-eval
       - run: npm run validate:model-base-candidates
       - name: Validate base-vs-RAG candidate binding
@@ -45,6 +46,7 @@ jobs:
       - run: npm run validate:model-corpus-quality
       - run: npm run validate:training-supervision-concentration
       - run: npm run validate:model-source-evidence-quality
+      - run: npm run validate:model-example-evidence-tiers
       - run: npm run validate:model-semantic-leakage
       - run: npm run validate:model-corpus
       - name: Audit training provenance joins
@@ -79,6 +81,9 @@ jobs:
       - run: npm run validate:model-checkpoint-registry
       - run: npm run validate:model-project-completion
       - run: npm run validate:model-external-blockers
+      - run: npm run validate:model-improvement-planner
+      - run: npm run validate:portable-rag-eval
+      - run: npm run validate:ci-validator-coverage
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot
       - run: npm run validate:qlora-config
