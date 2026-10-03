@@ -134,7 +134,7 @@ def self_test():
  print("Grow Doc contribution controller self-test: PASS")
 
 def main():
-a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-receipts-dir",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--route-manifest",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
+ a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-receipts-dir",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--route-manifest",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
  if x.self_test:self_test();return 0
  if x.route_manifest:
   r=route_manifest(x.route_manifest);print(json.dumps(r,indent=2,sort_keys=True));return 0 if r["ok"] else 2
