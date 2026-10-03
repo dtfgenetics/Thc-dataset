@@ -23,6 +23,7 @@ EXPECTED_CONTROLS={
  "experiment-registry",
  "checkpoint-artifact-registry",
  "gpu-workflow-exact-main-sha-gate",
+ "production-deploy-exact-main-sha-gate",
 }
 EXPECTED_EXTERNAL={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001","EXT-DEPLOY-001"}
 EXPECTED_ISSUES={"EXT-GOV-001":398,"EXT-COMPUTE-001":399,"EXT-VISION-001":400,"EXT-DEPLOY-001":95}
@@ -84,7 +85,7 @@ def validate_doc(doc, experiments, readiness, checkpoints):
     required_prohibited={
       "RAG benchmark improvement","QLoRA training success","checkpoint superiority",
       "adapter promotion","adapter merge or model soup success",
-      "supervised vision readiness","model deployment"
+      "supervised vision readiness","model deployment","production publication"
     }
     if set(prohibited or [])!=required_prohibited:
         fail("prohibited_claims_until_unblocked must match locked claim boundary")
@@ -120,7 +121,7 @@ def self_test():
       "prohibited_claims_until_unblocked":[
         "RAG benchmark improvement","QLoRA training success","checkpoint superiority",
         "adapter promotion","adapter merge or model soup success",
-        "supervised vision readiness","model deployment"
+        "supervised vision readiness","model deployment","production publication"
       ],
     }
     experiments={"experiments":[{"experiment_id":"exp-qwen3-8b-base-vs-rag-001","status":"blocked"}]}
