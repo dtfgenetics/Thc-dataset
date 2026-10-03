@@ -44,7 +44,7 @@
     "validate:model-improvement-planner": "python3 scripts/plan-grow-doc-improvements.py --self-test",
     "validate:portable-rag-eval": "python3 scripts/export-portable-rag-eval.py --self-test",
     "status:grow-doc": "python3 scripts/grow-doc-contribution.py",
-    "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test",
+    "validate:grow-doc-contributions": "python3 scripts/grow-doc-contribution.py --self-test && python3 scripts/grow-doc-contribution.py --validate-receipts-dir contributions/receipts",
     "validate:grow-doc-claims": "python3 scripts/grow-doc-contribution.py --validate-claims",
     "route:grow-doc": "python3 scripts/grow-doc-contribution.py --route-manifest",
     "validate:source-intake": "python3 scripts/intake-grow-doc-sources.py --self-test",
