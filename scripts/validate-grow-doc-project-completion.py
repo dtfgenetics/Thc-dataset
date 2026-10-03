@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate Grow Doc project-completion claims against canonical repository state."""
 from __future__ import annotations
-import argparse,json,pathlib,re
+import argparse,json,pathlib,re,subprocess
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 DEFAULT=ROOT/"model_tuning/project_completion_v1.json"
@@ -25,6 +25,7 @@ EXPECTED_CONTROLS={
  "gpu-workflow-exact-main-sha-gate",
 }
 EXPECTED_EXTERNAL={"EXT-GOV-001","EXT-COMPUTE-001","EXT-VISION-001"}
+EXPECTED_ISSUES={"EXT-GOV-001":398,"EXT-COMPUTE-001":399,"EXT-VISION-001":400}
 
 def fail(msg): raise ValueError(msg)
 def load(path): return json.loads(path.read_text(encoding="utf-8"))
@@ -54,6 +55,11 @@ def validate_doc(doc, experiments, readiness, checkpoints):
         criteria=item.get("completion_criteria")
         if not isinstance(criteria,list) or not criteria or any(not str(x).strip() for x in criteria):
             fail(f"{bid}: non-empty completion_criteria required")
+        issue=item.get("tracking_issue")
+        number=EXPECTED_ISSUES[bid]
+        expected_url=f"https://github.com/dtfgenetics/Thc-dataset/issues/{number}"
+        if not isinstance(issue,dict) or issue.get("number")!=number or issue.get("url")!=expected_url:
+            fail(f"{bid}: tracking_issue must point to #{number}")
 
     exp=next((x for x in experiments.get("experiments",[]) if x.get("experiment_id")=="exp-qwen3-8b-base-vs-rag-001"),None)
     if exp is None:
@@ -83,8 +89,20 @@ def validate_doc(doc, experiments, readiness, checkpoints):
     if set(prohibited or [])!=required_prohibited:
         fail("prohibited_claims_until_unblocked must match locked claim boundary")
 
+def validate_audit_ancestry(doc):
+    sha=doc["audited_main_sha"]
+    try:
+        subprocess.run(["git","cat-file","-e",f"{sha}^{{commit}}"],cwd=ROOT,check=True,capture_output=True,text=True)
+        result=subprocess.run(["git","merge-base","--is-ancestor",sha,"HEAD"],cwd=ROOT,capture_output=True,text=True)
+    except OSError as exc:
+        fail(f"unable to verify audited_main_sha in Git history: {exc}")
+    if result.returncode!=0:
+        fail("audited_main_sha is not an ancestor of current HEAD")
+
 def validate(path=DEFAULT):
-    validate_doc(load(path),load(EXPERIMENTS),load(READINESS),load(CHECKPOINTS))
+    doc=load(path)
+    validate_doc(doc,load(EXPERIMENTS),load(READINESS),load(CHECKPOINTS))
+    validate_audit_ancestry(doc)
 
 def self_test():
     doc={
@@ -93,9 +111,9 @@ def self_test():
       "status":"engineering-complete-external-blockers-remain",
       "completed_controls":sorted(EXPECTED_CONTROLS),
       "external_blockers":[
-        {"id":"EXT-GOV-001","state":"blocked","owner":"admin","evidence":"none","completion_criteria":["protect"]},
-        {"id":"EXT-COMPUTE-001","state":"blocked","owner":"gpu","evidence":"blocked","completion_criteria":["run"]},
-        {"id":"EXT-VISION-001","state":"blocked","owner":"data","evidence":"0","completion_criteria":["collect"]},
+        {"id":"EXT-GOV-001","state":"blocked","owner":"admin","evidence":"none","completion_criteria":["protect"],"tracking_issue":{"number":398,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/398"}},
+        {"id":"EXT-COMPUTE-001","state":"blocked","owner":"gpu","evidence":"blocked","completion_criteria":["run"],"tracking_issue":{"number":399,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/399"}},
+        {"id":"EXT-VISION-001","state":"blocked","owner":"data","evidence":"0","completion_criteria":["collect"],"tracking_issue":{"number":400,"url":"https://github.com/dtfgenetics/Thc-dataset/issues/400"}},
       ],
       "non_blocking_continuous_work":[],
       "prohibited_claims_until_unblocked":[
