@@ -15,7 +15,8 @@
     "contribution-task-receipt-history-system",
     "experiment-registry",
     "checkpoint-artifact-registry",
-    "gpu-workflow-exact-main-sha-gate"
+    "gpu-workflow-exact-main-sha-gate",
+    "production-deploy-exact-main-sha-gate"
   ],
   "external_blockers": [
     {
@@ -102,6 +103,7 @@
     "adapter promotion",
     "adapter merge or model soup success",
     "supervised vision readiness",
-    "model deployment"
+    "model deployment",
+    "production publication"
   ]
 }
