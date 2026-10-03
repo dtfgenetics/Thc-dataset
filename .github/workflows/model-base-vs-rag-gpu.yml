@@ -2,6 +2,12 @@ name: Grow Doc base vs RAG GPU benchmark
 
 on:
   workflow_dispatch:
+    inputs:
+      preflight_only:
+        description: 'Validate runner/runtime/input contract without model inference'
+        required: false
+        type: boolean
+        default: true
 permissions:
   contents: read
 
@@ -72,7 +78,12 @@ jobs:
           test "$(git rev-parse HEAD)" = "${GITHUB_SHA}"
           test -z "$(git status --porcelain --untracked-files=no)"
 
+      - name: Stop after successful preflight when requested
+        if: github.event_name == 'workflow_dispatch' && inputs.preflight_only
+        run: echo 'Qualified GPU/runtime/input preflight passed; inference intentionally skipped.'
+
       - name: Run frozen Qwen3-8B base vs frozen RAG experiment
+        if: github.event_name != 'workflow_dispatch' || !inputs.preflight_only
         shell: bash
         run: |
           set -euo pipefail
@@ -80,6 +91,7 @@ jobs:
             --output-root model_tuning/runs/base_vs_rag_v1
 
       - name: Verify benchmark preserved tracked repository bytes
+        if: github.event_name != 'workflow_dispatch' || !inputs.preflight_only
         shell: bash
         run: |
           set -euo pipefail
@@ -87,13 +99,24 @@ jobs:
           test -z "$(git status --porcelain --untracked-files=no)"
 
       - name: Upload benchmark outputs
-        if: success()
+        if: success() && (github.event_name != 'workflow_dispatch' || !inputs.preflight_only)
         uses: actions/upload-artifact@v7
         with:
           name: grow-doc-base-vs-rag-${{ github.sha }}
           path: model_tuning/runs/base_vs_rag_v1/
           if-no-files-found: error
           retention-days: 30
+
+      - name: Upload successful preflight diagnostics
+        if: success() && github.event_name == 'workflow_dispatch' && inputs.preflight_only
+        uses: actions/upload-artifact@v7
+        with:
+          name: grow-doc-base-vs-rag-preflight-${{ github.sha }}
+          path: |
+            model_tuning/runs/base_vs_rag_v1/runner-diagnostics.txt
+            model_tuning/runs/base_vs_rag_v1/preflight.txt
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Upload failed-preflight diagnostics
         if: failure()
