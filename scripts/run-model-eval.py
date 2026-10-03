@@ -540,6 +540,8 @@ def main() -> int:
     if args.self_test:
         self_test()
         return 0
+    if not isinstance(args.code_revision, str) or len(args.code_revision) != 40 or any(ch not in "0123456789abcdef" for ch in args.code_revision):
+        raise SystemExit("code revision must be pinned as an exact lowercase 40-character Git commit SHA")
     for label, value in [("model", args.model_revision), ("tokenizer", args.tokenizer_revision), ("scorer", args.scorer_revision)]:
         if value == "UNPINNED" or len(value) < 7:
             raise SystemExit(f"{label} revision must be pinned")
