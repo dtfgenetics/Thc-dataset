@@ -30,6 +30,7 @@ CRITICAL_MAIN_CI={
     "validate:model-corpus-quality",
     "validate:training-supervision-concentration",
     "validate:model-source-evidence-quality",
+    "validate:model-source-identity-contract",
     "validate:model-example-evidence-tiers",
     "validate:model-semantic-leakage",
     "validate:model-corpus",

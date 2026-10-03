@@ -67,7 +67,8 @@
     "validate:model-checkpoint-registry": "python3 scripts/validate-grow-doc-checkpoint-registry.py --self-test && python3 scripts/validate-grow-doc-checkpoint-registry.py",
     "validate:model-project-completion": "python3 scripts/validate-grow-doc-project-completion.py --self-test && python3 scripts/validate-grow-doc-project-completion.py",
     "validate:model-external-blockers": "python3 scripts/validate-grow-doc-external-blockers.py --self-test && python3 scripts/validate-grow-doc-external-blockers.py",
-    "validate:ci-validator-coverage": "python3 scripts/validate-grow-doc-ci-coverage.py --self-test && python3 scripts/validate-grow-doc-ci-coverage.py"
+    "validate:ci-validator-coverage": "python3 scripts/validate-grow-doc-ci-coverage.py --self-test && python3 scripts/validate-grow-doc-ci-coverage.py",
+    "validate:model-source-identity-contract": "python3 scripts/test-source-identity-contract.py && python3 scripts/test-source-identity-parity.py && python3 scripts/test-source-identity-consumer-parity.py && python3 scripts/test-semantic-leakage-source-identity-parity.py && python3 scripts/audit-split-source-identities.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
