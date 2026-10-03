@@ -112,6 +112,8 @@ def validate(
             errors.append(f"{label} run manifest benchmark hash differs from experiment benchmark")
         if evaluation.get("scorer_revision") != repo_revision:
             errors.append(f"{label} scorer revision differs from experiment repo revision")
+        if manifest.get("code_revision") != repo_revision:
+            errors.append(f"{label} code revision differs from experiment repo revision")
 
     comparable_sections = ("model", "tokenizer", "decoding", "runtime")
     for section in comparable_sections:
@@ -194,7 +196,7 @@ def self_test() -> None:
         tokenizer = {"repository": "Qwen/Qwen3-8B", "revision": "a" * 40, "chat_template_sha256": "b" * 64, "chat_template_method": "apply_chat_template:add_generation_prompt", "chat_template_kwargs": {"enable_thinking": False}}
         decoding = {"do_sample": False, "temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "seed": 420}
         evaluation = {"benchmark_path": "heldout.jsonl", "benchmark_sha256": sha256(benchmark), "scorer_revision": "c" * 40}
-        base = {"schema_version": "grow-doc-eval-run-v1", "model": model, "tokenizer": tokenizer, "decoding": decoding, "evaluation": evaluation, "runtime": runtime, "retrieval": None}
+        base = {"schema_version": "grow-doc-eval-run-v1", "code_revision": "c" * 40, "model": model, "tokenizer": tokenizer, "decoding": decoding, "evaluation": evaluation, "runtime": runtime, "retrieval": None}
         rag = json.loads(json.dumps(base)); rag["retrieval"] = {"snapshot_sha256": sha256(snapshot), "top_k": 5, "reranker": None}
         write_json(base_run_path, base); write_json(rag_run_path, rag)
         experiment = {
@@ -227,6 +229,15 @@ def self_test() -> None:
             raise AssertionError("mutated retrieval-manifest binding must fail")
 
         write_json(experiment_path, experiment)
+        bad_code = json.loads(json.dumps(rag)); bad_code["code_revision"] = "d" * 40
+        write_json(rag_run_path, bad_code); experiment["arms"]["base_plus_rag"]["run_manifest_sha256"] = sha256(rag_run_path); write_json(experiment_path, experiment)
+        try:
+            validate(experiment_path, benchmark, snapshot, retrieval_manifest_path, base_responses, base_run_path, rag_responses, rag_run_path)
+        except ValueError as exc:
+            assert "code revision differs" in str(exc)
+        else:
+            raise AssertionError("run code revision drift must fail")
+        write_json(rag_run_path, rag); experiment["arms"]["base_plus_rag"]["run_manifest_sha256"] = sha256(rag_run_path); write_json(experiment_path, experiment)
         bad_rag = json.loads(json.dumps(rag)); bad_rag["retrieval"]["top_k"] = 4
         write_json(rag_run_path, bad_rag)
         experiment["arms"]["base_plus_rag"]["run_manifest_sha256"] = sha256(rag_run_path)
