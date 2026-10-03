@@ -143,8 +143,8 @@ def self_test() -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate a validated Grow Doc contribution receipt from Git history.")
-    parser.add_argument("--task-id", required=True)
-    parser.add_argument("--base-commit", required=True)
+    parser.add_argument("--task-id")
+    parser.add_argument("--base-commit")
     parser.add_argument("--head-commit", default="HEAD")
     parser.add_argument("--branch")
     parser.add_argument("--contribution-id")
@@ -157,6 +157,8 @@ def main() -> int:
     if args.self_test:
         self_test()
         return 0
+    if not args.task_id or not args.base_commit:
+        parser.error("--task-id and --base-commit are required unless --self-test is used")
 
     base = resolve_commit(args.base_commit)
     head = resolve_commit(args.head_commit)
