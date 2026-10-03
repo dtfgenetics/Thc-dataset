@@ -1,0 +1,31 @@
+{
+  "schema_version": "grow-doc-agent-state-v1",
+  "updated_at": "2026-10-03T14:20:00Z",
+  "last_verified_main_sha": "a648c270d6f29427bbd6dfd951a22b983368d4da",
+  "current_work_item": "Run frozen Qwen3-8B base-vs-RAG GPU preflight and benchmark",
+  "status": "blocked_external",
+  "branch": null,
+  "pr_number": null,
+  "blocker": {
+    "type": "compute",
+    "reason": "No verified online self-hosted runner matching [self-hosted, linux, x64, growdoc-gpu] and no workflow-dispatch action is available through the current connected GitHub tool surface."
+  },
+  "last_narrow_test": "npm run validate:reviewed-claim-grounded-qa",
+  "last_broad_test": "Validate THC Grow Doc",
+  "last_broad_test_result": "success",
+  "completed": [
+    {
+      "id": "multisource-reviewed-gqa",
+      "merged_sha": "a648c270d6f29427bbd6dfd951a22b983368d4da",
+      "pr_number": 391,
+      "result": "11 reviewed grounded-QA candidates (6 Cornell + 5 USDA) merged; full validation green"
+    }
+  ],
+  "dataset_counts_or_eval_metrics": {
+    "reviewed_grounded_qa_candidates": 11,
+    "cornell_reviewed_claims": 6,
+    "usda_reviewed_claims": 5,
+    "measured_base_vs_rag": null
+  },
+  "next_action": "Dispatch model-base-vs-rag-gpu.yml in preflight mode on a qualifying runner; if unavailable, continue the next non-GPU data/evaluation quality item without altering frozen training hashes."
+}
