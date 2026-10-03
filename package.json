@@ -59,7 +59,8 @@
     "validate:reviewed-claim-grounded-qa": "python3 scripts/build-reviewed-claim-grounded-qa.py --self-test && python3 scripts/build-reviewed-claim-grounded-qa.py --check-only",
     "receipt:grow-doc": "python3 scripts/generate-grow-doc-receipt.py",
     "validate:grow-doc-receipt-history": "python3 scripts/validate-grow-doc-receipt-history.py --self-test && python3 scripts/validate-grow-doc-receipt-history.py",
-    "validate:model-experiment-registry": "python3 scripts/validate-grow-doc-experiment-registry.py --self-test && python3 scripts/validate-grow-doc-experiment-registry.py"
+    "validate:model-experiment-registry": "python3 scripts/validate-grow-doc-experiment-registry.py --self-test && python3 scripts/validate-grow-doc-experiment-registry.py",
+    "validate:image-preprocessing": "node scripts/validate-diagnostic-image-preprocessing.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

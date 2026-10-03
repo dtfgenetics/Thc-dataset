@@ -61,7 +61,10 @@ export default function App() {
   }
 
   const clearTransientEvidence = () => {
-    evidence.forEach((item) => URL.revokeObjectURL(item.previewUrl))
+    evidence.forEach((item) => {
+      URL.revokeObjectURL(item.previewUrl)
+      if (item.analysisPreviewUrl) URL.revokeObjectURL(item.analysisPreviewUrl)
+    })
     setEvidence([])
     setReviewed(false)
     setIssueSlug(undefined)
@@ -93,7 +96,10 @@ export default function App() {
     const additions = files.map((file) => ({ id: makeId('evidence'), file, previewUrl: URL.createObjectURL(file), slot, quality: 'checking' as const, notes: [] }))
     setReviewed(false)
     setEvidence((current) => {
-      current.filter((item) => item.slot === slot).forEach((item) => URL.revokeObjectURL(item.previewUrl))
+      current.filter((item) => item.slot === slot).forEach((item) => {
+        URL.revokeObjectURL(item.previewUrl)
+        if (item.analysisPreviewUrl) URL.revokeObjectURL(item.analysisPreviewUrl)
+      })
       return slot === 'close-up' ? [...current.filter((item) => item.slot !== slot), ...additions] : [...current.filter((item) => item.slot !== slot), additions[0]]
     })
     await Promise.all(additions.map(async (addition) => {
@@ -105,9 +111,27 @@ export default function App() {
   const removeFile = (id: string) => {
     setEvidence((current) => {
       const target = current.find((item) => item.id === id)
-      if (target) URL.revokeObjectURL(target.previewUrl)
+      if (target) {
+        URL.revokeObjectURL(target.previewUrl)
+        if (target.analysisPreviewUrl) URL.revokeObjectURL(target.analysisPreviewUrl)
+      }
       return current.filter((item) => item.id !== id)
     })
+    setReviewed(false)
+  }
+
+  const updateDerivedView = (id: string, file: File | null, transform?: EvidenceFile['analysisTransform']) => {
+    setEvidence((current) => current.map((item) => {
+      if (item.id !== id) return item
+      if (item.analysisPreviewUrl) URL.revokeObjectURL(item.analysisPreviewUrl)
+      if (!file) return { ...item, analysisFile: undefined, analysisPreviewUrl: undefined, analysisTransform: undefined }
+      return {
+        ...item,
+        analysisFile: file,
+        analysisPreviewUrl: URL.createObjectURL(file),
+        analysisTransform: transform,
+      }
+    }))
     setReviewed(false)
   }
 
@@ -178,7 +202,7 @@ export default function App() {
 
           <div className="diagnostic-layout">
             <div className="workflow-column">
-              <EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} />
+              <EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} onDerivedView={updateDerivedView} />
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
               <GrowContextForm context={context} onChange={syncContext} />
             </div>

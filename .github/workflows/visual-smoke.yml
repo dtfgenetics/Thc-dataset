@@ -45,6 +45,9 @@ jobs:
       - name: Validate final visual contract
         run: node scripts/validate-growdoc-visual-contract.mjs
 
+      - name: Validate image preprocessing contract
+        run: npm run validate:image-preprocessing
+
       - name: Build production bundle
         run: npm run build
 

@@ -89,11 +89,19 @@ async function videoFrames(file: File): Promise<Array<{ blob: Blob; name: string
   }
 }
 
+export function analysisFilesForEvidence(item: EvidenceFile) {
+  if (!item.file.type.startsWith('image/')) return [item.file]
+  return item.analysisFile ? [item.file, item.analysisFile] : [item.file]
+}
+
 async function buildObservationMedia(evidence: EvidenceFile[]) {
   const media: Array<{ blob: Blob; name: string }> = []
   for (const item of evidence) {
     if (item.file.type.startsWith('image/')) {
-      media.push({ blob: item.file, name: item.file.name || `${item.slot}.jpg` })
+      for (const [index, image] of analysisFilesForEvidence(item).entries()) {
+        const fallback = index === 0 ? `${item.slot}.jpg` : `${item.slot}-detail.jpg`
+        media.push({ blob: image, name: image.name || fallback })
+      }
       continue
     }
     if (item.file.type.startsWith('video/')) {
