@@ -103,6 +103,7 @@ jobs:
             --expected-sha256 a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8
       - name: Freeze model training artifacts
         run: python3 scripts/freeze-model-training-artifacts.py
+      - run: npm run validate:model-readme-contract
       - name: Audit frozen training deduplication and held-out leakage
         run: |
           python3 scripts/audit-grow-doc-dedup.py --self-test

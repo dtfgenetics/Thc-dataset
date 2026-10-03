@@ -1,13 +1,13 @@
 {
   "schema_version": "grow-doc-agent-state-v1",
-  "updated_at": "2026-10-03T14:35:00Z",
-  "last_verified_main_sha": "eed76f69455ffb8bf51f5a8c3c6880b9ad4af4e6",
-  "current_work_item": "Add and validate development-only diagnostic abstention challenges",
+  "updated_at": "2026-10-03T15:55:00Z",
+  "last_verified_main_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
+  "current_work_item": "Align documented frozen QLoRA contract and completion state with verified artifacts",
   "status": "ready_for_ci",
-  "branch": "work/grow-doc/diagnostic-abstention-devset-20261003",
+  "branch": "work/grow-doc/frozen-contract-drift-20261003",
   "pr_number": null,
   "blocker": null,
-  "last_narrow_test": "pending: python3 scripts/validate-diagnostic-abstention-candidates.py",
+  "last_narrow_test": "pending: python3 scripts/validate-grow-doc-readme-contract.py",
   "last_broad_test": "Validate THC Grow Doc",
   "last_broad_test_result": "pending",
   "completed": [
@@ -22,6 +22,12 @@
       "merged_sha": "eed76f69455ffb8bf51f5a8c3c6880b9ad4af4e6",
       "pr_number": 392,
       "result": "Repository-local Grow Doc skill/state contract merged; full validation green"
+    },
+    {
+      "id": "diagnostic-abstention-devset",
+      "merged_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
+      "pr_number": 393,
+      "result": "3 development-only diagnostic abstention challenges merged; full validation green"
     }
   ],
   "dataset_counts_or_eval_metrics": {
@@ -29,9 +35,13 @@
     "cornell_reviewed_claims": 6,
     "usda_reviewed_claims": 5,
     "measured_base_vs_rag": null,
-    "diagnostic_abstention_dev_candidates": 3
+    "diagnostic_abstention_dev_candidates": 3,
+    "frozen_training_rows": 176,
+    "frozen_training_sft_rows": 141,
+    "frozen_training_grounded_qa_rows": 35,
+    "frozen_training_grounded_qa_fraction": 0.198863636364
   },
-  "next_action": "Run CI for the 3-case development-only abstention set; fix any provenance or held-out-isolation failure before merge. Keep the frozen base-vs-RAG compute blocker deferred.",
+  "next_action": "Validate README/config/generated-lock contract in CI. After merge, the remaining text-model blocker is external GPU execution for the frozen base-vs-RAG benchmark; vision training remains intentionally blocked until rights-cleared confirmed image thresholds are met.",
   "deferred_blockers": [
     {
       "type": "compute",
