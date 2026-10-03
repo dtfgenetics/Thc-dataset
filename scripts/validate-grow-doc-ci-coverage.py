@@ -50,17 +50,49 @@ CRITICAL_MAIN_CI={
     "validate:qlora-config",
     "validate:model-readme-contract",
     "validate:image-preprocessing",
+    "validate:ci-validator-coverage",
 }
 
 DELEGATED_WITH_DEDICATED_WORKFLOW={
     "validate:crop-geometry":".github/workflows/validate-data-release.yml",
+    "validate:data-release":".github/workflows/validate-data-release.yml",
     "validate:release-metadata":".github/workflows/validate-data-release.yml",
 }
 
 INLINE_EQUIVALENTS={
-    "validate:base-vs-rag-launcher":"python3 scripts/run-base-vs-rag-experiment.py --self-test",
-    "validate:qlora-dependencies":"python3 scripts/verify-qlora-dependency-contract.py",
-    "validate:qlora-trainer":"python3 scripts/train-grow-doc-qlora.py --self-test",
+    "validate:base-vs-rag-launcher":[
+        "python3 scripts/run-base-vs-rag-experiment.py --self-test",
+    ],
+    "validate:model-grounding":[
+        "python3 scripts/enforce-supplied-claim-grounding.py --self-test",
+        "python3 scripts/split-model-training-grounded.py --self-test",
+        "python3 scripts/split-model-training-grounded.py --check-only",
+    ],
+    "validate:qlora-dependencies":[
+        "python3 scripts/verify-qlora-dependency-contract.py",
+    ],
+    "validate:qlora-trainer":[
+        "python3 scripts/train-grow-doc-qlora.py --self-test",
+    ],
+}
+
+PACKAGE_EQUIVALENTS={
+    "validate:external-source-registries":{
+        "enforced_by":"validate:bioinformatics-contracts",
+        "needles":[
+            "validate-cornell-bioinformatics-registry.py",
+            "validate-pubchem-chemistry-registry.py",
+            "validate-plant-phenotyping-source-registry.py",
+        ],
+    },
+    "validate:pubchem-collector":{
+        "enforced_by":"validate:bioinformatics-contracts",
+        "needles":["collect-pubchem-compound.py --self-test"],
+    },
+    "validate:grow-doc-receipt-history":{
+        "enforced_by":"validate:grow-doc-contributions",
+        "needles":["npm run validate:grow-doc-receipt-history"],
+    },
 }
 
 def fail(msg:str)->None: raise ValueError(msg)
@@ -86,11 +118,34 @@ def validate()->dict:
         text=wf.read_text(encoding="utf-8")
         if f"npm run {name}" not in text:
             errors.append(f"delegated workflow does not enforce {name}: {path}")
-    for name,needle in INLINE_EQUIVALENTS.items():
+    for name,needles in INLINE_EQUIVALENTS.items():
         if name not in scripts:
             errors.append(f"inline-equivalent script missing from package.json: {name}")
-        if needle not in ci:
-            errors.append(f"primary CI missing inline equivalent for {name}: {needle}")
+        for needle in needles:
+            if needle not in ci:
+                errors.append(f"primary CI missing inline equivalent for {name}: {needle}")
+    for name,rule in PACKAGE_EQUIVALENTS.items():
+        if name not in scripts:
+            errors.append(f"package-equivalent validator missing from package.json: {name}")
+            continue
+        parent=rule["enforced_by"]
+        parent_command=scripts.get(parent)
+        if not isinstance(parent_command,str):
+            errors.append(f"{name}: enforcing package script missing: {parent}")
+            continue
+        if f"npm run {parent}" not in ci:
+            errors.append(f"{name}: enforcing package script is not in primary CI: {parent}")
+        for needle in rule["needles"]:
+            if needle not in parent_command:
+                errors.append(f"{name}: {parent} missing equivalent command fragment: {needle}")
+    validate_scripts={name for name in scripts if name.startswith("validate:")}
+    classified=set(CRITICAL_MAIN_CI)|set(DELEGATED_WITH_DEDICATED_WORKFLOW)|set(INLINE_EQUIVALENTS)|set(PACKAGE_EQUIVALENTS)
+    missing=sorted(validate_scripts-classified)
+    stale=sorted(classified-validate_scripts)
+    if missing:
+        errors.append(f"unclassified validate scripts: {missing}")
+    if stale:
+        errors.append(f"classification references missing validate scripts: {stale}")
     if "npm run validate:ci-validator-coverage" not in ci:
         errors.append("primary CI does not enforce validator coverage audit")
     if errors:
@@ -99,11 +154,15 @@ def validate()->dict:
       "critical_main_ci":len(CRITICAL_MAIN_CI),
       "delegated":len(DELEGATED_WITH_DEDICATED_WORKFLOW),
       "inline_equivalents":len(INLINE_EQUIVALENTS),
+      "package_equivalents":len(PACKAGE_EQUIVALENTS),
+      "classified_total":len(CRITICAL_MAIN_CI|set(DELEGATED_WITH_DEDICATED_WORKFLOW)|set(INLINE_EQUIVALENTS)|set(PACKAGE_EQUIVALENTS)),
+      "package_validate_total":len([name for name in scripts if name.startswith("validate:")]),
     }
 
 def self_test()->None:
     result=validate()
     assert result["critical_main_ci"]>=30
+    assert result["classified_total"]==result["package_validate_total"]
     print("Grow Doc CI validator coverage self-test: PASS")
 
 def main()->int:
