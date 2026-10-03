@@ -109,6 +109,14 @@ def validate_receipt_data(r):
  if lane=="rag" and r.get("weight_training_eligible") is not False:e.append("RAG factual contribution must not be weight-training eligible")
  if lane=="eval" and r.get("training_eligible") is not False:e.append("evaluation contribution must not be training eligible")
  if lane=="vision" and r.get("training_eligible") is True and not r.get("human_reviewed"):e.append("vision training eligibility requires human review")
+ integration=r.get("integration")
+ if integration is not None:
+  if not isinstance(integration,dict) or set(integration)!={"pr_number","commit","method"}:e.append("integration must contain exactly pr_number, commit, method")
+  else:
+   if not isinstance(integration.get("pr_number"),int) or isinstance(integration.get("pr_number"),bool) or integration["pr_number"]<1:e.append("integration.pr_number must be positive integer")
+   commit=str(integration.get("commit",""))
+   if len(commit)!=40 or any(c not in "0123456789abcdef" for c in commit):e.append("integration.commit must be exact lowercase 40-character Git SHA")
+   if integration.get("method") not in {"squash","merge","rebase"}:e.append("integration.method invalid")
  return e
 
 def validate_receipt(p):return validate_receipt_data(json.loads(p.read_text(encoding="utf-8")))
