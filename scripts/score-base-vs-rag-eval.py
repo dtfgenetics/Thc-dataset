@@ -46,6 +46,10 @@ def base_vs_rag_comparability_errors(base: dict[str, Any], rag: dict[str, Any]) 
     errors: list[str] = []
     if base.get("schema_version") != rag.get("schema_version"):
         errors.append("run manifest schema_version differs")
+    if base.get("code_revision") != rag.get("code_revision"):
+        errors.append("code_revision differs between base and RAG arms")
+    if not isinstance(base.get("code_revision"), str) or len(base.get("code_revision")) != 40:
+        errors.append("base code_revision must be an exact 40-character commit SHA")
 
     for section in ("model", "tokenizer", "decoding", "evaluation"):
         if base.get(section) != rag.get(section):
@@ -165,6 +169,7 @@ def self_test() -> None:
     runtime = {"python": "3.12", "torch": "2.14.0", "transformers": "5.16.1", "accelerate": "1.14.0", "peft": "0.20.0", "bitsandbytes": "0.50.2", "device": "cuda", "gpu_name": "fixture"}
     common = {
         "schema_version": "grow-doc-eval-run-v1",
+        "code_revision": "d" * 40,
         "model": {"repository": "Qwen/Qwen3-8B", "revision": "a" * 40, "dtype": "bfloat16", "adapter": None},
         "tokenizer": {"repository": "Qwen/Qwen3-8B", "revision": "a" * 40, "chat_template_sha256": "b" * 64, "chat_template_method": "apply_chat_template:add_generation_prompt", "chat_template_kwargs": {"enable_thinking": False}},
         "decoding": {"temperature": 0.0, "top_p": 1.0, "max_new_tokens": 512, "do_sample": False, "seed": 420},
@@ -175,6 +180,8 @@ def self_test() -> None:
     rag = json.loads(json.dumps(common)); rag["retrieval"] = {"snapshot_sha256": "e" * 64, "top_k": 5, "reranker": None}
     assert base_vs_rag_comparability_errors(base, rag) == []
 
+    bad = json.loads(json.dumps(rag)); bad["code_revision"] = "e" * 40
+    assert "code_revision differs between base and RAG arms" in base_vs_rag_comparability_errors(base, bad)
     bad = json.loads(json.dumps(rag)); bad["decoding"]["seed"] = 1
     assert "decoding differs between base and RAG arms" in base_vs_rag_comparability_errors(base, bad)
     bad = json.loads(json.dumps(rag)); bad["runtime"]["torch"] = "different"
