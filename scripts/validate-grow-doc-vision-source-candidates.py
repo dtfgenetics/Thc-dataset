@@ -46,9 +46,11 @@ def validate_doc(doc):
         for pid in rel:
             if not DOI.fullmatch(str(pid)):
                 fail(f"{sid}: invalid related image DOI {pid}")
-        for key in ("title","host_species","parent_record_license","rights_status","scientific_status","intended_lane","notes"):
+        for key in ("title","host_species","parent_record_license","rights_status","scientific_status","intended_lane","admission_state","notes"):
             if not isinstance(row.get(key),str) or not row[key].strip():
                 fail(f"{sid}: {key} required")
+        if row["admission_state"] not in {"pre-admission-rights-review","reference-only-rights-limited","quarantine-rights-unknown"}:
+            fail(f"{sid}: invalid admission_state")
         if row["host_species"]!="Cannabis sativa":
             fail(f"{sid}: only Cannabis sativa sources belong in this registry")
         if not isinstance(row.get("scope"),list) or not row["scope"]:
@@ -57,9 +59,13 @@ def validate_doc(doc):
         if not isinstance(blockers,list) or not blockers:
             fail(f"{sid}: unresolved blockers required while training_eligible=false")
         rights=(row["rights_status"]+" "+row["parent_record_license"]).lower()
-        if "not explicit" in rights or "not verified" in rights or "quarantine" in rights:
+        unresolved=any(token in rights for token in ("not explicit","not verified","quarantine","verify exact","verification pending"))
+        if unresolved and row["admission_state"]=="pre-admission-rights-review":
+            if not row["intended_lane"].startswith("candidate-"):
+                fail(f"{sid}: pre-admission source must use a candidate lane")
+        if row["admission_state"] in {"reference-only-rights-limited","quarantine-rights-unknown"}:
             if row["intended_lane"] not in {"reference-only","reference-or-healthy-morphology-candidate"}:
-                fail(f"{sid}: unresolved rights cannot claim a supervised training lane")
+                fail(f"{sid}: rights-limited/quarantined source cannot claim supervised intent")
     return {"sources":len(rows)}
 
 def self_test():
@@ -75,7 +81,7 @@ def self_test():
         "source_id":"x","title":"x","canonical_url":"https://example.test/x","persistent_ids":[],
         "related_image_dois":[],"host_species":"Cannabis sativa","scope":["x"],
         "parent_record_license":"CC BY 4.0","rights_status":"open parent; child verification pending",
-        "scientific_status":"study linked","intended_lane":"candidate-supervised-environmental-stress",
+        "scientific_status":"study linked","intended_lane":"candidate-supervised-environmental-stress","admission_state":"pre-admission-rights-review",
         "training_eligible":False,"blockers":["review"],"notes":"x"
       }]
     }
