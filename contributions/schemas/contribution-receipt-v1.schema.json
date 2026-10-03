@@ -102,6 +102,32 @@
     "head_commit": {
       "type": "string",
       "pattern": "^[0-9a-f]{40}$"
+    },
+    "integration": {
+      "type": "object",
+      "required": [
+        "pr_number",
+        "commit",
+        "method"
+      ],
+      "properties": {
+        "pr_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "method": {
+          "enum": [
+            "squash",
+            "merge",
+            "rebase"
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "allOf": [
