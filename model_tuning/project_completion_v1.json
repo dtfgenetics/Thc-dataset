@@ -1,0 +1,77 @@
+{
+  "schema_version": "grow-doc-project-completion-v1",
+  "audited_main_sha": "9fcadf7581b39287b34c813df2a92c861a32ef6a",
+  "status": "engineering-complete-external-blockers-remain",
+  "completed_controls": [
+    "reviewed-rag-publication",
+    "source-provenance-and-rights-gates",
+    "strong-evidence-sft-and-grounded-qa",
+    "heldout-protected-slices",
+    "dedup-near-duplicate-and-leakage-gates",
+    "supervision-concentration-gate",
+    "qlora-config-runtime-and-artifact-freeze",
+    "base-model-candidate-registry",
+    "adapter-combination-policy",
+    "contribution-task-receipt-history-system",
+    "experiment-registry",
+    "checkpoint-artifact-registry",
+    "gpu-workflow-exact-main-sha-gate"
+  ],
+  "external_blockers": [
+    {
+      "id": "EXT-GOV-001",
+      "title": "Protect main and require CI status checks",
+      "state": "blocked",
+      "owner": "repository-admin",
+      "evidence": "GitHub branch API reports main protected=false and repository rulesets=[]",
+      "completion_criteria": [
+        "main branch protection or repository ruleset enabled",
+        "required pull-request reviews configured as desired",
+        "required status checks include the current validation suite",
+        "direct unreviewed pushes to main prevented"
+      ]
+    },
+    {
+      "id": "EXT-COMPUTE-001",
+      "title": "Run qualifying frozen Qwen3-8B base-vs-RAG benchmark",
+      "state": "blocked",
+      "owner": "compute-infrastructure",
+      "evidence": "experiment exp-qwen3-8b-base-vs-rag-001 remains blocked; no verified online growdoc-gpu runner",
+      "completion_criteria": [
+        "dedicated CUDA GPU with native BF16 and >=20 GiB VRAM available",
+        "manual GPU workflow dispatched using exact main commit SHA",
+        "preflight passes",
+        "base and RAG arms complete",
+        "blinded review and protected-slice scoring complete"
+      ]
+    },
+    {
+      "id": "EXT-VISION-001",
+      "title": "Admit supervised Cannabis diagnostic media",
+      "state": "blocked",
+      "owner": "data-acquisition-and-human-review",
+      "evidence": "data/model-training-readiness.json reports trainingEligibleSamples=0",
+      "completion_criteria": [
+        "rights-cleared Cannabis media acquired",
+        "human diagnostic review complete",
+        "diagnosis confirmation evidence recorded",
+        "source-group and near-duplicate isolation pass",
+        "minimum controls/negatives/class coverage thresholds met"
+      ]
+    }
+  ],
+  "non_blocking_continuous_work": [
+    "expand independently reviewed Cannabis scientific claims",
+    "derive supplied-evidence grounded-QA from approved claims",
+    "add independent evaluation candidates without train/dev leakage"
+  ],
+  "prohibited_claims_until_unblocked": [
+    "RAG benchmark improvement",
+    "QLoRA training success",
+    "checkpoint superiority",
+    "adapter promotion",
+    "adapter merge or model soup success",
+    "supervised vision readiness",
+    "model deployment"
+  ]
+}
