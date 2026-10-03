@@ -41,6 +41,7 @@ jobs:
       - run: npm run validate:model-eval-candidate-leakage
       - run: npm run validate:model-eval-gap-research
       - run: npm run validate:model-eval-coverage
+      - run: npm run validate:diagnostic-abstention-dev
       - run: npm run validate:model-corpus-quality
       - run: npm run validate:training-supervision-concentration
       - run: npm run validate:model-source-evidence-quality
