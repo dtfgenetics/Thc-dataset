@@ -26,6 +26,7 @@ jobs:
       - run: npm run validate:diagnostic-profiles
       - run: npm run validate:grow-doc-contributions
       - run: npm run validate:grow-doc-task-registry
+      - run: npm run validate:grow-doc-agent-state
       - run: npm run validate:grow-doc-claims
       - run: npm run validate:source-intake
       - run: npm run validate:claim-relationships
