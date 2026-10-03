@@ -24,7 +24,8 @@
         "task registry validates",
         "receipt schema remains fail-closed",
         "parallel task collisions are rejected"
-      ]
+      ],
+      "completion_note": "Current baseline definition-of-done is satisfied and green. Status remains active because the contribution/receipt router only accepts active tasks for future incremental work."
     },
     {
       "id": "GD-RAG-001",
@@ -85,7 +86,8 @@
         "held-out source identities excluded",
         "artifact generation is deterministic",
         "training admission remains a separate gate"
-      ]
+      ],
+      "completion_note": "Current baseline definition-of-done is satisfied and green. Status remains active because the contribution/receipt router only accepts active tasks for future incremental work."
     },
     {
       "id": "GD-EVAL-001",
@@ -113,7 +115,8 @@
       ],
       "forbidden": [
         "training use"
-      ]
+      ],
+      "completion_note": "Current baseline definition-of-done is satisfied and green. Status remains active because the contribution/receipt router only accepts active tasks for future incremental work."
     },
     {
       "id": "GD-VISION-001",
