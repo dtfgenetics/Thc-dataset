@@ -111,6 +111,14 @@ def validate_receipt_data(r):
 
 def validate_receipt(p):return validate_receipt_data(json.loads(p.read_text(encoding="utf-8")))
 
+def validate_receipts_dir(path):
+ errors=[]
+ for receipt in sorted(path.glob("*.json")):
+  try:e=validate_receipt(receipt)
+  except (OSError,json.JSONDecodeError) as exc:e=[f"invalid receipt JSON: {exc}"]
+  errors.extend(f"{receipt.name}: {message}" for message in e)
+ return errors
+
 def self_test():
  s=status();assert s["ok"],s["errors"];assert not validate_claims()
  task,rule,e=route_contract("rag","GD-RAG-001");assert not e
@@ -126,7 +134,7 @@ def self_test():
  print("Grow Doc contribution controller self-test: PASS")
 
 def main():
- a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--route-manifest",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
+a=argparse.ArgumentParser();a.add_argument("--validate-receipt",type=pathlib.Path);a.add_argument("--validate-receipts-dir",type=pathlib.Path);a.add_argument("--validate-claims",action="store_true");a.add_argument("--route-manifest",type=pathlib.Path);a.add_argument("--self-test",action="store_true");x=a.parse_args()
  if x.self_test:self_test();return 0
  if x.route_manifest:
   r=route_manifest(x.route_manifest);print(json.dumps(r,indent=2,sort_keys=True));return 0 if r["ok"] else 2
@@ -134,5 +142,7 @@ def main():
   e=validate_claims();print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
  if x.validate_receipt:
   e=validate_receipt(x.validate_receipt);print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
+ if x.validate_receipts_dir:
+  e=validate_receipts_dir(x.validate_receipts_dir);print(json.dumps({"ok":not e,"errors":e},indent=2));return 0 if not e else 2
  s=status();print(json.dumps(s,indent=2,sort_keys=True));return 0 if s["ok"] else 2
 if __name__=="__main__":raise SystemExit(main())
