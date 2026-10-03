@@ -3,9 +3,12 @@
   "lanes": {
     "rag": {
       "allowed_prefixes": [
+        "dataset/reviewed/",
         "dataset/claims/",
         "dataset/registry/",
-        "model_tuning/rag/"
+        "model_tuning/rag/",
+        "dataset/generated/tool_data/rag_claims_v1.json",
+        "public/data/rag_claims_v1.json"
       ],
       "forbidden_prefixes": [
         "model_tuning/eval/",
@@ -14,6 +17,7 @@
       ],
       "required_validators": [
         "validate:sources",
+        "validate:source-intake",
         "validate:model-source-evidence-quality",
         "validate:model-semantic-leakage"
       ],

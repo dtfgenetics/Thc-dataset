@@ -54,7 +54,9 @@
     "validate:bioinformatics-contracts": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py && python3 scripts/validate-plant-phenotyping-source-registry.py && python3 scripts/collect-pubchem-compound.py --self-test && python3 scripts/normalize-usda-grin-germplasm.py --self-test && python3 scripts/export-brapi-germplasm.py --self-test && python3 scripts/test-grin-to-brapi-contract.py && python3 scripts/resolve-trait-ontology-units.py --self-test && python3 scripts/normalize-phenotype-observations.py --self-test && python3 scripts/build-tool-source-catalog.py --self-test && python3 scripts/build-chemistry-catalog.py --self-test && python3 scripts/validate-tool-data-bundle.py --self-test",
     "build:chemistry-catalog": "python3 scripts/build-chemistry-catalog.py --registry dataset/sources/pubchem_chemistry_registry_v1.json --output dataset/generated/tool_data/chemistry_catalog_v1.json",
     "validate:tool-data-bundle-production": "python3 scripts/build-tool-data-bundle.py --root . --spec dataset/tool_data_bundle_spec_v1.json --output /tmp/tool_data_bundle_v1.json && python3 scripts/validate-tool-data-bundle.py --root . --manifest /tmp/tool_data_bundle_v1.json",
-    "validate:training-supervision-concentration": "python3 scripts/audit-training-supervision-concentration.py --self-test && python3 scripts/audit-training-supervision-concentration.py"
+    "validate:training-supervision-concentration": "python3 scripts/audit-training-supervision-concentration.py --self-test && python3 scripts/audit-training-supervision-concentration.py",
+    "validate:grow-doc-task-registry": "python3 scripts/validate-grow-doc-task-registry.py --self-test && python3 scripts/validate-grow-doc-task-registry.py",
+    "validate:reviewed-claim-grounded-qa": "python3 scripts/build-reviewed-claim-grounded-qa.py --self-test && python3 scripts/build-reviewed-claim-grounded-qa.py --check-only"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
