@@ -1,6 +1,6 @@
 {
   "schema_version": "grow-doc-project-completion-v1",
-  "audited_main_sha": "9fcadf7581b39287b34c813df2a92c861a32ef6a",
+  "audited_main_sha": "d8162a4c67d2043163576f76205831e35dbed914",
   "status": "engineering-complete-external-blockers-remain",
   "completed_controls": [
     "reviewed-rag-publication",
@@ -24,7 +24,7 @@
       "title": "Protect main and require CI status checks",
       "state": "blocked",
       "owner": "repository-admin",
-      "evidence": "GitHub branch API reports main protected=false and repository rulesets=[]",
+      "evidence": "GitHub branch API reports main protected=false and rulesets=[]; connected repository identity reports admin=true, but the managed GitHub App receives 403 Resource not accessible by integration for the branch-protection endpoint and exposes no protection/ruleset write action",
       "completion_criteria": [
         "main branch protection or repository ruleset enabled",
         "required pull-request reviews configured as desired",
@@ -41,7 +41,7 @@
       "title": "Run qualifying frozen Qwen3-8B base-vs-RAG benchmark",
       "state": "blocked",
       "owner": "compute-infrastructure",
-      "evidence": "experiment exp-qwen3-8b-base-vs-rag-001 remains blocked; no verified online growdoc-gpu runner",
+      "evidence": "Frozen benchmark code/preflight is ready. Connected Hugging Face Jobs exposed qualifying l4x1 and zero-a10g flavors, but both preflight-only launch attempts were rejected before startup with HTTP 402 Payment Required; no GPU run or benchmark result exists",
       "completion_criteria": [
         "dedicated CUDA GPU with native BF16 and >=20 GiB VRAM available",
         "manual GPU workflow dispatched using exact main commit SHA",
@@ -59,7 +59,7 @@
       "title": "Admit supervised Cannabis diagnostic media",
       "state": "blocked",
       "owner": "data-acquisition-and-human-review",
-      "evidence": "data/model-training-readiness.json reports trainingEligibleSamples=0",
+      "evidence": "data/model-training-readiness.json reports trainingEligibleSamples=0. PR #411 added a CI-enforced Cannabis vision-source candidate registry with Adelaide pre-admission environmental-stress data, Cornell rights-limited reference media, and Zenodo rights-unknown morphology media; all remain training_eligible=false pending exact rights, acquisition, grouping, hashing, and human review",
       "completion_criteria": [
         "rights-cleared Cannabis media acquired",
         "human diagnostic review complete",
@@ -77,7 +77,7 @@
       "title": "Restore production deployment credentials and publish verified main",
       "state": "blocked",
       "owner": "repository-admin-and-deployment-operator",
-      "evidence": "Issue #95 remains open; current production path is a manual legacy FTP fallback requiring four GitHub secrets that cannot be inspected or restored through the current connector",
+      "evidence": "The live /thc-grow-doc/ page is reachable and serves current safety copy, but immutable production provenance is not verified: deploy-version.txt is not accessible through the current web path, and the connected GitHub App cannot inspect or restore the four required FTP secrets",
       "completion_criteria": [
         "DTFSEEDS_FTP_SERVER, DTFSEEDS_FTP_USERNAME, DTFSEEDS_FTP_PASSWORD, and DTFSEEDS_FTP_SERVER_DIR restored privately in GitHub Actions production/repository secrets",
         "manual deploy workflow dispatched with an exact 40-character commit SHA already reachable from main",
@@ -94,7 +94,8 @@
   "non_blocking_continuous_work": [
     "expand independently reviewed Cannabis scientific claims",
     "derive supplied-evidence grounded-QA from approved claims",
-    "add independent evaluation candidates without train/dev leakage"
+    "add independent evaluation candidates without train/dev leakage",
+    "acquire and review registered Cannabis vision-source candidates without bypassing rights, grouping, confirmation, or human-review gates"
   ],
   "prohibited_claims_until_unblocked": [
     "RAG benchmark improvement",
