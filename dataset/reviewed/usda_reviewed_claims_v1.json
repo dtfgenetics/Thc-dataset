@@ -101,6 +101,69 @@
       "rag_eligible": true,
       "weight_training_eligible": false,
       "claim_sha256": "622a0a961c5a228124651327121b7a60aa9b865bc2dc1a717041ee1d04020597"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "Unless stated otherwise, the USDA hemp handbook measures plant architecture traits as the mean of 10 unpruned plants during the sampling week.",
+      "citation_locator": "USDA ARS handbook web page, section 3 Architecture",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "plant architecture phenotyping",
+        "sampling_context": "architecture traits unless otherwise stated"
+      },
+      "limitations": [
+        "This is the handbook's standard architecture sampling convention; individual protocols may specify different sampling and should take precedence."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "0296aef6a74a8600442ec84389452d25c34cec6fb2958bec9def1af38ba6d58b"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "For leaf morphology phenotyping, the USDA handbook directs collection from the uppermost set of mature leaves, using the mean of five leaves from each of 10 different plants immediately before flowering unless otherwise noted.",
+      "citation_locator": "USDA ARS handbook web page, section 4 Leaf",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "leaf morphology phenotyping",
+        "sampling_context": "pre-flowering leaf collection"
+      },
+      "limitations": [
+        "This sampling convention is for the handbook's leaf descriptors and should not be generalized to unrelated tissue assays or protocols with different sampling requirements."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "260c28f4ba77b5f432e7405c6c9e532f7293ad8bd8664bbbae16c16d57c6cfb7"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "For field sex-ratio phenotyping, the USDA handbook recommends preselecting 100 plants before flowering and recording the female:male:monoecious ratio; when 100 wild-collected plants are unavailable, it advises measuring as many as possible.",
+      "citation_locator": "USDA ARS handbook web page, section 5.2 Sex ratio",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "sex ratio phenotyping",
+        "sampling_context": "field populations and wild-collected material"
+      },
+      "limitations": [
+        "This is a phenotyping sampling protocol, not a claim that every population contains all three sexual-expression categories or that a 100-plant sample resolves every population-genetic question."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "e40ff1ce297ce19e6e2c45de2dcba2bb4901e67fa48c37de7c9659ba2eab531a"
     }
   ]
 }

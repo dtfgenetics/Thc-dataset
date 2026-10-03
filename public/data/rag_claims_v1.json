@@ -104,6 +104,24 @@
       "source_id": "cornell_toth_hemp_genetics_2022"
     },
     {
+      "citation_locator": "USDA ARS handbook web page, section 3 Architecture",
+      "claim": "Unless stated otherwise, the USDA hemp handbook measures plant architecture traits as the mean of 10 unpruned plants during the sampling week.",
+      "claim_sha256": "0296aef6a74a8600442ec84389452d25c34cec6fb2958bec9def1af38ba6d58b",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is the handbook's standard architecture sampling convention; individual protocols may specify different sampling and should take precedence."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "sampling_context": "architecture traits unless otherwise stated",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "plant architecture phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
       "citation_locator": "USDA ARS handbook web page, section 8.1 Chemotype",
       "claim": "For hemp cannabinoid phenotyping, USDA-ARS advises analyzing samples from individual plants rather than pooling when chemotype segregation could be masked.",
       "claim_sha256": "1fc4e72b5fe26bb456e1a2b6a47961e5c9ea2976e5a47c0f5bb21241cb3a6698",
@@ -117,6 +135,24 @@
         "organism": "Cannabis sativa L. (hemp)",
         "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
         "topic": "chemotype phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 4 Leaf",
+      "claim": "For leaf morphology phenotyping, the USDA handbook directs collection from the uppermost set of mature leaves, using the mean of five leaves from each of 10 different plants immediately before flowering unless otherwise noted.",
+      "claim_sha256": "260c28f4ba77b5f432e7405c6c9e532f7293ad8bd8664bbbae16c16d57c6cfb7",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This sampling convention is for the handbook's leaf descriptors and should not be generalized to unrelated tissue assays or protocols with different sampling requirements."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "sampling_context": "pre-flowering leaf collection",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "leaf morphology phenotyping"
       },
       "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     },
@@ -173,6 +209,24 @@
       "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     },
     {
+      "citation_locator": "USDA ARS handbook web page, section 5.2 Sex ratio",
+      "claim": "For field sex-ratio phenotyping, the USDA handbook recommends preselecting 100 plants before flowering and recording the female:male:monoecious ratio; when 100 wild-collected plants are unavailable, it advises measuring as many as possible.",
+      "claim_sha256": "e40ff1ce297ce19e6e2c45de2dcba2bb4901e67fa48c37de7c9659ba2eab531a",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is a phenotyping sampling protocol, not a claim that every population contains all three sexual-expression categories or that a 100-plant sample resolves every population-genetic question."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "sampling_context": "field populations and wild-collected material",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "sex ratio phenotyping"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
       "citation_locator": "USDA ARS handbook web page, section 6.4 Germination & Viability, VIABILITY TEST summary",
       "claim": "The USDA handbook describes tetrazolium viability testing as a way to distinguish ungerminated but viable dormant hemp seed from dead, nonviable seed by staining living embryo tissue.",
       "claim_sha256": "f12ad5ed0b828e60b9d59b72572989330b94b11ceefac6601418381fa758323d",
@@ -192,7 +246,7 @@
   ],
   "inputs": {
     "claim_relationships_sha256": "6578e467a7105b2e1c483cf19bb398a2648f172022eda4a4048dde7f9cdf191a",
-    "reviewed_claims_sha256": "bda73f003c1d8516c649a76dbcd83c5cab13a2a12b376245f5cb49722b2488a0",
+    "reviewed_claims_sha256": "f0d5051a551a3a443defe73be1bf4f5d886a55658385f39887b43945467c6f1d",
     "source_catalog_sha256": "7f2327a31ffd4ff04cfd1b9a19cbf19c992a5338526fafa6daa331aec7e9c82e"
   },
   "publication_policy": {
