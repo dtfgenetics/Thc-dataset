@@ -57,6 +57,8 @@ def validate_doc(data, experiments, candidates):
             fail(f"{cid}: exact code_revision required")
         if exp.get("code_revision")!=code:
             fail(f"{cid}: code_revision must match experiment")
+        if cid not in (exp.get("checkpoint_ids") or []):
+            fail(f"{cid}: checkpoint must be referenced by experiment checkpoint_ids")
 
         base=row.get("base_model") or {}
         candidate_id=base.get("candidate_id")
@@ -134,7 +136,7 @@ def validate(path=DEFAULT):
     validate_doc(load(path),load(EXPERIMENTS),load(CANDIDATES))
 
 def self_test():
-    experiments={"experiments":[{"experiment_id":"e1","status":"succeeded","code_revision":"a"*40}]}
+    experiments={"experiments":[{"experiment_id":"e1","status":"succeeded","code_revision":"a"*40,"checkpoint_ids":["cp1"]}]}
     candidates={"candidates":[{"id":"qwen","repo_id":"Qwen/Qwen3-8B"}]}
     good={
       "schema_version":"grow-doc-checkpoint-registry-v1",
