@@ -164,6 +164,68 @@
       "rag_eligible": true,
       "weight_training_eligible": false,
       "claim_sha256": "e40ff1ce297ce19e6e2c45de2dcba2bb4901e67fa48c37de7c9659ba2eab531a"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "The USDA hemp handbook defines days-to-flowering traits as the recorded female, male, or monoecious flowering date minus the sowing date.",
+      "citation_locator": "USDA ARS handbook web page, section 5.3 Phenology",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "flowering phenology",
+        "measurement_context": "days-to-flowering descriptors"
+      },
+      "limitations": [
+        "These are descriptor calculations tied to recorded sowing and flowering dates; environmental conditions and the handbook's flower-observation definition must be retained when comparing populations."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "39b91238271fea948289c92cd9c7f0ec617640e16bb75f28c8c80854894d4370"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "For hemp phenology, the USDA handbook defines maturity as days from germination to commercial maturity, calculated as harvest date minus sowing date.",
+      "citation_locator": "USDA ARS handbook web page, section 5.3 Phenology",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "maturity phenotyping"
+      },
+      "limitations": [
+        "This is the handbook's descriptor definition; 'commercial maturity' depends on the production and evaluation context and should not be treated as a universal physiological endpoint."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "7b424cbf64cabe37e0543c316729b17a64b4d3226abe21f366c2b868add13657"
+    },
+    {
+      "schema_version": "grow-doc-reviewed-claim-v1",
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025",
+      "claim": "The USDA hemp handbook defines inflorescence length as the length of the inflorescence cluster at the uppermost branch, excluding leaves while retaining stems and seeds in the cluster.",
+      "citation_locator": "USDA ARS handbook web page, section 5.4 Inflorescence",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "inflorescence morphology",
+        "measurement_context": "uppermost-branch inflorescence descriptor"
+      },
+      "limitations": [
+        "This is a standardized descriptor definition for germplasm phenotyping; measurements from other canopy positions or trimming conventions are not directly interchangeable without documenting the method."
+      ],
+      "review_state": "approved",
+      "rights_state": "government_source_reviewed",
+      "citation_verified": true,
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "claim_sha256": "551007784e93f7c8e2252514263ea4f3268af1844eeb4955426f9dd3cd3c7bfc"
     }
   ]
 }

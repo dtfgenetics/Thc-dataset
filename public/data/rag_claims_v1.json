@@ -157,6 +157,24 @@
       "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     },
     {
+      "citation_locator": "USDA ARS handbook web page, section 5.3 Phenology",
+      "claim": "The USDA hemp handbook defines days-to-flowering traits as the recorded female, male, or monoecious flowering date minus the sowing date.",
+      "claim_sha256": "39b91238271fea948289c92cd9c7f0ec617640e16bb75f28c8c80854894d4370",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "These are descriptor calculations tied to recorded sowing and flowering dates; environmental conditions and the handbook's flower-observation definition must be retained when comparing populations."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "measurement_context": "days-to-flowering descriptors",
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "flowering phenology"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
       "citation_locator": "USDA ARS handbook web page, section 6.4 Germination & Viability, SPROUT TEST",
       "claim": "The USDA-ARS PGRU hemp sprout test uses four subsamples of 50 seeds, counts normal sprouts at 7, 14, and 21 days, and calculates germination percentage from sprouted seeds divided by total seeds.",
       "claim_sha256": "40a659d2b8adf7fa53fafd3ba3746b0179f3266a321403ec469d3fa2e894c980",
@@ -175,6 +193,24 @@
       "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     },
     {
+      "citation_locator": "USDA ARS handbook web page, section 5.4 Inflorescence",
+      "claim": "The USDA hemp handbook defines inflorescence length as the length of the inflorescence cluster at the uppermost branch, excluding leaves while retaining stems and seeds in the cluster.",
+      "claim_sha256": "551007784e93f7c8e2252514263ea4f3268af1844eeb4955426f9dd3cd3c7bfc",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is a standardized descriptor definition for germplasm phenotyping; measurements from other canopy positions or trimming conventions are not directly interchangeable without documenting the method."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "measurement_context": "uppermost-branch inflorescence descriptor",
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "inflorescence morphology"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
       "citation_locator": "USDA ARS handbook web page, section 8.2 Cannabinoids",
       "claim": "The USDA handbook cautions that cannabinoid content varies with sampling position on the plant and advises against decarboxylating samples before instrumental cannabinoid evaluation because heating can introduce error through variable volatilization.",
       "claim_sha256": "622a0a961c5a228124651327121b7a60aa9b865bc2dc1a717041ee1d04020597",
@@ -188,6 +224,23 @@
         "organism": "Cannabis sativa L. (hemp)",
         "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
         "topic": "cannabinoid analytical sampling"
+      },
+      "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
+    },
+    {
+      "citation_locator": "USDA ARS handbook web page, section 5.3 Phenology",
+      "claim": "For hemp phenology, the USDA handbook defines maturity as days from germination to commercial maturity, calculated as harvest date minus sowing date.",
+      "claim_sha256": "7b424cbf64cabe37e0543c316729b17a64b4d3226abe21f366c2b868add13657",
+      "has_reviewed_conflict": false,
+      "limitations": [
+        "This is the handbook's descriptor definition; 'commercial maturity' depends on the production and evaluation context and should not be treated as a universal physiological endpoint."
+      ],
+      "relationships": [],
+      "rights_state": "government_source_reviewed",
+      "scope": {
+        "organism": "Cannabis sativa L. (hemp)",
+        "source_version": "USDA Hemp Phenotyping and Protocol Handbook v4.0",
+        "topic": "maturity phenotyping"
       },
       "source_id": "usda_hemp_phenotyping_handbook_v4_2025"
     },
@@ -246,7 +299,7 @@
   ],
   "inputs": {
     "claim_relationships_sha256": "6578e467a7105b2e1c483cf19bb398a2648f172022eda4a4048dde7f9cdf191a",
-    "reviewed_claims_sha256": "f0d5051a551a3a443defe73be1bf4f5d886a55658385f39887b43945467c6f1d",
+    "reviewed_claims_sha256": "659a49aa41596c7002f9f4a502190066db23ab92e4e4969de791050cef584688",
     "source_catalog_sha256": "7f2327a31ffd4ff04cfd1b9a19cbf19c992a5338526fafa6daa331aec7e9c82e"
   },
   "publication_policy": {
