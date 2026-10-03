@@ -1,15 +1,12 @@
 {
   "schema_version": "grow-doc-agent-state-v1",
-  "updated_at": "2026-10-03T16:10:00Z",
-  "last_verified_main_sha": "b26d42dfe1205b49b0461c4fb34a6a669c90cb75",
-  "current_work_item": "Run frozen Qwen3-8B base-vs-RAG benchmark on qualifying GPU",
-  "status": "blocked_external",
-  "branch": null,
+  "updated_at": "2026-10-03T16:25:00Z",
+  "last_verified_main_sha": "a438a427ce20ee7aa5286fc1d10b45de716ceb66",
+  "current_work_item": "GD-RAG-001 — expand independently reviewed Cannabis scientific claims while compute remains blocked",
+  "status": "active",
+  "branch": "work/grow-doc/rag-continuation-20261003t1625",
   "pr_number": null,
-  "blocker": {
-    "type": "compute",
-    "reason": "No verified online GitHub self-hosted growdoc-gpu runner; Hugging Face managed L4 and Zero-A10G dispatch attempts both returned HTTP 402 Payment Required before startup."
-  },
+  "blocker": null,
   "last_narrow_test": "npm run validate:model-readme-contract",
   "last_broad_test": "Validate THC Grow Doc",
   "last_broad_test_result": "success",
@@ -56,11 +53,15 @@
     "quarantine_records": 27,
     "training_eligible_vision_samples": 0
   },
-  "next_action": "Provide a qualifying BF16 GPU environment (>=20 GiB VRAM) or enable GPU billing/credits, then run the frozen base-vs-RAG preflight and benchmark. Do not start QLoRA until those measured results show residual behavior gaps.",
+  "next_action": "Claim GD-RAG-001, add one bounded independently reviewed scientific claim batch through the existing source/review pipeline, regenerate canonical RAG artifacts, and run source-intake, evidence-quality, semantic-leakage, then full validation.",
   "deferred_blockers": [
     {
       "type": "compute",
       "reason": "Frozen base-vs-RAG benchmark remains unexecuted: GitHub requires an online self-hosted growdoc-gpu runner, while Hugging Face L4 and Zero-A10G jobs both returned 402 Payment Required before startup."
     }
+  ],
+  "completed_this_run": [
+    "Verified exact main a438a427ce20ee7aa5286fc1d10b45de716ceb66 green in Validate THC Grow Doc and all observed push workflows.",
+    "Compute blocker persisted across consecutive runs; preserved it in deferred_blockers and switched to the highest-priority unblocked continuous lane per escalation policy."
   ]
 }
