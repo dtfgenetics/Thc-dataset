@@ -38,7 +38,9 @@ on:
       - "public/data/rag_claims_v1.json"
       - "scripts/validate-production-rag-artifact.py"
       - "dataset/generated/tool_data/rag_claims_v1.json"
-      - "dataset/reviewed/cornell_reviewed_claims_v1.json"
+      - "dataset/reviewed/*_reviewed_claims_v1.json"
+      - "dataset/reviewed/claim_relationships_v1.json"
+      - "scripts/build-production-rag-artifact.py"
       - "docs/BIOINFORMATICS_ARCHITECTURE.md"
       - ".github/workflows/cornell-bioinformatics-sources.yml"
   push:
@@ -56,7 +58,9 @@ on:
       - "scripts/build-tool-source-catalog.py"
       - "dataset/generated/tool_data/source_catalog_v1.json"
       - "dataset/generated/tool_data/rag_claims_v1.json"
-      - "dataset/reviewed/cornell_reviewed_claims_v1.json"
+      - "dataset/reviewed/*_reviewed_claims_v1.json"
+      - "dataset/reviewed/claim_relationships_v1.json"
+      - "scripts/build-production-rag-artifact.py"
       - "dataset/sources/pubchem_chemistry_registry_v1.json"
       - "dataset/sources/plant_phenotyping_standards_registry_v1.json"
       - "scripts/validate-pubchem-chemistry-registry.py"
@@ -123,9 +127,8 @@ jobs:
           cmp /tmp/source_catalog_v1.json dataset/generated/tool_data/source_catalog_v1.json
           python3 scripts/normalize-reviewed-claims.py --self-test
           python3 scripts/publish-reviewed-rag-claims.py --self-test
-          python3 scripts/publish-reviewed-rag-claims.py \
-            --claims dataset/reviewed/cornell_reviewed_claims_v1.json \
-            --catalog dataset/generated/tool_data/source_catalog_v1.json \
+          python3 scripts/build-production-rag-artifact.py --self-test
+          python3 scripts/build-production-rag-artifact.py \
             --output /tmp/rag_claims_v1.json
           cmp /tmp/rag_claims_v1.json dataset/generated/tool_data/rag_claims_v1.json
           cmp /tmp/rag_claims_v1.json public/data/rag_claims_v1.json
