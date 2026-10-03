@@ -31,7 +31,7 @@
       "provider_id": "6654",
       "preferred_name": "alpha-Pinene",
       "aliases": [
-        "α-Pinene"
+        "\u03b1-Pinene"
       ],
       "class": "monoterpene",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/6654",
@@ -65,7 +65,7 @@
       "provider_id": "14896",
       "preferred_name": "beta-Pinene",
       "aliases": [
-        "β-Pinene"
+        "\u03b2-Pinene"
       ],
       "class": "monoterpene",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/14896",
@@ -224,7 +224,7 @@
       "preferred_name": "Humulene",
       "aliases": [
         "alpha-Humulene",
-        "α-Humulene"
+        "\u03b1-Humulene"
       ],
       "class": "sesquiterpene",
       "canonical_url": "https://pubchem.ncbi.nlm.nih.gov/compound/5281520",

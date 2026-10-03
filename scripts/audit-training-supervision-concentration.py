@@ -13,6 +13,7 @@ import importlib.util
 import json
 import pathlib
 import re
+import sys
 from collections import Counter
 from types import ModuleType
 
@@ -22,6 +23,11 @@ DEFAULT_BASELINE = ROOT / "model_tuning/training-supervision-concentration-basel
 BASELINE_SCHEMA = "grow-doc-training-supervision-concentration-baseline-v1"
 GIT_OBJECT_RE = re.compile(r"^(?:[0-9a-f]{40}|[0-9a-f]{64})$")
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+MAX_SHARE_INCREASE = {
+    "top_source_example_share": 0.05,
+    "top_profile_example_share": 0.05,
+    "top_task_example_share": 0.10,
+}
 
 
 def load_module(path: pathlib.Path, name: str) -> ModuleType:
@@ -202,6 +208,19 @@ def add_baseline_comparison(report: dict, baseline: dict | None) -> None:
     }
 
 
+def concentration_regressions(report: dict) -> list[dict]:
+    comparison = report.get("baseline_comparison") or {}
+    if not comparison.get("available"):
+        return []
+    deltas = comparison.get("metric_deltas") or {}
+    failures = []
+    for metric, limit in MAX_SHARE_INCREASE.items():
+        delta = float(deltas.get(metric, 0.0))
+        if delta > limit:
+            failures.append({"metric": metric, "delta": round(delta, 6), "maximum_allowed_increase": limit})
+    return failures
+
+
 def run(baseline_path: pathlib.Path = DEFAULT_BASELINE) -> dict:
     eligible = load_module(ELIGIBLE_BUILDER, "grow_doc_supervision_concentration_eligible")
     sft, qa, eligibility_report = eligible.run(eligible.DEFAULT_INPUT, eligible.DEFAULT_EVAL)
@@ -214,6 +233,16 @@ def run(baseline_path: pathlib.Path = DEFAULT_BASELINE) -> dict:
         ],
     }
     add_baseline_comparison(report, load_baseline(baseline_path))
+    report["concentration_regressions"] = concentration_regressions(report)
+    report["hard_errors"] = len(report["concentration_regressions"])
+    report["policy"]["report_only"] = False
+    report["policy"]["failure_threshold"] = {
+        "top_source_example_share_increase": MAX_SHARE_INCREASE["top_source_example_share"],
+        "top_profile_example_share_increase": MAX_SHARE_INCREASE["top_profile_example_share"],
+        "top_task_example_share_increase": MAX_SHARE_INCREASE["top_task_example_share"],
+        "comparison": "absolute share increase versus frozen reviewed baseline",
+        "automatic_rebalancing": False,
+    }
     return report
 
 
@@ -261,6 +290,13 @@ def self_test() -> None:
     assert report["baseline_comparison"]["task_share_deltas"]["legacy_task"] == -0.3
     assert report["baseline_comparison"]["new_task_families"] == ["science_education"]
     assert report["baseline_comparison"]["missing_baseline_task_families"] == ["legacy_task"]
+    regressions = concentration_regressions(report)
+    assert {item["metric"] for item in regressions} == {"top_source_example_share"}
+    safe = json.loads(json.dumps(report))
+    safe["baseline_comparison"]["metric_deltas"]["top_task_example_share"] = 0.10
+    safe["baseline_comparison"]["metric_deltas"]["top_source_example_share"] = 0.05
+    safe["baseline_comparison"]["metric_deltas"]["top_profile_example_share"] = 0.05
+    assert concentration_regressions(safe) == []
 
     bad = json.loads(json.dumps(baseline))
     bad["artifact"]["sha256"] = "not-a-sha"
@@ -298,7 +334,6 @@ def self_test() -> None:
     else:
         raise AssertionError("invalid baseline Git identity must be rejected")
 
-    assert report["policy"]["report_only"] is True
     print("training supervision concentration self-test: PASS")
 
 
@@ -316,7 +351,10 @@ def main() -> int:
         print(f"ERROR: {exc}")
         return 1
     print(json.dumps(report, indent=2, sort_keys=True))
-    print("training supervision concentration audit: PASS (report-only)")
+    if report["hard_errors"]:
+        print(f"training supervision concentration audit: FAIL ({report['hard_errors']} concentration regressions)", file=sys.stderr)
+        return 1
+    print("training supervision concentration audit: PASS")
     return 0
 
 
