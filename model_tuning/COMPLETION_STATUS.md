@@ -20,6 +20,10 @@ Verified main baseline before this reconciliation: `b26d42dfe1205b49b0461c4fb34a
 - Persistent autonomous-engineer skill/state contract is repository-enforced.
 - README/model contract drift is now CI-gated after artifact freezing.
 
+## Operational task-registry note
+
+`GD-SYS-001`, `GD-GQA-001`, and `GD-EVAL-001` remain `active` in `contributions/tasks.json` even though their current baseline definitions of done are satisfied. This is intentional: the contribution/receipt router only permits active tasks to accept future incremental receipts. Their active routing status is not a release blocker.
+
 ## External blockers
 
 ### GD-COMPUTE-001 — frozen base-vs-RAG benchmark
