@@ -29,11 +29,11 @@ def canonical_combined(doc:dict)->bytes:
 def build(reviewed_dir:Path,catalog:Path,relationships:Path)->dict:
  paths=reviewed_paths(reviewed_dir)
  if not paths:raise ValueError("no reviewed claim bundles found")
- combined,file_hashes=load_combined(paths)
+ combined,_file_hashes=load_combined(paths)
  cb=canonical_combined(combined);sb=catalog.read_bytes();rb=relationships.read_bytes()
  pub=load_publisher()
  out=pub.publish(combined,json.loads(sb),json.loads(rb))
- out["inputs"]={"reviewed_claims_sha256":h(cb),"reviewed_claim_files_sha256":file_hashes,"source_catalog_sha256":h(sb),"claim_relationships_sha256":h(rb)}
+ out["inputs"]={"reviewed_claims_sha256":h(cb),"source_catalog_sha256":h(sb),"claim_relationships_sha256":h(rb)}
  return out
 def self_test():
  import tempfile
