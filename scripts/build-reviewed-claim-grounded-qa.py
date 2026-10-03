@@ -3,7 +3,7 @@
 from __future__ import annotations
 import argparse,hashlib,importlib.util,json,pathlib,re,tempfile
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-DEFAULT_CLAIMS=ROOT/"dataset/reviewed/cornell_reviewed_claims_v1.json"
+DEFAULT_CLAIMS_DIR=ROOT/"dataset/reviewed"
 DEFAULT_CATALOG=ROOT/"dataset/generated/tool_data/source_catalog_v1.json"
 DEFAULT_EVAL=ROOT/"model_tuning/eval/heldout_v3.jsonl"
 DEFAULT_OUT=ROOT/"model_tuning/grounded_qa/reviewed_claims_v1.jsonl"
@@ -32,6 +32,22 @@ def identities(source):
  if p.get("doi"):vals.add(canon(p["doi"]))
  if source.get("canonical_url"):vals.add(canon(source["canonical_url"]))
  return {x for x in vals if x}
+def load_reviewed_claims(claims_dir):
+ docs=[];seen={}
+ for p in sorted(pathlib.Path(claims_dir).glob("*_reviewed_claims_v1.json")):
+  doc=json.loads(p.read_text(encoding="utf-8"));docs.append(p.name)
+  for claim in doc.get("claims",[]):
+   digest=str(claim.get("claim_sha256","")).strip()
+   if not digest:raise ValueError(f"{p.name}: reviewed claim_sha256 required")
+   if digest in seen:raise ValueError(f"duplicate reviewed claim hash across bundles: {digest} ({seen[digest]}, {p.name})")
+   seen[digest]=p.name
+  yield p,doc
+
+def combine_reviewed_claims(claims_dir):
+ claims=[];bundles=[]
+ for p,doc in load_reviewed_claims(claims_dir):bundles.append(p.name);claims.extend(doc.get("claims",[]))
+ return {"claims":claims},bundles
+
 def build(claims_doc,catalog_doc,eval_path):
  sources={x["source_id"]:x for x in catalog_doc.get("sources",[]) if x.get("source_id")}
  reserved=heldout(eval_path);rows=[];skipped={"not_rag_eligible":0,"heldout_source":0}
@@ -67,9 +83,10 @@ def self_test():
   p.write_text('{"must_cite":["doi:10.x/train"]}\n');rows,stats=build(claims,catalog,p);assert not rows and stats["skipped"]["heldout_source"]==1
  print("reviewed-claim grounded QA self-test: PASS")
 def main():
- a=argparse.ArgumentParser();a.add_argument("--claims",type=pathlib.Path,default=DEFAULT_CLAIMS);a.add_argument("--catalog",type=pathlib.Path,default=DEFAULT_CATALOG);a.add_argument("--eval",type=pathlib.Path,default=DEFAULT_EVAL);a.add_argument("--out",type=pathlib.Path,default=DEFAULT_OUT);a.add_argument("--check-only",action="store_true");a.add_argument("--self-test",action="store_true");x=a.parse_args()
+ a=argparse.ArgumentParser();a.add_argument("--claims",type=pathlib.Path);a.add_argument("--claims-dir",type=pathlib.Path,default=DEFAULT_CLAIMS_DIR);a.add_argument("--catalog",type=pathlib.Path,default=DEFAULT_CATALOG);a.add_argument("--eval",type=pathlib.Path,default=DEFAULT_EVAL);a.add_argument("--out",type=pathlib.Path,default=DEFAULT_OUT);a.add_argument("--check-only",action="store_true");a.add_argument("--self-test",action="store_true");x=a.parse_args()
  if x.self_test:self_test();return 0
- rows,stats=build(json.loads(x.claims.read_text()),json.loads(x.catalog.read_text()),x.eval);raw=render(rows)
+ claims_doc,bundles=({"claims":json.loads(x.claims.read_text()).get("claims",[])},[x.claims.name]) if x.claims else combine_reviewed_claims(x.claims_dir)
+ rows,stats=build(claims_doc,json.loads(x.catalog.read_text()),x.eval);stats["reviewed_claim_bundles"]=bundles;stats["reviewed_claims_examined"]=len(claims_doc.get("claims",[]));raw=render(rows)
  if x.check_only:
   if not x.out.exists() or x.out.read_text(encoding="utf-8")!=raw:print(json.dumps({"ok":False,"reason":"committed artifact differs from deterministic builder","stats":stats},sort_keys=True));return 2
  else:x.out.parent.mkdir(parents=True,exist_ok=True);x.out.write_text(raw,encoding="utf-8")
