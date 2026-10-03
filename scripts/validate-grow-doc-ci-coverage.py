@@ -45,6 +45,7 @@ CRITICAL_MAIN_CI={
     "validate:model-project-completion",
     "validate:model-external-blockers",
     "validate:model-vision-source-candidates",
+    "validate:model-vision-admission-review",
     "validate:model-deploy-contract",
     "validate:model-improvement-planner",
     "validate:portable-rag-eval",
