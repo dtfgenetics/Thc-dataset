@@ -16,10 +16,25 @@
   </head>
   <body>
     <div id="root">
-      <main>
+      <main aria-labelledby="growdoc-fallback-title">
         <p><strong>Teaching Healthy Cultivation</strong></p>
-        <h1>THC Grow Doc</h1>
+        <h1 id="growdoc-fallback-title">THC Grow Doc</h1>
         <p>Use structured symptoms, grow context, image or video observations, reference evidence, and transparent confidence bands to compare possible cannabis plant-health causes. Visual evidence alone does not confirm disease or nutrient disorders.</p>
+        <section aria-labelledby="growdoc-fallback-workflow">
+          <h2 id="growdoc-fallback-workflow">How Grow Doc works</h2>
+          <ol>
+            <li><strong>Observe:</strong> start with a whole-plant or affected-area image and describe what is visibly changing.</li>
+            <li><strong>Add context:</strong> include plant stage, growing system, environment, irrigation, root-zone readings, and recent changes when available.</li>
+            <li><strong>Compare causes:</strong> review plausible differentials together with evidence for, evidence against, and important missing observations.</li>
+            <li><strong>Verify:</strong> use the safest next observation or measurement before treating one visual symptom as proof of a specific cause.</li>
+          </ol>
+        </section>
+        <section aria-labelledby="growdoc-fallback-boundary">
+          <h2 id="growdoc-fallback-boundary">Evidence boundary</h2>
+          <p>Grow Doc is an educational decision-support tool. Photos can document visible features, but laboratory testing or other confirmation may be required for pathogens, viroids, and other conditions that cannot be verified from appearance alone.</p>
+          <p><a href="/tools/">Browse cultivation tools</a> · <a href="/learn/">Open Teaching Healthy Cultivation</a></p>
+        </section>
+        <noscript><p>JavaScript is required for the interactive diagnostic workspace. The guidance above remains available without it.</p></noscript>
       </main>
     </div>
     <script type="module" src="/src/main.tsx"></script>
