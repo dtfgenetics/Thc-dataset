@@ -40,7 +40,8 @@
         "duplicate/leakage and split-group isolation",
         "class/control coverage review"
       ],
-      "notes": "High-value Cannabis-specific drought/water-deficit candidate. Do not infer disease labels; only treatment-grounded environmental-stress supervision is potentially admissible."
+      "notes": "High-value Cannabis-specific drought/water-deficit candidate. Do not infer disease labels; only treatment-grounded environmental-stress supervision is potentially admissible.",
+      "admission_state": "pre-admission-rights-review"
     },
     {
       "source_id": "cornell-hemp-media",
@@ -69,7 +70,8 @@
         "human scientific review",
         "hashing and source-group isolation"
       ],
-      "notes": "Useful reference media but must not be promoted to supervised training solely from educational-use permission."
+      "notes": "Useful reference media but must not be promoted to supervised training solely from educational-use permission.",
+      "admission_state": "reference-only-rights-limited"
     },
     {
       "source_id": "zenodo-hemp-root-shoot-diversity-2025",
@@ -98,7 +100,8 @@
         "hash and group images",
         "human scientific/annotation review"
       ],
-      "notes": "Potential healthy/root morphology coverage; not a disease-label source."
+      "notes": "Potential healthy/root morphology coverage; not a disease-label source.",
+      "admission_state": "quarantine-rights-unknown"
     }
   ]
 }
