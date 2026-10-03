@@ -1,15 +1,15 @@
 {
   "schema_version": "grow-doc-agent-state-v1",
-  "updated_at": "2026-10-03T14:35:00Z",
-  "last_verified_main_sha": "eed76f69455ffb8bf51f5a8c3c6880b9ad4af4e6",
-  "current_work_item": "Add and validate development-only diagnostic abstention challenges",
-  "status": "ready_for_ci",
-  "branch": "work/grow-doc/diagnostic-abstention-devset-20261003",
+  "updated_at": "2026-10-03T15:22:00Z",
+  "last_verified_main_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
+  "current_work_item": "Expand independent protected-slice evaluation challenges under GD-EVAL-001",
+  "status": "ready",
+  "branch": null,
   "pr_number": null,
   "blocker": null,
-  "last_narrow_test": "pending: python3 scripts/validate-diagnostic-abstention-candidates.py",
+  "last_narrow_test": "python3 scripts/validate-diagnostic-abstention-candidates.py",
   "last_broad_test": "Validate THC Grow Doc",
-  "last_broad_test_result": "pending",
+  "last_broad_test_result": "success (workflow 37130097165 on b0c0538189f50a29b8448a584c00ce34b1fb96cf)",
   "completed": [
     {
       "id": "multisource-reviewed-gqa",
@@ -22,6 +22,12 @@
       "merged_sha": "eed76f69455ffb8bf51f5a8c3c6880b9ad4af4e6",
       "pr_number": 392,
       "result": "Repository-local Grow Doc skill/state contract merged; full validation green"
+    },
+    {
+      "id": "diagnostic-abstention-devset",
+      "merged_sha": "b0c0538189f50a29b8448a584c00ce34b1fb96cf",
+      "pr_number": 393,
+      "result": "3 development-only abstention challenges merged; exact main head passed Validate THC Grow Doc and all observed push workflows"
     }
   ],
   "dataset_counts_or_eval_metrics": {
@@ -31,7 +37,7 @@
     "measured_base_vs_rag": null,
     "diagnostic_abstention_dev_candidates": 3
   },
-  "next_action": "Run CI for the 3-case development-only abstention set; fix any provenance or held-out-isolation failure before merge. Keep the frozen base-vs-RAG compute blocker deferred.",
+  "next_action": "Claim GD-EVAL-001 on a fresh work/grow-doc branch, then expand independent protected-slice candidates with no train/dev source overlap or semantic prompt leakage; run candidate, leakage, and coverage validators before PR.",
   "deferred_blockers": [
     {
       "type": "compute",
