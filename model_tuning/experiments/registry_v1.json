@@ -43,7 +43,7 @@
       "outcome": {
         "promotion_eligible": false,
         "failure_stage": null,
-        "reason": "qualifying growdoc-gpu execution not yet verified"
+        "reason": "qualifying GPU execution remains external-blocked: no verified online GitHub self-hosted growdoc-gpu runner; Hugging Face managed L4 and Zero-A10G dispatch attempts both returned HTTP 402 Payment Required before startup"
       }
     }
   ]
