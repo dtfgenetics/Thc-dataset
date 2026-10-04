@@ -1,0 +1,46 @@
+name: Crop Ontology upstream sync
+
+on:
+  workflow_dispatch:
+    inputs:
+      ontology:
+        description: Crop Ontology ID
+        required: true
+        default: CO_321
+      kind:
+        description: Record type
+        required: true
+        type: choice
+        options: [trait, variable]
+  schedule:
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Deterministic connector test
+        run: python3 scripts/ingest-crop-ontology.py --self-test
+      - name: Fetch bounded official snapshot
+        env:
+          ONTOLOGY: ${{ inputs.ontology || 'CO_321' }}
+          KIND: ${{ inputs.kind || 'trait' }}
+        run: |
+          mkdir -p artifacts/crop-ontology
+          python3 scripts/ingest-crop-ontology.py             --ontology "$ONTOLOGY"             --kind "$KIND"             --out "artifacts/crop-ontology/${ONTOLOGY}_${KIND}s.json"
+      - name: Validate snapshot contract
+        run: python3 scripts/validate-crop-ontology-snapshot.py artifacts/crop-ontology/*.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: crop-ontology-snapshot
+          path: artifacts/crop-ontology/*.json
+          if-no-files-found: error
+          retention-days: 14
