@@ -195,7 +195,8 @@
         ".github/workflows/ci.yml",
         "contributions/routing-policy.json",
         "contributions/tasks.json",
-        "contributions/claims.json"
+        "contributions/claims.json",
+        "scripts/validate-grow-doc-ci-coverage.py"
       ],
       "required_validators": [
         "validate:research-evidence",
