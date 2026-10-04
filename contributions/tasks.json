@@ -173,6 +173,42 @@
         "artifact hashes and hardware/runtime provenance retained"
       ],
       "blocker": "qualifying growdoc-gpu execution not yet verified"
+    },
+    {
+      "id": "GD-SYS-002",
+      "lane": "system",
+      "priority": "P0",
+      "status": "active",
+      "title": "Applied pharmacognosy research evidence core",
+      "evidence_gap": "Grow Doc needs machine-readable research-source, study, and claim schemas for provenance-safe external scientific evidence and application reuse.",
+      "dependencies": [
+        "GD-SYS-001"
+      ],
+      "allowed_paths": [
+        "dataset/schema/research-source.schema.json",
+        "dataset/schema/research-study.schema.json",
+        "dataset/schema/research-claim.schema.json",
+        "scripts/validate-research-evidence.mjs",
+        "scripts/test-research-evidence-validator.mjs",
+        "package.json",
+        "docs/research-evidence/"
+      ],
+      "required_validators": [
+        "validate:research-evidence",
+        "validate:grow-doc-contributions",
+        "validate:grow-doc-claims"
+      ],
+      "definition_of_done": [
+        "research source/study/claim schemas are fail-closed",
+        "restricted human data cannot be marked redistributable or training eligible",
+        "observational evidence cannot be represented as causal",
+        "non-cannabis transferable evidence remains explicitly scoped",
+        "duplicate canonical identifiers are rejected"
+      ],
+      "forbidden": [
+        "participant-level private data",
+        "direct weight-training promotion"
+      ]
     }
   ]
 }
