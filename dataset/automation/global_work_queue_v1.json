@@ -71,17 +71,17 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": "a4d1f1f86337c7299feab39db62743f47ca0049f",
+        "last_verified_sha": "694796fb6d0c6fd3ceb35a5f77b1d6ea0feba512",
         "cursor": null,
         "upstream_version": "Crop Ontology BrAPI v1; parser crop-ontology-brapi-v1.1.0",
         "branch": "ingestion/crop-ontology-v1",
         "pr_number": 416,
-        "next_action": "Await exact-head CI for parser v1.1.0; then execute repository upstream-sync for CO_321 variables, validate artifact metrics/hash, persist bounded snapshot, and merge PR #416."
+        "next_action": "Await exact-head CI; then run Crop Ontology upstream sync with CO_321 variable default, validate/download artifact, persist bounded snapshot and real funnel metrics, and merge PR #416."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
-        "fallback_action": "If upstream is temporarily unavailable, preserve the last verified artifact and retry via scheduled GitHub Actions; never fabricate records."
+        "fallback_action": "If workflow dispatch is unavailable through an interactive client, use the scheduled repository runner; preserve last verified artifact and never fabricate records."
       },
       "metrics": {
         "attempted": 0,
