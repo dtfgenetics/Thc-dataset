@@ -182,7 +182,7 @@
       "title": "Central formula registry consumer adoption",
       "worker": "consumer-integration",
       "canonical_owner": "dtfgenetics/Tools",
-      "status": "ready",
+      "status": "in_progress",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -200,19 +200,24 @@
         "No silent ppm conversion"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
-        "cursor": null,
-        "upstream_version": null,
-        "branch": null,
-        "pr_number": null,
-        "next_action": "After contract merge, inventory PPFD/DLI/EC/TDS formulas and migrate one coherent calculator slice."
+        "last_verified_sha": "db85b875f1930a9a5cb44e9f9071921a7a374ddd",
+        "cursor": "tools-pr:113:awaiting-exact-head-ci",
+        "upstream_version": "thc-formula-registry-v1; blob 9117aff6ee770066dbd5f26111e9c5f634c5c51b",
+        "branch": "consumer/formula-registry-v1",
+        "pr_number": 113,
+        "next_action": "Run exact-head Tools CI for PR #113; if green, merge and mark complete with parity/no-silent-ppm metrics."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
         "fallback_action": null
       },
-      "metrics": {}
+      "metrics": {
+        "formula_versions_pinned": 2,
+        "canonical_test_vectors_covered": 4,
+        "migrated_routes_checked": 4,
+        "explicit_ppm_factor_guard": 1
+      }
     }
   ]
 }
