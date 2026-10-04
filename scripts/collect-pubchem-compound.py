@@ -23,7 +23,8 @@ def normalize(payload: dict, cid: int, *, retrieved_at: str, source_sha256: str)
     if int(row.get("CID", 0)) != cid:
         raise ValueError(f"response CID {row.get('CID')} does not match requested CID {cid}")
     return {
-        "schema_version": "grow-doc-pubchem-compound-normalized-v1",\n        "parser_version": PARSER_VERSION,
+        "schema_version": "grow-doc-pubchem-compound-normalized-v1",
+        "parser_version": PARSER_VERSION,
         "compound_id": f"pubchem:{cid}",
         "provider": "PubChem",
         "provider_id": str(cid),
@@ -71,7 +72,10 @@ def self_test() -> None:
     out = normalize(payload, 16078, retrieved_at="2026-01-01T00:00:00Z", source_sha256=sha256(raw))
     assert out["compound_id"] == "pubchem:16078"
     assert out["molecular_formula"] == "C21H30O2"
-    assert out["weight_training_eligible"] is False\n    assert out["parser_version"] == PARSER_VERSION\n    syn = normalize_synonyms({"InformationList":{"Information":[{"CID":16078,"Synonym":["THC","delta9-THC","THC"]}]}},16078)\n    assert syn == ["delta9-THC","THC"]
+    assert out["weight_training_eligible"] is False
+    assert out["parser_version"] == PARSER_VERSION
+    syn = normalize_synonyms({"InformationList":{"Information":[{"CID":16078,"Synonym":["THC","delta9-THC","THC"]}]}},16078)
+    assert syn == ["delta9-THC","THC"]
     try:
         normalize(payload, 644019, retrieved_at="x", source_sha256="y")
         raise AssertionError("CID mismatch was not rejected")
@@ -97,7 +101,8 @@ def main() -> int:
     payload = json.loads(raw)
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
     out = normalize(payload, args.cid, retrieved_at=retrieved_at, source_sha256=sha256(raw))
-    encoded = (json.dumps(out, indent=2, sort_keys=True) + "\n").encode()
+    encoded = (json.dumps(out, indent=2, sort_keys=True) + "
+").encode()
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(encoded)
