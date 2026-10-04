@@ -1,0 +1,57 @@
+{
+  "schema_version": "thc-product-data-coverage-v1",
+  "generated_at": "2026-10-04",
+  "domains": [
+    {
+      "product": "GrowLens",
+      "status": {
+        "scientific_observation": "contract_v1_seeded",
+        "environment_timeseries": "gap",
+        "irrigation_event": "gap",
+        "treatment_event": "gap"
+      }
+    },
+    {
+      "product": "Grow Doc",
+      "status": {
+        "diagnostic_profile": "existing",
+        "scientific_observation": "contract_v1_seeded",
+        "differential_relationships": "partial",
+        "regression_cases": "partial"
+      }
+    },
+    {
+      "product": "Tools",
+      "status": {
+        "formula_registry": "seeded",
+        "unit_registry": "gap",
+        "test_vectors": "seeded",
+        "source_evidence": "gap"
+      }
+    },
+    {
+      "product": "Plant Atlas",
+      "status": {
+        "anatomy_ontology": "partial",
+        "trait_method_scale": "partial",
+        "measurement_methods": "partial",
+        "visual_assets": "gap"
+      }
+    },
+    {
+      "product": "Terpene Atlas",
+      "status": {
+        "chemical_identity": "gap",
+        "analytical_measurement": "gap",
+        "occurrence_records": "gap"
+      }
+    }
+  ],
+  "next_priorities": [
+    "reviewed QUDT unit subset and validator",
+    "PubChem terpene/cannabinoid identity connector",
+    "Crop Ontology trait/method/scale sync",
+    "GrowLens observation-envelope consumer contract",
+    "formula source registry and evidence linkage"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "observation_id": "OBS-fixture-air-temp-001",
+  "subject": {
+    "subject_type": "zone",
+    "subject_id": "ZONE-1",
+    "grow_id": "GROW-1",
+    "zone_id": "ZONE-1"
+  },
+  "observed_at": "2026-10-04T00:00:00Z",
+  "observed_property": {
+    "property_id": "air-temperature",
+    "label": "Air temperature"
+  },
+  "method": {
+    "method_id": "sensor-reading",
+    "label": "Calibrated sensor reading",
+    "instrument_id": "SENSOR-1",
+    "calibration_id": "CAL-1"
+  },
+  "measurement": {
+    "original_value": 25,
+    "original_unit": "degC",
+    "canonical_value": 25,
+    "canonical_unit": "degC",
+    "quality_flag": "accepted",
+    "derived": false
+  },
+  "provenance": {
+    "source_type": "sensor",
+    "source_id": "SENSOR-1"
+  },
+  "review_state": "staged"
+}

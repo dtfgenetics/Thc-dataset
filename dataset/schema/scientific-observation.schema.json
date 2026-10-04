@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schemas/scientific-observation-v1.json",
+  "title": "THC Scientific Observation v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "observation_id",
+    "subject",
+    "observed_property",
+    "method",
+    "measurement",
+    "provenance",
+    "review_state"
+  ],
+  "properties": {
+    "observation_id": {
+      "type": "string",
+      "pattern": "^OBS-[A-Za-z0-9._:-]+$"
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "subject_type",
+        "subject_id"
+      ],
+      "properties": {
+        "subject_type": {
+          "enum": [
+            "plant",
+            "sample",
+            "grow",
+            "zone",
+            "environment",
+            "solution",
+            "substrate",
+            "organ",
+            "germplasm"
+          ]
+        },
+        "subject_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plant_id": {
+          "type": "string"
+        },
+        "grow_id": {
+          "type": "string"
+        },
+        "zone_id": {
+          "type": "string"
+        }
+      }
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "observed_property": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "property_id",
+        "label"
+      ],
+      "properties": {
+        "property_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "trait_id": {
+          "type": "string"
+        },
+        "ontology_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method_id",
+        "label"
+      ],
+      "properties": {
+        "method_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "procedure_version": {
+          "type": "string"
+        },
+        "instrument_id": {
+          "type": "string"
+        },
+        "calibration_id": {
+          "type": "string"
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "original_value",
+        "original_unit"
+      ],
+      "properties": {
+        "original_value": {
+          "type": "number"
+        },
+        "original_unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonical_value": {
+          "type": "number"
+        },
+        "canonical_unit": {
+          "type": "string"
+        },
+        "qudt_unit_iri": {
+          "type": "string",
+          "format": "uri"
+        },
+        "scale_id": {
+          "type": "string"
+        },
+        "uncertainty": {
+          "type": "number",
+          "minimum": 0
+        },
+        "quality_flag": {
+          "enum": [
+            "accepted",
+            "estimated",
+            "suspect",
+            "rejected"
+          ]
+        },
+        "derived": {
+          "type": "boolean",
+          "default": false
+        },
+        "formula_id": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "derived": {
+                "const": true
+              }
+            },
+            "required": [
+              "derived"
+            ]
+          },
+          "then": {
+            "required": [
+              "formula_id"
+            ]
+          }
+        }
+      ]
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "media_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "source_id"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "sensor",
+            "user",
+            "protocol",
+            "dataset",
+            "publication",
+            "derived"
+          ]
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_record_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "drive_evidence_id": {
+          "type": "string"
+        }
+      }
+    },
+    "review_state": {
+      "enum": [
+        "raw",
+        "staged",
+        "reviewed",
+        "published",
+        "quarantined"
+      ]
+    }
+  }
+}
