@@ -1,4 +1,10 @@
 {
   "schema_version": "grow-doc-task-claims-v1",
-  "claims": []
+  "claims": [
+    {
+      "task_id": "GD-SYS-002",
+      "session_id": "riley-kirk-20261004",
+      "branch": "work/grow-doc/GD-SYS-002/riley-kirk-20261004"
+    }
+  ]
 }
