@@ -11,7 +11,7 @@ on:
         description: Record type
         required: true
         type: choice
-        options: [trait, variable]
+        options: [variable, trait]
   schedule:
     - cron: "17 5 * * 1"
 
@@ -32,7 +32,7 @@ jobs:
       - name: Fetch bounded official snapshot
         env:
           ONTOLOGY: ${{ inputs.ontology || 'CO_321' }}
-          KIND: ${{ inputs.kind || 'trait' }}
+          KIND: ${{ inputs.kind || 'variable' }}
         run: |
           mkdir -p artifacts/crop-ontology
           python3 scripts/ingest-crop-ontology.py             --ontology "$ONTOLOGY"             --kind "$KIND"             --out "artifacts/crop-ontology/${ONTOLOGY}_${KIND}s.json"
