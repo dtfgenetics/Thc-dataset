@@ -1,0 +1,105 @@
+{
+  "schema_version": "thc-formula-registry-v1",
+  "formulas": [
+    {
+      "formula_id": "FORM-DLI-PPFD-PHOTOPERIOD",
+      "version": "1.0.0",
+      "name": "Daily light integral from average PPFD and photoperiod",
+      "equation": "DLI_mol_m2_day = PPFD_umol_m2_s * photoperiod_hours * 3600 / 1000000",
+      "inputs": [
+        {
+          "name": "PPFD_umol_m2_s",
+          "canonical_unit": "umol/m2/s"
+        },
+        {
+          "name": "photoperiod_hours",
+          "canonical_unit": "h"
+        }
+      ],
+      "output": {
+        "name": "DLI_mol_m2_day",
+        "canonical_unit": "mol/m2/day"
+      },
+      "assumptions": [
+        "PPFD is the time-average over the stated photoperiod."
+      ],
+      "validity": "Arithmetic photon integration only; does not establish a crop target.",
+      "source_ids": [
+        "formula-definition-dli-photon-integration"
+      ],
+      "test_vectors": [
+        {
+          "inputs": {
+            "PPFD_umol_m2_s": 500,
+            "photoperiod_hours": 12
+          },
+          "expected": 21.6,
+          "tolerance": 1e-9
+        },
+        {
+          "inputs": {
+            "PPFD_umol_m2_s": 1000,
+            "photoperiod_hours": 18
+          },
+          "expected": 64.8,
+          "tolerance": 1e-9
+        }
+      ],
+      "consumers": [
+        "Tools/PPFD",
+        "Tools/DLI",
+        "GrowLens"
+      ]
+    },
+    {
+      "formula_id": "FORM-TDS-FROM-EC-FACTOR",
+      "version": "1.0.0",
+      "name": "Display-scale TDS/ppm from EC and declared factor",
+      "equation": "TDS_ppm = EC_mS_cm * factor_ppm_per_mS_cm",
+      "inputs": [
+        {
+          "name": "EC_mS_cm",
+          "canonical_unit": "mS/cm"
+        },
+        {
+          "name": "factor_ppm_per_mS_cm",
+          "canonical_unit": "ppm per mS/cm"
+        }
+      ],
+      "output": {
+        "name": "TDS_ppm",
+        "canonical_unit": "ppm"
+      },
+      "assumptions": [
+        "The display conversion factor is explicitly supplied."
+      ],
+      "validity": "Display conversion only. Preserve EC as the measured conductivity and record the factor rather than assuming one.",
+      "source_ids": [
+        "formula-definition-tds-display-conversion"
+      ],
+      "test_vectors": [
+        {
+          "inputs": {
+            "EC_mS_cm": 2,
+            "factor_ppm_per_mS_cm": 500
+          },
+          "expected": 1000,
+          "tolerance": 0
+        },
+        {
+          "inputs": {
+            "EC_mS_cm": 2,
+            "factor_ppm_per_mS_cm": 700
+          },
+          "expected": 1400,
+          "tolerance": 0
+        }
+      ],
+      "consumers": [
+        "Tools/TDS",
+        "Tools/EC",
+        "GrowLens"
+      ]
+    }
+  ]
+}
