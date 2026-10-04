@@ -73,7 +73,8 @@
     "validate:model-vision-source-candidates": "python3 scripts/validate-grow-doc-vision-source-candidates.py --self-test && python3 scripts/validate-grow-doc-vision-source-candidates.py",
     "validate:model-vision-admission-review": "python3 scripts/build-grow-doc-vision-admission-review.py --self-test --check",
     "validate:crop-ontology-ingestion": "python3 scripts/ingest-crop-ontology.py --self-test",
-    "validate:pubchem-seed-ingestion": "python3 scripts/ingest-pubchem-seed-registry.py --self-test"
+    "validate:pubchem-seed-ingestion": "python3 scripts/ingest-pubchem-seed-registry.py --self-test",
+    "validate:research-evidence": "node scripts/test-research-evidence-validator.mjs && node scripts/validate-research-evidence.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
