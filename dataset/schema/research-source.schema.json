@@ -1,0 +1,175 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schema/research-source.schema.json",
+  "title": "THC research source v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_id",
+    "source_type",
+    "title",
+    "authors",
+    "organizations",
+    "publication_date",
+    "canonical_url",
+    "retrieved_at",
+    "license",
+    "access_state",
+    "redistribution_state",
+    "rag_eligible",
+    "training_eligible",
+    "human_subject_data",
+    "cannabis_scope",
+    "domain_tags",
+    "provenance_status",
+    "review_status"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z0-9-]+$"
+    },
+    "source_type": {
+      "enum": [
+        "paper",
+        "dataset",
+        "protocol",
+        "dashboard",
+        "registry",
+        "method",
+        "book",
+        "educational_page",
+        "project_page"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 3
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "organizations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "publication_date": {
+      "type": "string",
+      "minLength": 4
+    },
+    "doi": {
+      "type": "string",
+      "minLength": 4
+    },
+    "pmid": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accession": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "retrieved_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "license": {
+      "type": "string",
+      "minLength": 2
+    },
+    "access_state": {
+      "enum": [
+        "open",
+        "public_metadata",
+        "restricted",
+        "permission_required"
+      ]
+    },
+    "redistribution_state": {
+      "enum": [
+        "open",
+        "citation_only",
+        "metadata_only",
+        "permission_required",
+        "reject"
+      ]
+    },
+    "rag_eligible": {
+      "type": "boolean"
+    },
+    "training_eligible": {
+      "type": "boolean"
+    },
+    "human_subject_data": {
+      "type": "boolean"
+    },
+    "cannabis_scope": {
+      "enum": [
+        "cannabis",
+        "transferable_non_cannabis",
+        "general_method",
+        "mixed"
+      ]
+    },
+    "study_design": {
+      "type": "string"
+    },
+    "population_or_specimen": {
+      "type": "string"
+    },
+    "domain_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "methods": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "provenance_status": {
+      "type": "string",
+      "minLength": 2
+    },
+    "review_status": {
+      "enum": [
+        "candidate",
+        "metadata_verified",
+        "reviewed",
+        "quarantined",
+        "rejected"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
