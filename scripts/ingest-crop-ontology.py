@@ -3,7 +3,7 @@
 import argparse, hashlib, json, pathlib, urllib.parse, urllib.request
 PARSER_VERSION="crop-ontology-brapi-v1.1.0"
 BASE="https://cropontology.org/brapi/v1"
-RIGHTS={"state":"metadata_reference","source_terms_url":"https://cropontology.org/","note":"Preserve upstream identifiers and attribution; downstream reuse must respect source terms."}
+RIGHTS={"state":"licensed_reuse","license":"CC BY 4.0","license_url":"https://creativecommons.org/licenses/by/4.0/","source_terms_url":"https://cropontology.org/about","attribution":"Crop Ontology / CGIAR community curators","note":"Preserve upstream identifiers and attribution."}
 def canon(v): return json.dumps(v,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()
 def sha(v): return hashlib.sha256(canon(v)).hexdigest()
 def rows(payload):
