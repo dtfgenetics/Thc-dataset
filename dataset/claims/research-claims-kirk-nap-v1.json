@@ -203,6 +203,107 @@
       ],
       "citation_locator": "Frontiers in Pharmacology Methods, participant reporting design",
       "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-MN-METHOD",
+      "source_ids": [
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "LC-MS/MS-based molecular networking can organize MS/MS spectra by fragmentation similarity to visualize chemical relationships, support metabolite annotation, and compare botanical specimens with botanical products.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The verified study used non-cannabis botanicals; applying the workflow to cannabis requires cannabis-specific samples, validated reference standards, and appropriate analytical QA."
+      ],
+      "citation_locator": "Fitoterapia 2022 abstract, methods, and conclusions",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-MN-MASSIVE",
+      "source_ids": [
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "The botanical molecular-networking study reports raw analysis files in the MassIVE repository under accession MSV000088444, providing a reproducible example of linking published analytical claims to public mass-spectrometry data.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The dataset is botanical rather than cannabis; reuse must follow repository and source licensing."
+      ],
+      "citation_locator": "Fitoterapia 2022 article section describing MassIVE raw files",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-PRISM-WORKFLOW",
+      "source_ids": [
+        "SRC-KIRK-PRISM-EDU-2021",
+        "SRC-KIRK-PRISM-MRSA-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-PRISM-WORKFLOW"
+      ],
+      "text": "The PRISM work demonstrates a specimen-linked natural-product pipeline in which botanical material is extracted into a reusable library, screened for activity, and promising hits are followed with bioassay-guided chemical isolation.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is a general natural-products workflow and should not be presented as evidence of cannabis-specific biological activity."
+      ],
+      "citation_locator": "Journal of Chemical Education PRISM workflow and ACS Omega PRISM screening study",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-STRUCTURE-WORKFLOW",
+      "source_ids": [
+        "SRC-KIRK-MICROPEPTINS-2021",
+        "SRC-KIRK-TRICHOPHYCINS-2020"
+      ],
+      "study_ids": [],
+      "text": "Kirk's natural-products publications use complementary analytical workflows including mass spectrometry, molecular-networking or bioassay-guided prioritization, compound isolation, and structure elucidation; these are useful reference patterns for designing provenance-rich lab-data ingestion.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The source organisms are not cannabis, so only analytical workflow concepts transfer."
+      ],
+      "citation_locator": "ACS Omega 2021 and Journal of Natural Products 2020 methods",
+      "review_status": "reviewed"
     }
   ]
 }
