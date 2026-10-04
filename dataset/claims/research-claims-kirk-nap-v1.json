@@ -304,6 +304,59 @@
       ],
       "citation_locator": "ACS Omega 2021 and Journal of Natural Products 2020 methods",
       "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-GNPS-INPUTS",
+      "source_ids": [
+        "SRC-GNPS-MOLECULAR-NETWORKING"
+      ],
+      "study_ids": [
+        "STUDY-GNPS-INFRASTRUCTURE"
+      ],
+      "text": "GNPS molecular networking accepts tandem mass-spectrometry data in open formats such as mzXML, mzML, and MGF, supports sample metadata, and can import public MassIVE datasets by accession for analysis or reanalysis.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This describes official analytical infrastructure, not evidence of a cannabis-specific biological effect."
+      ],
+      "citation_locator": "GNPS Molecular Networking documentation: Data Input Preparation and Selecting Files",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-MASSIVE-REANALYSIS",
+      "source_ids": [
+        "SRC-GNPS-MOLECULAR-NETWORKING",
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-GNPS-INFRASTRUCTURE",
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "A reproducible THC lab-data architecture can preserve raw/open-format spectra, sample metadata, workflow parameters, spectral annotations, and public dataset accessions separately, mirroring the GNPS/MassIVE pattern used in Kirk-associated botanical molecular-networking research.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is an architecture inference from documented analytical workflows; cannabis analytical validation remains a separate requirement."
+      ],
+      "citation_locator": "GNPS dataset/networking documentation plus Fitoterapia 2022 MassIVE accession",
+      "review_status": "reviewed"
     }
   ]
 }
