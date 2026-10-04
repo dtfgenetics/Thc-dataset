@@ -1,0 +1,263 @@
+{
+  "schema_version": "research-studies-v1",
+  "generated_at": "2026-10-04",
+  "studies": [
+    {
+      "study_id": "STUDY-RDP-RDUB",
+      "source_ids": [
+        "SRC-RDP-REAL-DATA-PROJECT"
+      ],
+      "title": "Real Data Project / R-Dub longitudinal natural-products data exchange",
+      "organizations": [
+        "Network of Applied Pharmacognosy",
+        "MoreBetter Ltd."
+      ],
+      "investigators": [
+        "Riley Kirk",
+        "Miyabe Shields"
+      ],
+      "objective": "Collect, analyze, and share real-world evidence from people using cannabis and other natural products in everyday life.",
+      "study_design": "project_protocol",
+      "cannabis_scope": "mixed",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "community participants using cannabis or other natural products",
+      "repeated_measures": true,
+      "observation_schedule": "QuickLog repeated experiences over time; individual study schedules vary.",
+      "exposures_or_interventions": [
+        "self-selected products",
+        "self-selected doses",
+        "self-selected routes"
+      ],
+      "outcomes": [
+        "intended purpose",
+        "self-reported effects",
+        "longitudinal change"
+      ],
+      "methods": [
+        "QuickLog",
+        "public dashboards"
+      ],
+      "data_availability": "Public dashboards and highlighted findings; participant-level data not copied.",
+      "limitations": [
+        "Project-level methodology; individual outcome claims require study-specific sources."
+      ]
+    },
+    {
+      "study_id": "STUDY-MB-BEVERAGE-RWE",
+      "source_ids": [
+        "SRC-MB-FUNCTIONAL-BEVERAGE",
+        "SRC-RDP-REAL-DATA-PROJECT"
+      ],
+      "title": "MoreBetter Functional Beverage Study",
+      "organizations": [
+        "MoreBetter Ltd."
+      ],
+      "objective": "Characterize real-world infused-cannabis-beverage use, effects, preferences, dose, and co-use patterns.",
+      "study_design": "longitudinal_observational",
+      "cannabis_scope": "cannabis",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "verified infused-cannabis-beverage consumers",
+      "sample_size": 4873,
+      "repeated_measures": true,
+      "observation_schedule": "22-day study period reported on the public study page.",
+      "exposures_or_interventions": [
+        "self-selected infused cannabis beverage products and doses"
+      ],
+      "outcomes": [
+        "logged use sessions",
+        "consumer effects",
+        "preferences",
+        "negative-event probability modeling"
+      ],
+      "methods": [
+        "real-world logged use sessions",
+        "aggregate reporting"
+      ],
+      "data_availability": "Public free report via controlled link; deeper reports are paid/controlled access; raw participant-level data not ingested.",
+      "limitations": [
+        "Observational real-world evidence.",
+        "Public webpage summarizes aggregate results rather than exposing the raw dataset."
+      ]
+    },
+    {
+      "study_id": "STUDY-SOS-PHASE1-WATER-ACTIVITY",
+      "source_ids": [
+        "SRC-SOS-PHASE1-PROJECT",
+        "SRC-SOS-PHASE1-RESULTS-2025"
+      ],
+      "title": "Science of Smokability Phase I — water activity",
+      "organizations": [
+        "Cannabis Research Coalition",
+        "Network of Applied Pharmacognosy",
+        "Controlled Chemistry"
+      ],
+      "investigators": [
+        "Allison Justice",
+        "Riley Kirk",
+        "Miyabe Shields",
+        "Markus Roggen"
+      ],
+      "objective": "Evaluate how cannabis flower water activity influences chemistry and perceived smoking quality.",
+      "study_design": "controlled_nonrandomized",
+      "cannabis_scope": "cannabis",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": true,
+      "population_or_specimen": "cannabis flower conditioned at multiple water activities and sensory evaluators",
+      "repeated_measures": false,
+      "exposures_or_interventions": [
+        "0.45 aW",
+        "0.65 aW",
+        "0.85 aW"
+      ],
+      "outcomes": [
+        "terpene measurements",
+        "cannabinoid measurements",
+        "harshness",
+        "ash characteristics",
+        "smoking quality"
+      ],
+      "methods": [
+        "controlled water activity",
+        "chemical analysis",
+        "sensory evaluation"
+      ],
+      "data_availability": "Published results article and project page; no participant-level data ingested.",
+      "limitations": [
+        "Sensory findings are context-specific.",
+        "Publication is not a clinical efficacy trial."
+      ]
+    },
+    {
+      "study_id": "STUDY-SOS-PHASE2-NUTRIENTS-FLUSHING",
+      "source_ids": [
+        "SRC-SOS-PHASE2-PROJECT"
+      ],
+      "title": "Science of Smokability Phase II — nutrients and flushing",
+      "organizations": [
+        "Cannabis Research Coalition",
+        "Network of Applied Pharmacognosy",
+        "Controlled Chemistry"
+      ],
+      "investigators": [
+        "Allison Justice",
+        "Riley Kirk",
+        "Miyabe Shields",
+        "Markus Roggen"
+      ],
+      "objective": "Study relationships among cultivation nutrient/flushing practices, flower characteristics, post-harvest handling, and smokability.",
+      "study_design": "project_protocol",
+      "cannabis_scope": "cannabis",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "cannabis flower and sensory participants",
+      "repeated_measures": false,
+      "exposures_or_interventions": [
+        "nutrient and flushing treatments described by the project"
+      ],
+      "outcomes": [
+        "planned chemical, physical, and sensory measures"
+      ],
+      "methods": [
+        "cultivation treatment comparison"
+      ],
+      "data_availability": "Project/waitlist page only in this seed registry.",
+      "limitations": [
+        "No outcome claims are admitted until a results source is verified."
+      ]
+    },
+    {
+      "study_id": "STUDY-CHS-SURVEY-2026",
+      "source_ids": [
+        "SRC-CHS-SURVEY-2026"
+      ],
+      "title": "CHS symptoms and cannabis use patterns survey",
+      "organizations": [
+        "University of California Irvine",
+        "Network of Applied Pharmacognosy",
+        "UCI Center for the Study of Cannabis"
+      ],
+      "objective": "Examine cannabis-use patterns and symptom profiles among people suspected or diagnosed with CHS.",
+      "study_design": "survey",
+      "cannabis_scope": "cannabis",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "online CHS-focused community respondents",
+      "sample_size": 1134,
+      "repeated_measures": false,
+      "exposures_or_interventions": [
+        "self-reported cannabis use history and consumption patterns"
+      ],
+      "outcomes": [
+        "CHS-related symptom patterns",
+        "use frequency",
+        "routes",
+        "product sourcing"
+      ],
+      "methods": [
+        "anonymous online survey",
+        "self-report"
+      ],
+      "data_availability": "Published aggregate results; participant-level data not ingested.",
+      "limitations": [
+        "Self-selected sample from CHS-focused communities.",
+        "Self-report and cross-sectional design.",
+        "Associations are not proof of causation."
+      ]
+    },
+    {
+      "study_id": "STUDY-KRATOM-RWE-2026",
+      "source_ids": [
+        "SRC-KRATOM-RWE-2026"
+      ],
+      "title": "Kratom real-world repeated-measures methodology study",
+      "organizations": [
+        "Network of Applied Pharmacognosy",
+        "British Columbia Institute of Technology"
+      ],
+      "objective": "Evaluate dose-dependent self-reported focus and energy outcomes using a baseline plus repeated daily real-world observational design.",
+      "study_design": "longitudinal_observational",
+      "cannabis_scope": "transferable_non_cannabis",
+      "human_subject_data": true,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "adult Mitragyna speciosa product users",
+      "sample_size": 82,
+      "repeated_measures": true,
+      "observation_schedule": "7-day baseline followed by 14 days of daily observational reporting.",
+      "exposures_or_interventions": [
+        "self-selected mitragynine-equivalent doses"
+      ],
+      "outcomes": [
+        "focus",
+        "energy",
+        "fatigue",
+        "negative effects"
+      ],
+      "methods": [
+        "daily structured questionnaires",
+        "self-selected dose",
+        "linear mixed-effects modeling"
+      ],
+      "ethics": "Electronic informed consent reported by the publication.",
+      "data_availability": "Open-access CC BY publication; raw participant-level records are not ingested.",
+      "limitations": [
+        "Non-cannabis study.",
+        "Full dataset had varying completion; analyses used smaller completion subsets.",
+        "Observational self-report limits causal inference and generalizability."
+      ]
+    }
+  ]
+}
