@@ -117,12 +117,12 @@
         "Deterministic tests and ingestion metrics"
       ],
       "checkpoint": {
-        "last_verified_sha": "b467d14e1a528a9c1361691125e5e172130321ab",
-        "cursor": "seed-registry:15-cids",
-        "upstream_version": "PubChem PUG REST specification updated 2026-09-15; parser pubchem-seed-registry-v1.0.0",
+        "last_verified_sha": "ed8dc4413cb8afb0e52c7ec5b1eb3adfa4ea15d4",
+        "cursor": "seed-registry:15-cids:complete",
+        "upstream_version": "PubChem PUG REST; live snapshot 2026-10-04; artifact sha256:c0781dee2ef704d9cc6fe6fd65a535f94cef20fe8af455f9a09db6d0d76ae25e",
         "branch": "ingestion/pubchem-v1",
         "pr_number": null,
-        "next_action": "Run exact-head CI, then repository PubChem seed sync; validate artifact hashes and real funnel metrics; persist checkpoint and complete item."
+        "next_action": "Re-run exact-head CI after CI coverage validator syntax repair; merge PR #418 when green."
       },
       "blocker": {
         "fingerprint": null,
@@ -130,12 +130,14 @@
         "fallback_action": null
       },
       "metrics": {
-        "attempted": 0,
-        "fetched": 0,
-        "normalized": 0,
+        "attempted": 15,
+        "fetched": 15,
+        "normalized": 15,
         "deduped": 0,
         "quarantined": 0,
-        "published": 0
+        "published": 15,
+        "connector_self_tests": 2,
+        "live_snapshot_validation_passed": 1
       }
     },
     {
