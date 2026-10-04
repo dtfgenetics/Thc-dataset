@@ -320,6 +320,256 @@
       ],
       "provenance_status": "VERIFIED DOI / OPEN ACCESS CC BY",
       "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-BOTANICAL-MN-2022",
+      "source_type": "paper",
+      "title": "Analysis of botanicals and botanical supplements by LC-MS/MS-based molecular networking: Approaches for annotating plant metabolites and authentication",
+      "authors": [
+        "Terra Marie M. Jouaneh",
+        "Neil Motta",
+        "Christine Wu",
+        "Cole Coffey",
+        "Christopher W. Via",
+        "Riley D. Kirk",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2022-04-20",
+      "doi": "10.1016/j.fitote.2022.105200",
+      "pmid": "35460834",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/35460834/",
+      "retrieved_at": "2026-10-04",
+      "license": "Author manuscript available via PMC; publisher/version reuse terms vary",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical method application",
+      "population_or_specimen": "botanical extracts, plant specimens, and botanical supplements",
+      "domain_tags": [
+        "LC-MS/MS",
+        "molecular networking",
+        "GNPS",
+        "metabolomics",
+        "botanical authentication",
+        "mass spectrometry"
+      ],
+      "methods": [
+        "LC-MS/MS",
+        "GNPS molecular networking",
+        "fractionation",
+        "spectral library annotation"
+      ],
+      "limitations": [
+        "Non-cannabis botanical study; method is transferable but results are not cannabis evidence.",
+        "Putative spectral annotations require confirmation for definitive compound identity."
+      ],
+      "provenance_status": "VERIFIED DOI PMID PMCID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-PRISM-EDU-2021",
+      "source_type": "paper",
+      "title": "Integrating Natural Product Chemistry Workflows into Medicinal Chemistry Laboratory Training: Building the PRISM Library and Cultivating Independent Research",
+      "authors": [
+        "Riley D. Kirk",
+        "Marina A. Carro",
+        "Christine Wu",
+        "Mohamad Jamal Aldine",
+        "Alex M. Wharton",
+        "Danielle G. Goldstein",
+        "Margaret E. Rosario",
+        "Gina M. Gallucci",
+        "Yiwen Zhao",
+        "Elizabeth Leibovitz",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2021",
+      "doi": "10.1021/acs.jchemed.0c00396",
+      "canonical_url": "https://pubs.acs.org/doi/10.1021/acs.jchemed.0c00396",
+      "retrieved_at": "2026-10-04",
+      "license": "Open-access article; exact reuse license should be checked at asset/full-text level",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "botanical specimens and prefractionated/extract library workflows",
+      "domain_tags": [
+        "natural products",
+        "PRISM library",
+        "extraction",
+        "fractionation",
+        "medicinal chemistry",
+        "education"
+      ],
+      "methods": [
+        "botanical extraction",
+        "prefractionation",
+        "chemical library construction",
+        "bioassay-guided natural product workflow"
+      ],
+      "limitations": [
+        "Educational/natural-product workflow, not cannabis-specific evidence."
+      ],
+      "provenance_status": "VERIFIED DOI JOURNAL",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-PRISM-MRSA-2022",
+      "source_type": "paper",
+      "title": "Screening the PRISM Library against Staphylococcus aureus Reveals a Sesquiterpene Lactone from Liriodendron tulipifera with Inhibitory Activity",
+      "authors": [
+        "Riley D. Kirk",
+        "Margaret E. Rosario",
+        "Nana Oblie",
+        "Terra Marie M. Jouaneh",
+        "Marina A. Carro",
+        "Christine Wu",
+        "Andrew M. Kim",
+        "Elizabeth Leibovitz",
+        "Elizabeth Sage Hunter",
+        "Robert Literman",
+        "Sara M. Handy",
+        "David C. Rowley",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island",
+        "U.S. Food and Drug Administration"
+      ],
+      "publication_date": "2022-09-30",
+      "doi": "10.1021/acsomega.2c03539",
+      "pmid": "36249352",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/36249352/",
+      "retrieved_at": "2026-10-04",
+      "license": "CC BY-NC-ND 4.0",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "PRISM botanical extract library and Liriodendron tulipifera",
+      "domain_tags": [
+        "natural products",
+        "bioassay-guided fractionation",
+        "botanical library",
+        "compound isolation"
+      ],
+      "methods": [
+        "botanical extract screening",
+        "bioassay-guided isolation",
+        "chemical characterization"
+      ],
+      "limitations": [
+        "Non-cannabis discovery study; only workflow concepts are transferable."
+      ],
+      "provenance_status": "VERIFIED DOI PMID PMCID LICENSE",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-MICROPEPTINS-2021",
+      "source_type": "paper",
+      "title": "New Micropeptins with Anti-Neuroinflammatory Activity Isolated from a Cyanobacterial Bloom",
+      "authors": [
+        "Riley D. Kirk",
+        "Haiyin He",
+        "Paul G. Wahome",
+        "ShiBiao Wu",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island",
+        "Biosortia Pharmaceuticals"
+      ],
+      "publication_date": "2021-06-04",
+      "doi": "10.1021/acsomega.1c02025",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8210450/",
+      "retrieved_at": "2026-10-04",
+      "license": "Open-access publication; verify exact publisher license before redistribution",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "cyanobacterial bloom natural-product material",
+      "domain_tags": [
+        "natural products",
+        "LC-MS/MS",
+        "molecular networking",
+        "bioassay",
+        "compound isolation"
+      ],
+      "methods": [
+        "prefractionation",
+        "LC-MS/MS molecular networking",
+        "bioassay-guided isolation",
+        "structure elucidation"
+      ],
+      "limitations": [
+        "Non-cannabis source organism; chemistry/discovery workflow is transferable, biological effects are not cannabis evidence."
+      ],
+      "provenance_status": "VERIFIED DOI PMCID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-TRICHOPHYCINS-2020",
+      "source_type": "paper",
+      "title": "Isolation of Isotrichophycin C and Trichophycins G-I from a Collection of Trichodesmium thiebautii",
+      "authors": [
+        "Kelly M. McManus",
+        "Riley D. Kirk",
+        "Christopher W. Via",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2020-08-20",
+      "doi": "10.1021/acs.jnatprod.0c00550",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7815318/",
+      "retrieved_at": "2026-10-04",
+      "license": "Author manuscript available via PMC; publisher reuse terms apply",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "Trichodesmium thiebautii natural-product material",
+      "domain_tags": [
+        "natural products",
+        "isolation",
+        "structure elucidation",
+        "NMR",
+        "mass spectrometry"
+      ],
+      "methods": [
+        "compound isolation",
+        "NMR",
+        "mass spectrometry",
+        "structure elucidation"
+      ],
+      "limitations": [
+        "Non-cannabis source organism; methods are transferable, compound-specific findings are not cannabis evidence."
+      ],
+      "provenance_status": "VERIFIED DOI PMCID",
+      "review_status": "reviewed"
     }
   ]
 }
