@@ -338,6 +338,44 @@
       "limitations": [
         "General natural-product workflow, not cannabis-specific evidence."
       ]
+    },
+    {
+      "study_id": "STUDY-GNPS-INFRASTRUCTURE",
+      "source_ids": [
+        "SRC-GNPS-MOLECULAR-NETWORKING",
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "title": "GNPS/MassIVE analytical infrastructure used by Kirk-associated botanical molecular networking",
+      "organizations": [
+        "University of California San Diego",
+        "University of Rhode Island"
+      ],
+      "investigators": [],
+      "objective": "Define a reproducible mass-spectrometry data path from open spectral files and metadata through molecular networking, spectral annotation, public dataset publication, and reanalysis.",
+      "study_design": "analytical_method",
+      "cannabis_scope": "general_method",
+      "human_subject_data": false,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "MS/MS files and associated sample metadata",
+      "repeated_measures": false,
+      "exposures_or_interventions": [],
+      "outcomes": [
+        "molecular networks",
+        "spectral-library matches",
+        "public/reanalyzable mass-spectrometry datasets"
+      ],
+      "methods": [
+        "mzML/mzXML/MGF inputs",
+        "GNPS molecular networking",
+        "MassIVE dataset publication/reanalysis"
+      ],
+      "data_availability": "GNPS supports importing public MassIVE datasets by accession; Kirk-associated botanical work reports MSV000088444.",
+      "limitations": [
+        "Computational/spectral similarity does not by itself prove molecular identity.",
+        "Cannabis deployment requires validated cannabis samples and standards."
+      ]
     }
   ]
 }
