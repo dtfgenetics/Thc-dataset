@@ -13,7 +13,7 @@ function pushRequired(errors, obj, fields, label) {
 
 function canonicalIdentifiers(source) {
   const ids = []
-  if (source.doi) ids.push(`doi:${String(source.doi).trim().toLowerCase().replace(/^https?:\\/\\/(dx\\.)?doi\\.org\\//,'')}`)
+  if (source.doi) ids.push(`doi:${String(source.doi).trim().toLowerCase().replace('https://doi.org/','').replace('http://doi.org/','').replace('https://dx.doi.org/','').replace('http://dx.doi.org/','')}`)
   if (source.pmid) ids.push(`pmid:${String(source.pmid).trim().toLowerCase()}`)
   if (source.canonical_url) {
     try {
