@@ -258,6 +258,86 @@
         "Full dataset had varying completion; analyses used smaller completion subsets.",
         "Observational self-report limits causal inference and generalizability."
       ]
+    },
+    {
+      "study_id": "STUDY-KIRK-BOTANICAL-MN-2022",
+      "source_ids": [
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "title": "Botanical LC-MS/MS molecular networking and authentication workflow",
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "investigators": [
+        "Riley D. Kirk",
+        "Matthew J. Bertin"
+      ],
+      "objective": "Apply LC-MS/MS molecular networking to profile botanical chemical space, annotate metabolites, and compare supplements with plant specimens.",
+      "study_design": "analytical_method",
+      "cannabis_scope": "general_method",
+      "human_subject_data": false,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "botanical extracts, specimens, and supplements",
+      "repeated_measures": false,
+      "exposures_or_interventions": [],
+      "outcomes": [
+        "metabolite annotations",
+        "chemical-space networks",
+        "specimen/supplement comparison"
+      ],
+      "methods": [
+        "LC-MS/MS",
+        "GNPS molecular networking",
+        "fractionation",
+        "spectral matching"
+      ],
+      "data_availability": "Article reports raw analysis files in MassIVE accession MSV000088444 and supplementary molecular-network/MS/MS material.",
+      "limitations": [
+        "Non-cannabis botanicals.",
+        "Spectral-library annotations can be putative and require orthogonal confirmation for definitive identity."
+      ]
+    },
+    {
+      "study_id": "STUDY-KIRK-PRISM-WORKFLOW",
+      "source_ids": [
+        "SRC-KIRK-PRISM-EDU-2021",
+        "SRC-KIRK-PRISM-MRSA-2022"
+      ],
+      "title": "PRISM botanical library workflow",
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "investigators": [
+        "Riley D. Kirk",
+        "Matthew J. Bertin"
+      ],
+      "objective": "Build and use a botanical natural-product library that connects specimen provenance, extraction/fractionation, screening, and follow-up isolation.",
+      "study_design": "analytical_method",
+      "cannabis_scope": "general_method",
+      "human_subject_data": false,
+      "participant_level_data_in_repo": false,
+      "direct_identifiers_present": false,
+      "causal_inference_allowed": false,
+      "population_or_specimen": "botanical specimens and derived extracts/fractions",
+      "repeated_measures": false,
+      "exposures_or_interventions": [],
+      "outcomes": [
+        "screening hits",
+        "compound isolation candidates",
+        "teaching/research library records"
+      ],
+      "methods": [
+        "specimen-linked extraction",
+        "library construction",
+        "bioassay screening",
+        "bioassay-guided isolation"
+      ],
+      "data_availability": "Workflow described in the educational paper; a later open-access ACS Omega study demonstrates screening use.",
+      "limitations": [
+        "General natural-product workflow, not cannabis-specific evidence."
+      ]
     }
   ]
 }
