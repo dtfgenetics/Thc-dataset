@@ -213,6 +213,42 @@
         "participant-level private data",
         "direct weight-training promotion"
       ]
+    },
+    {
+      "id": "GD-SYS-003",
+      "lane": "system",
+      "priority": "P0",
+      "status": "active",
+      "title": "Publish research evidence through the tool-data bundle",
+      "evidence_gap": "Reviewed research-evidence records are validated but not discoverable through the canonical tool-data bundle consumed by project applications.",
+      "dependencies": [
+        "GD-SYS-002",
+        "GD-RAG-001"
+      ],
+      "allowed_paths": [
+        "contributions/tasks.json",
+        "contributions/claims.json",
+        "contributions/routing-policy.json",
+        "scripts/build-tool-data-bundle.py",
+        "scripts/validate-tool-data-bundle.py",
+        "dataset/tool_data_bundle_spec_v1.json"
+      ],
+      "required_validators": [
+        "validate:tool-data-bundle-production",
+        "validate:bioinformatics-contracts",
+        "validate:grow-doc-contributions"
+      ],
+      "definition_of_done": [
+        "research_evidence is a supported tool-data artifact role",
+        "the canonical bundle spec includes the reviewed research claim artifact",
+        "bundle validation hashes the research evidence and enforces weight_training_eligible=false",
+        "existing bundle consumers remain compatible"
+      ],
+      "forbidden": [
+        "weight-training promotion",
+        "removing existing tool artifacts",
+        "bypassing hash validation"
+      ]
     }
   ]
 }
