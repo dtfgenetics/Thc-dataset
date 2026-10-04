@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Incremental Crop Ontology BrAPI ingestion with immutable raw snapshots."""
 import argparse, hashlib, json, pathlib, urllib.parse, urllib.request
-PARSER_VERSION="crop-ontology-brapi-v1.0.0"
+PARSER_VERSION="crop-ontology-brapi-v1.1.0"
 BASE="https://cropontology.org/brapi/v1"
 RIGHTS={"state":"metadata_reference","source_terms_url":"https://cropontology.org/","note":"Preserve upstream identifiers and attribution; downstream reuse must respect source terms."}
 def canon(v): return json.dumps(v,sort_keys=True,separators=(",",":"),ensure_ascii=False).encode()
@@ -16,7 +16,17 @@ def normalize(x,kind):
     ident=x.get(f"{kind}_id") or x.get(f"{kind}DbId") or x.get("observationVariableDbId") or x.get("variable_id")
     name=x.get(f"{kind}_name") or x.get(f"{kind}Name") or x.get("observationVariableName") or x.get("variable_name")
     if not ident or not name: return None
-    return {"upstream_id":str(ident),"record_type":kind,"name":str(name),"ontology_id":x.get("ontology_id") or x.get("ontologyDbId"),"ontology_name":x.get("ontology_name") or x.get("ontologyName"),"description":x.get(f"{kind}_description") or x.get("description"),"source":"Crop Ontology","provenance":{"api":BASE,"parser_version":PARSER_VERSION},"rights":RIGHTS}
+    record={"upstream_id":str(ident),"record_type":kind,"name":str(name),"ontology_id":x.get("ontology_id") or x.get("ontologyDbId"),"ontology_name":x.get("ontology_name") or x.get("ontologyName"),"description":x.get(f"{kind}_description") or x.get("description"),"source":"Crop Ontology","provenance":{"api":BASE,"parser_version":PARSER_VERSION},"rights":RIGHTS}
+    if kind=="variable":
+        trait=x.get("trait") if isinstance(x.get("trait"),dict) else {}
+        method=x.get("method") if isinstance(x.get("method"),dict) else {}
+        scale=x.get("scale") if isinstance(x.get("scale"),dict) else {}
+        record["components"]={
+            "trait":{"upstream_id":x.get("trait_id") or trait.get("traitDbId") or trait.get("id"),"name":x.get("trait_name") or trait.get("traitName") or trait.get("name")},
+            "method":{"upstream_id":x.get("method_id") or method.get("methodDbId") or method.get("id"),"name":x.get("method_name") or method.get("methodName") or method.get("name")},
+            "scale":{"upstream_id":x.get("scale_id") or scale.get("scaleDbId") or scale.get("id"),"name":x.get("scale_name") or scale.get("scaleName") or scale.get("name")},
+        }
+    return record
 def ingest(payload,kind):
     attempted=rows(payload); out=[]; quarantine=[]; seen=set(); deduped=0
     for x in attempted:
@@ -34,6 +44,12 @@ def self_test():
     n,q,m=ingest(p,"trait")
     assert m=={"attempted":3,"fetched":3,"normalized":1,"deduped":1,"quarantined":1,"published":1}
     assert n[0]["upstream_id"]=="CO_321:0000020" and len(q)==1
+    vp={"result":{"data":[{"variable_id":"CO_321:0001199","variable_name":"Plant height - Measurement - cm","trait_id":"CO_321:0000020","trait_name":"Plant height","method_id":"CO_321:0001001","method_name":"Measurement","scale_id":"CO_321:0002001","scale_name":"cm"}]}}
+    vn,vq,vm=ingest(vp,"variable")
+    assert vm["published"]==1 and not vq
+    assert vn[0]["components"]["trait"]["upstream_id"]=="CO_321:0000020"
+    assert vn[0]["components"]["method"]["upstream_id"]=="CO_321:0001001"
+    assert vn[0]["components"]["scale"]["upstream_id"]=="CO_321:0002001"
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("--ontology",default="CO_321"); ap.add_argument("--kind",choices=["trait","variable"],default="trait"); ap.add_argument("--out",type=pathlib.Path); ap.add_argument("--self-test",action="store_true"); a=ap.parse_args()
     if a.self_test: self_test(); print("crop ontology connector self-test: ok"); return
