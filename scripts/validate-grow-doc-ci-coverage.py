@@ -89,6 +89,10 @@ PACKAGE_EQUIVALENTS={
             "validate-plant-phenotyping-source-registry.py",
         ],
     },
+    "validate:crop-ontology-ingestion":{
+        "enforced_by":"validate:bioinformatics-contracts",
+        "needles":["ingest-crop-ontology.py --self-test"],
+    },
     "validate:pubchem-collector":{
         "enforced_by":"validate:bioinformatics-contracts",
         "needles":["collect-pubchem-compound.py --self-test"],
