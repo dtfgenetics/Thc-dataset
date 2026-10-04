@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       ontology:
-        description: Crop Ontology ID
+        description: Crop Ontology variable or ontology ID
         required: true
-        default: CO_321
+        default: CO_321:0001199
       kind:
         description: Record type
         required: true
