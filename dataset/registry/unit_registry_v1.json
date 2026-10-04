@@ -1,0 +1,53 @@
+{
+  "schema_version": "thc-unit-registry-v1",
+  "upstream": {
+    "name": "QUDT",
+    "version": "3.5.2",
+    "license": "CC BY 4.0",
+    "canonical_url": "https://qudt.org/",
+    "retrieved": "2026-10-04"
+  },
+  "policy": {
+    "curated_subset": true,
+    "preserve_original_unit": true,
+    "fail_closed_unknown_unit": true,
+    "ppm_requires_explicit_display_factor": true
+  },
+  "units": [
+    {
+      "unit_id": "degC",
+      "label": "degree Celsius",
+      "symbol": "°C",
+      "qudt_iri": "http://qudt.org/vocab/unit/DEG_C",
+      "quantity_kind": "Temperature"
+    },
+    {
+      "unit_id": "umol/m2/s",
+      "label": "micromole per square metre second",
+      "symbol": "µmol·m⁻²·s⁻¹",
+      "qudt_iri": "http://qudt.org/vocab/unit/MicroMOL-PER-M2-SEC",
+      "quantity_kind": "photosynthetic photon flux density"
+    },
+    {
+      "unit_id": "uS/cm",
+      "label": "microsiemens per centimetre",
+      "symbol": "µS/cm",
+      "qudt_iri": "http://qudt.org/vocab/unit/MicroS-PER-CentiM",
+      "quantity_kind": "conductivity"
+    },
+    {
+      "unit_id": "h",
+      "label": "hour",
+      "symbol": "h",
+      "qudt_iri": "http://qudt.org/vocab/unit/HR",
+      "quantity_kind": "Time"
+    },
+    {
+      "unit_id": "mol/m2/day",
+      "label": "mole per square metre day",
+      "symbol": "mol·m⁻²·d⁻¹",
+      "qudt_iri": "http://qudt.org/vocab/unit/MOL-PER-M2-DAY",
+      "quantity_kind": "amount per area per day"
+    }
+  ]
+}
