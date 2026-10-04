@@ -1,0 +1,38 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "gd-sys-002-eec97bc95be1",
+  "task_id": "GD-SYS-002",
+  "lane": "system",
+  "base_commit": "5df45e77251a4a5bb803d76c51e25ace5dbff9ec",
+  "head_commit": "eec97bc95be1e86b61c0967b7d00c4191963e70a",
+  "branch": "work/grow-doc/GD-SYS-002/riley-kirk-20261004",
+  "changed_paths": [
+    ".github/workflows/ci.yml",
+    "contributions/claims.json",
+    "contributions/routing-policy.json",
+    "contributions/tasks.json",
+    "dataset/schema/research-claim.schema.json",
+    "dataset/schema/research-source.schema.json",
+    "dataset/schema/research-study.schema.json",
+    "docs/research-evidence/KIRK_NAP_SOURCE_NOTES.md",
+    "package.json",
+    "scripts/test-research-evidence-validator.mjs",
+    "scripts/validate-grow-doc-ci-coverage.py",
+    "scripts/validate-research-evidence.mjs"
+  ],
+  "source_ids": [],
+  "validation": {
+    "required": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims",
+      "validate:research-evidence"
+    ],
+    "completed": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims",
+      "validate:research-evidence"
+    ]
+  },
+  "training_eligible": false,
+  "weight_training_eligible": false
+}
