@@ -101,8 +101,7 @@ def main() -> int:
     payload = json.loads(raw)
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
     out = normalize(payload, args.cid, retrieved_at=retrieved_at, source_sha256=sha256(raw))
-    encoded = (json.dumps(out, indent=2, sort_keys=True) + "
-").encode()
+    encoded = (json.dumps(out, indent=2, sort_keys=True) + "\\n").encode()
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(encoded)
