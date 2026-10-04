@@ -2,6 +2,11 @@ name: PubChem seed identity sync
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "scripts/ingest-pubchem-seed-registry.py"
+      - "dataset/sources/pubchem_chemistry_registry_v1.json"
+      - ".github/workflows/pubchem-seed-sync.yml"
   schedule:
     - cron: "41 5 * * 1"
 
