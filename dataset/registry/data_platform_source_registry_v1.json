@@ -1,0 +1,50 @@
+{
+  "schema_version": "thc-data-platform-source-registry-v1",
+  "sources": [
+    {
+      "source_id": "qudt_3_5_2",
+      "organization": "QUDT.org",
+      "title": "QUDT Quantities, Units, Dimensions and Types Ontologies",
+      "source_type": "community_unit_ontology",
+      "canonical_url": "https://qudt.org/",
+      "version": "3.5.2",
+      "retrieved": "2026-10-04",
+      "license": "CC BY 4.0",
+      "scope": [
+        "units",
+        "quantity_kinds",
+        "dimensions",
+        "conversion_semantics"
+      ],
+      "notes": "Curated subset only. Attribution/version retained on local unit registry."
+    },
+    {
+      "source_id": "formula-definition-dli-photon-integration",
+      "organization": "DTF Genetics",
+      "title": "DLI arithmetic integration definition",
+      "source_type": "derived_formula_definition",
+      "canonical_url": "internal:formula-registry",
+      "version": "1.0.0",
+      "retrieved": "2026-10-04",
+      "license": "project_internal",
+      "scope": [
+        "DLI arithmetic"
+      ],
+      "notes": "Arithmetic identity from photon flux integrated over time; not a biological target or recommendation."
+    },
+    {
+      "source_id": "formula-definition-tds-display-conversion",
+      "organization": "DTF Genetics",
+      "title": "EC to meter-display TDS conversion definition",
+      "source_type": "derived_formula_definition",
+      "canonical_url": "internal:formula-registry",
+      "version": "1.0.0",
+      "retrieved": "2026-10-04",
+      "license": "project_internal",
+      "scope": [
+        "EC/TDS display conversion"
+      ],
+      "notes": "Requires explicit meter/display factor. EC remains the underlying measured conductivity."
+    }
+  ]
+}
