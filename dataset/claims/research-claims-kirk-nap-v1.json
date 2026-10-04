@@ -1,0 +1,208 @@
+{
+  "schema_version": "research-claims-v1",
+  "generated_at": "2026-10-04",
+  "claims": [
+    {
+      "claim_id": "CLAIM-RDP-QUICKLOG-FIELDS",
+      "source_ids": [
+        "SRC-RDP-REAL-DATA-PROJECT"
+      ],
+      "study_ids": [
+        "STUDY-RDP-RDUB"
+      ],
+      "text": "R-Dub QuickLog is designed to track the product used, dose, method of use, intended purpose, effects, and changes across repeated experiences over time.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "mixed",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is project methodology from the public Real Data Project page, not an efficacy finding."
+      ],
+      "citation_locator": "Real World Data Exchange (R-Dub) Platform > QuickLog Your Experiences",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-MB-BEVERAGE-SCALE",
+      "source_ids": [
+        "SRC-MB-FUNCTIONAL-BEVERAGE"
+      ],
+      "study_ids": [
+        "STUDY-MB-BEVERAGE-RWE"
+      ],
+      "text": "The MoreBetter Functional Beverage Study public page reports 4,873 verified participants, 58,000+ logged use sessions, 39 products, and 26 brands over a 22-day study period.",
+      "evidence_tier": "R3-longitudinal-observational",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "beverage_education",
+        "research_dashboard",
+        "academy"
+      ],
+      "limitations": [
+        "Counts are taken from the project company's public study page; the underlying participant-level dataset is not stored here."
+      ],
+      "citation_locator": "Functional Beverage Study public landing page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE1-DESIGN",
+      "source_ids": [
+        "SRC-SOS-PHASE1-PROJECT",
+        "SRC-SOS-PHASE1-RESULTS-2025"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE1-WATER-ACTIVITY"
+      ],
+      "text": "Science of Smokability Phase I compared cannabis flower at 0.45, 0.65, and 0.85 water activity and evaluated chemical composition together with smoking-quality or sensory measures.",
+      "evidence_tier": "R2-controlled-association",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "dry_cure",
+        "encyclopedia",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The study is a controlled post-harvest experiment, not a clinical trial."
+      ],
+      "citation_locator": "Study introduction/method description and Phase I project page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE1-RESULTS",
+      "source_ids": [
+        "SRC-SOS-PHASE1-RESULTS-2025"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE1-WATER-ACTIVITY"
+      ],
+      "text": "The Phase I report states that 0.65 aW flower produced the highest terpene content, 0.85 aW reduced measured cannabinoid levels, and sensory panelists reported more irritation with the drier 0.45 aW condition.",
+      "evidence_tier": "R2-controlled-association",
+      "inference": "association",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "dry_cure",
+        "encyclopedia",
+        "academy"
+      ],
+      "limitations": [
+        "Results apply to the study materials and conditions; they should not be treated as a universal curing target without replication across cultivars and processes."
+      ],
+      "citation_locator": "Cannabis Science and Technology 2025;8(2):10-19 key results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE2-NO-RESULTS",
+      "source_ids": [
+        "SRC-SOS-PHASE2-PROJECT"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE2-NUTRIENTS-FLUSHING"
+      ],
+      "text": "The public Science of Smokability Phase II page describes a planned study of nutrients and flushing; this registry does not treat the project page itself as evidence of an outcome.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "context",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "dry_cure",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "Protocol/project metadata only; outcome claims require a verified results publication."
+      ],
+      "citation_locator": "Science of Smokability Phase II project page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-CHS-SURVEY-SAMPLE",
+      "source_ids": [
+        "SRC-CHS-SURVEY-2026"
+      ],
+      "study_ids": [
+        "STUDY-CHS-SURVEY-2026"
+      ],
+      "text": "The 2026 CHS survey included 1,134 participants in its final analysis and collected anonymous self-reported cannabis-consumption patterns and CHS-related symptoms from respondents recruited through CHS-focused online communities.",
+      "evidence_tier": "R5-case-series-survey",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "encyclopedia",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The self-selected, self-reported survey design limits generalizability and does not establish causation."
+      ],
+      "citation_locator": "PubMed abstract Materials and methods / Results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-CHS-SURVEY-PATTERN",
+      "source_ids": [
+        "SRC-CHS-SURVEY-2026"
+      ],
+      "study_ids": [
+        "STUDY-CHS-SURVEY-2026"
+      ],
+      "text": "In the CHS survey sample, 96.5% reported using cannabis at least daily around the relevant period, and 45% reported using it six or more times per day around symptom development.",
+      "evidence_tier": "R5-case-series-survey",
+      "inference": "association",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "encyclopedia",
+        "academy"
+      ],
+      "limitations": [
+        "These percentages describe a CHS-focused convenience sample and must not be interpreted as risk estimates for cannabis users generally."
+      ],
+      "citation_locator": "PubMed abstract Results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KRATOM-RWE-METHOD",
+      "source_ids": [
+        "SRC-KRATOM-RWE-2026"
+      ],
+      "study_ids": [
+        "STUDY-KRATOM-RWE-2026"
+      ],
+      "text": "The 2026 Mitragyna speciosa study used a 7-day baseline followed by 14 days of daily observational reporting, with self-selected and self-reported dose and repeated structured questionnaires; this is a reusable longitudinal RWE method pattern, not cannabis efficacy evidence.",
+      "evidence_tier": "R3-longitudinal-observational",
+      "inference": "methodological",
+      "cannabis_scope": "transferable_non_cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The study organism/product is kratom, not cannabis; only the longitudinal methodology is transferable."
+      ],
+      "citation_locator": "Frontiers in Pharmacology Methods, participant reporting design",
+      "review_status": "reviewed"
+    }
+  ]
+}
