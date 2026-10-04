@@ -1,0 +1,45 @@
+name: PubChem seed identity sync
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "41 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Deterministic ingestion test
+        run: python3 scripts/ingest-pubchem-seed-registry.py --self-test
+      - name: Fetch official PubChem seed snapshot
+        run: python3 scripts/ingest-pubchem-seed-registry.py --out artifacts/pubchem/pubchem_seed_snapshot_v1.json
+      - name: Validate funnel and identity contract
+        run: |
+          python3 - <<'PY'
+          import json
+          p="artifacts/pubchem/pubchem_seed_snapshot_v1.json"
+          d=json.load(open(p))
+          m=d["metrics"]
+          assert m["attempted"] == 15
+          assert m["fetched"] >= m["published"]
+          assert m["normalized"] == m["published"] == len(d["records"])
+          assert m["quarantined"] == len(d["quarantine"])
+          assert all(r["cid"] > 0 and r["inchikey"] and r["biological_claims"] is False for r in d["records"])
+          assert len(d["source"]["property_raw_sha256"]) == 64
+          assert len(d["source"]["synonym_raw_sha256"]) == 64
+          print("PubChem snapshot validation: PASS", m)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pubchem-seed-snapshot
+          path: artifacts/pubchem/pubchem_seed_snapshot_v1.json
+          if-no-files-found: error
+          retention-days: 14
