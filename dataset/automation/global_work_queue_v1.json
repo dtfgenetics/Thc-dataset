@@ -14,7 +14,7 @@
       "title": "Scientific observation and formula contracts",
       "worker": "consumer-integration",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "in_progress",
+      "status": "done",
       "dependencies": [],
       "priority_inputs": {
         "products_unlocked": 5,
@@ -30,12 +30,12 @@
         "Exact-head CI green"
       ],
       "checkpoint": {
-        "last_verified_sha": "af93414e1f604753fd92cb73872bf33548cf4303",
+        "last_verified_sha": "bdcb1b5abed106a145af7e9d2c77b47a024e230d",
         "cursor": null,
         "upstream_version": "QUDT 3.5.2",
-        "branch": "data-platform/scientific-contract-v1",
+        "branch": "main",
         "pr_number": 414,
-        "next_action": "Wait for exact-head PR #414 CI; repair if needed; merge only when green."
+        "next_action": "Merged via PR #414; dependency satisfied."
       },
       "blocker": {
         "fingerprint": null,
@@ -53,7 +53,7 @@
       "title": "Crop Ontology trait-method-scale connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "ready",
+      "status": "done",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -71,19 +71,28 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
-        "cursor": null,
-        "upstream_version": null,
-        "branch": null,
-        "pr_number": null,
-        "next_action": "Inspect official API and existing trait registry; implement bounded first sync."
+        "last_verified_sha": "cadbc210a218cc5c7dfa7c55e9f9b28daedc985b",
+        "cursor": "bounded-reference-variable:CO_321:0001199",
+        "upstream_version": "Crop Ontology BrAPI v1; CC BY 4.0; no Cannabis crop code in current official Crop Codes",
+        "branch": "ingestion/crop-ontology-v1",
+        "pr_number": 416,
+        "next_action": "Connector qualified and CI-green. Domain publication is intentionally gated until an official Cannabis ontology/mapping or separately reviewed species-neutral mapping is available."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
-        "fallback_action": null
+        "fallback_action": "Use Crop Ontology only as an interoperability/identity reference; do not publish Wheat-specific biology as Cannabis data."
       },
-      "metrics": {}
+      "metrics": {
+        "attempted": 1,
+        "fetched": 0,
+        "normalized": 0,
+        "deduped": 0,
+        "quarantined": 1,
+        "published": 0,
+        "connector_self_tests": 2,
+        "exact_head_workflows_green": 7
+      }
     },
     {
       "work_item_id": "THC-INGEST-002",
