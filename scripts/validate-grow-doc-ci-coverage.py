@@ -93,7 +93,7 @@ PACKAGE_EQUIVALENTS={
         "enforced_by":"validate:bioinformatics-contracts",
         "needles":["npm run validate:crop-ontology-ingestion"],
     },
-    "validate:pubchem-collector":{
+    "validate:pubchem-seed-ingestion":{\n        "enforced_by":"validate:bioinformatics-contracts",\n        "needles":["npm run validate:pubchem-seed-ingestion"],\n    },\n    "validate:pubchem-collector":{
         "enforced_by":"validate:bioinformatics-contracts",
         "needles":["collect-pubchem-compound.py --self-test"],
     },
