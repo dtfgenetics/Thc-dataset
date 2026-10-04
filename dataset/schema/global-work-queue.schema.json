@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DTF Global Work Queue v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "scoring",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "dtf-global-work-queue-v1"
+    },
+    "scoring": {
+      "type": "object",
+      "required": [
+        "formula"
+      ],
+      "properties": {
+        "formula": {
+          "const": "(products_unlocked * severity * evidence_readiness * expected_coverage_gain) / estimated_effort"
+        }
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "work_item_id",
+          "title",
+          "worker",
+          "canonical_owner",
+          "status",
+          "priority_inputs",
+          "acceptance_criteria",
+          "checkpoint",
+          "blocker"
+        ],
+        "properties": {
+          "work_item_id": {
+            "type": "string",
+            "pattern": "^THC-[A-Z]+-[0-9]{3,}$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "worker": {
+            "enum": [
+              "coordinator",
+              "ingestion",
+              "evidence-review",
+              "content",
+              "consumer-integration",
+              "ci-release"
+            ]
+          },
+          "canonical_owner": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "ready",
+              "claimed",
+              "in_progress",
+              "blocked",
+              "review",
+              "done"
+            ]
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "priority_inputs": {
+            "type": "object",
+            "required": [
+              "products_unlocked",
+              "severity",
+              "evidence_readiness",
+              "expected_coverage_gain",
+              "estimated_effort"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "products_unlocked": {
+                "type": "number",
+                "minimum": 0
+              },
+              "severity": {
+                "type": "number",
+                "minimum": 0
+              },
+              "evidence_readiness": {
+                "type": "number",
+                "minimum": 0
+              },
+              "expected_coverage_gain": {
+                "type": "number",
+                "minimum": 0
+              },
+              "estimated_effort": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              }
+            }
+          },
+          "acceptance_criteria": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          },
+          "checkpoint": {
+            "type": "object",
+            "required": [
+              "last_verified_sha",
+              "next_action"
+            ],
+            "properties": {
+              "last_verified_sha": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cursor": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "upstream_version": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "branch": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "pr_number": {
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "next_action": {
+                "type": "string"
+              }
+            }
+          },
+          "blocker": {
+            "type": "object",
+            "required": [
+              "fingerprint",
+              "blocked_until",
+              "fallback_action"
+            ],
+            "properties": {
+              "fingerprint": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "blocked_until": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "fallback_action": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "metrics": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "number"
+            }
+          }
+        }
+      }
+    }
+  }
+}
