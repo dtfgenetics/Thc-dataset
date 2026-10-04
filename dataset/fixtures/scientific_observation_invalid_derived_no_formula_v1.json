@@ -1,0 +1,9 @@
+{
+  "observation_id": "OBS-invalid-derived-no-formula",
+  "subject": {"subject_type": "zone", "subject_id": "ZONE-1"},
+  "observed_property": {"property_id": "vpd", "label": "VPD"},
+  "method": {"method_id": "derived", "label": "Derived calculation"},
+  "measurement": {"original_value": 1.2, "original_unit": "kPa", "derived": true},
+  "provenance": {"source_type": "derived", "source_id": "calculator"},
+  "review_state": "staged"
+}
