@@ -12,6 +12,7 @@ on:
         required: true
         type: choice
         options: [variable, trait]
+        default: variable
   schedule:
     - cron: "17 5 * * 1"
 
