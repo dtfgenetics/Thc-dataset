@@ -53,7 +53,7 @@
       "title": "Crop Ontology trait-method-scale connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "in_progress",
+      "status": "blocked",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -71,19 +71,26 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
+        "last_verified_sha": "07568ff161a44dbca71797d83f908608821dd902",
         "cursor": null,
-        "upstream_version": null,
+        "upstream_version": "official Crop Ontology BrAPI v1 endpoint",
         "branch": "ingestion/crop-ontology-v1",
-        "pr_number": null,
-        "next_action": "Implement bounded first sync against official Crop Ontology BrAPI; preserve raw snapshot hash, upstream IDs, parser version, provenance, rights state, dedup/quarantine metrics, and deterministic fixture."
+        "pr_number": 416,
+        "next_action": "After blocked_until, execute scripts/ingest-crop-ontology.py against official BrAPI on a network-enabled runner, commit bounded snapshot, record raw SHA/upstream header/funnel metrics, then rerun deterministic CI."
       },
       "blocker": {
-        "fingerprint": null,
-        "blocked_until": null,
-        "fallback_action": null
+        "fingerprint": "official-api-live-fetch-denied-by-current-execution-safety-layer",
+        "blocked_until": "2026-10-04T04:30:00Z",
+        "fallback_action": "Use repository CI/network-enabled runner for the official BrAPI sync; do not substitute scraped or inferred ontology records."
       },
-      "metrics": {}
+      "metrics": {
+        "attempted": 0,
+        "fetched": 0,
+        "normalized": 0,
+        "deduped": 0,
+        "quarantined": 0,
+        "published": 0
+      }
     },
     {
       "work_item_id": "THC-INGEST-002",
