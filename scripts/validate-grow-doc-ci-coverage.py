@@ -91,7 +91,7 @@ PACKAGE_EQUIVALENTS={
     },
     "validate:crop-ontology-ingestion":{
         "enforced_by":"validate:bioinformatics-contracts",
-        "needles":["ingest-crop-ontology.py --self-test"],
+        "needles":["npm run validate:crop-ontology-ingestion"],
     },
     "validate:pubchem-collector":{
         "enforced_by":"validate:bioinformatics-contracts",
