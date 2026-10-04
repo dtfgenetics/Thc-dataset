@@ -9,6 +9,7 @@ import argparse, hashlib, json, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+PARSER_VERSION = "pubchem-pug-rest-v2.0.0"
 PROPERTIES = "Title,MolecularFormula,MolecularWeight,CanonicalSMILES,IsomericSMILES,InChI,InChIKey,IUPACName"
 
 def sha256(raw: bytes) -> str:
@@ -23,6 +24,7 @@ def normalize(payload: dict, cid: int, *, retrieved_at: str, source_sha256: str)
         raise ValueError(f"response CID {row.get('CID')} does not match requested CID {cid}")
     return {
         "schema_version": "grow-doc-pubchem-compound-normalized-v1",
+        "parser_version": PARSER_VERSION,
         "compound_id": f"pubchem:{cid}",
         "provider": "PubChem",
         "provider_id": str(cid),
@@ -43,6 +45,17 @@ def normalize(payload: dict, cid: int, *, retrieved_at: str, source_sha256: str)
         "heldout_eligible": False,
     }
 
+def normalize_synonyms(payload: dict, cid: int) -> list[str]:
+    infos = (((payload or {}).get("InformationList") or {}).get("Information") or [])
+    if len(infos) != 1 or int(infos[0].get("CID", 0)) != cid:
+        raise ValueError(f"invalid synonym response for CID {cid}")
+    return sorted({str(v).strip() for v in infos[0].get("Synonym", []) if str(v).strip()}, key=str.casefold)
+
+def fetch_url(url: str) -> bytes:
+    req = urllib.request.Request(url, headers={"Accept":"application/json","User-Agent":"DTF-THC-Grow-Doc/2.0"})
+    with urllib.request.urlopen(req, timeout=30) as response:
+        return response.read()
+
 def fetch(cid: int) -> bytes:
     url = f"https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/{cid}/property/{PROPERTIES}/JSON"
     req = urllib.request.Request(url, headers={"User-Agent": "DTF-THC-Grow-Doc/1.0"})
@@ -60,6 +73,9 @@ def self_test() -> None:
     assert out["compound_id"] == "pubchem:16078"
     assert out["molecular_formula"] == "C21H30O2"
     assert out["weight_training_eligible"] is False
+    assert out["parser_version"] == PARSER_VERSION
+    syn = normalize_synonyms({"InformationList":{"Information":[{"CID":16078,"Synonym":["THC","delta9-THC","THC"]}]}},16078)
+    assert syn == ["delta9-THC","THC"]
     try:
         normalize(payload, 644019, retrieved_at="x", source_sha256="y")
         raise AssertionError("CID mismatch was not rejected")
@@ -85,7 +101,7 @@ def main() -> int:
     payload = json.loads(raw)
     retrieved_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00","Z")
     out = normalize(payload, args.cid, retrieved_at=retrieved_at, source_sha256=sha256(raw))
-    encoded = (json.dumps(out, indent=2, sort_keys=True) + "\n").encode()
+    encoded = (json.dumps(out, indent=2, sort_keys=True) + "\\n").encode()
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(encoded)

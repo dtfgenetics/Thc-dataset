@@ -51,7 +51,7 @@
     "validate:claim-relationships": "python3 scripts/validate-claim-relationships.py && python3 scripts/validate-claim-relationships.py --self-test",
     "validate:external-source-registries": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py && python3 scripts/validate-plant-phenotyping-source-registry.py",
     "validate:pubchem-collector": "python3 scripts/collect-pubchem-compound.py --self-test",
-    "validate:bioinformatics-contracts": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py && python3 scripts/validate-plant-phenotyping-source-registry.py && python3 scripts/collect-pubchem-compound.py --self-test && python3 scripts/normalize-usda-grin-germplasm.py --self-test && python3 scripts/export-brapi-germplasm.py --self-test && python3 scripts/test-grin-to-brapi-contract.py && python3 scripts/resolve-trait-ontology-units.py --self-test && python3 scripts/normalize-phenotype-observations.py --self-test && python3 scripts/build-tool-source-catalog.py --self-test && python3 scripts/build-chemistry-catalog.py --self-test && python3 scripts/validate-tool-data-bundle.py --self-test && npm run validate:crop-ontology-ingestion",
+    "validate:bioinformatics-contracts": "python3 scripts/validate-cornell-bioinformatics-registry.py && python3 scripts/validate-pubchem-chemistry-registry.py && python3 scripts/validate-plant-phenotyping-source-registry.py && python3 scripts/collect-pubchem-compound.py --self-test && python3 scripts/normalize-usda-grin-germplasm.py --self-test && python3 scripts/export-brapi-germplasm.py --self-test && python3 scripts/test-grin-to-brapi-contract.py && python3 scripts/resolve-trait-ontology-units.py --self-test && python3 scripts/normalize-phenotype-observations.py --self-test && python3 scripts/build-tool-source-catalog.py --self-test && python3 scripts/build-chemistry-catalog.py --self-test && python3 scripts/validate-tool-data-bundle.py --self-test && npm run validate:crop-ontology-ingestion && npm run validate:pubchem-seed-ingestion",
     "build:chemistry-catalog": "python3 scripts/build-chemistry-catalog.py --registry dataset/sources/pubchem_chemistry_registry_v1.json --output dataset/generated/tool_data/chemistry_catalog_v1.json",
     "validate:tool-data-bundle-production": "python3 scripts/build-tool-data-bundle.py --root . --spec dataset/tool_data_bundle_spec_v1.json --output /tmp/tool_data_bundle_v1.json && python3 scripts/validate-tool-data-bundle.py --root . --manifest /tmp/tool_data_bundle_v1.json",
     "validate:training-supervision-concentration": "python3 scripts/audit-training-supervision-concentration.py --self-test && python3 scripts/audit-training-supervision-concentration.py",
@@ -72,7 +72,8 @@
     "validate:model-deploy-contract": "python3 scripts/validate-grow-doc-deploy-contract.py --self-test && python3 scripts/validate-grow-doc-deploy-contract.py",
     "validate:model-vision-source-candidates": "python3 scripts/validate-grow-doc-vision-source-candidates.py --self-test && python3 scripts/validate-grow-doc-vision-source-candidates.py",
     "validate:model-vision-admission-review": "python3 scripts/build-grow-doc-vision-admission-review.py --self-test --check",
-    "validate:crop-ontology-ingestion": "python3 scripts/ingest-crop-ontology.py --self-test"
+    "validate:crop-ontology-ingestion": "python3 scripts/ingest-crop-ontology.py --self-test",
+    "validate:pubchem-seed-ingestion": "python3 scripts/ingest-pubchem-seed-registry.py --self-test"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",

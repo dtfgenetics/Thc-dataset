@@ -99,7 +99,7 @@
       "title": "PubChem chemical identity connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "ready",
+      "status": "in_progress",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -117,19 +117,26 @@
         "Deterministic tests and ingestion metrics"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
-        "cursor": null,
-        "upstream_version": null,
-        "branch": null,
+        "last_verified_sha": "b467d14e1a528a9c1361691125e5e172130321ab",
+        "cursor": "seed-registry:15-cids",
+        "upstream_version": "PubChem PUG REST specification updated 2026-09-15; parser pubchem-seed-registry-v1.0.0",
+        "branch": "ingestion/pubchem-v1",
         "pr_number": null,
-        "next_action": "Seed connector with canonical terpene/cannabinoid identity list and official PUG REST."
+        "next_action": "Run exact-head CI, then repository PubChem seed sync; validate artifact hashes and real funnel metrics; persist checkpoint and complete item."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
         "fallback_action": null
       },
-      "metrics": {}
+      "metrics": {
+        "attempted": 0,
+        "fetched": 0,
+        "normalized": 0,
+        "deduped": 0,
+        "quarantined": 0,
+        "published": 0
+      }
     },
     {
       "work_item_id": "THC-CONSUME-001",
