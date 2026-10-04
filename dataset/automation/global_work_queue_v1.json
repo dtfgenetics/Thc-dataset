@@ -14,7 +14,7 @@
       "title": "Scientific observation and formula contracts",
       "worker": "consumer-integration",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "in_progress",
+      "status": "done",
       "dependencies": [],
       "priority_inputs": {
         "products_unlocked": 5,
@@ -30,12 +30,12 @@
         "Exact-head CI green"
       ],
       "checkpoint": {
-        "last_verified_sha": "af93414e1f604753fd92cb73872bf33548cf4303",
+        "last_verified_sha": "bdcb1b5abed106a145af7e9d2c77b47a024e230d",
         "cursor": null,
         "upstream_version": "QUDT 3.5.2",
-        "branch": "data-platform/scientific-contract-v1",
+        "branch": "main",
         "pr_number": 414,
-        "next_action": "Wait for exact-head PR #414 CI; repair if needed; merge only when green."
+        "next_action": "Merged via PR #414; dependency satisfied."
       },
       "blocker": {
         "fingerprint": null,
@@ -53,7 +53,7 @@
       "title": "Crop Ontology trait-method-scale connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "ready",
+      "status": "in_progress",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -74,9 +74,9 @@
         "last_verified_sha": null,
         "cursor": null,
         "upstream_version": null,
-        "branch": null,
+        "branch": "ingestion/crop-ontology-v1",
         "pr_number": null,
-        "next_action": "Inspect official API and existing trait registry; implement bounded first sync."
+        "next_action": "Implement bounded first sync against official Crop Ontology BrAPI; preserve raw snapshot hash, upstream IDs, parser version, provenance, rights state, dedup/quarantine metrics, and deterministic fixture."
       },
       "blocker": {
         "fingerprint": null,
