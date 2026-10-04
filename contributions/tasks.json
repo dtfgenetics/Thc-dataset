@@ -191,7 +191,8 @@
         "scripts/validate-research-evidence.mjs",
         "scripts/test-research-evidence-validator.mjs",
         "package.json",
-        "docs/research-evidence/"
+        "docs/research-evidence/",
+        ".github/workflows/ci.yml"
       ],
       "required_validators": [
         "validate:research-evidence",
