@@ -193,7 +193,9 @@
         "package.json",
         "docs/research-evidence/",
         ".github/workflows/ci.yml",
-        "contributions/routing-policy.json"
+        "contributions/routing-policy.json",
+        "contributions/tasks.json",
+        "contributions/claims.json"
       ],
       "required_validators": [
         "validate:research-evidence",
