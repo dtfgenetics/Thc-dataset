@@ -1,0 +1,200 @@
+{
+  "schema_version": "dtf-global-work-queue-v1",
+  "scoring": {
+    "formula": "(products_unlocked * severity * evidence_readiness * expected_coverage_gain) / estimated_effort",
+    "tie_breakers": [
+      "dependency_unblock_count",
+      "oldest_ready_item",
+      "lexical_work_item_id"
+    ]
+  },
+  "items": [
+    {
+      "work_item_id": "THC-DATA-001",
+      "title": "Scientific observation and formula contracts",
+      "worker": "consumer-integration",
+      "canonical_owner": "dtfgenetics/Thc-dataset",
+      "status": "in_progress",
+      "dependencies": [],
+      "priority_inputs": {
+        "products_unlocked": 5,
+        "severity": 5,
+        "evidence_readiness": 5,
+        "expected_coverage_gain": 5,
+        "estimated_effort": 2
+      },
+      "acceptance_criteria": [
+        "Observation schema validates",
+        "Formula registry validates",
+        "Curated unit/source registries validate",
+        "Exact-head CI green"
+      ],
+      "checkpoint": {
+        "last_verified_sha": "af93414e1f604753fd92cb73872bf33548cf4303",
+        "cursor": null,
+        "upstream_version": "QUDT 3.5.2",
+        "branch": "data-platform/scientific-contract-v1",
+        "pr_number": 414,
+        "next_action": "Wait for exact-head PR #414 CI; repair if needed; merge only when green."
+      },
+      "blocker": {
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": null
+      },
+      "metrics": {
+        "contracts": 2,
+        "formulas": 2,
+        "curated_units": 5
+      }
+    },
+    {
+      "work_item_id": "THC-INGEST-001",
+      "title": "Crop Ontology trait-method-scale connector",
+      "worker": "ingestion",
+      "canonical_owner": "dtfgenetics/Thc-dataset",
+      "status": "ready",
+      "dependencies": [
+        "THC-DATA-001"
+      ],
+      "priority_inputs": {
+        "products_unlocked": 4,
+        "severity": 4,
+        "evidence_readiness": 4,
+        "expected_coverage_gain": 5,
+        "estimated_effort": 3
+      },
+      "acceptance_criteria": [
+        "Incremental connector has stable upstream checkpoint",
+        "Normalized trait/method/scale records retain upstream IDs",
+        "Dedup/quarantine metrics emitted",
+        "Deterministic fixture validates"
+      ],
+      "checkpoint": {
+        "last_verified_sha": null,
+        "cursor": null,
+        "upstream_version": null,
+        "branch": null,
+        "pr_number": null,
+        "next_action": "Inspect official API and existing trait registry; implement bounded first sync."
+      },
+      "blocker": {
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": null
+      },
+      "metrics": {}
+    },
+    {
+      "work_item_id": "THC-INGEST-002",
+      "title": "PubChem chemical identity connector",
+      "worker": "ingestion",
+      "canonical_owner": "dtfgenetics/Thc-dataset",
+      "status": "ready",
+      "dependencies": [
+        "THC-DATA-001"
+      ],
+      "priority_inputs": {
+        "products_unlocked": 2,
+        "severity": 4,
+        "evidence_readiness": 5,
+        "expected_coverage_gain": 5,
+        "estimated_effort": 2
+      },
+      "acceptance_criteria": [
+        "Stable CID-based identities",
+        "Synonyms/properties normalized without biological claims",
+        "Snapshot/parser version recorded",
+        "Deterministic tests and ingestion metrics"
+      ],
+      "checkpoint": {
+        "last_verified_sha": null,
+        "cursor": null,
+        "upstream_version": null,
+        "branch": null,
+        "pr_number": null,
+        "next_action": "Seed connector with canonical terpene/cannabinoid identity list and official PUG REST."
+      },
+      "blocker": {
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": null
+      },
+      "metrics": {}
+    },
+    {
+      "work_item_id": "THC-CONSUME-001",
+      "title": "GrowLens observation contract adoption",
+      "worker": "consumer-integration",
+      "canonical_owner": "dtfgenetics/Thc",
+      "status": "ready",
+      "dependencies": [
+        "THC-DATA-001"
+      ],
+      "priority_inputs": {
+        "products_unlocked": 3,
+        "severity": 5,
+        "evidence_readiness": 4,
+        "expected_coverage_gain": 5,
+        "estimated_effort": 3
+      },
+      "acceptance_criteria": [
+        "Producer contract version/hash pinned",
+        "GrowLens emits valid observation fixture",
+        "Measured vs derived values distinguished",
+        "Compatibility test passes"
+      ],
+      "checkpoint": {
+        "last_verified_sha": null,
+        "cursor": null,
+        "upstream_version": null,
+        "branch": null,
+        "pr_number": null,
+        "next_action": "After contract merge, inspect GrowLens event/storage boundary and add adapter."
+      },
+      "blocker": {
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": null
+      },
+      "metrics": {}
+    },
+    {
+      "work_item_id": "THC-TOOLS-001",
+      "title": "Central formula registry consumer adoption",
+      "worker": "consumer-integration",
+      "canonical_owner": "dtfgenetics/Tools",
+      "status": "ready",
+      "dependencies": [
+        "THC-DATA-001"
+      ],
+      "priority_inputs": {
+        "products_unlocked": 6,
+        "severity": 5,
+        "evidence_readiness": 4,
+        "expected_coverage_gain": 5,
+        "estimated_effort": 3
+      },
+      "acceptance_criteria": [
+        "Tools pin formula bundle version/hash",
+        "Duplicate formula constants identified",
+        "Parity tests cover migrated calculations",
+        "No silent ppm conversion"
+      ],
+      "checkpoint": {
+        "last_verified_sha": null,
+        "cursor": null,
+        "upstream_version": null,
+        "branch": null,
+        "pr_number": null,
+        "next_action": "After contract merge, inventory PPFD/DLI/EC/TDS formulas and migrate one coherent calculator slice."
+      },
+      "blocker": {
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": null
+      },
+      "metrics": {}
+    }
+  ]
+}
