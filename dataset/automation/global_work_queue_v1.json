@@ -53,7 +53,7 @@
       "title": "Crop Ontology trait-method-scale connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "in_progress",
+      "status": "done",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -71,25 +71,27 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": "308d833291d5ed83fa608a87d7599814e1e072f9",
-        "cursor": null,
-        "upstream_version": "Crop Ontology BrAPI v1; bounded reference variable CO_321:0001199; parser crop-ontology-brapi-v1.1.0",
+        "last_verified_sha": "cadbc210a218cc5c7dfa7c55e9f9b28daedc985b",
+        "cursor": "bounded-reference-variable:CO_321:0001199",
+        "upstream_version": "Crop Ontology BrAPI v1; CC BY 4.0; no Cannabis crop code in current official Crop Codes",
         "branch": "ingestion/crop-ontology-v1",
         "pr_number": 416,
-        "next_action": "Await exact-head CI; execute bounded official reference-variable sync, validate artifact/hash/funnel metrics, then merge connector infrastructure. Do not bulk-publish Wheat ontology records as Cannabis biological data."
+        "next_action": "Connector qualified and CI-green. Domain publication is intentionally gated until an official Cannabis ontology/mapping or separately reviewed species-neutral mapping is available."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
-        "fallback_action": "If workflow dispatch is unavailable through an interactive client, use the scheduled repository runner; preserve last verified artifact and never fabricate records."
+        "fallback_action": "Use Crop Ontology only as an interoperability/identity reference; do not publish Wheat-specific biology as Cannabis data."
       },
       "metrics": {
-        "attempted": 0,
+        "attempted": 1,
         "fetched": 0,
         "normalized": 0,
         "deduped": 0,
-        "quarantined": 0,
-        "published": 0
+        "quarantined": 1,
+        "published": 0,
+        "connector_self_tests": 2,
+        "exact_head_workflows_green": 7
       }
     },
     {
