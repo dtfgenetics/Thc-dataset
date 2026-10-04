@@ -71,12 +71,12 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": "694796fb6d0c6fd3ceb35a5f77b1d6ea0feba512",
+        "last_verified_sha": "308d833291d5ed83fa608a87d7599814e1e072f9",
         "cursor": null,
-        "upstream_version": "Crop Ontology BrAPI v1; parser crop-ontology-brapi-v1.1.0",
+        "upstream_version": "Crop Ontology BrAPI v1; bounded reference variable CO_321:0001199; parser crop-ontology-brapi-v1.1.0",
         "branch": "ingestion/crop-ontology-v1",
         "pr_number": 416,
-        "next_action": "Await exact-head CI; then run Crop Ontology upstream sync with CO_321 variable default, validate/download artifact, persist bounded snapshot and real funnel metrics, and merge PR #416."
+        "next_action": "Await exact-head CI; execute bounded official reference-variable sync, validate artifact/hash/funnel metrics, then merge connector infrastructure. Do not bulk-publish Wheat ontology records as Cannabis biological data."
       },
       "blocker": {
         "fingerprint": null,
