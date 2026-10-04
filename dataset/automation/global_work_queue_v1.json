@@ -200,19 +200,24 @@
         "No silent ppm conversion"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
+        "last_verified_sha": "dbe3263ca7665b15349c698774f6d48aa6276402",
         "cursor": "tools-shared-math:dli+tds",
-        "upstream_version": "formula_registry_v1.json@1.0.0 formulas",
+        "upstream_version": "formula_registry_v1: FORM-DLI-PPFD-PHOTOPERIOD@1.0.0 + FORM-TDS-FROM-EC-FACTOR@1.0.0",
         "branch": "consumer/formula-registry-adoption",
-        "pr_number": null,
-        "next_action": "Bind Tools shared DLI and EC-to-displayed-ppm math to FORM-DLI-PPFD-PHOTOPERIOD and FORM-TDS-FROM-EC-FACTOR with deterministic registry-derived contract tests."
+        "pr_number": 105,
+        "next_action": "Tools PR #105 implements both registry consumers and four deterministic vectors; await exact-head Validate Tools (npm test + test:math), merge when green, then mark done."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
         "fallback_action": null
       },
-      "metrics": {}
+      "metrics": {
+        "formulas_adopted": 2,
+        "test_vectors_adopted": 4,
+        "consumer_repos": 1,
+        "exact_head_workflows_green": 0
+      }
     }
   ]
 }
