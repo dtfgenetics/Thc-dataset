@@ -53,7 +53,7 @@
       "title": "Crop Ontology trait-method-scale connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "blocked",
+      "status": "in_progress",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -71,17 +71,17 @@
         "Deterministic fixture validates"
       ],
       "checkpoint": {
-        "last_verified_sha": "07568ff161a44dbca71797d83f908608821dd902",
+        "last_verified_sha": "5e53c232ed42b9f7e1a34c4263486e8e10ba6176",
         "cursor": null,
         "upstream_version": "official Crop Ontology BrAPI v1 endpoint",
         "branch": "ingestion/crop-ontology-v1",
         "pr_number": 416,
-        "next_action": "After blocked_until, execute scripts/ingest-crop-ontology.py against official BrAPI on a network-enabled runner, commit bounded snapshot, record raw SHA/upstream header/funnel metrics, then rerun deterministic CI."
+        "next_action": "Run the repository Crop Ontology upstream-sync workflow; validate its artifact, then commit the bounded snapshot and record real funnel metrics."
       },
       "blocker": {
-        "fingerprint": "official-api-live-fetch-denied-by-current-execution-safety-layer",
-        "blocked_until": "2026-10-04T04:30:00Z",
-        "fallback_action": "Use repository CI/network-enabled runner for the official BrAPI sync; do not substitute scraped or inferred ontology records."
+        "fingerprint": null,
+        "blocked_until": null,
+        "fallback_action": "If upstream is temporarily unavailable, preserve the last verified artifact and retry via scheduled GitHub Actions; never fabricate records."
       },
       "metrics": {
         "attempted": 0,
