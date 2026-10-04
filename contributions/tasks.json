@@ -192,7 +192,8 @@
         "scripts/test-research-evidence-validator.mjs",
         "package.json",
         "docs/research-evidence/",
-        ".github/workflows/ci.yml"
+        ".github/workflows/ci.yml",
+        "contributions/routing-policy.json"
       ],
       "required_validators": [
         "validate:research-evidence",
