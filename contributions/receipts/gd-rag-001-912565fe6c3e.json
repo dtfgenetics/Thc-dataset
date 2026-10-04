@@ -1,0 +1,45 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "gd-rag-001-912565fe6c3e",
+  "task_id": "GD-RAG-001",
+  "lane": "rag",
+  "base_commit": "e3bda6fa193a36692805e7a4adb1ccf714b7b108",
+  "head_commit": "912565fe6c3ee2fd875779db35a752ddc3392c59",
+  "branch": "work/grow-doc/GD-RAG-001/riley-kirk-20261004-v2",
+  "changed_paths": [
+    "dataset/claims/research-claims-kirk-nap-v1.json",
+    "dataset/registry/research-sources-kirk-nap-v1.json",
+    "dataset/reviewed/research-studies-kirk-nap-v1.json"
+  ],
+  "source_ids": [
+    "SRC-RDP-REAL-DATA-PROJECT",
+    "SRC-MB-FUNCTIONAL-BEVERAGE",
+    "SRC-SOS-PHASE1-PROJECT",
+    "SRC-SOS-PHASE2-PROJECT",
+    "SRC-SOS-PHASE1-RESULTS-2025",
+    "SRC-CHS-SURVEY-2026",
+    "SRC-KRATOM-RWE-2026",
+    "SRC-KIRK-BOTANICAL-MN-2022",
+    "SRC-KIRK-PRISM-EDU-2021",
+    "SRC-KIRK-PRISM-MRSA-2022",
+    "SRC-KIRK-MICROPEPTINS-2021",
+    "SRC-KIRK-TRICHOPHYCINS-2020",
+    "SRC-GNPS-MOLECULAR-NETWORKING"
+  ],
+  "validation": {
+    "required": [
+      "validate:sources",
+      "validate:source-intake",
+      "validate:model-source-evidence-quality",
+      "validate:model-semantic-leakage"
+    ],
+    "completed": [
+      "validate:sources",
+      "validate:source-intake",
+      "validate:model-source-evidence-quality",
+      "validate:model-semantic-leakage"
+    ]
+  },
+  "weight_training_eligible": false,
+  "training_eligible": false
+}
