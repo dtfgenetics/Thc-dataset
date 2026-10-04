@@ -570,6 +570,48 @@
       ],
       "provenance_status": "VERIFIED DOI PMCID",
       "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-GNPS-MOLECULAR-NETWORKING",
+      "source_type": "method",
+      "title": "GNPS Molecular Networking and MassIVE dataset infrastructure",
+      "authors": [],
+      "organizations": [
+        "University of California San Diego Center for Computational Mass Spectrometry"
+      ],
+      "publication_date": "current documentation",
+      "canonical_url": "https://ccms-ucsd.github.io/GNPSDocumentation/networking/",
+      "retrieved_at": "2026-10-04",
+      "license": "Documentation/site terms; dataset-level rights vary",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "computational analytical infrastructure",
+      "population_or_specimen": "tandem mass-spectrometry datasets",
+      "domain_tags": [
+        "GNPS",
+        "MassIVE",
+        "MS/MS",
+        "molecular networking",
+        "spectral libraries",
+        "metabolomics"
+      ],
+      "methods": [
+        "classical molecular networking",
+        "feature-based molecular networking",
+        "spectral-library matching",
+        "MassIVE public dataset import/reanalysis"
+      ],
+      "limitations": [
+        "GNPS annotations may be putative and require orthogonal confirmation.",
+        "Rights and privacy must be evaluated per uploaded/public dataset."
+      ],
+      "provenance_status": "VERIFIED OFFICIAL DOCUMENTATION",
+      "review_status": "reviewed",
+      "notes": "The Kirk-associated 2022 botanical molecular-networking paper reports MassIVE accession MSV000088444 and acknowledges GNPS."
     }
   ]
 }
