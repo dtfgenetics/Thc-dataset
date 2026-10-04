@@ -51,7 +51,7 @@ def self_test():
     assert vn[0]["components"]["method"]["upstream_id"]=="CO_321:0001001"
     assert vn[0]["components"]["scale"]["upstream_id"]=="CO_321:0002001"
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument("--ontology",default="CO_321"); ap.add_argument("--kind",choices=["trait","variable"],default="trait"); ap.add_argument("--out",type=pathlib.Path); ap.add_argument("--self-test",action="store_true"); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument("--ontology",default="CO_321:0001199"); ap.add_argument("--kind",choices=["trait","variable"],default="trait"); ap.add_argument("--out",type=pathlib.Path); ap.add_argument("--self-test",action="store_true"); a=ap.parse_args()
     if a.self_test: self_test(); print("crop ontology connector self-test: ok"); return
     endpoint=f"{BASE}/{a.kind}s/{urllib.parse.quote(a.ontology,safe='_:')}"
     payload,headers=fetch(endpoint); raw_hash=sha(payload); normalized,quarantine,metrics=ingest(payload,a.kind)
