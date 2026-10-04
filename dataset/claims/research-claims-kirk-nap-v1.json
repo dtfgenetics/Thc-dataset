@@ -1,0 +1,362 @@
+{
+  "schema_version": "research-claims-v1",
+  "generated_at": "2026-10-04",
+  "claims": [
+    {
+      "claim_id": "CLAIM-RDP-QUICKLOG-FIELDS",
+      "source_ids": [
+        "SRC-RDP-REAL-DATA-PROJECT"
+      ],
+      "study_ids": [
+        "STUDY-RDP-RDUB"
+      ],
+      "text": "R-Dub QuickLog is designed to track the product used, dose, method of use, intended purpose, effects, and changes across repeated experiences over time.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "mixed",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is project methodology from the public Real Data Project page, not an efficacy finding."
+      ],
+      "citation_locator": "Real World Data Exchange (R-Dub) Platform > QuickLog Your Experiences",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-MB-BEVERAGE-SCALE",
+      "source_ids": [
+        "SRC-MB-FUNCTIONAL-BEVERAGE"
+      ],
+      "study_ids": [
+        "STUDY-MB-BEVERAGE-RWE"
+      ],
+      "text": "The MoreBetter Functional Beverage Study public page reports 4,873 verified participants, 58,000+ logged use sessions, 39 products, and 26 brands over a 22-day study period.",
+      "evidence_tier": "R3-longitudinal-observational",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "beverage_education",
+        "research_dashboard",
+        "academy"
+      ],
+      "limitations": [
+        "Counts are taken from the project company's public study page; the underlying participant-level dataset is not stored here."
+      ],
+      "citation_locator": "Functional Beverage Study public landing page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE1-DESIGN",
+      "source_ids": [
+        "SRC-SOS-PHASE1-PROJECT",
+        "SRC-SOS-PHASE1-RESULTS-2025"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE1-WATER-ACTIVITY"
+      ],
+      "text": "Science of Smokability Phase I compared cannabis flower at 0.45, 0.65, and 0.85 water activity and evaluated chemical composition together with smoking-quality or sensory measures.",
+      "evidence_tier": "R2-controlled-association",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "dry_cure",
+        "encyclopedia",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The study is a controlled post-harvest experiment, not a clinical trial."
+      ],
+      "citation_locator": "Study introduction/method description and Phase I project page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE1-RESULTS",
+      "source_ids": [
+        "SRC-SOS-PHASE1-RESULTS-2025"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE1-WATER-ACTIVITY"
+      ],
+      "text": "The Phase I report states that 0.65 aW flower produced the highest terpene content, 0.85 aW reduced measured cannabinoid levels, and sensory panelists reported more irritation with the drier 0.45 aW condition.",
+      "evidence_tier": "R2-controlled-association",
+      "inference": "association",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "dry_cure",
+        "encyclopedia",
+        "academy"
+      ],
+      "limitations": [
+        "Results apply to the study materials and conditions; they should not be treated as a universal curing target without replication across cultivars and processes."
+      ],
+      "citation_locator": "Cannabis Science and Technology 2025;8(2):10-19 key results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-SOS-PHASE2-NO-RESULTS",
+      "source_ids": [
+        "SRC-SOS-PHASE2-PROJECT"
+      ],
+      "study_ids": [
+        "STUDY-SOS-PHASE2-NUTRIENTS-FLUSHING"
+      ],
+      "text": "The public Science of Smokability Phase II page describes a planned study of nutrients and flushing; this registry does not treat the project page itself as evidence of an outcome.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "context",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "dry_cure",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "Protocol/project metadata only; outcome claims require a verified results publication."
+      ],
+      "citation_locator": "Science of Smokability Phase II project page",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-CHS-SURVEY-SAMPLE",
+      "source_ids": [
+        "SRC-CHS-SURVEY-2026"
+      ],
+      "study_ids": [
+        "STUDY-CHS-SURVEY-2026"
+      ],
+      "text": "The 2026 CHS survey included 1,134 participants in its final analysis and collected anonymous self-reported cannabis-consumption patterns and CHS-related symptoms from respondents recruited through CHS-focused online communities.",
+      "evidence_tier": "R5-case-series-survey",
+      "inference": "descriptive",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "encyclopedia",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The self-selected, self-reported survey design limits generalizability and does not establish causation."
+      ],
+      "citation_locator": "PubMed abstract Materials and methods / Results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-CHS-SURVEY-PATTERN",
+      "source_ids": [
+        "SRC-CHS-SURVEY-2026"
+      ],
+      "study_ids": [
+        "STUDY-CHS-SURVEY-2026"
+      ],
+      "text": "In the CHS survey sample, 96.5% reported using cannabis at least daily around the relevant period, and 45% reported using it six or more times per day around symptom development.",
+      "evidence_tier": "R5-case-series-survey",
+      "inference": "association",
+      "cannabis_scope": "cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "encyclopedia",
+        "academy"
+      ],
+      "limitations": [
+        "These percentages describe a CHS-focused convenience sample and must not be interpreted as risk estimates for cannabis users generally."
+      ],
+      "citation_locator": "PubMed abstract Results",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KRATOM-RWE-METHOD",
+      "source_ids": [
+        "SRC-KRATOM-RWE-2026"
+      ],
+      "study_ids": [
+        "STUDY-KRATOM-RWE-2026"
+      ],
+      "text": "The 2026 Mitragyna speciosa study used a 7-day baseline followed by 14 days of daily observational reporting, with self-selected and self-reported dose and repeated structured questionnaires; this is a reusable longitudinal RWE method pattern, not cannabis efficacy evidence.",
+      "evidence_tier": "R3-longitudinal-observational",
+      "inference": "methodological",
+      "cannabis_scope": "transferable_non_cannabis",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "grow_doc",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The study organism/product is kratom, not cannabis; only the longitudinal methodology is transferable."
+      ],
+      "citation_locator": "Frontiers in Pharmacology Methods, participant reporting design",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-MN-METHOD",
+      "source_ids": [
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "LC-MS/MS-based molecular networking can organize MS/MS spectra by fragmentation similarity to visualize chemical relationships, support metabolite annotation, and compare botanical specimens with botanical products.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The verified study used non-cannabis botanicals; applying the workflow to cannabis requires cannabis-specific samples, validated reference standards, and appropriate analytical QA."
+      ],
+      "citation_locator": "Fitoterapia 2022 abstract, methods, and conclusions",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-MN-MASSIVE",
+      "source_ids": [
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "The botanical molecular-networking study reports raw analysis files in the MassIVE repository under accession MSV000088444, providing a reproducible example of linking published analytical claims to public mass-spectrometry data.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The dataset is botanical rather than cannabis; reuse must follow repository and source licensing."
+      ],
+      "citation_locator": "Fitoterapia 2022 article section describing MassIVE raw files",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-PRISM-WORKFLOW",
+      "source_ids": [
+        "SRC-KIRK-PRISM-EDU-2021",
+        "SRC-KIRK-PRISM-MRSA-2022"
+      ],
+      "study_ids": [
+        "STUDY-KIRK-PRISM-WORKFLOW"
+      ],
+      "text": "The PRISM work demonstrates a specimen-linked natural-product pipeline in which botanical material is extracted into a reusable library, screened for activity, and promising hits are followed with bioassay-guided chemical isolation.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is a general natural-products workflow and should not be presented as evidence of cannabis-specific biological activity."
+      ],
+      "citation_locator": "Journal of Chemical Education PRISM workflow and ACS Omega PRISM screening study",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-KIRK-STRUCTURE-WORKFLOW",
+      "source_ids": [
+        "SRC-KIRK-MICROPEPTINS-2021",
+        "SRC-KIRK-TRICHOPHYCINS-2020"
+      ],
+      "study_ids": [],
+      "text": "Kirk's natural-products publications use complementary analytical workflows including mass spectrometry, molecular-networking or bioassay-guided prioritization, compound isolation, and structure elucidation; these are useful reference patterns for designing provenance-rich lab-data ingestion.",
+      "evidence_tier": "R6-mechanistic-analytical",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "The source organisms are not cannabis, so only analytical workflow concepts transfer."
+      ],
+      "citation_locator": "ACS Omega 2021 and Journal of Natural Products 2020 methods",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-GNPS-INPUTS",
+      "source_ids": [
+        "SRC-GNPS-MOLECULAR-NETWORKING"
+      ],
+      "study_ids": [
+        "STUDY-GNPS-INFRASTRUCTURE"
+      ],
+      "text": "GNPS molecular networking accepts tandem mass-spectrometry data in open formats such as mzXML, mzML, and MGF, supports sample metadata, and can import public MassIVE datasets by accession for analysis or reanalysis.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This describes official analytical infrastructure, not evidence of a cannabis-specific biological effect."
+      ],
+      "citation_locator": "GNPS Molecular Networking documentation: Data Input Preparation and Selecting Files",
+      "review_status": "reviewed"
+    },
+    {
+      "claim_id": "CLAIM-MASSIVE-REANALYSIS",
+      "source_ids": [
+        "SRC-GNPS-MOLECULAR-NETWORKING",
+        "SRC-KIRK-BOTANICAL-MN-2022"
+      ],
+      "study_ids": [
+        "STUDY-GNPS-INFRASTRUCTURE",
+        "STUDY-KIRK-BOTANICAL-MN-2022"
+      ],
+      "text": "A reproducible THC lab-data architecture can preserve raw/open-format spectra, sample metadata, workflow parameters, spectral annotations, and public dataset accessions separately, mirroring the GNPS/MassIVE pattern used in Kirk-associated botanical molecular-networking research.",
+      "evidence_tier": "R7-expert-education-context",
+      "inference": "methodological",
+      "cannabis_scope": "general_method",
+      "rag_eligible": true,
+      "weight_training_eligible": false,
+      "application_targets": [
+        "terpene_atlas",
+        "plant_atlas",
+        "academy",
+        "research_dashboard"
+      ],
+      "limitations": [
+        "This is an architecture inference from documented analytical workflows; cannabis analytical validation remains a separate requirement."
+      ],
+      "citation_locator": "GNPS dataset/networking documentation plus Fitoterapia 2022 MassIVE accession",
+      "review_status": "reviewed"
+    }
+  ]
+}
