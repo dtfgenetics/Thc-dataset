@@ -99,7 +99,7 @@
       "title": "PubChem chemical identity connector",
       "worker": "ingestion",
       "canonical_owner": "dtfgenetics/Thc-dataset",
-      "status": "in_progress",
+      "status": "done",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -121,8 +121,8 @@
         "cursor": "seed-registry:15-cids:complete",
         "upstream_version": "PubChem PUG REST; live snapshot 2026-10-04; artifact sha256:c0781dee2ef704d9cc6fe6fd65a535f94cef20fe8af455f9a09db6d0d76ae25e",
         "branch": "ingestion/pubchem-v1",
-        "pr_number": null,
-        "next_action": "Re-run exact-head CI after CI coverage validator syntax repair; merge PR #418 when green."
+        "pr_number": 418,
+        "next_action": "Merge PR #418 after exact-head CI confirms the CI-coverage syntax repair; then claim the next eligible ingestion item."
       },
       "blocker": {
         "fingerprint": null,
