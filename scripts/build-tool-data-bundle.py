@@ -29,6 +29,8 @@ def self_test(tmp:Path):
     tmp.mkdir(parents=True,exist_ok=True); (tmp/"g.json").write_text('{"records":[]}\n',encoding="utf-8")
     m=build(tmp,{"bundle_version":"1","artifacts":[{"role":"germplasm","path":"g.json","schema_version":"test","rag_eligible":True}]})
     assert m["policy"]["rag_first"] and not m["artifacts"][0]["weight_training_eligible"]
+    research=build(tmp,{"bundle_version":"1","artifacts":[{"role":"research_evidence","path":"g.json","schema_version":"research-claims-v1","rag_eligible":True,"weight_training_eligible":False}]})
+    assert research["artifacts"][0]["role"]=="research_evidence"
     assert len(m["artifacts"][0]["sha256"])==64
     try: build(tmp,{"artifacts":[{"role":"germplasm","path":"../x"}]}); raise AssertionError("unsafe path accepted")
     except ValueError: pass
