@@ -9,7 +9,8 @@ import argparse, hashlib, json, urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-PARSER_VERSION = "pubchem-pug-rest-v2.0.0"\nPROPERTIES = "Title,MolecularFormula,MolecularWeight,CanonicalSMILES,IsomericSMILES,InChI,InChIKey,IUPACName"
+PARSER_VERSION = "pubchem-pug-rest-v2.0.0"
+PROPERTIES = "Title,MolecularFormula,MolecularWeight,CanonicalSMILES,IsomericSMILES,InChI,InChIKey,IUPACName"
 
 def sha256(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
