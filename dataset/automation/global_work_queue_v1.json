@@ -182,7 +182,7 @@
       "title": "Central formula registry consumer adoption",
       "worker": "consumer-integration",
       "canonical_owner": "dtfgenetics/Tools",
-      "status": "ready",
+      "status": "in_progress",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -201,11 +201,11 @@
       ],
       "checkpoint": {
         "last_verified_sha": null,
-        "cursor": null,
-        "upstream_version": null,
-        "branch": null,
+        "cursor": "tools-shared-math:dli+tds",
+        "upstream_version": "formula_registry_v1.json@1.0.0 formulas",
+        "branch": "consumer/formula-registry-adoption",
         "pr_number": null,
-        "next_action": "After contract merge, inventory PPFD/DLI/EC/TDS formulas and migrate one coherent calculator slice."
+        "next_action": "Bind Tools shared DLI and EC-to-displayed-ppm math to FORM-DLI-PPFD-PHOTOPERIOD and FORM-TDS-FROM-EC-FACTOR with deterministic registry-derived contract tests."
       },
       "blocker": {
         "fingerprint": null,
