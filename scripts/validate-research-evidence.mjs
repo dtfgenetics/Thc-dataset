@@ -19,7 +19,7 @@ function canonicalIdentifiers(source) {
     try {
       const u = new URL(source.canonical_url)
       u.hash = ''
-      if (u.pathname !== '/') u.pathname = u.pathname.replace(/\\/+$/,'')
+      if (u.pathname !== '/') u.pathname = u.pathname.endsWith('/') ? u.pathname.slice(0, -1) : u.pathname
       ids.push(`url:${u.toString().toLowerCase()}`)
     } catch {
       ids.push(`url-invalid:${String(source.canonical_url).trim().toLowerCase()}`)
