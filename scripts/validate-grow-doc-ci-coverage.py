@@ -16,6 +16,7 @@ CRITICAL_MAIN_CI={
     "validate:grow-doc-task-registry",
     "validate:grow-doc-agent-state",
     "validate:grow-doc-claims",
+    "validate:research-evidence",
     "validate:source-intake",
     "validate:claim-relationships",
     "validate:bioinformatics-contracts",
