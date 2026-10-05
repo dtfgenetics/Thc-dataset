@@ -1,0 +1,37 @@
+{
+  "schema": "grow-doc-reference-evaluation-coverage@1",
+  "source": {
+    "annotations": "data/reference-annotations.jsonl",
+    "splitPolicy": "data/split-policy.json"
+  },
+  "policy": {
+    "independentSourceGroupsPerClass": 3,
+    "independentPlantsPerClass": 10,
+    "preferredTestImagesPerClass": 30,
+    "requireHealthyControls": true,
+    "requireLookAlikeNegatives": true
+  },
+  "counts": {
+    "totalAnnotations": 21,
+    "cannabisHost": 19,
+    "confirmed": 11,
+    "treatmentAssociated": 3,
+    "healthyControls": 0,
+    "lookAlikeNegativeBindings": 1,
+    "lockedEvaluationEligible": 0,
+    "trainingEligible": 0,
+    "uniqueSourceGroups": 21,
+    "missingLicense": 0,
+    "missingConfirmationMethod": 0
+  },
+  "integrity": {
+    "errors": []
+  },
+  "readyForLockedVisualEvaluation": false,
+  "gaps": [
+    "healthy controls required by split policy are not yet represented in reference annotations",
+    "no reference annotation is currently admitted to locked evaluation",
+    "no reference annotation is currently admitted to supervised visual training; this remains an intentional safety state"
+  ],
+  "rule": "This report measures corpus readiness only. It must not promote reference-only media, infer diagnoses, or fabricate healthy/look-alike labels."
+}
