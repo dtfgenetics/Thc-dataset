@@ -74,7 +74,7 @@
     "validate:model-vision-admission-review": "python3 scripts/build-grow-doc-vision-admission-review.py --self-test --check",
     "validate:crop-ontology-ingestion": "python3 scripts/ingest-crop-ontology.py --self-test",
     "validate:pubchem-seed-ingestion": "python3 scripts/ingest-pubchem-seed-registry.py --self-test",
-    "audit:evaluation-reference-coverage": "node scripts/audit-reference-evaluation-coverage.mjs --check"
+    "validate:research-evidence": "node scripts/test-research-evidence-validator.mjs && node scripts/validate-research-evidence.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
