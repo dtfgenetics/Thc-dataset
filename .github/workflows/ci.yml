@@ -33,6 +33,7 @@ jobs:
       - run: npm run validate:bioinformatics-contracts
       - run: npm run validate:tool-data-bundle-production
       - run: npm run validate:model-eval
+      - run: npm run audit:evaluation-reference-coverage
       - run: npm run validate:model-base-candidates
       - name: Validate base-vs-RAG candidate binding
         run: |
