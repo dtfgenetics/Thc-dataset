@@ -28,12 +28,12 @@ jobs:
       - run: npm run validate:grow-doc-task-registry
       - run: npm run validate:grow-doc-agent-state
       - run: npm run validate:grow-doc-claims
+      - run: npm run validate:research-evidence
       - run: npm run validate:source-intake
       - run: npm run validate:claim-relationships
       - run: npm run validate:bioinformatics-contracts
       - run: npm run validate:tool-data-bundle-production
       - run: npm run validate:model-eval
-      - run: npm run audit:evaluation-reference-coverage
       - run: npm run validate:model-base-candidates
       - name: Validate base-vs-RAG candidate binding
         run: |

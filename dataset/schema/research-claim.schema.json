@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dtfseeds.com/schema/research-claim.schema.json",
+  "title": "THC research claim v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "claim_id",
+    "source_ids",
+    "study_ids",
+    "text",
+    "evidence_tier",
+    "inference",
+    "cannabis_scope",
+    "rag_eligible",
+    "weight_training_eligible",
+    "application_targets",
+    "limitations"
+  ],
+  "properties": {
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CLAIM-[A-Z0-9-]+$"
+    },
+    "source_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "study_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "text": {
+      "type": "string",
+      "minLength": 5
+    },
+    "evidence_tier": {
+      "enum": [
+        "R0-systematic-review-guideline",
+        "R1-controlled-causal",
+        "R2-controlled-association",
+        "R3-longitudinal-observational",
+        "R4-cross-sectional-observational",
+        "R5-case-series-survey",
+        "R6-mechanistic-analytical",
+        "R7-expert-education-context",
+        "R8-community-anecdotal"
+      ]
+    },
+    "inference": {
+      "enum": [
+        "causal",
+        "association",
+        "descriptive",
+        "mechanistic",
+        "methodological",
+        "context"
+      ]
+    },
+    "cannabis_scope": {
+      "enum": [
+        "cannabis",
+        "transferable_non_cannabis",
+        "general_method",
+        "mixed"
+      ]
+    },
+    "rag_eligible": {
+      "type": "boolean"
+    },
+    "weight_training_eligible": {
+      "const": false
+    },
+    "application_targets": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "grow_doc",
+          "encyclopedia",
+          "academy",
+          "terpene_atlas",
+          "plant_atlas",
+          "breeder_journal",
+          "dry_cure",
+          "beverage_education",
+          "diagnostics",
+          "research_dashboard"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "citation_locator": {
+      "type": "string"
+    },
+    "review_status": {
+      "enum": [
+        "candidate",
+        "reviewed",
+        "rejected"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}

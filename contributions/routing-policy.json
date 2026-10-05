@@ -122,7 +122,9 @@
         "scripts/",
         "package.json",
         ".github/workflows/",
-        "AGENTS.md"
+        "AGENTS.md",
+        "dataset/schema/",
+        "docs/research-evidence/"
       ],
       "forbidden_prefixes": [
         "model_tuning/eval/heldout_"
