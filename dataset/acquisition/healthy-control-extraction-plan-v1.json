@@ -1,0 +1,75 @@
+{
+  "schema_version": "grow-doc-healthy-control-acquisition-plan-v1",
+  "updated_at_utc": "2026-10-05T23:46:00Z",
+  "purpose": "Convert controlled Cannabis-specific healthy/control and hard-negative imagery into provenance-complete review candidates without granting training or locked-evaluation eligibility.",
+  "policy": {
+    "no_visual_inference_of_health_or_diagnosis": true,
+    "source_authored_control_or_comparison_label_required": true,
+    "exact_child_asset_rights_required": true,
+    "source_group_isolation_required": true,
+    "sha256_and_perceptual_hash_required": true,
+    "human_scientific_review_required": true,
+    "generated_plan_never_grants_training_eligibility": true
+  },
+  "work_items": [
+    {
+      "id": "HC-ACQ-001",
+      "source_id": "DS-071",
+      "source_title": "Cannabis Single-Element Nutrient Deficiency Supplement",
+      "canonical_source": "https://www.mdpi.com/article/10.3390/plants12030422/s1",
+      "persistent_id": "doi:10.3390/plants12030422",
+      "license": "CC BY 4.0",
+      "current_state": "blocked-raw-byte-transfer",
+      "target_material": [
+        "Figure S1 Control whole-plant series by week",
+        "Figure S3 normal/control apical inflorescence development weeks 3-7"
+      ],
+      "intended_role": [
+        "healthy-control candidate",
+        "normal developmental progression reference",
+        "nutrient-disorder hard-negative comparison"
+      ],
+      "required_steps": [
+        "acquire official supplementary ZIP from the publisher endpoint",
+        "record archive SHA-256 and exact source version",
+        "extract control panels while preserving figure/week/organ/treatment identity",
+        "record per-file SHA-256 and perceptual hash",
+        "assign one sourceGroupId covering all derivatives from the study/control cohort",
+        "bind labels only to source-authored Control/normal-development metadata",
+        "run human scientific, rights, and annotation review",
+        "admit to evaluation only after healthy-control coverage and split-policy thresholds are satisfied"
+      ],
+      "training_eligible": false,
+      "locked_evaluation_eligible": false
+    },
+    {
+      "id": "HC-ACQ-002",
+      "source_id": "punja-buirs-cannabis-pathogen-healthy-comparisons-2024",
+      "source_title": "Integrated Management of Pathogens and Microbes in Cannabis sativa L. (Cannabis) under Greenhouse Conditions",
+      "canonical_source": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10974757/",
+      "persistent_id": "doi:10.3390/plants13060786",
+      "license": "CC BY 4.0",
+      "current_state": "candidate-rights-and-panel-review",
+      "target_material": [
+        "Figure 5 infected-versus-healthy root, flowering-plant, inflorescence, and dried-flower comparison panels",
+        "Figure 13 healthy-versus-Fusarium/Pythium vegetative/root comparison panels"
+      ],
+      "intended_role": [
+        "healthy-control candidate",
+        "pathogen look-alike differential candidate",
+        "paired infected-versus-control reference"
+      ],
+      "required_steps": [
+        "verify exact figure/panel attribution under parent CC BY 4.0 terms",
+        "extract individual panels without losing infected/healthy side and figure identity",
+        "bind healthy/infected comparison labels only to source-authored captions and confirmation context",
+        "record SHA-256 and perceptual hashes",
+        "assign sourceGroupId and prevent paired panels from leaking across evaluation splits",
+        "run human scientific, rights, and annotation review",
+        "do not treat review-article visual attribution alone as a universal diagnosis ground truth"
+      ],
+      "training_eligible": false,
+      "locked_evaluation_eligible": false
+    }
+  ]
+}
