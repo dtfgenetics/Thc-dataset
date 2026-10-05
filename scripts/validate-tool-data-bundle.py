@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse,hashlib,json
 from pathlib import Path
 SCHEMA="grow-doc-tool-data-bundle-v1"
-ROLES={"source_catalog","chemistry","germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants"}
+ROLES={"source_catalog","chemistry","germplasm","identity_graph","brapi_germplasm","rag_claims","phenotypes","traits","observations","variants","research_evidence"}
 def digest(p:Path):
     h=hashlib.sha256()
     with p.open("rb") as f:
@@ -33,6 +33,8 @@ def self_test(tmp:Path):
     m={"schema_version":SCHEMA,"policy":{"rag_first":True,"default_weight_training_eligible":False,"stable_identity_required":True},"artifacts":[{"role":"traits","path":"x.json","sha256":sh,"weight_training_eligible":False}]}
     assert validate(tmp,m)==[]
     m["artifacts"][0]["sha256"]="0"*64;assert "sha256 mismatch" in validate(tmp,m)[0]
+    research={"schema_version":SCHEMA,"policy":{"rag_first":True,"default_weight_training_eligible":False,"stable_identity_required":True},"artifacts":[{"role":"research_evidence","path":"x.json","sha256":sh,"weight_training_eligible":False}]}
+    assert validate(tmp,research)==[]
     print("tool data bundle consumer self-test: PASS")
 def main()->int:
     ap=argparse.ArgumentParser();ap.add_argument("--root",type=Path);ap.add_argument("--manifest",type=Path);ap.add_argument("--self-test",action="store_true");a=ap.parse_args()

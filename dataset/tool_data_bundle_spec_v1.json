@@ -1,6 +1,6 @@
 {
   "schema_version": "grow-doc-tool-data-bundle-spec-v1",
-  "bundle_version": "2",
+  "bundle_version": "3",
   "artifacts": [
     {
       "role": "source_catalog",
@@ -27,6 +27,27 @@
       "role": "rag_claims",
       "path": "dataset/generated/tool_data/rag_claims_v1.json",
       "schema_version": "grow-doc-rag-claims-published-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "research_evidence",
+      "path": "dataset/registry/research-sources-kirk-nap-v1.json",
+      "schema_version": "research-sources-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "research_evidence",
+      "path": "dataset/reviewed/research-studies-kirk-nap-v1.json",
+      "schema_version": "research-studies-v1",
+      "rag_eligible": true,
+      "weight_training_eligible": false
+    },
+    {
+      "role": "research_evidence",
+      "path": "dataset/claims/research-claims-kirk-nap-v1.json",
+      "schema_version": "research-claims-v1",
       "rag_eligible": true,
       "weight_training_eligible": false
     }

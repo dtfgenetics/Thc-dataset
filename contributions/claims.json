@@ -2,9 +2,9 @@
   "schema_version": "grow-doc-task-claims-v1",
   "claims": [
     {
-      "task_id": "GD-RAG-001",
-      "session_id": "riley-kirk-20261004-v2",
-      "branch": "work/grow-doc/GD-RAG-001/riley-kirk-20261004-v2"
+      "task_id": "GD-SYS-003",
+      "session_id": "research-tool-bundle-20261004",
+      "branch": "work/grow-doc/GD-SYS-003/research-tool-bundle-20261004"
     }
   ]
 }
