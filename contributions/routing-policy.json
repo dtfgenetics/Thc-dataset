@@ -124,7 +124,8 @@
         ".github/workflows/",
         "AGENTS.md",
         "dataset/schema/",
-        "docs/research-evidence/"
+        "docs/research-evidence/",
+        "dataset/tool_data_bundle_spec_v1.json"
       ],
       "forbidden_prefixes": [
         "model_tuning/eval/heldout_"
