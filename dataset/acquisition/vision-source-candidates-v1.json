@@ -1,6 +1,6 @@
 {
   "schema_version": "grow-doc-vision-source-candidates-v1",
-  "reviewed_at_utc": "2026-10-03T22:48:00Z",
+  "reviewed_at_utc": "2026-10-05T23:45:00Z",
   "policy": {
     "candidate_registry_never_grants_training_eligibility": true,
     "exact_child_asset_rights_must_be_verified": true,
@@ -102,6 +102,41 @@
       ],
       "notes": "Potential healthy/root morphology coverage; not a disease-label source.",
       "admission_state": "quarantine-rights-unknown"
+    },
+    {
+      "source_id": "punja-buirs-cannabis-pathogen-healthy-comparisons-2024",
+      "title": "Integrated Management of Pathogens and Microbes in Cannabis sativa L. (Cannabis) under Greenhouse Conditions",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10974757/",
+      "persistent_ids": [
+        "doi:10.3390/plants13060786"
+      ],
+      "related_image_dois": [],
+      "host_species": "Cannabis sativa",
+      "scope": [
+        "healthy-vs-HLVd comparison",
+        "healthy-vs-Fusarium/Pythium comparison",
+        "root development",
+        "vegetative and flowering morphology",
+        "powdery mildew and Botrytis reference",
+        "hard-negative and healthy-control candidate imagery"
+      ],
+      "parent_record_license": "CC BY 4.0",
+      "rights_status": "parent article open under CC BY 4.0; verify exact child figure/panel attribution and retain article/figure lineage before acquisition",
+      "scientific_status": "peer-reviewed Cannabis-specific integrated disease-management review with author-labeled infected-versus-healthy comparison panels and molecular/pathogen context",
+      "intended_lane": "candidate-healthy-control-and-pathogen-lookalike",
+      "training_eligible": false,
+      "blockers": [
+        "verify exact child figure/panel rights and attribution",
+        "extract individual healthy and infected panels without losing figure/panel identity",
+        "bind each panel to its stated comparison and confirmation context; do not infer diagnoses from appearance",
+        "compute SHA-256 and perceptual hashes",
+        "assign sourceGroupId, plant/capture groups, and near-duplicate clusters",
+        "human scientific and annotation review",
+        "healthy-control/look-alike class coverage review",
+        "split-group isolation before any evaluation admission"
+      ],
+      "notes": "High-value Cannabis-specific comparison source. Figure 5 includes HLVd-infected versus healthy roots, flowering plants, inflorescences, and dried flower; Figure 13 includes healthy versus Fusarium/Pythium-affected vegetative/root comparisons. Candidate registry only; no training/evaluation eligibility is granted.",
+      "admission_state": "pre-admission-rights-review"
     }
   ]
 }
