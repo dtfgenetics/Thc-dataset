@@ -1,0 +1,617 @@
+{
+  "schema_version": "research-sources-v1",
+  "generated_at": "2026-10-04",
+  "sources": [
+    {
+      "source_id": "SRC-RDP-REAL-DATA-PROJECT",
+      "source_type": "project_page",
+      "title": "The Real Data Project",
+      "authors": [],
+      "organizations": [
+        "Network of Applied Pharmacognosy",
+        "MoreBetter Ltd."
+      ],
+      "publication_date": "2026",
+      "canonical_url": "https://www.appliedpharmacognosy.org/the-real-data-project",
+      "retrieved_at": "2026-10-04",
+      "license": "Website content; reuse terms not independently verified",
+      "access_state": "public_metadata",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "mixed",
+      "study_design": "real-world longitudinal/community research platform",
+      "population_or_specimen": "people using cannabis and other natural products in everyday life",
+      "domain_tags": [
+        "real-world evidence",
+        "longitudinal",
+        "cannabis",
+        "natural products",
+        "community science"
+      ],
+      "methods": [
+        "QuickLog repeated self-report",
+        "public dashboards"
+      ],
+      "limitations": [
+        "Project page is a public summary rather than a peer-reviewed protocol.",
+        "Participant-level data are not ingested or redistributed."
+      ],
+      "provenance_status": "VERIFIED PUBLIC PROJECT PAGE",
+      "review_status": "reviewed",
+      "notes": "Use for methodology and project metadata. Resolve outcome claims to primary study/report sources when available."
+    },
+    {
+      "source_id": "SRC-MB-FUNCTIONAL-BEVERAGE",
+      "source_type": "project_page",
+      "title": "Functional Beverage Study",
+      "authors": [],
+      "organizations": [
+        "MoreBetter Ltd."
+      ],
+      "publication_date": "2025-2026",
+      "canonical_url": "https://morebetter.ltd/functional-beverage-study",
+      "retrieved_at": "2026-10-04",
+      "license": "Website content; free and paid report terms apply",
+      "access_state": "public_metadata",
+      "redistribution_state": "metadata_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "cannabis",
+      "study_design": "longitudinal observational real-world evidence",
+      "population_or_specimen": "verified infused-cannabis-beverage consumers",
+      "domain_tags": [
+        "cannabis beverages",
+        "real-world evidence",
+        "dose",
+        "consumer experience"
+      ],
+      "methods": [
+        "longitudinal self-report",
+        "logged use sessions"
+      ],
+      "limitations": [
+        "Public webpage provides aggregate study metadata; deeper reports use controlled access.",
+        "Participant-level dataset is not copied into this repository."
+      ],
+      "provenance_status": "VERIFIED PUBLIC PROJECT PAGE / UNDERLYING DATA RESTRICTED",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-SOS-PHASE1-PROJECT",
+      "source_type": "project_page",
+      "title": "The Science Of Smokability Study Phase I — The Effect of Water Activity",
+      "authors": [
+        "Allison Justice",
+        "Miyabe Shields",
+        "Riley Kirk",
+        "Markus Roggen"
+      ],
+      "organizations": [
+        "Cannabis Research Coalition",
+        "Network of Applied Pharmacognosy",
+        "Controlled Chemistry"
+      ],
+      "publication_date": "undated project page",
+      "canonical_url": "https://www.cannabisrc.org/event-details/the-science-of-smokability-sos-study-phase-i-the-effect-of-water-activity",
+      "retrieved_at": "2026-10-04",
+      "license": "Website content; reuse terms not independently verified",
+      "access_state": "public_metadata",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "cannabis",
+      "study_design": "controlled post-harvest experiment with community sensory component",
+      "population_or_specimen": "cannabis flower and participating evaluators",
+      "domain_tags": [
+        "water activity",
+        "drying",
+        "curing",
+        "smoke",
+        "sensory",
+        "post-harvest"
+      ],
+      "methods": [
+        "water activity manipulation",
+        "chemical measurements",
+        "community sensory evaluation"
+      ],
+      "limitations": [
+        "Project page describes protocol and scope; use the published results article for outcome claims."
+      ],
+      "provenance_status": "VERIFIED PUBLIC PROJECT PAGE",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-SOS-PHASE2-PROJECT",
+      "source_type": "project_page",
+      "title": "The Science Of Smokability Study Phase II — The Effect of Nutrients and Flushing",
+      "authors": [
+        "Allison Justice",
+        "Miyabe Shields",
+        "Riley Kirk",
+        "Markus Roggen"
+      ],
+      "organizations": [
+        "Cannabis Research Coalition",
+        "Network of Applied Pharmacognosy",
+        "Controlled Chemistry"
+      ],
+      "publication_date": "undated project page",
+      "canonical_url": "https://www.cannabisrc.org/event-details/the-science-of-smokability-sos-study-phase-ii-the-effect-of-nutrients-and-flushing-waitlist",
+      "retrieved_at": "2026-10-04",
+      "license": "Website content; reuse terms not independently verified",
+      "access_state": "public_metadata",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "cannabis",
+      "study_design": "planned controlled cultivation/post-harvest study",
+      "population_or_specimen": "cannabis flower and participating evaluators",
+      "domain_tags": [
+        "nutrients",
+        "flushing",
+        "cultivation",
+        "smoke",
+        "post-harvest"
+      ],
+      "methods": [
+        "cultivation treatment comparison",
+        "chemical and sensory endpoints described by project"
+      ],
+      "limitations": [
+        "Project/waitlist page is not a results publication; no outcome claim should be inferred."
+      ],
+      "provenance_status": "VERIFIED PUBLIC PROJECT PAGE",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-SOS-PHASE1-RESULTS-2025",
+      "source_type": "paper",
+      "title": "Impact of Water Activity on the Chemical Composition and Smoking Quality of Cannabis Flower: The Science of Smokability Phase I Results",
+      "authors": [
+        "Allison Justice",
+        "Riley Kirk",
+        "Ashley Manning",
+        "Markus Roggen",
+        "Miyabe Shields"
+      ],
+      "organizations": [
+        "Cannabis Research Coalition",
+        "Network of Applied Pharmacognosy",
+        "Controlled Chemistry"
+      ],
+      "publication_date": "2025-05-06",
+      "canonical_url": "https://www.cannabissciencetech.com/view/impact-of-water-activity-on-the-chemical-composition-and-smoking-quality-of-cannabis-flower-the-science-of-smokability-phase-i-results",
+      "retrieved_at": "2026-10-04",
+      "license": "Publication page; redistribution terms not independently verified",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "cannabis",
+      "study_design": "controlled nonrandomized post-harvest experiment with sensory evaluation",
+      "population_or_specimen": "cannabis flower conditioned to 0.45, 0.65, and 0.85 water activity plus sensory evaluators",
+      "domain_tags": [
+        "water activity",
+        "terpenes",
+        "cannabinoids",
+        "smoke quality",
+        "post-harvest",
+        "sensory"
+      ],
+      "methods": [
+        "controlled water activity",
+        "chemical analysis",
+        "sensory evaluation"
+      ],
+      "limitations": [
+        "Published in Cannabis Science and Technology; interpret as a controlled study report, not a clinical trial.",
+        "Sponsor/collaborator involvement is disclosed in the article."
+      ],
+      "provenance_status": "VERIFIED PUBLIC RESULTS ARTICLE",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-CHS-SURVEY-2026",
+      "source_type": "paper",
+      "title": "Cannabinoid Hyperemesis Syndrome-A Survey-Based Approach to Understanding Symptoms and Cannabis Use Patterns",
+      "authors": [
+        "Codi Peterson",
+        "Jill Simonian",
+        "Megan Mbengue",
+        "Jacqueline Higgins",
+        "Riley Kirk",
+        "Katie Nava",
+        "Ryan Lacinski",
+        "Ariana Nelson"
+      ],
+      "organizations": [
+        "University of California Irvine",
+        "University of California San Diego",
+        "Network of Applied Pharmacognosy",
+        "West Virginia University School of Medicine",
+        "UCI Center for the Study of Cannabis"
+      ],
+      "publication_date": "2026-03-05",
+      "doi": "10.1177/25785125261421434",
+      "pmid": "41783912",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/41783912/",
+      "retrieved_at": "2026-10-04",
+      "license": "Free article; exact reuse license must be checked before redistributing full text or supplements",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "cannabis",
+      "study_design": "anonymous cross-sectional survey",
+      "population_or_specimen": "people recruited through CHS-focused social media communities",
+      "domain_tags": [
+        "CHS",
+        "harm reduction",
+        "adverse effects",
+        "survey",
+        "cannabis use patterns"
+      ],
+      "methods": [
+        "anonymous online survey",
+        "self-report"
+      ],
+      "limitations": [
+        "Self-selected social-media sample.",
+        "Self-reported exposure and symptoms.",
+        "Observational survey cannot establish causation."
+      ],
+      "provenance_status": "VERIFIED PUBMED DOI PMID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KRATOM-RWE-2026",
+      "source_type": "paper",
+      "title": "Observational real-world analysis of dose-dependent effects of Mitragyna speciosa (Korth.) on focus and energy",
+      "authors": [
+        "C. Miyabe Shields",
+        "Riley Kirk",
+        "Michael Chan",
+        "Paloma Lehfeldt",
+        "Paula N. Brown"
+      ],
+      "organizations": [
+        "Network of Applied Pharmacognosy",
+        "British Columbia Institute of Technology",
+        "Scientific Association for Botanical Education and Research"
+      ],
+      "publication_date": "2026-08-28",
+      "doi": "10.3389/fphar.2026.1838148",
+      "canonical_url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2026.1838148/full",
+      "retrieved_at": "2026-10-04",
+      "license": "CC BY",
+      "access_state": "open",
+      "redistribution_state": "open",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": true,
+      "cannabis_scope": "transferable_non_cannabis",
+      "study_design": "longitudinal observational real-world evidence",
+      "population_or_specimen": "adult users of a Mitragyna speciosa product",
+      "domain_tags": [
+        "real-world evidence",
+        "longitudinal",
+        "dose",
+        "repeated measures",
+        "natural products",
+        "kratom"
+      ],
+      "methods": [
+        "7-day baseline",
+        "2-week daily observational reporting",
+        "self-selected dose",
+        "linear mixed-effects modeling"
+      ],
+      "limitations": [
+        "Non-cannabis study; effects must not be generalized to cannabis.",
+        "Small self-reported observational sample limits power and generalizability."
+      ],
+      "provenance_status": "VERIFIED DOI / OPEN ACCESS CC BY",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-BOTANICAL-MN-2022",
+      "source_type": "paper",
+      "title": "Analysis of botanicals and botanical supplements by LC-MS/MS-based molecular networking: Approaches for annotating plant metabolites and authentication",
+      "authors": [
+        "Terra Marie M. Jouaneh",
+        "Neil Motta",
+        "Christine Wu",
+        "Cole Coffey",
+        "Christopher W. Via",
+        "Riley D. Kirk",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2022-04-20",
+      "doi": "10.1016/j.fitote.2022.105200",
+      "pmid": "35460834",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/35460834/",
+      "retrieved_at": "2026-10-04",
+      "license": "Author manuscript available via PMC; publisher/version reuse terms vary",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical method application",
+      "population_or_specimen": "botanical extracts, plant specimens, and botanical supplements",
+      "domain_tags": [
+        "LC-MS/MS",
+        "molecular networking",
+        "GNPS",
+        "metabolomics",
+        "botanical authentication",
+        "mass spectrometry"
+      ],
+      "methods": [
+        "LC-MS/MS",
+        "GNPS molecular networking",
+        "fractionation",
+        "spectral library annotation"
+      ],
+      "limitations": [
+        "Non-cannabis botanical study; method is transferable but results are not cannabis evidence.",
+        "Putative spectral annotations require confirmation for definitive compound identity."
+      ],
+      "provenance_status": "VERIFIED DOI PMID PMCID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-PRISM-EDU-2021",
+      "source_type": "paper",
+      "title": "Integrating Natural Product Chemistry Workflows into Medicinal Chemistry Laboratory Training: Building the PRISM Library and Cultivating Independent Research",
+      "authors": [
+        "Riley D. Kirk",
+        "Marina A. Carro",
+        "Christine Wu",
+        "Mohamad Jamal Aldine",
+        "Alex M. Wharton",
+        "Danielle G. Goldstein",
+        "Margaret E. Rosario",
+        "Gina M. Gallucci",
+        "Yiwen Zhao",
+        "Elizabeth Leibovitz",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2021",
+      "doi": "10.1021/acs.jchemed.0c00396",
+      "canonical_url": "https://pubs.acs.org/doi/10.1021/acs.jchemed.0c00396",
+      "retrieved_at": "2026-10-04",
+      "license": "Open-access article; exact reuse license should be checked at asset/full-text level",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "botanical specimens and prefractionated/extract library workflows",
+      "domain_tags": [
+        "natural products",
+        "PRISM library",
+        "extraction",
+        "fractionation",
+        "medicinal chemistry",
+        "education"
+      ],
+      "methods": [
+        "botanical extraction",
+        "prefractionation",
+        "chemical library construction",
+        "bioassay-guided natural product workflow"
+      ],
+      "limitations": [
+        "Educational/natural-product workflow, not cannabis-specific evidence."
+      ],
+      "provenance_status": "VERIFIED DOI JOURNAL",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-PRISM-MRSA-2022",
+      "source_type": "paper",
+      "title": "Screening the PRISM Library against Staphylococcus aureus Reveals a Sesquiterpene Lactone from Liriodendron tulipifera with Inhibitory Activity",
+      "authors": [
+        "Riley D. Kirk",
+        "Margaret E. Rosario",
+        "Nana Oblie",
+        "Terra Marie M. Jouaneh",
+        "Marina A. Carro",
+        "Christine Wu",
+        "Andrew M. Kim",
+        "Elizabeth Leibovitz",
+        "Elizabeth Sage Hunter",
+        "Robert Literman",
+        "Sara M. Handy",
+        "David C. Rowley",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island",
+        "U.S. Food and Drug Administration"
+      ],
+      "publication_date": "2022-09-30",
+      "doi": "10.1021/acsomega.2c03539",
+      "pmid": "36249352",
+      "canonical_url": "https://pubmed.ncbi.nlm.nih.gov/36249352/",
+      "retrieved_at": "2026-10-04",
+      "license": "CC BY-NC-ND 4.0",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "PRISM botanical extract library and Liriodendron tulipifera",
+      "domain_tags": [
+        "natural products",
+        "bioassay-guided fractionation",
+        "botanical library",
+        "compound isolation"
+      ],
+      "methods": [
+        "botanical extract screening",
+        "bioassay-guided isolation",
+        "chemical characterization"
+      ],
+      "limitations": [
+        "Non-cannabis discovery study; only workflow concepts are transferable."
+      ],
+      "provenance_status": "VERIFIED DOI PMID PMCID LICENSE",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-MICROPEPTINS-2021",
+      "source_type": "paper",
+      "title": "New Micropeptins with Anti-Neuroinflammatory Activity Isolated from a Cyanobacterial Bloom",
+      "authors": [
+        "Riley D. Kirk",
+        "Haiyin He",
+        "Paul G. Wahome",
+        "ShiBiao Wu",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island",
+        "Biosortia Pharmaceuticals"
+      ],
+      "publication_date": "2021-06-04",
+      "doi": "10.1021/acsomega.1c02025",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8210450/",
+      "retrieved_at": "2026-10-04",
+      "license": "Open-access publication; verify exact publisher license before redistribution",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "cyanobacterial bloom natural-product material",
+      "domain_tags": [
+        "natural products",
+        "LC-MS/MS",
+        "molecular networking",
+        "bioassay",
+        "compound isolation"
+      ],
+      "methods": [
+        "prefractionation",
+        "LC-MS/MS molecular networking",
+        "bioassay-guided isolation",
+        "structure elucidation"
+      ],
+      "limitations": [
+        "Non-cannabis source organism; chemistry/discovery workflow is transferable, biological effects are not cannabis evidence."
+      ],
+      "provenance_status": "VERIFIED DOI PMCID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-KIRK-TRICHOPHYCINS-2020",
+      "source_type": "paper",
+      "title": "Isolation of Isotrichophycin C and Trichophycins G-I from a Collection of Trichodesmium thiebautii",
+      "authors": [
+        "Kelly M. McManus",
+        "Riley D. Kirk",
+        "Christopher W. Via",
+        "Matthew J. Bertin"
+      ],
+      "organizations": [
+        "University of Rhode Island"
+      ],
+      "publication_date": "2020-08-20",
+      "doi": "10.1021/acs.jnatprod.0c00550",
+      "canonical_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7815318/",
+      "retrieved_at": "2026-10-04",
+      "license": "Author manuscript available via PMC; publisher reuse terms apply",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "analytical_method",
+      "population_or_specimen": "Trichodesmium thiebautii natural-product material",
+      "domain_tags": [
+        "natural products",
+        "isolation",
+        "structure elucidation",
+        "NMR",
+        "mass spectrometry"
+      ],
+      "methods": [
+        "compound isolation",
+        "NMR",
+        "mass spectrometry",
+        "structure elucidation"
+      ],
+      "limitations": [
+        "Non-cannabis source organism; methods are transferable, compound-specific findings are not cannabis evidence."
+      ],
+      "provenance_status": "VERIFIED DOI PMCID",
+      "review_status": "reviewed"
+    },
+    {
+      "source_id": "SRC-GNPS-MOLECULAR-NETWORKING",
+      "source_type": "method",
+      "title": "GNPS Molecular Networking and MassIVE dataset infrastructure",
+      "authors": [],
+      "organizations": [
+        "University of California San Diego Center for Computational Mass Spectrometry"
+      ],
+      "publication_date": "current documentation",
+      "canonical_url": "https://ccms-ucsd.github.io/GNPSDocumentation/networking/",
+      "retrieved_at": "2026-10-04",
+      "license": "Documentation/site terms; dataset-level rights vary",
+      "access_state": "open",
+      "redistribution_state": "citation_only",
+      "rag_eligible": true,
+      "training_eligible": false,
+      "human_subject_data": false,
+      "cannabis_scope": "general_method",
+      "study_design": "computational analytical infrastructure",
+      "population_or_specimen": "tandem mass-spectrometry datasets",
+      "domain_tags": [
+        "GNPS",
+        "MassIVE",
+        "MS/MS",
+        "molecular networking",
+        "spectral libraries",
+        "metabolomics"
+      ],
+      "methods": [
+        "classical molecular networking",
+        "feature-based molecular networking",
+        "spectral-library matching",
+        "MassIVE public dataset import/reanalysis"
+      ],
+      "limitations": [
+        "GNPS annotations may be putative and require orthogonal confirmation.",
+        "Rights and privacy must be evaluated per uploaded/public dataset."
+      ],
+      "provenance_status": "VERIFIED OFFICIAL DOCUMENTATION",
+      "review_status": "reviewed",
+      "notes": "The Kirk-associated 2022 botanical molecular-networking paper reports MassIVE accession MSV000088444 and acknowledges GNPS."
+    }
+  ]
+}
