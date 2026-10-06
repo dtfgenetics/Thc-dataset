@@ -123,6 +123,13 @@ export interface GrowContext {
   watering: string
   recentChanges: string
   symptoms: string[]
+  temperatureC?: string
+  humidityPercent?: string
+  ppfd?: string
+  dli?: string
+  importedObservationIds?: string[]
+  importedSourceRecordIds?: string[]
+  importedObservedAt?: string
 }
 
 export interface Differential {
