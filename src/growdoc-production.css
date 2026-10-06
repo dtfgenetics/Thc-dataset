@@ -611,3 +611,6 @@ button { -webkit-tap-highlight-color: transparent; }
 .growlens-import__review dd{margin:3px 0 0;color:#e6f0e9;font-size:9px;font-weight:800}
 .context-import-boundary{margin:0;padding:10px 11px;border-left:3px solid var(--gd-green);color:#82968a;background:rgba(122,223,152,.035);font-size:8px;line-height:1.55}
 @media(max-width:560px){.growlens-import__review dl{grid-template-columns:1fr}.growlens-import__picker{display:grid}}
+
+.growlens-import__link{display:inline-flex;width:fit-content;margin-top:8px;color:var(--gd-green);font-size:9px;font-weight:800;text-decoration:none}
+.growlens-import__link:hover,.growlens-import__link:focus-visible{text-decoration:underline;text-underline-offset:3px}
