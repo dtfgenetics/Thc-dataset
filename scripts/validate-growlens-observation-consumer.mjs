@@ -32,6 +32,7 @@ if(!errors.length){
     'MAX_BYTES = 512 * 1024',
     'Images, diagnoses, and private media bytes are not transferred.',
     'Apply to this investigation',
+    'href="/growlens/"',
     'does not confirm a diagnosis or raise confidence by itself',
     'accept=".json,application/json"',
   ]) if(!ui.includes(token)) errors.push(`UI missing safety/usability contract: ${token}`);
