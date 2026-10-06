@@ -43,6 +43,7 @@ export function GrowLensObservationImport({ onApply }: Props) {
           <span>Optional structured context</span>
           <h2 id="growlens-import-title">Import GrowLens measurements</h2>
           <p>Review a GrowLens scientific-observation JSON export before applying it. Images, diagnoses, and private media bytes are not transferred.</p>
+          <a className="growlens-import__link" href="/growlens/">Open GrowLens →</a>
         </div>
       </div>
       <label className="growlens-import__picker">
