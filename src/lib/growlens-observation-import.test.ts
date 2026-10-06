@@ -29,6 +29,8 @@ describe('GrowLens observation import',()=>{
     row.measurement.derived=true
     ;(row.measurement as typeof row.measurement & {formula_id?:string}).formula_id='FORM-DLI-PPFD-PHOTOPERIOD'
     expect(parseGrowLensScientificObservationImport(JSON.stringify(row)).dli).toBe('21.6')
+    ;(row.measurement as typeof row.measurement & {formula_id?:string}).formula_id='UNRELATED-FORMULA'
+    expect(()=>parseGrowLensScientificObservationImport(JSON.stringify(row))).toThrow()
   })
 
   it('rejects incompatible, published, or unsupported records',()=>{
