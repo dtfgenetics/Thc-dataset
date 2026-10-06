@@ -76,6 +76,16 @@ describe('investigation registry', () => {
 
   it('serializes a portable case export without dropping diagnostic history', () => {
     const investigation = makeCase('case-export', 'Blue Mango F4 #2', '2026-09-28T18:00:00.000Z')
+    investigation.context = {
+      ...investigation.context,
+      temperatureC: '25',
+      humidityPercent: '58',
+      ppfd: '500',
+      dli: '21.6',
+      importedObservationIds: ['OBS-temp', 'OBS-rh', 'OBS-ppfd', 'OBS-dli'],
+      importedSourceRecordIds: ['growlens:reading-1'],
+      importedObservedAt: '2026-09-28T17:55:00.000Z',
+    }
     investigation.diagnosisHistory = [{
       reviewedAt: '2026-09-28T18:05:00.000Z',
       leadingIssueSlug: 'magnesium-deficiency',
@@ -92,6 +102,15 @@ describe('investigation registry', () => {
     expect(payload.product).toBe('THC Grow Doc')
     expect(payload.investigation.id).toBe('case-export')
     expect(payload.investigation.diagnosisHistory).toHaveLength(1)
+    expect(payload.investigation.context).toMatchObject({
+      temperatureC: '25',
+      humidityPercent: '58',
+      ppfd: '500',
+      dli: '21.6',
+      importedObservationIds: ['OBS-temp', 'OBS-rh', 'OBS-ppfd', 'OBS-dli'],
+      importedSourceRecordIds: ['growlens:reading-1'],
+      importedObservedAt: '2026-09-28T17:55:00.000Z',
+    })
     expect(investigationExportFilename(investigation)).toBe('thc-grow-doc-blue-mango-f4-2-2026-09-28.json')
   })
 })
