@@ -26,11 +26,11 @@ export type GrowLensImportContext = {
   observedAt?: string
 }
 
-const SUPPORTED: Record<string,{key:keyof Omit<GrowLensImportContext,'sourceObservationIds'|'sourceRecordIds'|'observedAt'>;unit:string}> = {
+const SUPPORTED: Record<string,{key:keyof Omit<GrowLensImportContext,'sourceObservationIds'|'sourceRecordIds'|'observedAt'>;unit:string;derivedFormulaId?:string}> = {
   'environment.air-temperature': { key:'temperatureC', unit:'degC' },
   'environment.relative-humidity': { key:'humidityPercent', unit:'%RH' },
   'light.ppfd': { key:'ppfd', unit:'umol/m2/s' },
-  'light.daily-light-integral': { key:'dli', unit:'mol/m2/day' },
+  'light.daily-light-integral': { key:'dli', unit:'mol/m2/day', derivedFormulaId:'FORM-DLI-PPFD-PHOTOPERIOD' },
 }
 
 function validObservation(value: unknown): value is ScientificObservationV1 {
@@ -63,6 +63,7 @@ export function parseGrowLensScientificObservationImport(raw:string): GrowLensIm
     const sourceUnit=observation.measurement.canonical_unit || observation.measurement.original_unit
     const sourceValue=observation.measurement.canonical_value ?? observation.measurement.original_value
     if(sourceUnit!==spec.unit || !Number.isFinite(sourceValue)) continue
+    if(observation.measurement.derived===true && spec.derivedFormulaId && observation.measurement.formula_id!==spec.derivedFormulaId) continue
     result[spec.key]=String(sourceValue)
     result.sourceObservationIds.push(observation.observation_id)
     result.sourceRecordIds.push(observation.provenance.source_id)
