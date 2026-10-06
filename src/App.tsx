@@ -5,6 +5,7 @@ import { CoverageDashboard } from './components/CoverageDashboard'
 import { DiagnosticResult } from './components/DiagnosticResult'
 import { EvidenceUploader } from './components/EvidenceUploader'
 import { GrowContextForm } from './components/GrowContextForm'
+import { GrowLensObservationImport } from './components/GrowLensObservationImport'
 import { GrowLog } from './components/GrowLog'
 import { InvestigationManager } from './components/InvestigationManager'
 import { IssueLibrary } from './components/IssueLibrary'
@@ -15,6 +16,7 @@ import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
 import { summarizeCaseTrend } from './lib/case-trends'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
+import { growLensImportSummary, type GrowLensImportContext } from './lib/growlens-observation-import'
 import { activateInvestigation, createInvestigation, loadActiveInvestigation, loadInvestigations, upsertInvestigation } from './lib/investigations'
 import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
 
@@ -141,6 +143,22 @@ export default function App() {
     syncContext({ ...context, symptoms: [...new Set([...context.symptoms, ...indicators])] })
   }
 
+  const applyGrowLensImport = (value: GrowLensImportContext) => {
+    const summary = growLensImportSummary(value)
+    const recentChanges = [context.recentChanges.trim(), summary].filter(Boolean).join('\n').slice(0, 4000)
+    syncContext({
+      ...context,
+      ...(value.temperatureC ? { temperatureC: value.temperatureC } : {}),
+      ...(value.humidityPercent ? { humidityPercent: value.humidityPercent } : {}),
+      ...(value.ppfd ? { ppfd: value.ppfd } : {}),
+      ...(value.dli ? { dli: value.dli } : {}),
+      importedObservationIds: value.sourceObservationIds,
+      importedSourceRecordIds: value.sourceRecordIds,
+      importedObservedAt: value.observedAt,
+      recentChanges,
+    })
+  }
+
   const reviewEvidence = () => {
     const ranked = rankDifferentials(issues, context, evidence, caseHistory)
     const top = ranked[0]
@@ -204,6 +222,7 @@ export default function App() {
             <div className="workflow-column">
               <EvidenceUploader evidence={evidence} onFiles={handleFiles} onRemove={removeFile} onDerivedView={updateDerivedView} />
               <VisualObservationReview evidence={evidence} selectedSymptoms={context.symptoms} onApply={applyVisualObservations} />
+              <GrowLensObservationImport onApply={applyGrowLensImport} />
               <GrowContextForm context={context} onChange={syncContext} />
             </div>
             <DiagnosticResult

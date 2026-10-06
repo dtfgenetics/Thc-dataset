@@ -89,6 +89,7 @@ jobs:
       - run: npm run validate:model-deploy-contract
       - run: npm run validate:model-improvement-planner
       - run: npm run validate:portable-rag-eval
+      - run: npm run validate:growlens-observation-consumer
       - run: npm run validate:ci-validator-coverage
       - run: npm run validate:model-runner
       - run: npm run validate:rag-snapshot

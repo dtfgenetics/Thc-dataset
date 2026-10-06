@@ -12,7 +12,7 @@ export function GrowContextForm({ context, onChange }: GrowContextFormProps) {
   const [symptomsOpen, setSymptomsOpen] = useState(false)
   const update = <K extends keyof GrowContext>(key: K, value: GrowContext[K]) => onChange({ ...context, [key]: value })
   const toggleSymptom = (symptom: string) => update('symptoms', context.symptoms.includes(symptom) ? context.symptoms.filter((item) => item !== symptom) : [...context.symptoms, symptom])
-  const contextCount = [context.stage, context.medium, context.ph, context.ec, context.watering, context.recentChanges].filter(Boolean).length
+  const contextCount = [context.stage, context.medium, context.ph, context.ec, context.watering, context.temperatureC, context.humidityPercent, context.ppfd, context.dli, context.recentChanges].filter(Boolean).length
 
   return (
     <section className="context-section" aria-labelledby="context-title">
@@ -33,6 +33,11 @@ export function GrowContextForm({ context, onChange }: GrowContextFormProps) {
           <label>Measured pH<input inputMode="decimal" placeholder="e.g. 6.2" value={context.ph} onChange={(e) => update('ph', e.target.value)} /></label>
           <label>Measured EC / PPM<input placeholder="e.g. 1.4 mS/cm or 700 ppm" value={context.ec} onChange={(e) => update('ec', e.target.value)} /></label>
           <label>Watering routine<select value={context.watering} onChange={(e) => update('watering', e.target.value)}><option value="">Select routine</option><option>Hand-water by dryback</option><option>Fixed schedule</option><option>Automated irrigation</option><option>Recirculating system</option><option>Unknown</option></select></label>
+          <label>Air temperature °C<input inputMode="decimal" placeholder="e.g. 25" value={context.temperatureC ?? ''} onChange={(e) => update('temperatureC', e.target.value)} /></label>
+          <label>Relative humidity %<input inputMode="decimal" placeholder="e.g. 58" value={context.humidityPercent ?? ''} onChange={(e) => update('humidityPercent', e.target.value)} /></label>
+          <label>PPFD µmol/m²/s<input inputMode="decimal" placeholder="e.g. 500" value={context.ppfd ?? ''} onChange={(e) => update('ppfd', e.target.value)} /></label>
+          <label>DLI mol/m²/day<input inputMode="decimal" placeholder="e.g. 21.6" value={context.dli ?? ''} onChange={(e) => update('dli', e.target.value)} /></label>
+          <p className="context-import-boundary full-field">Environmental measurements provide context only. Grow Doc does not treat an imported number as proof of a cause or diagnosis.</p>
           <label className="full-field">Recent changes<textarea placeholder="Feed changes, transplanting, pruning, sprays, equipment failure, weather, or other changes" value={context.recentChanges} onChange={(e) => update('recentChanges', e.target.value)} /></label>
         </div>
       </details>

@@ -51,6 +51,7 @@ CRITICAL_MAIN_CI={
     "validate:model-deploy-contract",
     "validate:model-improvement-planner",
     "validate:portable-rag-eval",
+    "validate:growlens-observation-consumer",
     "validate:model-runner",
     "validate:rag-snapshot",
     "validate:qlora-config",
