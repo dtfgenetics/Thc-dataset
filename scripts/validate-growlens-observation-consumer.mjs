@@ -37,7 +37,7 @@ if(!errors.length){
   for(const token of ['GrowLensObservationImport','applyGrowLensImport','importedObservationIds','growLensImportSummary']) if(!app.includes(token)) errors.push(`App integration missing: ${token}`);
   for(const token of ['temperatureC?: string','humidityPercent?: string','ppfd?: string','dli?: string','importedObservationIds?: string[]']) if(!types.includes(token)) errors.push(`GrowContext missing: ${token}`);
   if(!context.includes('Grow Doc does not treat an imported number as proof of a cause or diagnosis.')) errors.push('Context UI is missing diagnostic-boundary copy.');
-  for(const token of ['does not coerce','rejects incompatible','derived DLI']) if(!tests.includes(token)) errors.push(`Import tests missing boundary: ${token}`);
+  for(const token of ['without creating a diagnosis','rejects incompatible','derived DLI']) if(!tests.includes(token)) errors.push(`Import tests missing boundary: ${token}`);
 }
 if(errors.length){
   console.error('GrowLens → Grow Doc consumer contract failed:');
