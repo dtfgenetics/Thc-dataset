@@ -75,7 +75,9 @@
     "validate:crop-ontology-ingestion": "python3 scripts/ingest-crop-ontology.py --self-test",
     "validate:pubchem-seed-ingestion": "python3 scripts/ingest-pubchem-seed-registry.py --self-test",
     "validate:research-evidence": "node scripts/test-research-evidence-validator.mjs && node scripts/validate-research-evidence.mjs",
-    "validate:healthy-control-acquisition": "python3 scripts/validate-healthy-control-acquisition.py"
+    "validate:healthy-control-acquisition": "python3 scripts/validate-healthy-control-acquisition.py",
+    "validate:growlens-observation-consumer": "node scripts/validate-growlens-observation-consumer.mjs",
+    "pretest": "npm run validate:growlens-observation-consumer"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
