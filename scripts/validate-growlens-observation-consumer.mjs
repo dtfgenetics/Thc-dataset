@@ -23,6 +23,7 @@ if(!errors.length){
     "'environment.relative-humidity'",
     "'light.ppfd'",
     "'light.daily-light-integral'",
+    "FORM-DLI-PPFD-PHOTOPERIOD",
     "row.review_state==='raw'",
     "row.measurement.derived!==true || typeof row.measurement.formula_id==='string'",
     "No compatible raw scientific observations were found",
