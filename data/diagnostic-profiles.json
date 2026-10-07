@@ -467,6 +467,7 @@
     "category": "Environmental stress",
     "severity": "moderate",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.2,
     "summary": "Measured high temperature or unusually intense light can alter Cannabis physiology, yield, and flowering development, but published Cannabis experiments do not validate cupping, bleaching, or a single PPFD or temperature value as a universal visible injury diagnosis.",
     "affectedParts": [
       "whole canopy",
@@ -527,6 +528,8 @@
       "Cultivar-typical foxtailing or inflorescence architecture"
     ],
     "confirmation": [
+      "Do not confirm heat or light injury from curl, bleaching, dry margins, foxtailing, one photograph, or one video; retain a suspected label until measured exposure and exclusion evidence are linked to the photographed plant.",
+      "Record heat and light as separate exposures: high PPFD is not evidence of high leaf temperature, and a high air temperature does not establish the temperature of each photographed leaf.",
       "Map PPFD and air temperature at multiple canopy positions and times; measure leaf temperature with a calibrated contact or infrared method and record humidity or vapor-pressure deficit, photoperiod, carbon dioxide, and lamp distance.",
       "Compare affected and unaffected plants of the same cultivar, developmental stage, irrigation treatment, and root-zone condition; include a cooler or lower-exposure reference when available.",
       "Inspect leaf undersides and protected new growth with magnification for mites and thrips, and document the root system, substrate water content, pH, and EC.",
