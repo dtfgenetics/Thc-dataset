@@ -10,7 +10,7 @@ Verified audited main baseline: `9fcadf7581b39287b34c813df2a92c861a32ef6a`.
 - 695 retrieval claims in the frozen generated corpus.
 - 11 reviewed claim grounded-QA candidates covering Cornell and USDA sources; all remain RAG-first and training-ineligible pending explicit admission.
 - Strong-evidence behavior corpus with source-component train/dev isolation, exact/semantic deduplication, quarantine, supplied-claim grounding, and held-out leakage guards.
-- Frozen training mixture: 176 rows = 141 SFT + 35 grounded-QA (19.89% grounded-QA).
+- Frozen training mixture: 180 rows = 144 SFT + 36 grounded-QA (20.00% grounded-QA).
 - Frozen heldout-v3: 16 cases, two cases per protected slice, 16 distinct source identities.
 - Protected slices: factuality, diagnostic, hallucination, citation_accuracy, science, education, grounded_qa, regression.
 - Development-only diagnostic abstention challenges for insufficient evidence, multifactor ambiguity, and lab-confirmation boundaries.

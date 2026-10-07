@@ -58,16 +58,44 @@ export const evidenceAugmentationsBySlug: Record<string, EvidenceAugmentation> =
     sources: [
       {
         title: 'First Report of Fusarium falciforme (FSSC 3 + 4) Causing Rot of Industrial Hemp (Cannabis sativa) in California', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-08-21-1640-PDN', publisher: 'American Phytopathological Society', publicationDate: '2022-04-21', year: 2022, accessedDate: '2026-08-17', doi: '10.1094/PDIS-08-21-1640-PDN',
+        url: 'https://doi.org/10.1094/PDIS-08-21-1640-PDN', authors: ['K. R. Paugh', 'J. Del Castillo Múnera', 'C. L. Swett'], publisher: 'American Phytopathological Society', publicationDate: '2022-04-21', year: 2022, accessedDate: '2026-10-07', doi: '10.1094/PDIS-08-21-1640-PDN',
         supportedClaims: ['Fusarium falciforme isolates caused internal hemp stem rot in pathogenicity work and were reisolated from inoculated stems.', 'Field root rot was associated with the same organism, but the report specifically confirmed stem-rot ability more directly than root-rot ability.'],
       },
       {
         title: 'First Report of Fusarium commune Causing Damping Off and Wilt in Cannabis sativa in Pennsylvania', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-10-24-2067-PDN', publisher: 'American Phytopathological Society', year: 2025, accessedDate: '2026-08-17', doi: '10.1094/PDIS-10-24-2067-PDN',
+        url: 'https://doi.org/10.1094/PDIS-10-24-2067-PDN', authors: ['Eden S. Blit', 'Sydney Gerstenberg', 'Richard N. Philbrook', 'Jeremy G. Warren'], publisher: 'American Phytopathological Society', publicationDate: '2025-05-02', year: 2025, accessedDate: '2026-10-07', doi: '10.1094/PDIS-10-24-2067-PDN',
         supportedClaims: ['Fusarium commune was reported from indoor Cannabis with wilted yellowing foliage, browning stems and roots, and withering, expanding the documented Fusarium species associated with Cannabis wilt/root disease.', 'The case supports maintaining a Fusarium complex label unless laboratory work resolves the causal species.'],
       },
+      {
+        title: 'A root and crown rot pathogen complex of Fusarium and Globisporangium species affecting outdoor-grown cannabis (Cannabis sativa L.) plants in British Columbia', organization: 'Canadian Journal of Plant Pathology',
+        url: 'https://doi.org/10.1080/07060661.2025.2557486', authors: ['Zamir K. Punja', 'Cameron Scott', 'Heather Tso'], publisher: 'Taylor & Francis', publicationDate: '2025-10-01', year: 2025, accessedDate: '2026-10-07', doi: '10.1080/07060661.2025.2557486',
+        supportedClaims: [
+          'Outdoor Cannabis plants sampled in British Columbia in 2023 showed a root/crown-rot syndrome with stunting, yellowing, and leaf curl while multiple Fusarium species and Globisporangium sylvaticum were recovered, demonstrating that the visible syndrome can represent a pathogen complex.',
+          'Controlled work on cultivar Powdered Donuts found G. sylvaticum and F. commune more pathogenic than the tested F. acuminatum and F. sporotrichioides isolates; those isolate- and cultivar-specific results are not universal severity rankings.',
+          'One affected genotype was also positive for hop latent viroid, supporting concurrent rather than mutually exclusive pathogen labels and explicit HLVd testing when the history or syndrome warrants it.',
+          'Article figures remain reference evidence only because the locally archived item-level publisher license proof needed for figure redistribution or automated training is incomplete.',
+        ],
+      },
+      {
+        title: 'Evidence for a wide host range of Fusarium oxysporum isolates originating from Cannabis sativa L. (cannabis) plants and responses of cannabis genotypes to pathogen infection', organization: 'Canadian Journal of Plant Pathology',
+        url: 'https://doi.org/10.1080/07060661.2026.2632742', authors: ['Zamir K. Punja', 'Hayley Kellam', 'Samantha Lung'], publisher: 'Taylor & Francis', publicationDate: '2026-03-20', year: 2026, accessedDate: '2026-10-07', doi: '10.1080/07060661.2026.2632742',
+        supportedClaims: [
+          'Controlled inoculation evidence associates Cannabis-origin Fusarium oxysporum isolates with damping-off, root and crown rot, vascular discoloration, wilt, stunting, and death, but the study does not make those visible responses species-specific in an unknown plant.',
+          'Responses varied across 27 Cannabis genotypes and the tested isolates also had a broad experimental host range, so cultivar response, host range, and severity must remain isolate- and experiment-bounded.',
+          'The reported CC BY-NC-ND 4.0 terms support conservative citation and noncommercial reference use; no figure extraction, derivative training asset, or raw-media redistribution is added here.',
+        ],
+      },
+      {
+        title: 'Members of the Fusarium oxysporum Complex Causing Wilt Symptoms in Medical Cannabis in Israel, Italy, and North America Comprise a Polyphyletic Assemblage', organization: 'Plant Disease',
+        url: 'https://doi.org/10.1094/PDIS-01-22-0155-RE', authors: ['Shachar Jerushalmi', 'Marcel Maymon', "Kerry O'Donnell", 'Stanley Freeman'], publisher: 'American Phytopathological Society', publicationDate: '2022-08-26', year: 2022, accessedDate: '2026-10-07', doi: '10.1094/PDIS-01-22-0155-RE',
+        supportedClaims: [
+          'Twenty-four Cannabis-associated Fusarium oxysporum forma specialis cannabis sequences represented 12 TEF1 haplotypes in a polyphyletic assemblage, so a Cannabis wilt image or a generic F. oxysporum result cannot establish one lineage.',
+          'Five tested Israeli haplotypes all caused wilt in Cannabis seedlings but differed in aggressiveness, making visual severity an unsafe lineage identifier or universal virulence scale.',
+          'Isolates found in asymptomatic infected mother plants were also recovered from wilted cuttings, supporting propagation tracing and showing that absence of visible mother-stock symptoms does not prove freedom from infection.',
+        ],
+      },
     ],
-    appendWarnings: ['The Fusarium species list on Cannabis continues to expand; a model should rank a Fusarium syndrome separately from a laboratory-confirmed species label.'],
+    appendWarnings: ['The Fusarium species list on Cannabis continues to expand; rank the image/video syndrome separately from plant-linked organism, species, lineage, pathogenicity, and co-occurrence evidence.'],
   },
   'sclerotinia-white-mold': {
     sources: [
