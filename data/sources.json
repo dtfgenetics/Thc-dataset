@@ -2345,6 +2345,28 @@
     ]
   },
   {
+    "sourceKey": "10.3390/plants13060786",
+    "title": "Integrated Management of Pathogens and Microbes in Cannabis sativa L. (Cannabis) under Greenhouse Conditions",
+    "organization": "Plants (Buirs and Punja)",
+    "url": "https://doi.org/10.3390/plants13060786",
+    "authors": [
+      "Liam Buirs",
+      "Zamir K. Punja"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2024-03-10",
+    "year": 2024,
+    "accessedDate": "2026-10-07",
+    "doi": "10.3390/plants13060786",
+    "supportedClaims": [
+      "In greenhouse Cannabis, root browning can occur with Fusarium or Pythium infection and with excessive waterlogging, so brown roots do not distinguish an abiotic oxygen problem from infectious root disease.",
+      "The review links Cannabis root-pathogen syndromes with yellowing, stunting, reduced root development, and plant death, and states that excessive watering or flooding can exacerbate infection and spread inoculum.",
+      "For recirculating production, the authors recommend monitoring water temperature and oxygen as well as pH, EC, and drip-to-drain nutrient relationships because extremes can enhance root infection.",
+      "Fusarium and Pythium inoculum may occur in recirculated Cannabis nutrient solutions; pathogen testing is therefore required when root discoloration or decline remains compatible with disease.",
+      "The article is a greenhouse-disease management review rather than a controlled abiotic-waterlogging trial, so its root-browning and monitoring statements support differential diagnosis and exclusion checks, not an image-only hypoxia label."
+    ]
+  },
+  {
     "sourceKey": "10.3390/plants14020227",
     "title": "Virulence of Five Root-Knot Nematodes (Meloidogyne spp.) on Nine Industrial Hemp (Cannabis sativa L.) Varieties and Nematicidal Potential of Hemp Seed Extracts Against Meloidogyne javanica",
     "organization": "Plants",
