@@ -570,7 +570,7 @@
       "category": "Root pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
+      "sourceCount": 7,
       "mediaCount": 1,
       "path": "data/profiles/root-fusarium-crown-rot.json"
     },
