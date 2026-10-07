@@ -4117,10 +4117,11 @@
         ]
       },
       {
-        "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), in Florida",
+        "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), and their indoor management plan in Florida",
         "organization": "Journal of Integrated Pest Management",
         "url": "https://doi.org/10.1093/jipm/pmad028",
         "authors": [
+          "Muhammad Z. Ahmed",
           "Cindy L. McKenzie",
           "Lance S. Osborne"
         ],
@@ -5675,14 +5676,16 @@
     "category": "Mite",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "summary": "A microscopic tarsonemid mite that hides in protected young tissue; feeding injury appears later as hardened, puckered, cupped, or strap-like new leaves, bronzing, short internodes, and deformed buds.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "A microscopic tarsonemid mite reported from Cannabis and described by extension sources on hemp, but recent peer-reviewed reviews found no traceable primary evidence demonstrating its damage phenotype on hemp. Confirm the organism on plant-linked fresh growth; puckering, bronzing, stunting, or bud distortion alone remain unvalidated symptom transfer rather than Cannabis ground truth.",
     "affectedParts": [
       "youngest expanding leaves",
-      "leaf undersides",
+      "both surfaces of fresh expanding leaves",
       "leaf axils",
-      "growing tips",
+      "growing tips and apical meristems",
       "flower buds",
-      "shaded or protected canopy tissue"
+      "shaded or protected canopy tissue",
+      "adjacent asymptomatic fresh growth used for repeat sampling"
     ],
     "stages": [
       "propagation",
@@ -5691,51 +5694,76 @@
       "flower"
     ],
     "indicators": [
-      "Warped, puckered, or hardened newest leaves",
-      "Cupped or strap-like new growth",
-      "Bronze, copper, or dark discoloration on young tissue",
-      "Short internodes and stunted growing tips",
-      "Deformed or aborted flower buds",
-      "Oval mites or dotted translucent eggs under magnification"
+      "Plant-linked microscopy of protected fresh growth shows extremely small oval-to-round mites rather than relying on canopy distortion alone",
+      "Clear oval eggs with raised pale or white dots are attached to sampled leaf undersides or protected tissue and remain linked to the photographed plant",
+      "Adult females may show a lengthwise pale dorsal stripe, while organism color is treated cautiously because lighting and preparation alter appearance",
+      "Mites or characteristic eggs occur in the youngest expanding tissue, leaf undersides, axils, tips, buds, or shaded crevices where extension sources direct scouting",
+      "Warped, puckered, hardened, cupped, or strap-like young leaves occur on the same plant as compatible organisms, but the morphology remains supporting rather than causal evidence",
+      "Bronze, copper, or dark discoloration is concentrated on young protected tissue and is documented under neutral repeatable light",
+      "Serial images link short internodes or slowed growing tips to continued organism recovery rather than to cultivar architecture or one-time stress",
+      "Deformed or aborted flower buds remain connected to repeated plant-linked mite evidence and exclusion of thrips, russet mites, pathogens, and environmental injury"
     ],
     "exclusions": [
-      "Cigar-shaped mites with only two pairs of legs are present instead",
-      "Fine webbing and round spider-mite eggs are present",
-      "Only older leaves follow a mobile-nutrient symptom pattern",
-      "Injury is uniform on the brightest upper canopy and measured leaf temperature or light is excessive",
-      "No mites or dotted eggs are found after repeat sampling of adjacent fresh growth and protected sites"
+      "Cigar-shaped mites with only two pairs of legs are present, supporting hemp russet mite rather than broad mite",
+      "Fine webbing, round eggs, and two-spotted mites are present, supporting spider-mite injury",
+      "Smooth colorless eggs and compatible cyclamen-mite morphology are present; dotted broad-mite eggs are not recovered",
+      "Thrips, shed skins, feeding scars, and dark fecal spots explain the damaged expanding tissue",
+      "Only older leaves follow a mobile-nutrient symptom pattern while protected new growth remains free of compatible organisms",
+      "Injury maps to the brightest or hottest canopy surface and measured PPFD or leaf temperature explains the distribution",
+      "Distortion follows a documented plant-growth-regulator herbicide, spray, pruning, rubbing, or other exposure pattern",
+      "Repeat plant-linked sampling of fresh adjacent growth, both leaf surfaces, axils, tips, and buds finds no compatible mites or dotted eggs and an independently confirmed alternative explains the syndrome"
     ],
     "progression": [
       {
-        "stage": "Hidden infestation",
-        "description": "Tiny mites and eggs occupy leaf undersides, axils, buds, and other protected young tissue; visible injury may be absent or lag behind feeding."
+        "stage": "Plant-linked detection",
+        "description": "Microscopy recovers compatible oval mites or dotted eggs from protected fresh growth. Organism detection establishes presence, not yet causal injury or severity."
       },
       {
-        "stage": "Developing injury",
-        "description": "Expanding leaves become puckered, cupped, hardened, strap-like, or bronze while internodes shorten and growing tips slow."
+        "stage": "Suspected developing injury",
+        "description": "Extension-described puckering, cupping, hardening, bronzing, or strap-like expansion appears on the same plant while compatible organisms remain detectable; the phenotype is not validated by a controlled Cannabis causal study."
       },
       {
-        "stage": "Severe injury",
-        "description": "New growth is markedly stunted, buds deform or abort, and damaged tissue can remain symptomatic after mites move to fresher growth."
+        "stage": "Suspected growing-point effect",
+        "description": "Serial capture may show shorter internodes or slower tips with continued organism recovery, but cultivar, root-zone, nutrient, virus, viroid, thrips, spray, and environmental alternatives must remain open."
+      },
+      {
+        "stage": "Suspected bud injury",
+        "description": "Bud deformation or abortion is documented with plant-linked organisms and an exclusion workup; flower morphology by itself must never be assigned to broad mite."
+      },
+      {
+        "stage": "Post-detection follow-up",
+        "description": "Old distorted tissue can persist after mites move or are no longer detected, so response is evaluated on marked subsequent growth and repeated fixed-site sampling rather than apparent recovery of old leaves."
       }
     ],
     "lookAlikes": [
       "Hemp russet mite",
       "Cyclamen mite",
-      "Heat or light stress",
+      "Two-spotted spider mite",
+      "Thrips feeding injury",
+      "Heat or high-light injury",
       "Plant-growth-regulator herbicide injury",
-      "Micronutrient or root-zone disorder",
-      "Virus-like or developmental distortion"
+      "Foliar spray phytotoxicity",
+      "Boron or calcium deficiency",
+      "Copper, zinc, or other micronutrient disorder",
+      "Extreme-pH, high-EC, hypoxia, or other root-zone disorder",
+      "Beet curly top virus, phytoplasma, or another systemic pathogen",
+      "Hop latent viroid",
+      "Cultivar-typical compact growth or leaf shape",
+      "Mechanical injury to the growing point"
     ],
     "confirmation": [
-      "Inspect fresh expanding tissue adjacent to the worst damage, including undersides, axils, growing tips, and buds, at about 20× or with a dissecting microscope.",
-      "Confirm translucent oval adults and clear oval eggs bearing raised pale dots; adult females may show a pale dorsal stripe.",
-      "Separate broad mite from cigar-shaped, two-pair-legged russet mites and from cyclamen mites, whose eggs lack the characteristic dotted surface.",
-      "Treat a negative sample cautiously because injury can persist after mites leave badly damaged tissue; repeat sampling across plants and time when suspicion remains."
+      "Do not confirm broad-mite injury from curl, puckering, bronzing, stunting, bud distortion, one photograph, or one video; cap image/video-only confidence at 0.30 and route every proposed positive label to human review.",
+      "Capture plant ID, cultivar, stage, dates, whole-plant distribution, marked growing points, both surfaces of fresh leaves, axils, tips, and buds under neutral light before removing samples.",
+      "Inspect fresh expanding tissue adjacent to the worst damage at 20× or greater and with a dissecting microscope when available; retain scale-calibrated organism and egg images linked to the plant and sampling site.",
+      "Confirm compatible oval adults or clear oval eggs bearing raised pale dots; treat a female pale dorsal stripe as supporting morphology rather than a stand-alone character.",
+      "Separate broad mite from cigar-shaped two-pair-legged russet mites, web-producing spider mites with round eggs, smooth-egg cyclamen mites, and thrips using morphology or qualified taxonomic review.",
+      "Repeat fixed-site sampling across affected and apparently healthy plants because injury may lag behind feeding and damaged tissue may remain abnormal after mites move; a negative sample is not proof of absence.",
+      "Record root-zone pH, EC, water status, temperature, PPFD, leaf temperature, sprays, growth regulators, propagation source, and inspect for pathogens or nutrient disorders before assigning causal injury."
     ],
     "immediateActions": [
-      "Quarantine suspect plants and stop moving cuttings or shared tools into clean areas.",
-      "Microscope-screen neighboring plants before choosing any control."
+      "Quarantine suspect plants and stop moving cuttings or shared tools into clean areas while preserving representative plant-linked samples.",
+      "Microscope-screen neighboring plants and propagation material before choosing any control.",
+      "Retain untreated comparison tissue when lawful and practical so organism recovery and subsequent growth can be evaluated without confusing simultaneous interventions."
     ],
     "correctivePlan": [
       "Use only controls legal for the crop, jurisdiction, and growth stage, following the current label.",
@@ -5748,9 +5776,12 @@
       "Include protected new-growth sites in routine scouting rather than inspecting only mature fan leaves."
     ],
     "warnings": [
-      "Leaf distortion, bronzing, or short internodes alone are not diagnostic.",
-      "The two media assets below show the organism without a host and are morphology references, not cannabis symptom ground truth.",
-      "Although their licenses permit reuse, both remain reference-only and excluded from automated training pending a separate training and dataset-split review."
+      "Leaf distortion, bronzing, short internodes, or bud deformation alone are not diagnostic, and no controlled Cannabis study cited here validates a universal broad-mite symptom sequence or threshold.",
+      "Utah State Extension describes broad-mite damage on hemp, while the USDA/University of Florida synthesis found no traceable published or observed evidence demonstrating broad-mite damage to hemp; this conflict requires plant-linked organism confirmation and human review.",
+      "The Pulkoski and Burrack experiment tested two-spotted spider mites and green peach aphids, not broad-mite feeding; its general piercing-sucking injury context cannot be relabeled as broad-mite causal evidence.",
+      "The two media assets below show the organism without a host and are morphology references, not Cannabis symptom ground truth.",
+      "Although their licenses permit reuse, both remain reference-only and excluded from automated training pending a separate training and dataset-split review.",
+      "No article or extension figure was copied in this enrichment; item-level automated-training rights and plant-linked Cannabis confirmation were not established."
     ],
     "sources": [
       {
@@ -5758,7 +5789,7 @@
         "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
         "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-broad-mite",
         "publisher": "Utah State University Extension",
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "Broad mite (Polyphagotarsonemus latus) is documented on hemp and occupies shaded, protected leaf surfaces and crevices.",
           "Adults are extremely small, oval to round, and light yellow to green; eggs are laid on leaf undersides.",
@@ -5776,7 +5807,7 @@
         "publisher": "Oxford University Press for the Entomological Society of America",
         "publicationDate": "2023-05-08",
         "year": 2024,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-07",
         "doi": "10.1093/ee/nvad044",
         "supportedClaims": [
           "Broad mites are recognized among the most significant piercing-sucking pests of greenhouse-grown hemp.",
@@ -5795,11 +5826,54 @@
         "publisher": "Virginia Tech",
         "publicationDate": "2024-03-27",
         "year": 2024,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "Broad mites prefer young, protected tissue and may no longer be present on the most damaged tissue because visible injury can persist after feeding.",
           "Clear oval broad-mite eggs have raised pale dots, while cyclamen-mite eggs are smooth and russet mites have a narrow, conical body form.",
           "Broad-mite injury can resemble plant-growth-regulator herbicide injury, nutrient problems, and other abiotic disorders; inspection at about 20× or by microscope is recommended."
+        ]
+      },
+      {
+        "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), and their indoor management plan in Florida",
+        "organization": "Journal of Integrated Pest Management",
+        "url": "https://doi.org/10.1093/jipm/pmad028",
+        "authors": [
+          "Muhammad Z. Ahmed",
+          "Cindy L. McKenzie",
+          "Lance S. Osborne"
+        ],
+        "publisher": "Oxford University Press on behalf of the Entomological Society of America",
+        "publicationDate": "2023-12-26",
+        "year": 2023,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1093/jipm/pmad028",
+        "supportedClaims": [
+          "The Florida survey and literature synthesis reported Polyphagotarsonemus latus among organisms associated with hemp but found no published literature, personal observation, or communication demonstrating broad-mite damage to hemp.",
+          "The authors distinguish organism occurrence from the ability to reproduce, complete a life cycle, and damage hemp; a regional list or organism-only image is not evidence that a photographed plant syndrome was caused by broad mite.",
+          "The article presents broad-mite organism images at 10× and 30× for tentative field identification and recommends taxonomist consultation for species-level identification.",
+          "This evidence conflicts with treating extension symptom descriptions as experimentally validated Cannabis phenotypes and requires the uncertainty to remain attached to every symptom-led label."
+        ]
+      },
+      {
+        "title": "First Year Survey of Arthropods in California Hemp",
+        "organization": "Frontiers in Agronomy",
+        "url": "https://doi.org/10.3389/fagro.2022.901416",
+        "authors": [
+          "Kadie E. Britt",
+          "Sarah Meierotto",
+          "Victoria Morelos",
+          "Houston Wilson"
+        ],
+        "publisher": "Frontiers Media SA",
+        "publicationDate": "2022-06-29",
+        "year": 2022,
+        "accessedDate": "2026-10-07",
+        "doi": "10.3389/fagro.2022.901416",
+        "supportedClaims": [
+          "The 2021 California survey sampled eight hemp plots in Fresno and Ventura Counties every two weeks from August to mid-October using D-vac, leaf, and visual sampling.",
+          "Leaf collections specifically targeted hemp russet mite, two-spotted spider mite, and broad mite; ten leaves were collected at each of three random points per site and processed with a mite brush.",
+          "Very few mites were recovered overall and cannabis aphid was the only pest observed at noticeable density, so one negative inspection, one region, or one season cannot establish universal broad-mite absence or prevalence.",
+          "The survey did not establish a Cannabis broad-mite injury phenotype or causal symptom sequence; its sampling design is surveillance context rather than positive image ground truth."
         ]
       }
     ],

@@ -349,6 +349,25 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toContain('Normal late-flower senescence')
   })
 
+  it('keeps broad-mite injury organism-linked and the Cannabis evidence conflict explicit', () => {
+    const record = issues.find((issue) => issue.slug === 'broad-mite')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.scientificName).toBe('Polyphagotarsonemus latus')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
+    expect(confirmation).toMatch(/do not confirm.*one photograph.*one video/)
+    expect(confirmation).toContain('raised pale dots')
+    expect(confirmation).toContain('russet mites')
+    expect(confirmation).toContain('cyclamen mites')
+    expect(warnings).toMatch(/no traceable published or observed evidence.*damage to hemp/)
+    expect(warnings).toMatch(/tested two-spotted spider mites and green peach aphids, not broad-mite/)
+    expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Hemp russet mite', 'Cyclamen mite', 'Two-spotted spider mite', 'Thrips feeding injury', 'Hop latent viroid']))
+    expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad028')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3389/fagro.2022.901416')).toBe(true)
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps thrips labels organism-confirmed and species-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'thrips')
     expect(record?.reviewStatus).toBe('reviewed')
