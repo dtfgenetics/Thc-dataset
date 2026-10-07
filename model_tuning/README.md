@@ -45,7 +45,7 @@ Current Qwen3-8B starter contract:
 - training dataset manifest SHA-256: `266034e65e374249b5c9f5409202ff3947ea9e4b6b56906c146c99ba7bb9e678`
 - dependency-lock resolver: `uv==0.12.10`
 - dependency-lock SHA-256: `ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e`
-- current frozen training mixture: 147 SFT + 36 grounded-QA = 183 rows (~19.7% grounded-QA)
+- current frozen training mixture: 144 SFT + 36 grounded-QA = 180 rows (~20.0% grounded-QA)
 - mixture-size validation is artifact-driven from `training_artifact_lock_v3.json`; the trainer must not hard-code expected row counts
 
 The dependency lock is not trusted merely because direct package versions are pinned. CI re-materializes the full transitive lock from `requirements.in` using the exact resolver/version and rejects the run if the resulting bytes do not match the pinned SHA.
