@@ -5811,7 +5811,11 @@
         "doi": "10.1093/ee/nvad044",
         "supportedClaims": [
           "Broad mites are recognized among the most significant piercing-sucking pests of greenhouse-grown hemp.",
-          "Piercing-sucking pest injury in hemp can overlap visually with cupping, yellowing, leaf loss, and reduced reproductive performance, so pest presence must be confirmed rather than inferred from canopy symptoms."
+          "Piercing-sucking pest injury in hemp can overlap visually with cupping, yellowing, leaf loss, and reduced reproductive performance, so pest presence must be confirmed rather than inferred from canopy symptoms.",
+          "Controlled greenhouse experiments compared uninfested Cannabis controls with plant-level Tetranychus urticae inoculations and linked repeated middle- and upper-canopy leaf sampling to stereomicroscope counts of motile mites and eggs.",
+          "The 2020 BaOx experiment used approximately 50 or 200 mites per plant and ended high-density plants after seven days because mites established rapidly and plant health declined; the 2021 experiments used lower inoculation rates and serial sampling through 14 days.",
+          "Cannabinoid responses differed by experiment, infestation density, time, and cultivar, so inoculation counts, timing, chemistry effects, and visible decline from these experiments are study-specific and not universal diagnostic or economic thresholds.",
+          "The article is CC BY 4.0, but its photographs and graphs do not provide a panel-resolved, organism-visible, plant-linked diagnostic progression suitable for automatic training without separate annotation and leakage review."
         ]
       },
       {
@@ -6228,33 +6232,42 @@
     "category": "Mite",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.55,
-    "summary": "Twospotted spider mites feed mainly from leaf undersides, producing upper-surface stippling that can progress to chlorosis, necrosis, leaf loss, and silk webbing. Injury alone is nonspecific and can persist after mites leave, so an active label requires direct organism evidence.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "Twospotted spider mites feed mainly from Cannabis leaf undersides, producing upper-surface stippling that can progress to chlorosis, bronzing, necrosis, leaf loss, reduced flower growth, and silk webbing. Injury and webbing are not species-exclusive and can persist after mites leave, so an active Tetranychus urticae label requires plant-linked organism evidence.",
     "affectedParts": [
-      "lower leaf surface",
-      "upper leaf surface",
-      "canopy",
-      "flower"
+      "lower leaf surface where eggs and colonies concentrate",
+      "corresponding upper leaf surface where stippling is first visible",
+      "middle and upper canopy leaves used in controlled Cannabis counts",
+      "leaf margins and whole leaves during advanced injury",
+      "stems and adjacent leaves bridged by silk",
+      "flowers affected by dense colonies or reduced growth",
+      "whole canopy and neighboring plants for distribution mapping"
     ],
     "stages": [
-      "all",
+      "propagation and mother plants",
       "vegetative",
-      "flower"
+      "flowering",
+      "pre-harvest"
     ],
     "indicators": [
-      "Paired-leaf view: fine pale stippling or speckling on the upper surface corresponds to a colony, eggs, cast skins, or debris on the lower surface.",
-      "Adults are tiny, oval, pale yellowish to greenish mites whose two dark body spots may be visible in a sharp macro view; round translucent eggs occur near veins and webbing below the leaf.",
-      "Damage can expand from localized stippled leaves to bronze or yellow tissue, dry brown margins or whole leaves, premature leaf drop, and reduced vigor or flower growth.",
-      "Fine silk first appears in protected leaf regions and can bridge leaves, stems, or flowers when populations are high; visible webbing generally indicates an established infestation.",
+      "Plant-linked paired-leaf evidence shows fine pale stippling or speckling above the same leaf area where eggs, feeding stages, cast skins, fecal specks, or silk occur below.",
+      "Sharp macro or microscope views show tiny oval pale-yellow to green adults, often with two dark lateral spots, while round translucent-to-opaque eggs occur near veins or silk on the underside.",
+      "A documented colony includes compatible six-legged larvae, eight-legged nymphs or adults, eggs, and cast skins rather than one unresolved moving dot or an isolated injury patch.",
+      "Early injury is localized stippling; repeated plant-linked views can show expansion across multiple leaves before broad yellowing, wilting, bronzing, or reddish discoloration develops.",
+      "Advanced leaves can desiccate, develop brown margins or whole-leaf necrosis, drop prematurely, and occur with reduced vigor or flower growth.",
+      "Fine silk begins in protected leaf areas and can bridge leaves, stems, or flowers at high density; whole-plant webbing is a severe-infestation sign, not a required early sign.",
+      "Repeated counts from marked middle- and upper-canopy leaves demonstrate live motile stages or new eggs alongside worsening injury, separating active population growth from persistent old damage.",
       "Hot, dry, dusty, or water-stressed zones can develop faster or denser hotspots, including field edges near dusty paths, but this spatial association is contextual evidence only."
     ],
     "exclusions": [
       "Silvery scraped streaks with black fecal specks and slender insects support thrips rather than spider mites.",
-      "Distorted newest growth with no webbing and mites too small for a hand lens supports hemp russet or broad-mite triage, not a two-spotted spider-mite label.",
+      "Distorted newest growth with no round eggs or spider-mite webbing and mites too small for a hand lens supports hemp russet or broad-mite triage, not a two-spotted spider-mite label.",
       "Fast-moving, long-legged, pear-shaped mites may be beneficial predators; do not label every visible mite as Tetranychus urticae.",
       "Spray or mineral residue may wipe away and lacks eggs, moving life stages, cast skins, and silk anchored to the leaf.",
       "Nutrient, root-zone, or water stress can produce chlorosis or necrosis but should not produce a matched underside colony or mite webbing.",
-      "Leafhopper injury can cause pale stippling without an underside mite colony; inspect for hoppers and the distribution of feeding marks."
+      "Leafhopper injury can cause pale stippling without an underside mite colony; inspect for hoppers and the distribution of feeding marks.",
+      "Spider silk, cottonwood fluff, fungal growth, or plant fibers are not mite webbing when no compatible eggs, life stages, feeding injury, or anchored colony is present.",
+      "Old stippling, bronzing, or silk remains unchanged while repeated marked-leaf checks find no live mites or new eggs; retain historical injury rather than an active-infestation label."
     ],
     "progression": [
       {
@@ -6279,20 +6292,29 @@
       }
     ],
     "lookAlikes": [
-      "Thrips",
-      "Hemp russet mites",
-      "Broad mite injury",
+      "Thrips feeding",
+      "Hemp russet mite",
+      "Broad mite",
+      "Other spider-mite species",
       "Predatory mites",
       "Leafhopper feeding",
-      "Spray or mineral residue",
-      "Nutrient or root-zone stress"
+      "Powdery mildew or other superficial fungal growth",
+      "Spider silk, cottonwood fluff, or plant fibers",
+      "Spray, dust, pollen, or mineral residue",
+      "Nutrient deficiency or toxicity",
+      "High-EC or extreme-pH root-zone stress",
+      "Drought, excessive vapor demand, or root hypoxia",
+      "Heat or high-light injury",
+      "Leaf-spot pathogen or physiological stippling"
     ],
     "confirmation": [
-      "Do not confirm an active infestation or species from stippling, chlorosis, or webbing in an image or video alone; capture the whole-canopy distribution plus paired upper- and lower-leaf views.",
-      "Inspect several symptomatic and adjacent apparently healthy leaf undersides with at least 10x magnification; record eggs, larvae or nymphs, adults, cast skins, fecal debris, and silk with a scale reference.",
-      "Tap suspect leaves or stems over clean white paper and record close video of moving organisms; distinguish slow plant-feeding mites from faster, longer-legged predatory mites.",
-      "For species-level ground truth, retain a specimen and obtain qualified entomologist or diagnostic-laboratory identification when morphology is not resolved by the capture.",
-      "Record cultivar, growth stage, canopy position, site or room, first-observed date, repeat counts from fixed leaves, temperature, humidity, dust, and water-stress context."
+      "Do not confirm an active infestation or species from stippling, chlorosis, bronzing, necrosis, or webbing in an image or video alone; cap visual-only confidence and capture the whole-canopy distribution plus paired views of both surfaces from the same marked leaves.",
+      "Inspect several symptomatic, boundary, and adjacent apparently healthy leaf undersides at 10x or greater magnification; record eggs, larvae, nymphs, adults, cast skins, fecal debris, and silk with scale, plant identifier, leaf node, and canopy position.",
+      "Tap suspect leaves or stems over clean white paper and record close video of movement, but link recovered organisms back to the imaged plant and distinguish slow plant-feeding mites from faster, longer-legged predatory mites.",
+      "For Tetranychus urticae ground truth, retain plant-linked specimens and obtain qualified entomologist or diagnostic-laboratory identification when diagnostic adult morphology is not resolved; webbing and two dark spots alone do not exclude another spider-mite species.",
+      "Revisit the same marked leaves and nearby plants at fixed intervals, recording live motile stages, eggs, and paired injury; persistent old stippling without live-organism evidence is historical injury, not an active colony.",
+      "Record cultivar, growth stage, canopy position, site or room, first-observed date, temperature, relative humidity, irrigation and water-stress history, dust, neighboring hosts, and any intervention; environmental fit is supporting context only.",
+      "Preserve uninfested same-cultivar comparison plants where possible and keep experiment-specific inoculation counts, damage grades, cannabinoid responses, and intervention outcomes separate from diagnostic certainty or economic thresholds."
     ],
     "immediateActions": [
       "Separate or clearly flag affected plants and inspect neighboring plants before moving people, tools, or plant material through the area.",
@@ -6308,7 +6330,8 @@
       "Scout fixed leaves across canopy zones and field edges consistently, documenting both direct organisms and injury over time."
     ],
     "warnings": [
-      "The published 0-to-5 visual scale came from one evaluator, two hemp cultivars, naturally occurring background mite populations, and flowering plants; it is an observational study reference, not a universal severity or treatment threshold.",
+      "The published 0-to-5 visual scale came from one evaluator, two hemp cultivars, naturally occurring background mite populations, and flowering plants; it is an observational study reference, not a universal severity, species-confirmation, or treatment threshold.",
+      "The controlled Pulkoski and Burrack experiments used specific BaOx and Autoflower plants, greenhouse conditions, inoculation rates, timepoints, and chemistry outcomes; none is a universal diagnostic count, onset interval, cultivar response, or economic threshold.",
       "No research-based action threshold has been established for North Carolina hemp across fiber, seed, and cannabinoid markets.",
       "Injury-only imagery is not species-level ground truth: stippling is nonspecific, webbing is usually a later sign, and old injury can remain after mites have left.",
       "Cultivar, canopy, environment, and production system can alter visible severity, and predatory mites or other pest mites can be confused with Tetranychus urticae in low-resolution media.",
@@ -6316,6 +6339,28 @@
       "Avoid applying any product unless it is legal for the crop, site, growth stage, and jurisdiction, especially on flowers."
     ],
     "sources": [
+      {
+        "title": "Assessing the impact of piercing-sucking pests on greenhouse-grown industrial hemp (Cannabis sativa L.)",
+        "organization": "Environmental Entomology",
+        "url": "https://doi.org/10.1093/ee/nvad044",
+        "authors": [
+          "Melissa Pulkoski",
+          "Hannah Burrack"
+        ],
+        "publisher": "Oxford University Press for the Entomological Society of America",
+        "publicationDate": "2023-05-08",
+        "year": 2024,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1093/ee/nvad044",
+        "supportedClaims": [
+          "Broad mites are recognized among the most significant piercing-sucking pests of greenhouse-grown hemp.",
+          "Piercing-sucking pest injury in hemp can overlap visually with cupping, yellowing, leaf loss, and reduced reproductive performance, so pest presence must be confirmed rather than inferred from canopy symptoms.",
+          "Controlled greenhouse experiments compared uninfested Cannabis controls with plant-level Tetranychus urticae inoculations and linked repeated middle- and upper-canopy leaf sampling to stereomicroscope counts of motile mites and eggs.",
+          "The 2020 BaOx experiment used approximately 50 or 200 mites per plant and ended high-density plants after seven days because mites established rapidly and plant health declined; the 2021 experiments used lower inoculation rates and serial sampling through 14 days.",
+          "Cannabinoid responses differed by experiment, infestation density, time, and cultivar, so inoculation counts, timing, chemistry effects, and visible decline from these experiments are study-specific and not universal diagnostic or economic thresholds.",
+          "The article is CC BY 4.0, but its photographs and graphs do not provide a panel-resolved, organism-visible, plant-linked diagnostic progression suitable for automatic training without separate annotation and leakage review."
+        ]
+      },
       {
         "title": "Cultivar Identity and Spider Mite Herbivory Shape Rhizosphere Bacteria in Hemp (Cannabis sativa L.)",
         "organization": "Agronomy (Thweatt et al.)",
@@ -6330,7 +6375,7 @@
         "publisher": "MDPI AG",
         "publicationDate": "2026-03-19",
         "year": 2026,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-07",
         "doi": "10.3390/agronomy16060651",
         "supportedClaims": [
           "A trained evaluator scored naturally occurring Tetranychus urticae injury on flowering BaOx and Cherry Citrus hemp under the same greenhouse conditions with a standardized 0-to-5 scale: 0, no visible stippling, chlorosis, or webbing; 1, slight stippling on a few leaves; 2, moderate stippling across multiple leaves; 3, heavy stippling with early chlorosis; 4, extensive chlorosis with patchy webbing; and 5, severe chlorosis and necrosis with dense silk webbing.",
@@ -6350,7 +6395,7 @@
         "publisher": "North Carolina State University Extension",
         "publicationDate": "2020-08-05",
         "year": 2020,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "Twospotted spider mites occur on greenhouse and field hemp; at least 10x magnification is recommended because mites and eggs occur mainly on leaf undersides while feeding injury appears as pale speckling on the upper surface.",
           "High infestations can produce yellow, dry leaves, premature leaf drop, reduced flower growth, and webbing that can cover much of a plant; hot, low-humidity conditions can shorten a generation to roughly one to two weeks.",
@@ -6359,11 +6404,37 @@
         ]
       },
       {
+        "title": "Twospotted spider mite",
+        "organization": "Colorado State University Agricultural Biology",
+        "url": "https://agsci.colostate.edu/agbio/ipm-pests/twospotted-spider-mite/",
+        "publisher": "Colorado State University",
+        "accessedDate": "2026-10-07",
+        "supportedClaims": [
+          "On hemp, adults are tiny oval yellow-green mites that often show two dark lateral spots; spherical eggs, cast skins, adults, and other life stages occur primarily on leaf undersides.",
+          "Underside feeding produces speckling or stippling above and can progress to wilting, yellow or bronze desiccated leaves, premature leaf drop, reduced flower growth, black fecal specks, and abundant webbing at high density.",
+          "A hand lens, underside inspection, and shaking stems over white paper support monitoring; webbing over the plant is a severe-infestation sign rather than an early or species-exclusive feature.",
+          "The page includes hemp and organism images with creator credits, but it does not state item-level reuse or automated-training permission; no asset from the page is admitted by this profile."
+        ]
+      },
+      {
+        "title": "Two-Spotted Spider Mite",
+        "organization": "Utah State University Extension Integrated Pest Management",
+        "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spider-mites",
+        "publisher": "Utah State University Extension",
+        "accessedDate": "2026-10-07",
+        "supportedClaims": [
+          "All life stages occur most frequently on leaf undersides; yellowish-clear adults can show two dark dorsal spots and spherical translucent eggs become opaque with age.",
+          "Hemp injury can progress from small yellow stipples to generalized bronze or reddish discoloration, brown dead margins or leaves, reduced vigor, premature leaf drop, and a dirty or dusty appearance with webbing.",
+          "Predatory mites, other spider mites, thrips, and leafhopper injury are listed look-alikes; fast-moving pear-shaped predatory mites should not be labeled as Tetranychus urticae.",
+          "The page supplies creator-level photo credits but no item-level automated-training license; its images remain outside this dataset."
+        ]
+      },
+      {
         "title": "Spider Mites",
         "organization": "University of California Statewide IPM Program",
         "url": "https://ipm.ucanr.edu/home-and-landscape/spider-mites/",
         "publisher": "University of California Agriculture and Natural Resources",
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
           "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
