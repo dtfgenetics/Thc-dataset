@@ -1,6 +1,6 @@
 {
   "schema_version": "grow-doc-healthy-control-acquisition-plan-v1",
-  "updated_at_utc": "2026-10-05T23:46:00Z",
+  "updated_at_utc": "2026-10-07T16:31:00Z",
   "purpose": "Convert controlled Cannabis-specific healthy/control and hard-negative imagery into provenance-complete review candidates without granting training or locked-evaluation eligibility.",
   "policy": {
     "no_visual_inference_of_health_or_diagnosis": true,
@@ -67,6 +67,36 @@
         "assign sourceGroupId and prevent paired panels from leaking across evaluation splits",
         "run human scientific, rights, and annotation review",
         "do not treat review-article visual attribution alone as a universal diagnosis ground truth"
+      ],
+      "training_eligible": false,
+      "locked_evaluation_eligible": false
+    },
+    {
+      "id": "HC-ACQ-003",
+      "source_id": "DS-153",
+      "source_title": "Entomopathogenic Fungi Effectively Control Phorodon cannabis Aphid Population in Cannabis sativa Plants",
+      "canonical_source": "https://www.mdpi.com/2223-7747/14/6/931",
+      "persistent_id": "doi:10.3390/plants14060931",
+      "license": "CC BY 4.0",
+      "current_state": "candidate-source-authored-control-extraction",
+      "target_material": [
+        "Greenhouse uninfested distilled-water control plants (Ct) across the three Cannabis cultivars",
+        "Greenhouse uninfested Beauveria-treated plants (N-B) as a treatment-specific non-aphid comparator where the source figure/caption supports the distinction"
+      ],
+      "intended_role": [
+        "healthy/non-infested control candidate",
+        "cannabis-aphid hard-negative comparison",
+        "treatment-context control reference"
+      ],
+      "required_steps": [
+        "acquire only article or supplementary child assets whose CC BY 4.0 attribution and figure identity are explicit",
+        "preserve cultivar, treatment code, infestation state, sampling time, figure/panel, and source-authored caption context",
+        "bind control labels only to the source-defined Ct or N-B treatment groups; never infer health from appearance alone",
+        "record per-file SHA-256 and perceptual hash before any crop or derivative is registered",
+        "assign one sourceGroupId for all panels and derivatives from this experiment so paired treatment images cannot leak across evaluation splits",
+        "separate organism-recognition imagery from plant-level healthy-control candidates when figure semantics differ",
+        "run human scientific, rights, and annotation review before any promotion",
+        "keep training and locked-evaluation eligibility false until split-policy coverage, duplicate isolation, and explicit admission review pass"
       ],
       "training_eligible": false,
       "locked_evaluation_eligible": false
