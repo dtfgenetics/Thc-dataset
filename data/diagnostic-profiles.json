@@ -5797,16 +5797,19 @@
     "category": "Mite",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "summary": "A microscopic eriophyid mite whose feeding can cause localized bronzing, brittle or reduced leaves, distorted edges, stunting, and suppressed floral growth without the webbing typical of spider mites.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "A microscopic eriophyid mite of Cannabis whose canopy injury overlaps several pests and abiotic disorders. Ordinary plant photographs can show compatible bronzing, curl, stunting, or bud suppression, but a confirmed label requires plant-linked high-magnification morphology or a validated diagnostic assay.",
     "affectedParts": [
-      "young leaves",
-      "leaf undersides",
-      "petioles",
-      "stems",
-      "growing tips",
+      "young and expanding leaves",
+      "lower or abaxial leaf surfaces",
+      "midribs and protected leaflet zones",
+      "petioles and stems",
+      "apical meristems and growing tips",
+      "peduncles and pedicels",
       "flower buds"
     ],
     "stages": [
+      "propagation and young clones",
       "vegetative",
       "pre-flower",
       "flower"
@@ -5814,43 +5817,70 @@
     "indicators": [
       "Dull gray or bronzed foliage",
       "Brittle or reduced leaf size",
-      "Leaf edges curl upward or downward",
-      "Stem or petiole bronzing",
-      "Stunted growing tips",
-      "No webbing despite mite-like damage"
+      "No webbing despite mite-like damage",
+      "Low populations can be visually silent even while mites occupy protected lower-leaf and midrib sites",
+      "Under adequate magnification, mites are pale yellow to white, narrow wormlike or cigar-shaped eriophyids about 110 to 210 micrometres long with only two pairs of legs",
+      "Mites favor lower leaf surfaces at lower abundance and can spread to upper surfaces, petioles, stems, peduncles, pedicels, and flowers as populations increase",
+      "Fine spotting can progress to dull gray-green, bronze, or russet leaf tissue without the webbing typical of spider mites",
+      "Leaf edges may curl upward or downward while expanding leaves remain smaller, brittle, or easily broken",
+      "Apical growth can become stunted or distorted when densities concentrate around growing points",
+      "Dense mites and shed skins can form a tan or brown powder-like accumulation on leaves or stems",
+      "High flower-bud populations can coincide with suppressed, reduced, or dwarfed bud growth"
     ],
     "exclusions": [
-      "Fine webbing and round spider-mite eggs are present",
-      "Only interveinal chlorosis follows an older-leaf nutrient pattern",
-      "Damage is restricted to the hottest or brightest canopy surface",
-      "No cigar-shaped mites are found after adequate microscope sampling"
+      "Fine webbing, round eggs, and oval mites with four pairs of adult legs support two-spotted spider mites rather than hemp russet mite",
+      "Oval broad mites or clear oval eggs with raised pale dots are found in protected new growth",
+      "Thrips, black frass, silvered scraping, or linear feeding scars explain the injury better",
+      "Interveinal, marginal, or age-ordered chlorosis follows a measured nutrient, pH, EC, water-status, or root-disease abnormality and repeated mite sampling is negative",
+      "Injury maps to the hottest or brightest canopy surface, a spray/contact pattern, wind abrasion, or another documented exposure",
+      "Powder-like material has fungal structures, pollen morphology, or removable residue without plant-linked eriophyid mites",
+      "Only a canopy photograph, low-resolution close-up, detached leaf, or unlinked microscope field is available",
+      "Species identity is inferred from injury or tan material alone when morphology is unresolved or a validated plant-linked assay is discordant"
     ],
     "progression": [
       {
-        "stage": "Low population",
-        "description": "Visible injury may be absent; mites occupy protected sites around veins, trichomes, petioles, and leaf undersides."
+        "stage": "Visually silent colonization",
+        "description": "Low populations can occupy lower leaf surfaces, midribs, petioles, and other protected sites without visible canopy injury; serial magnified sampling is more informative than a single clean photograph."
       },
       {
-        "stage": "Developing injury",
-        "description": "Fine spotting, dull gray-green tissue, bronzing, edge curl, and reduced or brittle leaves become apparent on affected shoots."
+        "stage": "Localized feeding response",
+        "description": "Fine spotting, muted gray-green color, or early bronzing may appear on affected leaves and stems, but these changes remain nonspecific without mites linked to the same plant."
       },
       {
-        "stage": "High population",
-        "description": "Stunting, stem bronzing, deformed growing tips, and reduced or dwarfed flower buds can develop; dense mites or cast skins may resemble tan powder."
+        "stage": "Expanding shoot injury",
+        "description": "Leaf margins may curl upward or downward, new leaves can remain small or brittle, and apical growth can slow as mites spread across plant surfaces and concentrate near growing points."
+      },
+      {
+        "stage": "Dense population evidence",
+        "description": "Numerous mites or cast skins can resemble tan-brown powder on leaves or stems; preserve microscope views because ordinary video cannot reliably separate organisms, exuviae, pollen, residue, or fungal growth."
+      },
+      {
+        "stage": "Severe reproductive or young-plant injury",
+        "description": "Young seedlings or clones may become strongly stunted, while flowering plants can develop reduced or dwarfed buds; published stage, seasonal, yield, and cannabinoid effects are study- and region-specific rather than universal thresholds."
       }
     ],
     "lookAlikes": [
       "Two-spotted spider mites",
-      "Thrips",
       "Broad mites",
-      "Heat or light stress",
-      "Nutrient or root-zone stress",
-      "Powdery residue"
+      "Thrips",
+      "Cannabis aphids or other sap-feeding arthropods",
+      "Powdery mildew",
+      "Pollen, dust, spray residue, or glandular trichomes",
+      "Heat or high-light stress",
+      "Herbicide or plant-growth-regulator injury",
+      "Nutrient deficiency or toxicity",
+      "High-EC or extreme-pH root-zone stress",
+      "Waterlogging, drought, or root disease",
+      "Cultivar morphology or normal flower maturation"
     ],
     "confirmation": [
-      "Sample both symptomatic and adjacent apparently healthy leaves; inspect undersides, midribs, petioles, and protected trichome zones with a dissecting or digital microscope.",
-      "Confirm pale, cigar-shaped eriophyid mites with only two pairs of legs; ordinary phone or whole-plant images are not sufficient.",
-      "For repeatable image counts, photograph multiple leaflet sections under microscope magnification rather than relying on a single field of view."
+      "Capture the intact plant, canopy distribution, upper and lower surfaces, growing tip, stem, petiole, and flower context before removing samples; keep every microscope image linked to its source plant and position.",
+      "Sample symptomatic shoots plus adjacent apparently healthy leaves and protected sites because low populations may be symptomless and damaged tissue alone is not a reliable search target.",
+      "Use a dissecting microscope or calibrated digital microscope to confirm pale, narrow eriophyids with two pairs of legs; do not assign Aculops cannabicola from an ordinary phone image.",
+      "For quantitative photographic monitoring, use fixed leaflet positions and multiple fields. The published research method favored proximal and middle sections and used at least 22 leaflets, but that study design is not a universal diagnostic sampling threshold.",
+      "Record mites, eggs, cast skins, magnification, scale, leaf surface, canopy position, cultivar, stage, date, and plant identifier; retain matched images showing spider-mite webbing, broad-mite eggs, thrips signs, or fungal structures when present.",
+      "When morphology is sparse, damaged, mixed, or taxonomically uncertain, use a qualified diagnostic laboratory; a published A. cannabicola ITS1 qPCR assay is available, but it was validated on hemp leaf tissue and requires contamination controls.",
+      "Use repeated counts on fixed plant positions to assess temporal change; persistent visible curl or bronzing after counts fall is historical injury and must not be labeled as current abundance."
     ],
     "immediateActions": [
       "Quarantine suspect plants and stop moving cuttings, tools, clothing, or plant debris into clean areas.",
@@ -5867,9 +5897,12 @@
       "Maintain routine microscope scouting because low populations can be visually silent."
     ],
     "warnings": [
-      "Leaf curl or bronzing alone is not diagnostic.",
-      "Do not confuse tan cast-skin accumulations with fungal powder.",
-      "CC BY 4.0 permits reuse with attribution, but these hashed reference images remain excluded from model training until a separate training and dataset-split review is completed."
+      "Leaf curl, bronzing, stunting, yellowing, or bud suppression alone is not diagnostic and remains a human-review label.",
+      "Do not confuse mites or tan cast-skin accumulations with fungal growth, pollen, residues, trichomes, dust, or compression artifacts.",
+      "A microscope field without intact-plant and sampling-location linkage confirms only that an organism was imaged, not that it caused the photographed canopy syndrome.",
+      "Published sampling counts, life-cycle timing, seasonal peaks, severe outcomes, pesticide results, and yield effects are protocol-, cultivar-, region-, and production-system-specific rather than universal action thresholds.",
+      "The qPCR assay was validated on hemp leaf tissue against a bounded non-target set; it does not validate arbitrary environmental samples or replace appropriate controls and expert interpretation.",
+      "CC BY 4.0 permits reuse with attribution, but these two hashed reference images remain excluded from model training until independent diagnostic, source-group, near-duplicate, split, and crop-geometry review is completed."
     ],
     "sources": [
       {
@@ -5877,7 +5910,7 @@
         "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
         "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-hemp-russet-mite-",
         "publisher": "Utah State University Extension",
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "Hemp russet mites are microscopic, cigar-shaped eriophyid mites usually found on leaf undersides and best identified with high magnification.",
           "High populations can cause fine spotting, bronzing, reduced leaf size, brittle foliage, upward edge curl, and stem bronzing.",
@@ -5894,7 +5927,8 @@
         ],
         "publisher": "North Carolina State University Extension",
         "publicationDate": "2020-08-04",
-        "accessedDate": "2026-08-13",
+        "year": 2020,
+        "accessedDate": "2026-10-07",
         "supportedClaims": [
           "The absence of webbing helps distinguish hemp russet mite from spider mites, but microscopy is necessary because injury resembles disease and abiotic stress.",
           "Stem, petiole, and leaf feeding can cause stunting, smaller leaves, dull gray or bronzed tissue, and suppressed or dwarfed buds.",
@@ -5902,22 +5936,67 @@
         ]
       },
       {
-        "title": "Novel Approach to Tally Aculops cannabicola (Acari: Eriophyidae) Using Photographs of Hemp Leaves",
+        "title": "A Novel Approach to Tally Aculops cannabicola (Acari: Eriophyidae) for Field and Laboratory Studies",
         "organization": "Journal of Economic Entomology (Falcon-Brindis et al.)",
         "url": "https://doi.org/10.1093/jee/toad004",
         "authors": [
-          "A. Falcon-Brindis",
-          "C. L. Bradley"
+          "Armando Falcon-Brindis",
+          "Raul T. Villanueva",
+          "Zenaida Viloria",
+          "Christina L. Bradley"
         ],
         "publisher": "Oxford University Press for the Entomological Society of America",
         "publicationDate": "2023-01-23",
         "year": 2023,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-07",
         "doi": "10.1093/jee/toad004",
         "supportedClaims": [
           "Hemp russet mites are approximately 160–210 micrometres long and are easily missed with standard low-power hand lenses.",
-          "Image-based counts require microscope photographs of multiple leaflet sections; ordinary whole-plant photographs cannot confirm the pest.",
+          "Photographic counts were most consistent when proximal and middle leaflet sections were included; using all three sampled sections produced 64% to 100% consistency, and a minimum of 22 leaflets per sampling event supported strong correlation in this research protocol.",
+          "Image-based counts require microscope photographs of multiple leaflet sections; ordinary whole-plant photographs cannot confirm the pest, and the study protocol is not a universal detection threshold.",
           "Feeding is associated with chlorosis, stunting, brittle leaf breakage, and reduced flower-bud size or resin production at high populations."
+        ]
+      },
+      {
+        "title": "Hemp Russet Mite, a Key Pest of Hemp in Kentucky",
+        "organization": "University of Kentucky Department of Entomology, ENTFACT-162",
+        "url": "https://entomology.mgcafe.uky.edu/ef162",
+        "authors": [
+          "Raul Villanueva",
+          "Zenaida Viloria",
+          "Ronald Ochoa",
+          "Andrew Ulsamer"
+        ],
+        "publisher": "University of Kentucky Martin-Gatton College of Agriculture, Food and Environment",
+        "publicationDate": "2026-03",
+        "year": 2026,
+        "accessedDate": "2026-10-07",
+        "supportedClaims": [
+          "Hemp russet mite nymphs and adults are yellowish to pale white, wormlike eriophyids approximately 110 to 210 micrometres long with two pairs of legs, while eggs are microscopic.",
+          "Mites prefer the lower leaf surface at lower abundance; as populations increase they spread to upper leaf surfaces, petioles, stems, peduncles, pedicels, and flower buds, with densities peaking in apical meristems in the Kentucky account.",
+          "High infestations can produce upward or downward leaf-edge curl, bronzing or russeting, and brown-tan powder-like accumulations of cast skins; cast-skin powder is a supporting clue rather than species confirmation.",
+          "The source documents severe injury to young seedlings and early-stage clones and flower injury during Kentucky inflorescence development, but its timing, severity, and seasonal observations are regional rather than universal thresholds."
+        ]
+      },
+      {
+        "title": "Development of a real-time PCR assay for detection of hemp russet mite (Aculops cannabicola)",
+        "organization": "Environmental Entomology",
+        "url": "https://doi.org/10.1093/ee/nvad060",
+        "authors": [
+          "Olivia Carter",
+          "Jacob MacWilliams",
+          "Punya Nachappa"
+        ],
+        "publisher": "Oxford University Press for the Entomological Society of America",
+        "publicationDate": "2023-08-03",
+        "year": 2024,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1093/ee/nvad060",
+        "supportedClaims": [
+          "The study developed a species-specific SYBR Green real-time PCR assay targeting a 104-base-pair Aculops cannabicola ITS1 sequence and reported detection of all life stages in under two hours.",
+          "The assay amplified DNA from microscope-confirmed infested hemp leaves and did not amplify the tested uninfested hemp, wheat curl mite, two-spotted spider mite, or western flower thrips samples.",
+          "The authors caution that the assay was validated on hemp leaf tissue, not environmental DNA or every alternative sample type, and that careful sample handling plus negative and no-template controls are needed to limit contamination-related false positives.",
+          "The paper states that visible curling and bronzing are subtle, non-universal among cultivars, and may appear only after mites have proliferated, supporting microscopy or validated molecular confirmation rather than symptom-only labeling."
         ]
       }
     ],

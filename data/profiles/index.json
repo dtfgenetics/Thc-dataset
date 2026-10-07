@@ -284,7 +284,7 @@
       "category": "Mite",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 5,
       "mediaCount": 2,
       "path": "data/profiles/mite-hemp-russet.json"
     },
