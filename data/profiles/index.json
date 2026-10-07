@@ -20,7 +20,7 @@
       "category": "Bacterial pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
+      "sourceCount": 6,
       "mediaCount": 0,
       "path": "data/profiles/bacterial-xanthomonas-leaf-spot.json"
     },

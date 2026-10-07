@@ -56,9 +56,9 @@ training_data:
   grounded_qa_path: model_tuning/generated/splits/train_grounded_qa_mixture_v1.jsonl
   grounded_qa_dev_path: model_tuning/generated/splits/dev_grounded_qa_v1.jsonl
   split_manifest_path: model_tuning/generated/splits/training_split_manifest_v1.json
-  split_manifest_sha256: 7d50627e2315b5060c23ec0b74264c6d03fb525fac9e9454c7ed0b77d0faddb0
+  split_manifest_sha256: 1225920f45b541d62d71f95a1295e42c939b4f2f004f306046277e2bd0e01b5d
   dataset_manifest_path: model_tuning/generated/training_dataset_manifest_v2.json
-  dataset_manifest_sha256: 1e9d851a89b23562ba6a60f70e43915d9e30b4e2bb40a1b80ff28db3de8772f4
+  dataset_manifest_sha256: e69966afa6d9b3e60c46a3375e4cfe9aaa4a5081d2a9d8a80e602f85fe401504
   grounded_qa_max_fraction: 0.20
   retrieval_path: model_tuning/generated/rag/claims_v1.jsonl
   quarantine_path: model_tuning/generated/quarantine/quarantine_v1.jsonl
