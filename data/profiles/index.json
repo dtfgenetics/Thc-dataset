@@ -658,7 +658,7 @@
       "category": "Virus",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 6,
       "mediaCount": 3,
       "path": "data/profiles/virus-bctv.json"
     },

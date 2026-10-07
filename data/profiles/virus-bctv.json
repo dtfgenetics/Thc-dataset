@@ -6,63 +6,92 @@
   "category": "Virus",
   "severity": "high",
   "reviewStatus": "reviewed",
-  "summary": "A beet-leafhopper-vectored viral disease of field-grown hemp that can produce uneven stunting, bushy or shortened shoots, twisted and upward-curled young leaves, and pale-green, yellow, mosaic, or fully chlorotic foliage.",
+  "photoOnlyMaxConfidence": 0.2,
+  "summary": "A systemic Cannabis disease associated with multiple BCTV strains and usually transmitted by beet leafhoppers. Compatible plants can show uneven stunting, shortened or twisted shoots, curled foliage, chlorosis, mosaic, or reduced floral growth, but expression varies with plant age, genotype, setting, strain, and coinfection; confirmed infection can also be visually inapparent.",
   "affectedParts": [
     "young and expanding leaves",
+    "older leaves",
+    "upper and lower leaf surfaces",
     "shoot tips",
     "stems and internodes",
-    "buds",
-    "whole plant"
+    "branches",
+    "flowers and buds",
+    "whole-plant architecture"
   ],
   "stages": [
     "seedling",
     "vegetative",
     "pre-flower",
-    "flower"
+    "flower",
+    "seed and seedling evidence requires molecular testing"
   ],
   "indicators": [
     "Stunted or bushy plant architecture",
+    "Shortened stem growth or internodes",
     "Twisted, puckered, or upward-curled young leaves",
     "Pale-green to yellow new foliage",
     "Yellow mosaic or generalized chlorosis",
-    "Shortened stem growth",
-    "Symptomatic shoots beside apparently healthy shoots on the same plant"
+    "Twisted or deformed stem growth",
+    "Symptomatic shoots beside apparently healthy shoots on the same plant",
+    "Reduced flower mass reported with severe young-plant disease in one Washington field series"
   ],
   "exclusions": [
+    "A compatible photograph or video without plant-linked molecular confirmation",
+    "A beet leafhopper observation without BCTV detection in the linked plant",
     "Microscopy confirms broad mites or hemp russet mites in protected new growth",
     "Distortion follows a documented herbicide or plant-growth-regulator exposure pattern",
-    "Symptoms are uniform only on the hottest or brightest canopy surface and measured environmental stress explains the distribution",
-    "Only older leaves follow a mobile-nutrient pattern without twisted new shoots",
-    "A validated laboratory assay is negative on properly collected tissue and another cause is confirmed"
+    "Symptoms map only to the hottest or brightest canopy surface and measured heat or light stress explains the distribution",
+    "Root-zone measurements, tissue analysis, or response to correction supports a pH, EC, water, oxygen, or nutrient disorder instead",
+    "Validated testing identifies Hop latent viroid, phytoplasma, Spiroplasma, another virus, or a mixed infection that better bounds the syndrome",
+    "Properly collected plant-linked tissue is negative with a validated BCTV assay and an independently confirmed alternative explains the presentation"
   ],
   "progression": [
     {
-      "stage": "Early expression",
-      "description": "New growth may begin twisting or puckering while shoots slow; pale-green or yellow coloration can develop, but appearance varies by cultivar, growth stage, temperature, and virus strain."
+      "stage": "Exposure or latent interval",
+      "description": "A beet leafhopper visit, infected source lot, or nearby field case creates risk but no visible proof. Record exposure context and plant identity; symptom-free tissue can still test positive."
     },
     {
-      "stage": "Established disease",
-      "description": "Plants become stunted or bushy with shortened stems and distorted, upward-curled, yellowed, or mosaic foliage; shoots may differ markedly within one plant."
+      "stage": "Early shoot expression",
+      "description": "New growth may slow, twist, pucker, twirl, or curl while pale-green or yellow coloration develops. Capture the shoot tip, both leaf surfaces, internodes, and a matched unaffected plant because mites, chemicals, and root-zone disorders overlap."
     },
     {
-      "stage": "Variable later course",
-      "description": "Early infections are generally more severe, yet some plants appear to outgrow visible symptoms or retain a mixture of symptomatic and apparently healthy shoot portions."
+      "stage": "Established systemic expression",
+      "description": "Some plants become unevenly stunted or bushy with short internodes, deformed stems, curled foliage, chlorosis, mosaic, or reduced flower development. Photograph whole-plant distribution plus close and opposite-surface views; no single feature is BCTV-specific."
+    },
+    {
+      "stage": "Age, genotype, and shoot divergence",
+      "description": "The Washington field series associated young plants with severe whole-plant effects and older plants with milder branch-localized mosaic, chlorosis, and older-leaf tacoing, while other sources document substantial genotype and shoot-to-shoot variation. Do not convert these study patterns into a universal clock."
+    },
+    {
+      "stage": "Visually inapparent or mixed later course",
+      "description": "Plants may appear to outgrow signs, retain symptomatic and apparently healthy shoots, or remain visibly normal despite molecular detection. Serial imagery cannot establish clearance, strain, seed transmission, chemical impact, or absence of coinfection."
     }
   ],
   "lookAlikes": [
     "Tomato spotted wilt virus",
+    "Hop latent viroid",
+    "Hemp witches’ broom phytoplasma",
+    "Spiroplasma citri infection",
+    "Mixed virus, viroid, phytoplasma, or Spiroplasma infection",
     "Broad mite",
     "Hemp russet mite",
     "Plant-growth-regulator herbicide injury",
-    "Heat or light stress",
-    "Micronutrient or root-zone disorder",
-    "Genetic or chimeric variegation"
+    "Heat or high-light stress",
+    "Root-zone pH or EC disorder",
+    "Waterlogging or root hypoxia",
+    "Micronutrient disorder",
+    "Genetic or chimeric variegation",
+    "Genetic dwarfism or compact growth",
+    "Topping, training, or mechanical injury"
   ],
   "confirmation": [
-    "Do not confirm BCTV from an image or from beet-leafhopper presence; submit representative symptomatic tissue to a plant diagnostic laboratory using a validated BCTV-targeted molecular assay.",
-    "Sample newly symptomatic shoots rather than only old damaged leaves, and include an apparently healthy comparison when the laboratory protocol allows.",
-    "Ask the laboratory to consider other viruses or mixed infection when symptoms or assay results do not fully agree; BCTV can occur in mixed strain or mixed pathogen infections.",
-    "Record field position, onset date, affected growth stage, nearby weed hosts, and beet-leafhopper observations to support epidemiological interpretation without treating them as proof of infection."
+    "Do not confirm or exclude BCTV from an image, video, apparent recovery, or beet-leafhopper observation; use a plant diagnostic laboratory and a validated BCTV-targeted molecular assay.",
+    "Follow the receiving laboratory’s current tissue, timing, storage, and shipping protocol; link every sample to the photographed plant, shoot, canopy position, date, and symptom state.",
+    "Prefer newly symptomatic attached tissue when the laboratory recommends it, and include an apparently healthy plant or shoot comparator without assuming that visual normality means BCTV-negative.",
+    "Document assay target, extraction tissue, positive and negative controls, result date, and sequence or strain evidence where identity matters; do not infer strain or geographic origin from phenotype.",
+    "Request differential testing for Hop latent viroid, other viruses, phytoplasma, and Spiroplasma when signs or results are discordant because mixed infections and visually overlapping syndromes occur.",
+    "Inspect protected new growth with appropriate magnification for broad and hemp russet mites, and record recent herbicide or plant-growth-regulator exposure, heat/light mapping, root-zone pH, EC, moisture/oxygen, and tissue-analysis evidence.",
+    "Capture serial whole-plant, branch, shoot-tip, both-leaf-surface, internode, and flower views with matched controls; use them to document change, not to substitute for plant-linked laboratory evidence."
   ],
   "immediateActions": [
     "Mark and isolate suspect propagation material; stop taking or distributing cuttings until laboratory results are available.",
@@ -80,9 +109,12 @@
     "Reduce unmanaged weed and volunteer hosts around field borders using legal, agronomically appropriate practices."
   ],
   "warnings": [
-    "Visual symptoms are not specific enough to confirm a virus.",
+    "Visual symptoms are not specific enough to confirm a virus, and confirmed BCTV can be visually inapparent.",
+    "The 89% California and 37-of-38 Washington detection results belong to selected symptomatic sample series and are not image-class precision, prevalence, or universal diagnostic probabilities.",
+    "Growth-stage, genotype, strain, cannabinoid, seedling-detection, and vector-survival findings remain bounded to their reported experiments and must not become universal thresholds.",
     "A beet leafhopper on a plant does not establish that the insect or plant carries BCTV.",
-    "The two institutional hemp photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden from the public gallery and prohibited from automated training."
+    "The two institutional hemp photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden from the public gallery and prohibited from automated training.",
+    "The CC BY 4.0 Figure 19 reference is a full multi-genotype composite; it remains display-permitted but training-ineligible because panel-level labels, plant identities, and progression links are not available."
   ],
   "sources": [
     {
@@ -105,6 +137,65 @@
         "California hemp plants with curly-top-like disease were characteristically stunted and bushy with distorted, upward-curled, yellowed leaves.",
         "A multiplex PCR detected Beet curly top virus in 89% of hemp samples with curly-top-like symptoms, while other symptom types had low BCTV incidence and were associated with other factors.",
         "An infectious BCTV-CO clone reproduced curly-top-like symptoms in hemp, fulfilling Koch’s postulates; mixed BCTV strain infections also occurred."
+      ]
+    },
+    {
+      "title": "First Reports of Beet Curly Top Virus, Citrus Yellow Vein-Associated Virus, and Hop Latent Viroid in Industrial Hemp (Cannabis sativa) in Washington State",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-12-22-2981-PDN",
+      "authors": [
+        "Sridhar Jarugula",
+        "Camille Wagstaff",
+        "Arunabha Mitra",
+        "David W. Crowder",
+        "David R. Gang",
+        "Rayapati A. Naidu"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2023-09-08",
+      "year": 2023,
+      "accessedDate": "2026-10-07",
+      "doi": "10.1094/PDIS-12-22-2981-PDN",
+      "supportedClaims": [
+        "Across two central-Washington fields in 2021 and 2022, young symptomatic hemp plants showed severe stunting, shortened internodes, reduced flower mass, and light-green to fully yellow young leaves with twirling or twisted margins.",
+        "Older symptomatic plants in the Washington report had fewer foliar signs, including branch-limited mosaic, mottling, mild chlorosis, and tacoing of older leaves; these growth-stage associations are observations from that field series, not universal staging rules.",
+        "A BCTV coat-protein PCR detected the virus in 37 of 38 symptomatic plants, while high-throughput sequencing of four selected plants also detected BCTV strains and, in some samples, Citrus yellow vein-associated virus or Hop latent viroid; visual attribution to BCTV alone is therefore unsafe where coinfection has not been excluded."
+      ]
+    },
+    {
+      "title": "Beet Curly Top Virus Genetic Diversity, Impact on Cannabinoids, Potential Seed Transmission, and Vector Biology in Hemp",
+      "organization": "Phytopathology",
+      "url": "https://doi.org/10.1094/PHYTO-09-25-0297-R",
+      "authors": [
+        "Jinlong Han",
+        "Jacob MacWilliams",
+        "Max Schmidtbauer",
+        "Raiyaa Huntress",
+        "Maria Paula Mejia Alonzo",
+        "Laine Hackenberg",
+        "Jordan Withycombe",
+        "Tyler J. Lovato",
+        "Camille Wagstaff",
+        "David W. Crowder",
+        "Rebecca Creamer",
+        "Houston Wilson",
+        "Kadie Britt",
+        "Govinda Shrestha",
+        "Kenneth Frost",
+        "Hannah Rivedal",
+        "Cynthia M. Ocamb",
+        "Punya Nachappa"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2026-04-17",
+      "year": 2026,
+      "accessedDate": "2026-10-07",
+      "doi": "10.1094/PHYTO-09-25-0297-R",
+      "supportedClaims": [
+        "A five-state western U.S. survey resolved four BCTV strains in hemp, with BCTV-CO and BCTV-Wor most prevalent; strain and geography cannot be inferred from visible symptoms.",
+        "In controlled infections of two hemp genotypes, neither genotype showed visible curly-top disease symptoms even though one had significant cannabinoid reductions and the other did not, demonstrating that visible normality does not exclude BCTV or predict chemical impact.",
+        "BCTV was detected by PCR and confirmed by Sanger sequencing in a small proportion of seedlings from two infected hemp genotypes grown in an insect-free chamber; the study supports potential seed transmission but does not establish a universal rate for cultivars, lots, or production systems.",
+        "Beet leafhoppers did not survive beyond seven days on hemp in the reported assay, but short feeding periods can still permit transmission; insect presence, absence, or survival is epidemiological context rather than plant-level diagnosis."
       ]
     },
     {
@@ -136,6 +227,31 @@
         "Infected field-grown hemp can become stunted and develop yellow mosaic or generalized leaf chlorosis.",
         "Beet leafhoppers transmit curly-top viruses during probing and feeding; scouting is especially important while plants are small and should include leaf undersides, field edges, and nearby weeds.",
         "Yellow mosaic hemp samples should be submitted to a plant diagnostic laboratory, and tomato spotted wilt virus is an early-season look-alike."
+      ]
+    },
+    {
+      "title": "Challenges to Cannabis sativa Production from Pathogens and Microbes—The Role of Molecular Diagnostics and Bioinformatics",
+      "organization": "International Journal of Molecular Sciences (Punja et al.)",
+      "url": "https://doi.org/10.3390/ijms25010014",
+      "authors": [
+        "Zamir K. Punja",
+        "Dieter Kahl",
+        "Ron Reade",
+        "Yu Xiang",
+        "Jack Munz",
+        "Punya Nachappa"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2023-12-19",
+      "year": 2024,
+      "accessedDate": "2026-08-13",
+      "doi": "10.3390/ijms25010014",
+      "supportedClaims": [
+        "The authors documented Cannabis leaves with mosaic, mottling, and line patterns that superficially resembled viral symptoms, and separately illustrated sharply chlorotic, chlorophyll-deficient sectors attributed to somatic mutation in Figure 4e.",
+        "Defined broad-spectrum and specific RT-PCR assays did not detect the targeted viruses in tested OG Kush and Headband tissues; positive controls worked, no virus-like particles were seen in the examined Cannabis samples by transmission electron microscopy, and inoculated indicator hosts remained symptomless for three weeks.",
+        "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause.",
+        "Figure 19 documents indoor Cannabis plants with stunting, extensive young-leaf curling, and twisted or deformed stem growth plus outdoor plants from four genotypes with visibly different symptom presentations; BCTV presence was confirmed by RT-PCR with universal BCTV primers.",
+        "The Figure 19 asset is a multi-genotype, multi-setting composite rather than a panel-resolved progression series, so it supports visual context but not a universal phenotype or panel-level automated-training label."
       ]
     }
   ],
