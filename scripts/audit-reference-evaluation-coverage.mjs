@@ -62,6 +62,40 @@ const counts={
   missingConfirmationMethod:rows.filter((row)=>!Array.isArray(row.confirmationMethod)||row.confirmationMethod.length===0).length,
 };
 
+const profileBuckets=new Map();
+for(const row of rows){
+  const profileId=row.diagnosis?.profileId;
+  if(!profileId)continue;
+  if(!profileBuckets.has(profileId))profileBuckets.set(profileId,{
+    profileId,
+    name:row.diagnosis?.name||profileId,
+    annotations:0,
+    confirmed:0,
+    cannabisHost:0,
+    sourceGroups:new Set(),
+    lookAlikeBindings:0,
+  });
+  const bucket=profileBuckets.get(profileId);
+  bucket.annotations+=1;
+  if(row.labelStatus==='confirmed')bucket.confirmed+=1;
+  if(row.hostContext==='cannabis')bucket.cannabisHost+=1;
+  if(row.sourceGroupId)bucket.sourceGroups.add(row.sourceGroupId);
+  if(hasLookAlikeSignal(row))bucket.lookAlikeBindings+=1;
+}
+const sourceGroupTarget=Number(minimum.independentSourceGroupsPerClass||0);
+const profileCoverage=[...profileBuckets.values()].map((bucket)=>({
+  profileId:bucket.profileId,
+  name:bucket.name,
+  annotations:bucket.annotations,
+  confirmed:bucket.confirmed,
+  cannabisHost:bucket.cannabisHost,
+  independentSourceGroups:bucket.sourceGroups.size,
+  independentSourceGroupTarget:sourceGroupTarget,
+  sourceGroupDeficit:Math.max(0,sourceGroupTarget-bucket.sourceGroups.size),
+  lookAlikeBindings:bucket.lookAlikeBindings,
+})).sort((a,b)=>b.sourceGroupDeficit-a.sourceGroupDeficit||a.profileId.localeCompare(b.profileId));
+const underCoveredProfiles=profileCoverage.filter((item)=>item.sourceGroupDeficit>0);
+
 const gaps=[];
 if(minimum.requireHealthyControls===true&&counts.healthyControls===0)gaps.push('healthy controls required by split policy are not yet represented in reference annotations');
 if(minimum.requireLookAlikeNegatives===true&&counts.lookAlikeNegativeBindings===0)gaps.push('look-alike negatives required by split policy are not yet represented explicitly');
@@ -82,6 +116,12 @@ const report={
     requireLookAlikeNegatives:minimum.requireLookAlikeNegatives===true,
   },
   counts,
+  profileCoverageSummary:{
+    profiles:profileCoverage.length,
+    meetingIndependentSourceGroupTarget:profileCoverage.length-underCoveredProfiles.length,
+    underCoveredProfiles:underCoveredProfiles.length,
+  },
+  profileCoverage,
   integrity:{errors},
   readyForLockedVisualEvaluation:errors.length===0&&gaps.length===0&&counts.lockedEvaluationEligible>0,
   gaps,
