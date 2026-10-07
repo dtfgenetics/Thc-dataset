@@ -452,7 +452,7 @@
     "publisher": "Oxford University Press for the Entomological Society of America",
     "publicationDate": "2023-05-08",
     "year": 2024,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-07",
     "doi": "10.1093/ee/nvad044",
     "supportedClaims": [
       "Broad mites are recognized among the most significant piercing-sucking pests of greenhouse-grown hemp.",
@@ -592,23 +592,28 @@
   },
   {
     "sourceKey": "10.1093/jipm/pmad028",
-    "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), in Florida",
+    "title": "Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), and their indoor management plan in Florida",
     "organization": "Journal of Integrated Pest Management",
     "url": "https://doi.org/10.1093/jipm/pmad028",
     "authors": [
+      "Muhammad Z. Ahmed",
       "Cindy L. McKenzie",
       "Lance S. Osborne"
     ],
     "publisher": "Oxford University Press on behalf of the Entomological Society of America",
     "publicationDate": "2023-12-26",
     "year": 2023,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-07",
     "doi": "10.1093/jipm/pmad028",
     "supportedClaims": [
       "The Florida synthesis reports beet armyworm (Spodoptera exigua) and yellowstriped armyworm (Spodoptera ornithogalli) among noctuids established in Florida and associated with hemp, while bertha armyworm and Spodoptera litura are marked as intercepted rather than established records.",
       "The authors distinguish reported presence from pest impact: not every one of the 105 listed arthropod and mollusk species can reproduce, complete its life cycle, or damage hemp.",
       "The paper emphasizes identification across life stages and warns that immature organisms can be confused; occurrence in a regional list or an organism-only image is not plant-linked proof of injury, prevalence, or severity.",
-      "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media."
+      "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media.",
+      "The Florida survey and literature synthesis reported Polyphagotarsonemus latus among organisms associated with hemp but found no published literature, personal observation, or communication demonstrating broad-mite damage to hemp.",
+      "The authors distinguish organism occurrence from the ability to reproduce, complete a life cycle, and damage hemp; a regional list or organism-only image is not evidence that a photographed plant syndrome was caused by broad mite.",
+      "The article presents broad-mite organism images at 10× and 30× for tentative field identification and recommends taxonomist consultation for species-level identification.",
+      "This evidence conflicts with treating extension symptom descriptions as experimentally validated Cannabis phenotypes and requires the uncertainty to remain attached to every symptom-led label."
     ]
   },
   {
@@ -1916,6 +1921,29 @@
     ]
   },
   {
+    "sourceKey": "10.3389/fagro.2022.901416",
+    "title": "First Year Survey of Arthropods in California Hemp",
+    "organization": "Frontiers in Agronomy",
+    "url": "https://doi.org/10.3389/fagro.2022.901416",
+    "authors": [
+      "Kadie E. Britt",
+      "Sarah Meierotto",
+      "Victoria Morelos",
+      "Houston Wilson"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2022-06-29",
+    "year": 2022,
+    "accessedDate": "2026-10-07",
+    "doi": "10.3389/fagro.2022.901416",
+    "supportedClaims": [
+      "The 2021 California survey sampled eight hemp plots in Fresno and Ventura Counties every two weeks from August to mid-October using D-vac, leaf, and visual sampling.",
+      "Leaf collections specifically targeted hemp russet mite, two-spotted spider mite, and broad mite; ten leaves were collected at each of three random points per site and processed with a mite brush.",
+      "Very few mites were recovered overall and cannabis aphid was the only pest observed at noticeable density, so one negative inspection, one region, or one season cannot establish universal broad-mite absence or prevalence.",
+      "The survey did not establish a Cannabis broad-mite injury phenotype or causal symptom sequence; its sampling design is surveillance context rather than positive image ground truth."
+    ]
+  },
+  {
     "sourceKey": "10.3389/fpls.2015.00431",
     "title": "Comparative genomics of a cannabis pathogen reveals insight into the evolution of pathogenicity in Xanthomonas",
     "organization": "Frontiers in Plant Science",
@@ -3153,7 +3181,7 @@
     "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
     "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-broad-mite",
     "publisher": "Utah State University Extension",
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-07",
     "supportedClaims": [
       "Broad mite (Polyphagotarsonemus latus) is documented on hemp and occupies shaded, protected leaf surfaces and crevices.",
       "Adults are extremely small, oval to round, and light yellow to green; eggs are laid on leaf undersides.",
@@ -3613,7 +3641,7 @@
     "publisher": "Virginia Tech",
     "publicationDate": "2024-03-27",
     "year": 2024,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-07",
     "supportedClaims": [
       "Broad mites prefer young, protected tissue and may no longer be present on the most damaged tissue because visible injury can persist after feeding.",
       "Clear oval broad-mite eggs have raised pale dots, while cyclamen-mite eggs are smooth and russet mites have a narrow, conical body form.",

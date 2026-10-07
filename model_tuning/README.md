@@ -41,11 +41,11 @@ Current Qwen3-8B starter contract:
 - base/tokenizer revision: `b968826d9c46dd6066d109eabc6255188de91218`
 - tokenizer chat-template SHA-256: `a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8`
 - Qwen3 thinking mode: `enable_thinking=false`
-- training split manifest SHA-256: `394f7785803ef52a7c3340d6100ddd9946220d379ea8f514fc647ad484217bc7`
-- training dataset manifest SHA-256: `f1e1ead34da0c47176fabba11fce29f0a94d5d82045947724520821bf205e325`
+- training split manifest SHA-256: `1201ab32f61cfe33ec22f82ecf369d839efe7c995eb4f9b080beec5d5601f43f`
+- training dataset manifest SHA-256: `266034e65e374249b5c9f5409202ff3947ea9e4b6b56906c146c99ba7bb9e678`
 - dependency-lock resolver: `uv==0.12.10`
 - dependency-lock SHA-256: `ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e`
-- current frozen training mixture: 147 SFT + 36 grounded-QA = 183 rows (~19.7% grounded-QA)
+- current frozen training mixture: 144 SFT + 36 grounded-QA = 180 rows (~20.0% grounded-QA)
 - mixture-size validation is artifact-driven from `training_artifact_lock_v3.json`; the trainer must not hard-code expected row counts
 
 The dependency lock is not trusted merely because direct package versions are pinned. CI re-materializes the full transitive lock from `requirements.in` using the exact resolver/version and rejects the run if the resulting bytes do not match the pinned SHA.

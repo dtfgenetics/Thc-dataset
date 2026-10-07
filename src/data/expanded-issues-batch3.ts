@@ -54,10 +54,10 @@ const hempCaterpillarsPnw = source({
 })
 
 const floridaHempPestSurvey = source({
-  title: 'Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), in Florida',
+  title: 'Arthropod and mollusk pests of hemp, Cannabis sativa (Rosales: Cannabaceae), and their indoor management plan in Florida',
   organization: 'Journal of Integrated Pest Management',
   url: 'https://doi.org/10.1093/jipm/pmad028',
-  authors: ['Cindy L. McKenzie', 'Lance S. Osborne'],
+  authors: ['Muhammad Z. Ahmed', 'Cindy L. McKenzie', 'Lance S. Osborne'],
   publisher: 'Oxford University Press on behalf of the Entomological Society of America',
   publicationDate: '2023-12-26',
   year: 2023,
