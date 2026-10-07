@@ -145,7 +145,7 @@
       "title": "GrowLens observation contract adoption",
       "worker": "consumer-integration",
       "canonical_owner": "dtfgenetics/Thc",
-      "status": "ready",
+      "status": "done",
       "dependencies": [
         "THC-DATA-001"
       ],
@@ -163,19 +163,24 @@
         "Compatibility test passes"
       ],
       "checkpoint": {
-        "last_verified_sha": null,
+        "last_verified_sha": "e057a06c4481c10043df767361972cf3ebb2e05a",
         "cursor": null,
-        "upstream_version": null,
-        "branch": null,
-        "pr_number": null,
-        "next_action": "After contract merge, inspect GrowLens event/storage boundary and add adapter."
+        "upstream_version": "scientific-observation.schema.json blob 942a74fadb59a2dfe475d71190f6b685d7b81516",
+        "branch": "work/growlens/observation-context/20261006-r3",
+        "pr_number": 2090,
+        "next_action": "Merged in dtfgenetics/Thc; deployment/live release verification remains tracked by Project OS, not this contract-adoption queue item."
       },
       "blocker": {
         "fingerprint": null,
         "blocked_until": null,
         "fallback_action": null
       },
-      "metrics": {}
+      "metrics": {
+        "contract_pinned": 1,
+        "observation_fixture_validated": 1,
+        "measured_vs_derived_provenance_guard": 1,
+        "compatibility_ci_passed": 1
+      }
     },
     {
       "work_item_id": "THC-TOOLS-001",
