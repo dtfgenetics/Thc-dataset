@@ -155,7 +155,9 @@
       "supportedClaims": [
         "The authors documented Cannabis leaves with mosaic, mottling, and line patterns that superficially resembled viral symptoms, and separately illustrated sharply chlorotic, chlorophyll-deficient sectors attributed to somatic mutation in Figure 4e.",
         "Defined broad-spectrum and specific RT-PCR assays did not detect the targeted viruses in tested OG Kush and Headband tissues; positive controls worked, no virus-like particles were seen in the examined Cannabis samples by transmission electron microscopy, and inoculated indicator hosts remained symptomless for three weeks.",
-        "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause."
+        "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause.",
+        "Figure 19 documents indoor Cannabis plants with stunting, extensive young-leaf curling, and twisted or deformed stem growth plus outdoor plants from four genotypes with visibly different symptom presentations; BCTV presence was confirmed by RT-PCR with universal BCTV primers.",
+        "The Figure 19 asset is a multi-genotype, multi-setting composite rather than a panel-resolved progression series, so it supports visual context but not a universal phenotype or panel-level automated-training label."
       ]
     }
   ],

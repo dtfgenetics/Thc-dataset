@@ -1374,6 +1374,30 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-12-22-2981-PDN",
+    "title": "First Reports of Beet Curly Top Virus, Citrus Yellow Vein-Associated Virus, and Hop Latent Viroid in Industrial Hemp (Cannabis sativa) in Washington State",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-12-22-2981-PDN",
+    "authors": [
+      "Sridhar Jarugula",
+      "Camille Wagstaff",
+      "Arunabha Mitra",
+      "David W. Crowder",
+      "David R. Gang",
+      "Rayapati A. Naidu"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2023-09-08",
+    "year": 2023,
+    "accessedDate": "2026-10-07",
+    "doi": "10.1094/PDIS-12-22-2981-PDN",
+    "supportedClaims": [
+      "Across two central-Washington fields in 2021 and 2022, young symptomatic hemp plants showed severe stunting, shortened internodes, reduced flower mass, and light-green to fully yellow young leaves with twirling or twisted margins.",
+      "Older symptomatic plants in the Washington report had fewer foliar signs, including branch-limited mosaic, mottling, mild chlorosis, and tacoing of older leaves; these growth-stage associations are observations from that field series, not universal staging rules.",
+      "A BCTV coat-protein PCR detected the virus in 37 of 38 symptomatic plants, while high-throughput sequencing of four selected plants also detected BCTV strains and, in some samples, Citrus yellow vein-associated virus or Hop latent viroid; visual attribution to BCTV alone is therefore unsafe where coinfection has not been excluded."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-91-5-0636A",
     "title": "First Report of Southern Blight Caused by Sclerotium rolfsii on Hemp (Cannabis sativa) in Sicily and Southern Italy",
     "organization": "Plant Disease",
@@ -1473,6 +1497,43 @@
       "Azoxystrobin reduced disease progress relative to untreated inoculated controls in both trial years, while other evaluated products were variable or ineffective under the study conditions.",
       "The trial establishes that repeated plant-linked severity measurements can quantify Septoria disease progress; it does not make one cultivar, isolate, location, season, product response, or legal label universal.",
       "Treatment response cannot retroactively confirm an image-only diagnosis, and product selection requires current jurisdiction-specific registration, label compliance, resistance management, and professional guidance."
+    ]
+  },
+  {
+    "sourceKey": "10.1094/PHYTO-09-25-0297-R",
+    "title": "Beet Curly Top Virus Genetic Diversity, Impact on Cannabinoids, Potential Seed Transmission, and Vector Biology in Hemp",
+    "organization": "Phytopathology",
+    "url": "https://doi.org/10.1094/PHYTO-09-25-0297-R",
+    "authors": [
+      "Jinlong Han",
+      "Jacob MacWilliams",
+      "Max Schmidtbauer",
+      "Raiyaa Huntress",
+      "Maria Paula Mejia Alonzo",
+      "Laine Hackenberg",
+      "Jordan Withycombe",
+      "Tyler J. Lovato",
+      "Camille Wagstaff",
+      "David W. Crowder",
+      "Rebecca Creamer",
+      "Houston Wilson",
+      "Kadie Britt",
+      "Govinda Shrestha",
+      "Kenneth Frost",
+      "Hannah Rivedal",
+      "Cynthia M. Ocamb",
+      "Punya Nachappa"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2026-04-17",
+    "year": 2026,
+    "accessedDate": "2026-10-07",
+    "doi": "10.1094/PHYTO-09-25-0297-R",
+    "supportedClaims": [
+      "A five-state western U.S. survey resolved four BCTV strains in hemp, with BCTV-CO and BCTV-Wor most prevalent; strain and geography cannot be inferred from visible symptoms.",
+      "In controlled infections of two hemp genotypes, neither genotype showed visible curly-top disease symptoms even though one had significant cannabinoid reductions and the other did not, demonstrating that visible normality does not exclude BCTV or predict chemical impact.",
+      "BCTV was detected by PCR and confirmed by Sanger sequencing in a small proportion of seedlings from two infected hemp genotypes grown in an insect-free chamber; the study supports potential seed transmission but does not establish a universal rate for cultivars, lots, or production systems.",
+      "Beet leafhoppers did not survive beyond seven days on hemp in the reported assay, but short feeding periods can still permit transmission; insect presence, absence, or survival is epidemiological context rather than plant-level diagnosis."
     ]
   },
   {
@@ -2245,7 +2306,9 @@
     "supportedClaims": [
       "The authors documented Cannabis leaves with mosaic, mottling, and line patterns that superficially resembled viral symptoms, and separately illustrated sharply chlorotic, chlorophyll-deficient sectors attributed to somatic mutation in Figure 4e.",
       "Defined broad-spectrum and specific RT-PCR assays did not detect the targeted viruses in tested OG Kush and Headband tissues; positive controls worked, no virus-like particles were seen in the examined Cannabis samples by transmission electron microscopy, and inoculated indicator hosts remained symptomless for three weeks.",
-      "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause."
+      "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause.",
+      "Figure 19 documents indoor Cannabis plants with stunting, extensive young-leaf curling, and twisted or deformed stem growth plus outdoor plants from four genotypes with visibly different symptom presentations; BCTV presence was confirmed by RT-PCR with universal BCTV primers.",
+      "The Figure 19 asset is a multi-genotype, multi-setting composite rather than a panel-resolved progression series, so it supports visual context but not a universal phenotype or panel-level automated-training label."
     ]
   },
   {
