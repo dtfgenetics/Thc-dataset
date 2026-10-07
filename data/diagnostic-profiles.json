@@ -237,57 +237,85 @@
     "category": "Bacterial pathogen",
     "severity": "moderate",
     "reviewStatus": "reviewed",
-    "summary": "A documented bacterial leaf spot of hemp in which small water-soaked lesions progress to approximately 1–2 mm necrotic centers surrounded by comparatively broad yellow halos; images can support triage but cannot distinguish the bacterium from fungal or abiotic look-alikes.",
+    "photoOnlyMaxConfidence": 0.2,
+    "summary": "A laboratory-dependent bacterial leaf-spot diagnosis. Historical hemp evidence describes small water-soaked lesions that develop approximately 1–2 mm necrotic centers with comparatively broad 2–3 mm yellow halos, but fungal disease, other bacteria, arthropods, exposure injury, edema, and Cannabis salt-excretion injury can overlap visually.",
     "affectedParts": [
       "leaf blades",
-      "upper and lower leaf surfaces"
+      "upper and lower leaf surfaces",
+      "whole-plant canopy for lesion-distribution mapping",
+      "stems and young shoots for exclusion of nutrient-salt deposits and other syndromes"
     ],
     "stages": [
-      "growth stage not established in cannabis-specific primary evidence"
+      "growth stage not established in Cannabis-specific Xanthomonas evidence",
+      "vegetative or reproductive stage must be recorded rather than inferred from lesion appearance"
     ],
     "indicators": [
-      "Small water-soaked leaf spots before necrosis develops",
-      "Necrotic centers approximately 1–2 mm in diameter",
-      "Yellow halos approximately 2–3 mm wide",
-      "Discrete lesions with a halo wider than the necrotic center",
-      "Focal spotting rather than a whole-leaf nutrient-mobility gradient"
+      "Small water-soaked spots are visible in intact leaf tissue before the centers become necrotic.",
+      "The water-soaked area transitions to a discrete brown or dark necrotic center rather than remaining a superficial removable deposit.",
+      "Necrotic centers in the Japanese hemp report were approximately 1–2 mm in diameter.",
+      "Yellow halos in that report were approximately 2–3 mm wide.",
+      "The chlorotic halo is proportionally wider than the necrotic center in the documented Cannabis lesion geometry.",
+      "Comparable focal lesions occur on more than one attached leaf and can be mapped on both leaf surfaces rather than appearing only as one detached spot.",
+      "Serial views preserve the water-soaked-to-necrotic-with-halo sequence instead of a stable crystal, residue, glare, or camera-color artifact.",
+      "A high-confidence causal label requires a representative active lesion linked to bacterial recovery and validated molecular or genomic identification consistent with Xanthomonas cannabis."
     ],
     "exclusions": [
-      "White surface colonies, fungal fruiting structures, or diagnostic spores support a fungal cause",
-      "Fine stippling, webbing, or organisms on the leaf underside support arthropod feeding",
-      "Damage follows spray droplets, contact points, or a documented chemical application and does not progress after exposure ends",
-      "Symptoms follow a measured older-leaf or younger-leaf nutrient pattern without discrete water-soaked lesions",
-      "A plant diagnostic laboratory identifies another pathogen or abiotic cause from a representative active lesion"
+      "White surface colonies, fungal fruiting structures, diagnostic conidia, or a positive fungal assay support powdery mildew or a fungal leaf spot rather than Xanthomonas.",
+      "Fine stippling, silver scarring, webbing, fecal spots, eggs, mites, thrips, or other organisms on the leaf underside support arthropod feeding.",
+      "Damage follows spray droplets, rubbing points, a documented chemical application, heat, or high light and does not progress after that exposure ends.",
+      "Symptoms follow a measured older-leaf or younger-leaf nutrient-mobility pattern without discrete water-soaked lesions and broad halos.",
+      "White crystalline patches cluster around non-glandular trichomes or along veins and stems, excess nutrient salts are documented, and culture, sequencing, or fungal PCR does not support a pathogen.",
+      "Dark angular or vein-limited lesions, red bacterial streaming, or laboratory evidence supports Serratia marcescens or another bacterial disease.",
+      "A plant diagnostic laboratory identifies another pathogen or abiotic cause from a representative active lesion, or Xanthomonas is recovered only as an unlinked epiphyte or contaminant.",
+      "A genome, species name, virulence marker, culture image, or non-Cannabis isolate is available without the photographed Cannabis lesion and plant linkage needed for causal attribution."
     ],
     "progression": [
       {
-        "stage": "Early lesion",
-        "description": "A small water-soaked spot develops in leaf tissue; record both leaf surfaces because general bacterial leaf spots can first be more apparent from below."
+        "stage": "Suspected initial spot",
+        "description": "A small water-soaked area appears within an attached leaf blade. Capture both surfaces, scale, node, leaf age, and the surrounding healthy tissue before necrosis obscures this early feature."
       },
       {
-        "stage": "Established lesion",
-        "description": "The center becomes necrotic at roughly 1–2 mm across while a yellow halo roughly 2–3 mm wide surrounds it, producing a small dark center with a proportionally broad chlorotic border."
+        "stage": "Center necrosis",
+        "description": "The central tissue darkens and becomes necrotic while the spot remains small and discrete; the Japanese hemp report described centers approximately 1–2 mm across."
       },
       {
-        "stage": "Later course uncertain",
-        "description": "Cannabis-specific primary evidence used here does not establish a dependable late-stage coalescence, defoliation, stem, or flower pattern. Do not infer those labels from general-host bacterial leaf-spot images."
+        "stage": "Halo development",
+        "description": "A yellow border develops around the necrotic center and was approximately 2–3 mm wide in the historical report, producing a halo wider than the center."
+      },
+      {
+        "stage": "Serial distribution check",
+        "description": "Map whether compatible lesions appear on additional attached leaves and whether old lesions change while new water-soaked lesions emerge. Cannabis evidence does not establish a universal canopy, leaf-age, coalescence, defoliation, stem, or flower sequence."
+      },
+      {
+        "stage": "Etiologic resolution",
+        "description": "Link the imaged active lesion to culture and validated molecular or genomic evidence. If testing supports another organism, salt-excretion injury, or no causal plant-linked Xanthomonas, retain the visual sequence only as an unresolved look-alike."
       }
     ],
     "lookAlikes": [
-      "Septoria or other fungal leaf spot",
+      "Septoria leaf spot",
       "Alternaria leaf spot",
-      "Cercospora leaf spot",
-      "Foliar spray injury",
-      "Edema or water-soaking from physiological stress",
-      "Thrips or mite feeding punctures",
-      "Localized nutrient or salt injury"
+      "Cercospora or Pseudocercospora leaf spot",
+      "Bipolaris or Exserohilum leaf spot",
+      "Serratia marcescens bacterial leaf spot",
+      "Powdery mildew or superficial residue",
+      "Excess-nutrient salt excretion from non-glandular trichomes",
+      "Broad salinity or high-EC injury",
+      "Foliar spray or fertilizer-contact injury",
+      "Heat or high-light injury",
+      "Edema or other physiological water-soaking",
+      "Thrips feeding injury",
+      "Spider-, broad-, or hemp-russet-mite injury",
+      "Localized mechanical abrasion or rubbing",
+      "Nutrient deficiency, toxicity, or unsuitable root-zone pH"
     ],
     "confirmation": [
-      "Photograph the whole plant and both sides of several leaves, then capture a scale-referenced close-up showing the necrotic-center and halo dimensions and the distribution of lesions across the canopy.",
-      "Submit fresh, recently expanding lesions that include the transition between healthy and affected tissue to a plant diagnostic laboratory; keep samples separate, cool, and dry according to that laboratory’s instructions.",
-      "Ask the laboratory to distinguish bacterial from fungal leaf spot and, if a Xanthomonas isolate is recovered, identify it with validated physiological and molecular or sequence-based methods rather than morphology alone.",
-      "Microscopic bacterial streaming may support a bacterial differential, but absence of streaming does not exclude bacteria and streaming does not confirm Xanthomonas cannabis to species.",
-      "Map reports using the current accepted name Xanthomonas cannabis while retaining Xanthomonas campestris pv. cannabis as a historical synonym for literature and laboratory searches."
+      "Do not confirm Xanthomonas cannabis from water-soaking, a yellow halo, lesion dimensions, bacterial streaming, one photograph, or one video; cap image/video-only confidence at 0.20.",
+      "Capture serial whole-plant and upper-, middle-, and lower-canopy views plus both surfaces of multiple attached leaves under neutral repeatable lighting, with scale, color reference, node and leaf age, and a healthy same-cultivar comparison.",
+      "Record cultivar, propagation source, stage, onset date, lesion counts and positions, irrigation and splash events, humidity or leaf-wetness context, fertilizer and spray history, pH, EC, and whether surface material wipes or dissolves away.",
+      "Submit fresh, recently expanding lesions containing the healthy-to-affected margin to a plant diagnostic laboratory; keep samples separate, cool, and dry according to that laboratory’s instructions.",
+      "Ask the laboratory to distinguish bacterial, fungal, arthropod, and abiotic injury using microscopy, culture, and appropriate assays; bacterial streaming supports suspicion but can be absent and is not species confirmation.",
+      "If Xanthomonas is recovered, require validated molecular or genomic identification and plant linkage; report isolate, method, sequence or accession where available, current Xanthomonas cannabis taxonomy, historical synonym, and any justified pathovar without inferring host causality from species identity alone.",
+      "Admit an image or video as confirmed reference data only when the exact plant and lesion are linked to adequate diagnostic evidence, rights, attribution, source grouping, and human review; otherwise retain it as suspected, unresolved, or metadata-only."
     ],
     "immediateActions": [
       "Flag the plant and pause movement of cuttings or symptomatic foliage until laboratory triage.",
@@ -306,9 +334,11 @@
     ],
     "warnings": [
       "A photograph or video cannot confirm Xanthomonas cannabis; lesion size and halo geometry are triage features only.",
-      "The key symptom measurements come from a historical Japanese hemp report and do not establish current local prevalence, cultivar susceptibility, or production-system risk.",
-      "General greenhouse bacterial-leaf-spot guidance is used only for differential diagnosis and handling precautions, not as cannabis-specific epidemiological proof.",
-      "No cannabis-specific image or video with verified reuse and automated-training permission was found for this batch; no media was copied or admitted."
+      "The key symptom measurements come from a historical Japanese hemp report and do not establish current local prevalence, cultivar susceptibility, production-system risk, or a universal late-stage sequence.",
+      "Xanthomonas cannabis is genetically and host diverse; a species-level result, virulence marker, or non-Cannabis pathogenicity assay is not by itself proof of causal Cannabis disease.",
+      "Cannabis excess-nutrient salt injury can produce pathogen-like leaf spots, necrosis, blighting, wilt, and white deposits; surface appearance must remain linked to exposure, microscopy, and pathogen exclusions.",
+      "General greenhouse bacterial-leaf-spot guidance is used only for differential diagnosis and handling precautions, not as Cannabis-specific epidemiological proof.",
+      "No plant-linked, laboratory-confirmed Cannabis image or video with verified item-level automated-training permission was found for this batch; no media was copied or admitted."
     ],
     "sources": [
       {
@@ -360,6 +390,52 @@
         "supportedClaims": [
           "Xanthomonas cannabis (ex Severin 1978) McKnight et al. 2026 is the validly published correct species name.",
           "The historical names Xanthomonas campestris pv. cannabis and the 2015 proposed name “Xanthomonas cannabis” are homotypic synonyms; type strain identifiers include ICMP 6570, LMG 9042, and NCPPB 2877."
+        ]
+      },
+      {
+        "title": "Comparative genomics of ‘Xanthomonas cannabis’ reveals an emerging, diverse pathogen",
+        "organization": "Microbial Genomics",
+        "url": "https://doi.org/10.1099/mgen.0.001588",
+        "authors": [
+          "Daniel J. E. McKnight",
+          "Lauren Clackson",
+          "Johanna Wong-Bajracharya",
+          "John Webster",
+          "Paul Worden",
+          "Fridtjof Snijders",
+          "Efenaide B. Okoh",
+          "Steven P. Djordjevic",
+          "Toni A. Chapman",
+          "Daniel R. Bogema"
+        ],
+        "publisher": "Microbiology Society",
+        "publicationDate": "2025-11-28",
+        "year": 2025,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1099/mgen.0.001588",
+        "supportedClaims": [
+          "Whole-genome comparison placed historically collected isolates from Zinnia and Cucurbita within the genetically diverse Xanthomonas cannabis species even though those isolates were not recovered from Cannabis.",
+          "The Australian isolates differed in phylogroup and virulence-associated gene content, and their pathogenic potential was assessed on seven non-Cannabis hosts; species identity or virulence-gene content alone therefore does not prove that an arbitrary isolate caused a Cannabis lesion.",
+          "The study compiled Cannabis-, Abelmoschus-, Phaseolus-, Solanum-, and Zinnia-associated members and four proposed pathovars, supporting isolate-, pathovar-, host-, and plant-linkage reporting rather than treating the species name as a visually uniform disease label."
+        ]
+      },
+      {
+        "title": "Non-glandular trichomes (epidermal hairs) in cannabis (Cannabis sativa L.) plants are capable of excreting nutrient salts under excessive fertilizer regimes",
+        "organization": "Botany",
+        "url": "https://doi.org/10.1139/cjb-2025-0085",
+        "authors": [
+          "Zamir K. Punja"
+        ],
+        "publisher": "Canadian Science Publishing",
+        "publicationDate": "2026-03-03",
+        "year": 2026,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1139/cjb-2025-0085",
+        "supportedClaims": [
+          "Hydroponic Cannabis plants developed leaf spots, foliar necrosis and blighting, wilt, and superficial white stem patches that visually resembled pathogen injury.",
+          "Culture, whole-genome sequencing, and fungal-specific PCR did not identify a causal fungal or bacterial pathogen; light and scanning electron microscopy plus X-ray microanalysis instead linked white crystalline deposits to salts extruded from non-glandular trichomes.",
+          "Excess nutrient-salt treatments reproduced compatible injury, making measured nutrient exposure, crystalline surface deposits, microscopy, and pathogen testing important exclusions before a bacterial-leaf-spot label.",
+          "The observations involved one named production genotype and controlled excess-salt treatments, so their timing, appearance, and severity are not universal Cannabis thresholds."
         ]
       },
       {

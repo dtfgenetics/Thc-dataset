@@ -1582,6 +1582,34 @@
     ]
   },
   {
+    "sourceKey": "10.1099/mgen.0.001588",
+    "title": "Comparative genomics of ‘Xanthomonas cannabis’ reveals an emerging, diverse pathogen",
+    "organization": "Microbial Genomics",
+    "url": "https://doi.org/10.1099/mgen.0.001588",
+    "authors": [
+      "Daniel J. E. McKnight",
+      "Lauren Clackson",
+      "Johanna Wong-Bajracharya",
+      "John Webster",
+      "Paul Worden",
+      "Fridtjof Snijders",
+      "Efenaide B. Okoh",
+      "Steven P. Djordjevic",
+      "Toni A. Chapman",
+      "Daniel R. Bogema"
+    ],
+    "publisher": "Microbiology Society",
+    "publicationDate": "2025-11-28",
+    "year": 2025,
+    "accessedDate": "2026-10-07",
+    "doi": "10.1099/mgen.0.001588",
+    "supportedClaims": [
+      "Whole-genome comparison placed historically collected isolates from Zinnia and Cucurbita within the genetically diverse Xanthomonas cannabis species even though those isolates were not recovered from Cannabis.",
+      "The Australian isolates differed in phylogroup and virulence-associated gene content, and their pathogenic potential was assessed on seven non-Cannabis hosts; species identity or virulence-gene content alone therefore does not prove that an arbitrary isolate caused a Cannabis lesion.",
+      "The study compiled Cannabis-, Abelmoschus-, Phaseolus-, Solanum-, and Zinnia-associated members and four proposed pathovars, supporting isolate-, pathovar-, host-, and plant-linkage reporting rather than treating the species name as a visually uniform disease label."
+    ]
+  },
+  {
     "sourceKey": "10.1111/gcbb.12667",
     "title": "Development and validation of genetic markers for sex and cannabinoid chemotype in Cannabis sativa L.",
     "organization": "GCB Bioenergy",
@@ -1624,6 +1652,26 @@
       "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
       "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
       "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+    ]
+  },
+  {
+    "sourceKey": "10.1139/cjb-2025-0085",
+    "title": "Non-glandular trichomes (epidermal hairs) in cannabis (Cannabis sativa L.) plants are capable of excreting nutrient salts under excessive fertilizer regimes",
+    "organization": "Botany",
+    "url": "https://doi.org/10.1139/cjb-2025-0085",
+    "authors": [
+      "Zamir K. Punja"
+    ],
+    "publisher": "Canadian Science Publishing",
+    "publicationDate": "2026-03-03",
+    "year": 2026,
+    "accessedDate": "2026-10-07",
+    "doi": "10.1139/cjb-2025-0085",
+    "supportedClaims": [
+      "Hydroponic Cannabis plants developed leaf spots, foliar necrosis and blighting, wilt, and superficial white stem patches that visually resembled pathogen injury.",
+      "Culture, whole-genome sequencing, and fungal-specific PCR did not identify a causal fungal or bacterial pathogen; light and scanning electron microscopy plus X-ray microanalysis instead linked white crystalline deposits to salts extruded from non-glandular trichomes.",
+      "Excess nutrient-salt treatments reproduced compatible injury, making measured nutrient exposure, crystalline surface deposits, microscopy, and pathogen testing important exclusions before a bacterial-leaf-spot label.",
+      "The observations involved one named production genotype and controlled excess-salt treatments, so their timing, appearance, and severity are not universal Cannabis thresholds."
     ]
   },
   {
