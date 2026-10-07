@@ -24,6 +24,178 @@
     "missingLicense": 0,
     "missingConfirmationMethod": 0
   },
+  "profileCoverageSummary": {
+    "profiles": 15,
+    "meetingIndependentSourceGroupTarget": 1,
+    "underCoveredProfiles": 14
+  },
+  "profileCoverage": [
+    {
+      "profileId": "fungal-botrytis-bud-rot",
+      "name": "Botrytis gray mold and bud rot",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "gen-variegation",
+      "name": "Chlorotic sectoring / suspected genetic variegation",
+      "annotations": 1,
+      "confirmed": 0,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-ca",
+      "name": "Calcium deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-fe",
+      "name": "Iron deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 1
+    },
+    {
+      "profileId": "nut-def-k",
+      "name": "Potassium deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-mn",
+      "name": "Manganese deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-p",
+      "name": "Phosphorus deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-s",
+      "name": "Sulfur deficiency",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-zn",
+      "name": "Low-zinc treatment response",
+      "annotations": 1,
+      "confirmed": 0,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-tox-b",
+      "name": "Boron toxicity",
+      "annotations": 1,
+      "confirmed": 1,
+      "cannabisHost": 1,
+      "independentSourceGroups": 1,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 2,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "mite-broad",
+      "name": "Broad mite",
+      "annotations": 2,
+      "confirmed": 1,
+      "cannabisHost": 0,
+      "independentSourceGroups": 2,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 1,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "mite-hemp-russet",
+      "name": "Hemp russet mite",
+      "annotations": 2,
+      "confirmed": 0,
+      "cannabisHost": 2,
+      "independentSourceGroups": 2,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 1,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-def-mg",
+      "name": "Magnesium deficiency",
+      "annotations": 2,
+      "confirmed": 2,
+      "cannabisHost": 2,
+      "independentSourceGroups": 2,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 1,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "nut-tox-n",
+      "name": "Nitrogen dose response",
+      "annotations": 2,
+      "confirmed": 0,
+      "cannabisHost": 2,
+      "independentSourceGroups": 2,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 1,
+      "lookAlikeBindings": 0
+    },
+    {
+      "profileId": "normal-sex-expression",
+      "name": "Pistillate flower development",
+      "annotations": 3,
+      "confirmed": 0,
+      "cannabisHost": 3,
+      "independentSourceGroups": 3,
+      "independentSourceGroupTarget": 3,
+      "sourceGroupDeficit": 0,
+      "lookAlikeBindings": 0
+    }
+  ],
   "integrity": {
     "errors": []
   },
