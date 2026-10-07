@@ -2,7 +2,7 @@ name: Export machine-readable dataset
 
 on:
   push:
-    branches: [main, work/grow-doc/GD-DIAG-001/fusarium-root-20261007]
+    branches: [main]
     paths:
       - 'src/data/**'
       - 'src/types.ts'
