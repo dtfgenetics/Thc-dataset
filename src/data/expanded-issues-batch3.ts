@@ -264,6 +264,24 @@ const japaneseBeetleIdentification = source({
   ],
 })
 
+const japaneseBeetleUtah = source({
+  title: 'Japanese Beetle (Popillia japonica Newman)',
+  organization: 'Utah State University Extension',
+  url: 'https://digitalcommons.usu.edu/extension_curall/2308/',
+  authors: ['Lori R. Spears', 'Diane G. Alston', 'Joey Caputo', 'Erin Hodgson', 'Cory Stanley', 'Kristopher Watson'],
+  publisher: 'Utah State University Extension',
+  publicationDate: '2022-12-15',
+  year: 2022,
+  accessedDate: '2026-10-08',
+  supportedClaims: [
+    'Adult Japanese beetles are metallic green with bronze-colored wings, approximately one-half inch long, and have five pairs of lateral white hair tufts plus a posterior pair; adults can occur singly or in clusters.',
+    'Adult feeding can skeletonize leaves while leaving veins intact and can damage flower buds and petals, but these cross-host damage patterns are not Cannabis-specific species proof.',
+    'Visual surveys are favored during warm sunny daytime conditions and on sunny plant surfaces, which can bias a single image or count toward locally active adults.',
+    'Chemical-lure traps should be kept a reasonable distance from high-value host plants because trap placement can attract beetles and confound plant-level abundance or injury observations.',
+    'Larvae preferentially feed in turfgrass and require separate belowground sampling; adult canopy observations do not establish larval injury on the same plant.',
+  ],
+})
+
 const dectesProfile2026 = source({
   title: 'Profile of the Dectes stem borer (Coleoptera: Cerambycidae) in sunflower and soybean',
   organization: 'Journal of Integrated Pest Management (Varenhorst et al.)',
@@ -663,8 +681,8 @@ export const expandedIssuesBatch3: IssueRecord[] = [
     media: [],
   },
   {
-    id: 'insect-japanese-beetle', slug: 'japanese-beetle-hemp', name: 'Japanese beetle feeding injury', scientificName: 'Popillia japonica', category: 'Insect', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.65,
-    summary: 'A documented outdoor-hemp defoliator and flower feeder. Fresh skeletonization plus an adult with metallic-green head/thorax, copper-bronze wing covers, and twelve white abdominal hair patches is strong field evidence; feeding damage without the adult is only a low-specificity chewing-injury label.',
+    id: 'insect-japanese-beetle', slug: 'japanese-beetle-hemp', name: 'Japanese beetle feeding injury', scientificName: 'Popillia japonica', category: 'Insect', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.25,
+    summary: 'A documented outdoor-hemp defoliator and flower feeder. Species-level visual evidence requires an adult with metallic-green head/thorax, copper-bronze wing covers, and twelve white abdominal hair patches; causal feeding evidence additionally requires direct linkage to fresh injury. An adult-on-hemp frame establishes host association, while skeletonization alone supports only a low-specificity chewing-injury label.',
     affectedParts: ['upper and lower leaf surfaces', 'interveinal leaf blade', 'major and minor veins left after feeding', 'developing flowers', 'tender shoots'],
     stages: ['vegetative outdoor hemp', 'developing flower', 'late-season outdoor crop'],
     indicators: [
@@ -674,6 +692,8 @@ export const expandedIssuesBatch3: IssueRecord[] = [
       'Adults are present on the same leaf, shoot, or developing flower as fresh feeding injury',
       'Multiple adults and newly expanding damage occur in a localized plant or field cluster',
       'Flower feeding is directly observed rather than inferred from missing or browned floral tissue',
+      'Matched serial views show new tissue removal at the occupied feeding front rather than only persistent old damage',
+      'Dorsal, lateral, and posterior views of the same recovered adult jointly preserve color, body form, and abdominal-tuft evidence',
     ],
     exclusions: [
       'No adult or specimen is recovered after repeat scouting and another defoliator is found at the fresh feeding front',
@@ -684,6 +704,8 @@ export const expandedIssuesBatch3: IssueRecord[] = [
       'Damage is mined within intact epidermis rather than removed from the leaf surface',
       'Skeletonization is old, dry, and unchanged across serial observations, with no active organism established',
       'Root decline is attributed to Japanese beetle solely because adults occur above ground; hemp-root grub feeding has not been confirmed',
+      'A lure-trap capture or nearby adult is not linked to the photographed plant and no beetle is observed at its fresh injury front',
+      'A single adult merely rests on hemp without feeding behavior, fresh injury, or serial expansion; this supports host association but not causal injury',
     ],
     progression: [
       { stage: 'Adult arrival and fresh feeding', description: 'One or more adults occupy exposed foliage or developing flowers; small fresh interveinal feeding windows begin near the occupied tissue.' },
@@ -692,7 +714,7 @@ export const expandedIssuesBatch3: IssueRecord[] = [
       { stage: 'Heavy defoliation', description: 'Large populations can remove substantial leaf area or completely defoliate plants, but serious hemp defoliation was rare in the early multi-state literature and no universal loss threshold was established.' },
       { stage: 'Residual injury after departure', description: 'Skeletonized tissue persists after adults leave. Old lace-like leaves without adults or newly expanding injury must not be labeled as a current Japanese beetle infestation.' },
     ],
-    lookAlikes: ['Green June beetle or another scarab beetle', 'Spotted cucumber beetle', 'Flea beetle feeding', 'Cabbage looper', 'Armyworm or another caterpillar', 'Grasshopper feeding', 'Leafminer injury', 'Hail or mechanical tearing'],
+    lookAlikes: ['Green June beetle or another scarab beetle', 'False Japanese beetle or another similarly colored chafer', 'Emerald ash borer or another metallic beetle in an organism-only crop', 'Spotted cucumber beetle', 'Flea beetle feeding', 'Cabbage looper', 'Armyworm or another caterpillar', 'Yellow woollybear or another foliar caterpillar', 'Grasshopper feeding', 'Sawfly or beetle-larva defoliation', 'Leafminer injury', 'Hail or mechanical tearing', 'Wind-rub or handling injury', 'Senescent or pathogen-necrotic tissue lost between veins', 'Flower browning from Botrytis, heat, or mechanical injury'],
     confirmation: [
       'Capture a whole-plant or row view to show the distribution of affected and unaffected plants, then record upper, middle, and lower canopy zones separately; published hemp sources do not establish a preferred leaf age or canopy position.',
       'Photograph fresh injury and the adult together before disturbance, then obtain dorsal, lateral, and posterior macro views with a scale reference.',
@@ -700,6 +722,7 @@ export const expandedIssuesBatch3: IssueRecord[] = [
       'Revisit marked leaves or plants and record new feeding and adult counts so old residual skeletonization is separated from an active infestation.',
       'For image/video datasets, require an organism-level frame linked to the damage sequence; do not use skeletonization-only frames as species-level ground truth.',
       'Submit an intact adult to an Extension entomologist or diagnostic laboratory when a similar scarab, green June beetle, or incomplete view prevents confident identification.',
+      'Record whether survey frames were made on warm sunny surfaces or beside a lure trap because both conditions can bias apparent abundance; do not convert a trap catch into a plant-level diagnosis.',
       'Do not infer larval root injury from adult canopy presence; confirm grubs in the root zone and identify them separately if root damage is suspected.',
     ],
     immediateActions: [
@@ -723,10 +746,12 @@ export const expandedIssuesBatch3: IssueRecord[] = [
       'Published hemp observations do not establish a preferred leaf age or canopy position, so those fields must be recorded from the sampled plant rather than imputed.',
       'The 2019 multi-state synthesis called Japanese beetle potentially significant but also reported serious defoliation as rare across the broader defoliator complex; apparent severity must remain case-specific.',
       'No universal hemp economic threshold, symptom-to-yield conversion, or cultivar response is established by these sources.',
+      'The 0.25 image/video-only ceiling is an annotation safeguard, not a measured model-accuracy estimate; species confirmation and causal injury remain separate judgments.',
+      'Warm, sunny survey conditions and lure placement can concentrate observations, so adult counts from a single view are not unbiased abundance estimates.',
       'The UNH hemp photograph is institutional and creator-credited but has no explicit reuse license on its landing page; store only its reference metadata unless permission is obtained.',
       'All damage-only, incomplete-morphology, unlinked specimen/damage, and root-injury samples require human review.',
     ],
-    sources: [hempPestsMissouri, hempPestSystems2019, hempPestsNewHampshire, japaneseBeetleAdultMorphology, japaneseBeetleIdentification], media: [],
+    sources: [hempPestsMissouri, hempPestSystems2019, hempPestsNewHampshire, japaneseBeetleAdultMorphology, japaneseBeetleIdentification, japaneseBeetleUtah], media: [],
   },
   {
     id: 'insect-armyworm-complex', slug: 'armyworm-caterpillar-feeding', name: 'Armyworm caterpillar feeding complex', scientificName: 'Spodoptera spp. / Mamestra configurata', category: 'Insect', severity: 'high', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.3,

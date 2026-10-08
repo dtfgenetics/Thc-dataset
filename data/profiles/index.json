@@ -229,7 +229,7 @@
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 5,
+      "sourceCount": 6,
       "mediaCount": 2,
       "path": "data/profiles/insect-japanese-beetle.json"
     },

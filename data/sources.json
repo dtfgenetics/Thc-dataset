@@ -3042,6 +3042,31 @@
     ]
   },
   {
+    "sourceKey": "https://digitalcommons.usu.edu/extension_curall/2308/",
+    "title": "Japanese Beetle (Popillia japonica Newman)",
+    "organization": "Utah State University Extension",
+    "url": "https://digitalcommons.usu.edu/extension_curall/2308/",
+    "authors": [
+      "Lori R. Spears",
+      "Diane G. Alston",
+      "Joey Caputo",
+      "Erin Hodgson",
+      "Cory Stanley",
+      "Kristopher Watson"
+    ],
+    "publisher": "Utah State University Extension",
+    "publicationDate": "2022-12-15",
+    "year": 2022,
+    "accessedDate": "2026-10-08",
+    "supportedClaims": [
+      "Adult Japanese beetles are metallic green with bronze-colored wings, approximately one-half inch long, and have five pairs of lateral white hair tufts plus a posterior pair; adults can occur singly or in clusters.",
+      "Adult feeding can skeletonize leaves while leaving veins intact and can damage flower buds and petals, but these cross-host damage patterns are not Cannabis-specific species proof.",
+      "Visual surveys are favored during warm sunny daytime conditions and on sunny plant surfaces, which can bias a single image or count toward locally active adults.",
+      "Chemical-lure traps should be kept a reasonable distance from high-value host plants because trap placement can attract beetles and confound plant-level abundance or injury observations.",
+      "Larvae preferentially feed in turfgrass and require separate belowground sampling; adult canopy observations do not establish larval injury on the same plant."
+    ]
+  },
+  {
     "sourceKey": "https://entomology.k-state.edu/extension/crop-protection/soybeans/sbsb/",
     "title": "Dectes Stem Borer (Dectes texanus)",
     "organization": "Kansas State University Department of Entomology",
