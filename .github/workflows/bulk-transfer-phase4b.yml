@@ -40,7 +40,7 @@ jobs:
           retention-days: 90
 
       - name: Publish persistent release chunks
-        if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
+        if: success() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -54,6 +54,21 @@ jobs:
               --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
               --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           fi
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path("bulk_acquisition/phase4b_public/phase4b-manifest.json").read_text())
+          rows = manifest.get("results", [])
+          expected = {"DS-142", "DS-143", "DS-146"}
+          assert {r.get("datasetId") for r in rows} == expected, "Dataset inventory incomplete"
+          for row in rows:
+              assert row.get("status") == "acquired", f"Dataset not acquired: {row.get('datasetId')}"
+              parts = row.get("archiveParts", [])
+              assert parts, f"No archive parts: {row['datasetId']}"
+              for part in parts:
+                  p = Path("bulk_acquisition/phase4b_public") / part["filename"]
+                  assert p.is_file() and p.stat().st_size == part["sizeBytes"], f"Missing or invalid part: {p}"
+          PY
           shopt -s nullglob
           chunks=(bulk_acquisition/phase4b_public/*.part[0-9][0-9][0-9])
           if (("${#chunks[@]}" == 0)); then
