@@ -77,6 +77,11 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps Botrytis bud-rot labels internal-view aware, laboratory-bounded, and license-safe', () => {
     const record = issues.find((issue) => issue.slug === 'botrytis-gray-mold-bud-rot')
     expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.30)
+    expect(record?.confirmation.join(' ').toLowerCase()).toContain('same marked plant')
+    expect(record?.confirmation.join(' ').toLowerCase()).toContain('mixed infections')
+    expect(record?.confirmation.join(' ').toLowerCase()).toContain('shared plant and sample identifier')
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('not a validated diagnostic accuracy estimate')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/interior|internal/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory/)
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not species-level ground truth|not.*ground truth/)
