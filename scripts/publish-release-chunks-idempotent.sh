@@ -17,14 +17,18 @@ for file in "$@"; do
   names[$name]=1
 done
 release_id="$(gh api "repos/$repo/releases/tags/$tag" --jq .id)"
-assets="$(gh api --paginate "repos/$repo/releases/$release_id/assets?per_page=100" --jq '.[] | [.id, .name, .size, (.digest // "")] | @tsv')"
+assets="$(gh api --paginate "repos/$repo/releases/$release_id/assets?per_page=100" --jq '.[] | [.id, .name, .size, (.digest // "-"), .state] | @tsv')"
 for file in "$@"; do
   name="${file##*/}"
   size="$(stat -c%s "$file")"
   checksum="$(sha256sum "$file" | cut -d' ' -f1)"
   existing="$(printf '%s\n' "$assets" | awk -F '\t' -v name="$name" '$2 == name {print; exit}')"
   if [[ -n "$existing" ]]; then
-    IFS=$'\t' read -r asset_id existing_name existing_size existing_digest <<< "$existing"
+    IFS=$'\t' read -r asset_id existing_name existing_size existing_digest existing_state <<< "$existing"
+    if [[ "$existing_state" != "uploaded" ]]; then
+      echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); incomplete upload requires explicit cleanup" >&2
+      exit 1
+    fi
     if [[ "$existing_size" != "$size" ]]; then
       echo "CONFLICT $name: existing size $existing_size differs from $size" >&2
       exit 1
