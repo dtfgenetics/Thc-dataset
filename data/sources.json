@@ -95,9 +95,10 @@
     "publisher": "Wiley on behalf of the Crop Science Society of America",
     "publicationDate": "2021-11-22",
     "year": 2022,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-08",
     "doi": "10.1002/tpg2.20169",
     "supportedClaims": [
+      "The Honey Banana study sequenced three stem samples at different heights from one approximately 1.5-year-old mother plant; it did not compare visibly pale and green leaf sectors or demonstrate a causal pigment mutation.",
       "Deep whole-genome sequencing of top, middle, and bottom samples from one 1.5-year-old Cannabis mother plant detected many variants unique to individual canopy samples, demonstrating within-plant genetic mosaicism in that plant.",
       "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability."
     ]
@@ -1727,7 +1728,7 @@
     "publisher": "Springer Nature",
     "publicationDate": "2019-12-26",
     "year": 2019,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-08",
     "doi": "10.1186/s13007-019-0542-5",
     "supportedClaims": [
       "Experimental silencing of Cannabis phytoene desaturase and magnesium-chelatase-subunit-I genes produced spotted leaf bleaching, 70–73% lower target-transcript expression, and corresponding carotenoid or chlorophyll-a reductions.",

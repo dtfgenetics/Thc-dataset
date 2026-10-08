@@ -3929,6 +3929,7 @@
     "category": "Genetic / developmental",
     "severity": "low",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.1,
     "summary": "Sharply bounded chlorotic or chlorophyll-deficient sectors can be consistent with somatic mutation or mosaicism in Cannabis, but no published Cannabis image morphology proves genetic cause; treat this as an exclusion-based phenotype until serial lineage evidence and appropriate laboratory work support the attribution.",
     "affectedParts": [
       "individual leaflet sectors",
@@ -3946,6 +3947,7 @@
       "Sector-shaped or longitudinal pigment loss rather than uniform whole-leaf yellowing",
       "The same shoot position or clonal lineage is mapped across successive leaves and time rather than inferred from one detached leaf",
       "Affected tissue retains its boundary while new observations document whether the pattern remains localized, expands, disappears, or is joined by distortion and stunting",
+      "Record whether pigment loss remains sharply sectoral or becomes diffuse spotted bleaching; experimentally induced pigment-gene silencing also produced white or yellow spots, so pigment loss is mechanism-nonspecific",
       "Matched images preserve upper and lower leaf surfaces, whole-plant distribution, branch identity, scale, cultivar, developmental stage, and camera-lighting conditions"
     ],
     "exclusions": [
@@ -3954,6 +3956,8 @@
       "Chlorosis follows leaf age, interveinal or marginal patterns, or a measured tissue-nutrient, substrate-pH, or root-zone-EC abnormality better than a branch lineage",
       "Microscopy or organism sampling confirms thrips, mites, leafminers, or another pest associated with the marks",
       "The distribution maps to a lamp, spray, pesticide, plant-growth regulator, abrasion, heat event, or other documented exposure",
+      "A negative targeted pathogen assay or an unaffected-looking clone is the only basis for declaring a genetic cause or pathogen freedom",
+      "Pale and green tissues have been pooled or collected from different plants so the observed sector cannot be linked to the laboratory or genetic result",
       "Camera white balance, glare, shadow, senescence, or cultivar pigmentation explains the apparent color boundary"
     ],
     "progression": [
@@ -3993,7 +3997,9 @@
       "Inspect both leaf surfaces and protected growth with magnification, and document pest organisms or their absence separately from the color phenotype.",
       "Measure root-zone pH and EC and review irrigation, tissue or solution analysis, nutrient history, spray records, lamp position, temperature, and mechanical injury before assigning a developmental explanation.",
       "Submit symptomatic and matched asymptomatic tissue to a plant diagnostic laboratory for a locally appropriate validated virus/viroid differential; a negative targeted assay excludes only the agents and sample covered by that assay.",
-      "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof."
+      "Before destructive sampling, photograph and map pale and adjacent green sectors from the same leaf or branch separately; coordinate paired sampling with the laboratory and preserve individual plant, node, tissue, and assay identifiers rather than pooling away the boundary.",
+      "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof.",
+      "Track independently identified descendant cuttings under matched conditions and record both persistence and loss of the phenotype; do not infer seed inheritance, a stable cultivar trait, or transmissibility from one mother plant or cutting."
     ],
     "immediateActions": [
       "Keep the visual label at “chlorotic sectoring—cause unresolved” and flag it for human review.",
@@ -4011,6 +4017,8 @@
       "Capture healthy reference plants under repeatable lighting and camera settings for color comparison."
     ],
     "warnings": [
+      "Image/video-only confidence is capped at 0.10 as a conservative annotation policy, not a measured accuracy estimate; visible sectoring remains a phenotype label until independently supported causal attribution.",
+      "The sequencing study used three stem positions on one Honey Banana mother plant, not paired pale and green leaf sectors; its variant counts cannot validate a sector label, predict potency loss, or establish inheritance.",
       "“Genetic mosaicism” describes within-organism genetic variation; a visible “mosaic symptom” is not evidence of that mechanism.",
       "The Cannabis mosaicism sequencing study sampled one mother plant and did not link its variants to visible leaf sectors.",
       "The VIGS bleaching experiment was an intentionally virus-vector-induced gene-silencing phenotype and must not be treated as proof that natural bleaching is inherited or noninfectious.",
@@ -4031,9 +4039,10 @@
         "publisher": "Wiley on behalf of the Crop Science Society of America",
         "publicationDate": "2021-11-22",
         "year": 2022,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-08",
         "doi": "10.1002/tpg2.20169",
         "supportedClaims": [
+          "The Honey Banana study sequenced three stem samples at different heights from one approximately 1.5-year-old mother plant; it did not compare visibly pale and green leaf sectors or demonstrate a causal pigment mutation.",
           "Deep whole-genome sequencing of top, middle, and bottom samples from one 1.5-year-old Cannabis mother plant detected many variants unique to individual canopy samples, demonstrating within-plant genetic mosaicism in that plant.",
           "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability."
         ]
@@ -4052,7 +4061,7 @@
         "publisher": "Springer Nature",
         "publicationDate": "2019-12-26",
         "year": 2019,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-08",
         "doi": "10.1186/s13007-019-0542-5",
         "supportedClaims": [
           "Experimental silencing of Cannabis phytoene desaturase and magnesium-chelatase-subunit-I genes produced spotted leaf bleaching, 70–73% lower target-transcript expression, and corresponding carotenoid or chlorophyll-a reductions.",

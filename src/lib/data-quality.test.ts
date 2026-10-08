@@ -423,6 +423,11 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
     const record = issues.find((issue) => issue.slug === 'genetic-variegation')
     expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.10)
+    expect(record?.confirmation.join(' ').toLowerCase()).toContain('pale and adjacent green sectors')
+    expect(record?.confirmation.join(' ').toLowerCase()).toContain('do not infer seed inheritance')
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('three stem positions')
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('not a measured accuracy estimate')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/do not confirm.*photograph|do not confirm.*video/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/virus\/viroid/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/genetic|meristem-lineage/)
