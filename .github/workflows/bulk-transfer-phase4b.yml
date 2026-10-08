@@ -1,18 +1,33 @@
 name: Bulk Transfer Acquisition Phase 4B Public Route
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-transfer-phase4b.yml'
+      - 'scripts/publish-release-chunks-idempotent.sh'
   push:
     branches: [main]
     paths:
       - '.github/workflows/bulk-transfer-phase4b.yml'
       - 'scripts/bulk-acquire-transfer-phase4b.py'
+      - 'scripts/publish-release-chunks-idempotent.sh'
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
+  validate-publisher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Shell syntax check
+        run: bash -n scripts/publish-release-chunks-idempotent.sh
+
   acquire:
+    if: github.event_name != 'pull_request'
+    needs: validate-publisher
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -39,21 +54,55 @@ jobs:
           retention-days: 90
 
       - name: Publish persistent release chunks
-        if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
+        if: success() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
         run: |
           set -euo pipefail
           TAG='bulk-transfer-phase4b-2026-08-14'
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
-          else
+          python - <<'PY'
+          import hashlib
+          import json
+          from pathlib import Path
+          manifest = json.loads(Path("bulk_acquisition/phase4b_public/phase4b-manifest.json").read_text())
+          rows = manifest.get("results", [])
+          expected = {"DS-142", "DS-143", "DS-146"}
+          assert {r.get("datasetId") for r in rows} == expected, "Dataset inventory incomplete"
+          seen_parts = set()
+          for row in rows:
+              assert row.get("status") == "acquired", f"Dataset not acquired: {row.get('datasetId')}"
+              parts = row.get("archiveParts", [])
+              assert parts, f"No archive parts: {row['datasetId']}"
+              for part in parts:
+                  filename = part["filename"]
+                  assert Path(filename).name == filename and filename.startswith(row["datasetId"] + "_archive.part"), f"Unsafe chunk name: {filename}"
+                  assert filename not in seen_parts, f"Duplicate chunk: {filename}"
+                  seen_parts.add(filename)
+                  p = Path("bulk_acquisition/phase4b_public") / filename
+                  assert p.is_file() and p.stat().st_size == part["sizeBytes"], f"Missing or invalid part: {p}"
+                  digest = hashlib.sha256()
+                  with p.open("rb") as stream:
+                      for block in iter(lambda: stream.read(1024 * 1024), b""):
+                          digest.update(block)
+                  assert digest.hexdigest() == part["sha256"], f"Checksum mismatch: {p}"
+          assert {p.name for p in Path("bulk_acquisition/phase4b_public").glob("*.part[0-9][0-9][0-9]")} == seen_parts, "Undeclared or missing chunk files"
+          PY
+          shopt -s nullglob
+          chunks=(bulk_acquisition/phase4b_public/*.part[0-9][0-9][0-9])
+          if (("${#chunks[@]}" == 0)); then
+            echo "No archive chunks to publish" >&2
+            exit 1
+          fi
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
             gh release create "$TAG" --target "$GITHUB_SHA" \
               --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
-              --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
+              --notes 'Phase 4B immutable chunk acquisition; metadata remains in workflow artifacts.'
           fi
-          gh release upload "$TAG" bulk_acquisition/phase4b_public/* --clobber
+          bash scripts/publish-release-chunks-idempotent.sh "$TAG" "${chunks[@]}"
+          gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
+          # Keep volatile manifests/summary in the workflow artifact, not under
+          # fixed GitHub Release filenames where reruns necessarily collide.
 
       - name: Summarize
         if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-summary.md') != ''
