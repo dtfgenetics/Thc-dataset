@@ -47,13 +47,6 @@ jobs:
         run: |
           set -euo pipefail
           TAG='bulk-transfer-phase4b-2026-08-14'
-          if gh release view "$TAG" >/dev/null 2>&1; then
-            gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
-          else
-            gh release create "$TAG" --target "$GITHUB_SHA" \
-              --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
-              --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
-          fi
           python - <<'PY'
           import hashlib
           import json
@@ -81,7 +74,13 @@ jobs:
             echo "No archive chunks to publish" >&2
             exit 1
           fi
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG" --target "$GITHUB_SHA" \
+              --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
+              --notes 'Phase 4B immutable chunk acquisition; metadata remains in workflow artifacts.'
+          fi
           bash scripts/publish-release-chunks-idempotent.sh "$TAG" "${chunks[@]}"
+          gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           # Keep volatile manifests/summary in the workflow artifact, not under
           # fixed GitHub Release filenames where reruns necessarily collide.
 
