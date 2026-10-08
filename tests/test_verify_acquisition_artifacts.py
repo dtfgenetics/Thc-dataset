@@ -31,6 +31,9 @@ class VerifyAcquisitionTests(unittest.TestCase):
         self.manifest = {
             "schemaVersion": "1.0.0",
             "datasetId": "test-case",
+            "sourceUrl": "https://example.org/dataset",
+            "sourceRevision": "test-rev",
+            "license": "test-license",
             "shardCount": 1,
             "totalFiles": 1,
             "totalImages": 1,
@@ -85,6 +88,35 @@ class VerifyAcquisitionTests(unittest.TestCase):
         self.manifest["totalArchiveBytes"] = self.archive.stat().st_size
         result = self.run_check(1)
         self.assertTrue(any("Unsafe archive member" in x for x in result["errors"]))
+
+    def test_missing_provenance(self):
+        self.manifest["sourceRevision"] = ""
+        result = self.run_check(1)
+        self.assertTrue(any("Missing provenance field" in x for x in result["errors"]))
+
+    def test_unlisted_tar(self):
+        (self.root / "extra.tar").write_bytes(self.archive.read_bytes())
+        result = self.run_check(1)
+        self.assertTrue(any("Unlisted tar shards" in x for x in result["errors"]))
+
+    def test_duplicate_tar_member_path(self):
+        with tarfile.open(self.archive, "w") as tf:
+            for _ in range(2):
+                data = b"test-image"
+                info = tarfile.TarInfo("plant/leaf.jpg")
+                info.size = len(data)
+                tf.addfile(info, io.BytesIO(data))
+        self.manifest["shards"][0].update({
+            "sha256": sha256(self.archive),
+            "bytes": self.archive.stat().st_size,
+            "fileCount": 2,
+            "imageCount": 2
+        })
+        self.manifest["totalFiles"] = 2
+        self.manifest["totalImages"] = 2
+        self.manifest["totalArchiveBytes"] = self.archive.stat().st_size
+        result = self.run_check(1)
+        self.assertTrue(any("Duplicate archive member path" in x for x in result["errors"]))
 
     def test_no_images(self):
         self.manifest["totalImages"] = 0
