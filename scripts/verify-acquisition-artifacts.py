@@ -66,9 +66,6 @@ def verify(path: Path) -> dict:
                     errors.append(f"File/image count mismatch: {name}")
         except (OSError, tarfile.TarError) as exc:
             errors.append(f"Unreadable tar {name}: {exc}")
-    extras = sorted(p.name for p in path.parent.glob("*.tar") if p.name not in seen)
-    if extras:
-        errors.append(f"Unlisted tar shards: {extras}")
     for field, actual in (("shardCount", len(shards)), ("totalFiles", total_files),
                           ("totalImages", total_images), ("totalArchiveBytes", total_bytes)):
         if manifest.get(field) != actual:
@@ -81,7 +78,30 @@ def verify(path: Path) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("manifests", nargs="+", type=Path)
-    results = [verify(p) for p in parser.parse_args().manifests]
+    manifests = parser.parse_args().manifests
+    results = [verify(p) for p in manifests]
+    # Multiple manifests may share one directory (train/test or growth/stress).
+    by_directory = {}
+    for path, result in zip(manifests, results):
+        directory = path.parent.resolve()
+        entry = by_directory.setdefault(directory, {"declared": set(), "results": []})
+        entry["results"].append(result)
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+            entry["declared"].update(
+                shard.get("fileName") for shard in data.get("shards", [])
+                if isinstance(shard, dict) and isinstance(shard.get("fileName"), str)
+            )
+        except (OSError, ValueError, TypeError):
+            result["errors"].append("Unreadable manifest")
+            result["status"] = "fail"
+    for directory, item in by_directory.items():
+        unlisted = sorted(p.name for p in directory.glob("*.tar")
+                          if p.name not in item["declared"])
+        if unlisted:
+            for result in item["results"]:
+                result["errors"].append(f"Unlisted tar shards: {unlisted}")
+                result["status"] = "fail"
     print(json.dumps({"results": results}, indent=2))
     return int(any(result["status"] != "pass" for result in results))
 
