@@ -6,6 +6,8 @@ on:
     paths:
       - '.github/workflows/bulk-transfer-phase4b.yml'
       - 'scripts/publish-release-chunks-idempotent.sh'
+      - 'scripts/verify-phase4b-release.py'
+      - 'tests/test_phase4b_release_acceptance.py'
   push:
     branches: [main]
     paths:
@@ -22,8 +24,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Shell syntax check
-        run: bash -n scripts/publish-release-chunks-idempotent.sh
+      - name: Shell and Python syntax checks
+        run: |
+          bash -n scripts/publish-release-chunks-idempotent.sh
+          python -m py_compile scripts/verify-phase4b-release.py
+          python -m unittest discover -s tests -p 'test_phase4b_release_acceptance.py' -v
 
   acquire:
     if: github.event_name != 'pull_request'
@@ -100,6 +105,7 @@ jobs:
               --notes 'Phase 4B immutable chunk acquisition; metadata remains in workflow artifacts.'
           fi
           bash scripts/publish-release-chunks-idempotent.sh "$TAG" "${chunks[@]}"
+          python scripts/verify-phase4b-release.py --manifest bulk_acquisition/phase4b_public/phase4b-manifest.json --root bulk_acquisition/phase4b_public --tag "$TAG"
           gh release edit "$TAG" --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           # Keep volatile manifests/summary in the workflow artifact, not under
           # fixed GitHub Release filenames where reruns necessarily collide.
