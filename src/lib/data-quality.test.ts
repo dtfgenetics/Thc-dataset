@@ -300,6 +300,17 @@ describe('diagnostic dataset quality gates', () => {
       expect(issue.warnings.join(' ').toLowerCase()).toMatch(/image-only|visual diagnosis|not a species-level/)
       expect(issue.lookAlikes).toContain('Beet curly top virus disease')
     }
+    const phytoplasma = issues.find((issue) => issue.slug === 'hemp-witches-broom-phytoplasma')
+    expect(phytoplasma?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(phytoplasma?.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(phytoplasma?.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(phytoplasma?.progression.length).toBeGreaterThanOrEqual(5)
+    expect(phytoplasma?.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(phytoplasma?.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(phytoplasma?.confirmation.join(' ').toLowerCase()).toMatch(/same marked plant|same photographed plant/)
+    expect(phytoplasma?.confirmation.join(' ').toLowerCase()).toMatch(/pooled|neighboring-plant/)
+    expect(phytoplasma?.warnings.join(' ').toLowerCase()).toMatch(/not a measured diagnostic-accuracy estimate/)
+    expect(phytoplasma?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
   it('keeps reproductive-sex labels tied to visible flower organs and repeated inspection', () => {
