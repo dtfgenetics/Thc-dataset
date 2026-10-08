@@ -141,7 +141,11 @@
       "doi": "10.1093/ee/nvad044",
       "supportedClaims": [
         "Broad mites are recognized among the most significant piercing-sucking pests of greenhouse-grown hemp.",
-        "Piercing-sucking pest injury in hemp can overlap visually with cupping, yellowing, leaf loss, and reduced reproductive performance, so pest presence must be confirmed rather than inferred from canopy symptoms."
+        "Piercing-sucking pest injury in hemp can overlap visually with cupping, yellowing, leaf loss, and reduced reproductive performance, so pest presence must be confirmed rather than inferred from canopy symptoms.",
+        "Controlled greenhouse experiments compared uninfested Cannabis controls with plant-level Tetranychus urticae inoculations and linked repeated middle- and upper-canopy leaf sampling to stereomicroscope counts of motile mites and eggs.",
+        "The 2020 BaOx experiment used approximately 50 or 200 mites per plant and ended high-density plants after seven days because mites established rapidly and plant health declined; the 2021 experiments used lower inoculation rates and serial sampling through 14 days.",
+        "Cannabinoid responses differed by experiment, infestation density, time, and cultivar, so inoculation counts, timing, chemistry effects, and visible decline from these experiments are study-specific and not universal diagnostic or economic thresholds.",
+        "The article is CC BY 4.0, but its photographs and graphs do not provide a panel-resolved, organism-visible, plant-linked diagnostic progression suitable for automatic training without separate annotation and leakage review."
       ]
     },
     {
