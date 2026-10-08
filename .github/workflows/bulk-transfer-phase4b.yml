@@ -1,6 +1,11 @@
 name: Bulk Transfer Acquisition Phase 4B Public Route
 
 on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/bulk-transfer-phase4b.yml'
+      - 'scripts/publish-release-chunks-idempotent.sh'
   push:
     branches: [main]
     paths:
@@ -13,7 +18,16 @@ permissions:
   contents: write
 
 jobs:
+  validate-publisher:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Shell syntax check
+        run: bash -n scripts/publish-release-chunks-idempotent.sh
+
   acquire:
+    if: github.event_name != 'pull_request'
+    needs: validate-publisher
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
