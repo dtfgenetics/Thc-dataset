@@ -26,7 +26,14 @@ for file in "$@"; do
   if [[ -n "$existing" ]]; then
     IFS=$'\t' read -r asset_id existing_name existing_size existing_digest existing_state <<< "$existing"
     if [[ "$existing_state" != "uploaded" ]]; then
-      echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); incomplete upload requires explicit cleanup" >&2
+      if [[ "$existing_state" == "starter" && "$existing_size" == "0" && "${THC_REPAIR_STARTER_ASSETS:-0}" == "1" ]]; then
+        echo "REPAIR empty starter asset $name (id $asset_id)"
+        # Delete only an incomplete, zero-byte starter entry, never a valid upload.
+        gh api -X DELETE "repos/$repo/releases/assets/$asset_id"
+        gh release upload "$tag" "$file" --repo "$repo"
+        continue
+      fi
+      echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
       exit 1
     fi
     if [[ "$existing_size" != "$size" ]]; then
