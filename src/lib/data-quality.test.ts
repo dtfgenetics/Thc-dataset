@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { issues } from '../data/issues'
+import { issues as catalogIssues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('diagnostic dataset quality gates', () => {
@@ -409,6 +410,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/pre-existing.*newly appearing|old.*new/)
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not a measured diagnostic-accuracy estimate/)
     expect(record?.lookAlikes).toContain('Two-spotted spider mites')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
+  it('keeps Dectes stem-borer labels destructively inspected and specimen-linked', () => {
+    const record = catalogIssues.find((issue) => issue.slug === 'dectes-stem-borer')
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.indicators.length).toBeGreaterThanOrEqual(8)
+    expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
+    expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(12)
+    expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/split the stem|destructive/)
+    expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/injury class.*stem-borer class.*dectes genus/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not a measured diagnostic-accuracy estimate/)
+    expect(record?.warnings.join(' ').toLowerCase()).toMatch(/texanus.*sayi|sayi.*texanus/)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
