@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/package-acquisition-tree.py'
+      - 'scripts/verify-acquisition-artifacts.py'
+      - 'tests/test_verify_acquisition_artifacts.py'
       - '.github/workflows/bulk-acquire-open-datasets.yml'
   workflow_dispatch:
 
@@ -12,7 +14,18 @@ permissions:
   contents: read
 
 jobs:
+  verify-acquisition-code:
+    name: Acquisition verification regression tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Test archive verification
+        run: python -m unittest discover -s tests -p 'test_verify_acquisition_artifacts.py' -v
+
   plantvillage:
+    needs: verify-acquisition-code
     name: DS-005 PlantVillage color
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -56,6 +69,7 @@ jobs:
         with: {name: DS-005-PlantVillage-metadata, path: acquisition/pv/meta/, retention-days: 30}
 
   plantdoc-classification:
+    needs: verify-acquisition-code
     name: DS-007 PlantDoc classification
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -96,6 +110,7 @@ jobs:
         with: {name: DS-007-PlantDoc-class-metadata, path: acquisition/plantdoc-class/meta/, retention-days: 30}
 
   plantdoc-detection:
+    needs: verify-acquisition-code
     name: DS-007 PlantDoc object detection
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -136,6 +151,7 @@ jobs:
         with: {name: DS-007-PlantDoc-det-metadata, path: acquisition/plantdoc-det/meta/, retention-days: 30}
 
   hemp-water-stress:
+    needs: verify-acquisition-code
     name: DS-090 industrial hemp water stress
     runs-on: ubuntu-latest
     timeout-minutes: 60
