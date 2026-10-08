@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'scripts/package-acquisition-tree.py'
+      - 'scripts/verify-acquisition-artifacts.py'
+      - 'tests/test_verify_acquisition_artifacts.py'
       - '.github/workflows/bulk-acquire-open-datasets.yml'
   workflow_dispatch:
 
@@ -12,7 +14,18 @@ permissions:
   contents: read
 
 jobs:
+  verify-acquisition-code:
+    name: Acquisition verification regression tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with: {python-version: '3.12'}
+      - name: Test archive verification
+        run: python -m unittest discover -s tests -p 'test_verify_acquisition_artifacts.py' -v
+
   plantvillage:
+    needs: verify-acquisition-code
     name: DS-005 PlantVillage color
     runs-on: ubuntu-latest
     timeout-minutes: 120
@@ -37,6 +50,7 @@ jobs:
         shell: bash
         run: |
           python scripts/package-acquisition-tree.py --root acquisition/pv/extracted/raw/color --output-dir acquisition/pv/packages --prefix DS-005-PlantVillage-color --shards 6 --dataset-id DS-005 --source-url 'https://huggingface.co/datasets/mohanty/PlantVillage' --source-revision main --license 'CC BY-SA 3.0' --notes 'Controlled-background disease transfer/pretraining corpus; preserve leaf grouping and never treat as Cannabis causal ground truth.'
+          python scripts/verify-acquisition-artifacts.py acquisition/pv/packages/*manifest.json
           cp acquisition/pv/packages/DS-005-PlantVillage-color-manifest.json acquisition/pv/meta/
           sha256sum acquisition/pv/data.zip > acquisition/pv/meta/source-data.zip.sha256
       - uses: actions/upload-artifact@v7
@@ -55,6 +69,7 @@ jobs:
         with: {name: DS-005-PlantVillage-metadata, path: acquisition/pv/meta/, retention-days: 30}
 
   plantdoc-classification:
+    needs: verify-acquisition-code
     name: DS-007 PlantDoc classification
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -77,6 +92,7 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/train --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-class/test --output-dir acquisition/plantdoc-class/packages --prefix DS-007-PlantDoc-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Real-world/field-like plant disease transfer source.'
           cp acquisition/plantdoc-class/README.md acquisition/plantdoc-class/LICENSE.txt acquisition/plantdoc-class/SOURCE_COMMIT.txt acquisition/plantdoc-class/meta/
+          python scripts/verify-acquisition-artifacts.py acquisition/plantdoc-class/packages/*manifest.json
           cp acquisition/plantdoc-class/packages/*manifest.json acquisition/plantdoc-class/meta/
       - uses: actions/upload-artifact@v7
         with: {name: DS-007-PlantDoc-class-train-01, path: acquisition/plantdoc-class/packages/DS-007-PlantDoc-train-shard-01.tar, compression-level: 0, retention-days: 30}
@@ -94,6 +110,7 @@ jobs:
         with: {name: DS-007-PlantDoc-class-metadata, path: acquisition/plantdoc-class/meta/, retention-days: 30}
 
   plantdoc-detection:
+    needs: verify-acquisition-code
     name: DS-007 PlantDoc object detection
     runs-on: ubuntu-latest
     timeout-minutes: 90
@@ -116,6 +133,7 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TRAIN --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-train --shards 4 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
           python scripts/package-acquisition-tree.py --root acquisition/plantdoc-det/TEST --output-dir acquisition/plantdoc-det/packages --prefix DS-007-PlantDoc-detection-test --shards 2 --dataset-id DS-007 --source-url 'https://github.com/pratikkayal/PlantDoc-Object-Detection-Dataset' --source-revision "$rev" --license 'CC BY 4.0' --notes 'Bounding-box variant; same source family as PlantDoc classification and must be source-deduplicated.'
           cp acquisition/plantdoc-det/README.md acquisition/plantdoc-det/LICENSE.txt acquisition/plantdoc-det/SOURCE_COMMIT.txt acquisition/plantdoc-det/train_labels.csv acquisition/plantdoc-det/test_labels.csv acquisition/plantdoc-det/meta/
+          python scripts/verify-acquisition-artifacts.py acquisition/plantdoc-det/packages/*manifest.json
           cp acquisition/plantdoc-det/packages/*manifest.json acquisition/plantdoc-det/meta/
       - uses: actions/upload-artifact@v7
         with: {name: DS-007-PlantDoc-det-train-01, path: acquisition/plantdoc-det/packages/DS-007-PlantDoc-detection-train-shard-01.tar, compression-level: 0, retention-days: 30}
@@ -133,6 +151,7 @@ jobs:
         with: {name: DS-007-PlantDoc-det-metadata, path: acquisition/plantdoc-det/meta/, retention-days: 30}
 
   hemp-water-stress:
+    needs: verify-acquisition-code
     name: DS-090 industrial hemp water stress
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -155,6 +174,7 @@ jobs:
           python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_growth --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-growth --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Five hemp plants, hourly early-growth sequence; regroup by plant/time for leakage-safe use.'
           python scripts/package-acquisition-tree.py --root acquisition/hemp-water/Hemp_water_stress --output-dir acquisition/hemp-water/packages --prefix DS-090-Hemp-water-stress --shards 2 --dataset-id DS-090 --source-url 'https://github.com/fearro/IoT_monitoring_hemp' --source-revision "$rev" --license 'CC BY 4.0 (Mendeley dataset DOI 10.17632/3md2tbx74c.1; GitHub is author-provided alternate repository)' --notes 'Healthy / 3-day / 6-day / 9-day water-stress classes. Source train/test split is not authoritative for our benchmark.'
           cp acquisition/hemp-water/README.md acquisition/hemp-water/SOURCE_COMMIT.txt acquisition/hemp-water/meta/
+          python scripts/verify-acquisition-artifacts.py acquisition/hemp-water/packages/*manifest.json
           cp acquisition/hemp-water/packages/*manifest.json acquisition/hemp-water/meta/
       - uses: actions/upload-artifact@v7
         with: {name: DS-090-Hemp-growth-01, path: acquisition/hemp-water/packages/DS-090-Hemp-growth-shard-01.tar, compression-level: 0, retention-days: 30}
