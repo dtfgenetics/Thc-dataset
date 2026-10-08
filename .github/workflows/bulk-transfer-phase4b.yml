@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/bulk-transfer-phase4b.yml'
       - 'scripts/bulk-acquire-transfer-phase4b.py'
+      - 'scripts/publish-release-chunks-idempotent.sh'
   workflow_dispatch:
 
 permissions:
@@ -53,7 +54,7 @@ jobs:
               --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
               --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           fi
-          gh release upload "$TAG" bulk_acquisition/phase4b_public/* --clobber
+          bash scripts/publish-release-chunks-idempotent.sh "$TAG" bulk_acquisition/phase4b_public/*
 
       - name: Summarize
         if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-summary.md') != ''
