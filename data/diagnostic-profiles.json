@@ -11877,6 +11877,7 @@
     "category": "Phytoplasma / Spiroplasma",
     "severity": "high",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "A leafhopper-associated systemic syndrome in which cannabis can develop shortened nodes, clusters of proliferating axillary or apical shoots, stunting, small distorted leaves, chlorosis, mottling, and curling; the same visual pattern can involve Beet curly top virus, Spiroplasma citri, or mixed infection.",
     "affectedParts": [
       "young and expanding leaves",
@@ -11897,7 +11898,8 @@
       "Leaf chlorosis with mottling or mosaic",
       "Vein-bounded green islands on the upper leaf surface",
       "Interveinal discoloration with a pale pustule-like appearance from below",
-      "Whole-plant stunting with abnormal branching"
+      "Whole-plant stunting with abnormal branching",
+      "The same marked plant links whole-plant architecture, branch-tip morphology, both leaf surfaces, field position, sampling identifier, and serial change"
     ],
     "exclusions": [
       "Validated testing identifies Beet curly top virus without detecting phytoplasma in properly sampled tissue",
@@ -11905,9 +11907,15 @@
       "Microscopy confirms broad mites or hemp russet mites in the distorted growing tips",
       "Abnormal branching follows deliberate topping or training and subsequent leaves remain normal",
       "Distortion maps to documented herbicide or plant-growth-regulator exposure",
-      "Short internodes and branching remain stable in healthy clones without chlorosis, mottling, progressive distortion, or pathogen detection"
+      "Short internodes and branching remain stable in healthy clones without chlorosis, mottling, progressive distortion, or pathogen detection",
+      "Detached leaves or tight branch-tip views cannot be linked to whole-plant architecture and the plant submitted for molecular testing",
+      "Leafhoppers, trap counts, or regional vector activity are present without a compatible plant-linked phytoplasma result"
     ],
     "progression": [
+      {
+        "stage": "Exposure and baseline context",
+        "description": "Record field position, nearby symptomatic plants, vector observations, propagation history, and an earlier image when available. These observations establish context but neither leafhopper presence nor regional pathogen prevalence proves infection."
+      },
       {
         "stage": "Foliar expression",
         "description": "Leaves may curl, roll upward, mottle, become chlorotic, or develop vein-bounded green islands above with pale interveinal discoloration visible below."
@@ -11915,6 +11923,10 @@
       {
         "stage": "Architectural expression",
         "description": "Internodes shorten while apical or axillary shoots proliferate into compact highly branched clusters; leaves on affected branches may remain small and distorted and the plant may become stunted."
+      },
+      {
+        "stage": "Laboratory attribution",
+        "description": "Map each molecular result to the same photographed plant and sampled tissue. Interpret phytoplasma, Beet curly top virus, and Spiroplasma citri results together because mono-, dual-, and triple infections have been documented."
       },
       {
         "stage": "Temporal sequence uncertain",
@@ -11931,14 +11943,20 @@
       "Topping or high-stress training response",
       "Genetic dwarfism or fasciation",
       "Micronutrient or root-zone disorder",
-      "Mosaic virus complex"
+      "Mosaic virus complex",
+      "Hop latent viroid-associated dudding",
+      "Mechanical growing-point injury",
+      "High-EC or nutrient-toxicity distortion",
+      "Camera color, perspective, or compression artifact"
     ],
     "confirmation": [
       "Do not confirm phytoplasma from witches’ broom architecture, a photograph, video, or leafhopper observation.",
       "Submit the most symptomatic young leaves with petioles to a plant diagnostic laboratory using that laboratory’s current sampling and shipping protocol; include a healthy comparator when requested.",
       "Use a validated phytoplasma molecular assay followed by sequence or classification evidence when group-level identity matters; the Nevada report combined real-time PCR, nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis.",
       "Request a differential panel that includes Beet curly top virus and Spiroplasma citri because the three agents can produce overlapping symptoms and can occur together.",
-      "Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof."
+      "Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof.",
+      "Link every image sequence, tissue submission, and assay result to the same marked plant and sampling event; do not assign a plant-level label from a pooled or neighboring-plant result.",
+      "Interpret a negative result only within the validated assay target, sampled tissue, sample quality, and collection time; it does not by itself establish pathogen freedom or prove a noninfectious cause."
     ],
     "immediateActions": [
       "Flag suspect plants and pause distribution of their cuttings pending laboratory results.",
@@ -11958,8 +11976,9 @@
     "warnings": [
       "Witches’ broom is a syndrome, not a species-level visual diagnosis.",
       "Cannabis symptom overlap and documented mixed infections make image-only ground truth unsafe.",
+      "The 0.15 image/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.",
       "The three institutional photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden and prohibited from automated training.",
-      "Cannabis-specific evidence does not establish a universal symptom order, cultivar response, or infection-to-symptom interval."
+      "Cannabis-specific evidence does not establish a universal symptom order, cultivar response, infection-to-symptom interval, or universal dominant phytoplasma group."
     ],
     "sources": [
       {
@@ -12011,10 +12030,11 @@
         ],
         "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
         "year": 2026,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-08",
         "supportedClaims": [
           "Cannabis witches’ broom expression varies with the phytoplasma involved; typical plants are stunted with highly branched stems, axillary shoot proliferation, and small, distorted, chlorotic leaves.",
           "Phytoplasmas are leafhopper-transmitted, regional pathogen types vary, and vector presence or symptoms alone do not identify the phytoplasma involved.",
+          "The handbook identifies beet leafhopper-transmitted virescence agent group VI as dominant in hemp including Oregon while noting that other phytoplasma types can occur; this regional statement is not a universal species assignment.",
           "The three cannabis symptom photographs are credited to C. M. Ocamb, Oregon State University, 2022; the landing page states copyright but supplies no reuse license."
         ]
       }
