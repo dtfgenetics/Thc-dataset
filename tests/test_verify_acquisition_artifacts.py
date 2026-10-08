@@ -118,6 +118,22 @@ class VerifyAcquisitionTests(unittest.TestCase):
         result = self.run_check(1)
         self.assertTrue(any("Duplicate archive member path" in x for x in result["errors"]))
 
+    def test_two_manifests_in_same_folder(self):
+        second = self.root / "part-02.tar"
+        second.write_bytes(self.archive.read_bytes())
+        other = copy.deepcopy(self.manifest)
+        other["shards"][0]["fileName"] = second.name
+        second_manifest = self.root / "manifest-02.json"
+        second_manifest.write_text(json.dumps(other))
+        self.manifest_path.write_text(json.dumps(self.manifest))
+        result = subprocess.run(
+            [sys.executable, str(SCRIPT), str(self.manifest_path), str(second_manifest)],
+            text=True, capture_output=True, check=False
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual([r["status"] for r in json.loads(result.stdout)["results"]],
+                         ["pass", "pass"])
+
     def test_no_images(self):
         self.manifest["totalImages"] = 0
         result = self.run_check(1)
