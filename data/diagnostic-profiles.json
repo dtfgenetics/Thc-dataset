@@ -2453,38 +2453,45 @@
     "category": "Fungal pathogen",
     "severity": "high",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.6,
-    "summary": "Cannabis powdery mildew is a disease class marked by superficial whitish mycelium and conidia that expand across living foliage and sometimes stems or flowers. The phenotype can strongly support powdery mildew, but images cannot distinguish the documented Cannabis pathogens Golovinomyces ambrosiae and Podosphaera macularis.",
+    "photoOnlyMaxConfidence": 0.3,
+    "summary": "Cannabis powdery mildew is a disease class marked by superficial whitish mycelium and conidia that expand across living foliage and sometimes petioles, stems, bracts, or flowers. The phenotype can strongly support a powdery-mildew triage label, but a photograph cannot distinguish Golovinomyces ambrosiae from Podosphaera macularis, exclude co-infection, or prove that white material is fungal.",
     "affectedParts": [
-      "upper leaf surface",
-      "lower leaf surface",
-      "petiole",
-      "stem",
-      "flower sugar leaf",
-      "flower bract or bud"
+      "upper leaf surface and colony margin",
+      "lower leaf surface paired to the same marked leaf",
+      "immature first true leaves on susceptible plants",
+      "mature fan leaves across canopy positions",
+      "petioles and stems",
+      "flower sugar leaves",
+      "flower bracts and buds",
+      "adjacent symptom-negative tissue used for serial comparison"
     ],
     "stages": [
-      "all",
+      "propagation and first true leaves",
       "vegetative",
+      "pre-flower",
       "flower",
       "field production",
-      "indoor production"
+      "greenhouse or indoor production"
     ],
     "indicators": [
-      "Small whitish, powdery, superficial colonies occur on either leaf surface; colony texture sits on the tissue rather than appearing only as internal chlorosis.",
-      "Colonies enlarge and coalesce, producing irregular white coverage that may spread among leaves, petioles, and stems; susceptible plants can show extensive surface mycelium and conidia.",
-      "Under severe adult-plant pressure, white colonies can extend onto sugar leaves, petioles, stem tissue, flower bracts, or buds.",
-      "Affected leaves can lose vigor, yellow, become necrotic, or defoliate as disease severity increases, but these secondary changes are nonspecific.",
-      "No universal leaf-age onset is established: capture the oldest, newest, upper, lower, interior, and exterior symptomatic and apparently clean foliage rather than assuming a nutrient-mobility pattern.",
-      "Powdery-mildew colonies may become visible within roughly one week under favorable conditions, while one controlled Cannabis experiment reported susceptible leaf and stem colonies within 45 days of germination under continuous inoculum pressure."
+      "Small irregular whitish colonies sit superficially on living Cannabis tissue and show a powdery, diffuse, or felt-like texture rather than only internal loss of green color.",
+      "Paired views of a marked leaf show whether colonies occur on the upper surface, lower surface, or both; a single overexposed surface is insufficient.",
+      "At an active colony edge, magnification resolves branching superficial hyphae, upright conidiophores, or conidia rather than crystalline residue, droplets, trichome heads, or silk threads.",
+      "Serial fixed-area images show colonies enlarging, merging, or appearing on additional leaves instead of remaining fixed to a one-time spray or abrasion pattern.",
+      "Coverage can progress from a few restricted colonies to broad white surface growth across leaves and then petioles or stems under sustained disease pressure.",
+      "Severe adult-plant disease can extend onto sugar leaves, flower bracts, or buds; dense surface growth must still be separated from normal glandular trichomes and internal flower molds.",
+      "Affected leaves can later yellow, become necrotic, or defoliate, but those secondary changes support powdery mildew only when linked to an active superficial colony.",
+      "Susceptible tissue can be affected from immature first true leaves through flowering, so canopy position and leaf age must be recorded rather than inferred from a nutrient-mobility rule."
     ],
     "exclusions": [
-      "Foliar spray or mineral residue often follows droplet edges or application patterns, may occur on nonliving surfaces, and lacks hyphae, conidiophores, and an advancing colony margin.",
-      "Normal glandular trichomes are regularly distributed structures anchored to floral tissue rather than irregular spreading white mycelial patches.",
-      "Spider-mite silk forms threads or sheets associated with mites, eggs, cast skins, and feeding stippling rather than a powdery fungal colony.",
-      "Botrytis produces advancing brown or water-soaked flower decay and gray-brown sporulation, often including internal tissue breakdown, rather than only superficial white colonies.",
-      "Downy mildew is associated with angular chlorotic-to-necrotic lesions and corresponding gray-to-purplish underside sporulation under wet or humid conditions.",
-      "Leaf bleaching, variegation, nutrient chlorosis, and camera overexposure remain within tissue and do not resolve into fungal hyphae and conidia under magnification."
+      "Foliar spray, sulfur, bicarbonate, mineral, or hard-water residue follows droplets or application geometry, can occur on pots or other nonliving surfaces, and lacks branching hyphae, conidiophores, and an advancing colony margin.",
+      "Normal glandular trichomes are repeated plant structures with stalks and heads anchored to flower or sugar-leaf tissue rather than an irregular spreading mycelial mat.",
+      "Spider-mite silk resolves as threads or sheets associated with mites, round eggs, cast skins, and feeding stippling rather than fungal hyphae and conidia.",
+      "Botrytis or another internal flower mold produces advancing tan or brown tissue decay, internal breakdown, or gray-brown sporulation rather than only superficial white colonies on living tissue.",
+      "Downy mildew is associated with angular chlorotic-to-necrotic lesions and corresponding gray-to-purplish underside sporulation rather than a freely spreading superficial white colony.",
+      "Leaf bleaching, genetic sectoring, nutrient chlorosis, and camera overexposure remain within tissue and do not resolve into hyphae or conidia under magnification.",
+      "Pollen, dust, lint, perlite, and plant fibers transfer or collect without a plant-linked advancing colony and lack compatible fungal structures.",
+      "A one-frame white patch disappears under corrected exposure or white balance, or repeated marked-tissue imaging shows no organism structure or expansion; retain an artifact or unresolved-material label."
     ],
     "progression": [
       {
@@ -2493,11 +2500,11 @@
       },
       {
         "stage": "Restricted colonies",
-        "description": "Few small superficial white colonies appear. In the PM2 study scale, grade 1 represented restricted, nonspreading colonies covering less than 25% of the leaf."
+        "description": "A few small superficial white colonies appear on one or more marked surfaces. In the PM2 study scale, grade 1 represented restricted, nonspreading colonies covering less than 25% of the leaf."
       },
       {
         "stage": "Expanding coverage",
-        "description": "Colonies enlarge and merge. Study grades 2 and 3 represented 25–50% and 50–75% leaf-area coverage."
+        "description": "Serial views show colonies enlarging or merging. Study grades 2 and 3 represented 25–50% and 50–75% leaf-area coverage, but those percentages remain experiment-specific."
       },
       {
         "stage": "Extensive coverage",
@@ -2509,22 +2516,29 @@
       }
     ],
     "lookAlikes": [
-      "Foliar spray residue",
+      "Foliar spray, sulfur, bicarbonate, or oil residue",
       "Mineral or hard-water deposits",
+      "Dust, pollen, lint, perlite, or plant fibers",
       "Glandular trichomes on floral tissue",
       "Spider-mite webbing",
       "Botrytis gray mold or bud rot",
+      "Penicillium or other internal flower mold",
       "Downy mildew",
+      "White rust or another sporulating pathogen",
+      "Edema or physiological corking",
       "Nutrient or root-zone chlorosis",
-      "Genetic variegation or camera artifact"
+      "Genetic variegation or stable chlorotic sectoring",
+      "Light bleaching or spray phytotoxicity",
+      "Camera overexposure, glare, or white-balance artifact"
     ],
     "confirmation": [
-      "Do not assign a powdery-mildew species from a photograph or video. Capture whole-canopy distribution plus sharp upper- and lower-surface macros from several symptomatic and adjacent apparently clean leaves.",
-      "At the active colony edge, use magnification to document superficial hyphae and chains of conidia; include a scale and a gentle side-lit video or focus stack that separates fungal growth from residue and trichomes.",
-      "Record whether material transfers when touched, but do not use wipe behavior alone as confirmation because residue and fungal spores can both move.",
-      "For organism-level ground truth, submit fresh tissue to a qualified plant diagnostic laboratory for microscopy and molecular testing; both Golovinomyces ambrosiae and Podosphaera macularis are documented on hemp.",
-      "Record cultivar or genotype, plant age, growth stage, organ, canopy position, production setting, first-observed date, repeated fixed-area coverage, temperature, humidity, and recent foliar applications.",
-      "Treat absent colonies as a symptom-negative observation, not proof of resistance or pathogen absence; controlled resistance claims require replicated inoculation and appropriate susceptible controls."
+      "Do not confirm powdery mildew or assign a species from one photograph or video; cap visual-only confidence at 0.30 and capture whole-canopy distribution plus paired upper- and lower-surface macros from the same marked symptomatic and adjacent apparently clean leaves.",
+      "At the active colony edge, use magnification to document branching superficial hyphae, conidiophores, and conidia; include a scale and side-lit video or a focus stack that separates fungal growth from crystals, droplets, trichomes, and silk.",
+      "Record whether material transfers when touched, but do not use wipe behavior alone as confirmation because residue, dust, pollen, and fungal spores can all move.",
+      "Revisit fixed leaves and colony margins at recorded intervals; new colony area or additional infected organs supports active disease, while unchanged white material without fungal structures remains unresolved.",
+      "For disease-class ground truth, link fresh tissue from the photographed plant and organ to qualified diagnostic-laboratory microscopy plus a validated molecular assay; for species-level ground truth, use sequence or species-specific evidence that can detect G. ambrosiae, P. macularis, or co-infection.",
+      "Record cultivar or genotype, plant age, stage, organ, canopy position, production setting, first-observed date, repeated fixed-area coverage, temperature, humidity, airflow, nearby infected plants, and every recent foliar input.",
+      "Treat absent colonies as a symptom-negative observation, not proof of resistance or pathogen absence; controlled resistance claims require replicated inoculation, a defined isolate or population, and appropriate susceptible controls."
     ],
     "immediateActions": [
       "Separate or flag affected plants, minimize handling and airflow disturbances that can disperse conidia, and preserve a fresh diagnostic sample before removal.",
@@ -2544,7 +2558,10 @@
       "At least two powdery-mildew fungi, Golovinomyces ambrosiae and Podosphaera macularis, have been PCR-confirmed on hemp, so disease-class imagery is not species-level ground truth.",
       "The PM2 0-to-4 leaf-coverage scale is a controlled resistance-study scale, not a universal field severity, yield-loss, or intervention threshold.",
       "Cultivar, genotype, pathogen isolate, organ, plant stage, and inoculum pressure can change visible severity; adult plants in one study sometimes appeared more susceptible than their earlier clone assay.",
+      "The March 2026 handbook describes mostly diffuse Golovinomyces colonies and denser Podosphaera growth in its example images, but density, organ, or field context must not be used to assign species.",
+      "The 2026 genome assembly came from heavily infected leaves of one greenhouse cultivar and one G. ambrosiae collection; it strengthens taxonomy and molecular resources but does not define a universal visual phenotype or resistance guarantee.",
       "The linked CC BY 4.0 susceptible-versus-resistant Figure 2 is a shared-experiment composite. It remains training-ineligible, and the resistant panel is not an independent universal negative sample.",
+      "The three Pacific Northwest photographs have no item-level reuse license; their metadata may guide human review, but the files are not stored, displayed, or admitted to training.",
       "Do not consume visibly mold-contaminated material, and do not apply unapproved products to Cannabis or flowering tissue."
     ],
     "sources": [
@@ -2660,9 +2677,154 @@
           "Increasing severity can lead to leaf necrosis and defoliation, while high humidity favors infection even though free leaf wetness is not required.",
           "The guide recommends diagnostic-center confirmation for hemp diseases; its powdery-mildew image is credited to Nicole Gauthier and does not carry an explicit reusable-media license on the page, so it is not copied or indexed as training media here."
         ]
+      },
+      {
+        "title": "Hemp (Cannabis sativa)-Powdery Mildew",
+        "organization": "Pacific Northwest Plant Disease Management Handbook",
+        "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+        "authors": [
+          "C. M. Ocamb"
+        ],
+        "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+        "publicationDate": "2026-03-01",
+        "year": 2026,
+        "accessedDate": "2026-10-07",
+        "supportedClaims": [
+          "The March 2026 handbook reports Golovinomyces ambrosiae on greenhouse and field hemp in Oregon and natural field infection by Podosphaera macularis, while emphasizing that both are powdery-mildew fungi of Cannabis.",
+          "Susceptible plants can develop disease from immature first true leaves onward; whitish powdery colonies can occupy upper leaf surfaces and expand across whole leaves, petioles, flower bracts, and buds.",
+          "The handbook describes Golovinomyces colonies as small and mostly diffuse and a photographed Podosphaera infection as denser in hyphal growth and sporulation, but appearance alone is insufficient for a species label.",
+          "The three Cannabis photographs are credited to C. M. Ocamb or Taylor A. Bates and have no item-level reuse or automated-training license; they remain hidden metadata references and are not copied."
+        ]
+      },
+      {
+        "title": "Hybrid genome assembly of the cannabis powdery mildew agent Golovinomyces ambrosiae uncovers important resources for deciphering virulence factors",
+        "organization": "BMC Genomics (Roy et al.)",
+        "url": "https://doi.org/10.1186/s12864-026-12995-2",
+        "authors": [
+          "Félix-Antoine Roy",
+          "Yanick Asselin",
+          "Caroline Labbé",
+          "Guillaume Quang Henri Nguyen",
+          "Sima Mohammadi",
+          "Jeff Gauthier",
+          "Benjamin Cinget",
+          "Davoud Torkamaneh",
+          "Roger C. Levesque",
+          "Richard R. Bélanger"
+        ],
+        "publisher": "Springer Nature",
+        "publicationDate": "2026-05-28",
+        "year": 2026,
+        "accessedDate": "2026-10-07",
+        "doi": "10.1186/s12864-026-12995-2",
+        "supportedClaims": [
+          "The study generated the first hybrid genome assembly for the Cannabis powdery-mildew pathogen Golovinomyces ambrosiae from heavily infected leaves of one susceptible greenhouse cultivar.",
+          "Its synthesis treats G. ambrosiae and Podosphaera macularis as the currently supported powdery-mildew species on Cannabis and notes documented co-infection, reinforcing disease-class rather than image-based species labels.",
+          "Multi-locus evidence supports G. spadiceus and G. ambrosiae as one taxon, while G. ambrosiae remains genetically distinct from the broad historical G. cichoracearum concept.",
+          "The pathogen genome contains numerous candidate effectors and substantial repeat content; resistance linked to a host locus or one isolate must not be generalized to every pathogen population or visually clean plant."
+        ]
       }
     ],
     "media": [
+      {
+        "id": "pnw-hemp-powdery-mildew-golovinomyces-plant-2021",
+        "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-powdery-mildew/img7404pmga.jpg",
+        "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-powdery-mildew/img7404pmga.jpg?itok=1visAeV0",
+        "alt": "Field-grown flowering hemp with diffuse white powdery-mildew colonies on several leaves near the inflorescence",
+        "caption": "Metadata-only institutional whole-plant detail attributed to Golovinomyces ambrosiae. Sun glare, cultivar context, and the lack of organism-scale detail make the image unsuitable as stand-alone ground truth.",
+        "creator": "C. M. Ocamb, Oregon State University",
+        "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+        "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+        "mediaType": "image",
+        "requiredAttribution": "C. M. Ocamb, Oregon State University, 2021; obtain permission before display, copying, modification, or training use.",
+        "diagnosticLabel": "hemp-powdery-mildew-diffuse-colonies-flowering-plant",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored.",
+          "Do not display, copy, modify, or train without documented permission.",
+          "Species attribution comes from the institutional page and is not visually resolvable from this frame.",
+          "Bright sunlight and mixed canopy depth limit white-balance and colony-boundary interpretation."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "07e859d0feff7d0131cb53c98c4e1140405eb06fc537d4cb6d58e510c70be454",
+        "perceptualHash": "dhash64:6965cd132b3a78d1",
+        "width": 3023,
+        "height": 3513,
+        "view": "whole-plant",
+        "stage": "field flowering",
+        "severity": "multiple diffuse colonies",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
+      {
+        "id": "pnw-hemp-powdery-mildew-golovinomyces-leaf-2020",
+        "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-powdery-mildew/hemppmgolovinomycescmo2016.jpg",
+        "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-powdery-mildew/hemppmgolovinomycescmo2016.jpg?itok=QoqjHaGh",
+        "alt": "Hemp leaflet with several small diffuse white powdery-mildew colonies on the upper surface",
+        "caption": "Metadata-only institutional close-up showing small diffuse colonies attributed to Golovinomyces. The shallow focus and lack of microscopy prevent organism or species confirmation from the image alone.",
+        "creator": "Cynthia M. Ocamb, Oregon State University",
+        "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+        "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+        "mediaType": "image",
+        "requiredAttribution": "Cynthia M. Ocamb, Oregon State University, 2020; obtain permission before display, copying, modification, or training use.",
+        "diagnosticLabel": "hemp-powdery-mildew-small-diffuse-leaf-colonies",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored.",
+          "Do not display, copy, modify, or train without documented permission.",
+          "No lower-surface, whole-plant, scale, microscopy, or laboratory linkage is visible.",
+          "Species attribution is institutional context, not a visual inference."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "651c7c30417ef8cd19c47d96166ccfe36c06f96961da75dc5f4a85fce58c6342",
+        "perceptualHash": "dhash64:dcc0c447d2cbe904",
+        "width": 844,
+        "height": 1125,
+        "view": "close-up",
+        "stage": "expanded foliage",
+        "severity": "small restricted colonies",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
+      {
+        "id": "pnw-hemp-powdery-mildew-podosphaera-branch-2020",
+        "url": "https://pnwhandbooks.org/sites/pnwhandbooks/files/plant/images/hemp-cannabis-sativa-powdery-mildew/hemppowderymildewpodosphaeriataylorb.jpg",
+        "thumbnailUrl": "https://pnwhandbooks.org/sites/pnwhandbooks/files/styles/page_thumbnail/public/plant/images/hemp-cannabis-sativa-powdery-mildew/hemppowderymildewpodosphaeriataylorb.jpg?itok=3UvuLXaM",
+        "alt": "Field hemp branch with dense white powdery-mildew growth over flower-adjacent leaves and bracts",
+        "caption": "Metadata-only institutional branch view attributed to Podosphaera macularis. Dense white growth overlaps glandular trichomes and does not visually prove the species or exclude co-infection.",
+        "creator": "Taylor A. Bates, Oregon State University",
+        "license": "Copyright © Oregon State University; no reuse license stated on the landing page",
+        "sourceUrl": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+        "mediaType": "image",
+        "requiredAttribution": "Taylor A. Bates, Oregon State University, 2020; obtain permission before display, copying, modification, or training use.",
+        "diagnosticLabel": "hemp-powdery-mildew-dense-flower-adjacent-branch-growth",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored.",
+          "Do not display, copy, modify, or train without documented permission.",
+          "Dense white growth and field context do not establish Podosphaera macularis without linked laboratory evidence.",
+          "Flower trichomes, glare, other molds, and co-infection remain visual confounders."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "18365930a0d59af2cfff70ca21b5cb08b275a8540e95a8c49174cdd415316215",
+        "perceptualHash": "dhash64:6a669b8b1035254c",
+        "width": 1500,
+        "height": 1125,
+        "view": "whole-plant",
+        "stage": "field flowering",
+        "severity": "dense flower-adjacent surface growth",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      },
       {
         "id": "media-powdery-mildew-cannabis-figure-2",
         "url": "https://www.frontiersin.org/files/Articles/720215/xml-images/fagro-03-720215-g0002.webp",

@@ -1684,6 +1684,35 @@
     ]
   },
   {
+    "sourceKey": "10.1186/s12864-026-12995-2",
+    "title": "Hybrid genome assembly of the cannabis powdery mildew agent Golovinomyces ambrosiae uncovers important resources for deciphering virulence factors",
+    "organization": "BMC Genomics (Roy et al.)",
+    "url": "https://doi.org/10.1186/s12864-026-12995-2",
+    "authors": [
+      "Félix-Antoine Roy",
+      "Yanick Asselin",
+      "Caroline Labbé",
+      "Guillaume Quang Henri Nguyen",
+      "Sima Mohammadi",
+      "Jeff Gauthier",
+      "Benjamin Cinget",
+      "Davoud Torkamaneh",
+      "Roger C. Levesque",
+      "Richard R. Bélanger"
+    ],
+    "publisher": "Springer Nature",
+    "publicationDate": "2026-05-28",
+    "year": 2026,
+    "accessedDate": "2026-10-07",
+    "doi": "10.1186/s12864-026-12995-2",
+    "supportedClaims": [
+      "The study generated the first hybrid genome assembly for the Cannabis powdery-mildew pathogen Golovinomyces ambrosiae from heavily infected leaves of one susceptible greenhouse cultivar.",
+      "Its synthesis treats G. ambrosiae and Podosphaera macularis as the currently supported powdery-mildew species on Cannabis and notes documented co-infection, reinforcing disease-class rather than image-based species labels.",
+      "Multi-locus evidence supports G. spadiceus and G. ambrosiae as one taxon, while G. ambrosiae remains genetically distinct from the broad historical G. cichoracearum concept.",
+      "The pathogen genome contains numerous candidate effectors and substantial repeat content; resistance linked to a host locus or one isolate must not be generalized to every pathogen population or visually clean plant."
+    ]
+  },
+  {
     "sourceKey": "10.1186/s13007-019-0542-5",
     "title": "Virus-induced gene silencing (VIGS) in Cannabis sativa L.",
     "organization": "Plant Methods (Schachtsiek et al.)",
@@ -3584,6 +3613,25 @@
       "Stem infection can produce cankers, splitting or breakage, and black sclerotia, while heavily affected plants can decline quickly under conducive conditions.",
       "Cool, humid or wet conditions and prolonged tissue wetness favor disease, but environmental conditions are risk context rather than proof of cause.",
       "The page photographs show a close exterior bud-rot view, a close sporulating-flower view, and a whole-plant distribution view; each is credited to Cynthia M. Ocamb in 2020, and the page states copyright without an explicit media-reuse license."
+    ]
+  },
+  {
+    "sourceKey": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+    "title": "Hemp (Cannabis sativa)-Powdery Mildew",
+    "organization": "Pacific Northwest Plant Disease Management Handbook",
+    "url": "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-powdery-mildew",
+    "authors": [
+      "C. M. Ocamb"
+    ],
+    "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
+    "publicationDate": "2026-03-01",
+    "year": 2026,
+    "accessedDate": "2026-10-07",
+    "supportedClaims": [
+      "The March 2026 handbook reports Golovinomyces ambrosiae on greenhouse and field hemp in Oregon and natural field infection by Podosphaera macularis, while emphasizing that both are powdery-mildew fungi of Cannabis.",
+      "Susceptible plants can develop disease from immature first true leaves onward; whitish powdery colonies can occupy upper leaf surfaces and expand across whole leaves, petioles, flower bracts, and buds.",
+      "The handbook describes Golovinomyces colonies as small and mostly diffuse and a photographed Podosphaera infection as denser in hyphal growth and sporulation, but appearance alone is insufficient for a species label.",
+      "The three Cannabis photographs are credited to C. M. Ocamb or Taylor A. Bates and have no item-level reuse or automated-training license; they remain hidden metadata references and are not copied."
     ]
   },
   {
