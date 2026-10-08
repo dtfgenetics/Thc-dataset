@@ -15,6 +15,12 @@ on:
       - 'scripts/bulk-acquire-transfer-phase4b.py'
       - 'scripts/publish-release-chunks-idempotent.sh'
   workflow_dispatch:
+    inputs:
+      repair_starter_assets:
+        description: 'Repair zero-byte incomplete starter assets only'
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -62,6 +68,7 @@ jobs:
         if: success() && hashFiles('bulk_acquisition/phase4b_public/phase4b-manifest.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
+          THC_REPAIR_STARTER_ASSETS: ${{ inputs.repair_starter_assets && '1' || '0' }}
         shell: bash
         run: |
           set -euo pipefail
