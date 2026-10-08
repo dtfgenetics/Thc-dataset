@@ -19,6 +19,9 @@ def sha256(path: Path) -> str:
 def verify(path: Path) -> dict:
     manifest = json.loads(path.read_text(encoding="utf-8"))
     errors = []
+    for field in ("datasetId", "sourceUrl", "sourceRevision", "license"):
+        if not isinstance(manifest.get(field), str) or not manifest[field].strip():
+            errors.append(f"Missing provenance field: {field}")
     shards = manifest.get("shards", [])
     if not isinstance(shards, list) or not shards:
         errors.append("No shards in manifest")
@@ -50,6 +53,11 @@ def verify(path: Path) -> dict:
                 if any(m.issym() or m.islnk() or m.isdev() or m.isfifo() or
                        m.name.startswith("/") or ".." in Path(m.name).parts for m in members):
                     errors.append(f"Unsafe archive member: {name}")
+                paths = [m.name for m in members]
+                if len(paths) != len(set(paths)):
+                    errors.append(f"Duplicate archive member path: {name}")
+                if any(not (m.isfile() or m.isdir()) for m in members):
+                    errors.append(f"Unsupported archive member type: {name}")
                 count = sum(m.isfile() for m in members)
                 images = sum(m.isfile() and Path(m.name).suffix.lower() in IMAGE_EXTS for m in members)
                 total_files += count
@@ -58,6 +66,9 @@ def verify(path: Path) -> dict:
                     errors.append(f"File/image count mismatch: {name}")
         except (OSError, tarfile.TarError) as exc:
             errors.append(f"Unreadable tar {name}: {exc}")
+    extras = sorted(p.name for p in path.parent.glob("*.tar") if p.name not in seen)
+    if extras:
+        errors.append(f"Unlisted tar shards: {extras}")
     for field, actual in (("shardCount", len(shards)), ("totalFiles", total_files),
                           ("totalImages", total_images), ("totalArchiveBytes", total_bytes)):
         if manifest.get(field) != actual:
