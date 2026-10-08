@@ -438,6 +438,20 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/panel e.*panels a–d/)
   })
 
+  it('keeps heat and light exposure measured, separable, and serially linked', () => {
+    const record = issues.find((issue) => issue.slug === 'heat-light-stress')
+    const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
+    const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(confirmation).toContain('separate exposures')
+    expect(record?.indicators.join(' ').toLowerCase()).toContain('same marked plant')
+    expect(record?.exclusions.join(' ').toLowerCase()).toContain('fixture wattage')
+    expect(warnings).toContain('not a measured diagnostic accuracy estimate')
+    expect(warnings).toContain('not interchangeable measurements')
+    expect(record?.media).toHaveLength(0)
+  })
+
   it('keeps late-cycle leaf aging age-positioned and non-diagnostic from color', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.reviewStatus).toBe('reviewed')

@@ -486,7 +486,10 @@
       "Abnormal new inflorescence clusters develop on top of older inflorescences during sustained high-temperature flowering exposure",
       "Flower maturation or production differs from a matched cultivar under a cooler measured regime",
       "Gas-exchange or chlorophyll-fluorescence measurements change even when a specific foliar lesion is absent",
-      "A spatial gradient repeats with measured temperature or irradiance rather than merely with leaf age"
+      "A spatial gradient repeats with measured temperature or irradiance rather than merely with leaf age",
+      "The same marked plant and canopy position are followed before, during, and after the measured exposure so new growth can be separated from permanently damaged tissue",
+      "Upper- and lower-canopy images are paired with localized PPFD measurements because whole-canopy averages do not establish the exposure received by one photographed leaf",
+      "A measured hot spot or irradiance gradient recurs across nearby plants at comparable canopy height while cooler or lower-exposure reference plants remain less affected"
     ],
     "exclusions": [
       "No time-stamped canopy-level temperature, leaf-temperature, PPFD, photoperiod, or humidity record supports an exposure event",
@@ -495,7 +498,8 @@
       "Root-zone water content, irrigation history, pH, EC, or root disease explains the distribution better",
       "The change follows nutrient, pesticide, growth-regulator, or other chemical application",
       "Only late-flower senescence or cultivar-typical inflorescence architecture is visible",
-      "High PPFD alone is treated as injury even though the plant is acclimated and temperature and water status are within its measured response range"
+      "High PPFD alone is treated as injury even though the plant is acclimated and temperature and water status are within its measured response range",
+      "Only fixture wattage, dimmer percentage, room set point, or lamp distance is available without calibrated measurements at the photographed canopy position"
     ],
     "progression": [
       {
@@ -511,6 +515,10 @@
         "description": "At 31/27 degrees Celsius day/night versus 25/21 degrees Celsius in one controlled study, abnormal new clusters developed atop older inflorescences and normal maturation was disrupted; dry-matter response differed between the two genotypes."
       },
       {
+        "stage": "Correction response",
+        "description": "After one documented exposure is corrected, follow the same marked plant and score only newly developing leaves and flowers. Improvement supports exposure association but does not retrospectively prove that heat or light caused every older lesion."
+      },
+      {
         "stage": "Serial assessment",
         "description": "Compare new leaves and inflorescences after the measured exposure is corrected; persistent or spreading changes without a matching environmental gradient require renewed pest, pathogen, root-zone, nutrition, and genetic evaluation."
       }
@@ -518,14 +526,18 @@
     "lookAlikes": [
       "Water shortage or excessive vapor demand",
       "Potassium deficiency",
+      "Calcium or micronutrient disorder in new growth",
       "High root-zone EC or pH-related nutrient unavailability",
+      "Root-zone hypoxia or root disease",
       "Hemp russet mite",
       "Broad mite",
       "Thrips injury",
       "Wind or fan injury",
       "Pesticide or plant-growth-regulator injury",
+      "Foliar spray residue or droplet burn",
       "Normal late-flower senescence",
-      "Cultivar-typical foxtailing or inflorescence architecture"
+      "Cultivar-typical foxtailing or inflorescence architecture",
+      "Camera exposure, white-balance, or grow-light color artifact"
     ],
     "confirmation": [
       "Do not confirm heat or light injury from curl, bleaching, dry margins, foxtailing, one photograph, or one video; retain a suspected label until measured exposure and exclusion evidence are linked to the photographed plant.",
@@ -552,6 +564,8 @@
       "Retain cultivar- and stage-matched healthy reference sequences because published temperature optima and production responses vary among Cannabis genotypes."
     ],
     "warnings": [
+      "Image/video-only confidence is capped at 0.20 as a conservative annotation safeguard, not a measured diagnostic accuracy estimate; human review remains mandatory when exposure measurements or matched controls are missing.",
+      "Heat and light must remain separable labels: PPFD, air temperature, leaf temperature, humidity, carbon dioxide, and water status interact but are not interchangeable measurements.",
       "Upward curl, tacoing, bleaching, pale tops, dry margins, and leaf angle are nonspecific and are not validated Cannabis heat- or light-stress ground truth without measured exposure and exclusion checks.",
       "A controlled Stillwater trial produced linearly increasing inflorescence yield through 1,800 micromoles per square metre per second; therefore PPFD magnitude alone does not prove injury or define a universal damaging threshold.",
       "Temperature optima for photosynthesis differed among tested drug- and fiber-type varieties, so 25, 30, 35, or 40 degrees Celsius must not be generalized into one cultivar-independent diagnosis.",
@@ -615,14 +629,15 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2021-05-11",
         "year": 2021,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-08",
         "doi": "10.3389/fpls.2021.646020",
         "supportedClaims": [
           "Indoor-grown Cannabis sativa Stillwater was exposed during flowering to average canopy PPFDs from 120 to 1,800 micromoles per square metre per second.",
           "Dry inflorescence yield increased linearly through the highest tested PPFD even though leaf-level photosynthesis saturated below 1,800 micromoles per square metre per second.",
           "The high-light experiment did not establish a universal PPFD injury threshold or validate cupping, bleaching, or edge necrosis as light-specific visual symptoms; light exposure must be interpreted with cultivar, acclimation, canopy position, temperature, carbon dioxide, and water status.",
           "In Stillwater during the 12-hour flowering phase, chlorophyll-content index was higher in week 1 than weeks 5 and 9 and was consistently higher in upper- than lower-canopy fan leaves; the authors described evidence of early senescence but stated that the contributions of leaf age and plant ontogeny to diminished week-9 photosynthesis were unresolved.",
-          "The study measured chlorophyll index and physiology rather than validating a yellow-leaf appearance, harvest date, or universal late-flower-fade sequence."
+          "The study measured chlorophyll index and physiology rather than validating a yellow-leaf appearance, harvest date, or universal late-flower-fade sequence.",
+          "The Stillwater trial repeatedly measured apical PPFD and integrated changing exposure across the 81-day flowering period; fixture output or a one-time reading was not treated as equivalent to plant light history."
         ]
       }
     ],
