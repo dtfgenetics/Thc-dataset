@@ -54,7 +54,15 @@ jobs:
               --title 'THC Plant Diagnostic — Bulk Transfer Phase 4B' \
               --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           fi
-          bash scripts/publish-release-chunks-idempotent.sh "$TAG" bulk_acquisition/phase4b_public/*
+          shopt -s nullglob
+          chunks=(bulk_acquisition/phase4b_public/*.part[0-9][0-9][0-9])
+          if (("${#chunks[@]}" == 0)); then
+            echo "No archive chunks to publish" >&2
+            exit 1
+          fi
+          bash scripts/publish-release-chunks-idempotent.sh "$TAG" "${chunks[@]}"
+          # Keep volatile manifests/summary in the workflow artifact, not under
+          # fixed GitHub Release filenames where reruns necessarily collide.
 
       - name: Summarize
         if: always() && hashFiles('bulk_acquisition/phase4b_public/phase4b-summary.md') != ''
