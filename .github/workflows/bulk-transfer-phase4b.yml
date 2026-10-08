@@ -7,6 +7,7 @@ on:
       - '.github/workflows/bulk-transfer-phase4b.yml'
       - 'scripts/publish-release-chunks-idempotent.sh'
       - 'scripts/verify-phase4b-release.py'
+      - 'tests/test_phase4b_release_acceptance.py'
   push:
     branches: [main]
     paths:
@@ -27,6 +28,7 @@ jobs:
         run: |
           bash -n scripts/publish-release-chunks-idempotent.sh
           python -m py_compile scripts/verify-phase4b-release.py
+          python -m unittest discover -s tests -p 'test_phase4b_release_acceptance.py' -v
 
   acquire:
     if: github.event_name != 'pull_request'
