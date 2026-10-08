@@ -55,6 +55,7 @@ jobs:
               --notes-file bulk_acquisition/phase4b_public/phase4b-summary.md
           fi
           python - <<'PY'
+          import hashlib
           import json
           from pathlib import Path
           manifest = json.loads(Path("bulk_acquisition/phase4b_public/phase4b-manifest.json").read_text())
@@ -68,6 +69,11 @@ jobs:
               for part in parts:
                   p = Path("bulk_acquisition/phase4b_public") / part["filename"]
                   assert p.is_file() and p.stat().st_size == part["sizeBytes"], f"Missing or invalid part: {p}"
+                  digest = hashlib.sha256()
+                  with p.open("rb") as stream:
+                      for block in iter(lambda: stream.read(1024 * 1024), b""):
+                          digest.update(block)
+                  assert digest.hexdigest() == part["sha256"], f"Checksum mismatch: {p}"
           PY
           shopt -s nullglob
           chunks=(bulk_acquisition/phase4b_public/*.part[0-9][0-9][0-9])
