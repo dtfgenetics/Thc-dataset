@@ -33,43 +33,6 @@ for file in "$@"; do
         # asset another workflow finished uploading after our inventory fetch.
         current="$(gh api "repos/$repo/releases/assets/$asset_id" --jq '[.name, .size, .state] | @tsv')"
         IFS=
-        continue
-      fi
-      echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
-      exit 1
-    fi
-    if [[ "$existing_size" != "$size" ]]; then
-      echo "CONFLICT $name: existing size $existing_size differs from $size" >&2
-      exit 1
-    fi
-    if [[ "$existing_digest" == "sha256:$checksum" ]]; then
-      echo "SKIP identical $name (API SHA256)"
-      continue
-    fi
-    # Older release assets may lack a digest: hash the actual existing bytes.
-    tmp="$(mktemp -d)"
-    gh release download "$tag" --repo "$repo" --pattern "$name" --dir "$tmp" --clobber
-    remote_sha="$(sha256sum "$tmp/$name" | cut -d' ' -f1)"
-    rm -rf "$tmp"
-    if [[ "$remote_sha" == "$checksum" ]]; then
-      echo "SKIP identical $name (downloaded SHA256)"
-      continue
-    fi
-    echo "CONFLICT $name: existing bytes differ; refusing overwrite" >&2
-    exit 1
-  fi
-  echo "UPLOAD $name"
-  gh release upload "$tag" "$file" --repo "$repo"
-done
-\t' read -r current_name current_size current_state <<< "$current"
-        if [[ "$current_name" != "$name" || "$current_size" != "0" || "$current_state" != "starter" ]]; then
-          echo "CONCURRENT UPDATE $name: asset changed; refusing deletion" >&2
-          exit 1
-        fi
-        gh api -X DELETE "repos/$repo/releases/assets/$asset_id"
-        gh release upload "$tag" "$file" --repo "$repo"
-        continue
-      fi
       echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
       exit 1
     fi
