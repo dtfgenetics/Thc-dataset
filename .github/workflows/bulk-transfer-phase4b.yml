@@ -9,6 +9,7 @@ on:
       - 'scripts/verify-phase4b-release.py'
       - 'tests/test_phase4b_release_acceptance.py'
       - 'tests/test_phase4b_starter_repair.py'
+      - 'tests/test_phase4b_workflow_preflight.py'
   push:
     branches: [main]
     paths:
@@ -37,6 +38,7 @@ jobs:
           python -m py_compile scripts/verify-phase4b-release.py
           python -m unittest discover -s tests -p 'test_phase4b_release_acceptance.py' -v
           python -m unittest discover -s tests -p 'test_phase4b_starter_repair.py' -v
+          python -m unittest discover -s tests -p 'test_phase4b_workflow_preflight.py' -v
 
   acquire:
     permissions:
