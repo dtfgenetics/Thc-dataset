@@ -69,5 +69,20 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.rows[0]["status"] = "blocked"
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
 
+    def test_malformed_archive_part_fails_closed(self):
+        self.rows[0]["archiveParts"].append(None)
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("malformed archive part" in e for e in report["errors"]))
+
+    def test_malformed_release_asset_fails_closed(self):
+        report = mod.validate(self.manifest, self.assets + [None], self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Malformed release asset" in e for e in report["errors"]))
+
+    def test_non_object_manifest_fails_closed(self):
+        report = mod.validate([], self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+
 if __name__ == "__main__":
     unittest.main()
