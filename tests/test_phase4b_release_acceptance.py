@@ -25,7 +25,7 @@ class ReleaseAcceptanceTests(unittest.TestCase):
             self.rows.append({"datasetId": did, "status": "acquired", "archiveParts": [
                 {"filename": name, "sizeBytes": len(content), "sha256": sha}
             ]})
-            self.assets.append({"name": name, "size": len(content), "digest": "sha256:" + sha})
+            self.assets.append({"name": name, "size": len(content), "digest": "sha256:" + sha, "state": "uploaded"})
         self.manifest = {"results": self.rows}
 
     def test_pass(self):
