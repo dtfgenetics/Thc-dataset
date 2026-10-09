@@ -41,7 +41,7 @@ for file in "$@"; do
         gh release upload "$tag" "$file" --repo "$repo"
         continue
       fi
-      echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
+      echo "BLOCKED $name: release asset state is ${existing_state} (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
       exit 1
     fi
     if [[ "$existing_size" != "$size" ]]; then
