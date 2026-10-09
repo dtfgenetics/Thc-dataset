@@ -84,5 +84,14 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         report = mod.validate([], self.assets, self.root)
         self.assertEqual(report["status"], "fail")
 
+    def test_non_list_release_assets_fails_closed(self):
+        report = mod.validate(self.manifest, None, self.root)
+        self.assertEqual(report["status"], "fail")
+
+    def test_non_string_dataset_id_fails_closed(self):
+        self.rows[0]["datasetId"] = None
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+
 if __name__ == "__main__":
     unittest.main()
