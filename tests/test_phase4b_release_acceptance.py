@@ -72,6 +72,18 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("part sequence has gaps" in error for error in report["errors"]))
 
+    def test_duplicate_declared_archive_part_fails_closed(self):
+        self.rows[0]["archiveParts"].append(dict(self.rows[0]["archiveParts"][0]))
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Duplicate declared part" in error for error in report["errors"]))
+
+    def test_missing_manifest_checksum_fails_closed(self):
+        self.rows[0]["archiveParts"][0].pop("sha256")
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Local checksum/size differs" in error for error in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
