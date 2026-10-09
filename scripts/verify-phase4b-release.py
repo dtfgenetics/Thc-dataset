@@ -54,7 +54,8 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not local.is_file():
                 errors.append(f"Missing local part {name}")
                 continue
-            checksum = hashlib.file_digest(local.open("rb"), "sha256").hexdigest()
+            with local.open("rb") as stream:
+                checksum = hashlib.file_digest(stream, "sha256").hexdigest()
             if checksum != part.get("sha256") or local.stat().st_size != part.get("sizeBytes"):
                 errors.append(f"Local checksum/size differs from manifest: {name}")
                 continue
