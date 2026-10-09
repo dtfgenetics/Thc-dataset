@@ -32,7 +32,15 @@ for file in "$@"; do
         # Re-read the asset immediately before deletion to avoid removing an
         # asset another workflow finished uploading after our inventory fetch.
         current="$(gh api "repos/$repo/releases/assets/$asset_id" --jq '[.name, .size, .state] | @tsv')"
-        IFS=
+        IFS=$'\t' read -r current_name current_size current_state <<< "$current"
+        if [[ "$current_name" != "$name" || "$current_size" != "0" || "$current_state" != "starter" ]]; then
+          echo "CONCURRENT UPDATE $name: asset changed; refusing deletion" >&2
+          exit 1
+        fi
+        gh api -X DELETE "repos/$repo/releases/assets/$asset_id"
+        gh release upload "$tag" "$file" --repo "$repo"
+        continue
+      fi
       echo "BLOCKED $name: release asset state is '$existing_state' (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
       exit 1
     fi
