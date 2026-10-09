@@ -24,7 +24,7 @@ on:
         default: false
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate-publisher:
@@ -39,6 +39,8 @@ jobs:
           python -m unittest discover -s tests -p 'test_phase4b_starter_repair.py' -v
 
   acquire:
+    permissions:
+      contents: write
     if: github.event_name != 'pull_request'
     needs: validate-publisher
     concurrency:
