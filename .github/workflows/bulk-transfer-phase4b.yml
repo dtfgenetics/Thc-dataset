@@ -9,6 +9,7 @@ on:
       - 'scripts/verify-phase4b-release.py'
       - 'tests/test_phase4b_release_acceptance.py'
       - 'tests/test_phase4b_starter_repair.py'
+      - 'tests/test_phase4b_workflow_preflight.py'
   push:
     branches: [main]
     paths:
@@ -37,6 +38,7 @@ jobs:
           python -m py_compile scripts/verify-phase4b-release.py
           python -m unittest discover -s tests -p 'test_phase4b_release_acceptance.py' -v
           python -m unittest discover -s tests -p 'test_phase4b_starter_repair.py' -v
+          python -m unittest discover -s tests -p 'test_phase4b_workflow_preflight.py' -v
 
   acquire:
     permissions:
@@ -88,17 +90,21 @@ jobs:
           manifest = json.loads(Path("bulk_acquisition/phase4b_public/phase4b-manifest.json").read_text())
           rows = manifest.get("results", [])
           expected = {"DS-142", "DS-143", "DS-146"}
-          assert {r.get("datasetId") for r in rows} == expected, "Dataset inventory incomplete"
+          assert isinstance(rows, list) and len(rows) == len(expected) and all(isinstance(r, dict) and isinstance(r.get("datasetId"), str) for r in rows) and {r["datasetId"] for r in rows} == expected, "Dataset inventory incomplete"
           seen_parts = set()
           for row in rows:
               assert row.get("status") == "acquired", f"Dataset not acquired: {row.get('datasetId')}"
               parts = row.get("archiveParts", [])
-              assert parts, f"No archive parts: {row['datasetId']}"
+              assert isinstance(parts, list) and parts, f"No archive parts: {row['datasetId']}"
+              indices = []
               for part in parts:
-                  filename = part["filename"]
+                  assert isinstance(part, dict), f"Malformed archive part: {row['datasetId']}"
+                  assert type(part.get("sizeBytes")) is int and part["sizeBytes"] > 0, f"Invalid archive part size: {row['datasetId']}"
+                  filename = part.get("filename")
                   assert isinstance(filename, str) and re.fullmatch(re.escape(row["datasetId"] + "_archive.part") + r"[0-9]{3}", filename), f"Unsafe chunk name: {filename}"
                   assert filename not in seen_parts, f"Duplicate chunk: {filename}"
                   seen_parts.add(filename)
+                  indices.append(int(filename[-3:]))
                   p = Path("bulk_acquisition/phase4b_public") / filename
                   assert p.is_file() and p.stat().st_size == part["sizeBytes"], f"Missing or invalid part: {p}"
                   digest = hashlib.sha256()
@@ -106,6 +112,7 @@ jobs:
                       for block in iter(lambda: stream.read(1024 * 1024), b""):
                           digest.update(block)
                   assert digest.hexdigest() == part["sha256"], f"Checksum mismatch: {p}"
+              assert sorted(indices) == list(range(1, len(indices) + 1)), f"Nonconsecutive archive parts: {row['datasetId']}"
           assert {p.name for p in Path("bulk_acquisition/phase4b_public").glob("*.part[0-9][0-9][0-9]")} == seen_parts, "Undeclared or missing chunk files"
           PY
           shopt -s nullglob
