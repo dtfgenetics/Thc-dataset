@@ -26,14 +26,14 @@ for file in "$@"; do
   if [[ -n "$existing" ]]; then
     IFS=$'\t' read -r asset_id existing_name existing_size existing_digest existing_state <<< "$existing"
     if [[ "$existing_state" != "uploaded" ]]; then
-      if [[ "$existing_state" == "starter" && "$existing_size" == "0" && "${THC_REPAIR_STARTER_ASSETS:-0}" == "1" ]]; then
-        echo "REPAIR empty starter asset $name (id $asset_id)"
-        # Delete only an incomplete, zero-byte starter entry, never a valid upload.
+      if [[ "$existing_state" == "starter" && ( "$existing_size" == "0" || "$existing_size" == "$size" ) && "$existing_digest" == "-" && "${THC_REPAIR_STARTER_ASSETS:-0}" == "1" ]]; then
+        echo "REPAIR incomplete starter asset $name (id $asset_id)"
+        # Delete only an incomplete starter with absent digest and a zero or exact expected size.
         # Re-read the asset immediately before deletion to avoid removing an
         # asset another workflow finished uploading after our inventory fetch.
-        current="$(gh api "repos/$repo/releases/assets/$asset_id" --jq '[.name, .size, .state] | @tsv')"
-        IFS=$'\t' read -r current_name current_size current_state <<< "$current"
-        if [[ "$current_name" != "$name" || "$current_size" != "0" || "$current_state" != "starter" ]]; then
+        current="$(gh api "repos/$repo/releases/assets/$asset_id" --jq '[.name, .size, (.digest // "-"), .state] | @tsv')"
+        IFS=$'\t' read -r current_name current_size current_digest current_state <<< "$current"
+        if [[ "$current_name" != "$name" || ( "$current_size" != "0" && "$current_size" != "$size" ) || "$current_digest" != "-" || "$current_state" != "starter" ]]; then
           echo "CONCURRENT UPDATE $name: asset changed; refusing deletion" >&2
           exit 1
         fi
@@ -41,7 +41,7 @@ for file in "$@"; do
         gh release upload "$tag" "$file" --repo "$repo"
         continue
       fi
-      echo "BLOCKED $name: release asset state is ${existing_state} (id $asset_id); cleanup only allowed for zero-byte starter with explicit repair flag" >&2
+      echo "BLOCKED $name: release asset state is ${existing_state} (id $asset_id); cleanup only allowed for digestless starter of zero or expected size with explicit repair flag" >&2
       exit 1
     fi
     if [[ "$existing_size" != "$size" ]]; then
