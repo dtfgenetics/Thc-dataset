@@ -83,6 +83,7 @@ jobs:
           python - <<'PY'
           import hashlib
           import json
+          import re
           from pathlib import Path
           manifest = json.loads(Path("bulk_acquisition/phase4b_public/phase4b-manifest.json").read_text())
           rows = manifest.get("results", [])
@@ -95,7 +96,7 @@ jobs:
               assert parts, f"No archive parts: {row['datasetId']}"
               for part in parts:
                   filename = part["filename"]
-                  assert Path(filename).name == filename and filename.startswith(row["datasetId"] + "_archive.part"), f"Unsafe chunk name: {filename}"
+                  assert isinstance(filename, str) and re.fullmatch(re.escape(row["datasetId"] + "_archive.part") + r"[0-9]{3}", filename), f"Unsafe chunk name: {filename}"
                   assert filename not in seen_parts, f"Duplicate chunk: {filename}"
                   seen_parts.add(filename)
                   p = Path("bulk_acquisition/phase4b_public") / filename
