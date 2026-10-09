@@ -22,7 +22,7 @@ elif args[:2] == ["api", "--paginate"]:
 elif args[:2] == ["api", "repos/example/repo/releases/assets/41"]:
     state = os.environ.get("GH_MOCK_REFETCH_STATE", "starter")
     size = 0 if state == "starter" else 4
-    print(f"DS-142_archive.part001\\t{size}\\t-\\t{state}")
+    print(f"DS-142_archive.part001\\t{size}\\t{state}")
 elif args[:3] == ["api", "-X", "DELETE"]:
     pass
 elif args[:2] == ["release", "upload"]:
