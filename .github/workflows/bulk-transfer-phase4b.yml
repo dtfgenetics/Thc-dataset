@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       repair_starter_assets:
-        description: 'Repair zero-byte incomplete starter assets only'
+        description: 'Repair digestless incomplete starter assets with zero or expected size'
         type: boolean
         required: false
         default: false
