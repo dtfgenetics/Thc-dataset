@@ -84,6 +84,12 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Local checksum/size differs" in error for error in report["errors"]))
 
+    def test_duplicate_release_asset_name_fails_closed(self):
+        self.assets.append(dict(self.assets[0]))
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Duplicate release asset" in error for error in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
