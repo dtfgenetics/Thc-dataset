@@ -101,5 +101,11 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.rows[0]["archiveParts"][0]["filename"] = "DS-142_archive.part00\u0661"
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
 
+    def test_undeclared_release_archive_part_fails(self):
+        self.assets.append({"name": "DS-142_archive.part099", "size": 5, "digest": "sha256:" + "0" * 64, "state": "uploaded"})
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Undeclared release archive assets" in e for e in report["errors"]))
+
 if __name__ == "__main__":
     unittest.main()
