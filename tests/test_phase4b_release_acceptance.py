@@ -31,6 +31,15 @@ class ReleaseAcceptanceTests(unittest.TestCase):
     def test_pass(self):
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "pass")
 
+    def test_starter_asset_with_matching_size_and_digest_is_rejected(self):
+        self.assets[0]["state"] = "starter"
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
+
+    def test_uploaded_asset_with_matching_size_and_digest_passes(self):
+        for asset in self.assets:
+            asset["state"] = "uploaded"
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "pass")
+
     def test_missing_asset(self):
         self.assertEqual(mod.validate(self.manifest, self.assets[:-1], self.root)["status"], "fail")
 
