@@ -68,6 +68,34 @@ class PreflightTests(unittest.TestCase):
         self.rows[0]["archiveParts"][0]["sha256"] = "0" * 64
         self.assert_rejected()
 
+    def test_nonconsecutive_archive_parts(self):
+        part = self.rows[0]["archiveParts"][0]
+        old = part["filename"]
+        new = old.replace("part001", "part002")
+        (self.directory / old).rename(self.directory / new)
+        part["filename"] = new
+        self.assert_rejected()
+
+    def test_consecutive_multiple_parts(self):
+        name = "DS-142_archive.part002"
+        payload = b"second archive part"
+        (self.directory / name).write_bytes(payload)
+        self.rows[0]["archiveParts"].append({
+            "filename": name,
+            "sizeBytes": len(payload),
+            "sha256": hashlib.sha256(payload).hexdigest(),
+        })
+        result = self.run_preflight()
+        self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_part_zero_rejected(self):
+        part = self.rows[0]["archiveParts"][0]
+        old = part["filename"]
+        new = old.replace("part001", "part000")
+        (self.directory / old).rename(self.directory / new)
+        part["filename"] = new
+        self.assert_rejected()
+
     def test_undeclared_part(self):
         (self.directory / "DS-142_archive.part002").write_bytes(b"extra")
         self.assert_rejected()
