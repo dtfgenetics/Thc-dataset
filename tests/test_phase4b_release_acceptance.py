@@ -40,6 +40,16 @@ class ReleaseAcceptanceTests(unittest.TestCase):
             asset["state"] = "uploaded"
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "pass")
 
+    def test_missing_state_is_rejected(self):
+        self.assets[0].pop("state")
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertEqual(report["verifiedParts"], 2)
+
+    def test_unknown_state_is_rejected(self):
+        self.assets[0]["state"] = "pending"
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
+
     def test_missing_asset(self):
         self.assertEqual(mod.validate(self.manifest, self.assets[:-1], self.root)["status"], "fail")
 
