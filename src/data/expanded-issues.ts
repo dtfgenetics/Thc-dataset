@@ -483,7 +483,7 @@ const sources = {
     publisher: 'MDPI AG',
     publicationDate: '2023-11-23',
     year: 2023,
-    accessedDate: '2026-08-20',
+    accessedDate: '2026-10-09',
     doi: '10.3390/horticulturae9121261',
     supportedClaims: [
       'Twenty symptomatic Cannabis leaves were collected from one plantation in Chiang Rai, Thailand, in February 2022; field symptoms were circular-to-elliptical olive leaf spots with gray centers and dark brown-to-black margins, and severely affected plants defoliated.',
@@ -503,7 +503,7 @@ const sources = {
     publisher: 'Oregon State University, Washington State University, and University of Idaho',
     publicationDate: '2026-03',
     year: 2026,
-    accessedDate: '2026-08-20',
+    accessedDate: '2026-10-09',
     supportedClaims: [
       'The institutional handbook lists both Cercospora cannabis and Pseudocercospora cannabina as Cannabis olive-leaf-spot causes that can overwinter on infected crop residue at the soil surface.',
       'Olive leaf spot is reported more commonly in field-grown hemp; greenhouse observations are most common near open doors or vents, making location and exposure context useful but non-confirmatory metadata.',
@@ -1092,8 +1092,8 @@ export const expandedIssues: IssueRecord[] = [
     media: [],
   },
   {
-    id: 'fungal-pseudocercospora-leaf-spot', slug: 'pseudocercospora-olive-sooty-leaf-spot', name: 'Pseudocercospora olive / sooty leaf spot', scientificName: 'Pseudocercospora cannabina', category: 'Fungal pathogen', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.4,
-    summary: 'A Cannabis leaf-spot disease supported by a Thailand field collection and Koch-postulate experiment. Upper-surface olive, gray-centered, or pale vein-limited lesions paired with lower-surface gray-brown sooty sporulation are compatible with Pseudocercospora cannabina, but photographs cannot resolve it from other cercosporoid, fungal, or oomycete diseases. Confirmed labels require plant-linked morphology and molecular evidence.',
+    id: 'fungal-pseudocercospora-leaf-spot', slug: 'pseudocercospora-olive-sooty-leaf-spot', name: 'Pseudocercospora olive / sooty leaf spot', scientificName: 'Pseudocercospora cannabina', category: 'Fungal pathogen', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.2,
+    summary: 'A Cannabis leaf-spot disease supported by one Thailand field collection and a controlled pathogenicity experiment. Paired upper-surface olive, gray-centered, or pale vein-limited lesions and lower-surface gray-brown sooty sporulation are compatible with Pseudocercospora cannabina, but images cannot resolve it from fungal, oomycete, residue, or arthropod conditions. Confirmed labels require the same plant and lesion to remain linked to expert morphology and multilocus evidence.',
     affectedParts: ['leaf blades', 'upper leaf surface', 'lower leaf surface', 'vein-limited interveinal tissue', 'canopy foliage in severe disease'],
     stages: ['field-grown vegetative or reproductive canopy', 'greenhouse plants near doors or vents', 'natural sporulating lesions', 'controlled inoculation'],
     indicators: [
@@ -1123,7 +1123,7 @@ export const expandedIssues: IssueRecord[] = [
       {stage:'Controlled reproduction',description:'Under the reported high-moisture inoculation conditions, penetration was visible at 24 hours and leaf spots with sporulation were reproduced at 5 days.'},
       {stage:'Severe field disease',description:'Lesions can enlarge or cover leaves and affected plants may defoliate; this endpoint is not universal and does not identify the pathogen by itself.'},
     ],
-    lookAlikes: ['Cercospora leaf spot', 'Septoria leaf spot', 'Downy mildew / Pseudoperonospora', 'Alternaria leaf spot', 'Bipolaris leaf spot or blight', 'Anthracnose / Colletotrichum leaf spot', 'Powdery mildew residue', 'Two-spotted spider mite injury', 'Bacterial leaf spot', 'Spray, contact, or light injury'],
+    lookAlikes: ['Cercospora leaf spot', 'Septoria leaf spot', 'Downy mildew / Pseudoperonospora', 'Alternaria leaf spot', 'Bipolaris leaf spot or blight', 'Anthracnose / Colletotrichum leaf spot', 'Exserohilum leaf blight', 'Stemphylium or another fungal leaf spot', 'Powdery mildew residue', 'Two-spotted spider mite injury', 'Thrips or hemp russet mite injury', 'Bacterial leaf spot', 'Spray, contact, or light injury', 'Nutrient, salinity, drought, or root-zone stress'],
     confirmation: [
       'Capture the same attached lesion from the upper surface, lower surface, and whole-plant or canopy context; include a scale and record whether lesions follow veins.',
       'Use a hand lens or microscope to determine whether lower-surface dark material is attached conidiophore/conidium growth rather than residue, insects, frass, or necrotic tissue.',
@@ -1131,12 +1131,13 @@ export const expandedIssues: IssueRecord[] = [
       'Use fungal morphology together with validated sequence evidence; preserve locus, accession, isolate, and sampling details when assigning Pseudocercospora cannabina.',
       'Prefer multilocus evidence such as ITS plus act, tef1, and rpb2 when species resolution matters because type-material sequence data are unavailable and morphology alone is difficult.',
       'Where causality rather than detection is required, retain plant-linked isolation and pathogenicity or equivalent diagnostic evidence; organism detection alone does not prove every lesion was caused by it.',
+      'Assign a persistent lesion identifier and revisit the same leaf from both surfaces so new lesion expansion, new lower-surface growth, and stable old necrosis are not mixed across different leaves or plants.',
       'Keep symptom-only, upper-surface-only, detached-leaf-only, mixed-pathogen, unlinked-laboratory, low-resolution, and stock/vendor/forum/generated captures out of the confirmed Pseudocercospora class and route them to human review.',
     ],
     immediateActions: ['Photograph the distribution before removing tissue, then capture matched upper and lower leaf surfaces with a scale.', 'Preserve several actively sporulating lesions for laboratory diagnosis and limit movement of symptomatic leaves or propagation material.', 'Record indoor versus field context, greenhouse proximity to open doors or vents, recent wetness, and whether neighboring plants show a clustered or exposure-edge pattern.'],
     correctivePlan: ['Base sanitation and environmental changes on a confirmed foliar-pathogen diagnosis and applicable local rules.', 'Track marked lesions and new foliage after intervention; disappearance of leaf wetness or sporulation does not retroactively confirm the species.', 'Escalate persistent or spreading lesions to a plant diagnostic laboratory rather than repeatedly assigning a visual label.'],
     prevention: ['Scout both leaf surfaces, especially in field plantings and greenhouse zones near doors or vents.', 'Improve air circulation, minimize avoidable leaf wetness, and remove infected leaves using sanitary handling.', 'Reduce carryover of infected crop residue where appropriate because the institutional handbook identifies residue as an overwintering pathway.'],
-    warnings: ['Olive color, gray centers, dark margins, vein limitation, underside growth, and defoliation are compatible features but are not individually or collectively species-specific.', 'The modern primary evidence is based on twenty symptomatic leaves and two isolates from one Thailand plantation plus one controlled wet-box experiment; cultivar, production-system, geographic, and severity generalization requires more evidence.', 'The reported 24-hour penetration and 5-day symptom timing came from controlled high-moisture inoculation and must not be treated as a universal field timeline.', 'Sequence data from Pseudocercospora cannabina type material were unavailable and the broader multilocus clade had weak bootstrap support; species labels need expert morpho-molecular interpretation.', 'The two CC BY 4.0 figures are mixed composites. They are approved as references but excluded from automated training until panel crops, labels, source grouping, and rights metadata receive human review.', 'No photograph or video is ground truth without linked sampling and organism evidence; all symptom-only, mixed-organism, unlinked-laboratory, and low-resolution samples require human review.'],
+    warnings: ['Olive color, gray centers, dark margins, vein limitation, underside growth, and defoliation are compatible features but are not individually or collectively species-specific.', 'The 0.20 image/video-only ceiling is an annotation safeguard, not measured model accuracy; photographs cannot establish species or causality.', 'Field prevalence, greenhouse proximity to openings, residue carryover, leaf wetness, and air circulation are risk context rather than visual confirmation.', 'The modern primary evidence is based on twenty symptomatic leaves and two isolates from one Thailand plantation plus one controlled wet-box experiment; cultivar, production-system, geographic, and severity generalization requires more evidence.', 'The reported 24-hour penetration and 5-day symptom timing came from controlled high-moisture inoculation and must not be treated as a universal field timeline.', 'Sequence data from Pseudocercospora cannabina type material were unavailable and the broader multilocus clade had weak bootstrap support; species labels need expert morpho-molecular interpretation.', 'The two CC BY 4.0 figures are mixed composites. They are approved as references but excluded from automated training until panel crops, labels, source grouping, and rights metadata receive human review.', 'No photograph or video is ground truth unless the same lesion, both leaf surfaces, sampling event, and organism evidence remain linked; all symptom-only, mixed-organism, unlinked-laboratory, or low-resolution samples require human review.'],
     sources: [sources.pseudocercospora, sources.pseudocercosporaPnwHandbook], media: [],
   },
   {
