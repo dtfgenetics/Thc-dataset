@@ -8,6 +8,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import subprocess
 import sys
@@ -56,7 +57,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"{did}: malformed archive part")
                 continue
             name = part.get("filename", "")
-            if not isinstance(name, str) or not name.startswith(f"{did}_archive.part") or not name[-3:].isascii() or not name[-3:].isdigit() or Path(name).name != name:
+            if not isinstance(name, str) or re.fullmatch(re.escape(f"{did}_archive.part") + r"[0-9]{3}", name) is None:
                 errors.append(f"{did}: invalid filename {name!r}")
                 continue
             indices.append(int(name[-3:]))
