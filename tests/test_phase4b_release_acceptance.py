@@ -93,5 +93,13 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         report = mod.validate(self.manifest, self.assets, self.root)
         self.assertEqual(report["status"], "fail")
 
+    def test_unhashable_dataset_id_fails_closed(self):
+        self.rows[0]["datasetId"] = ["DS-142"]
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
+
+    def test_unicode_digit_suffix_fails_closed(self):
+        self.rows[0]["archiveParts"][0]["filename"] = "DS-142_archive.part00\u0661"
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
+
 if __name__ == "__main__":
     unittest.main()
