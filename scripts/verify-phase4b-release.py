@@ -92,6 +92,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             audited += 1
         if sorted(indices) != list(range(1, len(indices) + 1)):
             errors.append(f"{did}: part sequence has gaps or duplicates")
+    unexpected = sorted(name for name in by_name if any(name.startswith(f"{did}_archive.part") for did in EXPECTED) and name not in declared)
+    if unexpected:
+        errors.append(f"Undeclared release archive assets: {', '.join(unexpected)}")
     return {"status": "pass" if not errors else "fail", "verifiedParts": audited,
             "declaredParts": len(declared), "errors": errors}
 
