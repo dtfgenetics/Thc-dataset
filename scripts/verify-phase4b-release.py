@@ -62,7 +62,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not asset:
                 errors.append(f"Missing release asset: {name}")
                 continue
-            if asset.get("state", "uploaded") != "uploaded":
+            if asset.get("state") != "uploaded":
                 errors.append(f"Release asset is not uploaded: {name}")
                 continue
             if asset.get("size") != part.get("sizeBytes"):
