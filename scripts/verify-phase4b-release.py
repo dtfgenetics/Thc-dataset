@@ -56,6 +56,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not isinstance(part, dict):
                 errors.append(f"{did}: malformed archive part")
                 continue
+            if type(part.get("sizeBytes")) is not int or part["sizeBytes"] <= 0:
+                errors.append(f"{did}: invalid non-positive archive part size")
+                continue
             name = part.get("filename", "")
             if not isinstance(name, str) or re.fullmatch(re.escape(f"{did}_archive.part") + r"[0-9]{3}", name) is None:
                 errors.append(f"{did}: invalid filename {name!r}")
