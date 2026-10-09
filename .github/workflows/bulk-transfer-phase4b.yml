@@ -39,6 +39,9 @@ jobs:
   acquire:
     if: github.event_name != 'pull_request'
     needs: validate-publisher
+    concurrency:
+      group: phase4b-release-publication
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
