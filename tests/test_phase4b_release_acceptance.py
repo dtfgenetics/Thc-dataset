@@ -61,6 +61,17 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assets[0].pop("digest")
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
 
+    def test_nonconsecutive_archive_parts_fail_closed(self):
+        part = self.rows[0]["archiveParts"][0]
+        old_name = part["filename"]
+        new_name = old_name.replace("part001", "part002")
+        (self.root / old_name).rename(self.root / new_name)
+        part["filename"] = new_name
+        self.assets[0]["name"] = new_name
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("part sequence has gaps" in error for error in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
