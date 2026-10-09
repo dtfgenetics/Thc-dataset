@@ -27,6 +27,8 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
         errors.append("Expected exactly DS-142, DS-143 and DS-146")
         rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
     by_name = {}
+    if not isinstance(assets, list):
+        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Release assets must be a list"]}
     for asset in assets:
         if not isinstance(asset, dict) or not isinstance(asset.get("name"), str):
             errors.append("Malformed release asset entry")
@@ -39,6 +41,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
     audited = 0
     for row in rows:
         did = row.get("datasetId", "?")
+        if not isinstance(did, str):
+            errors.append("Malformed dataset ID")
+            continue
         if row.get("status") != "acquired":
             errors.append(f"{did}: acquisition not successful")
         parts = row.get("archiveParts", [])
