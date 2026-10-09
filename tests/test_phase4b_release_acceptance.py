@@ -107,5 +107,24 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Undeclared release archive assets" in e for e in report["errors"]))
 
+    def test_nonpositive_or_noninteger_chunk_size_fails_closed(self):
+        for invalid in (0, -1, True, False, "5", 5.0, None):
+            with self.subTest(size=invalid):
+                self.rows[0]["archiveParts"][0]["sizeBytes"] = invalid
+                report = mod.validate(self.manifest, self.assets, self.root)
+                self.assertEqual(report["status"], "fail")
+                self.assertTrue(any("invalid non-positive archive part size" in e for e in report["errors"]))
+
+    def test_zero_byte_chunk_with_matching_sha_and_asset_fails_closed(self):
+        part = self.rows[0]["archiveParts"][0]
+        name = part["filename"]
+        (self.root / name).write_bytes(b"")
+        digest = hashlib.sha256(b"").hexdigest()
+        part.update(sizeBytes=0, sha256=digest)
+        self.assets[0].update(size=0, digest="sha256:" + digest)
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("invalid non-positive archive part size" in e for e in report["errors"]))
+
 if __name__ == "__main__":
     unittest.main()
