@@ -20,12 +20,17 @@ def gh_json(*args: str):
 
 def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
     errors = []
+    if not isinstance(manifest, dict):
+        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Manifest must be an object"]}
     rows = manifest.get("results", [])
     if not isinstance(rows, list) or {r.get("datasetId") for r in rows if isinstance(r, dict)} != EXPECTED or len(rows) != 3:
         errors.append("Expected exactly DS-142, DS-143 and DS-146")
         rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
     by_name = {}
     for asset in assets:
+        if not isinstance(asset, dict) or not isinstance(asset.get("name"), str):
+            errors.append("Malformed release asset entry")
+            continue
         name = asset.get("name")
         if name in by_name:
             errors.append(f"Duplicate release asset {name}")
@@ -42,6 +47,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             continue
         indices = []
         for part in parts:
+            if not isinstance(part, dict):
+                errors.append(f"{did}: malformed archive part")
+                continue
             name = part.get("filename", "")
             if not isinstance(name, str) or not name.startswith(f"{did}_archive.part") or not name[-3:].isdigit() or Path(name).name != name:
                 errors.append(f"{did}: invalid filename {name!r}")
