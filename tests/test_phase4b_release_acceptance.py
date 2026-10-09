@@ -107,5 +107,11 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Undeclared release archive assets" in e for e in report["errors"]))
 
+    def test_extra_characters_before_part_suffix_fail_closed(self):
+        self.rows[0]["archiveParts"][0]["filename"] = "DS-142_archive.part-extra001"
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("invalid filename" in error for error in report["errors"]))
+
 if __name__ == "__main__":
     unittest.main()
