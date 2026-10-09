@@ -23,7 +23,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
     if not isinstance(manifest, dict):
         return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Manifest must be an object"]}
     rows = manifest.get("results", [])
-    if not isinstance(rows, list) or {r.get("datasetId") for r in rows if isinstance(r, dict)} != EXPECTED or len(rows) != 3:
+    if not isinstance(rows, list) or len(rows) != 3 or any(not isinstance(r, dict) or not isinstance(r.get("datasetId"), str) for r in rows) or {r["datasetId"] for r in rows} != EXPECTED:
         errors.append("Expected exactly DS-142, DS-143 and DS-146")
         rows = [r for r in rows if isinstance(r, dict)] if isinstance(rows, list) else []
     by_name = {}
@@ -56,7 +56,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"{did}: malformed archive part")
                 continue
             name = part.get("filename", "")
-            if not isinstance(name, str) or not name.startswith(f"{did}_archive.part") or not name[-3:].isdigit() or Path(name).name != name:
+            if not isinstance(name, str) or not name.startswith(f"{did}_archive.part") or not name[-3:].isascii() or not name[-3:].isdigit() or Path(name).name != name:
                 errors.append(f"{did}: invalid filename {name!r}")
                 continue
             indices.append(int(name[-3:]))
