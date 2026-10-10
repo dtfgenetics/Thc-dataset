@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "high",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.15,
   "summary": "A calcium-supply or transport disorder that can damage meristems, newly expanding leaves, roots, fan leaves, and sugar leaves. Controlled Cannabis studies produced different canopy-onset patterns, so spotting, curled tips, or marginal necrosis require feed, water, root-zone, tissue, stage, and cultivar evidence.",
   "affectedParts": [
     "growing tips and newly expanding leaves in vegetative T1",
@@ -36,7 +37,10 @@
     "Injury is limited to the hottest, brightest, sprayed, or contact-exposed canopy surfaces",
     "Older-leaf marginal injury follows a potassium- or magnesium-type pattern and tissue/root-zone evidence supports that alternative",
     "Yellowing is consistent with measured nitrogen deficiency or late-cycle senescence and no calcium evidence is present",
-    "Color or spotting is visible only under altered lighting, white balance, residue, dust, or compression artifact"
+    "Color or spotting is visible only under altered lighting, white balance, residue, dust, or compression artifact",
+    "A detached leaf, cropped panel, composite, or canopy image is assigned to tissue chemistry or treatment without a persistent plant and leaf-sample identifier linking the photographed organ, node, sampling event, input and transport record, root-zone measurement, and laboratory report",
+    "The study-specific three-week or five-week onset, 0.39% tissue result, upper/lower relationship, lesion color, or complete-withholding response is used as a universal diagnostic threshold, timing rule, severity prediction, fertilizer target, or production response",
+    "Elevated or adequate total calcium in tissue, solution, or substrate is treated as disproving transport-limited injury without reviewing sampled organ, water movement, root health, salinity, temperature, oxygenation, stage, and laboratory method"
   ],
   "progression": [
     {
@@ -84,9 +88,11 @@
   "confirmation": [
     "Do not confirm calcium deficiency from rust-colored spots, curled leaf tips, distorted new growth, marginal necrosis, one photograph, or one video.",
     "Capture serial whole-plant, growing-tip, upper/middle/lower-canopy, fan-leaf, sugar-leaf, leaf upper-surface, underside, cleaned-root, and root-tip views under repeatable lighting with scale and a matched same-cultivar plant.",
+    "Assign a persistent plant and leaf-sample identifier before capture and carry it through the image or video, organ and node metadata, treatment and irrigation records, root-zone and transport measurements, tissue sample, laboratory report, and any follow-up observation.",
     "Record the first affected node and leaf age, cultivar, stage, days since symptom onset, irrigation and dryback, root-zone water content, temperature, pH, EC, and dissolved oxygen where relevant.",
     "Measure calcium and competing ions in source water, fertilizer stocks, final solution, root-zone extract, substrate or soil, and representative leaf tissue from defined upper and lower canopy positions.",
     "Interpret tissue results using plant part, node, stage, cultivar, method, and system context; neither 0.39% from T1 nor the Gelato 29 upper/lower relationship is a universal threshold.",
+    "Keep compatible morphology, analytical calcium status, measured root-zone supply, transport or root-function impairment, and causally attributed calcium injury as separate labels; promote the causal label only when the same identified plant has concordant evidence and stronger differentials are excluded.",
     "Inspect roots for active white tips, discoloration, softness, odor, lesions, binding, and mechanical damage; use a plant diagnostic laboratory when root pathogens or leaf lesions remain plausible.",
     "Inspect distorted growth and both leaf surfaces with magnification for broad mites, russet mites, thrips, eggs, webbing, and feeding evidence.",
     "Retain a suspected label until a calcium-supply or transport problem, compatible progression, and exclusion evidence are linked to the photographed plant."
