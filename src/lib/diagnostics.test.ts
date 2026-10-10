@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { issues } from '../data/issues'
+import { issues as catalogIssues } from '../data/catalog'
 import type { GrowContext, IssueRecord } from '../types'
 import { rankDifferentials } from './diagnostics'
 
@@ -208,5 +209,13 @@ describe('rankDifferentials', () => {
     expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('confirmation: RT-PCR')
     expect(results[0].missing).toContain('confirmation: RT-qPCR')
+  })
+
+  it('keeps the canonical Alternaria complex low-confidence despite matching every visual indicator', () => {
+    const record = catalogIssues.find((issue) => issue.slug === 'alternaria-leaf-spot')!
+    const [result] = rankDifferentials([record], context(record.indicators), [])
+    expect(result.confidence).toBe('Low')
+    expect(result.missing).toContain('response policy limits photo-only confidence')
+    expect(result.issue.name).toBe('Alternaria leaf spot complex')
   })
 })

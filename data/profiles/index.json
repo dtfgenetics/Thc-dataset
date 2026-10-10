@@ -49,11 +49,11 @@
     {
       "id": "fungal-alternaria-leaf-spot",
       "slug": "alternaria-leaf-spot",
-      "name": "Alternaria leaf spot",
+      "name": "Alternaria leaf spot complex",
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/fungal-alternaria-leaf-spot.json"
     },

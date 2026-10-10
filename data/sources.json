@@ -123,6 +123,32 @@
     ]
   },
   {
+    "sourceKey": "10.1007/s10658-021-02450-1",
+    "title": "Alternaria species causing leaf spot on hemp (Cannabis sativa) in Northern China",
+    "organization": "European Journal of Plant Pathology",
+    "url": "https://doi.org/10.1007/s10658-021-02450-1",
+    "authors": [
+      "Hong Cheng",
+      "Lin Zhao",
+      "Xin Wei",
+      "Xi Liu",
+      "Guo-Yang Gao",
+      "Jian-Xin Deng",
+      "Mei-Jia Li"
+    ],
+    "publisher": "Springer Nature",
+    "publicationDate": "2022-01-28",
+    "year": 2022,
+    "accessedDate": "2026-10-10",
+    "doi": "10.1007/s10658-021-02450-1",
+    "supportedClaims": [
+      "The 2020 Wuwei, Gansu hemp leaf-spot investigation recovered 29 Alternaria-like strains representing two members of the A. alternata species complex, A. helianthiinficiens, and the newly described A. cannabina; the disease profile must not default all hemp Alternaria lesions to A. alternata.",
+      "A. cannabina was characterized using morphology and ITS, gapdh, tef1, rpb2, and ATPase sequences, supporting taxonomic evidence beyond a symptom photograph or ITS result alone.",
+      "All four taxa underwent pathogenicity testing, with A. alternata species-complex strains more aggressive on hemp leaves than the other two species in this investigation; this ranking is bounded to the sampled isolates and experiment.",
+      "The verified publisher abstract supports these taxonomic and pathogenicity claims; full-text experimental details and item-level media reuse permissions were not verified, so no figure or universal timing or severity threshold is admitted."
+    ]
+  },
+  {
     "sourceKey": "10.1007/s12298-011-0068-4",
     "title": "Temperature response of photosynthesis in different drug and fiber varieties of Cannabis sativa L.",
     "organization": "Physiology and Molecular Biology of Plants (Chandra et al.)",
