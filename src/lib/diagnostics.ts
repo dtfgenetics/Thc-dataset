@@ -233,10 +233,13 @@ function historyContribution(issue: IssueRecord, context: GrowContext, history: 
 export function rankDifferentials(records: IssueRecord[], context: GrowContext, evidence: EvidenceFile[], history: GrowLogEntry[] = []): Differential[] {
   const selected = new Set(context.symptoms.map(normalise))
   const indicatorFrequency = buildIndicatorFrequency(records)
-  const hasRootView = evidence.some((item) => item.slot === 'root-crown')
-  const hasUnderside = evidence.some((item) => item.slot === 'underside')
-  const hasWholePlant = evidence.some((item) => item.slot === 'whole-plant')
-  const hasCloseUp = evidence.some((item) => item.slot === 'close-up')
+  // Pending and flagged files remain available for review, but must not clear
+  // missing-view checks or contribute to diagnostic confidence.
+  const usableEvidence = evidence.filter((item) => item.quality === 'good')
+  const hasRootView = usableEvidence.some((item) => item.slot === 'root-crown')
+  const hasUnderside = usableEvidence.some((item) => item.slot === 'underside')
+  const hasWholePlant = usableEvidence.some((item) => item.slot === 'whole-plant')
+  const hasCloseUp = usableEvidence.some((item) => item.slot === 'close-up')
 
   const ranked = records.map((issue) => {
     const matched = issue.indicators.filter((indicator) => selected.has(normalise(indicator)))
