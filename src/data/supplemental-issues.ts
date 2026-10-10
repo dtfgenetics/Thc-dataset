@@ -109,6 +109,22 @@ const sources = {
       'The institutional guide reported no North American outdoor-hemp records and identified hemp soil-insect research as a gap; this supports an indoor-production scope flag rather than proof that outdoor infestation is impossible.',
     ],
   }),
+  riceRootAphidHostChoice: source({
+    title: 'Rice Root Aphids, Rhopalosiphum rufiabdominale, Preferentially Choose and Multiply Faster on Monocotyledonous Plants',
+    organization: 'Entomologia Experimentalis et Applicata',
+    url: 'https://doi.org/10.1111/eea.70014',
+    authors: ['Mikhaela Ong', 'Calla Pickett', 'Anita Feng', 'Ashley Lau', 'Leah Buirs', 'Gerhard Gries'],
+    publisher: 'Wiley on behalf of the Netherlands Entomological Society',
+    publicationDate: '2025-09-10',
+    year: 2025,
+    accessedDate: '2026-10-10',
+    doi: '10.1111/eea.70014',
+    supportedClaims: [
+      'In greenhouse two-choice experiments, rice root aphids selected and multiplied more strongly on rye than on Cannabis; this study-specific preference does not negate Cannabis host status or diagnose an infestation.',
+      'In a ten-day no-choice greenhouse experiment, rice root aphids multiplied on Cannabis but significantly less than on rye or barley; the result must not be converted into a universal Cannabis susceptibility, population-growth, injury, or economic threshold.',
+      'The authors proposed rye as a possible trap crop but explicitly stated that the concept still requires testing in commercial production; it is not validated management guidance for Cannabis facilities.',
+    ],
+  }),
   fungusGnatEcology: source({
     title: 'Ecology of Fungus Gnats (Bradysia spp.) in Greenhouse Production Systems Associated with Disease-Interactions and Alternative Management Strategies',
     organization: 'Insects',
@@ -451,8 +467,8 @@ export const supplementalIssues: IssueRecord[] = [
     immediateActions: ['Preserve plant-linked root and insect evidence before treatment or destructive root washing.', 'Inspect nearby plants and incoming propagation lots using the same root-zone protocol and isolate confirmed infestations where practical.', 'Record root disease and irrigation evidence separately so concurrent problems are not collapsed into one label.'],
     correctivePlan: ['Use an integrated root-zone pest-management response based on confirmed identity, population, production system, crop stage, and locally legal options.', 'Verify response by repeated plant-linked root inspection and alate counts; fewer flyers alone do not demonstrate that root colonies are absent.', 'If root or canopy decline continues after aphid numbers fall, continue the independent root-zone, nutrition, and pathogen workup.'],
     prevention: ['Inspect roots of incoming clones, rooted cuttings, and retained mother material before integration.', 'Separate new plantings from older flowering or near-maturity plants that may be producing dispersing alates.', 'Use dated low-position sticky cards as an early cue while retaining scheduled direct root inspection as the confirmation method.', 'Avoid reusing containers or media with living roots from an infested crop without a validated sanitation process.'],
-    warnings: ['Photo or video alone cannot confirm rice root aphid to species; even a clear root-colony image needs a plant link and suitable organism evidence.', 'Generalized decline, slow growth, lower-leaf discoloration, and flying aphids are not unique symptoms and must not be used as ground truth without a documented root colony.', 'The primary Cannabis article states that increased pathogen susceptibility remains unconfirmed; root discoloration or decay must be labeled and tested independently.', 'The cited 2020 article and UNH guide reported indoor high-THC Cannabis associations and no North American outdoor-hemp records; that evidence gap does not prove outdoor infestation is impossible.', 'The existing CC BY 4.0 reference is one aeroponic root-crown figure. It remains training-ineligible pending source-group review and does not represent soil, coir, rockwool, cultivar, stage, geography, or severity diversity.', 'No verified diagnostic video or matched Cannabis progression series is included.'],
-    sources: [sources.riceRootAphid, sources.riceRootAphidUnh],
+    warnings: ['Photo or video alone cannot confirm rice root aphid to species; even a clear root-colony image needs a plant link and suitable organism evidence.', 'Generalized decline, slow growth, lower-leaf discoloration, and flying aphids are not unique symptoms and must not be used as ground truth without a documented root colony.', 'The primary Cannabis article states that increased pathogen susceptibility remains unconfirmed; root discoloration or decay must be labeled and tested independently.', 'The cited 2020 article and UNH guide reported indoor high-THC Cannabis associations and no North American outdoor-hemp records; that evidence gap does not prove outdoor infestation is impossible.', 'A 2025 ten-day greenhouse study found that rice root aphids selected and multiplied more strongly on rye and barley than on Cannabis. This bounded host-choice result does not negate Cannabis host status and supplies no universal Cannabis susceptibility, injury, economic, or management threshold.', 'The proposed use of rye as a trap crop still requires commercial-production testing and must not be presented as validated Cannabis management guidance.', 'The existing CC BY 4.0 reference is one aeroponic root-crown figure. It remains training-ineligible pending source-group review and does not represent soil, coir, rockwool, cultivar, stage, geography, or severity diversity.', 'No verified diagnostic video or matched Cannabis progression series is included.'],
+    sources: [sources.riceRootAphid, sources.riceRootAphidUnh, sources.riceRootAphidHostChoice],
     media: [],
   },
   {

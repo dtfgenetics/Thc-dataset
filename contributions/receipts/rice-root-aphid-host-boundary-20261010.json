@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rice-root-aphid-host-boundary-20261010",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c91ec1977edfca564bee3b20f96159902f04d743",
+  "head_commit": "d01bb4ed570d18183e24877fc2a48d6e8d5886b9",
+  "branch": "work/grow-doc/GD-DIAG-001/rice-root-aphid-host-boundary-20261010",
+  "changed_paths": [
+    "src/data/supplemental-issues.ts",
+    "data/profiles/pest-rice-root-aphid.json"
+  ],
+  "source_ids": [
+    "10.1111/eea.70014"
+  ],
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Diagnostic-lane receipt covers canonical source and profile paths. Deterministic aggregate exports, release metadata, regression tests and model-manifest pins are listed separately because current diagnostic routing excludes them.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false
+}
