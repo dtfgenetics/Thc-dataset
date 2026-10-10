@@ -50,6 +50,16 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assets[0]["state"] = "pending"
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
 
+    def test_release_asset_size_must_be_positive_integer(self):
+        for invalid in (True, False, "6", 6.0, None, -1, 0):
+            with self.subTest(size=invalid):
+                original = self.assets[0]["size"]
+                self.assets[0]["size"] = invalid
+                report = mod.validate(self.manifest, self.assets, self.root)
+                self.assertEqual(report["status"], "fail")
+                self.assertTrue(any("Release asset size mismatch" in error for error in report["errors"]))
+                self.assets[0]["size"] = original
+
     def test_missing_asset(self):
         self.assertEqual(mod.validate(self.manifest, self.assets[:-1], self.root)["status"], "fail")
 
