@@ -100,6 +100,22 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Duplicate release asset" in error for error in report["errors"]))
 
+    def test_undeclared_local_archive_part_fails_closed(self):
+        (self.root / "DS-142_archive.part099").write_bytes(b"unlisted")
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Undeclared local archive parts" in error for error in report["errors"]))
+
+    def test_symlinked_archive_chunk_fails_closed(self):
+        target = self.root / "external-archive.bin"
+        target.write_bytes(b"outside acquisition")
+        name = self.rows[0]["archiveParts"][0]["filename"]
+        (self.root / name).unlink()
+        (self.root / name).symlink_to(target)
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Symlink archive part rejected" in error for error in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")

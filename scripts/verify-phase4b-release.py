@@ -71,6 +71,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"Duplicate declared part {name}")
             declared.add(name)
             local = root / name
+            if local.is_symlink():
+                errors.append(f"Symlink archive part rejected: {name}")
+                continue
             if not local.is_file():
                 errors.append(f"Missing local part {name}")
                 continue
@@ -100,6 +103,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
         if sorted(indices) != list(range(1, len(indices) + 1)):
             errors.append(f"{did}: part sequence has gaps or duplicates")
     unexpected = sorted(name for name in by_name if any(name.startswith(f"{did}_archive.part") for did in EXPECTED) and name not in declared)
+    undeclared_local = sorted(path.name for path in root.iterdir() if path.is_file() and any(path.name.startswith(f"{did}_archive.part") for did in EXPECTED) and path.name not in declared)
+    if undeclared_local:
+        errors.append(f"Undeclared local archive parts: {', '.join(undeclared_local)}")
     if unexpected:
         errors.append(f"Undeclared release archive assets: {', '.join(unexpected)}")
     return {"status": "pass" if not errors else "fail", "verifiedParts": audited,
