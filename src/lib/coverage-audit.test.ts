@@ -298,6 +298,16 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('bounds iron image labels and preserves symptom-negative analytical evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'iron-deficiency')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.confirmation.join(' ')).toContain('persistent plant and leaf-sample identifier')
+    expect(record?.confirmation.join(' ')).toContain('a normal-looking photograph is not a negative iron assay')
+    expect(record?.warnings.join(' ')).toContain('do not isolate which factor')
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.3390/app9204432', '10.3390/plants12030422']))
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('keeps root-knot species labels organism-linked and the composite root reference out of training', () => {
     const record = issues.find((issue) => issue.slug === 'root-knot-nematodes')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
