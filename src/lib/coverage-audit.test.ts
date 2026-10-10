@@ -304,8 +304,11 @@ describe('diagnostic coverage audit', () => {
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
 
     expect(record?.reviewStatus).toBe('reviewed')
-    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.4)
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
     expect(record?.sources.some((source) => source.doi === '10.21307/jofnem-2022-002')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.2478/jofnem-2024-0003')).toBe(true)
+    expect(confirmation).toContain('persistent root-specimen identifier')
+    expect(warnings).toContain('visible gall burden cannot substitute for organism counts')
     expect(record?.sources.some((source) => source.doi === '10.21307/jofnem-2021-052')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.3390/plants14020227')).toBe(true)
     expect(confirmation).toContain('adult-female and juvenile morphology')
