@@ -63,6 +63,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not isinstance(name, str) or re.fullmatch(re.escape(f"{did}_archive.part") + r"[0-9]{3}", name) is None:
                 errors.append(f"{did}: invalid filename {name!r}")
                 continue
+            if not isinstance(part.get("sha256"), str) or re.fullmatch(r"[0-9a-f]{64}", part["sha256"]) is None:
+                errors.append(f"{did}: invalid archive part SHA256: {name}")
+                continue
             indices.append(int(name[-3:]))
             if name in declared:
                 errors.append(f"Duplicate declared part {name}")
