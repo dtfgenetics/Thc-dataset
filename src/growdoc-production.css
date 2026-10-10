@@ -977,3 +977,9 @@ button { -webkit-tap-highlight-color: transparent; }
 .issue-detail [id] { scroll-margin-top:90px; }
 .related-guides { margin:24px 0; }
 .related-guides p { color:var(--gd-muted); }
+
+/* Evidence coverage is a transparent inventory, not a diagnostic claim. */
+.reference-coverage { margin:20px 0 12px; padding:20px 22px; border:1px solid var(--gd-line); border-radius:12px; background:var(--gd-surface); }
+.reference-coverage h2 { margin:0 0 10px; font-size:clamp(18px,2vw,22px); }
+.reference-coverage p { line-height:1.65; margin:8px 0 0; max-width:90ch; }
+@media (max-width:760px) { .reference-coverage { padding:16px; } }
