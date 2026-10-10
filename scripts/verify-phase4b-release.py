@@ -143,16 +143,23 @@ def main() -> int:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot load acquisition manifest: {exc}"]}, indent=2))
         return 1
-    release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
-    release_id = release["id"]
-    assets = []
-    page = 1
-    while True:
-        batch = gh_json(f"repos/{args.repo}/releases/{release_id}/assets?per_page=100&page={page}")
-        assets.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
+    try:
+        release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
+        release_id = release["id"]
+        assets = []
+        page = 1
+        while True:
+            batch = gh_json(f"repos/{args.repo}/releases/{release_id}/assets?per_page=100&page={page}")
+            if not isinstance(batch, list):
+                raise ValueError("Release asset response must be a list")
+            assets.extend(batch)
+            if len(batch) < 100:
+                break
+            page += 1
+    except (OSError, subprocess.CalledProcessError, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
+                          "errors": [f"Cannot load release assets: {exc}"]}, indent=2))
+        return 1
     report = validate(manifest, assets, args.root)
     print(json.dumps(report, indent=2))
     return 0 if report["status"] == "pass" else 1
