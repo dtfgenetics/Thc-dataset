@@ -35,7 +35,9 @@
     "data/diagnostic-profiles.json",
     "data/diagnostic-profiles.jsonl",
     "data/sources.json",
-    "src/lib/data-quality.test.ts"
+    "src/lib/data-quality.test.ts",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
   ],
   "human_reviewed": false,
   "training_eligible": false,
