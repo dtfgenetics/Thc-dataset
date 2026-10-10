@@ -1,0 +1,38 @@
+{
+  "base_commit": "55a2b53ee840f0507eae9b87cbca9c426d9cdba1",
+  "branch": "work/grow-doc/GD-DIAG-001/light-physiology-20261010",
+  "changed_paths": [
+    "data/profiles/env-heat.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "light-physiology-20261010",
+  "head_commit": "57b00138c63854fe8672b00813d60125f18af191",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2021.646020"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json"
+  ],
+  "scope_note": "Agent checked the primary article Discussion on 2026-10-10. Acclimation morphology and physiological measurements cannot establish image-only injury. No new media or weight-training admission. All 62 validators, types, 229 tests and build passed. Claim released in this integration-ready batch.",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false
+}

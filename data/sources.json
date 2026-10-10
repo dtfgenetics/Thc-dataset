@@ -2199,7 +2199,7 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2021-05-11",
     "year": 2021,
-    "accessedDate": "2026-10-08",
+    "accessedDate": "2026-10-10",
     "doi": "10.3389/fpls.2021.646020",
     "supportedClaims": [
       "Indoor-grown Cannabis sativa Stillwater was exposed during flowering to average canopy PPFDs from 120 to 1,800 micromoles per square metre per second.",
@@ -2207,6 +2207,8 @@
       "The high-light experiment did not establish a universal PPFD injury threshold or validate cupping, bleaching, or edge necrosis as light-specific visual symptoms; light exposure must be interpreted with cultivar, acclimation, canopy position, temperature, carbon dioxide, and water status.",
       "In Stillwater during the 12-hour flowering phase, chlorophyll-content index was higher in week 1 than weeks 5 and 9 and was consistently higher in upper- than lower-canopy fan leaves; the authors described evidence of early senescence but stated that the contributions of leaf age and plant ontogeny to diminished week-9 photosynthesis were unresolved.",
       "The study measured chlorophyll index and physiology rather than validating a yellow-leaf appearance, harvest date, or universal late-flower-fade sequence.",
+      "Discussion, leaf morphology and acclimation: Stillwater plants under higher light had smaller leaves, shorter internodes, and larger, denser apical inflorescences; these morphology changes were described as plastic acclimation, not a validated visible injury syndrome.",
+      "Discussion, leaf age and light history: leaf physiological age and localized light exposure during expansion influenced subsequent photosynthetic responses; instantaneous leaf light-response measurements without tissue age and light history cannot reliably predict yield.",
       "The Stillwater trial repeatedly measured apical PPFD and integrated changing exposure across the 81-day flowering period; fixture output or a one-time reading was not treated as equivalent to plant light history."
     ]
   },
