@@ -949,7 +949,9 @@ button { -webkit-tap-highlight-color: transparent; }
 
 /* Reference discovery and source interpretation */
 
-.reference-discovery { display:grid; grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr); gap:16px; align-items:end; margin:24px 0 12px; }
+.reference-discovery { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; align-items:end; margin:24px 0 12px; }
+.reference-discovery > .search-field { grid-column:span 1; }
+@media (min-width:761px) and (max-width:1100px) { .reference-discovery { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .reference-discovery > label:not(.search-field) { display:grid; gap:8px; color:var(--gd-text); font-size:13px; font-weight:600; min-width:0; }
 .reference-discovery select { width:100%; min-height:44px; padding:10px; border:1px solid var(--gd-line); border-radius:8px; color:var(--gd-text); background:var(--gd-surface); font:inherit; }
 .reference-results { color:var(--gd-muted); margin:0 0 20px; font-size:14px; }
