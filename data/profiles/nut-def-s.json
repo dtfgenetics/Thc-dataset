@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "moderate",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.2,
   "summary": "A sulfur-status disorder with controlled Cannabis evidence for pale new or growing-point tissue followed by broader chlorosis. Vegetative T1 first showed middle-canopy and leaflet-base yellowing, while flowering Gelato 29 began on upper sugar leaves before later interveinal chlorosis became most severe on lower fan leaves.",
   "affectedParts": [
     "recently developed upper sugar leaves",
@@ -40,7 +41,9 @@
     "Discrete lesions, surface growth, vascular discoloration, root decay, or laboratory evidence supports a pathogen",
     "Mosaic, vein clearing, distortion, brittle growth, or a molecular result supports a virus or viroid",
     "Chlorosis follows a stable cultivar sector or camera, white-balance, grow-light, or exposure artifact",
-    "Root-zone pH, EC, temperature, oxygenation, saturation, or damaged roots explain impaired uptake better than inadequate sulfur supply"
+    "Root-zone pH, EC, temperature, oxygenation, saturation, or damaged roots explain impaired uptake better than inadequate sulfur supply",
+    "A detached leaf or growth photograph is assigned to a tissue result without a persistent plant and sample identifier",
+    "A study-specific tissue concentration, supply rate, onset week, or canopy position is used as a universal diagnostic threshold"
   ],
   "progression": [
     {
@@ -93,7 +96,9 @@
     "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the production system, and inspect washed roots before changing sulfur supply.",
     "Submit correctly positioned upper- and lower-canopy leaf tissue plus appropriate solution, substrate, soil, or water samples to an agricultural or plant diagnostic laboratory; interpret sulfur with nitrogen, magnesium, iron, manganese, zinc, and competing nutrients using crop-, organ-, stage-, and method-appropriate references.",
     "Inspect both leaf surfaces, growing points, and roots with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
-    "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth sulfur deficiency."
+    "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth sulfur deficiency.",
+    "Retain a persistent plant and leaf-sample identifier linking node-marked serial images, sampling date, laboratory report, feed composition, and paired root-zone measurements; distinguish upper and lower canopy samples.",
+    "Keep visually compatible symptoms, analytically supported low nutrient status, and causally attributed injury as separate labels; symptom-only or unlinked captures require human review before ground-truth use."
   ],
   "immediateActions": [
     "Mark the plant and preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative upper- and lower-canopy tissue before changing nutrition.",
@@ -116,7 +121,9 @@
     "Controlled studies differed in first described canopy location and progression direction; canopy position alone is not sulfur-deficiency ground truth.",
     "Nitrogen deficiency and natural late-flower senescence can closely overlap the yellowing sequence, while upward leaf angle can reflect environmental or water-status responses.",
     "The CC BY figure contains four panels spanning different organs, views, and severity states; it remains excluded from automated training until panels are bounded, individually annotated, source-grouped, scientifically reviewed, and assigned a leakage-safe split.",
-    "All symptom-only and late-flower samples require human review and linked analytical evidence before ground-truth use."
+    "All symptom-only and late-flower samples require human review and linked analytical evidence before ground-truth use.",
+    "The 0.20 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.",
+    "Differences among cultivar, growth stage, medium, and treatment schedules prevent cross-study images from isolating a single cause of phenotype variation."
   ],
   "sources": [
     {

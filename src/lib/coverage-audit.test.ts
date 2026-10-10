@@ -298,6 +298,15 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toEqual([])
   })
 
+  it.each([['zinc-deficiency', 0.15], ['manganese-deficiency', 0.15], ['sulfur-deficiency', 0.20]] as const)('bounds %s visual labels by linked analytical evidence', (slug, ceiling) => {
+    const record = issues.find((issue) => issue.slug === slug)
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(ceiling)
+    expect(record?.confirmation.join(' ')).toContain('persistent plant and leaf-sample identifier')
+    expect(record?.confirmation.join(' ')).toContain('causally attributed injury as separate labels')
+    expect(record?.exclusions.join(' ')).toContain('universal diagnostic threshold')
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('bounds iron image labels and preserves symptom-negative analytical evidence', () => {
     const record = issues.find((issue) => issue.slug === 'iron-deficiency')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
