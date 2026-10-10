@@ -83,12 +83,13 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not local.is_file():
                 errors.append(f"Missing local part {name}")
                 continue
-            with local.open("rb") as stream:
-                checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+            part_digest = hashlib.sha256()
             with local.open("rb") as stream:
                 for block in iter(lambda: stream.read(1024 * 1024), b""):
+                    part_digest.update(block)
                     archive_digest.update(block)
                     archive_size += len(block)
+            checksum = part_digest.hexdigest()
             if checksum != part.get("sha256") or local.stat().st_size != part.get("sizeBytes"):
                 errors.append(f"Local checksum/size differs from manifest: {name}")
                 continue
