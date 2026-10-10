@@ -47,6 +47,16 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
           <details className="reference-evidence"><summary>Attribution and interpretation limits</summary>{shared ? <p>Original figure caption: {media.caption}</p> : null}<p>{media.requiredAttribution || media.creator}</p>{shared ? <p>Use only the diagnosis-specific panel identified by the source. The complete figure contains multiple conditions.</p> : null}<ul>{media.useLimitations.map((limit) => <li key={limit}>{limit}</li>)}</ul><p>{media.trainingEligible ? 'Training eligibility is recorded for this asset; retain its documented scope and split.' : 'Reference display only. This asset is not admitted for automated training.'}</p></details>
           <div><button onClick={() => onOpenIssue(issue.slug)}>Open {issue.name} guide</button>{media.sourceUrl ? <a href={media.sourceUrl} target="_blank" rel="noreferrer">Source <ExternalLink size={14} /></a> : null}</div>
         </figcaption></figure>)}</div> : <div className="empty-state"><Search /><h2>No matching reference images</h2><p>Try a broader term or clear the category, plant-context, and viewpoint filters.</p><button onClick={reset}>Clear reference filters</button></div>}
+      <section className="reference-interpretation" aria-labelledby="reference-interpretation-title">
+        <h2 id="reference-interpretation-title">How to compare a reference image</h2>
+        <ol>
+          <li><strong>Match the plant context.</strong> Check the host species before comparing symptoms. Images from other plants or isolated organisms are context, not proof of the same injury in Cannabis.</li>
+          <li><strong>Match the view and growth stage.</strong> Compare the same plant part, camera angle, and stage where recorded. A whole-canopy view cannot replace a close examination of a leaf surface.</li>
+          <li><strong>Check alternatives.</strong> Similar discoloration or damage can arise from different causes. Open the condition guide and review look-alikes, supporting evidence, and evidence against the hypothesis.</li>
+          <li><strong>Confirm independently.</strong> An image comparison is an observation aid, not a laboratory diagnosis. Use the guide's recommended verification steps before taking action.</li>
+        </ol>
+        <p>Each reference includes available license, attribution, source, and interpretation limits. Missing metadata should never be treated as confirmed evidence.</p>
+      </section>
       <section className="license-rules"><FileImage /><div><h2>Read the image in context</h2><p>A licensed image can support comparison without proving the diagnosis in your plant. Organism-only and other-plant references do not establish Cannabis injury; check the guide’s exclusions and confirmation steps.</p></div></section>
     </div>
   )

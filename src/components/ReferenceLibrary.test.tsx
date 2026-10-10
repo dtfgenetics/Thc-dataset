@@ -7,6 +7,13 @@ import { IssueLibrary } from './IssueLibrary'
 afterEach(() => { cleanup(); vi.restoreAllMocks() })
 
 describe('Reference discovery and guide evidence', () => {
+  it('explains reference comparison limits and verification', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByRole('heading', { name: 'How to compare a reference image' })).not.toBeNull()
+    expect(screen.getByText(/An image comparison is an observation aid, not a laboratory diagnosis/)).not.toBeNull()
+    expect(screen.getByText(/Match the view and growth stage/)).not.toBeNull()
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
