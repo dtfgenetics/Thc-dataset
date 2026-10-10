@@ -338,6 +338,21 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
   })
 
+  it('bounds phosphorus images to specimen-linked analytical evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'phosphorus-deficiency')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    const warnings = record?.warnings.join(' ') ?? ''
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.3390/app9204432', '10.3389/fpls.2021.764103']))
+    expect(confirmation).toContain('persistent plant and leaf-sample identifier')
+    expect(confirmation).toContain('causally attributed phosphorus injury as separate labels')
+    expect(confirmation).toContain('full three-class Figure 2 composite out of automated training')
+    expect(exclusions).toContain('universal diagnostic threshold')
+    expect(warnings).toContain('not a measured diagnostic-accuracy estimate')
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
