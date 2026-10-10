@@ -171,10 +171,15 @@ function measuredEc(value?: string) {
   return { value: parsed, conductivity }
 }
 
+function reportedWatering(value?: string) {
+  const reported = value?.trim()
+  return Boolean(reported && normalise(reported) !== 'unknown')
+}
+
 function hasStructuredContext(context: GrowContext, field: RequiredContextField) {
   if (field === 'ph') return measuredPh(context.ph) !== undefined
   if (field === 'ec') return measuredEc(context.ec) !== undefined
-  return Boolean(context[field]?.trim())
+  return reportedWatering(context.watering)
 }
 
 function historyContribution(issue: IssueRecord, context: GrowContext, history: GrowLogEntry[]) {
@@ -219,8 +224,8 @@ function historyContribution(issue: IssueRecord, context: GrowContext, history: 
     }
   }
 
-  if (needsWateringContext(issue) && context.watering) {
-    const changed = history.some((entry) => entry.watering && normalise(entry.watering) !== normalise(context.watering))
+  if (needsWateringContext(issue) && reportedWatering(context.watering)) {
+    const changed = history.some((entry) => reportedWatering(entry.watering) && normalise(entry.watering!) !== normalise(context.watering))
     if (changed) {
       score += 0.5
       signals.push('watering or substrate-moisture context changed during the case')
@@ -264,7 +269,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
       contextSignals.push('a leaf-underside view is available for this arthropod hypothesis')
     }
     if (needsRootZoneChemistry(issue) && hasStructuredContext(context, 'ph') && hasStructuredContext(context, 'ec')) contextSignals.push('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
-    if (needsWateringContext(issue) && context.watering) contextSignals.push('recent irrigation or substrate-moisture context was supplied for review')
+    if (needsWateringContext(issue) && reportedWatering(context.watering)) contextSignals.push('recent irrigation or substrate-moisture context was supplied for review')
 
     const requiredContextEvidence = requiredContextEvidenceBySlug[issue.slug] ?? []
     for (const requirement of requiredContextEvidence) {
@@ -280,7 +285,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     if (microscopicMiteSlugs.has(issue.slug)) missing.push('microscope-confirmed mite identification')
     if (needsRootZoneChemistry(issue) && !hasStructuredContext(context, 'ph')) missing.push('measured pH')
     if (needsRootZoneChemistry(issue) && !hasStructuredContext(context, 'ec')) missing.push('measured EC/PPM')
-    if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
+    if (needsWateringContext(issue) && !reportedWatering(context.watering)) missing.push('recent irrigation / substrate-moisture context')
     for (const requirement of requiredContextEvidence) {
       if (!hasStructuredContext(context, requirement.field) && !missing.includes(requirement.missingLabel)) missing.push(requirement.missingLabel)
     }
