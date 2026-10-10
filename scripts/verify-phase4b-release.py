@@ -83,7 +83,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if asset.get("state") != "uploaded":
                 errors.append(f"Release asset is not uploaded: {name}")
                 continue
-            if asset.get("size") != part.get("sizeBytes"):
+            if type(asset.get("size")) is not int or asset["size"] <= 0 or asset["size"] != part["sizeBytes"]:
                 errors.append(f"Release asset size mismatch: {name}")
                 continue
             digest = asset.get("digest")
