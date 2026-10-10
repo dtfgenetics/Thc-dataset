@@ -68,6 +68,9 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"Duplicate declared part {name}")
             declared.add(name)
             local = root / name
+            if local.is_symlink():
+                errors.append(f"Symlink archive part rejected: {name}")
+                continue
             if not local.is_file():
                 errors.append(f"Missing local part {name}")
                 continue
