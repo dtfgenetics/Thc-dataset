@@ -22,7 +22,7 @@ class ReleaseAcceptanceTests(unittest.TestCase):
             content = did.encode()
             (self.root / name).write_bytes(content)
             sha = hashlib.sha256(content).hexdigest()
-            self.rows.append({"datasetId": did, "status": "acquired", "archiveParts": [
+            self.rows.append({"datasetId": did, "status": "acquired", "originalArchive": {"sizeBytes": len(content), "sha256": sha}, "archiveParts": [
                 {"filename": name, "sizeBytes": len(content), "sha256": sha}
             ]})
             self.assets.append({"name": name, "size": len(content), "digest": "sha256:" + sha, "state": "uploaded"})
@@ -115,6 +115,18 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         report = mod.validate(self.manifest, self.assets, self.root)
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Symlink archive part rejected" in error for error in report["errors"]))
+
+    def test_original_archive_digest_mismatch_fails_closed(self):
+        self.rows[0]["originalArchive"]["sha256"] = "0" * 64
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("reconstructed archive checksum/size mismatch" in error for error in report["errors"]))
+
+    def test_missing_original_archive_metadata_fails_closed(self):
+        self.rows[0].pop("originalArchive")
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("invalid original archive metadata" in error for error in report["errors"]))
 
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
