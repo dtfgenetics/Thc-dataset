@@ -9,6 +9,12 @@ import { ResilientImage } from './ResilientImage'
 const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue, issues)
   .filter(({ media }) => media.url || media.thumbnailUrl)
   .map((reference) => ({ issue, ...reference })))
+const issuesWithDisplayableReferences = new Set(references.map(({ issue }) => issue.slug))
+const referenceCoverage = {
+  total: issues.length,
+  withReference: issuesWithDisplayableReferences.size,
+  withoutReference: issues.length - issuesWithDisplayableReferences.size,
+}
 const categories = [...new Set(references.map(({ issue }) => issue.category))].sort()
 const views = [...new Set(references.map(({ media }) => media.view).filter(Boolean))].sort()
 const hostLabels = { cannabis: 'Cannabis plant context', 'non-cannabis': 'Other plant context', 'organism-only': 'Organism only' }
@@ -33,6 +39,11 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
   return (
     <div className="view-container references-view">
       <div className="view-intro"><div><span>Licensed visual references</span><h1>Reference images</h1><p>Compare symptoms by condition, plant context, and view. Shared figures may support several guides; their crops are references from the same source, not independent samples.</p></div><div className="library-count"><strong>{assetCount}</strong><small>distinct source assets</small></div></div>
+      <section className="reference-coverage" aria-labelledby="reference-coverage-heading">
+        <h2 id="reference-coverage-heading">Visual evidence coverage</h2>
+        <p>{referenceCoverage.withReference} of {referenceCoverage.total} condition guides currently have at least one approved, displayable visual reference; {referenceCoverage.withoutReference} do not.</p>
+        <p>Coverage is not diagnostic accuracy: a shared figure may appear in multiple guides, and a non-Cannabis or organism-only image is not proof of the condition in Cannabis. Counts reflect approved display links, not unique verified clinical cases or training examples.</p>
+      </section>
       <div className="reference-discovery">
         <label className="search-field"><Search size={19} /><input aria-label="Search reference images" placeholder="Search condition, species, stage, or view" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
         <label>Condition category<select value={category} onChange={(e) => setCategory(e.target.value)}><option value="All">All categories</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
