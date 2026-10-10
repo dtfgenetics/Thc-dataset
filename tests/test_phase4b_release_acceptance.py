@@ -152,6 +152,18 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Undeclared local archive parts" in error for error in report["errors"]))
 
+    def test_missing_archive_root_fails_closed(self):
+        report = mod.validate(self.manifest, self.assets, self.root / "not-created")
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Archive root must be an existing directory" in e for e in report["errors"]))
+
+    def test_symlinked_archive_root_fails_closed(self):
+        link = self.root / "linked-root"
+        link.symlink_to(self.root, target_is_directory=True)
+        report = mod.validate(self.manifest, self.assets, link)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Archive root must not be a symlink" in e for e in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
