@@ -15,17 +15,13 @@ import { ReferenceLibrary } from './components/ReferenceLibrary'
 import { VisualObservationReview } from './components/VisualObservationReview'
 import { issues } from './data/catalog'
 import { summarizeCaseTrend } from './lib/case-trends'
+import { loadLogEntries } from './lib/grow-log-storage'
 import { inspectEvidenceFile, makeId, rankDifferentials } from './lib/diagnostics'
 import { growLensImportSummary, type GrowLensImportContext } from './lib/growlens-observation-import'
 import { activateInvestigation, createInvestigation, loadActiveInvestigation, loadInvestigations, upsertInvestigation } from './lib/investigations'
-import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, GrowLogEntry, InvestigationCase, View } from './types'
+import type { DiagnosticSnapshot, EvidenceFile, EvidenceSlot, GrowContext, InvestigationCase, View } from './types'
 
 const emptyContext: GrowContext = { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] }
-const LOG_KEY = 'thc-grow-doc:log:v2'
-
-function loadLogEntries(): GrowLogEntry[] {
-  try { return JSON.parse(localStorage.getItem(LOG_KEY) ?? '[]') as GrowLogEntry[] } catch { return [] }
-}
 
 export default function App() {
   const restored = useMemo(loadActiveInvestigation, [])

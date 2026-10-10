@@ -7,6 +7,13 @@ import { createInvestigation } from '../lib/investigations'
 afterEach(() => { cleanup(); localStorage.clear() })
 
 describe('GrowLog investigation ownership', () => {
+  it.each(['null', '{}', '[null,42,{}]', '{invalid'])('renders safely with malformed stored history %s', (stored) => {
+    localStorage.setItem('thc-grow-doc:log:v2', stored)
+    render(<GrowLog investigation={createInvestigation('Plant')} />)
+    expect(screen.queryByText('No follow-ups saved for this investigation')).not.toBeNull()
+    expect(localStorage.getItem('thc-grow-doc:log:v2')).toBe(stored)
+  })
+
   it('does not expose another case through a shared plant name', () => {
     const investigation = createInvestigation('Active plant')
     localStorage.setItem('thc-grow-doc:log:v2', JSON.stringify([
