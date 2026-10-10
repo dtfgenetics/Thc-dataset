@@ -33,7 +33,7 @@ export function IssueLibrary({ initialSlug, onClearInitialSlug }: IssueLibraryPr
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  if (selected) return <IssueDetail issue={selected} onBack={() => setSelected(null)} />
+  if (selected) return <IssueDetail issue={selected} onBack={() => setSelected(null)} onOpenIssue={openIssue} />
 
   const usedCategories = categoryOrder.filter((item) => issues.some((issue) => issue.category === item))
   return (
@@ -64,21 +64,24 @@ export function IssueLibrary({ initialSlug, onClearInitialSlug }: IssueLibraryPr
   )
 }
 
-function IssueDetail({ issue, onBack }: { issue: IssueRecord; onBack: () => void }) {
+function IssueDetail({ issue, onBack, onOpenIssue }: { issue: IssueRecord; onBack: () => void; onOpenIssue: (issue: IssueRecord) => void }) {
   const displayMedia = resolvedDisplayMediaForIssue(issue, issues)
+  const related = issues.filter((candidate) => candidate.id !== issue.id && issue.lookAlikes.some((name) => name.trim().toLowerCase() === candidate.name.trim().toLowerCase()))
   return (
     <div className="view-container issue-detail">
       <button className="back-button" onClick={onBack}><ArrowLeft size={18} /> Back to issue library</button>
       <header className="detail-header"><div><div className="issue-meta"><span>{issue.category}</span><span className={`severity severity-${issue.severity}`}>{issue.severity}</span></div><h1>{issue.name}</h1>{issue.scientificName ? <em>{issue.scientificName}</em> : null}<p>{issue.summary}</p></div><div className="detail-status"><span className={`review review-${issue.reviewStatus}`}>{issue.reviewStatus}</span><small>Scientific review status</small></div></header>
+      <nav className="guide-navigation" aria-label="Guide sections">{[['gallery-heading', 'Images'], ['observation-context', 'Where to look'], ['diagnostic-signs', 'Signs and look-alikes'], ['confirmation-heading', 'Confirmation'], ['corrective-actions', 'Actions'], ['source-heading', 'Sources']].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
       <section className="detail-gallery" aria-labelledby="gallery-heading"><div className="detail-section-title"><h2 id="gallery-heading">Reference images</h2><span>{displayMedia.length} licensed and reviewed</span></div>{displayMedia.length ? <div className="media-grid">{displayMedia.map(({ media, shared, ownerSlug }) => <figure key={`${media.id}-${issue.slug}`}><ResilientImage sources={referenceMediaSources(media, issue.slug)} alt={media.alt} fallback={<ImagePlaceholder label={`Licensed reference image unavailable for ${issue.name}`} />} /><figcaption>{shared ? <strong>Shared multi-condition composite · </strong> : null}{media.caption}<small>{media.creator} · {media.license}</small>{shared ? <small>Asset is stored once under {ownerSlug}; use only the panel/column identified by the source and limitations. This shared display does not make the full composite training-eligible for {issue.name}.</small> : null}</figcaption></figure>)}</div> : <div className="media-gap"><ImagePlaceholder label={`Reference media pending for ${issue.name}`} /><div><ImageOff /><h3>Verified images are still missing</h3><p>This record will not pretend a text description is a reference photograph. Media must include a source, allowed-use license, and confirmation status.</p></div></div>}</section>
-      <section className="detail-capture-context" aria-label="Observation context"><DetailList title="Where to look" items={issue.affectedParts} /><DetailList title="Growth stages and observation context" items={issue.stages} /></section>
-      <div className="detail-columns">
+      <section className="detail-capture-context" id="observation-context" aria-label="Observation context"><DetailList title="Where to look" items={issue.affectedParts} /><DetailList title="Growth stages and observation context" items={issue.stages} /></section>
+      <div className="detail-columns" id="diagnostic-signs">
         <div><DetailList title="Signs that support it" items={issue.indicators} positive /><DetailList title="Evidence against it" items={issue.exclusions} /></div>
         <div><section className="detail-block"><h2>Symptom progression</h2><ol className="progression">{issue.progression.map((item) => <li key={item.stage}><strong>{item.stage}</strong><p>{item.description}</p></li>)}</ol></section><DetailList title="Look-alikes" items={issue.lookAlikes} /></div>
       </div>
-      <section className="confirmation-box"><FlaskTitle /><div><h2>How to confirm</h2><ul>{issue.confirmation.map((item) => <li key={item}>{item}</li>)}</ul>{issue.category === 'Viroid' || issue.category === 'Virus' || issue.category === 'Phytoplasma / Spiroplasma' ? <p className="lab-warning"><CircleAlert size={17} /> Visual evidence cannot confirm this category. Use validated laboratory testing.</p> : null}</div></section>
-      <div className="action-grid"><DetailList title="Do now" items={issue.immediateActions} positive /><DetailList title="Corrective plan" items={issue.correctivePlan} /><DetailList title="Prevention" items={issue.prevention} /><DetailList title="Do not do" items={issue.warnings} /></div>
-      <section className="sources-block"><h2>Sources</h2>{issue.sources.length ? <ol>{issue.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.organization}{source.publicationDate ? ` · Published ${source.publicationDate}` : source.year ? ` · ${source.year}` : ''}{source.accessedDate ? ` · Checked ${source.accessedDate}` : ''}</span><details className="source-claims"><summary>Claims supported by this source</summary><ul>{source.supportedClaims.map((claim) => <li key={claim}>{claim}</li>)}</ul></details></li>)}</ol> : <p>This provisional record still needs mapped academic or extension sources before it can be marked reviewed.</p>}</section>
+      <section className="confirmation-box"><FlaskTitle /><div><h2 id="confirmation-heading">How to confirm</h2><ul>{issue.confirmation.map((item) => <li key={item}>{item}</li>)}</ul>{issue.category === 'Viroid' || issue.category === 'Virus' || issue.category === 'Phytoplasma / Spiroplasma' ? <p className="lab-warning"><CircleAlert size={17} /> Visual evidence cannot confirm this category. Use validated laboratory testing.</p> : null}</div></section>
+      {related.length ? <section className="related-guides" aria-labelledby="related-heading"><h2 id="related-heading">Compare look-alike guides</h2><p>These are alternatives to check, not additional diagnoses.</p><div>{related.map((candidate) => <button key={candidate.id} onClick={() => onOpenIssue(candidate)}>{candidate.name}<ArrowRight size={16} /></button>)}</div></section> : null}
+      <div className="action-grid" id="corrective-actions"><DetailList title="Do now" items={issue.immediateActions} positive /><DetailList title="Corrective plan" items={issue.correctivePlan} /><DetailList title="Prevention" items={issue.prevention} /><DetailList title="Do not do" items={issue.warnings} /></div>
+      <section className="sources-block"><h2 id="source-heading">Sources</h2>{issue.sources.length ? <ol>{issue.sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.title}</a><span>{source.organization}{source.publicationDate ? ` · Published ${source.publicationDate}` : source.year ? ` · ${source.year}` : ''}{source.accessedDate ? ` · Checked ${source.accessedDate}` : ''}</span><details className="source-claims"><summary>Claims supported by this source</summary><ul>{source.supportedClaims.map((claim) => <li key={claim}>{claim}</li>)}</ul></details></li>)}</ol> : <p>This provisional record still needs mapped academic or extension sources before it can be marked reviewed.</p>}</section>
     </div>
   )
 }

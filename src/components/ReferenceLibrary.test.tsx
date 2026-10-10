@@ -4,7 +4,7 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { ReferenceLibrary } from './ReferenceLibrary'
 import { IssueLibrary } from './IssueLibrary'
 
-afterEach(cleanup)
+afterEach(() => { cleanup(); vi.restoreAllMocks() })
 
 describe('Reference discovery and guide evidence', () => {
   it('finds the shared copper figure and opens the correct guide', () => {
@@ -36,4 +36,17 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getAllByText('Claims supported by this source')).toHaveLength(2)
     expect(screen.getByText(/Published 2026-08-26 · Checked 2026-10-10/)).not.toBeNull()
   })
+  it('provides valid section targets and opens a matching look-alike guide', () => {
+    vi.spyOn(window, 'scrollTo').mockImplementation(() => {})
+    render(<IssueLibrary initialSlug="copper-deficiency" onClearInitialSlug={() => {}} />)
+    const navigation = screen.getByRole('navigation', { name: 'Guide sections' })
+    for (const link of navigation.querySelectorAll('a')) {
+      expect(document.getElementById(link.hash.slice(1))).not.toBeNull()
+    }
+    fireEvent.click(screen.getByRole('button', { name: 'Iron deficiency' }))
+    expect(screen.getByRole('heading', { level: 1, name: 'Iron deficiency' })).not.toBeNull()
+    fireEvent.click(screen.getByRole('button', { name: 'Back to issue library' }))
+    expect(screen.getByRole('textbox', { name: 'Search issue library' })).not.toBeNull()
+  })
+
 })
