@@ -6,6 +6,33 @@ const ACTIVE_CASE_KEY = 'thc-grow-doc:active-investigation:v1'
 
 const emptyContext = (): GrowContext => ({ stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [] })
 
+const isRecord = (value: unknown): value is Record<string, unknown> => !!value && typeof value === 'object' && !Array.isArray(value)
+const isTextList = (value: unknown): value is string[] => Array.isArray(value) && value.every((item) => typeof item === 'string')
+const isDate = (value: unknown) => typeof value === 'string' && Number.isFinite(Date.parse(value))
+const optionalText = (record: Record<string, unknown>, keys: string[]) => keys.every((key) => record[key] === undefined || typeof record[key] === 'string')
+
+function isSnapshot(value: unknown): boolean {
+  return isRecord(value) && isDate(value.reviewedAt)
+    && optionalText(value, ['leadingIssueSlug', 'leadingIssueName'])
+    && (value.confidence === undefined || ['Low', 'Moderate', 'High'].includes(value.confidence as string))
+    && ['supporting', 'contradicting', 'missing', 'alternativeIssueSlugs'].every((key) => isTextList(value[key]))
+}
+
+function isInvestigation(value: unknown): value is InvestigationCase {
+  if (!isRecord(value) || typeof value.id !== 'string' || !value.id || typeof value.plantName !== 'string'
+    || !isDate(value.createdAt) || !isDate(value.updatedAt) || !isRecord(value.context)) return false
+  const context = value.context
+  if (!['stage', 'medium', 'ph', 'ec', 'watering', 'recentChanges'].every((key) => typeof context[key] === 'string')
+    || !isTextList(context.symptoms)
+    || !optionalText(context, ['temperatureC', 'humidityPercent', 'ppfd', 'dli', 'importedObservedAt'])
+    || !['importedObservationIds', 'importedSourceRecordIds'].every((key) => context[key] === undefined || isTextList(context[key]))) return false
+  return Array.isArray(value.evidenceSummary) && value.evidenceSummary.every((item) => isRecord(item)
+    && ['whole-plant', 'close-up', 'underside', 'root-crown', 'video'].includes(item.slot as string)
+    && ['checking', 'good', 'review'].includes(item.quality as string) && isTextList(item.notes))
+    && (value.diagnosis === undefined || isSnapshot(value.diagnosis))
+    && (value.diagnosisHistory === undefined || (Array.isArray(value.diagnosisHistory) && value.diagnosisHistory.every(isSnapshot)))
+}
+
 export function createInvestigation(plantName = 'Active plant'): InvestigationCase {
   const now = new Date().toISOString()
   return { id: makeId('case'), plantName, createdAt: now, updatedAt: now, context: emptyContext(), evidenceSummary: [], diagnosisHistory: [] }
@@ -13,8 +40,8 @@ export function createInvestigation(plantName = 'Active plant'): InvestigationCa
 
 export function loadInvestigations(): InvestigationCase[] {
   try {
-    const parsed = JSON.parse(localStorage.getItem(CASES_KEY) ?? '[]') as InvestigationCase[]
-    return Array.isArray(parsed) ? parsed.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)) : []
+    const parsed: unknown = JSON.parse(localStorage.getItem(CASES_KEY) ?? '[]')
+    return Array.isArray(parsed) ? parsed.filter(isInvestigation).sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)) : []
   } catch { return [] }
 }
 
@@ -39,10 +66,12 @@ export function loadActiveInvestigation(): InvestigationCase {
   try {
     const legacy = localStorage.getItem('thc-grow-doc:investigation:v1')
     if (legacy) {
-      const parsed = JSON.parse(legacy) as InvestigationCase
-      const migrated = { ...parsed, diagnosisHistory: parsed.diagnosisHistory ?? (parsed.diagnosis ? [parsed.diagnosis] : []) }
-      upsertInvestigation(migrated)
-      return migrated
+      const parsed: unknown = JSON.parse(legacy)
+      if (isInvestigation(parsed)) {
+        const migrated = { ...parsed, diagnosisHistory: parsed.diagnosisHistory ?? (parsed.diagnosis ? [parsed.diagnosis] : []) }
+        upsertInvestigation(migrated)
+        return migrated
+      }
     }
   } catch { /* fall through to a fresh case */ }
 

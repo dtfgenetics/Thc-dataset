@@ -30,6 +30,38 @@ const makeCase = (id: string, plantName: string, updatedAt: string): Investigati
 describe('investigation registry', () => {
   beforeEach(() => localStorage.clear())
 
+  it('recovers valid cases beside corrupt records without rewriting stored data', () => {
+    const valid = makeCase('valid', 'Recovered plant', '2026-09-01T10:00:00.000Z')
+    const stored = JSON.stringify([null, { id: 'broken', updatedAt: 42 }, valid])
+    localStorage.setItem('thc-grow-doc:investigations:v1', stored)
+    expect(loadInvestigations()).toEqual([valid])
+    expect(loadActiveInvestigation()).toEqual(valid)
+    expect(localStorage.getItem('thc-grow-doc:investigations:v1')).toBe(stored)
+  })
+
+  it.each([
+    { context: { symptoms: 'not-an-array' } },
+    { diagnosisHistory: [null] },
+    { evidenceSummary: [{ slot: 'root-crown', quality: 'good', notes: null }] },
+    { updatedAt: 'not-a-date' },
+    { context: { stage: '', medium: '', ph: '', ec: '', watering: '', recentChanges: '', symptoms: [], importedObservationIds: [42] } },
+  ])('rejects malformed nested case data: %j', (corruptFields) => {
+    const valid = makeCase('valid', 'Healthy record', '2026-09-01T10:00:00.000Z')
+    localStorage.setItem('thc-grow-doc:investigations:v1', JSON.stringify([{ ...valid, id: 'corrupt', ...corruptFields }, valid]))
+    expect(loadInvestigations()).toEqual([valid])
+    expect(activateInvestigation('corrupt')).toBeUndefined()
+  })
+
+  it('does not migrate malformed legacy data into the case registry', () => {
+    const stored = JSON.stringify({ id: 'invalid-legacy', context: null })
+    localStorage.setItem('thc-grow-doc:investigation:v1', stored)
+    const active = loadActiveInvestigation()
+    expect(active.id).not.toBe('invalid-legacy')
+    expect(active.context.symptoms).toEqual([])
+    expect(loadInvestigations()).toEqual([active])
+    expect(localStorage.getItem('thc-grow-doc:investigation:v1')).toBe(stored)
+  })
+
   it('keeps multiple investigations instead of overwriting the active case', () => {
     upsertInvestigation(makeCase('case-a', 'Plant A', '2026-09-01T10:00:00.000Z'))
     upsertInvestigation(makeCase('case-b', 'Plant B', '2026-09-02T10:00:00.000Z'))
