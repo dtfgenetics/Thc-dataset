@@ -107,6 +107,8 @@ jobs:
                   indices.append(int(filename[-3:]))
                   p = Path("bulk_acquisition/phase4b_public") / filename
                   assert p.is_file() and p.stat().st_size == part["sizeBytes"], f"Missing or invalid part: {p}"
+                  assert isinstance(part.get("sha256"), str) and re.fullmatch(r"[0-9a-f]{64}", part["sha256"]), f"Invalid SHA256 manifest field: {filename}"
+                  assert not p.is_symlink(), f"Symlink archive part rejected: {filename}"
                   digest = hashlib.sha256()
                   with p.open("rb") as stream:
                       for block in iter(lambda: stream.read(1024 * 1024), b""):
