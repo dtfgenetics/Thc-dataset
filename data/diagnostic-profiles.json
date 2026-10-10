@@ -12889,8 +12889,10 @@
     "indicators": [
       "Repeated calibrated substrate measurements remain at an extreme rather than a single irrigation or runoff reading",
       "Root-tip development is reduced relative to matched healthy plants before a specific foliar pattern is reliable",
+      "Visible root-tip counts can be reduced at both acidic and high-pH extremes even when intermediate treatments remain similar",
       "Whole-plant diameter and accumulated shoot biomass lag despite plant height sometimes remaining similar",
       "At acidic pH, leaf-tissue micronutrient concentrations may rise without visible toxicity",
+      "Termination EC can also rise at pH extremes, so pH exposure must be interpreted with simultaneous salinity and fertility measurements",
       "In the Sweetened pH 3.8 plus fourfold-micronutrient treatment, lower-leaf tips bronzed, became necrotic, spread inward, and developed chlorosis",
       "The same low-pH and high-micronutrient treatment did not produce the same foliage response in Cherry Wine"
     ],
@@ -12901,7 +12903,10 @@
       "Roots are restricted by saturation, compaction, container binding, drought, temperature, oxygen limitation, transplant damage, or root disease",
       "Foliar bronzing or necrosis is localized to heat, light, spray, contact, pest feeding, or infectious lesions",
       "Tissue analysis supports a specific nutrient deficiency or toxicity and measured root-zone pH is not outside the production-system target",
-      "Color differences appear only under altered lighting, white balance, cultivar pigmentation, senescence, or compression artifact"
+      "Color differences appear only under altered lighting, white balance, cultivar pigmentation, senescence, or compression artifact",
+      "A detached root, leaf, cropped panel, composite, or canopy image is assigned to a pH, EC, tissue, or treatment result without a persistent plant and specimen identifier linking the photographed organ, sampling location, exposure history, collection event, and report",
+      "The study-specific pH 3.0, 3.1, 3.8, 4.0, 5.0, 5.5, 5.9, 6.5, 7.0, or 7.1 values; 21-day timing; root-tip counts; tissue concentrations; growth response; or cultivar phenotype is used as a universal diagnostic threshold, timing rule, production target, or severity prediction",
+      "A generic nutrient-availability chart or expected lockout is treated as proof of a specific deficiency or toxicity without linked root-zone, input, tissue, and plant-response evidence"
     ],
     "progression": [
       {
@@ -12942,8 +12947,9 @@
       "Normal late-flower senescence"
     ],
     "confirmation": [
-      "Assign separate labels for measured pH exposure, visible injury, and suspected causal pH stress; a meter reading alone does not establish that pH caused the photographed injury.",
+      "Assign separate labels for measured pH exposure, visible injury, nutrient status, salinity or fertility context, root-growth response, and causally attributed pH stress; a meter reading alone does not establish that pH caused the photographed injury.",
       "Link repeated pH and EC readings, root views, canopy images, cultivar, and intervention dates to the same persistent plant identifier; do not transfer measurements from neighboring plants or pooled substrate to an individual image label.",
+      "Assign persistent plant, root-zone sample, root specimen, and leaf-tissue identifiers before capture or collection, and carry them through images or video, sampling method and location, treatment history, calibration records, laboratory reports, and follow-up observations.",
       "Do not diagnose pH stress from leaf color, tip burn, stunting, one photograph, one video, or a generic nutrient-availability chart.",
       "Measure the actual substrate or root-zone pH repeatedly with a calibrated meter and a method appropriate to the medium; record sampling location, depth, irrigation timing, extraction method, meter calibration, temperature, and replicate values.",
       "Measure root-zone and input EC alongside pH, and document source-water pH and alkalinity, fertilizer formulation, acid or base additions, lime charge, substrate batch, irrigation volume, leaching fraction, and drainage.",
