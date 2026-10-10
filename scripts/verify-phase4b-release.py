@@ -137,7 +137,12 @@ def main() -> int:
     args = parser.parse_args()
     if not args.repo:
         parser.error("--repo or GITHUB_REPOSITORY required")
-    manifest = json.loads(args.manifest.read_text())
+    try:
+        manifest = json.loads(args.manifest.read_text())
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
+                          "errors": [f"Cannot load acquisition manifest: {exc}"]}, indent=2))
+        return 1
     release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
     release_id = release["id"]
     assets = []
