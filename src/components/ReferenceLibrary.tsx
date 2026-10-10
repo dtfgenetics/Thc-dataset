@@ -10,7 +10,7 @@ const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue,
   .filter(({ media }) => media.url || media.thumbnailUrl)
   .map((reference) => ({ issue, ...reference })))
 const categories = [...new Set(references.map(({ issue }) => issue.category))].sort()
-const views = [...new Set(references.map(({ media }) => media.view).filter((view): view is string => Boolean(view)))].sort()
+const views = [...new Set(references.map(({ media }) => media.view).filter(Boolean))].sort()
 const hostLabels = { cannabis: 'Cannabis plant context', 'non-cannabis': 'Other plant context', 'organism-only': 'Organism only' }
 
 export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) => void }) {
