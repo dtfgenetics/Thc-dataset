@@ -21,7 +21,9 @@ export function GrowLog({ investigation, onEntriesChange }: GrowLogProps) {
   const [note, setNote] = useState('')
   const [outcome, setOutcome] = useState('Monitoring')
 
-  const caseEntries = useMemo(() => entries.filter((entry) => entry.investigationId === investigation.id || entry.plantName === investigation.plantName), [entries, investigation.id, investigation.plantName])
+  const caseEntries = useMemo(() => entries.filter((entry) => entry.investigationId
+    ? entry.investigationId === investigation.id
+    : entry.plantName === investigation.plantName), [entries, investigation.id, investigation.plantName])
 
   const save = () => {
     if (!plantName.trim() || !note.trim()) return
