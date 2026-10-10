@@ -29,9 +29,11 @@
     "data/diagnostic-profiles.csv",
     "data/diagnostic-profiles.json",
     "data/diagnostic-profiles.jsonl",
-    "data/sources.json"
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
   ],
-  "scope_note": "Agent checked the primary article Discussion on 2026-10-10. Acclimation morphology and physiological measurements cannot establish image-only injury. No new media or weight-training admission. All 62 validators, types, 229 tests and build passed. Claim released in this integration-ready batch.",
+  "scope_note": "Agent checked the primary article Discussion on 2026-10-10. Acclimation morphology and physiological measurements cannot establish image-only injury. No new media or weight-training admission. All 62 validators, types, 229 tests and build passed. Claim released in this integration-ready batch. CI freeze exposed stale artifact hash pins; rebuilt supplied-evidence artifacts and refreshed matching README/config hashes, preserving the 150 SFT + 37 GQA mixture and held-out quarantine.",
   "human_reviewed": false,
   "training_eligible": false,
   "weight_training_eligible": false
