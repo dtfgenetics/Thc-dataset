@@ -553,4 +553,20 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media[0].trainingPermission).toBe('not-permitted')
     expect(record?.media[0].trainingEligible).toBe(false)
   })
+
+  it('bounds extreme substrate-pH labels to linked root-zone and specimen evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'acidic-extreme-substrate-ph-stress')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(10)
+    expect(record?.confirmation).toHaveLength(10)
+    expect(record?.sources.map((source) => source.doi)).toContain('10.1002/agg2.70044')
+    expect(confirmation).toContain('persistent plant, root-zone sample, root specimen, and leaf-tissue identifiers')
+    expect(confirmation).toContain('causally attributed pH stress')
+    expect(exclusions).toContain('universal diagnostic threshold')
+    expect(exclusions).toContain('generic nutrient-availability chart')
+    expect(record?.media).toEqual([])
+  })
 })
