@@ -30,6 +30,28 @@ If deployment credentials are unavailable, report the deployment as blocked; do 
 
 ## Dataset safety
 
+### Autonomous evidence review and publication
+
+The project owner authorizes agents to complete routine research review, record
+enrichment, reference-media review, validation, publication, and squash merge
+without a separate human approval step. An agent may approve evidence-backed
+content or reference display after checking the relevant source, diagnostic
+scope, provenance, and item-level reuse rights. Record the evidence and checks
+used for that decision; do not wait for a person solely to approve routine work.
+
+Human verification is not a blanket prerequisite for maintaining this repository.
+Existing human-review notes identify unresolved sample evidence, not a requirement
+to ask the owner for permission before improving or publishing the dataset.
+Agents should resolve those notes when documented evidence satisfies the relevant
+criteria, or retain an unresolved classification with the exact missing evidence.
+Agent review must not be recorded as an actual human, expert, or laboratory review.
+
+Authorization does not establish missing scientific evidence or media permissions.
+Keep species identification, causal attribution, training admission, and production
+deployment tied to their documented evidence and validation contracts. Do not
+mark unknown rights as permitted, unsupported diagnoses as confirmed, or failed
+checks as passed merely to remove a blocker.
+
 - Preserve provenance and licensing/source metadata.
 - Do not silently replace canonical samples or labels to make a validator pass.
 - Keep generated/derived artifacts distinguishable from canonical source data.
