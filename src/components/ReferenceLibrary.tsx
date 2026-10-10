@@ -1,23 +1,49 @@
-import { ExternalLink, FileImage, ImageOff, Search } from 'lucide-react'
+import { ExternalLink, FileImage, Search } from 'lucide-react'
 import { useDeferredValue, useMemo, useState } from 'react'
 import { issues } from '../data/catalog'
-import { isDisplayableMedia } from '../lib/media'
+import { resolvedDisplayMediaForIssue } from '../lib/media'
 import { referenceMediaSources } from '../lib/reference-media-assets'
 import { ImagePlaceholder } from './icons'
 import { ResilientImage } from './ResilientImage'
 
+const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue, issues)
+  .filter(({ media }) => media.url || media.thumbnailUrl)
+  .map((reference) => ({ issue, ...reference })))
+const categories = [...new Set(references.map(({ issue }) => issue.category))].sort()
+const hostLabels = { cannabis: 'Cannabis plant context', 'non-cannabis': 'Other plant context', 'organism-only': 'Organism only' }
+
 export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) => void }) {
   const [query, setQuery] = useState('')
+  const [category, setCategory] = useState('All')
+  const [host, setHost] = useState('All')
   const deferredQuery = useDeferredValue(query)
-  const approvedMedia = issues.flatMap((issue) => issue.media.map((media) => ({ issue, media }))).filter(({ media }) => isDisplayableMedia(media) && (media.url || media.thumbnailUrl))
-  const filtered = useMemo(() => approvedMedia.filter(({ issue, media }) => `${issue.name} ${issue.category} ${media.caption}`.toLowerCase().includes(deferredQuery.toLowerCase())), [approvedMedia, deferredQuery])
+  const filtered = useMemo(() => {
+    const needle = deferredQuery.trim().toLowerCase()
+    return references.filter(({ issue, media }) => (category === 'All' || issue.category === category)
+      && (host === 'All' || media.hostContext === host)
+      && [issue.name, issue.scientificName, issue.category, media.alt, media.caption, media.stage, media.view, media.creator, media.hostSpecies]
+        .filter(Boolean).join(' ').toLowerCase().includes(needle))
+  }, [category, host, deferredQuery])
+  const assetCount = new Set(filtered.map(({ media }) => media.sha256 ?? media.id)).size
+  const reset = () => { setQuery(''); setCategory('All'); setHost('All') }
 
   return (
     <div className="view-container references-view">
-      <div className="view-intro"><div><span>Licensed media only</span><h1>Reference images</h1><p>Every visible asset must carry its condition, source, allowed-use license, view, and confirmation method.</p></div><div className="library-count"><strong>{approvedMedia.length}</strong><small>approved images</small></div></div>
-      <label className="search-field reference-search"><Search size={19} /><input aria-label="Search reference images" placeholder="Search by issue or category" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
-      {filtered.length ? <div className="reference-grid">{filtered.map(({ issue, media }) => <figure key={media.id}><ResilientImage sources={referenceMediaSources(media, issue.slug)} alt={media.alt} fallback={<ImagePlaceholder label={`Licensed reference image unavailable for ${issue.name}`} />} /><figcaption><span>{issue.category}</span><h2>{issue.name}</h2><p>{media.caption}</p><dl><div><dt>Confirmation</dt><dd>{media.confirmation}</dd></div><div><dt>License</dt><dd>{media.license ?? 'Missing'}</dd></div><div><dt>View</dt><dd>{media.view}</dd></div></dl><div><button onClick={() => onOpenIssue(issue.slug)}>Open guide</button>{media.sourceUrl ? <a href={media.sourceUrl} target="_blank" rel="noreferrer">Source <ExternalLink size={14} /></a> : null}</div></figcaption></figure>)}</div> : <div className="media-empty"><ImagePlaceholder label="Reference image library awaiting reviewed media" /><div><ImageOff /><h2>No approved photographs yet</h2><p>The previous site counted text descriptions as reference records. This rebuild counts only actual media with usable licensing and scientific review metadata.</p><strong>Next content milestone: 1,096 reviewed images</strong></div></div>}
-      <section className="license-rules"><FileImage /><div><h2>Admission rules</h2><p>Public-domain, appropriately licensed, explicitly permitted, or DTF-owned media only. Each asset needs a source URL, creator, license, condition, view, stage, severity, and confirmation status.</p></div></section>
+      <div className="view-intro"><div><span>Licensed visual references</span><h1>Reference images</h1><p>Compare symptoms by condition, plant context, and view. Shared figures may support several guides; their crops are references from the same source, not independent samples.</p></div><div className="library-count"><strong>{assetCount}</strong><small>distinct source assets</small></div></div>
+      <div className="reference-discovery">
+        <label className="search-field"><Search size={19} /><input aria-label="Search reference images" placeholder="Search condition, species, stage, or view" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
+        <label>Condition category<select value={category} onChange={(e) => setCategory(e.target.value)}><option value="All">All categories</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
+        <label>Plant context<select value={host} onChange={(e) => setHost(e.target.value)}><option value="All">All contexts</option>{Object.entries(hostLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+      </div>
+      <p className="reference-results" role="status">{filtered.length} guide-linked references from {assetCount} distinct source assets</p>
+      {filtered.length ? <div className="reference-grid">{filtered.map(({ issue, media, shared }) => <figure key={`${media.id}-${issue.slug}`}>
+        <ResilientImage sources={referenceMediaSources(media, issue.slug)} alt={shared ? `${issue.name} reference from a shared multi-condition source figure` : media.alt} fallback={<ImagePlaceholder label={`Licensed reference image unavailable for ${issue.name}`} />} />
+        <figcaption><span>{issue.category}</span><h2>{issue.name}</h2><strong className="reference-context">{hostLabels[media.hostContext]}{shared ? ' · Shared figure' : ''}</strong><p>{shared ? `This source figure also documents ${issue.name}. The preview uses a condition-specific crop when available; the original figure contains other diagnoses.` : media.caption}</p>
+          <dl><div><dt>View</dt><dd>{media.view}</dd></div><div><dt>Stage</dt><dd>{media.stage}</dd></div><div><dt>Confirmation</dt><dd>{media.confirmation}</dd></div><div><dt>License</dt><dd>{media.license ?? 'Missing'}</dd></div></dl>
+          <details className="reference-evidence"><summary>Attribution and interpretation limits</summary>{shared ? <p>Original figure caption: {media.caption}</p> : null}<p>{media.requiredAttribution || media.creator}</p>{shared ? <p>Use only the diagnosis-specific panel identified by the source. The complete figure contains multiple conditions.</p> : null}<ul>{media.useLimitations.map((limit) => <li key={limit}>{limit}</li>)}</ul><p>{media.trainingEligible ? 'Training eligibility is recorded for this asset; retain its documented scope and split.' : 'Reference display only. This asset is not admitted for automated training.'}</p></details>
+          <div><button onClick={() => onOpenIssue(issue.slug)}>Open {issue.name} guide</button>{media.sourceUrl ? <a href={media.sourceUrl} target="_blank" rel="noreferrer">Source <ExternalLink size={14} /></a> : null}</div>
+        </figcaption></figure>)}</div> : <div className="empty-state"><Search /><h2>No matching reference images</h2><p>Try a broader term or clear the category and plant-context filters.</p><button onClick={reset}>Clear reference filters</button></div>}
+      <section className="license-rules"><FileImage /><div><h2>Read the image in context</h2><p>A licensed image can support comparison without proving the diagnosis in your plant. Organism-only and other-plant references do not establish Cannabis injury; check the guide’s exclusions and confirmation steps.</p></div></section>
     </div>
   )
 }
