@@ -44,6 +44,33 @@ const fixtureIssue = (
 })
 
 describe('rankDifferentials', () => {
+  it.each(['checking', 'review'] as const)('does not count %s images as usable diagnostic views', (quality) => {
+    const record = fixtureIssue('mite-quality', ['Visible stippling', 'Webbing', 'Moving mites'], { category: 'Mite' })
+    const evidence = (['whole-plant', 'close-up', 'underside', 'root-crown'] as const).map((slot) => ({
+      id: slot, file: {} as File, previewUrl: '', slot, quality, notes: [],
+    }))
+    const [result] = rankDifferentials([record], context(record.indicators), evidence)
+    const [withoutImages] = rankDifferentials([record], context(record.indicators), [])
+    expect(result.score).toBe(withoutImages.score)
+    expect(result.confidence).toBe('Low')
+    expect(result.missing).toEqual(expect.arrayContaining(['whole-plant view', 'affected-tissue close-up', 'leaf-underside image']))
+    expect(result.contextSignals).not.toContain('a leaf-underside view is available for this arthropod hypothesis')
+    const root = fixtureIssue('root-quality', record.indicators, { category: 'Root pathogen' })
+    const [rootResult] = rankDifferentials([root], context(root.indicators), evidence)
+    expect(rootResult.missing).toContain('root or crown view')
+    expect(rootResult.score).toBe(rankDifferentials([root], context(root.indicators), [])[0].score)
+  })
+
+  it('counts a passed view when another image in the same slot needs review', () => {
+    const record = fixtureIssue('mite-quality', ['Visible stippling'], { category: 'Mite' })
+    const evidence = (['review', 'good'] as const).map((quality) => ({
+      id: quality, file: {} as File, previewUrl: '', slot: 'underside' as const, quality, notes: [],
+    }))
+    const [result] = rankDifferentials([record], context(record.indicators), evidence)
+    expect(result.missing).not.toContain('leaf-underside image')
+    expect(result.contextSignals).toContain('a leaf-underside view is available for this arthropod hypothesis')
+  })
+
   it('returns no fabricated match without symptom evidence', () => {
     expect(rankDifferentials(issues, context([]), [])).toEqual([])
   })
