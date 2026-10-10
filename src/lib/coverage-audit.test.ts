@@ -569,4 +569,19 @@ describe('diagnostic coverage audit', () => {
     expect(exclusions).toContain('generic nutrient-availability chart')
     expect(record?.media).toEqual([])
   })
+
+  it('bounds root-binding labels to intact plant-linked root evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'root-binding-container-stress')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.indicators).toHaveLength(8)
+    expect(record?.exclusions).toHaveLength(10)
+    expect(record?.confirmation).toHaveLength(9)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.1094/PHP-03-20-0017-RS', '10.1071/FP12049']))
+    expect(confirmation).toContain('persistent plant and root-specimen identifiers')
+    expect(confirmation).toContain('causally attributed container-restriction injury as separate labels')
+    expect(exclusions).toContain('universal Cannabis diagnostic threshold')
+    expect(record?.media).toEqual([])
+  })
 })

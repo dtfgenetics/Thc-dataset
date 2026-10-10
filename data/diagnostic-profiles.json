@@ -12396,7 +12396,7 @@
     "category": "Water / root-zone",
     "severity": "moderate",
     "reviewStatus": "reviewed",
-    "photoOnlyMaxConfidence": 0.2,
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "Container restriction is documented in hemp transplants, but canopy stress is nonspecific and roots touching a pot are not sufficient evidence. A defensible label requires plant-linked views of the intact root ball, repeatable boundary-following deformation or dense matting, and exclusion of dry-center irrigation failure, salinity, hypoxia, transplant injury, nematodes, and root disease.",
     "affectedParts": [
       "root-ball perimeter and bottom",
@@ -12417,7 +12417,9 @@
       "The root-ball center and perimeter differ visibly in moisture after a documented irrigation event, consistent with preferential flow or incomplete wetting; this supports a water-delivery mechanism but is not specific to root binding.",
       "A plant-linked whole-canopy comparison may show reduced expansion or vigor relative to a matched same-cultivar, same-age, same-zone control, but canopy appearance is secondary evidence only.",
       "In field-transplanted hemp, the original root architecture may remain constrained after transplant and poor establishment can coexist with secondary Fusarium or Pythium infection.",
-      "Time-matched root views show increasing wall-following deflection or matting before any post-transplant establishment failure, preserving the temporal link between container occupancy and later stress."
+      "Time-matched root views show increasing wall-following deflection or matting before any post-transplant establishment failure, preserving the temporal link between container occupancy and later stress.",
+      "After transplant, serial plant-linked views show whether new roots cross the former container boundary; persistent confinement supports the survey observation but is not a universal prognosis.",
+      "Reduced growth is concordant with verified restricted rooting volume and intact-root morphology rather than inferred from container dimensions alone; the non-Cannabis meta-analysis supports growth effects but not a Cannabis diagnostic threshold."
     ],
     "exclusions": [
       "Do not label a plant from canopy stunting, wilt, chlorosis, marginal browning, or reduced vigor without a plant-linked intact root-ball inspection.",
@@ -12427,7 +12429,9 @@
       "Exclude overwatering or hypoxia with moisture history, aeration context, odor, root color, and tissue integrity rather than inferring it from wilt alone.",
       "Escalate brown, water-soaked, sloughed, necrotic, lesioned, or foul-smelling roots for culture or molecular testing for Pythium, Fusarium, Rhizoctonia, and other root pathogens.",
       "Inspect washed roots for discrete galls or abnormal swellings and obtain nematode confirmation when root-knot nematodes remain plausible.",
-      "Exclude transplant shock, torn roots, compressed plugs, buried crowns, stem girdling, and container heat injury using handling history and crown/root inspection."
+      "Exclude transplant shock, torn roots, compressed plugs, buried crowns, stem girdling, and container heat injury using handling history and crown/root inspection.",
+      "Exclude detached, washed, cut, or cropped root images that lack a persistent plant and root-specimen identifier linking the intact root ball, container history, canopy, sampling event, and follow-up.",
+      "Do not use the non-Cannabis 43% mean biomass response, container volume, root density, number of circling roots, transplant timing, or post-transplant outcome as a universal Cannabis diagnostic threshold, severity rule, or production target."
     ],
     "progression": [
       {
@@ -12472,7 +12476,9 @@
       "Measure root-zone moisture at the center and perimeter immediately before and after a documented irrigation event, and record input and leachate EC plus pH with calibrated instruments.",
       "Document root color, firmness, odor, lesions, sloughing, crown integrity, and discrete galls; submit representative plant-linked tissue for pathogen or nematode testing when those signs are present.",
       "For a post-transplant sequence, keep plant identity linked across dates and include the original root-ball boundary plus new roots beyond it; do not use canopy recovery or failure alone as confirmation.",
-      "Keep canopy-only, detached-root-only, non-Cannabis transfer, unmatched, generated, vendor, anecdotal, unverified, and rights-unclear samples out of the confirmed class and all automated training splits."
+      "Keep canopy-only, detached-root-only, non-Cannabis transfer, unmatched, generated, vendor, anecdotal, unverified, and rights-unclear samples out of the confirmed class and all automated training splits.",
+      "Assign persistent plant and root-specimen identifiers before disturbance and carry them through intact and washed root views, container and transplant history, moisture and chemistry measurements, laboratory results, canopy images, and follow-up observations.",
+      "Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels."
     ],
     "immediateActions": [
       "Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.",
