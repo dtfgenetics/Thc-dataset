@@ -28,6 +28,21 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.queryByRole('heading', { name: 'No matching reference images' })).toBeNull()
   })
 
+  it('filters by documented viewpoint and restores all references when cleared', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const viewpoint = screen.getByRole('combobox', { name: 'Image viewpoint' }) as HTMLSelectElement
+    const options = [...viewpoint.options].map((option) => option.value).filter((value) => value !== 'All')
+    expect(options.length).toBeGreaterThan(0)
+    fireEvent.change(viewpoint, { target: { value: options[0] } })
+    const shown = screen.getAllByText('View').map((label) => label.nextElementSibling?.textContent)
+    expect(shown.length).toBeGreaterThan(0)
+    expect(shown.every((value) => value === options[0])).toBe(true)
+    fireEvent.change(screen.getByRole('textbox', { name: 'Search reference images' }), { target: { value: 'unlikely-to-exist-reference-xyz' } })
+    fireEvent.click(screen.getByRole('button', { name: 'Clear reference filters' }))
+    expect((screen.getByRole('combobox', { name: 'Image viewpoint' }) as HTMLSelectElement).value).toBe('All')
+    expect(screen.queryByRole('heading', { name: 'No matching reference images' })).toBeNull()
+  })
+
   it('renders affected parts, stages and claim-level sources in a guide', () => {
     render(<IssueLibrary initialSlug="copper-deficiency" onClearInitialSlug={() => {}} />)
     expect(screen.getByRole('heading', { name: 'Where to look' })).not.toBeNull()
