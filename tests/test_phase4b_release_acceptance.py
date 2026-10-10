@@ -128,6 +128,23 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("invalid original archive metadata" in error for error in report["errors"]))
 
+    def test_reconstructed_archive_uses_numeric_chunk_order(self):
+        row = self.rows[0]
+        first = row["archiveParts"][0]
+        second_name = f'{row["datasetId"]}_archive.part002'
+        second_bytes = b"second part"
+        (self.root / second_name).write_bytes(second_bytes)
+        second_sha = hashlib.sha256(second_bytes).hexdigest()
+        row["archiveParts"].insert(0, {
+            "filename": second_name, "sizeBytes": len(second_bytes), "sha256": second_sha
+        })
+        self.assets.append({"name": second_name, "size": len(second_bytes),
+                            "digest": "sha256:" + second_sha, "state": "uploaded"})
+        original_bytes = row["datasetId"].encode() + second_bytes
+        row["originalArchive"] = {"sizeBytes": len(original_bytes),
+                                  "sha256": hashlib.sha256(original_bytes).hexdigest()}
+        self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "pass")
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
