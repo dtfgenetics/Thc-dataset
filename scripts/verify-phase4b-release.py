@@ -146,6 +146,8 @@ def main() -> int:
     try:
         release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
         release_id = release["id"]
+        if type(release_id) is not int or release_id <= 0:
+            raise ValueError("Release ID must be a positive integer")
         assets = []
         page = 1
         while True:
