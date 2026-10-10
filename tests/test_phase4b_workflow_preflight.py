@@ -64,6 +64,20 @@ class PreflightTests(unittest.TestCase):
                 self.rows[0]["archiveParts"][0]["sizeBytes"] = value
                 self.assert_rejected()
 
+    def test_invalid_sha256_metadata(self):
+        for invalid in (None, True, "", "0" * 63, "G" * 64, "A" * 64):
+            with self.subTest(sha256=invalid):
+                self.rows[0]["archiveParts"][0]["sha256"] = invalid
+                self.assert_rejected()
+
+    def test_symlink_chunk_rejected(self):
+        part = self.rows[0]["archiveParts"][0]
+        chunk = self.directory / part["filename"]
+        target = self.root / "external-chunk"
+        chunk.rename(target)
+        chunk.symlink_to(target)
+        self.assert_rejected()
+
     def test_checksum_mismatch(self):
         self.rows[0]["archiveParts"][0]["sha256"] = "0" * 64
         self.assert_rejected()
