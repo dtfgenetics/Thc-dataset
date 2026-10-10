@@ -7052,6 +7052,7 @@
     "category": "Normal development",
     "severity": "low",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.2,
     "summary": "Cannabis and hemp leaves can lose chlorophyll and photosynthetic capacity as foliage ages and flowering advances, with stronger age and canopy-position effects in older or lower leaves; visible yellowing is neither required nor sufficient to classify the change as normal senescence.",
     "affectedParts": [
       "physiologically older fan leaves",
@@ -7069,7 +7070,8 @@
       "Chlorophyll index or photosynthetic capacity declines with documented leaf age even when a leaf remains visibly green",
       "The same cultivar and production cohort shows a repeatable late-cycle age and canopy-position gradient",
       "Inflorescences, recently expanded leaves, stems, and roots lack independent evidence of a spreading disorder",
-      "Color assessment is made under calibrated or repeatable lighting with healthy same-cultivar references"
+      "Color assessment is made under calibrated or repeatable lighting with healthy same-cultivar references",
+      "In controlled flowering Gelato 29, lower fan leaves in the adequately nourished control developed chlorosis in weeks six through eight; this is contextual evidence that yellowing can overlap nutrient deficiency, not a universal normal-fade schedule"
     ],
     "exclusions": [
       "Visible yellowing alone is used as proof of senescence or harvest readiness",
@@ -7079,7 +7081,9 @@
       "Root-zone pH, EC, water content, oxygenation, root appearance, or irrigation history is abnormal",
       "Feed composition, tissue or solution analysis, or response to correction supports nitrogen or another nutrient disorder",
       "Inflorescence mold, necrosis, odor, collapse, or laboratory evidence supports a pathogen",
-      "A lamp, spray, heat, cold, drought, salinity, or other exposure gradient explains the distribution better"
+      "A lamp, spray, heat, cold, drought, salinity, or other exposure gradient explains the distribution better",
+      "A yellow leaf is declared a healthy control or negative nutrient-disease sample without linked production and exclusion records",
+      "Different leaves or plants are substituted across a supposed progression sequence without persistent specimen identifiers"
     ],
     "progression": [
       {
@@ -7120,7 +7124,9 @@
       "Measure root-zone pH, EC, water content or container weight, and inspect roots; review feed composition and, when consequential, use calibrated solution or tissue analysis rather than assuming remobilization.",
       "Inspect both leaf surfaces and protected growth with magnification for mites, thrips, webbing, eggs, cast skins, frass, and feeding scars.",
       "Use a plant diagnostic laboratory when lesions, systemic distortion, vascular or root decline, inflorescence disease, or virus/viroid signs remain plausible.",
-      "Compare several healthy same-cultivar plants from the same propagation cohort; an age-position gradient that repeats across serial observations is contextual support, not causal proof."
+      "Compare several healthy same-cultivar plants from the same propagation cohort; an age-position gradient that repeats across serial observations is contextual support, not causal proof.",
+      "Retain persistent plant and leaf identifiers linking serial node-marked photographs, paired root-zone measurements, feeding records, and any tissue or diagnostic report; keep leaf age separate from calendar flowering day.",
+      "Distinguish observed late-cycle color change, supported age-related physiology, and a normal-development reference after competing causes have been excluded; yellow foliage alone is not a negative nutrient or pathogen assay."
     ],
     "immediateActions": [
       "Keep the sample labeled “late-cycle leaf aging—cause unresolved” until exclusion checks are complete.",
@@ -7144,7 +7150,9 @@
       "Color is not a validated harvest-maturity marker and this record does not recommend harvest timing, flushing, or a universal feeding concentration.",
       "The source experiments used limited cultivars and defined production systems; their weeks and nutrient concentrations must not be generalized as thresholds.",
       "No authoritative Cannabis photograph or video with adequate longitudinal measurements and causal exclusion was admitted; media remain empty rather than treating vendor, forum, anecdotal, or generated imagery as ground truth.",
-      "All symptom-only samples remain low confidence and require human review."
+      "All symptom-only samples remain low confidence and require human review.",
+      "The 0.20 image-only ceiling is an annotation safeguard, not a measured diagnostic accuracy estimate.",
+      "The Gelato 29 control result came from one cultivar and a small controlled deep-water-culture study; its weeks six through eight do not establish a harvest window, an expected cultivar-independent color sequence, or a reason to withhold nutrients."
     ],
     "sources": [
       {
@@ -7208,6 +7216,57 @@
           "A high-THC Cannabis cultivar grown in deep-water culture during flowering showed quadratic inflorescence-yield responses to nitrogen and phosphorus, with predicted optima near 194 mg per litre nitrogen and 59 mg per litre phosphorus under the tested conditions.",
           "Inflorescence yield decreased markedly outside approximately 160–230 mg per litre nitrogen and 40–80 mg per litre phosphorus, demonstrating that flowering plants still respond materially to nutrient supply.",
           "Those solution concentrations are experiment- and cultivar-specific and must not be converted into universal feed targets, tissue sufficiency ranges, or visual thresholds."
+        ]
+      },
+      {
+        "title": "Foliar Symptomology, Nutrient Content, Yield, and Secondary Metabolite Variability of Cannabis Grown Hydroponically with Different Single-Element Nutrient Deficiencies",
+        "organization": "Plants (Llewellyn et al.)",
+        "url": "https://doi.org/10.3390/plants12030422",
+        "authors": [
+          "David Llewellyn",
+          "Scott Golem",
+          "A. Maxwell P. Jones",
+          "Youbin Zheng"
+        ],
+        "publisher": "MDPI AG",
+        "publicationDate": "2023-01-17",
+        "year": 2023,
+        "accessedDate": "2026-08-20",
+        "doi": "10.3390/plants12030422",
+        "supportedClaims": [
+          "Three Gelato 29 plants per treatment were grown in aerated deep-water culture; single-element withholding began with the switch to a 12-hour flowering photoperiod, plants were examined daily and photographed weekly, and upper- and lower-canopy foliage was laboratory analyzed at symptom onset.",
+          "Nitrogen-withheld plants showed reduced vegetative expansion before foliar symptoms; during week three, very slight yellowing began at leaflet tips of lower-canopy fan leaves.",
+          "By week four, most fan leaves in the lower two-thirds were yellowing; chlorosis was initially strongest between veins before broad whole-leaf yellowing, and severity within leaflets progressed from base toward tip.",
+          "By week five, nearly all fan leaves were yellow with severity increasing from bottom to top; petioles became red-brown, some fan leaves browned and senesced, stems began yellowing, and sugar-leaf chlorosis began.",
+          "By weeks six and seven, most fan leaves had senesced, older and lower-position sugar leaves progressively yellowed or browned, and stems became brown; the authors considered this prolonged severe endpoint commercially damaging.",
+          "At symptom onset, upper- and lower-canopy foliar nitrogen concentrations did not differ and overlapped the control and other treatments, illustrating limitations of a single tissue analysis later in production.",
+          "Healthy control plants developed lower-fan-leaf chlorosis in weeks six through eight despite adequate nutrient solution and foliar concentrations, demonstrating that natural late-flower senescence can visually confound nitrogen deficiency.",
+          "Nitrogen-withheld plants had 73% less aboveground vegetative fresh mass and approximately 72% less fresh inflorescence mass than controls under this three-plant treatment; these are experiment-specific loss estimates, not universal predictions.",
+          "Figure 2 is a CC BY 4.0 four-panel flowering-stage nitrogen-deficiency progression spanning lower-canopy onset, detached fan-leaf severity, canopy distribution, fan-leaf senescence, stem color, and beginning sugar-leaf chlorosis.",
+          "In the calcium-withheld treatment, lower fan leaves developed interveinal spots with yellow rings and necrotic brown centers in week three; by week four symptoms occupied mostly the lower two-thirds and were concentrated near leaflet margins and tips.",
+          "By week five, spots coalesced into irregular marginal necrosis, serration points browned, injury moved upward into younger fan and sugar leaves, and upper fan-leaf tips curled upward; by week six most fan and sugar leaves were affected.",
+          "The flowering-stage lower-leaf onset differed markedly from the vegetative-stage T1 study and from the usual expectation for an immobile nutrient; lower-canopy foliage also contained almost three times the calcium of upper-canopy foliage at symptom onset.",
+          "Calcium-withheld plants averaged 621 g fresh inflorescence mass compared with 1110 g in controls under this three-plant-per-treatment experiment; those values do not establish a universal yield-loss estimate.",
+          "Figure 5 is a CC BY 4.0 five-panel Cannabis calcium-deficiency progression from week-three spotting through widespread marginal necrosis and upward curling in week six.",
+          "Despite foliar iron concentrations less than half those of controls, iron-withheld flowering Gelato 29 plants showed no visible deficiency symptoms and no significant aboveground biomass reduction by the end of the 7.5-week treatment.",
+          "The symptom-negative flowering result came from three plants in one cultivar and one deep-water-culture experiment; it demonstrates that absence of a visible syndrome cannot exclude inadequate iron status, not that flowering Cannabis never shows iron-deficiency symptoms.",
+          "In sulfur-withheld flowering Gelato 29, recently developed upper sugar leaves yellowed in week four; by week five upper fan leaves angled upward and lower fan leaves developed interveinal chlorosis from midrib to margins, later progressing through fan leaves to total yellowing and senescence while early sugar-leaf chlorosis changed little except for browned tips and marginal teeth.",
+          "Sulfur-withheld foliage had substantially lower sulfur than all other treatments, with no significant upper-versus-lower canopy concentration difference; inflorescence yield was 34% lower than control while vegetative biomass, root biomass, and cannabinoid concentrations showed no major effect in the three-plant treatment.",
+          "Figure 7 is a CC BY 4.0 four-panel sulfur-deficiency progression showing younger sugar-leaf yellowing, upward-angled upper fan leaves, a fan-leaf chlorosis sequence, and the later whole-plant distribution.",
+          "The flowering study contrasted with the vegetative T1 study in first described canopy location and progression direction, and cautioned that late-flower nutrient symptomology can be confounded with natural foliar senescence.",
+          "No visually obvious manganese-deficiency signs developed in the manganese-withheld flowering Gelato 29 plants; at week seven their apical inflorescences were similar to controls in size, shape, and color, and the treatment did not reduce biomass or cannabinoid concentrations.",
+          "At harvest, manganese-withheld upper-canopy foliage was extremely low in manganese relative to lower-canopy foliage and other treatments, yet the plants remained visually similar to controls, so a symptom-negative image cannot exclude low manganese status.",
+          "The authors state that nutrient diagnosis should integrate fertilizer and leachate composition, symptomology, and strategically timed and positioned foliar analysis because cultivar, environment, maturity, and sample location affect tissue concentrations.",
+          "Figure 9 is a CC BY 4.0 side-by-side comparison of manganese-withheld and control apical inflorescences during week seven; it is a controlled symptom-negative reference rather than a visible-deficiency example.",
+          "Magnesium-withheld flowering Gelato 29 plants had no visible symptoms for three weeks; mild interveinal chlorosis began on lower fan leaves in week four between the midrib and margins, then rapidly predominated on smaller, younger fan leaves while older fan leaves and inflorescence sugar leaves were less affected.",
+          "Severely affected flowering leaves developed interveinal necrosis that increased from leaflet bases toward tips; by week five symptoms were widespread except at apical inflorescences, and by week six most smaller fan leaves and sugar leaves were yellow except at the midrib and extreme margins while some older fan leaves remained largely unaffected.",
+          "At symptom onset, lower-canopy foliage in the magnesium-withheld treatment contained about one-third the magnesium of upper-canopy foliage; the treatment averaged 748 g fresh inflorescence mass versus 1110 g in controls, approximately 30% lower in this three-plant-per-treatment experiment, while cannabinoid concentrations were not significantly affected.",
+          "Figure 6 is a CC BY 4.0 five-panel flowering-stage magnesium-deficiency progression spanning the first mild lower-fan-leaf chlorosis, whole-plant distribution, detached-leaf severity, inflorescence context, and advanced whole-plant symptoms.",
+          "Potassium-withheld flowering Gelato 29 plants had no visible symptoms for two weeks; in week three, larger sugar leaves developed dark-brown lesions around secondary branch veins, while lower fan leaves developed lighter browning at leaflet tips and marginal teeth one week later.",
+          "By week five both potassium-deficiency pathways appeared on the same plant: sugar-leaf lesions predominated near the top and fan-leaf injury was strongest in the middle third, with light-brown fan-leaf injury moving inward especially through interveinal tissue.",
+          "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
+          "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
+          "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
         ]
       }
     ],
