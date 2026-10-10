@@ -21,6 +21,10 @@ def gh_json(*args: str):
 
 def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
     errors = []
+    if not root.is_dir():
+        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Archive root must be an existing directory"]}
+    if root.is_symlink():
+        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Archive root must not be a symlink"]}
     if not isinstance(manifest, dict):
         return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Manifest must be an object"]}
     rows = manifest.get("results", [])
@@ -52,7 +56,13 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             errors.append(f"{did}: no archive parts")
             continue
         indices = []
-        for part in parts:
+        original = row.get("originalArchive")
+        if not isinstance(original, dict) or type(original.get("sizeBytes")) is not int or original["sizeBytes"] <= 0 or not isinstance(original.get("sha256"), str) or re.fullmatch(r"[0-9a-f]{64}", original["sha256"]) is None:
+            errors.append(f"{did}: invalid original archive metadata")
+        archive_digest = hashlib.sha256()
+        archive_size = 0
+        # Reconstruct in numeric chunk order, regardless of manifest row ordering.
+        for part in sorted(parts, key=lambda item: item.get("filename", "") if isinstance(item, dict) and isinstance(item.get("filename"), str) else ""):
             if not isinstance(part, dict):
                 errors.append(f"{did}: malformed archive part")
                 continue
@@ -77,8 +87,13 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             if not local.is_file():
                 errors.append(f"Missing local part {name}")
                 continue
+            part_digest = hashlib.sha256()
             with local.open("rb") as stream:
-                checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+                for block in iter(lambda: stream.read(1024 * 1024), b""):
+                    part_digest.update(block)
+                    archive_digest.update(block)
+                    archive_size += len(block)
+            checksum = part_digest.hexdigest()
             if checksum != part.get("sha256") or local.stat().st_size != part.get("sizeBytes"):
                 errors.append(f"Local checksum/size differs from manifest: {name}")
                 continue
@@ -100,10 +115,12 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"Release digest mismatch: {name}")
                 continue
             audited += 1
+        if isinstance(original, dict) and (archive_size != original.get("sizeBytes") or archive_digest.hexdigest() != original.get("sha256")):
+            errors.append(f"{did}: reconstructed archive checksum/size mismatch")
         if sorted(indices) != list(range(1, len(indices) + 1)):
             errors.append(f"{did}: part sequence has gaps or duplicates")
     unexpected = sorted(name for name in by_name if any(name.startswith(f"{did}_archive.part") for did in EXPECTED) and name not in declared)
-    undeclared_local = sorted(path.name for path in root.iterdir() if path.is_file() and any(path.name.startswith(f"{did}_archive.part") for did in EXPECTED) and path.name not in declared)
+    undeclared_local = sorted(path.name for path in root.iterdir() if (path.is_file() or path.is_symlink()) and any(path.name.startswith(f"{did}_archive.part") for did in EXPECTED) and path.name not in declared)
     if undeclared_local:
         errors.append(f"Undeclared local archive parts: {', '.join(undeclared_local)}")
     if unexpected:
