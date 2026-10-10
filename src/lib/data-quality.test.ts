@@ -350,6 +350,10 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps substrate-pH stress measured, medium-bounded, and non-visual', () => {
     const record = issues.find((issue) => issue.slug === 'acidic-extreme-substrate-ph-stress')
     expect(record?.reviewStatus).toBe('reviewed')
+    expect(record?.photoOnlyMaxConfidence).toBe(0.15)
+    expect(record?.confirmation.join(' ')).toMatch(/separate labels for measured pH exposure/)
+    expect(record?.confirmation.join(' ')).toMatch(/persistent plant identifier/)
+    expect(record?.warnings.join(' ')).toMatch(/not measured diagnostic accuracy/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/actual substrate|root-zone ph/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/calibrated meter/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/alkalinity/)
