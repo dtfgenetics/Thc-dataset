@@ -361,7 +361,7 @@
       "category": "Nutrient deficiency",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 2,
       "mediaCount": 0,
       "path": "data/profiles/nut-def-cu.json"
     },

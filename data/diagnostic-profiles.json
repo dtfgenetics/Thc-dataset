@@ -7810,9 +7810,9 @@
           "Kristin Hicks"
         ],
         "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
-        "publicationDate": "2021-11-04",
-        "year": 2021,
-        "accessedDate": "2026-08-24",
+        "publicationDate": "2026-08-26",
+        "year": 2026,
+        "accessedDate": "2026-10-10",
         "supportedClaims": [
           "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
           "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
@@ -8140,6 +8140,7 @@
       "Low copper is documented in correctly positioned foliage and linked to supply or root-zone availability"
     ],
     "exclusions": [
+      "A copper result outside the 5 to 11 ppm floral-hemp survey interval, or a pooled crop sample without an individual plant link, is treated as confirmed copper injury solely because the value is out of range",
       "New-leaf interveinal chlorosis occurs without basal narrowing or distortion and iron, manganese, or zinc evidence is stronger",
       "Growing-tip distortion, narrow leaflet bases, root-tip loss, severe wilting, or tip death follows a boron-deficiency pattern and boron analysis supports it",
       "Newest leaves are puckered, bronzed, hardened, or strap-like and broad mites are found under adequate magnification",
@@ -8195,6 +8196,7 @@
       "Camera white-balance, exposure, or grow-light color shift"
     ],
     "confirmation": [
+      "When using the NC State floral-hemp reference, record crop purpose and follow the vegetative most-recently-mature-leaf sampling protocol with the laboratory; a pooled sample from 10 to 20 plants must retain its group identity and cannot confirm injury in every photographed plant. Preserve separate plant-linked diagnostic samples when individual labels are required.",
       "Do not confirm copper deficiency from stunting, narrow leaflet bases, chlorosis, curl, reduced turgidity, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the photographed plant.",
       "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, growing tips, new and mature leaves of known node and physiological age, leaflet bases and margins, both leaf surfaces, internodes with scale, and roots under neutral repeatable lighting with a healthy same-cultivar reference.",
       "Record cultivar, stage, days since onset, copper concentration and formulation, iron, manganese, zinc, boron, calcium, sulfur, phosphorus, and complete fertilizer inputs, source-water chemistry and alkalinity, irrigation history, substrate or solution type, and recent product changes.",
@@ -8221,6 +8223,7 @@
       "Maintain same-cultivar healthy references and consistent growing-tip, node-, and canopy-position sampling so developmental leaf shape is not mistaken for copper response."
     ],
     "warnings": [
+      "The NC State 5 to 11 ppm copper interval is the middle 50% of a floral CBD hemp survey, not a causal deficiency cutoff or proof that an out-of-range result caused the photographed symptoms; transfer to grain, fiber, other stages, or individual plants requires additional evidence.",
       "The controlled sequence came from one Cannabis sativa T1 cultivar in silica sand with copper completely withheld; nine weeks, 1.41 mg/kg tissue copper, 45% lower biomass, and the pictured pattern are experiment-specific, not universal thresholds.",
       "The control contained 4.65 mg/kg copper, slightly below the general crop survey range cited by the authors, which further limits conversion of either value into a Cannabis cutoff.",
       "The source contains a figure-number inconsistency: its copper prose cites Figure 5, while the published Figure 4 caption and right-column label identify copper deficiency and Figure 5 is captioned manganese and boron toxicity. Copper panels require human verification against the original layout.",
@@ -8281,6 +8284,29 @@
           "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
           "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
           "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+        ]
+      },
+      {
+        "title": "Hemp Leaf Tissue Nutrient Ranges: Refinement of Reference Standards for Floral Hemp",
+        "organization": "NC State Extension Publications",
+        "url": "https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges",
+        "authors": [
+          "David Suchoff",
+          "Michelle McGinnis",
+          "Jeanine Davis",
+          "Brian Whipker",
+          "Kristin Hicks"
+        ],
+        "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
+        "publicationDate": "2026-08-26",
+        "year": 2026,
+        "accessedDate": "2026-10-10",
+        "supportedClaims": [
+          "The current publication reports 6,119 floral CBD hemp tissue samples from more than 100 varieties in field and greenhouse systems across 76 North Carolina counties during 2017 to 2020.",
+          "Table 3b gives a 5 to 11 ppm copper reference interval adopted for floral hemp in North Carolina; the quartiles method represents the middle 50% of survey samples rather than a copper-withholding dose-response experiment.",
+          "The authors describe the ranges as estimates pending additional sufficiency studies and state that applicability to grain or fiber hemp remains uninvestigated.",
+          "For vegetative crop tissue analysis, the publication recommends one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants in a paper bag submitted promptly.",
+          "A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed copper injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey."
         ]
       }
     ],
@@ -10997,9 +11023,9 @@
           "Kristin Hicks"
         ],
         "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
-        "publicationDate": "2021-11-04",
-        "year": 2021,
-        "accessedDate": "2026-08-24",
+        "publicationDate": "2026-08-26",
+        "year": 2026,
+        "accessedDate": "2026-10-10",
         "supportedClaims": [
           "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
           "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",

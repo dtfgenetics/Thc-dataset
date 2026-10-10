@@ -3063,14 +3063,19 @@
       "Kristin Hicks"
     ],
     "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
-    "publicationDate": "2021-11-04",
-    "year": 2021,
-    "accessedDate": "2026-08-24",
+    "publicationDate": "2026-08-26",
+    "year": 2026,
+    "accessedDate": "2026-10-10",
     "supportedClaims": [
       "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
       "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
       "The adopted 30 to 90 ppm boron range is a survey-based floral-hemp reference interval rather than a causal deficiency threshold; the authors state that rate studies and further refinement are needed.",
       "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method.",
+      "The current publication reports 6,119 floral CBD hemp tissue samples from more than 100 varieties in field and greenhouse systems across 76 North Carolina counties during 2017 to 2020.",
+      "Table 3b gives a 5 to 11 ppm copper reference interval adopted for floral hemp in North Carolina; the quartiles method represents the middle 50% of survey samples rather than a copper-withholding dose-response experiment.",
+      "The authors describe the ranges as estimates pending additional sufficiency studies and state that applicability to grain or fiber hemp remains uninvestigated.",
+      "For vegetative crop tissue analysis, the publication recommends one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants in a paper bag submitted promptly.",
+      "A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed copper injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey.",
       "The adopted 40 to 158 ppm manganese interval represents the middle 50% of the survey submissions; it is a survey-derived sufficiency guide, not a causal toxicity cutoff.",
       "The survey does not establish a universal manganese-toxicity threshold, and results require sampling-position, cultivar, stage, production-system, crop-purpose, and laboratory-method context."
     ]
