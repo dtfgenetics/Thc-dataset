@@ -1,13 +1,9 @@
 import { NotebookPen, Plus, Trash2 } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import { makeId } from '../lib/diagnostics'
+import { GROW_LOG_STORAGE_KEY as STORAGE_KEY, loadLogEntries } from '../lib/grow-log-storage'
 import type { GrowLogEntry, InvestigationCase } from '../types'
 
-const STORAGE_KEY = 'thc-grow-doc:log:v2'
-
-function loadEntries(): GrowLogEntry[] {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) ?? '[]') as GrowLogEntry[] } catch { return [] }
-}
 
 interface GrowLogProps {
   investigation: InvestigationCase
@@ -15,7 +11,7 @@ interface GrowLogProps {
 }
 
 export function GrowLog({ investigation, onEntriesChange }: GrowLogProps) {
-  const [entries, setEntries] = useState<GrowLogEntry[]>(loadEntries)
+  const [entries, setEntries] = useState<GrowLogEntry[]>(loadLogEntries)
   const [formOpen, setFormOpen] = useState(false)
   const [plantName, setPlantName] = useState(investigation.plantName)
   const [note, setNote] = useState('')
