@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "moderate",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.15,
   "summary": "A Cannabis nutrient disorder that, in one controlled T1-cultivar withholding study, began on lower and older leaves as irregular olive-green spotting with slight stunting and progressed to sunken wet-looking olive areas, marginal necrosis, yellowing, and large necrotic portions. The appearance is contextual and requires root-zone and tissue evidence.",
   "affectedParts": [
     "lower and older fan leaves",
@@ -35,7 +36,9 @@
     "Fine stippling, silver scars, webbing, fecal spots, mites, or thrips are found on magnified inspection",
     "Damage maps to spray droplets, rubbing points, a lamp-facing surface, or another documented exposure and stops after the exposure ends",
     "Roots are decayed or oxygen-stressed, or pH, EC, temperature, or water content is abnormal enough to explain impaired uptake",
-    "Tissue phosphorus is adequate for the cultivar, sampled organ, stage, and laboratory method, or another nutrient result explains the symptoms better"
+    "Tissue phosphorus is adequate for the cultivar, sampled organ, stage, and laboratory method, or another nutrient result explains the symptoms better",
+    "A detached leaf, composite panel, or canopy image is assigned to a tissue result without a persistent plant and leaf-sample identifier linking the photographed organ, node, sampling event, and laboratory report",
+    "The study-specific seven-week onset, 0.09% tissue result, 59 mg/L predicted flowering optimum, olive color, or no-significant-biomass finding is used as a universal diagnostic threshold, timing rule, feed target, severity prediction, or production response"
   ],
   "progression": [
     {
@@ -79,7 +82,10 @@
     "Record leaf node and physiological age, growth stage, cultivar, fertilizer phosphorus input, irrigation history, substrate or soil type, root-zone pH, EC, water content, temperature, drainage, and recent environmental or product changes.",
     "Submit representative leaf tissue from the correct plant part to an agricultural or plant diagnostic laboratory and interpret phosphorus concentration using a crop-, organ-, stage-, and method-appropriate reference; the controlled-study 0.09% value is not a universal cutoff.",
     "Use substrate, solution, water, or soil testing appropriate to the production system to separate low phosphorus supply from high pH, salinity, cold, saturation, poor drainage, root injury, or nutrient antagonism.",
-    "Inspect both leaf surfaces and roots, and use a plant diagnostic laboratory when pathogens or arthropods remain plausible; a nutritional response after correction supports the differential but does not retroactively make the original image ground truth."
+    "Inspect both leaf surfaces and roots, and use a plant diagnostic laboratory when pathogens or arthropods remain plausible; a nutritional response after correction supports the differential but does not retroactively make the original image ground truth.",
+    "Assign a persistent plant and leaf-sample identifier before sampling, and use it to link node-marked serial images, collection date, photographed organ and lesion margin, tissue report, fertilizer record, and paired root-zone measurements; do not pool leaves or plants under one identifier.",
+    "Store compatible visual morphology, analytically supported low phosphorus, measured root-zone availability, and causally attributed phosphorus injury as separate labels; image-only, analytically unlinked, or treatment-response-only samples remain suspected and require human review.",
+    "Keep the full three-class Figure 2 composite out of automated training; any derived center-column crop must retain source-group identity, row-level progression stage, crop coordinates, attribution, and scientific review before admission."
   ],
   "immediateActions": [
     "Mark the plant and preserve pre-treatment images, root-zone measurements, feed records, and representative tissue before changing nutrition.",
@@ -102,7 +108,9 @@
     "Adding phosphorus cannot correct root hypoxia, root disease, unsuitable pH, cold roots, or high salinity and may worsen nutrient imbalance or environmental losses.",
     "A high-THC flowering study found a cultivar- and system-specific quadratic phosphorus response; its solution concentrations must not be converted into a universal feed recipe.",
     "The CC BY figure is a mixed nitrogen/phosphorus/calcium composite and remains excluded from automated training until panel-level crops, labels, and dataset splits are reviewed.",
-    "All symptom-only samples remain low confidence and require human review."
+    "All symptom-only samples remain low confidence and require human review.",
+    "The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.",
+    "The controlled sources differ in cultivar, stage, medium, phosphorus range, and outcome timing; they do not isolate which factor controls visual expression across production systems."
   ],
   "sources": [
     {
