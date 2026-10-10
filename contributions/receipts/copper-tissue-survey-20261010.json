@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "copper-tissue-survey-20261010",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "d48d507c32a04719d3881b25cd3f89620ae0e8c1",
+  "head_commit": "95a3e047f663bdfbe29db382ecb50d8dd59a602f",
+  "branch": "work/grow-doc/GD-DIAG-001/copper-tissue-survey-20261010",
+  "changed_paths": [
+    "data/profiles/index.json",
+    "data/profiles/nut-def-b.json",
+    "data/profiles/nut-def-cu.json",
+    "data/profiles/nut-tox-mn.json",
+    "src/data/expanded-issues.ts",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges"
+  ],
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Canonical diagnostic paths derived from Git; aggregate exports and regression contract remain related release paths because diagnostic routing excludes those paths. All 62 validators, tests, types and build passed. Current source page publication date refreshed consistently across its existing profile links.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "src/lib/data-quality.test.ts",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "scripts/build-training-dataset-manifest.py"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false
+}

@@ -224,6 +224,12 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps copper deficiency publication-aware, analytically bounded, and image-conservative', () => {
     const record = issues.find((issue) => issue.slug === 'copper-deficiency')
+    const survey = record?.sources.find((source) => source.url.endsWith('/hemp-leaf-tissue-nutrient-ranges'))
+    expect(survey?.publicationDate).toBe('2026-08-26')
+    expect(survey?.accessedDate).toBe('2026-10-10')
+    expect(survey?.supportedClaims.join(' ')).toMatch(/5 to 11 ppm.*middle 50%/)
+    expect(record?.warnings.join(' ')).toMatch(/not a causal deficiency cutoff/)
+    expect(record?.confirmation.join(' ')).toMatch(/pooled sample from 10 to 20 plants.*group identity/)
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/root-zone ph.*ec/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tissue|foliage/)
