@@ -381,6 +381,19 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
   })
 
+  it('bounds calcium images to specimen-linked supply and transport evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'calcium-deficiency')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.3390/app9204432', '10.3390/plants12030422']))
+    expect(confirmation).toContain('persistent plant and leaf-sample identifier')
+    expect(confirmation).toContain('causally attributed calcium injury as separate labels')
+    expect(exclusions).toContain('universal diagnostic threshold')
+    expect(exclusions).toContain('transport-limited injury')
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
