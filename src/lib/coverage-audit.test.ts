@@ -322,6 +322,22 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('bounds boron-toxicity images to exposure- and specimen-linked evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'boron-toxicity')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    const warnings = record?.warnings.join(' ') ?? ''
+
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.sources.map((source) => source.doi)).toContain('10.3390/app9204432')
+    expect(confirmation).toContain('persistent plant and leaf-sample identifier')
+    expect(confirmation).toContain('causally attributed boron injury as separate labels')
+    expect(confirmation).toContain('full two-class Figure 5 composite out of automated training')
+    expect(exclusions).toContain('universal threshold')
+    expect(warnings).toContain('not a measured diagnostic-accuracy estimate')
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
