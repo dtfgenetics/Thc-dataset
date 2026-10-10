@@ -8047,6 +8047,7 @@
     "category": "Nutrient deficiency",
     "severity": "high",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "A controlled vegetative Cannabis copper-withholding response characterized by late-onset stunting, basal narrowing and yellowing of newer leaflets, progressive new-leaf distortion, fine interveinal chlorosis, slight inward/downward margin curl, and reduced turgidity. The evidence comes from one cultivar and requires tissue and root-zone confirmation.",
     "affectedParts": [
       "whole plant for relative stunting",
@@ -8085,7 +8086,9 @@
       "Discrete lesions, halos, surface growth, vascular discoloration, root decay, or laboratory evidence supports a pathogen",
       "Damage maps to a lamp-facing surface, heat event, spray droplets, residue, rubbing point, pruning event, or other documented exposure",
       "Color or distortion appears only under grow lights, altered white balance, glare, shadow, compression, residue, or a stable inherited leaf form",
-      "Correctly positioned tissue copper is adequate for the cultivar, stage, method, and production system or another nutrient result explains the syndrome better"
+      "Correctly positioned tissue copper is adequate for the cultivar, stage, method, and production system or another nutrient result explains the syndrome better",
+      "A detached-leaf or new-growth image is assigned to a tissue result without a persistent plant and leaf-sample identifier linking the photographed organ, sampling event, and laboratory report",
+      "The study-specific 1.41 mg/kg tissue result, nine-week onset, 45% biomass reduction, or complete-withholding phenotype is used as a universal diagnostic threshold, timing rule, severity prediction, or production response"
     ],
     "progression": [
       {
@@ -8135,7 +8138,9 @@
       "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing copper supply.",
       "Submit correctly positioned foliage plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret copper with plant part, stage, cultivar, method, and competing elements rather than treating 1.41 mg/kg as a universal cutoff.",
       "Inspect growing points and both leaf surfaces with magnification and use a plant diagnostic laboratory when broad mites, russet mites, thrips, root disease, viruses, viroids, or other pathogens remain plausible.",
-      "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth copper deficiency."
+      "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth copper deficiency.",
+      "Assign a persistent plant and leaf-sample identifier before sampling, and use it to link node-marked serial images, collection date, photographed organ, tissue report, fertilizer record, and paired root-zone measurements; do not pool new and mature leaves or different plants under one identifier.",
+      "Store compatible visual morphology, analytically supported low copper, and causally attributed copper injury as separate labels; image-only, analytically unlinked, or treatment-response-only samples remain suspected and require human review."
     ],
     "immediateActions": [
       "Mark affected and matched healthy plants; preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative tissue before changing nutrition.",
@@ -8158,7 +8163,9 @@
       "The source contains a figure-number inconsistency: its copper prose cites Figure 5, while the published Figure 4 caption and right-column label identify copper deficiency and Figure 5 is captioned manganese and boron toxicity. Copper panels require human verification against the original layout.",
       "New-growth distortion, basal narrowing, chlorosis, curl, reduced turgidity, and stunting overlap nutritional, root-zone, arthropod, pathogen, environmental, exposure, genetic, and imaging conditions and are not image-only ground truth.",
       "The CC BY Figure 4 asset is already hashed and indexed under manganese deficiency; it is cross-referenced rather than duplicated here because repository quality gates require unique verified media hashes.",
-      "No separate image or video is admitted for this record in this batch; all symptom-only samples and any derived copper-panel crops require human review and linked analytical evidence before ground-truth use."
+      "No separate image or video is admitted for this record in this batch; all symptom-only samples and any derived copper-panel crops require human review and linked analytical evidence before ground-truth use.",
+      "The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.",
+      "The controlled experiment did not independently vary cultivar, growth stage, medium, partial copper supply, or competing micronutrients, so it does not isolate which factor controls phenotype expression outside that one system."
     ],
     "sources": [
       {

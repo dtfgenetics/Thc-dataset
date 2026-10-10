@@ -307,6 +307,21 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
   })
 
+  it('bounds copper image labels to specimen-linked analytical evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'copper-deficiency')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    const warnings = record?.warnings.join(' ') ?? ''
+
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.sources.some((source) => source.doi === '10.3390/app9204432')).toBe(true)
+    expect(confirmation).toContain('persistent plant and leaf-sample identifier')
+    expect(confirmation).toContain('causally attributed copper injury as separate labels')
+    expect(exclusions).toContain('universal diagnostic threshold')
+    expect(warnings).toContain('not a measured diagnostic-accuracy estimate')
+    expect(record?.media).toEqual([])
+  })
+
   it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
