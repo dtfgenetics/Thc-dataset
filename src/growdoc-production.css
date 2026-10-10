@@ -967,3 +967,11 @@ button { -webkit-tap-highlight-color: transparent; }
   .reference-discovery, .detail-capture-context { grid-template-columns:1fr; }
   .reference-discovery { gap:12px; }
 }
+
+/* In-page guide navigation and differential discovery */
+.guide-navigation, .related-guides > div { display:flex; flex-wrap:wrap; gap:10px; margin:24px 0; }
+.guide-navigation a, .related-guides button { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:10px 14px; border:1px solid var(--gd-line); border-radius:8px; color:var(--gd-text); background:var(--gd-surface); font:inherit; text-decoration:none; }
+.guide-navigation a:focus-visible, .related-guides button:focus-visible { outline:3px solid var(--gd-green); outline-offset:3px; }
+.issue-detail [id] { scroll-margin-top:90px; }
+.related-guides { margin:24px 0; }
+.related-guides p { color:var(--gd-muted); }
