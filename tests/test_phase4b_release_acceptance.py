@@ -281,6 +281,22 @@ class CliReleaseApiFailureTests(unittest.TestCase):
                 self.assertEqual(report["status"], "fail")
                 self.assertTrue(any("Cannot load release assets" in e for e in report["errors"]))
 
+    def test_invalid_release_id_is_rejected_before_assets_request(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                     "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", return_value={"id": True}) as api, \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertEqual(api.call_count, 1)
+                self.assertTrue(any("Release ID must be a positive integer" in e
+                                    for e in json.loads(stdout.getvalue())["errors"]))
+
     def test_invalid_asset_page_is_structured(self):
         from unittest.mock import patch
         import io
