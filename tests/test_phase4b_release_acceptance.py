@@ -250,5 +250,19 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("invalid non-positive archive part size" in e for e in report["errors"]))
 
+class CliManifestFailureTests(unittest.TestCase):
+    def test_malformed_manifest_exits_before_release_request(self):
+        from unittest.mock import patch
+        import io
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "bad.json"
+            manifest.write_text("{broken")
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                     "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", side_effect=AssertionError("must not call GitHub")), \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertEqual(__import__("json").loads(stdout.getvalue())["status"], "fail")
+
 if __name__ == "__main__":
     unittest.main()
