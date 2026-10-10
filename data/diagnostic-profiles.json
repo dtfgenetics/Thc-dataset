@@ -8488,6 +8488,7 @@
     "category": "Nutrient deficiency",
     "severity": "high",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "A stage- and leaf-type-dependent potassium-status disorder. Controlled vegetative plants developed older-leaf serration and margin yellowing followed by inward tan necrosis, while flowering plants showed an earlier sugar-leaf lesion pathway and a later fan-leaf tip-and-margin pathway. Edge burn alone is nonspecific and requires analytical and root-zone confirmation.",
     "affectedParts": [
       "lower and older foliage in the vegetative T1 sequence",
@@ -8529,7 +8530,9 @@
       "Fine stippling, silver scars, webbing, eggs, mites, thrips, chewing, frass, or fecal spots are present",
       "Damage follows a foliar spray, residue, fan abrasion, trellis contact, pruning, or another documented local exposure",
       "Roots are saturated, oxygen-limited, drought-stressed, temperature-injured, mechanically damaged, or diseased enough to explain impaired uptake",
-      "Color or edge contrast appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar pigmentation"
+      "Color or edge contrast appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar pigmentation",
+      "A detached leaf, cropped panel, composite, or canopy image is assigned to a tissue result or treatment without a persistent plant and leaf-sample identifier linking the photographed organ, node, sampling event, exposure record, and laboratory report",
+      "The study-specific week-three, week-four, week-five, or nine-week onset; 0.41% tissue result; 535 g versus 1110 g yield result; lesion color; or complete-withholding response is used as a universal diagnostic threshold, timing rule, severity prediction, fertilizer target, or production response"
     ],
     "progression": [
       {
@@ -8584,11 +8587,14 @@
     "confirmation": [
       "Do not confirm potassium deficiency from leaf-edge burn, brown sugar-leaf lesions, rust color, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the photographed plant.",
       "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, large and small fan leaves of known node and physiological age, sugar leaves, inflorescences, leaf tips, margins, serrations, secondary veins, both leaf surfaces, and roots under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+      "Assign a persistent plant and leaf-sample identifier before capture and carry it through the image or video, organ and node metadata, treatment and irrigation records, root-zone measurements, tissue sample, laboratory report, and any follow-up observation.",
       "Record cultivar, stage and flowering week, days since onset, potassium concentration and formulation, nitrogen, calcium, magnesium, sulfur, boron, and complete fertilizer inputs, source-water chemistry and alkalinity, irrigation history, and substrate or solution type.",
       "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing potassium supply.",
       "Submit strategically positioned fan- and sugar-leaf tissue plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret potassium with plant part, stage, cultivar, method, salinity, and competing ions.",
+      "Keep compatible morphology, analytically low potassium, impaired root-zone availability, verified inadequate supply, and causally attributed potassium injury as separate labels; promote the causal label only when the same identified plant has concordant evidence and stronger differentials are excluded.",
       "Inspect both leaf surfaces, lesions, and roots with magnification and use a plant diagnostic laboratory when arthropods, root disease, leaf-spot pathogens, viruses, viroids, or other infectious causes remain plausible.",
-      "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth potassium deficiency."
+      "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth potassium deficiency.",
+      "Keep the full three-class vegetative Figure 3 composite and the four-panel flowering Figure 4 composite out of automated training unless panels are bounded, class-, leaf-type-, view-, stage-, and severity-annotated, source-grouped, scientifically reviewed, and assigned to a leakage-safe split."
     ],
     "immediateActions": [
       "Mark affected and matched healthy plants; preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative fan- and sugar-leaf tissue before changing nutrition.",
