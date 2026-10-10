@@ -307,6 +307,17 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
   })
 
+  it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
+    const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record?.sources.some((source) => source.doi === '10.3390/plants12030422')).toBe(true)
+    expect(record?.indicators.join(' ')).toContain('adequately nourished control')
+    expect(record?.confirmation.join(' ')).toContain('persistent plant and leaf identifiers')
+    expect(record?.confirmation.join(' ')).toContain('not a negative nutrient or pathogen assay')
+    expect(record?.warnings.join(' ')).toContain('do not establish a harvest window')
+    expect(record?.media).toEqual([])
+  })
+
   it('bounds iron image labels and preserves symptom-negative analytical evidence', () => {
     const record = issues.find((issue) => issue.slug === 'iron-deficiency')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
