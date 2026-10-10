@@ -21,10 +21,10 @@ def gh_json(*args: str):
 
 def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
     errors = []
-    if not root.is_dir():
-        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Archive root must be an existing directory"]}
     if root.is_symlink():
         return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Archive root must not be a symlink"]}
+    if not root.is_dir():
+        return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Archive root must be an existing directory"]}
     if not isinstance(manifest, dict):
         return {"status": "fail", "verifiedParts": 0, "declaredParts": 0, "errors": ["Manifest must be an object"]}
     rows = manifest.get("results", [])
