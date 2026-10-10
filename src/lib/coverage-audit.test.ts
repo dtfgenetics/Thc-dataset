@@ -248,7 +248,13 @@ describe('diagnostic coverage audit', () => {
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
 
     expect(record?.reviewStatus).toBe('reviewed')
-    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.45)
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record?.name).toBe('Alternaria leaf spot complex')
+    expect(record?.scientificName).toContain('A. cannabina')
+    expect(record?.sources.some((source) => source.doi === '10.1007/s10658-021-02450-1')).toBe(true)
+    expect(confirmation).toContain('its, gapdh, tef1, rpb2, and atpase')
+    expect(confirmation).toContain('visible leaf injury, lesion-linked alternaria detection, and causally attributed disease as separate labels')
+    expect(record?.exclusions.join(' ')).toContain('ITS-only match')
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-01-21-0130-PDN')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1080/07060661.2021.1988712')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)

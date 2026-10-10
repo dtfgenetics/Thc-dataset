@@ -3,7 +3,7 @@
 "bacterial-xanthomonas-leaf-spot","xanthomonas-bacterial-leaf-spot","Xanthomonas bacterial leaf spot","Bacterial pathogen","moderate","reviewed","core","diagnostic-profile","data/profiles/bacterial-xanthomonas-leaf-spot.json"
 "env-heat","heat-light-stress","High-temperature or high-light exposure","Environmental stress","moderate","reviewed","core","diagnostic-profile","data/profiles/env-heat.json"
 "env-herbicide-clomazone","herbicide-clomazone-bleaching-injury","Herbicide injury — clomazone-type bleaching","Environmental stress","high","reviewed","supplemental","diagnostic-profile","data/profiles/env-herbicide-clomazone.json"
-"fungal-alternaria-leaf-spot","alternaria-leaf-spot","Alternaria leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-alternaria-leaf-spot.json"
+"fungal-alternaria-leaf-spot","alternaria-leaf-spot","Alternaria leaf spot complex","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-alternaria-leaf-spot.json"
 "fungal-anthracnose-leaf-spot","anthracnose-colletotrichum-leaf-spot","Anthracnose leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-anthracnose-leaf-spot.json"
 "fungal-bipolaris-leaf-spot","bipolaris-leaf-spot","Bipolaris leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-bipolaris-leaf-spot.json"
 "fungal-botrytis-bud-rot","botrytis-gray-mold-bud-rot","Botrytis gray mold and bud rot","Fungal pathogen","critical","reviewed","core","diagnostic-profile","data/profiles/fungal-botrytis-bud-rot.json"
