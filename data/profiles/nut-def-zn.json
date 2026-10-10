@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "moderate",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.15,
   "summary": "Low zinc produced two different controlled Cannabis presentations: marginal yellowing and necrosis on newer foliage in vegetative T1, and young-leaf mottled interveinal chlorosis with restricted flowering growth in Annapurna. The latter study found a major phosphorus interaction and cautioned that its visible leaf symptom may not be directly zinc-specific.",
   "affectedParts": [
     "newer and expanding leaves",
@@ -38,7 +39,9 @@
     "Fine stippling, silver scars, webbing, eggs, mites, thrips, or fecal spots are found on magnified inspection",
     "Mosaic, distortion, vein clearing, brittle growth, or laboratory evidence supports a virus, viroid, or other pathogen",
     "Root decay, saturation, hypoxia, abnormal temperature, salinity, pH, or irrigation history better explains impaired uptake",
-    "Short stature or sectoring is stable within the cultivar and lacks progressive leaf symptoms or analytical evidence of low zinc"
+    "Short stature or sectoring is stable within the cultivar and lacks progressive leaf symptoms or analytical evidence of low zinc",
+    "A detached leaf or growth photograph is assigned to a tissue result without a persistent plant and sample identifier",
+    "A study-specific tissue concentration, supply rate, onset week, or canopy position is used as a universal diagnostic threshold"
   ],
   "progression": [
     {
@@ -87,7 +90,9 @@
     "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the production system, and inspect washed roots before changing zinc supply.",
     "Submit correctly positioned leaf tissue plus appropriate solution, substrate, soil, or water samples to an agricultural or plant diagnostic laboratory; interpret zinc together with phosphorus, iron, manganese, copper, sulfur, and other nutrients using crop-, organ-, stage-, and method-appropriate references.",
     "Inspect both leaf surfaces and growing tips with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
-    "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively turn the original image into zinc-deficiency ground truth."
+    "Treat response of subsequent growth as supporting evidence only; improvement after correcting a documented cause does not retroactively turn the original image into zinc-deficiency ground truth.",
+    "Retain a persistent plant and leaf-sample identifier linking node-marked serial images, sampling date, laboratory report, feed composition, and paired root-zone measurements; distinguish upper and lower canopy samples.",
+    "Keep visually compatible symptoms, analytically supported low nutrient status, and causally attributed injury as separate labels; symptom-only or unlinked captures require human review before ground-truth use."
   ],
   "immediateActions": [
     "Mark the plant and preserve pre-treatment serial images, feed and irrigation records, root-zone measurements, growth measurements, and representative tissue before changing nutrition.",
@@ -110,7 +115,9 @@
     "The 2026 study authors explicitly stated that high leaf phosphorus may have caused the visible mottling at 0.05 mg/L zinc; the pictured chlorosis is a treatment-associated observation, not mechanism-specific visual ground truth.",
     "The 0.1 mg/L treatment reduced inflorescence yield without reported visible chlorosis, so symptom absence cannot exclude a low-zinc treatment response.",
     "The CC BY dose-response figure contains five zinc levels, multiple organs and views, both suspected deficiency and excess tip injury, and a mechanistically uncertain chlorosis label; it is excluded from automated training pending panel-level annotation and human review.",
-    "All symptom-only, symptom-negative, and growth-only samples require human review and linked analytical evidence before ground-truth use."
+    "All symptom-only, symptom-negative, and growth-only samples require human review and linked analytical evidence before ground-truth use.",
+    "The 0.15 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.",
+    "Differences among cultivar, growth stage, medium, and treatment schedules prevent cross-study images from isolating a single cause of phenotype variation."
   ],
   "sources": [
     {

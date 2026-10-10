@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "moderate",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.15,
   "summary": "A context-dependent manganese-status disorder. Controlled vegetative T1 plants developed bright netted interveinal chlorosis on upper and central leaves with later tan necrotic flecks, while a controlled flowering Gelato 29 trial remained visually normal despite extremely low upper-canopy manganese. Images can support a differential but cannot confirm or exclude low manganese status.",
   "affectedParts": [
     "upper and central foliage in the controlled vegetative sequence",
@@ -41,7 +42,9 @@
     "Symptoms map to a lamp-facing surface, heat event, spray droplets, residue, rubbing point, or other documented exposure",
     "Roots are decayed, saturated, oxygen-limited, drought-stressed, temperature-injured, or salt-stressed enough to explain impaired uptake",
     "Color or netting appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar variegation",
-    "Appropriately sampled tissue and root-zone evidence support iron, zinc, magnesium, sulfur, nitrogen, or another diagnosis more strongly"
+    "Appropriately sampled tissue and root-zone evidence support iron, zinc, magnesium, sulfur, nitrogen, or another diagnosis more strongly",
+    "A detached leaf or growth photograph is assigned to a tissue result without a persistent plant and sample identifier",
+    "A study-specific tissue concentration, supply rate, onset week, or canopy position is used as a universal diagnostic threshold"
   ],
   "progression": [
     {
@@ -88,7 +91,9 @@
     "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing manganese supply.",
     "Submit strategically positioned upper- and lower-canopy foliage plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret manganese with plant part, stage, cultivar, method, and competing nutrients.",
     "Inspect both leaf surfaces and growing points with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
-    "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth manganese deficiency."
+    "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth manganese deficiency.",
+    "Retain a persistent plant and leaf-sample identifier linking node-marked serial images, sampling date, laboratory report, feed composition, and paired root-zone measurements; distinguish upper and lower canopy samples.",
+    "Keep visually compatible symptoms, analytically supported low nutrient status, and causally attributed injury as separate labels; symptom-only or unlinked captures require human review before ground-truth use."
   ],
   "immediateActions": [
     "Mark affected and matched healthy plants; preserve pre-treatment serial images, feed records, root-zone measurements, and representative tissue before changing nutrition.",
@@ -112,7 +117,9 @@
     "Upper/newer interveinal chlorosis and tan spotting overlap nutritional, root-zone, arthropod, pathogen, environmental, genetic, and imaging conditions and are not image-only ground truth.",
     "The CC BY figure contains manganese-, boron-, and copper-deficiency columns and remains excluded from automated training until panels are bounded, class- and stage-annotated, scientifically reviewed, source-grouped, and assigned a leakage-safe split.",
     "The symptom-negative flowering comparison is not duplicated as media in this batch; a normal-looking inflorescence must never be relabeled as visibly manganese deficient.",
-    "All symptom-only and symptom-negative samples require human review and linked analytical evidence before ground-truth use."
+    "All symptom-only and symptom-negative samples require human review and linked analytical evidence before ground-truth use.",
+    "The 0.15 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.",
+    "Differences among cultivar, growth stage, medium, and treatment schedules prevent cross-study images from isolating a single cause of phenotype variation."
   ],
   "sources": [
     {
