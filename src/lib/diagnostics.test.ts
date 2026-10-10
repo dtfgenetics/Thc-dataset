@@ -75,6 +75,42 @@ describe('rankDifferentials', () => {
     expect(withChemistry[0].score).toBe(withoutChemistry[0].score)
   })
 
+  it.each(['unknown', 'not measured', '6–7', '-1', 'Infinity', '6.2 and 7.1'])('does not count %s as measured root-zone chemistry', (value) => {
+    const record = fixtureIssue('nutrient-context', ['Interveinal chlorosis'], { category: 'Nutrient deficiency' })
+    const [result] = rankDifferentials([record], context(record.indicators, { ph: value, ec: value }), [])
+    expect(result.missing).toEqual(expect.arrayContaining(['measured pH', 'measured EC/PPM']))
+    expect(result.contextSignals).not.toContain('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
+  })
+
+  it('does not satisfy the pH exposure requirement with a placeholder', () => {
+    const record = fixtureIssue('acidic-extreme-substrate-ph-stress', ['A defining symptom'])
+    const [result] = rankDifferentials([record], context(record.indicators, { ph: 'unknown' }), [])
+    expect(result.missing).toContain('structured root-zone pH measurement linked to this plant')
+    expect(result.contextSignals).not.toContain('structured root-zone pH evidence is recorded for this exposure-dependent hypothesis')
+  })
+
+  it.each(['1.4', '1.4 mS/cm', '1.4 dS/m', '1400 µS/cm', '1400 μS/cm', '1400 uS/cm', '700 ppm', '0 mS/cm'])('accepts a reported EC/PPM reading of %s without claiming confirmation', (ec) => {
+    const record = fixtureIssue('nutrient-context', ['Interveinal chlorosis'], { category: 'Nutrient deficiency' })
+    const [result] = rankDifferentials([record], context(record.indicators, { ph: 'pH: 6.2', ec }), [])
+    expect(result.missing).not.toContain('measured pH')
+    expect(result.missing).not.toContain('measured EC/PPM')
+  })
+
+  it.each(['1400 µS/cm', '1.4 dS/m', '700 ppm', '700', 'unknown'])('does not invent a conductivity change between 1.4 mS/cm and %s', (ec) => {
+    const record = fixtureIssue('nutrient-context', ['Interveinal chlorosis'], { category: 'Nutrient deficiency' })
+    const history = [{ id: 'prior', createdAt: '2026-10-09', plantName: 'Plant 1', note: '', outcome: '', ec: '1.4 mS/cm' }]
+    const [result] = rankDifferentials([record], context(record.indicators, { ec }), [], history)
+    expect(result.historySignals).toEqual([])
+    expect(result.score).toBe(rankDifferentials([record], context(record.indicators, { ec }), [])[0].score)
+  })
+
+  it('preserves a real conductivity-change signal across different supported units', () => {
+    const record = fixtureIssue('nutrient-context', ['Interveinal chlorosis'], { category: 'Nutrient deficiency' })
+    const history = [{ id: 'prior', createdAt: '2026-10-09', plantName: 'Plant 1', note: '', outcome: '', ec: '1.4 mS/cm' }]
+    const [result] = rankDifferentials([record], context(record.indicators, { ec: '2400 µS/cm' }), [], history)
+    expect(result.historySignals).toContain('EC changed materially across the investigation history after conductivity-unit normalization')
+  })
+
   it('ranks magnesium deficiency without overstating confidence', () => {
     const results = rankDifferentials(issues, context(['Older leaves yellow between green veins', 'Rust or tan spotting']), [])
     expect(results[0].issue.slug).toBe('magnesium-deficiency')

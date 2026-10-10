@@ -147,13 +147,33 @@ const applyResponsePolicy = (issue: IssueRecord, confidence: Differential['confi
   return capped
 }
 
-function numeric(value?: string) {
-  if (!value) return undefined
-  const parsed = Number.parseFloat(value.replace(/[^0-9.+-]/g, ''))
-  return Number.isFinite(parsed) ? parsed : undefined
+const scalarPattern = '(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:e[+-]?\\d+)?'
+const phPattern = new RegExp(`^(?:ph\\s*[:=]?\\s*)?(${scalarPattern})$`, 'i')
+const ecPattern = new RegExp(`^(?:ec\\s*[:=]?\\s*)?(${scalarPattern})\\s*(ms/cm|ds/m|[uµμ]s/cm|ppm)?$`, 'i')
+
+function measuredPh(value?: string) {
+  const match = value?.trim().match(phPattern)
+  if (!match) return undefined
+  const parsed = Number(match[1])
+  return Number.isFinite(parsed) && parsed >= 0 && parsed <= 14 ? parsed : undefined
+}
+
+function measuredEc(value?: string) {
+  const match = value?.trim().match(ecPattern)
+  if (!match) return undefined
+  const parsed = Number(match[1])
+  if (!Number.isFinite(parsed) || parsed < 0) return undefined
+  const unit = match[2]?.toLowerCase()
+  // Unitless readings and PPM can be retained as reported context, but cannot
+  // establish a conductivity trend without an explicit unit/conversion scale.
+  const conductivity = !unit || unit === 'ppm' ? undefined
+    : unit === 'ms/cm' || unit === 'ds/m' ? parsed : parsed / 1000
+  return { value: parsed, conductivity }
 }
 
 function hasStructuredContext(context: GrowContext, field: RequiredContextField) {
+  if (field === 'ph') return measuredPh(context.ph) !== undefined
+  if (field === 'ec') return measuredEc(context.ec) !== undefined
   return Boolean(context[field]?.trim())
 }
 
@@ -185,17 +205,17 @@ function historyContribution(issue: IssueRecord, context: GrowContext, history: 
   }
 
   if (needsRootZoneChemistry(issue)) {
-    const currentPh = numeric(context.ph)
-    const previousPh = history.map((entry) => numeric(entry.ph)).filter((value): value is number => value !== undefined)
+    const currentPh = measuredPh(context.ph)
+    const previousPh = history.map((entry) => measuredPh(entry.ph)).filter((value): value is number => value !== undefined)
     if (currentPh !== undefined && previousPh.some((value) => Math.abs(value - currentPh) >= 0.6)) {
       score += 0.5
       signals.push('pH changed materially across the investigation history')
     }
-    const currentEc = numeric(context.ec)
-    const previousEc = history.map((entry) => numeric(entry.ec)).filter((value): value is number => value !== undefined)
+    const currentEc = measuredEc(context.ec)?.conductivity
+    const previousEc = history.map((entry) => measuredEc(entry.ec)?.conductivity).filter((value): value is number => value !== undefined)
     if (currentEc !== undefined && previousEc.some((value) => Math.abs(value - currentEc) >= 0.6)) {
       score += 0.5
-      signals.push('EC/PPM changed materially across the investigation history')
+      signals.push('EC changed materially across the investigation history after conductivity-unit normalization')
     }
   }
 
@@ -240,7 +260,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
       score += 1
       contextSignals.push('a leaf-underside view is available for this arthropod hypothesis')
     }
-    if (needsRootZoneChemistry(issue) && context.ph && context.ec) contextSignals.push('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
+    if (needsRootZoneChemistry(issue) && hasStructuredContext(context, 'ph') && hasStructuredContext(context, 'ec')) contextSignals.push('measured pH and EC/PPM were supplied for root-zone review; values are not treated as confirming by themselves')
     if (needsWateringContext(issue) && context.watering) contextSignals.push('recent irrigation or substrate-moisture context was supplied for review')
 
     const requiredContextEvidence = requiredContextEvidenceBySlug[issue.slug] ?? []
@@ -255,8 +275,8 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
     if ((issue.category === 'Root pathogen' || issue.category === 'Water / root-zone') && !hasRootView) missing.push('root or crown view')
     if (laboratoryBoundedCategories.has(issue.category)) missing.push('validated laboratory test')
     if (microscopicMiteSlugs.has(issue.slug)) missing.push('microscope-confirmed mite identification')
-    if (needsRootZoneChemistry(issue) && !context.ph) missing.push('measured pH')
-    if (needsRootZoneChemistry(issue) && !context.ec) missing.push('measured EC/PPM')
+    if (needsRootZoneChemistry(issue) && !hasStructuredContext(context, 'ph')) missing.push('measured pH')
+    if (needsRootZoneChemistry(issue) && !hasStructuredContext(context, 'ec')) missing.push('measured EC/PPM')
     if (needsWateringContext(issue) && !context.watering) missing.push('recent irrigation / substrate-moisture context')
     for (const requirement of requiredContextEvidence) {
       if (!hasStructuredContext(context, requirement.field) && !missing.includes(requirement.missingLabel)) missing.push(requirement.missingLabel)
@@ -272,7 +292,7 @@ export function rankDifferentials(records: IssueRecord[], context: GrowContext, 
       else if (microscopicMiteSlugs.has(issue.slug) && confidence === 'High') confidence = 'Moderate'
     }
     if (issue.category === 'Insect' && !hasUnderside && confidence === 'High') confidence = 'Moderate'
-    if ((issue.category === 'Nutrient deficiency' || issue.category === 'Nutrient toxicity') && (!context.ph || !context.ec) && confidence === 'High') confidence = 'Moderate'
+    if ((issue.category === 'Nutrient deficiency' || issue.category === 'Nutrient toxicity') && (!hasStructuredContext(context, 'ph') || !hasStructuredContext(context, 'ec')) && confidence === 'High') confidence = 'Moderate'
     if ((!hasWholePlant || !hasCloseUp) && confidence === 'High') confidence = 'Moderate'
     confidence = applyResponsePolicy(issue, confidence, missing)
 
