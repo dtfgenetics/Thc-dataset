@@ -52,6 +52,11 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             errors.append(f"{did}: no archive parts")
             continue
         indices = []
+        original = row.get("originalArchive")
+        if not isinstance(original, dict) or type(original.get("sizeBytes")) is not int or original["sizeBytes"] <= 0 or not isinstance(original.get("sha256"), str) or re.fullmatch(r"[0-9a-f]{64}", original["sha256"]) is None:
+            errors.append(f"{did}: invalid original archive metadata")
+        archive_digest = hashlib.sha256()
+        archive_size = 0
         for part in parts:
             if not isinstance(part, dict):
                 errors.append(f"{did}: malformed archive part")
@@ -79,6 +84,10 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 continue
             with local.open("rb") as stream:
                 checksum = hashlib.file_digest(stream, "sha256").hexdigest()
+            with local.open("rb") as stream:
+                for block in iter(lambda: stream.read(1024 * 1024), b""):
+                    archive_digest.update(block)
+                    archive_size += len(block)
             if checksum != part.get("sha256") or local.stat().st_size != part.get("sizeBytes"):
                 errors.append(f"Local checksum/size differs from manifest: {name}")
                 continue
@@ -100,6 +109,8 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
                 errors.append(f"Release digest mismatch: {name}")
                 continue
             audited += 1
+        if isinstance(original, dict) and (archive_size != original.get("sizeBytes") or archive_digest.hexdigest() != original.get("sha256")):
+            errors.append(f"{did}: reconstructed archive checksum/size mismatch")
         if sorted(indices) != list(range(1, len(indices) + 1)):
             errors.append(f"{did}: part sequence has gaps or duplicates")
     unexpected = sorted(name for name in by_name if any(name.startswith(f"{did}_archive.part") for did in EXPECTED) and name not in declared)
