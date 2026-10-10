@@ -10987,6 +10987,7 @@
     "category": "Nutrient toxicity",
     "severity": "high",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "A measurement-dependent Cannabis nitrogen disorder with two distinct controlled contexts: excessive total nitrogen during vegetative growth produced smaller dark-green shoots and restricted roots, while excessive ammonium fraction during reproductive growth caused growing-tip curl and marginal necrosis, later wilting, systemic necrosis, root damage, and possible plant death. These pathways must not be collapsed into a generic dark-leaf or claw label.",
     "affectedParts": [
       "whole plant and organs for relative size",
@@ -11023,7 +11024,10 @@
       "Wilt follows drought, excessive vapor demand, waterlogging, root hypoxia, root temperature, or vascular/root disease without a nitrogen exposure-response link",
       "Marginal necrosis follows a potassium, boron, salinity, contact, foliar-product, wind, or pathogen pattern and analytical evidence does not support nitrogen-form injury",
       "Plants are small because of nitrogen deficiency, unsuitable pH, root binding, irrigation failure, cultivar architecture, stage, or another measured nutrient disorder",
-      "Color, gloss, or apparent curl changes only under grow lights, altered white balance, glare, shadow, lens distortion, compression, or stable genetic leaf form"
+      "Color, gloss, or apparent curl changes only under grow lights, altered white balance, glare, shadow, lens distortion, compression, or stable genetic leaf form",
+      "A detached leaf, cropped panel, composite, or canopy image is assigned to a nitrogen treatment, tissue result, or root-zone result without a persistent plant and leaf-sample identifier linking the photographed organ, node, exposure formulation, sampling event, and laboratory report",
+      "The study-specific 160, 200, 240, or 320 mg/L total-nitrogen concentrations; 50% or 100% ammonium fractions; day-17 onset; late-cycle timing; dark color; biomass response; or plant death is used as a universal diagnostic threshold, timing rule, severity prediction, fertilizer target, or production response",
+      "Excessive total-nitrogen dose and excessive ammonium fraction are collapsed into one causal label without formulation, nitrate-to-ammonium ratio, exposure, root-zone, tissue, and response evidence"
     ],
     "progression": [
       {
@@ -11074,11 +11078,14 @@
       "Do not confirm nitrogen toxicity from dark foliage, gloss, leaf clawing, tip burn, curl, one photograph, or one video; retain a suspected label until nitrogen dose or form, root-zone measurements, and plant response are linked.",
       "Separate suspected excessive total-nitrogen dose from suspected ammonium-form toxicity; record nitrate and ammonium concentrations and proportions rather than only a product EC or total fertilizer rate.",
       "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, growing tips, youngest fully developed leaves, both leaf surfaces and margins, stems, side branches, inflorescences when present, and washed roots under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+      "Assign a persistent plant and leaf-sample identifier before capture and carry it through images or video, organ and node metadata, nitrogen formulation and treatment records, root-zone and leachate measurements, tissue and root samples, laboratory reports, and follow-up observations.",
       "Record cultivar, stage, days since onset, complete fertilizer formulation, each nitrogen source, stock and injector calculations, water alkalinity, irrigation volume, drainage fraction, substrate or solution type, temperature, humidity, light, and recent product changes.",
       "Measure calibrated input and representative root-zone or solution pH and EC, and test input, reservoir, leachate, or drainage for total nitrogen, nitrate, and ammonium as appropriate to the system; compare supply with actual water use and drainage.",
       "Submit defined-position leaf tissue and appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret nitrogen with cultivar, stage, organ, method, salinity, and competing nutrients rather than using 160, 240, or 320 mg/L as universal thresholds.",
+      "Keep compatible morphology, verified excessive total-nitrogen supply, verified excessive ammonium fraction, broad salinity or ion-balance stress, elevated tissue nitrogen, and causally attributed nitrogen injury as separate labels; promote a causal label only when the same identified plant has concordant evidence and stronger differentials are excluded.",
       "Inspect growing tips and both leaf surfaces with magnification and use a plant diagnostic laboratory when mites, thrips, root disease, viruses, viroids, vascular pathogens, or foliar injury remain plausible.",
-      "Treat response of subsequent growth after a measured correction as supporting evidence only; it does not retroactively make the original image ground-truth nitrogen toxicity."
+      "Treat response of subsequent growth after a measured correction as supporting evidence only; it does not retroactively make the original image ground-truth nitrogen toxicity.",
+      "Keep the full fifteen-panel Figure 1 dose-and-organ composite and the extreme-treatment Figure 2 image out of automated training unless observations are panel-bounded, dose-, nitrogen-form-, organ-, time-, and severity-annotated, source-grouped, scientifically reviewed, and assigned to a leakage-safe split."
     ],
     "immediateActions": [
       "Preserve pre-treatment images, fertilizer labels, mixing records, solution samples, root-zone measurements, representative tissue, and matched healthy controls before changing the program.",
@@ -11103,7 +11110,8 @@
       "The controlled sources do not support dark clawed leaves, gloss, soft stems, burned tips, or delayed flowering as standalone Cannabis nitrogen-toxicity ground truth; those legacy claims were removed.",
       "The dose-response Figure 1 combines five treatment columns and three organ/view rows and remains training-ineligible until every panel is dose-, organ-, time-, and source-group annotated with a leakage-safe split.",
       "The 100% ammonium apical image is CC BY 4.0 but represents an extreme treatment confounded by nitrate absence; it remains training-ineligible and requires human scientific review.",
-      "All symptom-only, dark-leaf-only, claw-only, and unmeasured-EC samples remain low confidence and require human review."
+      "All symptom-only, dark-leaf-only, claw-only, unlinked-treatment, nitrogen-form-unknown, and unmeasured-EC samples remain low confidence and require human review.",
+      "The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate."
     ],
     "sources": [
       {

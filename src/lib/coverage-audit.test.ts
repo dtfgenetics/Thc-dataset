@@ -394,6 +394,22 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
   })
 
+  it('bounds nitrogen-toxicity images to exposure- and mechanism-linked evidence', () => {
+    const record = issues.find((issue) => issue.slug === 'nitrogen-toxicity')
+    const confirmation = record?.confirmation.join(' ') ?? ''
+    const exclusions = record?.exclusions.join(' ') ?? ''
+    const warnings = record?.warnings.join(' ') ?? ''
+    expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining(['10.3389/fpls.2020.572293', '10.3389/fpls.2022.830224']))
+    expect(confirmation).toContain('persistent plant and leaf-sample identifier')
+    expect(confirmation).toContain('causally attributed nitrogen injury as separate labels')
+    expect(confirmation).toContain('fifteen-panel Figure 1 dose-and-organ composite')
+    expect(exclusions).toContain('universal diagnostic threshold')
+    expect(exclusions).toContain('Excessive total-nitrogen dose and excessive ammonium fraction')
+    expect(warnings).toContain('not a measured diagnostic-accuracy estimate')
+    expect(record?.media.every((media) => !media.trainingEligible)).toBe(true)
+  })
+
   it('keeps late-cycle yellowing separate from healthy-control and maturity labels', () => {
     const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
