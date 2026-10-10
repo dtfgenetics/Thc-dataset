@@ -77,7 +77,7 @@ describe('rankDifferentials', () => {
   it('ranks magnesium deficiency without overstating confidence', () => {
     const results = rankDifferentials(issues, context(['Older leaves yellow between green veins', 'Rust or tan spotting']), [])
     expect(results[0].issue.slug).toBe('magnesium-deficiency')
-    expect(results[0].confidence).toBe('Moderate')
+    expect(results[0].confidence).toBe('Low')
     expect(results[0].missing).toContain('measured pH')
     expect(results[0].missing).toContain('measured EC/PPM')
   })

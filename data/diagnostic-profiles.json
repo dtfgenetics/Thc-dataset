@@ -8770,6 +8770,7 @@
     "category": "Nutrient deficiency",
     "severity": "moderate",
     "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.15,
     "summary": "A stage- and canopy-dependent magnesium-status disorder characterized by interveinal chlorosis that retains greener veins and can progress to interveinal necrosis. Controlled vegetative plants began on older lower foliage, while a flowering trial shifted rapidly toward smaller, younger fan leaves; images require tissue and root-zone confirmation.",
     "affectedParts": [
       "lower and older foliage in the controlled vegetative T1 sequence",
@@ -8811,7 +8812,9 @@
       "Mosaic, vein clearing, distortion, brittle growth, or molecular evidence supports a virus or viroid",
       "Symptoms map to a lamp-facing surface, heat event, spray droplets, residue, rubbing point, or other documented exposure",
       "Roots are saturated, oxygen-limited, drought-stressed, temperature-injured, mechanically damaged, or diseased enough to explain impaired uptake",
-      "Color or contrast appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar pigmentation"
+      "Color or contrast appears only under grow lights, altered white balance, glare, shadow, compression, residue, or stable cultivar pigmentation",
+      "A detached leaf, cropped panel, composite, or canopy image is assigned to tissue chemistry or treatment without a persistent plant and leaf-sample identifier linking the photographed organ, node, sampling event, root-zone record, and laboratory report",
+      "The study-specific week-four or seven-week onset, 0.12% tissue result, 748 g versus 1110 g yield result, leaf-age distribution, or complete-withholding response is used as a universal diagnostic threshold, timing rule, severity prediction, fertilizer target, or production response"
     ],
     "progression": [
       {
@@ -8860,11 +8863,14 @@
     "confirmation": [
       "Do not confirm magnesium deficiency from interveinal yellowing, rust-colored tissue, one photograph, or one video; retain a suspected label until analytical and root-zone evidence is linked to the photographed plant.",
       "Capture serial whole-plant and matched upper-, middle-, and lower-canopy views, small and large fan leaves of known node and physiological age, sugar leaves, inflorescences, both leaf surfaces, and roots under neutral repeatable lighting with scale and a healthy same-cultivar reference.",
+      "Assign a persistent plant and leaf-sample identifier before capture and carry it through the image or video, organ and node metadata, treatment and irrigation records, root-zone measurements, tissue sample, laboratory report, and any follow-up observation.",
       "Record cultivar, stage and flowering week, days since onset, magnesium concentration and formulation, calcium, potassium, sulfur, iron, manganese, and complete fertilizer inputs, source-water mineral content and alkalinity, irrigation history, and substrate or solution type.",
       "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots before changing magnesium supply.",
       "Submit strategically positioned upper- and lower-canopy foliage plus appropriate solution, substrate, soil, leachate, or water samples to an agricultural or plant diagnostic laboratory; interpret magnesium with plant part, stage, cultivar, method, and competing ions.",
+      "Keep compatible morphology, analytically low magnesium, impaired root-zone availability, verified inadequate supply, and causally attributed magnesium injury as separate labels; promote the causal label only when the same identified plant has concordant evidence and stronger differentials are excluded.",
       "Inspect both leaf surfaces and roots with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
-      "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth magnesium deficiency."
+      "Treat subsequent new-growth response as supporting evidence only; improvement after correcting a documented cause does not retroactively make the original image ground-truth magnesium deficiency.",
+      "Keep the full three-class vegetative Figure 3 composite and the five-panel flowering Figure 6 composite out of automated training unless panels are bounded, class-, leaf-type-, view-, stage-, and severity-annotated, source-grouped, scientifically reviewed, and assigned to a leakage-safe split."
     ],
     "immediateActions": [
       "Mark affected and matched healthy plants; preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative tissue before changing nutrition.",
