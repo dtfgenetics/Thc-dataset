@@ -5,6 +5,7 @@
   "category": "Nutrient deficiency",
   "severity": "moderate",
   "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.15,
   "summary": "A context-dependent iron-status disorder that produced upper-canopy, new-leaf interveinal chlorosis in a controlled vegetative T1 study, but no visible syndrome in a controlled flowering Gelato 29 study despite substantially lower foliar iron. Images can support a differential, but cannot confirm or exclude iron deficiency.",
   "affectedParts": [
     "growing tip and newly expanding leaves",
@@ -35,7 +36,9 @@
     "Damage maps to spray droplets, residue, rubbing points, or another documented contact exposure",
     "A stable cultivar pattern or sector follows the same tissue boundaries without progressive chlorosis",
     "Root decay, saturation, hypoxia, abnormal temperature, salinity, pH, or irrigation history explains impaired uptake",
-    "Appropriately sampled tissue and root-zone testing support manganese, zinc, sulfur, nitrogen, calcium, or another diagnosis more strongly"
+    "Appropriately sampled tissue and root-zone testing support manganese, zinc, sulfur, nitrogen, calcium, or another diagnosis more strongly",
+    "A detached yellow leaf is assigned to a sampled plant or tissue result without a persistent specimen link",
+    "A single study-specific tissue value or onset week is used as a universal iron-deficiency cutoff"
   ],
   "progression": [
     {
@@ -82,7 +85,9 @@
     "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect washed roots for decay or restricted growth before changing iron supply.",
     "Submit correctly positioned leaf tissue and, where appropriate, solution, substrate, soil, or water samples to an agricultural or plant diagnostic laboratory; interpret iron and competing nutrients using crop-, organ-, stage-, and method-appropriate references.",
     "Inspect both leaf surfaces and growing tips with magnification and use a plant diagnostic laboratory when arthropods, root disease, viruses, viroids, or other pathogens remain plausible.",
-    "Use subsequent new-leaf response only as supporting evidence; improvement after correcting an identified cause does not retroactively make the original image a ground-truth iron-deficiency sample."
+    "Use subsequent new-leaf response only as supporting evidence; improvement after correcting an identified cause does not retroactively make the original image a ground-truth iron-deficiency sample.",
+    "Keep a persistent plant and leaf-sample identifier linking node-marked images, sampling date, laboratory report, and paired root-zone measurements; record upper and lower leaf positions separately rather than pooling their visual labels.",
+    "Separate compatible chlorosis, analytically supported low iron status, and causally attributed iron injury; a symptom-negative low-iron sample is not a visually healthy nutrient-status control, and a normal-looking photograph is not a negative iron assay."
   ],
   "immediateActions": [
     "Mark the plant and preserve pre-treatment serial images, feed and irrigation records, root-zone measurements, and representative tissue before changing nutrition.",
@@ -105,7 +110,10 @@
     "The controlled vegetative study found no significant biomass difference at the symptom-onset harvest, so visual severity must not be converted into a universal yield-loss estimate.",
     "Upper interveinal chlorosis is shared by other nutritional, root-zone, biotic, environmental, genetic, and imaging conditions and is not image-only ground truth.",
     "The CC BY figure contains both iron- and zinc-deficiency columns and three severity rows; it is excluded from automated training until panels are bounded, class- and stage-annotated, scientifically reviewed, and assigned a leakage-safe split.",
-    "All symptom-only and symptom-negative samples require human review and linked analytical evidence before ground-truth use."
+    "All symptom-only and symptom-negative samples require human review and linked analytical evidence before ground-truth use.",
+    "The 0.15 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.",
+    "The vegetative T1 and flowering Gelato 29 experiments differ in cultivar, stage, medium, and withholding schedule; they do not isolate which factor explains their different visual outcomes.",
+    "Keep experimental controls, symptom-negative low-iron plants, and visually compatible but analytically unconfirmed plants distinct; image similarity alone cannot assign nutrient status."
   ],
   "sources": [
     {
