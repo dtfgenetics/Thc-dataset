@@ -977,3 +977,12 @@ button { -webkit-tap-highlight-color: transparent; }
 .issue-detail [id] { scroll-margin-top:90px; }
 .related-guides { margin:24px 0; }
 .related-guides p { color:var(--gd-muted); }
+
+/* Scientific reference comparison guidance */
+.reference-interpretation { margin:24px 0; padding:clamp(18px,3vw,28px); border:1px solid var(--gd-line); border-radius:12px; background:var(--gd-surface); }
+.reference-interpretation h2 { margin:0 0 16px; }
+.reference-interpretation ol { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 24px; margin:0 0 16px; padding-left:22px; }
+.reference-interpretation li { padding-left:3px; line-height:1.6; }
+.reference-interpretation li strong { display:block; }
+.reference-interpretation p { margin:0; line-height:1.6; }
+@media (max-width:760px) { .reference-interpretation ol { grid-template-columns:1fr; } }
