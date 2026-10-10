@@ -44,6 +44,32 @@ const fixtureIssue = (
 })
 
 describe('rankDifferentials', () => {
+  it.each(['Unknown', ' unknown ', '   '])('keeps %s watering context unresolved', (watering) => {
+    const record = fixtureIssue('drought-water-deficit-stress', ['Wilt', 'Dry substrate'], { category: 'Water / root-zone' })
+    const history = [{ id: 'prior', createdAt: '2026-10-09', plantName: 'Plant 1', note: '', outcome: '', watering: 'Hand-water by dryback' }]
+    const [result] = rankDifferentials([record], context(record.indicators, { watering }), [], history)
+    expect(result.missing).toContain('recent irrigation / substrate-moisture context')
+    expect(result.missing).toContain('structured irrigation / substrate-moisture evidence linked to this plant')
+    expect(result.historySignals).toEqual([])
+    expect(result.contextSignals).not.toContain('recent irrigation or substrate-moisture context was supplied for review')
+    expect(result.confidence).toBe('Low')
+  })
+
+  it('does not infer a watering change from an unknown prior routine', () => {
+    const record = fixtureIssue('overwatering-root-hypoxia', ['Wilt'], { category: 'Water / root-zone' })
+    const history = [{ id: 'prior', createdAt: '2026-10-09', plantName: 'Plant 1', note: '', outcome: '', watering: 'Unknown' }]
+    const [result] = rankDifferentials([record], context(record.indicators, { watering: 'Fixed schedule' }), [], history)
+    expect(result.historySignals).toEqual([])
+    expect(result.missing).not.toContain('recent irrigation / substrate-moisture context')
+  })
+
+  it('retains a history signal for two different reported watering routines', () => {
+    const record = fixtureIssue('overwatering-root-hypoxia', ['Wilt'], { category: 'Water / root-zone' })
+    const history = [{ id: 'prior', createdAt: '2026-10-09', plantName: 'Plant 1', note: '', outcome: '', watering: 'Hand-water by dryback' }]
+    const [result] = rankDifferentials([record], context(record.indicators, { watering: 'Fixed schedule' }), [], history)
+    expect(result.historySignals).toContain('watering or substrate-moisture context changed during the case')
+  })
+
   it.each(['checking', 'review'] as const)('does not count %s images as usable diagnostic views', (quality) => {
     const record = fixtureIssue('mite-quality', ['Visible stippling', 'Webbing', 'Moving mites'], { category: 'Mite' })
     const evidence = (['whole-plant', 'close-up', 'underside', 'root-crown'] as const).map((slot) => ({
