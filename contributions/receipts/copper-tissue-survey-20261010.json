@@ -37,7 +37,8 @@
     "data/sources.json",
     "src/lib/data-quality.test.ts",
     "model_tuning/README.md",
-    "model_tuning/config/qlora_8b.yaml"
+    "model_tuning/config/qlora_8b.yaml",
+    "scripts/build-training-dataset-manifest.py"
   ],
   "human_reviewed": false,
   "training_eligible": false,

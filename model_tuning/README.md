@@ -42,7 +42,7 @@ Current Qwen3-8B starter contract:
 - tokenizer chat-template SHA-256: `a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8`
 - Qwen3 thinking mode: `enable_thinking=false`
 - training split manifest SHA-256: `5d4213e64ec9ed3beb5d9426fea049818093e99b22eaff0f5e63cafaeab52682`
-- training dataset manifest SHA-256: `f9e7d295b6bf5ae9887284f9d331c803a7eeb74efe5734c92e98bbd9c3075590`
+- training dataset manifest SHA-256: `008be2a9984c768dcc9b4d0650e419dd1c84e39432db3fc1997f5b8040545586`
 - dependency-lock resolver: `uv==0.12.10`
 - dependency-lock SHA-256: `ee386c57e5e3f969e849b0489ad9d171956bf229a80f012518966e887682243e`
 - current frozen training mixture: 150 SFT + 37 grounded-QA = 187 rows (~19.8% grounded-QA)

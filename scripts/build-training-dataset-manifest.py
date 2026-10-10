@@ -17,6 +17,16 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_MAX_GROUNDED_QA_FRACTION = 0.20
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def manifest_path(path: Path, root: Path = ROOT) -> str:
+    """Keep repository artifacts stable across checkout locations."""
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(root.resolve()).as_posix()
+    except ValueError:
+        return resolved.as_posix()
 
 
 def digest(data: bytes) -> str:
@@ -73,7 +83,7 @@ def summarize_jsonl(path: Path) -> dict[str, Any]:
         provenance_rows += bool(row_sources)
         context_required_rows += row.get("context_required") is True
     return {
-        "path": path.as_posix(),
+        "path": manifest_path(path),
         "sha256": digest(data),
         "bytes": len(data),
         "rows": len(rows),
@@ -168,7 +178,7 @@ def build_manifest(
             "grounded_qa_fraction": round(qa_fraction, 12),
         },
         "split_manifest": {
-            "path": split_manifest.as_posix(),
+            "path": manifest_path(split_manifest),
             "sha256": digest(split_manifest.read_bytes()),
             "schema_version": split.get("schema_version"),
             "algorithm": split.get("algorithm"),
@@ -234,6 +244,10 @@ def self_test() -> None:
         assert len(manifest["manifest_sha256"]) == 64
         again = build_manifest(**paths, split_manifest=split_path, max_grounded_qa_fraction=0.20)
         assert manifest["manifest_sha256"] == again["manifest_sha256"]
+        # Relocating a checkout must not change repository artifact identity.
+        for checkout in (Path('/tmp/local-checkout'), Path('/tmp/ci-checkout')):
+            assert manifest_path(checkout / 'model_tuning/generated/train.jsonl', checkout) == 'model_tuning/generated/train.jsonl'
+        assert manifest_path(ROOT / 'model_tuning/eval/heldout_v3.jsonl') == 'model_tuning/eval/heldout_v3.jsonl'
 
         # Keep QA at/below the cap so held-out leakage is the first policy violation.
         bad_train = [
