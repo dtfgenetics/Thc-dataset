@@ -478,6 +478,19 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/panel e.*panels a–d/)
   })
 
+  it('bounds localized pigment silencing as an experimental variegation look-alike', () => {
+    const record = issues.find((issue) => issue.slug === 'genetic-variegation')!
+    const source = record.sources.find((item) => item.doi === '10.3390/plants11030327')!
+    expect(source.publicationDate).toBe('2022-01-26')
+    expect(source.authors).toHaveLength(5)
+    expect(source.supportedClaims?.join(' ')).toContain('largely restricted to the treated Cannabis leaves')
+    expect(record.exclusions.join(' ')).toContain('solely because it remains confined to one leaf')
+    expect(record.confirmation.join(' ')).toContain('never infer TRV infection')
+    expect(record.warnings.join(' ')).toContain('not field evidence of natural TRV disease')
+    expect(record.photoOnlyMaxConfidence).toBe(0.10)
+    expect(record.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps heat and light exposure measured, separable, and serially linked', () => {
     const record = issues.find((issue) => issue.slug === 'heat-light-stress')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''

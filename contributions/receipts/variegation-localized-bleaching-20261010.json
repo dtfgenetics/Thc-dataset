@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "variegation-localized-bleaching-20261010",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "3466d110c5c2a8e737a5fd67609e63c7b2b93a85",
+  "head_commit": "a7a62632707e72ad84521bb57257f3e95de72e88",
+  "branch": "work/grow-doc/GD-DIAG-001/variegation-20261010",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/gen-variegation.json"
+  ],
+  "source_ids": [
+    "10.3390/plants11030327"
+  ],
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Diagnostic-lane receipt covers canonical source and profile paths. Deterministic aggregate exports, release metadata, regression tests and model-manifest pins are listed separately because current diagnostic routing excludes them.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false
+}
