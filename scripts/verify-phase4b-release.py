@@ -57,7 +57,8 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
             errors.append(f"{did}: invalid original archive metadata")
         archive_digest = hashlib.sha256()
         archive_size = 0
-        for part in parts:
+        # Reconstruct in numeric chunk order, regardless of manifest row ordering.
+        for part in sorted(parts, key=lambda item: item.get("filename", "") if isinstance(item, dict) and isinstance(item.get("filename"), str) else ""):
             if not isinstance(part, dict):
                 errors.append(f"{did}: malformed archive part")
                 continue
