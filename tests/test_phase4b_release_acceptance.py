@@ -145,6 +145,13 @@ class ReleaseAcceptanceTests(unittest.TestCase):
                                   "sha256": hashlib.sha256(original_bytes).hexdigest()}
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "pass")
 
+    def test_undeclared_dangling_symlink_fails_closed(self):
+        rogue = self.root / "DS-142_archive.part999"
+        rogue.symlink_to(self.root / "nonexistent-archive.bin")
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Undeclared local archive parts" in error for error in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
