@@ -2514,6 +2514,28 @@
     ]
   },
   {
+    "sourceKey": "10.3390/plants11030327",
+    "title": "Tobacco Rattle Virus as a Tool for Rapid Reverse-Genetics Screens and Analysis of Gene Function in Cannabis sativa L.",
+    "organization": "Plants (Alter et al.)",
+    "url": "https://doi.org/10.3390/plants11030327",
+    "authors": [
+      "Hanan Alter",
+      "Reut Peer",
+      "Aviv Dombrovsky",
+      "Moshe Flaishman",
+      "Ben Spitzer-Rimon"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2022-01-26",
+    "year": 2022,
+    "accessedDate": "2026-10-10",
+    "doi": "10.3390/plants11030327",
+    "supportedClaims": [
+      "The primary study abstract reports experimentally induced PDS-silencing photobleaching largely restricted to the treated Cannabis leaves despite limited vector spread; localized pigment loss therefore does not by itself establish a stable genetic trait.",
+      "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant."
+    ]
+  },
+  {
     "sourceKey": "10.3390/plants12030422",
     "title": "Foliar Symptomology, Nutrient Content, Yield, and Secondary Metabolite Variability of Cannabis Grown Hydroponically with Different Single-Element Nutrient Deficiencies",
     "organization": "Plants (Llewellyn et al.)",

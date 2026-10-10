@@ -4,7 +4,7 @@
   "diagnosticProfileCount": 61,
   "standaloneDetailedProfileCount": 61,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 175,
+  "evidenceSourceCount": 176,
   "profileReferenceMediaCount": 67,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
@@ -48,12 +48,31 @@
     "exportManifest": "data/export-manifest.json"
   },
   "canonicalDetailedSources": [
-    {"path": "src/data/issues.ts", "profileCount": 29},
-    {"path": "src/data/supplemental-issues.ts", "profileCount": 6},
-    {"path": "src/data/expanded-issues.ts", "profileCount": 13},
-    {"path": "src/data/expanded-issues-batch2.ts", "profileCount": 6},
-    {"path": "src/data/expanded-issues-batch3.ts", "profileCount": 7},
-    {"path": "src/data/evidence-augmentations.ts", "profileCount": 0, "role": "additional reviewed evidence for existing complex profiles"}
+    {
+      "path": "src/data/issues.ts",
+      "profileCount": 29
+    },
+    {
+      "path": "src/data/supplemental-issues.ts",
+      "profileCount": 6
+    },
+    {
+      "path": "src/data/expanded-issues.ts",
+      "profileCount": 13
+    },
+    {
+      "path": "src/data/expanded-issues-batch2.ts",
+      "profileCount": 6
+    },
+    {
+      "path": "src/data/expanded-issues-batch3.ts",
+      "profileCount": 7
+    },
+    {
+      "path": "src/data/evidence-augmentations.ts",
+      "profileCount": 0,
+      "role": "additional reviewed evidence for existing complex profiles"
+    }
   ],
   "measuredReleaseCounts": {
     "diagnosticProfiles": 61,

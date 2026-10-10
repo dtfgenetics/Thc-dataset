@@ -24,6 +24,7 @@
     "The same shoot position or clonal lineage is mapped across successive leaves and time rather than inferred from one detached leaf",
     "Affected tissue retains its boundary while new observations document whether the pattern remains localized, expands, disappears, or is joined by distortion and stunting",
     "Record whether pigment loss remains sharply sectoral or becomes diffuse spotted bleaching; experimentally induced pigment-gene silencing also produced white or yellow spots, so pigment loss is mechanism-nonspecific",
+    "Record localized bleaching on the originally affected leaf separately from pigment loss in newly formed leaves; experimental TRV-mediated PDS silencing was largely restricted to treated leaves, so localization alone is not a genetic discriminator",
     "Matched images preserve upper and lower leaf surfaces, whole-plant distribution, branch identity, scale, cultivar, developmental stage, and camera-lighting conditions"
   ],
   "exclusions": [
@@ -34,6 +35,7 @@
     "The distribution maps to a lamp, spray, pesticide, plant-growth regulator, abrasion, heat event, or other documented exposure",
     "A negative targeted pathogen assay or an unaffected-looking clone is the only basis for declaring a genetic cause or pathogen freedom",
     "Pale and green tissues have been pooled or collected from different plants so the observed sector cannot be linked to the laboratory or genetic result",
+    "Localized pigment loss is attributed to a stable mutation solely because it remains confined to one leaf; experimentally induced gene silencing can also be localized",
     "Camera white balance, glare, shadow, senescence, or cultivar pigmentation explains the apparent color boundary"
   ],
   "progression": [
@@ -65,6 +67,7 @@
     "Herbicide or plant-growth-regulator injury",
     "Spray or high-light injury",
     "Normal senescence or cultivar pigmentation",
+    "Experimentally induced pigment-gene silencing in documented research material; not a diagnosis of natural TRV disease",
     "Camera color, glare, or shadow artifact"
   ],
   "confirmation": [
@@ -75,6 +78,7 @@
     "Submit symptomatic and matched asymptomatic tissue to a plant diagnostic laboratory for a locally appropriate validated virus/viroid differential; a negative targeted assay excludes only the agents and sample covered by that assay.",
     "Before destructive sampling, photograph and map pale and adjacent green sectors from the same leaf or branch separately; coordinate paired sampling with the laboratory and preserve individual plant, node, tissue, and assay identifiers rather than pooling away the boundary.",
     "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof.",
+    "Separate observations on originally affected leaves from new leaves and descendant shoots; record experimental manipulation history if present, but never infer TRV infection or a stable mutation from bleaching localization alone.",
     "Track independently identified descendant cuttings under matched conditions and record both persistence and loss of the phenotype; do not infer seed inheritance, a stable cultivar trait, or transmissibility from one mother plant or cutting."
   ],
   "immediateActions": [
@@ -97,6 +101,7 @@
     "The sequencing study used three stem positions on one Honey Banana mother plant, not paired pale and green leaf sectors; its variant counts cannot validate a sector label, predict potency loss, or establish inheritance.",
     "“Genetic mosaicism” describes within-organism genetic variation; a visible “mosaic symptom” is not evidence of that mechanism.",
     "The Cannabis mosaicism sequencing study sampled one mother plant and did not link its variants to visible leaf sectors.",
+    "The 2022 TRV study provides an experimentally induced look-alike, not field evidence of natural TRV disease; its largely leaf-localized response cannot establish spontaneous variegation, inheritance, or pathogen freedom.",
     "The VIGS bleaching experiment was an intentionally virus-vector-induced gene-silencing phenotype and must not be treated as proof that natural bleaching is inherited or noninfectious.",
     "The composite reference image mixes four unresolved mosaic-like presentations with panel e, which the authors characterize as somatic-mutation-associated chlorotic sectors; preserve panel labels and never train the entire composite as one genetic class.",
     "Negative molecular, microscopy, or indicator-host findings are bounded by sample quality, agent coverage, assay performance, and observation time.",
@@ -142,6 +147,27 @@
       "supportedClaims": [
         "Experimental silencing of Cannabis phytoene desaturase and magnesium-chelatase-subunit-I genes produced spotted leaf bleaching, 70–73% lower target-transcript expression, and corresponding carotenoid or chlorophyll-a reductions.",
         "This deliberately induced, virus-vector phenotype shows that perturbing pigment-related gene expression can create visible bleaching; it does not establish that naturally occurring sectors are genetic or safe from infectious differentials."
+      ]
+    },
+    {
+      "title": "Tobacco Rattle Virus as a Tool for Rapid Reverse-Genetics Screens and Analysis of Gene Function in Cannabis sativa L.",
+      "organization": "Plants (Alter et al.)",
+      "url": "https://doi.org/10.3390/plants11030327",
+      "authors": [
+        "Hanan Alter",
+        "Reut Peer",
+        "Aviv Dombrovsky",
+        "Moshe Flaishman",
+        "Ben Spitzer-Rimon"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2022-01-26",
+      "year": 2022,
+      "accessedDate": "2026-10-10",
+      "doi": "10.3390/plants11030327",
+      "supportedClaims": [
+        "The primary study abstract reports experimentally induced PDS-silencing photobleaching largely restricted to the treated Cannabis leaves despite limited vector spread; localized pigment loss therefore does not by itself establish a stable genetic trait.",
+        "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant."
       ]
     },
     {
