@@ -37,7 +37,8 @@
     "The change follows nutrient, pesticide, growth-regulator, or other chemical application",
     "Only late-flower senescence or cultivar-typical inflorescence architecture is visible",
     "High PPFD alone is treated as injury even though the plant is acclimated and temperature and water status are within its measured response range",
-    "Only fixture wattage, dimmer percentage, room set point, or lamp distance is available without calibrated measurements at the photographed canopy position"
+    "Only fixture wattage, dimmer percentage, room set point, or lamp distance is available without calibrated measurements at the photographed canopy position",
+    "Smaller leaves, shorter internodes, or denser apical flowers alone are labeled light injury despite their occurrence as acclimation responses in the controlled Stillwater trial"
   ],
   "progression": [
     {
@@ -84,7 +85,8 @@
     "Compare affected and unaffected plants of the same cultivar, developmental stage, irrigation treatment, and root-zone condition; include a cooler or lower-exposure reference when available.",
     "Inspect leaf undersides and protected new growth with magnification for mites and thrips, and document the root system, substrate water content, pH, and EC.",
     "Use serial whole-plant, canopy, and close-up images with an exposure log; do not convert a single photograph or uncalibrated camera color shift into heat- or light-stress ground truth.",
-    "For abnormal flowering, inspect multiple inflorescences over time and compare with cultivar records to separate heat-associated reversion or foxtailing from normal architecture, late-flower growth, or genetic traits."
+    "For abnormal flowering, inspect multiple inflorescences over time and compare with cultivar records to separate heat-associated reversion or foxtailing from normal architecture, late-flower growth, or genetic traits.",
+    "Record leaf emergence date or physiological age and the local light regime during expansion as well as at imaging; compare like-aged leaves before interpreting leaf size, internode spacing, or a physiological measurement as injury."
   ],
   "immediateActions": [
     "Preserve the pre-correction environmental log and matched photographs, then remove an acute unsafe heat load or equipment fault gradually.",
@@ -167,7 +169,7 @@
       "publisher": "Frontiers Media SA",
       "publicationDate": "2021-05-11",
       "year": 2021,
-      "accessedDate": "2026-10-08",
+      "accessedDate": "2026-10-10",
       "doi": "10.3389/fpls.2021.646020",
       "supportedClaims": [
         "Indoor-grown Cannabis sativa Stillwater was exposed during flowering to average canopy PPFDs from 120 to 1,800 micromoles per square metre per second.",
@@ -175,6 +177,8 @@
         "The high-light experiment did not establish a universal PPFD injury threshold or validate cupping, bleaching, or edge necrosis as light-specific visual symptoms; light exposure must be interpreted with cultivar, acclimation, canopy position, temperature, carbon dioxide, and water status.",
         "In Stillwater during the 12-hour flowering phase, chlorophyll-content index was higher in week 1 than weeks 5 and 9 and was consistently higher in upper- than lower-canopy fan leaves; the authors described evidence of early senescence but stated that the contributions of leaf age and plant ontogeny to diminished week-9 photosynthesis were unresolved.",
         "The study measured chlorophyll index and physiology rather than validating a yellow-leaf appearance, harvest date, or universal late-flower-fade sequence.",
+        "Discussion, leaf morphology and acclimation: Stillwater plants under higher light had smaller leaves, shorter internodes, and larger, denser apical inflorescences; these morphology changes were described as plastic acclimation, not a validated visible injury syndrome.",
+        "Discussion, leaf age and light history: leaf physiological age and localized light exposure during expansion influenced subsequent photosynthetic responses; instantaneous leaf light-response measurements without tissue age and light history cannot reliably predict yield.",
         "The Stillwater trial repeatedly measured apical PPFD and integrated changing exposure across the 81-day flowering period; fixture output or a one-time reading was not treated as equivalent to plant light history."
       ]
     }
