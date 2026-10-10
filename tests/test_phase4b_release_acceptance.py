@@ -164,6 +164,13 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("Archive root must not be a symlink" in e for e in report["errors"]))
 
+    def test_dangling_symlink_archive_root_is_rejected_as_symlink(self):
+        link = self.root / "dangling-root"
+        link.symlink_to(self.root / "does-not-exist", target_is_directory=True)
+        report = mod.validate(self.manifest, self.assets, link)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Archive root must not be a symlink" in e for e in report["errors"]))
+
     def test_missing_chunk(self):
         (self.root / self.assets[0]["name"]).unlink()
         self.assertEqual(mod.validate(self.manifest, self.assets, self.root)["status"], "fail")
