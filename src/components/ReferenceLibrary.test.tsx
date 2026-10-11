@@ -115,6 +115,8 @@ describe('Reference discovery and guide evidence', () => {
     if (missing.length) {
       expect(screen.getAllByText(/Suggested evidence views:/).length).toBeGreaterThan(0)
       expect(screen.getAllByText(/Verification:/).length).toBeGreaterThan(0)
+      expect(screen.getAllByText(/Potential look-alikes:/).length).toBeGreaterThan(0)
+      expect(screen.getAllByText(/Evidence status: no approved displayable reference/).length).toBeGreaterThan(0)
     }
   })
 
