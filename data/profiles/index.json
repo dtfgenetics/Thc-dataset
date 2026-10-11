@@ -412,11 +412,11 @@
     {
       "id": "nut-def-mo-analytical",
       "slug": "molybdenum-low-analytical-no-visual-phenotype",
-      "name": "Low molybdenum analytical state — no validated visual phenotype",
+      "name": "Low molybdenum state — conflicting Cannabis visual evidence",
       "category": "Nutrient deficiency",
       "severity": "low",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/nut-def-mo-analytical.json"
     },
