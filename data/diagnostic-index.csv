@@ -36,7 +36,7 @@
 "nut-def-k","potassium-deficiency","Potassium deficiency","Nutrient deficiency","high","reviewed","core","diagnostic-profile","data/profiles/nut-def-k.json"
 "nut-def-mg","magnesium-deficiency","Magnesium deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-mg.json"
 "nut-def-mn","manganese-deficiency","Manganese deficiency / low-manganese treatment response","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-mn.json"
-"nut-def-mo-analytical","molybdenum-low-analytical-no-visual-phenotype","Low molybdenum analytical state — no validated visual phenotype","Nutrient deficiency","low","reviewed","supplemental","diagnostic-profile","data/profiles/nut-def-mo-analytical.json"
+"nut-def-mo-analytical","molybdenum-low-analytical-no-visual-phenotype","Low molybdenum state — conflicting Cannabis visual evidence","Nutrient deficiency","low","reviewed","supplemental","diagnostic-profile","data/profiles/nut-def-mo-analytical.json"
 "nut-def-n","nitrogen-deficiency","Nitrogen deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-n.json"
 "nut-def-p","phosphorus-deficiency","Phosphorus deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-p.json"
 "nut-def-s","sulfur-deficiency","Sulfur deficiency","Nutrient deficiency","moderate","reviewed","core","diagnostic-profile","data/profiles/nut-def-s.json"
