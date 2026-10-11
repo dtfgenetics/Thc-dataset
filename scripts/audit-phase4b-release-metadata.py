@@ -77,7 +77,7 @@ def audit(manifest, assets):
             if name in published:
                 errors.append("Duplicate published part: " + name)
             published[name] = asset
-        elif any(name.startswith(f"{did}_archive.part") for did in DATASETS):
+        elif re.match(r"^DS-\\d+_archive\\.part", name):
             errors.append("Malformed published archive part: " + name)
     for name, part in expected.items():
         asset = published.get(name)
