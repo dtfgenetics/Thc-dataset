@@ -1,0 +1,35 @@
+{
+  "base_commit": "323c7f07ed20e7ed80c4550897cba146ad71b251",
+  "branch": "work/grow-doc/GD-DIAG-001/next-profile-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-ca.json",
+    "data/profiles/nut-def-fe.json",
+    "data/profiles/nut-def-mn.json",
+    "data/profiles/nut-def-zn.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "manganese-finola-20261011",
+  "head_commit": "d3fc85acdb03ca9bdb59e491caf15f55afcffda2",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 26–27. Added cultivar-bounded Finola manganese onset and progression, younger- versus older-leaf differential context, and method-specific pH limits while preserving symptom-negative flowering evidence. Shared source claims also propagate to calcium, iron, and zinc exports. No media copied or newly admitted for training. Deterministic exports and frozen artifact pins were regenerated and all validation scripts passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

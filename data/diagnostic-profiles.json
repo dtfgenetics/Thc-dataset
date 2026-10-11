@@ -8104,6 +8104,11 @@
           "The guide associates severe prolonged iron deprivation with stunting, but this qualitative response does not establish a universal timing, tissue threshold, or severity scale.",
           "The guide states that iron availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, chelate forms, and laboratory methods.",
           "The publication does not provide item-level automated-training permission for Figures 29–32; those photographs remain claim evidence only and were not copied or indexed.",
+          "The manganese section on printed pages 26–27 describes first injury on younger leaves, with margins and veins appearing darker green than surrounding tissue before interveinal yellowing develops.",
+          "In the controlled Finola manganese-withholding sequence, interveinal yellowing progresses as the leaf ages and can develop necrotic speckling or patches of dead tissue.",
+          "The guide distinguishes the usual younger-leaf onset of manganese deficiency from the older-leaf onset described for magnesium and phosphorus deficiency; this is a differential clue, not image-only confirmation.",
+          "The guide states that manganese availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, redox conditions, and laboratory methods.",
+          "The publication does not provide item-level automated-training permission for Figures 33–34; those photographs remain claim evidence only and were not copied or indexed.",
           "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
         ]
       }
@@ -8629,6 +8634,11 @@
           "The guide associates severe prolonged iron deprivation with stunting, but this qualitative response does not establish a universal timing, tissue threshold, or severity scale.",
           "The guide states that iron availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, chelate forms, and laboratory methods.",
           "The publication does not provide item-level automated-training permission for Figures 29–32; those photographs remain claim evidence only and were not copied or indexed.",
+          "The manganese section on printed pages 26–27 describes first injury on younger leaves, with margins and veins appearing darker green than surrounding tissue before interveinal yellowing develops.",
+          "In the controlled Finola manganese-withholding sequence, interveinal yellowing progresses as the leaf ages and can develop necrotic speckling or patches of dead tissue.",
+          "The guide distinguishes the usual younger-leaf onset of manganese deficiency from the older-leaf onset described for magnesium and phosphorus deficiency; this is a differential clue, not image-only confirmation.",
+          "The guide states that manganese availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, redox conditions, and laboratory methods.",
+          "The publication does not provide item-level automated-training permission for Figures 33–34; those photographs remain claim evidence only and were not copied or indexed.",
           "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
         ]
       }
@@ -9324,6 +9334,14 @@
         "description": "Interveinal yellowing becomes strongly contrasted against green veins and small tan necrotic regions develop on the leaf surface."
       },
       {
+        "stage": "Independent Finola onset",
+        "description": "In the vegetative Finola guide sequence, the youngest affected leaves first show margins and veins that remain darker green than the surrounding tissue; this cultivar-specific presentation supports, but does not replace, analytical confirmation."
+      },
+      {
+        "stage": "Independent Finola progression",
+        "description": "As affected Finola leaves age, interveinal yellowing becomes more apparent and may advance to necrotic speckling or patches of dead tissue; figures 33–34 remain uncopied claim evidence because item-level training rights are not documented."
+      },
+      {
         "stage": "After a documented correction",
         "description": "Judge response from subsequent growth, serial canopy maps, root-zone measurements, and follow-up tissue analysis; existing necrotic tissue will not become valid retrospective ground truth."
       }
@@ -9483,6 +9501,39 @@
           "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
           "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
           "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiency ID Guide for Hemp",
+        "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+        "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+        "authors": [
+          "Jim Todd"
+        ],
+        "publisher": "King’s Printer for Ontario",
+        "publicationDate": "2023",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+          "The guide describes zinc as having low mobility in the plant and reports initial symptoms at the top of the plant on younger tissue, but this controlled Finola presentation must not override cultivar- and experiment-specific differences in other Cannabis studies.",
+          "In the Finola zinc-withholding sequence, young leaves developed yellow-to-white interveinal chlorosis, including pale bands between the margin and mid-vein in the lower portion of the leaflet; severely affected emerging leaves could become nearly white.",
+          "Developing zinc-withheld leaves could become thin or strap-like with distorted margins, providing a morphology and leaf-age context distinct from the marginal yellowing and necrosis reported in the T1 experiment.",
+          "The calcium section on printed pages 12–13 describes early pale-green leaves followed by yellow-brown interveinal spotting and necrosis, especially on new growth, with curled margins and unusual leaf shapes under prolonged withholding in the vegetative Finola guide context.",
+          "The same calcium section describes reduced growth and plant size progressing to cessation of growing-point elongation and growing-point death; this is a qualitative controlled-treatment sequence, not a diagnostic clock or a cultivar-independent severity scale.",
+          "The guide lists calcium-uptake depression associated with ammonium-based nitrogen and excessive potassium, magnesium, manganese, and aluminum; these are competing-input checks, not proof of a calcium deficit from an image or a universal concentration threshold.",
+          "The calcium section’s below-pH-6.5 availability statement does not establish a universal Cannabis root-zone target across soil, substrate extraction methods, and hydroponic systems, and its Figures 11–13 have no verified item-level automated-training permission.",
+          "The iron section on printed pages 24–25 describes first signs on younger leaves as interveinal chlorosis or striping along the full leaf length, with Figure 29 specifying chlorosis beginning at the leaf base and Figure 31 locating symptoms in the upper half of the plant.",
+          "In the controlled Finola iron-withholding context, interveinal tissue progresses from light green to light yellow or white, followed by brown necrotic patches; leaves can remain alive through visible chlorosis and die only after prolonged deprivation.",
+          "The guide associates severe prolonged iron deprivation with stunting, but this qualitative response does not establish a universal timing, tissue threshold, or severity scale.",
+          "The guide states that iron availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, chelate forms, and laboratory methods.",
+          "The publication does not provide item-level automated-training permission for Figures 29–32; those photographs remain claim evidence only and were not copied or indexed.",
+          "The manganese section on printed pages 26–27 describes first injury on younger leaves, with margins and veins appearing darker green than surrounding tissue before interveinal yellowing develops.",
+          "In the controlled Finola manganese-withholding sequence, interveinal yellowing progresses as the leaf ages and can develop necrotic speckling or patches of dead tissue.",
+          "The guide distinguishes the usual younger-leaf onset of manganese deficiency from the older-leaf onset described for magnesium and phosphorus deficiency; this is a differential clue, not image-only confirmation.",
+          "The guide states that manganese availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, redox conditions, and laboratory methods.",
+          "The publication does not provide item-level automated-training permission for Figures 33–34; those photographs remain claim evidence only and were not copied or indexed.",
+          "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
         ]
       }
     ],
@@ -10681,6 +10732,11 @@
           "The guide associates severe prolonged iron deprivation with stunting, but this qualitative response does not establish a universal timing, tissue threshold, or severity scale.",
           "The guide states that iron availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, chelate forms, and laboratory methods.",
           "The publication does not provide item-level automated-training permission for Figures 29–32; those photographs remain claim evidence only and were not copied or indexed.",
+          "The manganese section on printed pages 26–27 describes first injury on younger leaves, with margins and veins appearing darker green than surrounding tissue before interveinal yellowing develops.",
+          "In the controlled Finola manganese-withholding sequence, interveinal yellowing progresses as the leaf ages and can develop necrotic speckling or patches of dead tissue.",
+          "The guide distinguishes the usual younger-leaf onset of manganese deficiency from the older-leaf onset described for magnesium and phosphorus deficiency; this is a differential clue, not image-only confirmation.",
+          "The guide states that manganese availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, redox conditions, and laboratory methods.",
+          "The publication does not provide item-level automated-training permission for Figures 33–34; those photographs remain claim evidence only and were not copied or indexed.",
           "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
         ]
       },
