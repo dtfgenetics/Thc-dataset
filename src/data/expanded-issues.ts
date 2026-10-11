@@ -3,6 +3,23 @@ import type { IssueRecord, SourceRecord } from '../types'
 const source = (record: SourceRecord) => record
 
 const sources = {
+  ontarioHempNutrientDeficiencyGuide: source({
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'],
+    publisher: 'King’s Printer for Ontario',
+    publicationDate: '2023',
+    year: 2023,
+    accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'The molybdenum section on printed pages 28–29 reports symptom onset on older leaves followed by progression to younger expanding leaves in the controlled Finola withholding context.',
+      'The same Finola section describes yellowing, stunting, marginal scorch, leaf cupping or rolling, and chlorotic spots that can perforate while surrounding tissue remains green for a prolonged period; this conflicts with the symptom-negative T1 experiment and is not a universal Cannabis phenotype.',
+      'The guide states that molybdenum availability increases above pH 7.0, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, and laboratory methods.',
+      'The publication does not provide item-level automated-training permission for Figures 35–37; those photographs remain claim evidence only and were not copied or indexed.',
+    ],
+  }),
   nutrientDisorders: source({
     title: 'Characterization of Nutrient Disorders of Cannabis sativa',
     organization: 'Applied Sciences (Cockson et al.)',
@@ -779,8 +796,8 @@ export const expandedIssues: IssueRecord[] = [
     sources: [sources.nutrientDisorders, sources.hempSurvey, sources.ncStateHempTissueRangesManganese, sources.cannabisSubstratePhMicronutrientRates], media: [],
   },
   {
-    id: 'nut-def-mo-analytical', slug: 'molybdenum-low-analytical-no-visual-phenotype', name: 'Low molybdenum analytical state — no validated visual phenotype', category: 'Nutrient deficiency', severity: 'low', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.05,
-    summary: 'A deliberate analytical abstention class: Cannabis grown without molybdenum for nine weeks had 96% lower foliar Mo than controls but no visual symptoms and no significant dry-weight reduction. Yellow, red, pink, orange, curled, rolled, or narrow leaves must not be labeled as Cannabis molybdenum deficiency from images or video.',
+    id: 'nut-def-mo-analytical', slug: 'molybdenum-low-analytical-no-visual-phenotype', name: 'Low molybdenum state — conflicting Cannabis visual evidence', category: 'Nutrient deficiency', severity: 'low', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.05,
+    summary: 'A deliberate analytical abstention class for conflicting Cannabis evidence. T1 plants grown without molybdenum for nine weeks had 96% lower foliar Mo but no visual symptoms or dry-weight reduction, while a separate controlled vegetative Finola guide reports an older-to-younger sequence involving yellowing, marginal scorch, cupping or rolling, and perforating chlorotic spots. Neither result supports image-only confirmation or a universal phenotype.',
     affectedParts: ['defined-age recently mature leaf for tissue analysis', 'matched upper, middle, and lower canopy for negative visual documentation', 'root zone and fertilizer inputs for causal context', 'whole plant for matched comparison'],
     stages: ['vegetative', 'nine-week controlled withholding context', 'any production stage only as an analytically unresolved differential'],
     indicators: [
@@ -807,6 +824,8 @@ export const expandedIssues: IssueRecord[] = [
       {stage:'Direct Cannabis baseline',description:'Control and complete-molybdenum-withholding T1 plants began without a validated visual distinction in the controlled study.'},
       {stage:'Analytical divergence',description:'After nine weeks, withheld plants had 96% lower foliar molybdenum than controls, establishing an analytical difference without establishing a camera-visible syndrome.'},
       {stage:'Negative visual endpoint',description:'No visual symptoms and no significant dry-weight difference developed by the study endpoint; there is therefore no supported Cannabis color, morphology, canopy location, or temporal sequence for model training.'},
+      {stage:'Conflicting Finola onset',description:'In a separate controlled vegetative Finola guide, reported symptoms begin on older leaves with yellowing, stunting, marginal scorch, and leaf cupping or rolling before extending toward younger expanding leaves.'},
+      {stage:'Conflicting Finola progression',description:'The Finola guide reports chlorotic spots on younger and older leaves that can perforate while surrounding tissue remains green for a prolonged period; this qualitative sequence conflicts with the symptom-negative T1 endpoint and cannot be treated as universal.'},
       {stage:'Future-evidence gate',description:'A positive visual class should remain closed unless replicated Cannabis studies link a reproducible phenotype to defined tissue values, cultivars, stages, root-zone conditions, and recovery or causal testing.'},
     ],
     lookAlikes: ['Nitrogen deficiency', 'Sulfur deficiency', 'Magnesium deficiency', 'Potassium deficiency', 'Phosphorus deficiency or genetic anthocyanin', 'Iron or manganese disorder', 'Boron or calcium-related distortion', 'Root-zone pH stress', 'Salinity / high EC', 'Drought or root hypoxia', 'Pest feeding or mite injury', 'Leaf-spot or root disease'],
@@ -823,13 +842,14 @@ export const expandedIssues: IssueRecord[] = [
     correctivePlan: ['Correct only a laboratory-supported and contextually plausible under-supply using a measured, crop-appropriate nutrition plan.', 'Track newly sampled defined-age tissue and plant performance; do not claim visual recovery of a phenotype that has not been validated in Cannabis.'],
     prevention: ['Use complete micronutrient formulations, verified stock-tank math, calibrated injectors, and periodic analytical monitoring when warranted.', 'Maintain paired input, root-zone, tissue, cultivar, stage, and image records so future evidence can be interpreted without relying on deficiency-chart colors.'],
     warnings: [
-      'The only direct controlled Cannabis evidence in this record used one T1 cultivar and complete withholding for nine weeks; it supports visual abstention but does not establish a universal tissue sufficiency threshold.',
+      'The controlled Cannabis evidence conflicts: one T1 experiment was symptom-negative after nine weeks of complete withholding, while the Finola institutional guide reports a symptom-positive progression; neither establishes a universal phenotype or tissue threshold.',
       'Cross-crop descriptions of chlorosis, rolling, necrosis, or acidic-soil association are confounder context only and are not Cannabis image ground truth.',
-      'The best controlled Cannabis evidence currently contradicts popular image charts that assign a distinctive molybdenum-deficiency leaf appearance.',
+      'The Finola sequence overlaps nitrogen deficiency, sulfur deficiency, marginal scorch, water stress, leaf distortion, and tissue-loss disorders; it is differential context rather than image-only ground truth.',
+      'The Ontario guide is institutional evidence but does not report a matched tissue threshold for Figures 35–37, and its proprietary photographs were not copied or admitted for automated training.',
       'No image or video is labeled as positive ground truth, no reference media is attached, and automated training eligibility remains false.',
       'Human review is mandatory for any proposed molybdenum diagnosis, especially when it is image-led, unmatched, contaminated, method-unknown, threshold-transferred, or analytically discordant.',
     ],
-    sources: [sources.nutrientDisorders, sources.nmsuTissueSampling, sources.ufVegetableTissueInterpretation], media: [],
+    sources: [sources.nutrientDisorders, sources.nmsuTissueSampling, sources.ufVegetableTissueInterpretation, sources.ontarioHempNutrientDeficiencyGuide], media: [],
   },
   {
     id: 'fungal-alternaria-leaf-spot', slug: 'alternaria-leaf-spot', name: 'Alternaria leaf spot complex', scientificName: 'Alternaria spp. (including the A. alternata species complex, A. helianthiinficiens, and A. cannabina)', category: 'Fungal pathogen', severity: 'moderate', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.25,
