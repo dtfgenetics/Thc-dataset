@@ -3078,6 +3078,8 @@
       "The authors describe the ranges as estimates pending additional sufficiency studies and state that applicability to grain or fiber hemp remains uninvestigated.",
       "For vegetative crop tissue analysis, the publication recommends one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants in a paper bag submitted promptly.",
       "A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed copper injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey.",
+      "Table 3b gives a 70 to 150 ppm iron reference interval adopted for floral hemp in North Carolina; the quartiles method represents the middle 50% of survey samples rather than an iron-withholding dose-response experiment.",
+      "A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed iron injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey.",
       "The adopted 40 to 158 ppm manganese interval represents the middle 50% of the survey submissions; it is a survey-derived sufficiency guide, not a causal toxicity cutoff.",
       "The survey does not establish a universal manganese-toxicity threshold, and results require sampling-position, cultivar, stage, production-system, crop-purpose, and laboratory-method context."
     ]

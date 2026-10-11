@@ -1,6 +1,21 @@
 import type { IssueRecord, SourceRecord } from '../types'
 
 const sources: Record<string, SourceRecord> = {
+  ncStateIronTissueRanges: {
+    title: 'Hemp Leaf Tissue Nutrient Ranges: Refinement of Reference Standards for Floral Hemp',
+    organization: 'NC State Extension Publications',
+    url: 'https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges',
+    authors: ['David Suchoff', 'Michelle McGinnis', 'Jeanine Davis', 'Brian Whipker', 'Kristin Hicks'],
+    publisher: 'North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services',
+    publicationDate: '2026-08-26', year: 2026, accessedDate: '2026-10-10',
+    supportedClaims: [
+      'The current publication reports 6,119 floral CBD hemp tissue samples from more than 100 varieties in field and greenhouse systems across 76 North Carolina counties during 2017 to 2020.',
+      'Table 3b gives a 70 to 150 ppm iron reference interval adopted for floral hemp in North Carolina; the quartiles method represents the middle 50% of survey samples rather than an iron-withholding dose-response experiment.',
+      'The authors describe the ranges as estimates pending additional sufficiency studies and state that applicability to grain or fiber hemp remains uninvestigated.',
+      'For vegetative crop tissue analysis, the publication recommends one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants in a paper bag submitted promptly.',
+      'A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed iron injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey.',
+    ],
+  },
   ncStateCopperTissueRanges: {
     title: 'Hemp Leaf Tissue Nutrient Ranges: Refinement of Reference Standards for Floral Hemp',
     organization: 'NC State Extension Publications',
@@ -1357,7 +1372,7 @@ export const issues: IssueRecord[] = [
     correctivePlan: ['When analytical and production records support inadequate iron supply or availability and roots are functional, restore a balanced crop- and system-appropriate iron program gradually under current local agronomic guidance.', 'Track subsequent leaves, root growth, root-zone measurements, and follow-up tissue results; do not judge correction solely by old chlorotic leaves.', 'If iron status is adequate or the pattern continues, reopen manganese, zinc, sulfur, magnesium, root disease, arthropod, pathogen, light, heat, exposure, and genetic differentials.'],
     prevention: ['Record the iron source, chelate or formulation, complete fertilizer composition, source-water chemistry, pH, EC, and irrigation conditions against plant and media identifiers.', 'Use routine same-position tissue sampling and production-system-appropriate root-zone or soil testing before visible injury.', 'Maintain healthy same-cultivar visual references and neutral-light serial imaging of upper, middle, and lower canopy positions.'],
     warnings: ['The visible sequence came from one Cannabis sativa T1 cultivar grown in silica sand with iron withheld from transplant; nine weeks, 60.08 mg/kg tissue iron, and the pictured appearance are experiment-specific, not universal diagnostic thresholds.', 'A separate flowering study found no visible iron-deficiency symptoms in three Gelato 29 plants despite foliar iron below half the control value; symptom absence cannot rule out inadequate iron status, and this small experiment does not prove that flowering Cannabis never develops visible symptoms.', 'The controlled vegetative study found no significant biomass difference at the symptom-onset harvest, so visual severity must not be converted into a universal yield-loss estimate.', 'Upper interveinal chlorosis is shared by other nutritional, root-zone, biotic, environmental, genetic, and imaging conditions and is not image-only ground truth.', 'The CC BY figure contains both iron- and zinc-deficiency columns and three severity rows; it is excluded from automated training until panels are bounded, class- and stage-annotated, scientifically reviewed, and assigned a leakage-safe split.', 'All symptom-only and symptom-negative samples require human review and linked analytical evidence before ground-truth use.', 'The 0.15 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.', 'The vegetative T1 and flowering Gelato 29 experiments differ in cultivar, stage, medium, and withholding schedule; they do not isolate which factor explains their different visual outcomes.', 'Keep experimental controls, symptom-negative low-iron plants, and visually compatible but analytically unconfirmed plants distinct; image similarity alone cannot assign nutrient status.'],
-    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies],
+    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies, sources.ncStateIronTissueRanges],
     media: [
       {
         id: 'mdpi-cannabis-iron-zinc-deficiency-figure-6',
