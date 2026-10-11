@@ -1,0 +1,19 @@
+{
+  "base_commit": "1166b952df6b3a2466e7b3d05a5e8f6520636fd5",
+  "branch": "work/grow-doc/GD-DIAG-001/phosphorus-finola-20261011",
+  "changed_paths": ["data/profiles/nut-def-p.json", "src/data/issues.ts"],
+  "contribution_id": "phosphorus-finola-20261011",
+  "head_commit": "dc1874eb40989feee28f9191e1a287196db8197f",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 8–9. The phosphorus profile now preserves a bounded independent Finola sequence with older-leaf dark-green onset, slow growth, spindly small leaflets, bronze tinting, and interveinal and marginal necrosis. Purpling remains explicitly unreliable, reproductive signs remain stage-bounded context, and the below-pH-6 statement remains soil-oriented. Proprietary Figures 5–8 were not copied, indexed, or admitted to training. Claim-scoped source isolation prevents cross-profile provenance leakage. All validators passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
