@@ -1006,3 +1006,5 @@ button { -webkit-tap-highlight-color: transparent; }
 
 .reference-coverage-meter { height:12px; overflow:hidden; border-radius:999px; background:var(--gd-line); margin:14px 0; }
 .reference-coverage-meter span { display:block; height:100%; border-radius:inherit; background:var(--gd-accent, #397b63); }
+
+.reference-gaps-search select { width:100%; min-height:44px; border:1px solid var(--gd-line); border-radius:8px; padding:10px 12px; background:var(--gd-surface); color:inherit; }
