@@ -1,6 +1,9 @@
 """Offline acceptance tests: no GitHub release access required."""
 import importlib.util
 import hashlib
+import json
+import io
+from unittest.mock import patch
 from pathlib import Path
 import tempfile
 import unittest
