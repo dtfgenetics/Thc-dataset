@@ -73,7 +73,9 @@ describe('Reference discovery and guide evidence', () => {
       const options = Array.from((filter as HTMLSelectElement).options)
       if (options.length > 1) {
         fireEvent.change(filter, { target: { value: options[1].value } })
-        const expected = Number(options[1].textContent?.match(/\((\d+)\)/)?.[1])
+        const countText = options[1].textContent?.match(/\((\d+)\)/)?.[1]
+        expect(countText).toBeDefined()
+        const expected = Number(countText)
         expect(screen.getByText(`${expected} guides match`)).not.toBeNull()
       }
     } else {
