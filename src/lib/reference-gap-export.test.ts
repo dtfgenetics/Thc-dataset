@@ -25,7 +25,7 @@ describe('missing-reference editorial CSV', () => {
     const csv = buildReferenceGapCsv([{
       slug: 'test',
       name: '=HYPERLINK("unsafe")',
-      category: 'Other',
+      category: 'Insufficient evidence',
       scientificName: '+SUM(1,2)',
       affectedParts: ['"leaf", edge'],
       confirmation: ['@malicious'],
