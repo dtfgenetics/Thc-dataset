@@ -1,0 +1,37 @@
+{
+  "base_commit": "3949c69e8b95f8e6d7236607cd9007c23f99a436",
+  "branch": "work/grow-doc/GD-DIAG-001/copper-finola-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-ca.json",
+    "data/profiles/nut-def-cu.json",
+    "data/profiles/nut-def-fe.json",
+    "data/profiles/nut-def-mn.json",
+    "data/profiles/nut-def-zn.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "copper-finola-20261011",
+  "head_commit": "ee4b08632b6204c2fef92fc7cb413c22afb29b54",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 22–23, and added a bounded independent Finola copper-deficiency sequence. The profile now distinguishes dark bluish-green wilted new growth and later chlorosis, curl, necrosis, and droop from the existing T1 basal-narrowing sequence. The pH statement remains soil-oriented context. Proprietary Figures 26–28 were not copied, indexed, or admitted to training. Deterministic exports and frozen artifact pins were regenerated and all validation scripts passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3390/app9204432",
+    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
