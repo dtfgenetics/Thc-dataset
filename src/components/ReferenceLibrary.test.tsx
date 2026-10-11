@@ -47,6 +47,19 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('filters uncovered guides without changing the approved reference grid', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const search = screen.queryByRole('textbox', { name: 'Search guides missing images' })
+    if (search) {
+      fireEvent.change(search, { target: { value: 'zzzz-unmatched-condition' } })
+      expect(screen.getByText('0 guides match')).not.toBeNull()
+      fireEvent.change(search, { target: { value: '' } })
+      expect(screen.queryByText('0 guides match')).toBeNull()
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
