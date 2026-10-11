@@ -237,8 +237,14 @@ $text = trim($text);
 $text = preg_replace('/^```(?:json)?\s*/i', '', $text) ?? $text;
 $text = preg_replace('/\s*```$/', '', $text) ?? $text;
 $result = json_decode($text, true);
-if (!is_array($result)) {
+if (!is_array($result) || !is_string($result['summary'] ?? null)
+    || !is_bool($result['unknownOrOutOfScope'] ?? null)) {
     respond(502, ['error' => 'The visual-analysis provider returned invalid structured observations.']);
+}
+foreach (['matchedIndicators', 'visibleFeatures', 'uncertainFeatures', 'qualityNotes', 'suggestedNextViews'] as $field) {
+    if (!is_array($result[$field] ?? null)) {
+        respond(502, ['error' => 'The visual-analysis provider returned incomplete structured observations.']);
+    }
 }
 
 $cleanStrings = static function ($value, int $limit = 20, int $maxLength = 300): array {
@@ -259,6 +265,7 @@ foreach ($cleanStrings($result['matchedIndicators'] ?? [], 30, 220) as $indicato
     if (isset($allowedIndicators[$indicator])) $matched[] = $indicator;
 }
 $matched = array_values(array_unique($matched));
+if ($result['unknownOrOutOfScope'] === true) $matched = [];
 
 $visible = [];
 if (is_array($result['visibleFeatures'] ?? null)) {
