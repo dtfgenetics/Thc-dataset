@@ -15,9 +15,10 @@ def fixture():
     for did in sorted(mod.DATASETS):
         name = did + "_archive.part001"
         digest = "a" * 64
-        manifest["results"].append({"datasetId": did, "archiveParts": [
+        manifest["results"].append({"datasetId": did, "status": "acquired",
+            "originalArchive": {"sizeBytes": 10, "sha256": digest}, "archiveParts": [
             {"filename": name, "sizeBytes": 10, "sha256": digest}]})
-        assets.append({"name": name, "size": 10, "digest": "sha256:" + digest})
+        assets.append({"name": name, "size": 10, "state": "uploaded", "digest": "sha256:" + digest})
     return manifest, assets
 
 
@@ -51,6 +52,31 @@ class ReleaseMetadataAuditTests(unittest.TestCase):
     def test_missing_dataset_fails(self):
         manifest, assets = fixture()
         manifest["results"].pop()
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_failed_acquisition_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["status"] = "failed"
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_original_archive_size_mismatch_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["originalArchive"]["sizeBytes"] = 11
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_asset_not_uploaded_fails(self):
+        manifest, assets = fixture()
+        assets[0]["state"] = "starter"
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_invalid_part_size_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["archiveParts"][0]["sizeBytes"] = 0
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_invalid_original_checksum_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["originalArchive"]["sha256"] = "bad"
         self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
 
     def test_undeclared_asset_fails(self):
