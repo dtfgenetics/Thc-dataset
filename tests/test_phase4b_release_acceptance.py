@@ -1,6 +1,9 @@
 """Offline acceptance tests: no GitHub release access required."""
 import importlib.util
 import hashlib
+import json
+import io
+from unittest.mock import patch
 from pathlib import Path
 import tempfile
 import unittest
@@ -258,6 +261,58 @@ class ReleaseAcceptanceTests(unittest.TestCase):
         report = mod.validate(self.manifest, self.assets, self.root)
         self.assertEqual(report["status"], "fail")
         self.assertTrue(any("invalid non-positive archive part size" in e for e in report["errors"]))
+
+class CliLocalArchiveIOFailureTests(unittest.TestCase):
+    def setUp(self):
+        self.fixture = ReleaseAcceptanceTests('test_pass')
+        self.fixture.setUp()
+        self.addCleanup(self.fixture.doCleanups)
+        self.root = self.fixture.root
+        self.manifest_path = self.root / 'manifest.json'
+        self.manifest_path.write_text(json.dumps(self.fixture.manifest))
+
+    def run_cli(self):
+        with patch('sys.argv', ['verify-phase4b-release.py', '--manifest', str(self.manifest_path),
+                                '--tag', 'test', '--root', str(self.root), '--repo', 'example/repo']), \
+             patch.object(mod, 'gh_json', side_effect=[{'id': 123}, self.fixture.assets]), \
+             patch('sys.stdout', new_callable=io.StringIO) as output:
+            code = mod.main()
+        return code, json.loads(output.getvalue())
+
+    def test_local_chunk_read_permission_error_is_json_failure(self):
+        original_open = Path.open
+        def guarded_open(path, *args, **kwargs):
+            if path.name.endswith('_archive.part001'):
+                raise PermissionError('chunk read denied')
+            return original_open(path, *args, **kwargs)
+        with patch.object(Path, 'open', guarded_open):
+            code, report = self.run_cli()
+        self.assertEqual(code, 1)
+        self.assertEqual(report['status'], 'fail')
+
+    def test_archive_unicode_decode_error_is_json_failure(self):
+        original_open = Path.open
+        def guarded_open(path, *args, **kwargs):
+            if path.name.endswith('_archive.part001'):
+                raise UnicodeError('archive filename decoding failed')
+            return original_open(path, *args, **kwargs)
+        with patch.object(Path, 'open', guarded_open):
+            code, report = self.run_cli()
+        self.assertEqual(code, 1)
+        self.assertEqual(report['status'], 'fail')
+        self.assertTrue(any('Cannot verify local archive parts' in error for error in report['errors']))
+
+    def test_archive_directory_scan_error_is_json_failure(self):
+        original_iterdir = Path.iterdir
+        def guarded_iterdir(path):
+            if path == self.root:
+                raise OSError('directory listing denied')
+            return original_iterdir(path)
+        with patch.object(Path, 'iterdir', guarded_iterdir):
+            code, report = self.run_cli()
+        self.assertEqual(code, 1)
+        self.assertEqual(report['status'], 'fail')
+
 
 class CliManifestFailureTests(unittest.TestCase):
     def test_malformed_manifest_exits_before_release_request(self):

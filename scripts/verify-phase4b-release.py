@@ -172,7 +172,12 @@ def main() -> int:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot load release assets: {exc}"]}, indent=2))
         return 1
-    report = validate(manifest, assets, args.root)
+    try:
+        report = validate(manifest, assets, args.root)
+    except (OSError, UnicodeError, ValueError, TypeError) as exc:
+        print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
+                          "errors": [f"Cannot verify local archive parts: {exc}"]}, indent=2))
+        return 1
     print(json.dumps(report, indent=2))
     return 0 if report["status"] == "pass" else 1
 
