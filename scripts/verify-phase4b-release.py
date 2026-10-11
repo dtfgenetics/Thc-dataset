@@ -16,7 +16,7 @@ import sys
 EXPECTED = {"DS-142", "DS-143", "DS-146"}
 
 def gh_json(*args: str):
-    p = subprocess.run(["gh", "api", *args], check=True, capture_output=True, text=True)
+    p = subprocess.run(["gh", "api", *args], check=True, capture_output=True, text=True, timeout=60)
     return json.loads(p.stdout)
 
 def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
@@ -143,16 +143,34 @@ def main() -> int:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot load acquisition manifest: {exc}"]}, indent=2))
         return 1
-    release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
-    release_id = release["id"]
-    assets = []
-    page = 1
-    while True:
-        batch = gh_json(f"repos/{args.repo}/releases/{release_id}/assets?per_page=100&page={page}")
-        assets.extend(batch)
-        if len(batch) < 100:
-            break
-        page += 1
+    try:
+        release = gh_json(f"repos/{args.repo}/releases/tags/{args.tag}")
+        release_id = release["id"]
+        if type(release_id) is not int or release_id <= 0:
+            raise ValueError("Release ID must be a positive integer")
+        assets = []
+        seen_full_pages = set()
+        # Fail closed rather than looping indefinitely on a broken or repeating API page.
+        for page in range(1, 101):
+            batch = gh_json(f"repos/{args.repo}/releases/{release_id}/assets?per_page=100&page={page}")
+            if not isinstance(batch, list):
+                raise ValueError("Release asset response must be a list")
+            if len(batch) > 100:
+                raise ValueError("Release asset page exceeds requested size")
+            if len(batch) == 100:
+                signature = json.dumps(batch, sort_keys=True)
+                if signature in seen_full_pages:
+                    raise ValueError("Repeated full release asset page")
+                seen_full_pages.add(signature)
+            assets.extend(batch)
+            if len(batch) < 100:
+                break
+        else:
+            raise ValueError("Release asset pagination exceeded 100 pages")
+    except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
+        print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
+                          "errors": [f"Cannot load release assets: {exc}"]}, indent=2))
+        return 1
     report = validate(manifest, assets, args.root)
     print(json.dumps(report, indent=2))
     return 0 if report["status"] == "pass" else 1

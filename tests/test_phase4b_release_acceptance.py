@@ -264,5 +264,84 @@ class CliManifestFailureTests(unittest.TestCase):
                 self.assertEqual(mod.main(), 1)
                 self.assertEqual(__import__("json").loads(stdout.getvalue())["status"], "fail")
 
+class CliReleaseApiFailureTests(unittest.TestCase):
+    def test_release_api_failure_is_structured(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                     "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", side_effect=OSError("offline")), \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                report = json.loads(stdout.getvalue())
+                self.assertEqual(report["status"], "fail")
+                self.assertTrue(any("Cannot load release assets" in e for e in report["errors"]))
+
+    def test_invalid_release_id_is_rejected_before_assets_request(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                     "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", return_value={"id": True}) as api, \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertEqual(api.call_count, 1)
+                self.assertTrue(any("Release ID must be a positive integer" in e
+                                    for e in json.loads(stdout.getvalue())["errors"]))
+
+    def test_invalid_asset_page_is_structured(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                     "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", side_effect=[{"id": 123}, {"error": "invalid"}]), \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertEqual(json.loads(stdout.getvalue())["status"], "fail")
+
+
+class CliAssetPaginationTests(unittest.TestCase):
+    def test_repeated_full_page_fails_closed(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            repeated = [{"id": i, "name": f"asset-{i}"} for i in range(100)]
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                    "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", side_effect=[{"id": 123}, repeated, repeated]) as api, \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertEqual(api.call_count, 3)
+                self.assertIn("Repeated full release asset page", json.loads(stdout.getvalue())["errors"][0])
+
+    def test_oversized_page_fails_closed(self):
+        from unittest.mock import patch
+        import io
+        import json
+        with tempfile.TemporaryDirectory() as temp:
+            manifest = Path(temp) / "manifest.json"
+            manifest.write_text(json.dumps({"results": []}))
+            with patch("sys.argv", ["verify-phase4b-release.py", "--manifest", str(manifest),
+                                    "--tag", "test", "--root", temp, "--repo", "example/repo"]), \
+                 patch.object(mod, "gh_json", side_effect=[{"id": 123}, [{}] * 101]), \
+                 patch("sys.stdout", new_callable=io.StringIO) as stdout:
+                self.assertEqual(mod.main(), 1)
+                self.assertIn("exceeds requested size", json.loads(stdout.getvalue())["errors"][0])
+
 if __name__ == "__main__":
     unittest.main()
