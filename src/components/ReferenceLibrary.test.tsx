@@ -14,6 +14,13 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByText(/Match the view and growth stage/)).not.toBeNull()
   })
 
+  it('distinguishes reference coverage from diagnostic accuracy', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByRole('heading', { name: 'Visual evidence coverage' })).not.toBeNull()
+    expect(screen.getByText(/condition guides currently have at least one approved, displayable visual reference/)).not.toBeNull()
+    expect(screen.getByText(/Coverage is not diagnostic accuracy/)).not.toBeNull()
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
