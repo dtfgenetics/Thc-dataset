@@ -25,15 +25,15 @@ def audit(manifest, assets):
         if did in seen_datasets:
             errors.append("Duplicate manifest dataset: " + did)
         seen_datasets.add(did)
-        parts = row.get("parts")
+        parts = row.get("archiveParts")
         if not isinstance(parts, list):
             errors.append("Missing parts for " + did)
             continue
         for part in parts:
-            if not isinstance(part, dict) or not isinstance(part.get("name"), str):
+            if not isinstance(part, dict) or not isinstance(part.get("filename"), str):
                 errors.append("Malformed part for " + did)
                 continue
-            name = part["name"]
+            name = part["filename"]
             match = PART.fullmatch(name)
             if not match or match.group(1) != did or name in expected:
                 errors.append("Invalid or duplicate part: " + name)
@@ -56,7 +56,7 @@ def audit(manifest, assets):
         if asset is None:
             errors.append("Missing published part: " + name)
             continue
-        if type(part.get("size")) is int and asset.get("size") != part["size"]:
+        if type(part.get("sizeBytes")) is int and asset.get("size") != part["sizeBytes"]:
             errors.append("Size mismatch: " + name)
         digest = part.get("sha256")
         if isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest):
