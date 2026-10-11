@@ -173,7 +173,7 @@ def main() -> int:
         return 1
     try:
         report = validate(manifest, assets, args.root)
-    except (OSError, ValueError, TypeError) as exc:
+    except (OSError, UnicodeError, ValueError, TypeError) as exc:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot verify local archive parts: {exc}"]}, indent=2))
         return 1
