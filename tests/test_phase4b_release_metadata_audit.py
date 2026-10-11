@@ -89,6 +89,16 @@ class ReleaseMetadataAuditTests(unittest.TestCase):
         assets.append({"name": "DS-142_archive.partBAD", "size": 10})
         self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
 
+    def test_part_index_mismatch_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["archiveParts"][0]["partIndex"] = 2
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_part_count_mismatch_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["archiveParts"][0]["partCount"] = 2
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
     def test_undeclared_asset_fails(self):
         manifest, assets = fixture()
         assets.append({"name": "DS-142_archive.part002", "size": 10})
