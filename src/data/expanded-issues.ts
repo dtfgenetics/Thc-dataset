@@ -3,6 +3,23 @@ import type { IssueRecord, SourceRecord } from '../types'
 const source = (record: SourceRecord) => record
 
 const sources = {
+  ontarioHempBoronDeficiencyGuide: source({
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'],
+    publisher: 'King’s Printer for Ontario',
+    publicationDate: '2023',
+    year: 2023,
+    accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'The boron section on printed pages 18–19 reports symptoms first on younger tissues, with distorted or curled leaves that thicken with age and interveinal chlorosis that can progress to necrosis in the controlled Finola withholding context.',
+      'The same Finola section reports poor vegetative growth and growing-point dieback; buds or flowers may deform or die, but those reproductive signs are contextual and not a universal Cannabis progression.',
+      'The guide states that boron availability declines above pH 7.5, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, alkalinity, and laboratory methods.',
+      'The publication does not provide item-level automated-training permission for Figures 22–23; those photographs remain claim evidence only and were not copied or indexed.',
+    ],
+  }),
   ontarioHempNutrientDeficiencyGuide: source({
     title: 'Nutrient Deficiency ID Guide for Hemp',
     organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
@@ -708,6 +725,8 @@ export const expandedIssues: IssueRecord[] = [
       { stage: 'Controlled-study onset', description: 'After six weeks of complete boron withholding in one Cannabis sativa T1 experiment, plants were slightly stunted from the growing tips; the timing is study-specific.' },
       { stage: 'Initial visual pattern', description: 'New and expanding leaflets become smaller, distorted, and narrow at their bases while older foliage is less dominant in the frame.' },
       { stage: 'Intermediate to advanced', description: 'New leaves become severely distorted, curl inward or downward or at odd angles, and develop marginal necrosis; shoot tips can die.' },
+      { stage: 'Independent Finola onset', description: 'In a separate controlled Finola withholding guide, symptoms began on younger tissue as distorted or curled leaves that thickened with age and developed interveinal chlorosis; this is corroborating cultivar-specific context, not a universal sequence.' },
+      { stage: 'Independent Finola advanced context', description: 'The Finola guide reports progression from chlorosis toward necrosis, poor vegetative growth, and growing-point dieback; bud or flower deformation or death is reproductive context and requires stage-matched confirmation.' },
       { stage: 'Severe root-linked decline', description: 'Root-tip death and root-biomass loss can accompany whole-plant wilt. Capture roots and root-zone measurements because canopy wilt alone cannot identify boron deficiency.' },
     ],
     lookAlikes: ['Calcium deficiency', 'Copper deficiency', 'Zinc deficiency', 'Boron toxicity', 'Broad mite injury', 'Hemp russet mite injury', 'High-pH or high-EC root-zone stress', 'Salinity injury', 'Waterlogging, root-zone hypoxia, or root rot', 'Herbicide, plant-growth-regulator, or foliar-spray injury', 'Heat, high-light, or mechanical injury', 'Virus, viroid, or phytoplasma syndrome', 'Genetic or developmental leaf-shape variation', 'Camera white-balance, grow-light, focus, or compression artifact'],
@@ -729,10 +748,11 @@ export const expandedIssues: IssueRecord[] = [
       'Stem corking and reproductive-tissue signs are institutional hemp observations rather than a controlled Cannabis progression and require human review.',
       'The licensed Figure 4 asset is already indexed once under manganese deficiency because it contains manganese, boron, and copper classes; the center boron panels remain reference-only until panel crops, coordinates, labels, provenance, and dataset splits are reviewed.',
       'USU page images have mixed institutional and vendor credits without item-level reuse licenses and are excluded from media indexing and ground truth.',
+      'Ontario Figures 22–23 are proprietary reference evidence and were not copied, indexed, or admitted to training; the guide’s above-pH-7.5 statement is soil-oriented and not a universal growing-system threshold.',
       'Do not apply a generic boric-acid or borax dose from visual suspicion: the same source distinguishes boron excess, and an unmeasured correction can create toxicity or salinity-like injury.',
       'All image-only, root-unlinked, unmatched, method-unknown, contaminated, cross-crop-threshold, mixed-disorder, or analytically discordant samples require human review.',
     ],
-    sources: [sources.nutrientDisorders, sources.usuHempNutrients, sources.ncStateHempTissueRanges],
+    sources: [sources.nutrientDisorders, sources.usuHempNutrients, sources.ncStateHempTissueRanges, sources.ontarioHempBoronDeficiencyGuide],
     media: [],
   },
   {

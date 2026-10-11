@@ -1,0 +1,19 @@
+{
+  "base_commit": "8972bf607345ec2fcb7008d65f7bf549f190263e",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-finola-20261011",
+  "changed_paths": ["data/profiles/nut-def-b.json", "src/data/expanded-issues.ts"],
+  "contribution_id": "boron-finola-20261011",
+  "head_commit": "e047783f88d1e82da1a57d98a51f3d0cf4ffb0c0",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 18–19. The boron profile now preserves a bounded independent Finola sequence with younger-tissue onset, distortion or curling, thickening, interveinal chlorosis progressing toward necrosis, poor vegetative growth, and growing-point dieback. Reproductive signs remain stage-bounded context, and the above-pH-7.5 statement remains soil-oriented. Proprietary Figures 22–23 were not copied, indexed, or admitted to training. Claim-scoped source isolation prevents cross-profile provenance leakage. All validators passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
