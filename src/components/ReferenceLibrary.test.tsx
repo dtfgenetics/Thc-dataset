@@ -66,6 +66,21 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('filters uncovered guides by category when gaps exist', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const filter = screen.queryByRole('combobox', { name: 'Filter missing-image guides by category' })
+    if (filter) {
+      const options = Array.from((filter as HTMLSelectElement).options)
+      if (options.length > 1) {
+        fireEvent.change(filter, { target: { value: options[1].value } })
+        const expected = Number(options[1].textContent?.match(/\\((\\d+)\\)/)?.[1])
+        expect(screen.getByText(`${expected} guides match`)).not.toBeNull()
+      }
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
