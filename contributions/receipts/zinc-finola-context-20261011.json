@@ -1,0 +1,46 @@
+{
+  "base_commit": "2da459385b754a9046820b3654528abc2cf527d8",
+  "branch": "work/grow-doc/GD-DIAG-001/zinc-finola-context-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-zn.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "zinc-finola-context-20261011",
+  "head_commit": "2283161551b1b39ed06e56dda0980358ba6f943f",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the Ontario Ministry of Agriculture, Food and Rural Affairs hemp nutrient guide on 2026-10-11. Its controlled Finola zinc-withholding sequence supports cultivar- and stage-specific visual context only and is explicitly reconciled with the differing T1 and Annapurna experiments. The publication does not state item-level automated-training rights for its photographs, so no media were copied or indexed. Canonical profile changes validated before receipt; deterministic exports and frozen artifact pins are listed separately. Claim released for the validated integration batch.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
