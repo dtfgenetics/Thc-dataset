@@ -61,6 +61,10 @@
       "description": "After nine weeks of complete withholding in T1 silica-sand culture, lower and older leaflet margins and saw-tooth serrations become yellow."
     },
     {
+      "stage": "Independent Finola onset",
+      "description": "Ontario’s separate vegetative Finola guide describes the usual first signs on older leaves as margin-centered chlorosis or necrosis (marginal scorch), with older leaves often curling downward."
+    },
+    {
       "stage": "Initial flowering sugar-leaf sequence",
       "description": "In week three, larger sugar leaves develop dark-brown lesions surrounding secondary branch veins."
     },
@@ -71,6 +75,10 @@
     {
       "stage": "Converging distribution",
       "description": "By week five, both pathways coexist: sugar-leaf lesions predominate near the top, fan-leaf injury is strongest in the middle third, and light-brown fan-leaf injury expands inward through interveinal tissue."
+    },
+    {
+      "stage": "Independent Finola progression",
+      "description": "The Finola pictorial sequence shows margin-centered chlorosis and necrosis across leaf ages and affected leaf clusters; shortened internodes are possible supporting context, not a universal severity marker."
     },
     {
       "stage": "Advanced flowering",
@@ -240,6 +248,26 @@
         "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
         "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
         "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+      ]
+    },
+    {
+      "title": "Nutrient Deficiency ID Guide for Hemp",
+      "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+      "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+      "authors": [
+        "Jim Todd"
+      ],
+      "publisher": "King’s Printer for Ontario",
+      "publicationDate": "2023",
+      "year": 2023,
+      "accessedDate": "2026-10-11",
+      "supportedClaims": [
+        "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+        "The potassium section on printed pages 10–11 describes potassium as mobile and reports usual onset on older leaves as marginal chlorosis or necrosis called marginal scorch.",
+        "The controlled Finola sequence shows chlorosis and necrosis developing along leaf margins from younger to older leaves, while clusters of affected leaves retain a margin-centered distribution.",
+        "The guide reports downward curling of older leaves and possible shortened internodes; these are supporting morphology and whole-plant context rather than image-only confirmation.",
+        "The guide states that potassium availability decreases below pH 6 and is reduced between pH 7.6 and 8.4, but this soil-oriented statement is not a universal Cannabis nutrient-solution, substrate, tissue, or diagnostic threshold.",
+        "The publication does not provide item-level automated-training permission for Figures 9–10; those photographs remain claim evidence only and were not copied or indexed."
       ]
     }
   ],
