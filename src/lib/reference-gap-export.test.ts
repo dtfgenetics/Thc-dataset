@@ -38,10 +38,14 @@ describe('missing-reference editorial CSV', () => {
     expect(csv).toContain('"\'-10"')
   })
 
-  it('quotes cells containing Unicode formatting controls before formula operators', () => {
-    const hidden = String.fromCodePoint(0x200b)
-    const operator = String.fromCharCode(61)
-    const label = hidden + operator + '1+1'
+  it.each([
+    ['zero-width space', 0x200b],
+    ['Arabic letter mark', 0x061c],
+    ['soft hyphen', 0x00ad],
+    ['C1 next-line control', 0x0085],
+    ['word joiner', 0x2060],
+  ])('quotes formula operators preceded by %s', (_description, codePoint) => {
+    const label = String.fromCodePoint(codePoint) + '=1+1'
     const csv = buildReferenceGapCsv([{
       slug: 'format-controls',
       name: label,
@@ -52,6 +56,19 @@ describe('missing-reference editorial CSV', () => {
       lookAlikes: [],
     }])
     expect(csv).toContain(JSON.stringify("'" + label))
+  })
+
+  it('does not alter ordinary text containing formula characters later in a cell', () => {
+    const csv = buildReferenceGapCsv([{
+      slug: 'ordinary',
+      name: 'Label = not a formula',
+      category: 'Insufficient evidence',
+      scientificName: undefined,
+      affectedParts: [],
+      confirmation: [],
+      lookAlikes: [],
+    }])
+    expect(csv).toContain('"Label = not a formula"')
   })
 
   it('returns headers for an empty filtered backlog', () => {
