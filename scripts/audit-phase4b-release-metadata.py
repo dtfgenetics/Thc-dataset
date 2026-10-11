@@ -49,6 +49,10 @@ def audit(manifest, assets):
             else:
                 expected[name] = part
                 indices.append(int(match.group(2)))
+            if type(part.get("partIndex")) is not int or part["partIndex"] != (int(match.group(2)) if match else -1):
+                errors.append("Part index metadata mismatch: " + name)
+            if type(part.get("partCount")) is not int or part["partCount"] != len(parts):
+                errors.append("Part count metadata mismatch: " + name)
             if type(part.get("sizeBytes")) is not int or part["sizeBytes"] <= 0:
                 errors.append("Invalid part size: " + name)
             else:
@@ -90,6 +94,7 @@ def audit(manifest, assets):
     for name in published.keys() - expected.keys():
         errors.append("Undeclared published part: " + name)
     return {"status": "fail" if errors else "pass", "scope": "metadata-only",
+            "archiveBytesVerified": False, "scientificOrTrainingApproval": False,
             "expectedParts": len(expected), "publishedParts": len(published), "errors": errors}
 
 
