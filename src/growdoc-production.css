@@ -991,3 +991,12 @@ button { -webkit-tap-highlight-color: transparent; }
 .reference-coverage h2 { margin:0 0 10px; font-size:clamp(18px,2vw,22px); }
 .reference-coverage p { line-height:1.65; margin:8px 0 0; max-width:90ch; }
 @media (max-width:760px) { .reference-coverage { padding:16px; } }
+
+/* Navigable inventory of condition guides still needing approved visual evidence. */
+.reference-gaps { margin:12px 0 20px; border:1px solid var(--gd-line); border-radius:12px; padding:16px 20px; }
+.reference-gaps summary { cursor:pointer; font-weight:700; }
+.reference-gaps p { line-height:1.6; }
+.reference-gaps ul { list-style:none; padding:0; margin:12px 0 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr)); gap:8px; }
+.reference-gaps li { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px; border:1px solid var(--gd-line); border-radius:8px; }
+.reference-gaps li button { flex-shrink:0; }
+@media (max-width:760px) { .reference-gaps { padding:14px; } .reference-gaps li { flex-wrap:wrap; } }
