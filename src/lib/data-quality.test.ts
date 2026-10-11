@@ -253,6 +253,10 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not image-only ground truth/)
     expect(record?.lookAlikes).toContain('Broad mite injury')
     expect(record?.lookAlikes).toContain('Boron deficiency')
+    const ontario = record?.sources.find((source) => source.url.includes('301400.pdf'))
+    expect(ontario?.supportedClaims.join(' ').toLowerCase()).toMatch(/new growth.*dark bluish-green.*wilted/)
+    expect(ontario?.supportedClaims.join(' ').toLowerCase()).toMatch(/figures 26 through 28.*not copied/)
+    expect(record?.progression.map((step) => step.description).join(' ').toLowerCase()).toMatch(/finola.*young-to-old.*necrosis.*drooping/)
     expect(record?.media).toHaveLength(0)
   })
 

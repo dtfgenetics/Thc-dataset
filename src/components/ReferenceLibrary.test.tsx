@@ -161,7 +161,7 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByRole('heading', { name: 'Where to look' })).not.toBeNull()
     expect(screen.getByText('leaflet bases')).not.toBeNull()
     expect(screen.getByRole('heading', { name: 'Growth stages and observation context' })).not.toBeNull()
-    expect(screen.getAllByText('Claims supported by this source')).toHaveLength(2)
+    expect(screen.getAllByText('Claims supported by this source')).toHaveLength(3)
     expect(screen.getByText(/Published 2026-08-26 · Checked 2026-10-10/)).not.toBeNull()
   })
   it('provides valid section targets and opens a matching look-alike guide', () => {
