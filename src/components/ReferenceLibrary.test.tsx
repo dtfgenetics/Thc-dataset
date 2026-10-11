@@ -53,6 +53,7 @@ describe('Reference discovery and guide evidence', () => {
     if (search) {
       fireEvent.change(search, { target: { value: 'zzzz-unmatched-condition' } })
       expect(screen.getByText('0 guides match')).not.toBeNull()
+      expect(screen.getByText(/No missing-image guides match this search/)).not.toBeNull()
       fireEvent.change(search, { target: { value: '' } })
       expect(screen.queryByText('0 guides match')).toBeNull()
     } else {
