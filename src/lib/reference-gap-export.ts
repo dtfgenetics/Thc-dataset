@@ -9,9 +9,9 @@ const headers = [
 
 function csvCell(value: string): string {
   // Spreadsheet applications may evaluate imported cells beginning with formula
-  // operators, including after Unicode control and format characters. Prefix
+  // operators, including after Unicode controls, format characters and combining marks. Prefix
   // such content with an apostrophe before quoting it.
-  const safe = /^[\s\p{Cc}\p{Cf}]*[=+\-@]/u.test(value) ? `'${value}` : value
+  const safe = /^[\s\p{Cc}\p{Cf}\p{M}]*[=+\-@]/u.test(value) ? `'${value}` : value
   return `"${safe.replace(/"/g, '""')}"`
 }
 
