@@ -23,6 +23,11 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByText(/Coverage is not diagnostic accuracy/)).not.toBeNull()
   })
 
+  it('exposes accessible visual coverage meter', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByRole('img', { name: /condition guides have displayable visual references/ })).not.toBeNull()
+  })
+
   it('reports actual covered and uncovered guide counts', () => {
     const covered = issues.filter((issue) =>
       resolvedDisplayMediaForIssue(issue, issues).some(({ media }) => Boolean(media.url || media.thumbnailUrl))
