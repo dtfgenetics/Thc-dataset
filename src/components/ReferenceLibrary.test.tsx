@@ -23,6 +23,11 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByText(/Coverage is not diagnostic accuracy/)).not.toBeNull()
   })
 
+  it('exposes accessible visual coverage meter', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByRole('img', { name: /condition guides have displayable visual references/ })).not.toBeNull()
+  })
+
   it('reports actual covered and uncovered guide counts', () => {
     const covered = issues.filter((issue) =>
       resolvedDisplayMediaForIssue(issue, issues).some(({ media }) => Boolean(media.url || media.thumbnailUrl))
@@ -32,12 +37,91 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByText(new RegExp(`${issues.length - covered} do not\\.`))).not.toBeNull()
   })
 
+  it('offers navigable guides when visual evidence is missing', () => {
+    const open = vi.fn()
+    render(<ReferenceLibrary onOpenIssue={open} />)
+    const gapSummary = screen.queryByText(/guides without displayable visual references/)
+    if (gapSummary) {
+      fireEvent.click(gapSummary)
+      const first = screen.getAllByRole('button', { name: 'Open guide' })[0]
+      expect(first).not.toBeNull()
+      fireEvent.click(first)
+      expect(open).toHaveBeenCalledOnce()
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
+  it('filters uncovered guides without changing the approved reference grid', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const search = screen.queryByRole('textbox', { name: 'Search guides missing images' })
+    if (search) {
+      fireEvent.change(search, { target: { value: 'zzzz-unmatched-condition' } })
+      expect(screen.getByText('0 guides match')).not.toBeNull()
+      expect(screen.getByText(/No missing-image guides match this search/)).not.toBeNull()
+      fireEvent.change(search, { target: { value: '' } })
+      expect(screen.queryByText('0 guides match')).toBeNull()
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
+  it('filters uncovered guides by category when gaps exist', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const filter = screen.queryByRole('combobox', { name: 'Filter missing-image guides by category' })
+    if (filter) {
+      const options = Array.from((filter as HTMLSelectElement).options)
+      if (options.length > 1) {
+        fireEvent.change(filter, { target: { value: options[1].value } })
+        const expected = Number(options[1].textContent?.match(/\\((\\d+)\\)/)?.[1])
+        expect(screen.getByText(`${expected} guides match`)).not.toBeNull()
+      }
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
+  it('labels category backlog counts as coverage gaps rather than diagnostic priority', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (screen.queryByRole('textbox', { name: 'Search guides missing images' })) {
+      expect(screen.getByText(/Largest remaining gaps:/)).not.toBeNull()
+      expect(screen.getByText(/not a ranking of diagnostic importance/)).not.toBeNull()
+    }
+  })
+
+  it('paginates large missing-image inventories and resets pagination after search', () => {
+    const missing = issues.filter((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (missing.length > 24) {
+      expect(screen.getByRole('navigation', { name: 'Missing-image guide pages' })).not.toBeNull()
+      expect(screen.getAllByRole('button', { name: 'Open guide' })).toHaveLength(24)
+      fireEvent.click(screen.getByRole('button', { name: 'Next' }))
+      expect(screen.getByText(/Page 2 of/)).not.toBeNull()
+      fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: 'zzzz-unmatched-condition' } })
+      expect(screen.getByText('0 guides match')).not.toBeNull()
+      expect(screen.queryByRole('navigation', { name: 'Missing-image guide pages' })).toBeNull()
+    } else if (missing.length > 0) {
+      expect(screen.queryByRole('navigation', { name: 'Missing-image guide pages' })).toBeNull()
+    }
+  })
+
+  it('shows condition-specific capture guidance for uncovered references', () => {
+    const missing = issues.filter((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (missing.length) {
+      expect(screen.getAllByText(/Suggested evidence views:/).length).toBeGreaterThan(0)
+      expect(screen.getAllByText(/Verification:/).length).toBeGreaterThan(0)
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
     fireEvent.change(screen.getByRole('textbox', { name: 'Search reference images' }), { target: { value: 'copper deficiency' } })
     expect(screen.queryByRole('heading', { name: 'Copper deficiency' })).not.toBeNull()
-    expect(screen.getByRole('status').textContent).toContain('1 distinct source assets')
+    expect(screen.getByText(/1 distinct source assets/)).not.toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Open Copper deficiency guide' }))
     expect(open).toHaveBeenCalledWith('copper-deficiency')
     expect(screen.getByText(/Cannabis plant context · Shared figure/)).not.toBeNull()

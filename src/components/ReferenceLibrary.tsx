@@ -10,6 +10,11 @@ const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue,
   .filter(({ media }) => media.url || media.thumbnailUrl)
   .map((reference) => ({ issue, ...reference })))
 const issuesWithDisplayableReferences = new Set(references.map(({ issue }) => issue.slug))
+const uncoveredIssues = issues.filter((issue) => !issuesWithDisplayableReferences.has(issue.slug))
+  .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name))
+const uncoveredByCategory = [...new Set(uncoveredIssues.map((issue) => issue.category))]
+  .map((category) => ({ category, count: uncoveredIssues.filter((issue) => issue.category === category).length }))
+  .sort((a, b) => b.count - a.count || a.category.localeCompare(b.category))
 const referenceCoverage = {
   total: issues.length,
   withReference: issuesWithDisplayableReferences.size,
@@ -24,6 +29,16 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
   const [category, setCategory] = useState('All')
   const [host, setHost] = useState('All')
   const [view, setView] = useState('All')
+  const [gapQuery, setGapQuery] = useState('')
+  const [gapCategory, setGapCategory] = useState('All')
+  const [gapPage, setGapPage] = useState(1)
+  const matchingUncovered = useMemo(() => uncoveredIssues.filter((issue) =>
+    (gapCategory === 'All' || issue.category === gapCategory) &&
+    [issue.name, issue.category, issue.scientificName].filter(Boolean).join(' ').toLowerCase().includes(gapQuery.trim().toLowerCase())), [gapQuery, gapCategory])
+  const gapPageSize = 24
+  const gapPageCount = Math.max(1, Math.ceil(matchingUncovered.length / gapPageSize))
+  const currentGapPage = Math.min(gapPage, gapPageCount)
+  const visibleUncovered = matchingUncovered.slice((currentGapPage - 1) * gapPageSize, currentGapPage * gapPageSize)
   const deferredQuery = useDeferredValue(query)
   const filtered = useMemo(() => {
     const needle = deferredQuery.trim().toLowerCase()
@@ -42,8 +57,10 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
       <section className="reference-coverage" aria-labelledby="reference-coverage-heading">
         <h2 id="reference-coverage-heading">Visual evidence coverage</h2>
         <p>{referenceCoverage.withReference} of {referenceCoverage.total} condition guides currently have at least one approved, displayable visual reference; {referenceCoverage.withoutReference} do not.</p>
+        <div className="reference-coverage-meter" role="img" aria-label={`${referenceCoverage.withReference} of ${referenceCoverage.total} condition guides have displayable visual references`}><span style={{ width: `${referenceCoverage.total ? (referenceCoverage.withReference / referenceCoverage.total) * 100 : 0}%` }} /></div>
         <p>Coverage is not diagnostic accuracy: a shared figure may appear in multiple guides, and a non-Cannabis or organism-only image is not proof of the condition in Cannabis. Counts reflect approved display links, not unique verified clinical cases or training examples.</p>
       </section>
+      {uncoveredIssues.length > 0 ? <details className="reference-gaps"><summary>Explore {uncoveredIssues.length} guides without displayable visual references</summary><p>These guides need properly sourced scientific illustrations or approved photographs. No missing image is represented as verified evidence.</p><label className="reference-gaps-search">Find a guide missing images<input aria-label="Search guides missing images" value={gapQuery} onChange={(event) => { setGapQuery(event.target.value); setGapPage(1) }} placeholder="Search condition or category" /></label><label className="reference-gaps-search">Missing-image category<select aria-label="Filter missing-image guides by category" value={gapCategory} onChange={(event) => { setGapCategory(event.target.value); setGapPage(1) }}><option value="All">All categories</option>{uncoveredByCategory.map(({ category, count }) => <option key={category} value={category}>{category} ({count})</option>)}</select></label><p role="status">{matchingUncovered.length} guides match</p><p className="reference-gap-priorities">Largest remaining gaps: {uncoveredByCategory.slice(0, 3).map(({ category, count }) => `${category} (${count})`).join(" · ")}. Counts represent guides without approved display links, not a ranking of diagnostic importance.</p>{matchingUncovered.length === 0 ? <p>No missing-image guides match this search. Try another condition or category.</p> : null}<ul>{visibleUncovered.map((issue) => <li key={issue.slug}><div className="reference-gap-guide"><strong>{issue.name}</strong><small>{issue.category}</small><span>Suggested evidence views: {issue.affectedParts.length ? issue.affectedParts.slice(0, 3).join(", ") : "whole plant and affected tissue"}</span><span>Verification: {issue.confirmation[0] || "Compare against independent observations before assigning a condition."}</span></div><button type="button" onClick={() => onOpenIssue(issue.slug)}>Open guide</button></li>)}</ul>{gapPageCount > 1 ? <nav className="reference-gap-pagination" aria-label="Missing-image guide pages"><button type="button" disabled={currentGapPage === 1} onClick={() => setGapPage((page) => Math.max(1, page - 1))}>Previous</button><span>Page {currentGapPage} of {gapPageCount}</span><button type="button" disabled={currentGapPage === gapPageCount} onClick={() => setGapPage((page) => Math.min(gapPageCount, page + 1))}>Next</button></nav> : null}</details> : <p className="reference-gaps-complete">All condition guides currently have at least one displayable visual reference.</p>}
       <div className="reference-discovery">
         <label className="search-field"><Search size={19} /><input aria-label="Search reference images" placeholder="Search condition, species, stage, or view" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
         <label>Condition category<select value={category} onChange={(e) => setCategory(e.target.value)}><option value="All">All categories</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
