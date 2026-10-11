@@ -14918,6 +14918,10 @@
       {
         "stage": "Prolonged reproductive response",
         "description": "Longer study exposure reduced leaf-area index, relative chlorophyll, photosynthetic efficiency, root and shoot biomass, and flower biomass; the magnitude varied with stage and duration and is not a universal visual timeline."
+      },
+      {
+        "stage": "Repeated exposure",
+        "description": "Record each flooding event and intervening drainage/recovery interval. The Tasmania thesis abstract reports greater impairment with repeated events and shorter gaps; this contextual evidence does not establish a unique visible phenotype or a safe interval."
       }
     ],
     "lookAlikes": [
@@ -15030,6 +15034,25 @@
           "For recirculating production, the authors recommend monitoring water temperature and oxygen as well as pH, EC, and drip-to-drain nutrient relationships because extremes can enhance root infection.",
           "Fusarium and Pythium inoculum may occur in recirculated Cannabis nutrient solutions; pathogen testing is therefore required when root discoloration or decline remains compatible with disease.",
           "The article is a greenhouse-disease management review rather than a controlled abiotic-waterlogging trial, so its root-browning and monitoring statements support differential diagnosis and exclusion checks, not an image-only hypoxia label."
+        ]
+      },
+      {
+        "title": "Production and quality of industrial hemp (Cannabis sativa L.) in response to water regimes",
+        "organization": "University of Tasmania research repository",
+        "authors": [
+          "IMK Vijaya Kumar"
+        ],
+        "publisher": "University of Tasmania",
+        "url": "https://figshare.utas.edu.au/articles/thesis/Production_and_quality_of_industrial_hemp_Cannabis_sativa_L_in_response_to_water_regimes/23249576",
+        "doi": "10.25959/23249576",
+        "publicationDate": "2023-05-28",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "The repository abstract describes glasshouse hemp waterlogging experiments varying duration, stage (six true leaf pairs or flower initiation), event count, and recovery interval.",
+          "It reports poorer vegetative-stage tolerance, and greater growth and yield impairment with more flooding events or shorter recovery gaps.",
+          "It reports survival with impaired photosynthesis, growth and yield after three or six flooding days, and no survival after twelve continuous days; these are experiment-specific outcomes, not diagnostic thresholds.",
+          "The repository labels the work an unpublished thesis, posted May 28, 2023, with author copyright 2021 and restricted status. Only its public abstract is used here; figures are not admitted."
         ]
       }
     ],

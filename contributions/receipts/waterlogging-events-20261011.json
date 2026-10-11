@@ -1,0 +1,46 @@
+{
+  "base_commit": "bf5d46514ded583de26473abde99005727bd65c6",
+  "branch": "work/grow-doc/GD-DIAG-001/waterlogging-events-20261011",
+  "changed_paths": [
+    "data/profiles/water-over.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "waterlogging-events-20261011",
+  "head_commit": "303e302bc5c371bf2da81b0a3809d4a1f10610e9",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "10.25959/23249576"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the University of Tasmania public thesis abstract on 2026-10-11. Repository posting date is distinct from its 2021 copyright date. Unpublished abstract evidence supports event/stage/recovery context only; experimental durations are not safe intervals or diagnostic thresholds. Restricted figures were not admitted. Canonical diff validated before receipt; deterministic exports and matching frozen artifact pins are listed separately. Claim released for the validated integration batch.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/waterlogging-context.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
