@@ -41,6 +41,7 @@ def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
         name = asset.get("name")
         if name in by_name:
             errors.append(f"Duplicate release asset {name}")
+            continue
         by_name[name] = asset
     declared = set()
     audited = 0
