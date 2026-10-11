@@ -99,6 +99,16 @@ class ReleaseMetadataAuditTests(unittest.TestCase):
         manifest["results"][0]["archiveParts"][0]["partCount"] = 2
         self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
 
+    def test_duplicate_nonarchive_release_asset_fails(self):
+        manifest, assets = fixture()
+        assets.extend([{"name": "manifest.json"}, {"name": "manifest.json"}])
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_nonarchive_release_asset_is_allowed(self):
+        manifest, assets = fixture()
+        assets.append({"name": "manifest.json"})
+        self.assertEqual(mod.audit(manifest, assets)["status"], "pass")
+
     def test_undeclared_asset_fails(self):
         manifest, assets = fixture()
         assets.append({"name": "DS-142_archive.part002", "size": 10})
