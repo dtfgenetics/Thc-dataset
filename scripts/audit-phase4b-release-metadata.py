@@ -25,7 +25,16 @@ def audit(manifest, assets):
         if did in seen_datasets:
             errors.append("Duplicate manifest dataset: " + did)
         seen_datasets.add(did)
+        if row.get("status") != "acquired":
+            errors.append("Acquisition not successful: " + did)
+        original = row.get("originalArchive")
+        if (not isinstance(original, dict) or type(original.get("sizeBytes")) is not int
+                or original["sizeBytes"] <= 0 or not isinstance(original.get("sha256"), str)
+                or not re.fullmatch(r"[0-9a-f]{64}", original["sha256"])):
+            errors.append("Invalid original archive metadata: " + did)
         parts = row.get("archiveParts")
+        total_size = 0
+        indices = []
         if not isinstance(parts, list):
             errors.append("Missing parts for " + did)
             continue
@@ -39,6 +48,17 @@ def audit(manifest, assets):
                 errors.append("Invalid or duplicate part: " + name)
             else:
                 expected[name] = part
+                indices.append(int(match.group(2)))
+            if type(part.get("sizeBytes")) is not int or part["sizeBytes"] <= 0:
+                errors.append("Invalid part size: " + name)
+            else:
+                total_size += part["sizeBytes"]
+            if part.get("uploadedToRelease") is not True:
+                errors.append("Part not marked uploaded: " + name)
+        if indices != list(range(1, len(indices) + 1)):
+            errors.append("Archive part numbering invalid: " + did)
+        if isinstance(original, dict) and type(original.get("sizeBytes")) is int and total_size != original["sizeBytes"]:
+            errors.append("Original archive size mismatch: " + did)
     if seen_datasets != DATASETS:
         errors.append("Manifest dataset coverage incomplete")
     published = {}
