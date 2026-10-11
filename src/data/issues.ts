@@ -121,6 +121,24 @@ const sources: Record<string, SourceRecord> = {
       'The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media.',
     ],
   },
+  ontarioHempPhosphorusDeficiencyGuide: {
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'],
+    publisher: 'King’s Printer for Ontario',
+    publicationDate: '2023',
+    year: 2023,
+    accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'The phosphorus section on printed pages 8–9 states that phosphorus is mobile and describes early deficiency on older leaves as slow growth, dark-green foliage, delayed maturity, and spindly small leaflets in the controlled Finola withholding context.',
+      'The same Finola section describes older leaves progressing from dark green toward bronze tinting with interveinal and marginal necrosis; this independent sequence differs from the olive, sunken-looking spotting reported in the T1 experiment.',
+      'The guide states that purpling is an unreliable phosphorus-deficiency sign because anthocyanin production is a general stress response, and reports that bud or flower number and size may decrease; these are differential and reproductive-stage context, not image-only confirmation.',
+      'The guide states that phosphorus availability begins to decrease below pH 6, but this soil-oriented statement is not a universal Cannabis root-zone target across hydroponic solutions, substrates, extraction methods, temperature, alkalinity, and laboratory methods.',
+      'The publication does not provide item-level automated-training permission for Figures 5–8; those photographs remain claim evidence only and were not copied or indexed.',
+    ],
+  },
   ontarioHempCopperDeficiencyGuide: {
     title: 'Nutrient Deficiency ID Guide for Hemp',
     organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
@@ -1365,7 +1383,9 @@ export const issues: IssueRecord[] = [
     progression: [
       {stage:'Previsual context',description:'Growth or yield can be affected before a reliable image label is available; establish a same-cultivar baseline and measure root-zone conditions rather than waiting for color alone.'},
       {stage:'Initial controlled-study presentation',description:'After seven weeks of phosphorus withholding from transplant in Cannabis sativa T1, plants were slightly stunted and lower, older leaflets developed irregular olive-green spots.'},
+      {stage:'Independent Finola onset',description:'In a separate controlled vegetative Finola guide, older leaves begin dark green while plants grow slowly and develop spindly, small leaflets; delayed maturity is contextual rather than a diagnostic clock.'},
       {stage:'Intermediate',description:'Olive-green spots enlarged, became sunken and almost wet in appearance, and developed some marginal necrosis.'},
+      {stage:'Independent Finola progression',description:'The Finola guide describes older foliage progressing from dark green toward bronze tinting with interveinal and marginal necrosis. Purpling remains unreliable because anthocyanin can reflect many stresses.'},
       {stage:'Advanced',description:'Yellowing older leaves became extensively olive-spotted, with large symptomatic areas and, in severe cases, large necrotic portions.'},
       {stage:'After correction',description:'New growth and new-lesion rate are the useful response measures; established necrotic tissue will not return to a clean visual reference state.'},
     ],
@@ -1374,8 +1394,8 @@ export const issues: IssueRecord[] = [
     immediateActions: ['Mark the plant and preserve pre-treatment images, root-zone measurements, feed records, and representative tissue before changing nutrition.', 'Correct documented drainage, temperature, pH, EC, or root-health problems before assuming more phosphorus is required.', 'Avoid stacking phosphorus-rich products while the root-zone and tissue result are unknown.'],
     correctivePlan: ['When testing supports inadequate phosphorus supply and roots are functional, restore balanced crop- and stage-appropriate nutrition gradually and follow current local agronomic guidance.', 'Track new leaf appearance, new-lesion rate, growth, root-zone measurements, and tissue results; do not judge correction by recovery of old necrotic leaves.', 'If phosphorus is adequate or symptoms continue, reopen nitrogen, magnesium, potassium, root disease, waterlogging, pest, pathogen, exposure, and normal-senescence differentials.'],
     prevention: ['Use routine same-position tissue sampling and production-system-appropriate root-zone or soil testing before visible injury.', 'Keep input and drainage pH, EC, phosphorus concentration, temperature, water-content, and irrigation records linked to plant and image identifiers.', 'Avoid universal bloom-booster schedules: controlled Cannabis studies show phosphorus responses depend on cultivar, stage, system, and tested concentration range.'],
-    warnings: ['The primary visual sequence used one Cannabis sativa T1 cultivar in silica sand with phosphorus withheld from transplant; seven weeks, 0.09% tissue phosphorus, and the pictured colors are experiment-specific, not universal thresholds.', 'Purple petioles or leaves are not phosphorus-deficiency ground truth because genetics, temperature, maturation, lighting, and camera rendering can produce similar color.', 'Adding phosphorus cannot correct root hypoxia, root disease, unsuitable pH, cold roots, or high salinity and may worsen nutrient imbalance or environmental losses.', 'A high-THC flowering study found a cultivar- and system-specific quadratic phosphorus response; its solution concentrations must not be converted into a universal feed recipe.', 'The CC BY figure is a mixed nitrogen/phosphorus/calcium composite and remains excluded from automated training until panel-level crops, labels, and dataset splits are reviewed.', 'All symptom-only samples remain low confidence and require human review.', 'The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The controlled sources differ in cultivar, stage, medium, phosphorus range, and outcome timing; they do not isolate which factor controls visual expression across production systems.'],
-    sources: [sources.msuNutrients, sources.usuHempNutrients, sources.cannabisFloweringNpkOptimization],
+    warnings: ['The primary visual sequence used one Cannabis sativa T1 cultivar in silica sand with phosphorus withheld from transplant; seven weeks, 0.09% tissue phosphorus, and the pictured colors are experiment-specific, not universal thresholds.', 'Purple petioles or leaves are not phosphorus-deficiency ground truth because genetics, temperature, maturation, lighting, and camera rendering can produce similar color.', 'Adding phosphorus cannot correct root hypoxia, root disease, unsuitable pH, cold roots, or high salinity and may worsen nutrient imbalance or environmental losses.', 'A high-THC flowering study found a cultivar- and system-specific quadratic phosphorus response; its solution concentrations must not be converted into a universal feed recipe.', 'The CC BY figure is a mixed nitrogen/phosphorus/calcium composite and remains excluded from automated training until panel-level crops, labels, and dataset splits are reviewed.', 'Ontario Figures 5–8 are proprietary reference evidence and were not copied, indexed, or admitted to training; the guide’s below-pH-6 statement is soil-oriented and not a universal growing-system threshold.', 'All symptom-only samples remain low confidence and require human review.', 'The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The controlled sources differ in cultivar, stage, medium, phosphorus range, and outcome timing; they do not isolate which factor controls visual expression across production systems.'],
+    sources: [sources.msuNutrients, sources.usuHempNutrients, sources.cannabisFloweringNpkOptimization, sources.ontarioHempPhosphorusDeficiencyGuide],
     media: [
       {
         id: 'mdpi-cannabis-n-p-ca-deficiency-figure-2',
