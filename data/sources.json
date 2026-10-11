@@ -3979,5 +3979,25 @@
       "The agency describes Serratia species as opportunistic pathogens, classifies the genus as Risk Group 2 while noting that the classification may not apply to every species, and specifies Containment Level 2 practices for potentially infectious material or cultures.",
       "For work with infected material or cultures, the sheet calls for protective clothing, gloves where direct contact is unavoidable, eye protection where splashes are possible, and controls for aerosol-producing procedures."
     ]
+  },
+  {
+    "sourceKey": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+    "title": "Nutrient Deficiency ID Guide for Hemp",
+    "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+    "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+    "authors": [
+      "Jim Todd"
+    ],
+    "publisher": "King’s Printer for Ontario",
+    "publicationDate": "2023",
+    "year": 2023,
+    "accessedDate": "2026-10-11",
+    "supportedClaims": [
+      "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+      "The guide describes zinc as having low mobility in the plant and reports initial symptoms at the top of the plant on younger tissue, but this controlled Finola presentation must not override cultivar- and experiment-specific differences in other Cannabis studies.",
+      "In the Finola zinc-withholding sequence, young leaves developed yellow-to-white interveinal chlorosis, including pale bands between the margin and mid-vein in the lower portion of the leaflet; severely affected emerging leaves could become nearly white.",
+      "Developing zinc-withheld leaves could become thin or strap-like with distorted margins, providing a morphology and leaf-age context distinct from the marginal yellowing and necrosis reported in the T1 experiment.",
+      "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
+    ]
   }
 ]

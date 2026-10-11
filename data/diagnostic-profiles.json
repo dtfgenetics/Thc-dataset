@@ -10409,7 +10409,7 @@
     "severity": "moderate",
     "reviewStatus": "reviewed",
     "photoOnlyMaxConfidence": 0.15,
-    "summary": "Low zinc produced two different controlled Cannabis presentations: marginal yellowing and necrosis on newer foliage in vegetative T1, and young-leaf mottled interveinal chlorosis with restricted flowering growth in Annapurna. The latter study found a major phosphorus interaction and cautioned that its visible leaf symptom may not be directly zinc-specific.",
+    "summary": "Low zinc produced three different controlled Cannabis presentations: marginal yellowing and necrosis on newer foliage in vegetative T1; upper-canopy interveinal whitening with thin, distorted emerging leaves in vegetative Finola; and young-leaf mottled interveinal chlorosis with restricted flowering growth in Annapurna. The latter study found a major phosphorus interaction and cautioned that its visible leaf symptom may not be directly zinc-specific.",
     "affectedParts": [
       "newer and expanding leaves",
       "youngest fully developed fan leaves",
@@ -10427,7 +10427,10 @@
     "indicators": [
       "Marginal yellowing begins on newer and expanding leaves in the controlled T1 withholding sequence",
       "Yellowing is concentrated along leaflet margins and toothed portions before tan, irregular marginal necrosis develops",
-      "A separate low-zinc treatment produced mottled interveinal chlorosis on young leaves",
+      "In controlled vegetative Finola, younger upper-canopy leaves developed yellow-to-white interveinal chlorosis rather than the T1 marginal sequence",
+      "Finola chlorosis could form pale bands between the margin and mid-vein in the lower portion of a leaflet",
+      "Severely affected emerging Finola leaves could become nearly white, thin or strap-like, and distorted at the margins",
+      "A separate low-zinc Annapurna treatment produced mottled interveinal chlorosis on young leaves",
       "Shorter plants with unchanged main-stem node count indicate reduced internode elongation in the Annapurna experiment",
       "Reduced elongation rate and smaller stem diameter provide longitudinal and morphological context beyond leaf color",
       "Yield reduction can occur without a visible leaf syndrome: the 0.1 mg/L Annapurna treatment reduced inflorescence yield but visible chlorosis was reported only at 0.05 mg/L"
@@ -10458,6 +10461,10 @@
       {
         "stage": "Progressive vegetative T1 presentation",
         "description": "Yellow marginal areas became tan, irregularly shaped necrotic regions along leaflet margins."
+      },
+      {
+        "stage": "Vegetative Finola presentation",
+        "description": "Young upper-canopy leaves developed yellow-to-white interveinal bands, and severe emerging foliage became pale, thin or strap-like, and distorted; this pattern did not reproduce the T1 marginal-necrosis sequence."
       },
       {
         "stage": "Dose-response Annapurna presentation",
@@ -10514,6 +10521,8 @@
     ],
     "warnings": [
       "The T1 nine-week onset, 10.70 mg/kg most-recent-mature-leaf zinc, and marginal sequence came from one cultivar in silica sand with zinc withheld from transplant and are not universal thresholds.",
+      "The Finola white-banded and strap-leaf sequence came from one vegetative industrial-hemp cultivar under complete greenhouse zinc withholding; it is not a universal canopy, morphology, pH, timing, or severity rule.",
+      "The Ontario guide does not report an item-level reuse or automated-training license for its zinc figures, so the PDF is retained as institutional claim evidence only and no image was copied or indexed.",
       "The Annapurna 0.05-0.1 mg/L supply levels, 14.7-23.5 mg/kg leaf values, growth effects, and maturity images came from one clonal cultivar in perlite and must not be generalized to other cultivars, media, water chemistry, chelates, or stages.",
       "The 2026 study authors explicitly stated that high leaf phosphorus may have caused the visible mottling at 0.05 mg/L zinc; the pictured chlorosis is a treatment-associated observation, not mechanism-specific visual ground truth.",
       "The 0.1 mg/L treatment reduced inflorescence yield without reported visible chlorosis, so symptom absence cannot exclude a low-zinc treatment response.",
@@ -10573,6 +10582,25 @@
           "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
           "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
           "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiency ID Guide for Hemp",
+        "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+        "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+        "authors": [
+          "Jim Todd"
+        ],
+        "publisher": "King’s Printer for Ontario",
+        "publicationDate": "2023",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+          "The guide describes zinc as having low mobility in the plant and reports initial symptoms at the top of the plant on younger tissue, but this controlled Finola presentation must not override cultivar- and experiment-specific differences in other Cannabis studies.",
+          "In the Finola zinc-withholding sequence, young leaves developed yellow-to-white interveinal chlorosis, including pale bands between the margin and mid-vein in the lower portion of the leaflet; severely affected emerging leaves could become nearly white.",
+          "Developing zinc-withheld leaves could become thin or strap-like with distorted margins, providing a morphology and leaf-age context distinct from the marginal yellowing and necrosis reported in the T1 experiment.",
+          "The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media."
         ]
       },
       {
