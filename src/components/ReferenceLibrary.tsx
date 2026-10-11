@@ -11,6 +11,7 @@ const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue,
   .map((reference) => ({ issue, ...reference })))
 const issuesWithDisplayableReferences = new Set(references.map(({ issue }) => issue.slug))
 const uncoveredIssues = issues.filter((issue) => !issuesWithDisplayableReferences.has(issue.slug))
+  .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name))
 const referenceCoverage = {
   total: issues.length,
   withReference: issuesWithDisplayableReferences.size,
