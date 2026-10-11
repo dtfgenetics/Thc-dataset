@@ -669,7 +669,7 @@
       "category": "Water / root-zone",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 0,
       "path": "data/profiles/water-over.json"
     }
