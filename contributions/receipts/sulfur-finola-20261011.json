@@ -1,0 +1,19 @@
+{
+  "base_commit": "f3be4c18d31cec3fc3ea24a9cb524c3c719cff5b",
+  "branch": "work/grow-doc/GD-DIAG-001/sulfur-finola-20261011",
+  "changed_paths": ["data/profiles/nut-def-s.json", "src/data/issues.ts"],
+  "contribution_id": "sulfur-finola-20261011",
+  "head_commit": "8055d6b2b2dc5d3e0ef3b6acc385c3e4c10b1f2e",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 16–17. The sulfur profile now preserves a bounded independent Finola sequence with younger-leaf chlorosis, red or purple tinting, general new-growth pallor, stem woodiness, and shortened internodes. The below-pH-6 statement remains soil-oriented context. Proprietary Figures 18–21 were not copied, indexed, or admitted to training. Claim-scoped source isolation prevents cross-profile provenance leakage. All validators passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": ["https://doi.org/10.3390/plants12030422", "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
