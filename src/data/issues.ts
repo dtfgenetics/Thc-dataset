@@ -121,6 +121,19 @@ const sources: Record<string, SourceRecord> = {
       'The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media.',
     ],
   },
+  ontarioHempCopperDeficiencyGuide: {
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'], publisher: 'King’s Printer for Ontario', publicationDate: '2023', year: 2023, accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'In the controlled Finola copper-withholding sequence, early symptoms occurred particularly on new growth: leaves became dark bluish-green and wilted before later chlorosis and curl developed.',
+      'The Finola pictorial sequence documents chlorosis progressing to necrosis from young to old leaves, with early curling followed by later drooping; this is an independent cultivar-specific presentation rather than a universal copper-deficiency sequence.',
+      'The guide states that copper availability decreases above pH 8.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.',
+      'Figures 26 through 28 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training.',
+    ],
+  },
   cannabisNitrogenDose: {
     title: 'Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod',
     organization: 'Frontiers in Plant Science (Saloner and Bernstein)',
@@ -1591,7 +1604,9 @@ export const issues: IssueRecord[] = [
     progression: [
       {stage:'Before visible separation',description:'Copper supply or availability may be low before a reliable image pattern appears; the controlled T1 study did not report visible symptoms until nine weeks after withholding began.'},
       {stage:'Initial',description:'The plant becomes slightly stunted and newer or expanding leaves show mild distortion, narrowed leaflet bases, and slight basal yellowing.'},
+      {stage:'Independent Finola onset',description:'A separate controlled Finola guide describes particularly new growth becoming dark bluish-green and wilted early, showing that cultivar and experimental system can produce a presentation unlike the T1 basal-yellowing sequence.'},
       {stage:'Intermediate',description:'Basal narrowing and distortion intensify and marginal interveinal chlorosis appears on new and expanding leaves.'},
+      {stage:'Independent Finola progression',description:'In the Finola sequence, young-to-old leaves progress from chlorosis and early curl toward necrosis and later drooping; preserve this as source-specific context, not a universal age or timing rule.'},
       {stage:'Advanced',description:'Fine interveinal chlorosis extends across the leaf, margins become distorted with slight inward and downward curl, and newer leaves show mildly reduced turgidity.'},
       {stage:'After a documented correction',description:'Assess subsequent growth, new-leaf geometry, serial canopy views, root-zone measurements, and follow-up tissue analysis; established deformation or chlorosis may not reverse.'},
     ],
@@ -1601,7 +1616,7 @@ export const issues: IssueRecord[] = [
     correctivePlan: ['When analytical and production records support inadequate copper supply or availability and roots are functional, restore a balanced crop- and system-appropriate micronutrient program gradually under current local agronomic guidance.', 'Track subsequent leaf geometry, chlorosis, turgidity, internode growth, roots, root-zone measurements, and follow-up tissue results rather than judging correction from old deformed leaves.', 'If copper status is adequate or the pattern continues, reopen boron, iron, manganese, zinc, calcium, root disease, arthropod, pathogen, environmental, exposure, and genetic differentials.'],
     prevention: ['Record copper and competing micronutrients in fertilizer, source water, and representative tissue by plant part and stage rather than relying on a generic deficiency chart.', 'Calibrate pH and EC meters, monitor root-zone conditions and leachate where appropriate, and keep irrigation, dryback, temperature, and oxygenation records.', 'Maintain same-cultivar healthy references and consistent growing-tip, node-, and canopy-position sampling so developmental leaf shape is not mistaken for copper response.'],
     warnings: ['The NC State 5 to 11 ppm copper interval is the middle 50% of a floral CBD hemp survey, not a causal deficiency cutoff or proof that an out-of-range result caused the photographed symptoms; transfer to grain, fiber, other stages, or individual plants requires additional evidence.', 'The controlled sequence came from one Cannabis sativa T1 cultivar in silica sand with copper completely withheld; nine weeks, 1.41 mg/kg tissue copper, 45% lower biomass, and the pictured pattern are experiment-specific, not universal thresholds.', 'The control contained 4.65 mg/kg copper, slightly below the general crop survey range cited by the authors, which further limits conversion of either value into a Cannabis cutoff.', 'The source contains a figure-number inconsistency: its copper prose cites Figure 5, while the published Figure 4 caption and right-column label identify copper deficiency and Figure 5 is captioned manganese and boron toxicity. Copper panels require human verification against the original layout.', 'New-growth distortion, basal narrowing, chlorosis, curl, reduced turgidity, and stunting overlap nutritional, root-zone, arthropod, pathogen, environmental, exposure, genetic, and imaging conditions and are not image-only ground truth.', 'The CC BY Figure 4 asset is already hashed and indexed under manganese deficiency; it is cross-referenced rather than duplicated here because repository quality gates require unique verified media hashes.', 'No separate image or video is admitted for this record in this batch; all symptom-only samples and any derived copper-panel crops require human review and linked analytical evidence before ground-truth use.', 'The 0.15 image/video-only confidence ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The controlled experiment did not independently vary cultivar, growth stage, medium, partial copper supply, or competing micronutrients, so it does not isolate which factor controls phenotype expression outside that one system.'],
-    sources: [sources.msuNutrients, sources.ncStateCopperTissueRanges],
+    sources: [sources.msuNutrients, sources.ncStateCopperTissueRanges, sources.ontarioHempCopperDeficiencyGuide],
     media: [],
   }),
   issue({

@@ -59,8 +59,16 @@
       "description": "The plant becomes slightly stunted and newer or expanding leaves show mild distortion, narrowed leaflet bases, and slight basal yellowing."
     },
     {
+      "stage": "Independent Finola onset",
+      "description": "A separate controlled Finola guide describes particularly new growth becoming dark bluish-green and wilted early, showing that cultivar and experimental system can produce a presentation unlike the T1 basal-yellowing sequence."
+    },
+    {
       "stage": "Intermediate",
       "description": "Basal narrowing and distortion intensify and marginal interveinal chlorosis appears on new and expanding leaves."
+    },
+    {
+      "stage": "Independent Finola progression",
+      "description": "In the Finola sequence, young-to-old leaves progress from chlorosis and early curl toward necrosis and later drooping; preserve this as source-specific context, not a universal age or timing rule."
     },
     {
       "stage": "Advanced",
@@ -202,6 +210,25 @@
         "The authors describe the ranges as estimates pending additional sufficiency studies and state that applicability to grain or fiber hemp remains uninvestigated.",
         "For vegetative crop tissue analysis, the publication recommends one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants in a paper bag submitted promptly.",
         "A multi-plant survey sample describes the sampled crop group; assigning that pooled result to an individual photographed plant as confirmed copper injury would require additional plant-linked evidence. This is a dataset annotation inference from the sampling design, not a diagnosis validated by the survey."
+      ]
+    },
+    {
+      "title": "Nutrient Deficiency ID Guide for Hemp",
+      "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+      "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+      "authors": [
+        "Jim Todd"
+      ],
+      "publisher": "King’s Printer for Ontario",
+      "publicationDate": "2023",
+      "year": 2023,
+      "accessedDate": "2026-10-11",
+      "supportedClaims": [
+        "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+        "In the controlled Finola copper-withholding sequence, early symptoms occurred particularly on new growth: leaves became dark bluish-green and wilted before later chlorosis and curl developed.",
+        "The Finola pictorial sequence documents chlorosis progressing to necrosis from young to old leaves, with early curling followed by later drooping; this is an independent cultivar-specific presentation rather than a universal copper-deficiency sequence.",
+        "The guide states that copper availability decreases above pH 8.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.",
+        "Figures 26 through 28 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training."
       ]
     }
   ],
