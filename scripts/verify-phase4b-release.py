@@ -149,15 +149,24 @@ def main() -> int:
         if type(release_id) is not int or release_id <= 0:
             raise ValueError("Release ID must be a positive integer")
         assets = []
-        page = 1
-        while True:
+        seen_full_pages = set()
+        # Fail closed rather than looping indefinitely on a broken or repeating API page.
+        for page in range(1, 101):
             batch = gh_json(f"repos/{args.repo}/releases/{release_id}/assets?per_page=100&page={page}")
             if not isinstance(batch, list):
                 raise ValueError("Release asset response must be a list")
+            if len(batch) > 100:
+                raise ValueError("Release asset page exceeds requested size")
+            if len(batch) == 100:
+                signature = json.dumps(batch, sort_keys=True)
+                if signature in seen_full_pages:
+                    raise ValueError("Repeated full release asset page")
+                seen_full_pages.add(signature)
             assets.extend(batch)
             if len(batch) < 100:
                 break
-            page += 1
+        else:
+            raise ValueError("Release asset pagination exceeded 100 pages")
     except (OSError, subprocess.CalledProcessError, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot load release assets: {exc}"]}, indent=2))
