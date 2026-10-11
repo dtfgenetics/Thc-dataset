@@ -38,6 +38,22 @@ describe('missing-reference editorial CSV', () => {
     expect(csv).toContain('"\'-10"')
   })
 
+  it('quotes cells containing Unicode formatting controls before formula operators', () => {
+    const hidden = String.fromCodePoint(0x200b)
+    const operator = String.fromCharCode(61)
+    const label = hidden + operator + '1+1'
+    const csv = buildReferenceGapCsv([{
+      slug: 'format-controls',
+      name: label,
+      category: 'Insufficient evidence',
+      scientificName: undefined,
+      affectedParts: [],
+      confirmation: [],
+      lookAlikes: [],
+    }])
+    expect(csv).toContain(JSON.stringify("'" + label))
+  })
+
   it('returns headers for an empty filtered backlog', () => {
     const csv = buildReferenceGapCsv([])
     expect(csv).toContain('"Guide ID"')
