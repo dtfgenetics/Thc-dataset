@@ -53,8 +53,6 @@ def audit(manifest, assets):
                 errors.append("Invalid part size: " + name)
             else:
                 total_size += part["sizeBytes"]
-            if part.get("uploadedToRelease") is not True:
-                errors.append("Part not marked uploaded: " + name)
         if indices != list(range(1, len(indices) + 1)):
             errors.append("Archive part numbering invalid: " + did)
         if isinstance(original, dict) and type(original.get("sizeBytes")) is int and total_size != original["sizeBytes"]:
@@ -76,6 +74,8 @@ def audit(manifest, assets):
         if asset is None:
             errors.append("Missing published part: " + name)
             continue
+        if asset.get("state") != "uploaded":
+            errors.append("Release asset not uploaded: " + name)
         if type(part.get("sizeBytes")) is int and asset.get("size") != part["sizeBytes"]:
             errors.append("Size mismatch: " + name)
         digest = part.get("sha256")
