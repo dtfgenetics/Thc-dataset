@@ -44,10 +44,27 @@ describe('missing-reference editorial CSV', () => {
     ['soft hyphen', 0x00ad],
     ['C1 next-line control', 0x0085],
     ['word joiner', 0x2060],
+    ['combining acute accent', 0x0301],
+    ['variation selector-16', 0xfe0f],
+    ['combining grapheme joiner', 0x034f],
   ])('quotes formula operators preceded by %s', (_description, codePoint) => {
     const label = String.fromCodePoint(codePoint) + '=1+1'
     const csv = buildReferenceGapCsv([{
       slug: 'format-controls',
+      name: label,
+      category: 'Insufficient evidence',
+      scientificName: undefined,
+      affectedParts: [],
+      confirmation: [],
+      lookAlikes: [],
+    }])
+    expect(csv).toContain(JSON.stringify("'" + label))
+  })
+
+  it('guards a formula after mixed whitespace, format controls, and combining marks', () => {
+    const label = '\u200b \u0301\u2060=1+1'
+    const csv = buildReferenceGapCsv([{
+      slug: 'mixed-prefix',
       name: label,
       category: 'Insufficient evidence',
       scientificName: undefined,
