@@ -121,6 +121,24 @@ const sources: Record<string, SourceRecord> = {
       'The publication is an institutional pictorial guide, but it does not provide item-level automated-training permission for its zinc photographs; the PDF is therefore claim evidence only and its figures are not copied or indexed as training media.',
     ],
   },
+  ontarioHempMagnesiumDeficiencyGuide: {
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'],
+    publisher: 'King’s Printer for Ontario',
+    publicationDate: '2023',
+    year: 2023,
+    accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'The magnesium section on printed pages 14–15 describes a mobile nutrient with older-leaf onset: interveinal chlorosis or reddening can precede marginal necrosis, leaf curling, and necrotic patches.',
+      'The Finola sequence in Figures 14–17 progresses from older-leaf interveinal chlorosis to brown dead patches and curled necrotic lower leaves; the guide notes that deficiency may precede visible symptoms by several weeks, without establishing a universal onset interval.',
+      'The guide identifies potassium and manganese symptoms as magnesium look-alikes and contrasts younger-leaf manganese onset with older-leaf magnesium onset; this differential must remain bounded to study context because flowering Cannabis experiments can differ in leaf-age distribution.',
+      'The guide gives magnesium availability as optimal between pH 6.5 and 8.5 in its soil-oriented availability context; this is not a universal Cannabis nutrient-solution or substrate target and must not override production-system and measurement-method evidence.',
+      'The publication does not provide item-level automated-training permission for Figures 14–17; those photographs remain claim evidence only and were not copied or indexed.',
+    ],
+  },
   ontarioHempPhosphorusDeficiencyGuide: {
     title: 'Nutrient Deficiency ID Guide for Hemp',
     organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
@@ -1665,8 +1683,10 @@ export const issues: IssueRecord[] = [
     progression: [
       {stage:'Before visible separation',description:'Magnesium supply or root-zone availability may decline before a reliable image pattern appears; the flowering trial remained visually symptom-free for three weeks.'},
       {stage:'Initial vegetative sequence',description:'After seven weeks of complete withholding in T1 silica-sand culture, slight interveinal yellowing appears on lower and older foliage.'},
+      {stage:'Independent Finola onset',description:'Ontario’s vegetative Finola guide describes older-leaf interveinal chlorosis or reddening. Its early-stage caption notes that inadequate magnesium may precede visible injury by several weeks, without providing a universal diagnostic clock.'},
       {stage:'Initial flowering sequence',description:'In week four, mild chlorosis appears on lower fan leaves in regions between the midrib and margins.'},
       {stage:'Rapid flowering progression',description:'Beyond week four, symptoms spread rapidly and predominantly involve smaller, younger fan leaves; older fan leaves and inflorescence sugar leaves may initially be less affected.'},
+      {stage:'Independent Finola progression',description:'In the Finola guide, chlorotic older-leaf tissue develops brown necrotic patches, marginal necrosis, and curling, with late damage concentrated on lower leaves at the plant base. Preserve this independent sequence alongside the differing flowering leaf-age distribution.'},
       {stage:'Advanced',description:'Green veins contrast sharply with yellow interveinal tissue; necrotic regions develop, severity can increase from leaflet base to tip, and widespread symptoms may spare the midrib, extreme margins, or apical inflorescences.'},
       {stage:'After a documented correction',description:'Assess subsequent growth, lesion expansion, serial canopy distribution, root-zone measurements, and follow-up tissue analysis; existing chlorotic or necrotic tissue may not recover.'},
     ],
@@ -1676,7 +1696,7 @@ export const issues: IssueRecord[] = [
     correctivePlan: ['When analytical and production records support inadequate magnesium supply or availability and roots are functional, restore a balanced crop- and system-appropriate nutrient program gradually under current local agronomic guidance.', 'Track subsequent leaves by node and size, canopy distribution, root growth, root-zone measurements, and follow-up upper- and lower-canopy tissue results rather than judging correction from old foliage.', 'If magnesium status is adequate or the pattern continues, reopen potassium, iron, manganese, sulfur, nitrogen, salinity, root disease, arthropod, pathogen, environmental, exposure, senescence, and genetic differentials.'],
     prevention: ['Record magnesium, calcium, potassium, sulfur, and alkalinity in source water, fertilizer, and representative tissue rather than relying on a generic feed ratio or symptom chart.', 'Calibrate pH and EC meters, monitor root-zone conditions and leachate where appropriate, and keep irrigation, dryback, temperature, and oxygenation records.', 'Maintain same-cultivar healthy references and consistent node-, leaf-size-, and canopy-position sampling so stage and age shifts are not mistaken for nutrient response.'],
     warnings: ['The vegetative visual sequence came from one Cannabis sativa T1 cultivar in silica sand with magnesium completely withheld; seven weeks, 0.12% tissue magnesium, and the pictured pattern are experiment-specific, not universal thresholds.', 'The flowering study used three Gelato 29 plants per treatment in deep-water culture; its week-four onset, younger-fan-leaf predominance, 748 g versus 1110 g fresh inflorescence masses, and canopy distribution must not be generalized.', 'The two controlled studies differed in later leaf-age distribution: vegetative T1 emphasized older foliage, while flowering Gelato 29 rapidly affected smaller, younger fan leaves and left some older fan leaves relatively unaffected; leaf age alone is not ground truth.', 'Interveinal chlorosis and necrosis overlap nutritional, root-zone, arthropod, pathogen, environmental, developmental, and imaging conditions and are not image-only ground truth.', 'The vegetative CC BY figure contains sulfur-, magnesium-, and potassium-deficiency columns and is excluded from automated training until panels are bounded and class- and stage-annotated.', 'The flowering CC BY figure combines leaf close-ups, a detached-leaf sequence, inflorescence context, and whole-plant views from one small experiment; it remains excluded from automated training until panels are annotated, source-grouped, scientifically reviewed, and assigned a leakage-safe split.', 'All symptom-only and late-flower samples require human review and linked analytical evidence before ground-truth use.'],
-    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies],
+    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies, sources.ontarioHempMagnesiumDeficiencyGuide],
     media: [
       {
         id: 'mdpi-cannabis-s-mg-k-deficiency-figure-3',
