@@ -239,6 +239,15 @@ class ReleaseAcceptanceTests(unittest.TestCase):
                 self.assertEqual(report["status"], "fail")
                 self.assertTrue(any("invalid archive part SHA256" in error for error in report["errors"]))
 
+    def test_duplicate_release_asset_does_not_override_first_entry(self):
+        duplicate = dict(self.assets[0])
+        duplicate["state"] = "starter"
+        self.assets.append(duplicate)
+        report = mod.validate(self.manifest, self.assets, self.root)
+        self.assertEqual(report["status"], "fail")
+        self.assertTrue(any("Duplicate release asset" in error for error in report["errors"]))
+        self.assertFalse(any("Release asset is not uploaded" in error for error in report["errors"]))
+
     def test_zero_byte_chunk_with_matching_sha_and_asset_fails_closed(self):
         part = self.rows[0]["archiveParts"][0]
         name = part["filename"]
