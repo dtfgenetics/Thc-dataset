@@ -35,7 +35,7 @@ def audit(manifest, assets):
         parts = row.get("archiveParts")
         total_size = 0
         indices = []
-        if not isinstance(parts, list):
+        if not isinstance(parts, list) or not parts:
             errors.append("Missing parts for " + did)
             continue
         for part in parts:
