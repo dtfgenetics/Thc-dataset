@@ -16,7 +16,7 @@ import sys
 EXPECTED = {"DS-142", "DS-143", "DS-146"}
 
 def gh_json(*args: str):
-    p = subprocess.run(["gh", "api", *args], check=True, capture_output=True, text=True)
+    p = subprocess.run(["gh", "api", *args], check=True, capture_output=True, text=True, timeout=60)
     return json.loads(p.stdout)
 
 def validate(manifest: dict, assets: list[dict], root: Path) -> dict:
@@ -167,7 +167,7 @@ def main() -> int:
                 break
         else:
             raise ValueError("Release asset pagination exceeded 100 pages")
-    except (OSError, subprocess.CalledProcessError, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
+    except (OSError, subprocess.CalledProcessError, subprocess.TimeoutExpired, ValueError, KeyError, TypeError, json.JSONDecodeError) as exc:
         print(json.dumps({"status": "fail", "verifiedParts": 0, "declaredParts": 0,
                           "errors": [f"Cannot load release assets: {exc}"]}, indent=2))
         return 1
