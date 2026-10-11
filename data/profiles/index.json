@@ -383,7 +383,7 @@
       "category": "Nutrient deficiency",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 3,
       "mediaCount": 1,
       "path": "data/profiles/nut-def-k.json"
     },
@@ -394,7 +394,7 @@
       "category": "Nutrient deficiency",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 2,
+      "sourceCount": 3,
       "mediaCount": 2,
       "path": "data/profiles/nut-def-mg.json"
     },

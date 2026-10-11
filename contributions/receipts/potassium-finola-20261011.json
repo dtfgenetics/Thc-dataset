@@ -1,0 +1,19 @@
+{
+  "base_commit": "a85662e20364611484749316bf9f95171b2166d5",
+  "branch": "work/grow-doc/GD-DIAG-001/potassium-finola-20261011",
+  "changed_paths": ["data/profiles/nut-def-k.json", "src/data/issues.ts"],
+  "contribution_id": "potassium-finola-20261011",
+  "head_commit": "0b366240756d4389693874c5b5e696b95e59f3ad",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 10–11. Added two independent vegetative Finola progression stages and six claim-scoped mappings covering older-leaf marginal chlorosis or necrosis, marginal scorch, downward curl, margin-centered progression, affected leaf clusters, and possible shortened internodes. The below-pH-6 and pH-7.6-to-8.4 statements remain soil-oriented context rather than universal nutrient-solution targets. Proprietary Figures 9–10 were not copied, indexed, or admitted to training. All 62 validators, 248 tests, TypeScript, production build and machine-readable syntax checks passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://doi.org/10.3390/plants12030422", "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

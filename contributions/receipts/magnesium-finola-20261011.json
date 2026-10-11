@@ -1,0 +1,19 @@
+{
+  "base_commit": "f712d51386ce01b5dfbbbbe99309fafe86f4a435",
+  "branch": "work/grow-doc/GD-DIAG-001/coverage-20261011",
+  "changed_paths": ["data/profiles/nut-def-mg.json", "src/data/issues.ts"],
+  "contribution_id": "magnesium-finola-20261011",
+  "head_commit": "0765556b077264403e2358c32434072d36d68f79",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 14–15. Added two independent vegetative Finola progression stages and six claim-scoped mappings: older-leaf interveinal chlorosis or reddening, brown necrotic patches, marginal necrosis, curling, lower-canopy concentration, and delayed visibility. Manganese leaf-age comparison remains experiment-bounded alongside differing flowering Cannabis evidence. The guide's pH interval is soil-oriented context, not a universal nutrient-solution target. Proprietary Figures 14–17 were not copied, indexed, or admitted to training. All 62 validators, 248 tests, TypeScript, production build and machine-readable syntax checks passed locally; required PHP lint is verified in hosted CI because PHP is unavailable locally.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://doi.org/10.3390/plants12030422", "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
