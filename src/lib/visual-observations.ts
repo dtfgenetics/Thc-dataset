@@ -28,8 +28,7 @@ const nonVisualIndicatorPatterns = [
 ]
 
 export function visualIndicatorVocabulary(indicators: string[]) {
-  return [...new Set(indicators)].filter((indicator) => {
-    const value = indicator.trim()
+  return [...new Set(indicators.map((indicator) => indicator.trim()))].filter((value) => {
     return value.length > 0 && !nonVisualIndicatorPatterns.some((pattern) => pattern.test(value))
   })
 }
@@ -139,10 +138,19 @@ export async function requestVisualObservations(
     credentials: 'same-origin',
   })
 
-  const payload = await response.json().catch(() => ({})) as Record<string, unknown>
+  const rawPayload: unknown = await response.json().catch(() => null)
+  const payload = rawPayload && typeof rawPayload === 'object' && !Array.isArray(rawPayload)
+    ? rawPayload as Record<string, unknown>
+    : null
   if (!response.ok) {
-    const message = typeof payload.error === 'string' ? payload.error : `Visual analysis failed (${response.status}).`
+    const message = typeof payload?.error === 'string' ? payload.error : `Visual analysis failed (${response.status}).`
     throw new Error(message)
+  }
+  if (!payload || typeof payload.summary !== 'string'
+    || typeof payload.unknownOrOutOfScope !== 'boolean'
+    || !['matchedIndicators', 'visibleFeatures', 'uncertainFeatures', 'qualityNotes', 'suggestedNextViews']
+      .every((key) => Array.isArray(payload[key]))) {
+    throw new Error('Visual analysis returned an incomplete response. Try again or use manual observations.')
   }
 
   const allowed = new Set(visualIndicators)
@@ -161,7 +169,8 @@ export async function requestVisualObservations(
     provider: typeof payload.provider === 'string' ? payload.provider : 'configured visual service',
     model: typeof payload.model === 'string' ? payload.model : 'unknown',
     summary: typeof payload.summary === 'string' ? payload.summary : '',
-    matchedIndicators: stringArray(payload.matchedIndicators).filter((item) => allowed.has(item)),
+    matchedIndicators: payload.unknownOrOutOfScope ? []
+      : [...new Set(stringArray(payload.matchedIndicators).map((item) => item.trim()))].filter((item) => allowed.has(item)),
     visibleFeatures,
     uncertainFeatures: stringArray(payload.uncertainFeatures),
     qualityNotes: stringArray(payload.qualityNotes),

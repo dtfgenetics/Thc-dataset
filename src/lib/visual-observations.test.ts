@@ -1,5 +1,6 @@
-import { describe, expect, it } from 'vitest'
-import { visualIndicatorVocabulary } from './visual-observations'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { requestVisualObservations, visualIndicatorVocabulary } from './visual-observations'
+import type { EvidenceFile } from '../types'
 
 describe('visualIndicatorVocabulary', () => {
   it('keeps visible symptom descriptions available to the image observation model', () => {
@@ -27,5 +28,37 @@ describe('visualIndicatorVocabulary', () => {
 
   it('deduplicates the visual vocabulary before it is sent to the provider', () => {
     expect(visualIndicatorVocabulary(['Visible spotting', 'Visible spotting'])).toEqual(['Visible spotting'])
+    expect(visualIndicatorVocabulary([' Visible spotting ', 'Visible spotting', '   '])).toEqual(['Visible spotting'])
+  })
+})
+
+describe('visual observation response contract', () => {
+  afterEach(() => vi.unstubAllGlobals())
+  const evidence = [{ file: new File(['image'], 'leaf.jpg', { type: 'image/jpeg' }), slot: 'close-up' }] as EvidenceFile[]
+  const complete = {
+    summary: 'Visible spotting', matchedIndicators: ['Visible spotting'], visibleFeatures: [],
+    uncertainFeatures: [], qualityNotes: [], suggestedNextViews: [], unknownOrOutOfScope: false,
+  }
+  const serve = (payload: unknown) => vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+    ok: true, status: 200, json: async () => payload,
+  }))
+
+  it.each([null, [], {}, { ...complete, unknownOrOutOfScope: undefined }, { ...complete, visibleFeatures: 'invalid' }])(
+    'rejects incomplete successful responses without treating uncertainty as resolved', async (payload) => {
+      serve(payload)
+      await expect(requestVisualObservations(evidence, ['Visible spotting'])).rejects.toThrow('incomplete response')
+    },
+  )
+
+  it('keeps uncertain results informative without contributing symptom matches', async () => {
+    serve({ ...complete, unknownOrOutOfScope: true, suggestedNextViews: ['Whole plant under neutral light'] })
+    const result = await requestVisualObservations(evidence, ['Visible spotting'])
+    expect(result.matchedIndicators).toEqual([])
+    expect(result.suggestedNextViews).toEqual(['Whole plant under neutral light'])
+  })
+
+  it('normalizes matches and excludes duplicates and terms outside the controlled vocabulary', async () => {
+    serve({ ...complete, matchedIndicators: ['Visible spotting ', 'Visible spotting', 'Confirmed pathogen'] })
+    expect((await requestVisualObservations(evidence, [' Visible spotting '])).matchedIndicators).toEqual(['Visible spotting'])
   })
 })
