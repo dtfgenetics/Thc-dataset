@@ -1,0 +1,33 @@
+{
+  "base_commit": "b01669270cf2afae15fde2c400e53da9637ef21c",
+  "branch": "work/grow-doc/GD-DIAG-001/calcium-finola-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-ca.json",
+    "data/profiles/nut-def-zn.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "calcium-finola-20261011",
+  "head_commit": "d4089abd477b54f3e0572eb3f564fb4262022a50",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 12–13. Added cultivar-bounded calcium progression and competing-input context; shared source claims also propagate into the zinc export. No media copied, no universal pH threshold admitted, and unresolved symptom-only cases remain low confidence. Deterministic exports and frozen artifact hashes were regenerated and all validation scripts passed.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
