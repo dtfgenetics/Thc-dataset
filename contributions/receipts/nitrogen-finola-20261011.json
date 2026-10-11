@@ -6,17 +6,17 @@
     "src/data/issues.ts"
   ],
   "contribution_id": "nitrogen-finola-20261011",
-  "head_commit": "6732ad6004382223669e1843709bd12c3f84b590",
+  "head_commit": "683de3f25ecd22bc2e18d6d3a70813319eee444f",
   "human_reviewed": false,
   "training_eligible": false,
   "weight_training_eligible": false,
-  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 6–7. Added two independent vegetative Finola progression stages and five claim-scoped mappings covering older-leaf onset, pale-green-to-yellow foliage, red or purple vein and petiole context, reduced vigor, and lower-half canopy distribution. The highly acidic or alkaline statement remains soil-oriented context rather than a universal nutrient-solution target. Proprietary Figures 3–4 were not copied, indexed, or admitted to training. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
+  "scope_note": "Agent verified the primary controlled-dose study on 2026-10-11. Added two independent vegetative progression stages and two claim-scoped mappings covering the 30 mg/L treatment's visual deficiency context, lower biomass and photosynthesis, and Figure 1 whole-plant, youngest-fully-developed-leaf, and root views. Study-specific concentration and response values remain experimental context rather than universal diagnostic thresholds. The already licensed composite was not duplicated as a new asset or admitted to training. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
   "lane": "diagnostic",
   "schema_version": "grow-doc-contribution-receipt-v1",
   "source_ids": [
     "https://doi.org/10.3390/app9204432",
     "https://doi.org/10.3390/plants12030422",
-    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+    "https://doi.org/10.3389/fpls.2020.572293"
   ],
   "task_id": "GD-DIAG-001",
   "validation": {
