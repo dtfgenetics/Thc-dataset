@@ -53,7 +53,7 @@ def audit(manifest, assets):
                 errors.append("Invalid part size: " + name)
             else:
                 total_size += part["sizeBytes"]
-        if indices != list(range(1, len(indices) + 1)):
+        if sorted(indices) != list(range(1, len(indices) + 1)):
             errors.append("Archive part numbering invalid: " + did)
         if isinstance(original, dict) and type(original.get("sizeBytes")) is int and total_size != original["sizeBytes"]:
             errors.append("Original archive size mismatch: " + did)
@@ -69,6 +69,8 @@ def audit(manifest, assets):
             if name in published:
                 errors.append("Duplicate published part: " + name)
             published[name] = asset
+        elif any(name.startswith(f"{did}_archive.part") for did in DATASETS):
+            errors.append("Malformed published archive part: " + name)
     for name, part in expected.items():
         asset = published.get(name)
         if asset is None:
@@ -76,7 +78,8 @@ def audit(manifest, assets):
             continue
         if asset.get("state") != "uploaded":
             errors.append("Release asset not uploaded: " + name)
-        if type(part.get("sizeBytes")) is int and asset.get("size") != part["sizeBytes"]:
+        if (type(asset.get("size")) is not int or asset["size"] <= 0
+                or asset["size"] != part.get("sizeBytes")):
             errors.append("Size mismatch: " + name)
         digest = part.get("sha256")
         if isinstance(digest, str) and re.fullmatch(r"[0-9a-f]{64}", digest):
