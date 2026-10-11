@@ -12,6 +12,9 @@ const references = issues.flatMap((issue) => resolvedDisplayMediaForIssue(issue,
 const issuesWithDisplayableReferences = new Set(references.map(({ issue }) => issue.slug))
 const uncoveredIssues = issues.filter((issue) => !issuesWithDisplayableReferences.has(issue.slug))
   .sort((a, b) => a.category.localeCompare(b.category) || a.name.localeCompare(b.name))
+const uncoveredByCategory = [...new Set(uncoveredIssues.map((issue) => issue.category))]
+  .map((category) => ({ category, count: uncoveredIssues.filter((issue) => issue.category === category).length }))
+  .sort((a, b) => b.count - a.count || a.category.localeCompare(b.category))
 const referenceCoverage = {
   total: issues.length,
   withReference: issuesWithDisplayableReferences.size,
@@ -27,8 +30,10 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
   const [host, setHost] = useState('All')
   const [view, setView] = useState('All')
   const [gapQuery, setGapQuery] = useState('')
+  const [gapCategory, setGapCategory] = useState('All')
   const matchingUncovered = useMemo(() => uncoveredIssues.filter((issue) =>
-    [issue.name, issue.category, issue.scientificName].filter(Boolean).join(' ').toLowerCase().includes(gapQuery.trim().toLowerCase())), [gapQuery])
+    (gapCategory === 'All' || issue.category === gapCategory) &&
+    [issue.name, issue.category, issue.scientificName].filter(Boolean).join(' ').toLowerCase().includes(gapQuery.trim().toLowerCase())), [gapQuery, gapCategory])
   const deferredQuery = useDeferredValue(query)
   const filtered = useMemo(() => {
     const needle = deferredQuery.trim().toLowerCase()
@@ -50,7 +55,7 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
         <div className="reference-coverage-meter" role="img" aria-label={`${referenceCoverage.withReference} of ${referenceCoverage.total} condition guides have displayable visual references`}><span style={{ width: `${referenceCoverage.total ? (referenceCoverage.withReference / referenceCoverage.total) * 100 : 0}%` }} /></div>
         <p>Coverage is not diagnostic accuracy: a shared figure may appear in multiple guides, and a non-Cannabis or organism-only image is not proof of the condition in Cannabis. Counts reflect approved display links, not unique verified clinical cases or training examples.</p>
       </section>
-      {uncoveredIssues.length > 0 ? <details className="reference-gaps"><summary>Explore {uncoveredIssues.length} guides without displayable visual references</summary><p>These guides need properly sourced scientific illustrations or approved photographs. No missing image is represented as verified evidence.</p><label className="reference-gaps-search">Find a guide missing images<input aria-label="Search guides missing images" value={gapQuery} onChange={(event) => setGapQuery(event.target.value)} placeholder="Search condition or category" /></label><p role="status">{matchingUncovered.length} guides match</p>{matchingUncovered.length === 0 ? <p>No missing-image guides match this search. Try another condition or category.</p> : null}<ul>{matchingUncovered.map((issue) => <li key={issue.slug}><span>{issue.name} · {issue.category}</span><button type="button" onClick={() => onOpenIssue(issue.slug)}>Open guide</button></li>)}</ul></details> : <p className="reference-gaps-complete">All condition guides currently have at least one displayable visual reference.</p>}
+      {uncoveredIssues.length > 0 ? <details className="reference-gaps"><summary>Explore {uncoveredIssues.length} guides without displayable visual references</summary><p>These guides need properly sourced scientific illustrations or approved photographs. No missing image is represented as verified evidence.</p><label className="reference-gaps-search">Find a guide missing images<input aria-label="Search guides missing images" value={gapQuery} onChange={(event) => setGapQuery(event.target.value)} placeholder="Search condition or category" /></label><label className="reference-gaps-search">Missing-image category<select aria-label="Filter missing-image guides by category" value={gapCategory} onChange={(event) => setGapCategory(event.target.value)}><option value="All">All categories</option>{uncoveredByCategory.map(({ category, count }) => <option key={category} value={category}>{category} ({count})</option>)}</select></label><p role="status">{matchingUncovered.length} guides match</p>{matchingUncovered.length === 0 ? <p>No missing-image guides match this search. Try another condition or category.</p> : null}<ul>{matchingUncovered.map((issue) => <li key={issue.slug}><span>{issue.name} · {issue.category}</span><button type="button" onClick={() => onOpenIssue(issue.slug)}>Open guide</button></li>)}</ul></details> : <p className="reference-gaps-complete">All condition guides currently have at least one displayable visual reference.</p>}
       <div className="reference-discovery">
         <label className="search-field"><Search size={19} /><input aria-label="Search reference images" placeholder="Search condition, species, stage, or view" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
         <label>Condition category<select value={category} onChange={(e) => setCategory(e.target.value)}><option value="All">All categories</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
