@@ -281,6 +281,18 @@ class CliLocalArchiveIOFailureTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertEqual(report['status'], 'fail')
 
+    def test_archive_unicode_decode_error_is_json_failure(self):
+        original_open = Path.open
+        def guarded_open(path, *args, **kwargs):
+            if path.name.endswith('_archive.part001'):
+                raise UnicodeError('archive filename decoding failed')
+            return original_open(path, *args, **kwargs)
+        with patch.object(Path, 'open', guarded_open):
+            code, report = self.run_cli()
+        self.assertEqual(code, 1)
+        self.assertEqual(report['status'], 'fail')
+        self.assertTrue(any('Cannot verify local archive parts' in error for error in report['errors']))
+
     def test_archive_directory_scan_error_is_json_failure(self):
         original_iterdir = Path.iterdir
         def guarded_iterdir(path):
