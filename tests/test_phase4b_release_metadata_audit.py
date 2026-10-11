@@ -17,7 +17,7 @@ def fixture():
         digest = "a" * 64
         manifest["results"].append({"datasetId": did, "status": "acquired",
             "originalArchive": {"sizeBytes": 10, "sha256": digest}, "archiveParts": [
-            {"filename": name, "sizeBytes": 10, "sha256": digest}]})
+            {"filename": name, "partIndex": 1, "partCount": 1, "sizeBytes": 10, "sha256": digest}]})
         assets.append({"name": name, "size": 10, "state": "uploaded", "digest": "sha256:" + digest})
     return manifest, assets
 
