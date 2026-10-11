@@ -9934,6 +9934,14 @@
     ],
     "progression": [
       {
+        "stage": "Independent Finola onset",
+        "description": "In controlled vegetative Finola, pale-green to yellow symptoms appeared first on older leaves and could include red or purple tinting in veins or petioles together with reduced vigor."
+      },
+      {
+        "stage": "Independent Finola distribution",
+        "description": "The institutional sequence shows yellowing across leaves of increasing age and yellow mature foliage concentrated in the lower half of the plant; it adds independent age-position context without defining a universal onset time."
+      },
+      {
         "stage": "Initial vegetative T1 presentation",
         "description": "After six weeks of complete nitrogen withholding from transplant, plants were slightly stunted and lower foliage developed slight overall paling or yellowing."
       },
@@ -10011,6 +10019,7 @@
       "Healthy control plants in the flowering study developed lower-fan-leaf chlorosis during weeks six through eight despite adequate nutrient solution and measured foliage, so late-cycle yellowing is not nitrogen-deficiency ground truth.",
       "Red or brown petioles, interveinal yellowing, stem color, and lower-leaf loss are not nitrogen-specific and require explicit confounder checks.",
       "The licensed flowering figure combines four panels, organs, views, weeks, and severity states; the separate vegetative Figure 2 combines nitrogen, phosphorus, and calcium classes. Both remain excluded from automated training until panels are bounded, individually annotated, scientifically reviewed, source-grouped, and assigned leakage-safe splits.",
+      "Ontario Figures 3 and 4 are proprietary institutional reference evidence without verified item-level automated-training permission; they were not copied, indexed, or admitted to training.",
       "All symptom-only, detached-leaf-only, late-flower, unmeasured-root-zone, and unlinked-tissue samples require human review."
     ],
     "sources": [
@@ -10115,6 +10124,25 @@
           "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
           "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
           "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiency ID Guide for Hemp",
+        "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+        "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+        "authors": [
+          "Jim Todd"
+        ],
+        "publisher": "King’s Printer for Ontario",
+        "publicationDate": "2023",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+          "The nitrogen section on printed pages 6–7 describes nitrogen as mobile and reports pale-green to yellow foliage with symptoms first occurring on older leaves, sometimes with red or purple tinting in veins and petioles and reduced plant vigor.",
+          "Figures 3 and 4 document yellowing progression from younger to older leaves and locate yellow mature leaves in the lower half of the plant; this controlled Finola sequence supports age and canopy context but is not image-only confirmation.",
+          "The guide states that nitrogen availability decreases under highly acidic or alkaline soil conditions, but it does not establish universal hydroponic, substrate, tissue, pH, or diagnostic thresholds.",
+          "The publication does not provide item-level automated-training permission for Figures 3 and 4; those photographs remain claim evidence only and were not copied, indexed, or admitted to training."
         ]
       }
     ],

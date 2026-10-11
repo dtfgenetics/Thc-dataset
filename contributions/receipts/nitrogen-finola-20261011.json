@@ -1,0 +1,34 @@
+{
+  "base_commit": "f2a8587c0a39f80d06ddecf28648b00a2fa0a1a7",
+  "branch": "work/grow-doc/GD-DIAG-001/nitrogen-finola-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-n.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "nitrogen-finola-20261011",
+  "head_commit": "6732ad6004382223669e1843709bd12c3f84b590",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified Ontario institutional evidence on 2026-10-11, printed pages 6–7. Added two independent vegetative Finola progression stages and five claim-scoped mappings covering older-leaf onset, pale-green-to-yellow foliage, red or purple vein and petiole context, reduced vigor, and lower-half canopy distribution. The highly acidic or alkaline statement remains soil-oriented context rather than a universal nutrient-solution target. Proprietary Figures 3–4 were not copied, indexed, or admitted to training. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3390/app9204432",
+    "https://doi.org/10.3390/plants12030422",
+    "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
