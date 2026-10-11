@@ -132,6 +132,8 @@ describe('diagnostic dataset quality gates', () => {
     expect(warnings).toContain('late-cycle yellowing is not nitrogen-deficiency ground truth')
     expect(warnings).toContain('all symptom-only')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Normal late-flower leaf aging or senescence', 'Magnesium deficiency', 'Sulfur deficiency']))
+    expect(record?.progression.map((step) => step.stage)).toEqual(expect.arrayContaining(['Cross-study onset boundary', 'Cross-study organ progression']))
+    expect(record?.progression.find((step) => step.stage === 'Cross-study organ progression')?.description.toLowerCase()).toMatch(/fan-leaf injury.*sugar-leaf.*lower to middle foliage/)
   })
 
   it('keeps phosphorus deficiency tissue-confirmed, root-zone bounded, and composite-safe', () => {

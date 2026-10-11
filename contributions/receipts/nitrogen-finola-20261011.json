@@ -1,0 +1,33 @@
+{
+  "base_commit": "f2a8587c0a39f80d06ddecf28648b00a2fa0a1a7",
+  "branch": "work/grow-doc/GD-DIAG-001/nitrogen-finola-20261011",
+  "changed_paths": [
+    "data/profiles/nut-def-n.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "nitrogen-finola-20261011",
+  "head_commit": "798fa7032af55e3c1f7e6f3245f824efa35b89f5",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent reconciled the two existing controlled nitrogen-deficiency studies on 2026-10-11. Added two cross-study progression stages that bound onset by plant expansion, lower-foliage chlorosis, crop stage, and measurement context, then distinguish fan-leaf, sugar-leaf, and lower-to-middle-canopy progression. No source identity, media asset, or training eligibility changed; deterministic training split and dataset lock hashes were advanced to match the regenerated corpus. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3390/app9204432",
+    "https://doi.org/10.3390/plants12030422"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

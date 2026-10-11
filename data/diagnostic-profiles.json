@@ -9934,6 +9934,14 @@
     ],
     "progression": [
       {
+        "stage": "Cross-study onset boundary",
+        "description": "Across the controlled vegetative and flowering sequences, early injury includes reduced expansion or slight stunting plus lower-foliage chlorosis; the exact week, leaflet region, and tissue nitrogen differed, so timing and one number are not portable thresholds."
+      },
+      {
+        "stage": "Cross-study organ progression",
+        "description": "Fan-leaf injury precedes the later sugar-leaf response in flowering plants, while the vegetative sequence advances from lower to middle foliage; serial organ- and canopy-mapped views are therefore more informative than one detached yellow leaf."
+      },
+      {
         "stage": "Initial vegetative T1 presentation",
         "description": "After six weeks of complete nitrogen withholding from transplant, plants were slightly stunted and lower foliage developed slight overall paling or yellowing."
       },
