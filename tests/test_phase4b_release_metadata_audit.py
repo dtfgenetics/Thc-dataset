@@ -109,6 +109,11 @@ class ReleaseMetadataAuditTests(unittest.TestCase):
         assets.append({"name": "manifest.json"})
         self.assertEqual(mod.audit(manifest, assets)["status"], "pass")
 
+    def test_malformed_unknown_dataset_archive_asset_fails(self):
+        manifest, assets = fixture()
+        assets.append({"name": "DS-999_archive.partBAD", "size": 10})
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
     def test_undeclared_asset_fails(self):
         manifest, assets = fixture()
         assets.append({"name": "DS-142_archive.part002", "size": 10})
