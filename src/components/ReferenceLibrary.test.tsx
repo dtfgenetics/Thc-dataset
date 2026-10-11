@@ -65,7 +65,7 @@ describe('Reference discovery and guide evidence', () => {
     render(<ReferenceLibrary onOpenIssue={open} />)
     fireEvent.change(screen.getByRole('textbox', { name: 'Search reference images' }), { target: { value: 'copper deficiency' } })
     expect(screen.queryByRole('heading', { name: 'Copper deficiency' })).not.toBeNull()
-    expect(screen.getByRole('status').textContent).toContain('1 distinct source assets')
+    expect(screen.getByText(/1 distinct source assets/)).not.toBeNull()
     fireEvent.click(screen.getByRole('button', { name: 'Open Copper deficiency guide' }))
     expect(open).toHaveBeenCalledWith('copper-deficiency')
     expect(screen.getByText(/Cannabis plant context · Shared figure/)).not.toBeNull()
