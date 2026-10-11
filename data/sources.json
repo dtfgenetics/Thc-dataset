@@ -2893,6 +2893,28 @@
     ]
   },
   {
+    "sourceKey": "https://ag.purdue.edu/department/hla/extension/extension-publications-library/ext-pubs/ho-237-w.html",
+    "title": "pH and Electrical Conductivity Measurements in Soilless Substrates",
+    "organization": "Purdue University Extension, Department of Horticulture and Landscape Architecture",
+    "url": "https://ag.purdue.edu/department/hla/extension/extension-publications-library/ext-pubs/ho-237-w.html",
+    "authors": [
+      "Diane M. Camberato",
+      "Roberto G. Lopez",
+      "Michael V. Mickelbart"
+    ],
+    "publisher": "Purdue University Extension",
+    "publicationDate": "2026-10-07",
+    "year": 2026,
+    "accessedDate": "2026-10-11",
+    "supportedClaims": [
+      "The institutional protocol treats substrate pH and electrical conductivity as separate measurements: pH affects nutrient availability, while EC represents dissolved salts; irrigation-water alkalinity, substrate analysis, and plant-tissue analysis provide additional information that neither meter value supplies alone.",
+      "Accepted soilless-substrate extraction methods include PourThru, saturated media extract, and 1:2 dilution; each has a distinct procedure and method-dependent interpretation, so values from different methods must not be pooled as interchangeable thresholds.",
+      "A monitoring program should use calibrated pH and conductivity standards, repeat a consistent extraction method, sample multiple representative containers separately, and interpret their average and trend with crop, substrate, fertilizer, irrigation-water, and production records.",
+      "Directly inserting a probe into substrate is not recommended unless moisture content and sampling timing are tightly standardized; the saturated-media method instead samples the interior root zone and avoids the top and bottom inch because salt concentration may differ there.",
+      "This greenhouse protocol is not Cannabis-specific and supports measurement quality and exclusion checks only; its general crop ranges and pictured non-Cannabis disorders are not Cannabis diagnostic thresholds or media ground truth."
+    ]
+  },
+  {
     "sourceKey": "https://ag.purdue.edu/hemp-project/diseases/index.html",
     "title": "Most Prevalent Diseases",
     "organization": "Purdue Industrial Hemp Project",
