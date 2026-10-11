@@ -106,6 +106,16 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('shows condition-specific capture guidance for uncovered references', () => {
+    const missing = issues.filter((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (missing.length) {
+      expect(screen.getAllByText(/Suggested evidence views:/).length).toBeGreaterThan(0)
+      expect(screen.getAllByText(/Verification:/).length).toBeGreaterThan(0)
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
