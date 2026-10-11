@@ -83,6 +83,17 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('shows the CSV export only for available gaps', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const search = screen.queryByRole('textbox', { name: 'Search guides missing images' })
+    if (search) {
+      const exportButton = screen.getByRole('button', { name: 'Export matching missing-image guides (CSV)' }) as HTMLButtonElement
+      expect(exportButton.disabled).toBe(false)
+      fireEvent.change(search, { target: { value: 'no-such-reference-guide-999' } })
+      expect(exportButton.disabled).toBe(true)
+    }
+  })
+
   it('labels category backlog counts as coverage gaps rather than diagnostic priority', () => {
     render(<ReferenceLibrary onOpenIssue={() => {}} />)
     if (screen.queryByRole('textbox', { name: 'Search guides missing images' })) {
