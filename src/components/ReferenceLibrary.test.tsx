@@ -32,6 +32,21 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByText(new RegExp(`${issues.length - covered} do not\\.`))).not.toBeNull()
   })
 
+  it('offers navigable guides when visual evidence is missing', () => {
+    const open = vi.fn()
+    render(<ReferenceLibrary onOpenIssue={open} />)
+    const gapSummary = screen.queryByText(/guides without displayable visual references/)
+    if (gapSummary) {
+      fireEvent.click(gapSummary)
+      const first = screen.getAllByRole('button', { name: 'Open guide' })[0]
+      expect(first).not.toBeNull()
+      fireEvent.click(first)
+      expect(open).toHaveBeenCalledOnce()
+    } else {
+      expect(screen.getByText(/All condition guides currently have at least one displayable visual reference/)).not.toBeNull()
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
