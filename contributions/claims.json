@@ -2,6 +2,11 @@
   "schema_version": "grow-doc-task-claims-v1",
   "claims": [
     {
+      "task_id": "GD-DIAG-001",
+      "session_id": "coverage-20261011",
+      "branch": "work/grow-doc/GD-DIAG-001/coverage-20261011"
+    },
+    {
       "task_id": "GD-SYS-003",
       "session_id": "research-tool-bundle-20261004",
       "branch": "work/grow-doc/GD-SYS-003/research-tool-bundle-20261004"

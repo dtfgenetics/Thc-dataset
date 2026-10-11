@@ -9079,12 +9079,20 @@
         "description": "After seven weeks of complete withholding in T1 silica-sand culture, slight interveinal yellowing appears on lower and older foliage."
       },
       {
+        "stage": "Independent Finola onset",
+        "description": "Ontario’s vegetative Finola guide describes older-leaf interveinal chlorosis or reddening. Its early-stage caption notes that inadequate magnesium may precede visible injury by several weeks, without providing a universal diagnostic clock."
+      },
+      {
         "stage": "Initial flowering sequence",
         "description": "In week four, mild chlorosis appears on lower fan leaves in regions between the midrib and margins."
       },
       {
         "stage": "Rapid flowering progression",
         "description": "Beyond week four, symptoms spread rapidly and predominantly involve smaller, younger fan leaves; older fan leaves and inflorescence sugar leaves may initially be less affected."
+      },
+      {
+        "stage": "Independent Finola progression",
+        "description": "In the Finola guide, chlorotic older-leaf tissue develops brown necrotic patches, marginal necrosis, and curling, with late damage concentrated on lower leaves at the plant base. Preserve this independent sequence alongside the differing flowering leaf-age distribution."
       },
       {
         "stage": "Advanced",
@@ -9251,6 +9259,26 @@
           "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
           "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
           "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiency ID Guide for Hemp",
+        "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+        "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+        "authors": [
+          "Jim Todd"
+        ],
+        "publisher": "King’s Printer for Ontario",
+        "publicationDate": "2023",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+          "The magnesium section on printed pages 14–15 describes a mobile nutrient with older-leaf onset: interveinal chlorosis or reddening can precede marginal necrosis, leaf curling, and necrotic patches.",
+          "The Finola sequence in Figures 14–17 progresses from older-leaf interveinal chlorosis to brown dead patches and curled necrotic lower leaves; the guide notes that deficiency may precede visible symptoms by several weeks, without establishing a universal onset interval.",
+          "The guide identifies potassium and manganese symptoms as magnesium look-alikes and contrasts younger-leaf manganese onset with older-leaf magnesium onset; this differential must remain bounded to study context because flowering Cannabis experiments can differ in leaf-age distribution.",
+          "The guide gives magnesium availability as optimal between pH 6.5 and 8.5 in its soil-oriented availability context; this is not a universal Cannabis nutrient-solution or substrate target and must not override production-system and measurement-method evidence.",
+          "The publication does not provide item-level automated-training permission for Figures 14–17; those photographs remain claim evidence only and were not copied or indexed."
         ]
       }
     ],
