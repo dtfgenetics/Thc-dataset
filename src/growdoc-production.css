@@ -1000,3 +1000,6 @@ button { -webkit-tap-highlight-color: transparent; }
 .reference-gaps li { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px; border:1px solid var(--gd-line); border-radius:8px; }
 .reference-gaps li button { flex-shrink:0; }
 @media (max-width:760px) { .reference-gaps { padding:14px; } .reference-gaps li { flex-wrap:wrap; } }
+
+.reference-gaps-search { display:flex; flex-direction:column; gap:6px; max-width:440px; font-weight:600; }
+.reference-gaps-search input { width:100%; min-height:44px; border:1px solid var(--gd-line); border-radius:8px; padding:10px 12px; background:var(--gd-surface); color:inherit; }
