@@ -581,7 +581,7 @@
       "category": "Water / root-zone",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 2,
       "mediaCount": 0,
       "path": "data/profiles/root-ph-extreme.json"
     },

@@ -13092,7 +13092,8 @@
       "Link repeated pH and EC readings, root views, canopy images, cultivar, and intervention dates to the same persistent plant identifier; do not transfer measurements from neighboring plants or pooled substrate to an individual image label.",
       "Assign persistent plant, root-zone sample, root specimen, and leaf-tissue identifiers before capture or collection, and carry them through images or video, sampling method and location, treatment history, calibration records, laboratory reports, and follow-up observations.",
       "Do not diagnose pH stress from leaf color, tip burn, stunting, one photograph, one video, or a generic nutrient-availability chart.",
-      "Measure the actual substrate or root-zone pH repeatedly with a calibrated meter and a method appropriate to the medium; record sampling location, depth, irrigation timing, extraction method, meter calibration, temperature, and replicate values.",
+      "Measure the actual substrate or root-zone pH repeatedly with a calibrated meter, appropriate standards, and one documented method for the medium; do not compare PourThru, saturated-media-extract, 1:2 dilution, runoff, reservoir, or direct-probe values as though they were interchangeable.",
+      "For container substrates, sample multiple representative containers and preserve each reading before averaging; record sampling location, depth, irrigation timing, extraction volume, equilibration or drainage time, meter calibration, temperature, substrate moisture, and replicate values.",
       "Measure root-zone and input EC alongside pH, and document source-water pH and alkalinity, fertilizer formulation, acid or base additions, lime charge, substrate batch, irrigation volume, leaching fraction, and drainage.",
       "Capture serial whole-plant top and side views, root-zone and cleaned-root views, upper- and lower-canopy views, and close-ups of both leaf surfaces under repeatable lighting with scale and a matched same-cultivar control.",
       "Record cultivar, plant age, stage, days of exposure, container volume, substrate composition, water content, root-zone temperature, dissolved oxygen where relevant, and root-tip quantity or standardized root coverage.",
@@ -13122,8 +13123,10 @@
       "At normal micronutrient supply, low pH increased tissue accumulation without a universal visible toxicity; absence of bronzing does not establish that the root zone is acceptable.",
       "The lower-leaf bronzing sequence occurred in Sweetened under pH 3.8 plus fourfold micronutrients and was absent in Cherry Wine; it is not low-pH-specific ground truth.",
       "A single runoff or reservoir pH value does not prove the pH experienced throughout the root system.",
-      "No image or video is admitted for this record because no stable original asset URL was independently verified during this review.",
-      "All symptom-only or uncalibrated-pH samples remain low confidence and require human review."
+      "Extraction method, substrate moisture, sampling location, equilibration or drainage time, calibration, and crop-specific interpretation materially affect pH and EC results; general greenhouse ranges are not Cannabis thresholds.",
+      "The Purdue source is a cross-crop measurement protocol. Its non-Cannabis figures and general EC ranges are not diagnostic media or direct Cannabis response evidence.",
+      "No image or video is admitted for this record because no stable original Cannabis asset with plant-linked pH exposure and suitable item-level rights was independently verified during this review.",
+      "All symptom-only, uncalibrated-pH, mixed-method, or plant-unlinked samples remain low confidence and require human review."
     ],
     "sources": [
       {
@@ -13151,6 +13154,27 @@
           "Lower pH increased several leaf-tissue micronutrient concentrations, but normal micronutrient supply did not produce a universal toxicity phenotype; the authors concluded that Cannabis growth was inhibited below pH 5.0 and recommended a greenhouse substrate range of 5.5 to 6.5 for the systems evaluated.",
           "With fourfold micronutrients at target pH 3.8, Sweetened developed lower-foliage tip bronzing that advanced to necrosis, inward spread, and chlorosis, whereas Cherry Wine did not show the same response, demonstrating cultivar- and fertility-dependent appearance.",
           "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds."
+        ]
+      },
+      {
+        "title": "pH and Electrical Conductivity Measurements in Soilless Substrates",
+        "organization": "Purdue University Extension, Department of Horticulture and Landscape Architecture",
+        "url": "https://ag.purdue.edu/department/hla/extension/extension-publications-library/ext-pubs/ho-237-w.html",
+        "authors": [
+          "Diane M. Camberato",
+          "Roberto G. Lopez",
+          "Michael V. Mickelbart"
+        ],
+        "publisher": "Purdue University Extension",
+        "publicationDate": "2026-10-07",
+        "year": 2026,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "The institutional protocol treats substrate pH and electrical conductivity as separate measurements: pH affects nutrient availability, while EC represents dissolved salts; irrigation-water alkalinity, substrate analysis, and plant-tissue analysis provide additional information that neither meter value supplies alone.",
+          "Accepted soilless-substrate extraction methods include PourThru, saturated media extract, and 1:2 dilution; each has a distinct procedure and method-dependent interpretation, so values from different methods must not be pooled as interchangeable thresholds.",
+          "A monitoring program should use calibrated pH and conductivity standards, repeat a consistent extraction method, sample multiple representative containers separately, and interpret their average and trend with crop, substrate, fertilizer, irrigation-water, and production records.",
+          "Directly inserting a probe into substrate is not recommended unless moisture content and sampling timing are tightly standardized; the saturated-media method instead samples the interior root zone and avoids the top and bottom inch because salt concentration may differ there.",
+          "This greenhouse protocol is not Cannabis-specific and supports measurement quality and exclusion checks only; its general crop ranges and pictured non-Cannabis disorders are not Cannabis diagnostic thresholds or media ground truth."
         ]
       }
     ],

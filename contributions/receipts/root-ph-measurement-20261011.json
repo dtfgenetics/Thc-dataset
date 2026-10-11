@@ -1,0 +1,46 @@
+{
+  "base_commit": "0f3dbc5ac54ebd8c151b2665221561a4620eb934",
+  "branch": "work/grow-doc/GD-DIAG-001/root-ph-measurement-20261011",
+  "changed_paths": [
+    "data/profiles/root-ph-extreme.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "root-ph-measurement-20261011",
+  "head_commit": "858145637d9d6a849c5d19aad132c6a36fa7bbc1",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://ag.purdue.edu/department/hla/extension/extension-publications-library/ext-pubs/ho-237-w.html"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the Purdue University Extension soilless-substrate measurement protocol on 2026-10-11. It supports calibrated, repeatable pH/EC sampling and method-specific interpretation only; it is cross-crop measurement evidence, not direct Cannabis symptom or threshold evidence. Non-Cannabis figures and general greenhouse ranges were not admitted as Cannabis media or ground truth. Canonical profile changes validated before receipt; deterministic exports and matching frozen artifact pins are listed separately. Claim released for the validated integration batch.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/coverage-audit.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
