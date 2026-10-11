@@ -1008,3 +1008,6 @@ button { -webkit-tap-highlight-color: transparent; }
 .reference-coverage-meter span { display:block; height:100%; border-radius:inherit; background:var(--gd-accent, #397b63); }
 
 .reference-gaps-search select { width:100%; min-height:44px; border:1px solid var(--gd-line); border-radius:8px; padding:10px 12px; background:var(--gd-surface); color:inherit; }
+
+.reference-gap-pagination { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:16px; }
+.reference-gap-pagination button { min-height:44px; padding:8px 16px; }
