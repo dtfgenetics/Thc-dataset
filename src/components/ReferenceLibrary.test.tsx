@@ -89,6 +89,23 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('paginates large missing-image inventories and resets pagination after search', () => {
+    const missing = issues.filter((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (missing.length > 24) {
+      expect(screen.getByRole('navigation', { name: 'Missing-image guide pages' })).not.toBeNull()
+      expect(screen.getAllByRole('button', { name: 'Open guide' })).toHaveLength(24)
+      fireEvent.click(screen.getByRole('button', { name: 'Next' }))
+      expect(screen.getByText(/Page 2 of/)).not.toBeNull()
+      fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: 'zzzz-unmatched-condition' } })
+      expect(screen.getByText('0 guides match')).not.toBeNull()
+      expect(screen.queryByRole('navigation', { name: 'Missing-image guide pages' })).toBeNull()
+    } else if (missing.length > 0) {
+      expect(screen.queryByRole('navigation', { name: 'Missing-image guide pages' })).toBeNull()
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
