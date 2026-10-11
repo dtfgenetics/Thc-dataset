@@ -64,11 +64,15 @@ def audit(manifest, assets):
     if seen_datasets != DATASETS:
         errors.append("Manifest dataset coverage incomplete")
     published = {}
+    seen_asset_names = set()
     for asset in assets:
         if not isinstance(asset, dict) or not isinstance(asset.get("name"), str):
             errors.append("Malformed release asset")
             continue
         name = asset["name"]
+        if name in seen_asset_names:
+            errors.append("Duplicate release asset: " + name)
+        seen_asset_names.add(name)
         if PART.fullmatch(name):
             if name in published:
                 errors.append("Duplicate published part: " + name)
