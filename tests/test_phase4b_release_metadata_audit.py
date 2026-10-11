@@ -79,6 +79,16 @@ class ReleaseMetadataAuditTests(unittest.TestCase):
         manifest["results"][0]["originalArchive"]["sha256"] = "bad"
         self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
 
+    def test_empty_archive_parts_fails(self):
+        manifest, assets = fixture()
+        manifest["results"][0]["archiveParts"] = []
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
+    def test_malformed_published_archive_name_fails(self):
+        manifest, assets = fixture()
+        assets.append({"name": "DS-142_archive.partBAD", "size": 10})
+        self.assertEqual(mod.audit(manifest, assets)["status"], "fail")
+
     def test_undeclared_asset_fails(self):
         manifest, assets = fixture()
         assets.append({"name": "DS-142_archive.part002", "size": 10})
