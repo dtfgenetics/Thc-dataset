@@ -1011,3 +1011,7 @@ button { -webkit-tap-highlight-color: transparent; }
 
 .reference-gap-pagination { display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:16px; }
 .reference-gap-pagination button { min-height:44px; padding:8px 16px; }
+
+.reference-gap-guide { display:flex; flex-direction:column; gap:5px; min-width:0; overflow-wrap:anywhere; }
+.reference-gap-guide small { opacity:.8; }
+.reference-gap-guide span { font-size:.9em; line-height:1.5; }
