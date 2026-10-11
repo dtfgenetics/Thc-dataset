@@ -130,13 +130,10 @@ describe('diagnostic dataset quality gates', () => {
     expect(confirmation).toMatch(/root-zone.*ph.*ec/)
     expect(confirmation).toContain('do not use one tissue number as a universal threshold')
     expect(warnings).toContain('late-cycle yellowing is not nitrogen-deficiency ground truth')
-    expect(warnings).toContain('independent 30 mg/l dose response')
     expect(warnings).toContain('all symptom-only')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Normal late-flower leaf aging or senescence', 'Magnesium deficiency', 'Sulfur deficiency']))
-    const controlledDose = record?.sources.find((source) => source.doi === '10.3389/fpls.2020.572293')
-    expect(controlledDose?.supportedClaims.join(' ').toLowerCase()).toMatch(/30 mg\/l.*75% lower plant biomass.*25% lower photosynthesis/)
-    expect(controlledDose?.supportedClaims.join(' ').toLowerCase()).toMatch(/figure 1.*youngest fully developed leaves.*chlorotic/)
-    expect(record?.progression.map((step) => step.stage)).toEqual(expect.arrayContaining(['Independent controlled low-dose context', 'Independent whole-plant and organ context']))
+    expect(record?.progression.map((step) => step.stage)).toEqual(expect.arrayContaining(['Cross-study onset boundary', 'Cross-study organ progression']))
+    expect(record?.progression.find((step) => step.stage === 'Cross-study organ progression')?.description.toLowerCase()).toMatch(/fan-leaf injury.*sugar-leaf.*lower to middle foliage/)
   })
 
   it('keeps phosphorus deficiency tissue-confirmed, root-zone bounded, and composite-safe', () => {

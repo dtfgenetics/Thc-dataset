@@ -6,17 +6,16 @@
     "src/data/issues.ts"
   ],
   "contribution_id": "nitrogen-finola-20261011",
-  "head_commit": "683de3f25ecd22bc2e18d6d3a70813319eee444f",
+  "head_commit": "7ff5cab7501e5ebf2089b60da80a303d60ecd100",
   "human_reviewed": false,
   "training_eligible": false,
   "weight_training_eligible": false,
-  "scope_note": "Agent verified the primary controlled-dose study on 2026-10-11. Added two independent vegetative progression stages and two claim-scoped mappings covering the 30 mg/L treatment's visual deficiency context, lower biomass and photosynthesis, and Figure 1 whole-plant, youngest-fully-developed-leaf, and root views. Study-specific concentration and response values remain experimental context rather than universal diagnostic thresholds. The already licensed composite was not duplicated as a new asset or admitted to training. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
+  "scope_note": "Agent reconciled the two existing controlled nitrogen-deficiency studies on 2026-10-11. Added two cross-study progression stages that bound onset by plant expansion, lower-foliage chlorosis, crop stage, and measurement context, then distinguish fan-leaf, sugar-leaf, and lower-to-middle-canopy progression. No source identity, media asset, training eligibility, or frozen model partition was changed. All 62 validators, 262 tests, TypeScript and the production build passed locally; PHP lint remains a hosted-CI gate because PHP is unavailable locally.",
   "lane": "diagnostic",
   "schema_version": "grow-doc-contribution-receipt-v1",
   "source_ids": [
     "https://doi.org/10.3390/app9204432",
-    "https://doi.org/10.3390/plants12030422",
-    "https://doi.org/10.3389/fpls.2020.572293"
+    "https://doi.org/10.3390/plants12030422"
   ],
   "task_id": "GD-DIAG-001",
   "validation": {

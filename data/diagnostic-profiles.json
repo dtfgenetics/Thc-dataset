@@ -9934,12 +9934,12 @@
     ],
     "progression": [
       {
-        "stage": "Independent controlled low-dose context",
-        "description": "In a separate controlled long-photoperiod study, the 30 mg/L treatment produced visible nitrogen-deficiency symptoms, reduced biomass, and lower photosynthesis relative to the study optimum."
+        "stage": "Cross-study onset boundary",
+        "description": "Across the controlled vegetative and flowering sequences, early injury includes reduced expansion or slight stunting plus lower-foliage chlorosis; the exact week, leaflet region, and tissue nitrogen differed, so timing and one number are not portable thresholds."
       },
       {
-        "stage": "Independent whole-plant and organ context",
-        "description": "The controlled dose composite shows the low-nitrogen plant, youngest fully developed leaf, and roots together; the smaller plant and chlorotic sampled leaf support treatment context but do not define a universal visual threshold."
+        "stage": "Cross-study organ progression",
+        "description": "Fan-leaf injury precedes the later sugar-leaf response in flowering plants, while the vegetative sequence advances from lower to middle foliage; serial organ- and canopy-mapped views are therefore more informative than one detached yellow leaf."
       },
       {
         "stage": "Initial vegetative T1 presentation",
@@ -10019,7 +10019,6 @@
       "Healthy control plants in the flowering study developed lower-fan-leaf chlorosis during weeks six through eight despite adequate nutrient solution and measured foliage, so late-cycle yellowing is not nitrogen-deficiency ground truth.",
       "Red or brown petioles, interveinal yellowing, stem color, and lower-leaf loss are not nitrogen-specific and require explicit confounder checks.",
       "The licensed flowering figure combines four panels, organs, views, weeks, and severity states; the separate vegetative Figure 2 combines nitrogen, phosphorus, and calcium classes. Both remain excluded from automated training until panels are bounded, individually annotated, scientifically reviewed, source-grouped, and assigned leakage-safe splits.",
-      "The independent 30 mg/L dose response used one medical cultivar, five replicate plants, soilless media, long photoperiod, and a specific formulation; its concentration, visual phenotype, biomass response, and photosynthesis response are not universal thresholds.",
       "All symptom-only, detached-leaf-only, late-flower, unmeasured-root-zone, and unlinked-tissue samples require human review."
     ],
     "sources": [
@@ -10124,31 +10123,6 @@
           "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
           "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
           "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
-        ]
-      },
-      {
-        "title": "Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod",
-        "organization": "Frontiers in Plant Science (Saloner and Bernstein)",
-        "url": "https://doi.org/10.3389/fpls.2020.572293",
-        "authors": [
-          "Avia Saloner",
-          "Nirit Bernstein"
-        ],
-        "publisher": "Frontiers Media SA",
-        "publicationDate": "2020-11-17",
-        "year": 2020,
-        "accessedDate": "2026-08-14",
-        "doi": "10.3389/fpls.2020.572293",
-        "supportedClaims": [
-          "A controlled long-photoperiod experiment compared one medical Cannabis cultivar at 30, 80, 160, 240, and 320 mg/L total nitrogen in soilless media, with five replicate plants per treatment and repeated plant-development measurements.",
-          "The 30 mg/L treatment produced visual nitrogen-deficiency symptoms together with approximately 75% lower plant biomass and 25% lower photosynthesis than the study optimum; these treatment-specific responses are not universal diagnostic thresholds.",
-          "Figure 1 shows the controlled 30 mg/L plants as smaller and their youngest fully developed leaves as visibly chlorotic relative to the 80–320 mg/L treatments, while the corresponding root image provides organ context rather than a standalone deficiency class.",
-          "At 320 mg/L nitrogen the plants and plant organs were smaller and dark green; at 240 mg/L shoot coloration and development appeared similar to the 160 mg/L treatment while root development was already restricted.",
-          "Supply above 160 mg/L restricted growth and biomass in this experiment, while nitrogen use efficiency declined and leaf, stem, and root total nitrogen and nitrate generally increased across the tested range.",
-          "The 160–320 mg/L treatments had similar dark-green leaf color, so dark foliage by itself did not distinguish the study optimum from excessive supply.",
-          "At high nitrogen, photosynthetic pigments continued to increase but photosynthesis did not; the authors associated the high-supply decline with stomatal closure and reduced stomatal conductance, transpiration, and intercellular carbon dioxide.",
-          "Irrigation EC rose with nitrogen treatment from 2080 µS/cm at 160 mg/L to 2510 and 2760 µS/cm at 240 and 320 mg/L, and high-treatment leachate nitrogen exceeded input concentration; nitrogen-dose effects therefore cannot be separated from the experiment-specific salt and formulation context by an image alone.",
-          "Figure 1 is a CC BY 4.0 composite showing whole plants, youngest fully developed leaves, and roots across the five nitrogen doses; the columns are treatment levels rather than independent diagnosis classes."
         ]
       }
     ],
@@ -11633,8 +11607,6 @@
         "doi": "10.3389/fpls.2020.572293",
         "supportedClaims": [
           "A controlled long-photoperiod experiment compared one medical Cannabis cultivar at 30, 80, 160, 240, and 320 mg/L total nitrogen in soilless media, with five replicate plants per treatment and repeated plant-development measurements.",
-          "The 30 mg/L treatment produced visual nitrogen-deficiency symptoms together with approximately 75% lower plant biomass and 25% lower photosynthesis than the study optimum; these treatment-specific responses are not universal diagnostic thresholds.",
-          "Figure 1 shows the controlled 30 mg/L plants as smaller and their youngest fully developed leaves as visibly chlorotic relative to the 80–320 mg/L treatments, while the corresponding root image provides organ context rather than a standalone deficiency class.",
           "At 320 mg/L nitrogen the plants and plant organs were smaller and dark green; at 240 mg/L shoot coloration and development appeared similar to the 160 mg/L treatment while root development was already restricted.",
           "Supply above 160 mg/L restricted growth and biomass in this experiment, while nitrogen use efficiency declined and leaf, stem, and root total nitrogen and nitrate generally increased across the tested range.",
           "The 160–320 mg/L treatments had similar dark-green leaf color, so dark foliage by itself did not distinguish the study optimum from excessive supply.",
