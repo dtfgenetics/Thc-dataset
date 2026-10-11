@@ -134,6 +134,19 @@ const sources: Record<string, SourceRecord> = {
       'Figures 26 through 28 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training.',
     ],
   },
+  ontarioHempSulfurDeficiencyGuide: {
+    title: 'Nutrient Deficiency ID Guide for Hemp',
+    organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
+    url: 'https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf',
+    authors: ['Jim Todd'], publisher: 'King’s Printer for Ontario', publicationDate: '2023', year: 2023, accessedDate: '2026-10-11',
+    supportedClaims: [
+      'Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.',
+      'The controlled Finola guide describes sulfur-deficient plants as generally pale green, sometimes with red or purple tinting that can resemble nitrogen deficiency; younger leaves may be more chlorotic than older leaves.',
+      'The Finola sequence documents chlorosis on young leaves, upper-leaf chlorosis and general paleness in new growth, and progression from moderate to severe chlorosis; increased stem woodiness and shortened internodes are additional context.',
+      'The guide states that sulfur availability decreases below pH 6.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.',
+      'Figures 18 through 21 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training.',
+    ],
+  },
   cannabisNitrogenDose: {
     title: 'Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod',
     organization: 'Frontiers in Plant Science (Saloner and Bernstein)',
@@ -1521,6 +1534,8 @@ export const issues: IssueRecord[] = [
     progression: [
       {stage:'Initial vegetative T1 presentation',description:'After seven weeks of sulfur withholding from transplant, foliage became slightly yellow overall, especially in the middle canopy and at leaflet bases.'},
       {stage:'Progressive vegetative T1 presentation',description:'Basal yellowing intensified and became stronger on newly expanding leaves; advanced leaves became very pale, especially around midribs and leaflet bases.'},
+      {stage:'Independent Finola vegetative onset',description:'A separate controlled Finola guide describes pale-green plants with younger leaves more chlorotic than older leaves, sometimes accompanied by red or purple tinting that can resemble nitrogen deficiency.'},
+      {stage:'Independent Finola progression',description:'Finola images document young- and upper-leaf chlorosis and general new-growth pallor progressing from moderate to severe, with increased stem woodiness and shortened internodes as additional source-specific context.'},
       {stage:'Initial flowering Gelato 29 presentation',description:'In week four, recently developed upper sugar leaves showed general yellowing.'},
       {stage:'Flowering week five',description:'Upper fan leaves angled upward, while lower fan leaves developed interveinal chlorosis extending from midribs to margins.'},
       {stage:'Later flowering',description:'Fan-leaf chlorosis spread and became most severe low in the canopy, progressing toward total yellowing and senescence; early sugar-leaf chlorosis remained comparatively stable except at tips and teeth.'},
@@ -1532,7 +1547,7 @@ export const issues: IssueRecord[] = [
     correctivePlan: ['When analytical and production records support inadequate sulfur supply or availability and roots are functional, restore a balanced crop- and system-appropriate sulfur program gradually under current local agronomic guidance.', 'Track subsequent foliage, growing points, leaf angle, new-lesion rate, root growth, root-zone measurements, and follow-up tissue results rather than recovery of old yellow leaves.', 'If sulfur status is adequate or the pattern continues, reopen nitrogen, senescence, magnesium, micronutrient, root disease, arthropod, pathogen, environmental, exposure, and genetic differentials.'],
     prevention: ['Record sulfur and nitrogen concentrations, sulfate-bearing inputs, complete fertilizer composition, source-water chemistry, pH, EC, and irrigation conditions against plant and media identifiers.', 'Use routine same-position upper- and lower-canopy tissue sampling and production-system-appropriate root-zone or soil testing before visible injury.', 'Maintain healthy same-cultivar references and neutral-light serial imaging across growing points, sugar leaves, fan-leaf ages, canopy thirds, and flowering weeks.'],
     warnings: ['The vegetative T1 seven-week onset, 0.11% most-recent-mature-leaf sulfur value, middle-canopy description, and base-to-tip sequence came from one cultivar in silica sand and are not universal thresholds.', 'The flowering Gelato 29 week-four onset, upper-sugar-leaf presentation, later lower-fan-leaf severity, and 34% inflorescence-yield difference came from three deep-water-culture plants per treatment and must not be generalized.', 'Controlled studies differed in first described canopy location and progression direction; canopy position alone is not sulfur-deficiency ground truth.', 'Nitrogen deficiency and natural late-flower senescence can closely overlap the yellowing sequence, while upward leaf angle can reflect environmental or water-status responses.', 'The CC BY figure contains four panels spanning different organs, views, and severity states; it remains excluded from automated training until panels are bounded, individually annotated, source-grouped, scientifically reviewed, and assigned a leakage-safe split.', 'All symptom-only and late-flower samples require human review and linked analytical evidence before ground-truth use.', 'The 0.20 photo/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic accuracy estimate.', 'Differences among cultivar, growth stage, medium, and treatment schedules prevent cross-study images from isolating a single cause of phenotype variation.'],
-    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies],
+    sources: [sources.msuNutrients, sources.cannabisFloweringNutrientDeficiencies, sources.ontarioHempSulfurDeficiencyGuide],
     media: [
       {
         id: 'mdpi-cannabis-sulfur-deficiency-figure-7',

@@ -10368,6 +10368,14 @@
         "description": "Basal yellowing intensified and became stronger on newly expanding leaves; advanced leaves became very pale, especially around midribs and leaflet bases."
       },
       {
+        "stage": "Independent Finola vegetative onset",
+        "description": "A separate controlled Finola guide describes pale-green plants with younger leaves more chlorotic than older leaves, sometimes accompanied by red or purple tinting that can resemble nitrogen deficiency."
+      },
+      {
+        "stage": "Independent Finola progression",
+        "description": "Finola images document young- and upper-leaf chlorosis and general new-growth pallor progressing from moderate to severe, with increased stem woodiness and shortened internodes as additional source-specific context."
+      },
+      {
         "stage": "Initial flowering Gelato 29 presentation",
         "description": "In week four, recently developed upper sugar leaves showed general yellowing."
       },
@@ -10540,6 +10548,25 @@
           "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
           "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
           "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+        ]
+      },
+      {
+        "title": "Nutrient Deficiency ID Guide for Hemp",
+        "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
+        "url": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
+        "authors": [
+          "Jim Todd"
+        ],
+        "publisher": "King’s Printer for Ontario",
+        "publicationDate": "2023",
+        "year": 2023,
+        "accessedDate": "2026-10-11",
+        "supportedClaims": [
+          "Female Finola industrial-hemp plants were maintained vegetatively under supplemental greenhouse lighting and received either complete Hoagland solution adjusted to pH 6.5 or a solution lacking one of thirteen nutrients; photographs were taken at multiple deficiency stages.",
+          "The controlled Finola guide describes sulfur-deficient plants as generally pale green, sometimes with red or purple tinting that can resemble nitrogen deficiency; younger leaves may be more chlorotic than older leaves.",
+          "The Finola sequence documents chlorosis on young leaves, upper-leaf chlorosis and general paleness in new growth, and progression from moderate to severe chlorosis; increased stem woodiness and shortened internodes are additional context.",
+          "The guide states that sulfur availability decreases below pH 6.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.",
+          "Figures 18 through 21 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training."
         ]
       }
     ],
