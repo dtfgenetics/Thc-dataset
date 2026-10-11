@@ -3,6 +3,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { ReferenceLibrary } from './ReferenceLibrary'
 import { IssueLibrary } from './IssueLibrary'
+import { issues } from '../data/catalog'
+import { resolvedDisplayMediaForIssue } from '../lib/media'
 
 afterEach(() => { cleanup(); vi.restoreAllMocks() })
 
@@ -12,6 +14,22 @@ describe('Reference discovery and guide evidence', () => {
     expect(screen.getByRole('heading', { name: 'How to compare a reference image' })).not.toBeNull()
     expect(screen.getByText(/An image comparison is an observation aid, not a laboratory diagnosis/)).not.toBeNull()
     expect(screen.getByText(/Match the view and growth stage/)).not.toBeNull()
+  })
+
+  it('distinguishes reference coverage from diagnostic accuracy', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByRole('heading', { name: 'Visual evidence coverage' })).not.toBeNull()
+    expect(screen.getByText(/condition guides currently have at least one approved, displayable visual reference/)).not.toBeNull()
+    expect(screen.getByText(/Coverage is not diagnostic accuracy/)).not.toBeNull()
+  })
+
+  it('reports actual covered and uncovered guide counts', () => {
+    const covered = issues.filter((issue) =>
+      resolvedDisplayMediaForIssue(issue, issues).some(({ media }) => Boolean(media.url || media.thumbnailUrl))
+    ).length
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    expect(screen.getByText(new RegExp(`^${covered} of ${issues.length} condition guides currently have`))).not.toBeNull()
+    expect(screen.getByText(new RegExp(`${issues.length - covered} do not\\.`))).not.toBeNull()
   })
 
   it('finds the shared copper figure and opens the correct guide', () => {
