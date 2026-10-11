@@ -81,6 +81,14 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('labels category backlog counts as coverage gaps rather than diagnostic priority', () => {
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    if (screen.queryByRole('textbox', { name: 'Search guides missing images' })) {
+      expect(screen.getByText(/Largest remaining gaps:/)).not.toBeNull()
+      expect(screen.getByText(/not a ranking of diagnostic importance/)).not.toBeNull()
+    }
+  })
+
   it('finds the shared copper figure and opens the correct guide', () => {
     const open = vi.fn()
     render(<ReferenceLibrary onOpenIssue={open} />)
