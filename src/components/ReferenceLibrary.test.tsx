@@ -94,6 +94,37 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('downloads filtered reference gaps as CSV and releases its object URL', () => {
+    const missing = issues.filter((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    if (!missing.length) return
+
+    const createObjectURL = vi.fn(() => 'blob:mock-reference-gaps')
+    const revokeObjectURL = vi.fn()
+    Object.defineProperty(URL, 'createObjectURL', { configurable: true, value: createObjectURL })
+    Object.defineProperty(URL, 'revokeObjectURL', { configurable: true, value: revokeObjectURL })
+    const click = vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(function (this: HTMLAnchorElement) {
+      expect(this.download).toBe('thc-missing-visual-references.csv')
+      expect(this.href).toContain('blob:mock-reference-gaps')
+    })
+    const timers = vi.spyOn(window, 'setTimeout').mockImplementation((callback) => {
+      if (typeof callback === 'function') callback()
+      return 1
+    })
+
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    const first = missing[0]
+    fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: first.slug } })
+    // Guide IDs are not searchable by the UI; use the name instead.
+    fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: first.name } })
+    fireEvent.click(screen.getByRole('button', { name: 'Export matching missing-image guides (CSV)' }))
+    expect(createObjectURL).toHaveBeenCalledOnce()
+    expect(createObjectURL.mock.calls[0][0]).toBeInstanceOf(Blob)
+    expect(click).toHaveBeenCalledOnce()
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:mock-reference-gaps')
+    timers.mockRestore()
+  })
+
   it('labels category backlog counts as coverage gaps rather than diagnostic priority', () => {
     render(<ReferenceLibrary onOpenIssue={() => {}} />)
     if (screen.queryByRole('textbox', { name: 'Search guides missing images' })) {
