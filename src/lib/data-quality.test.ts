@@ -551,7 +551,16 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.exclusions.join(' ').toLowerCase()).toContain('fixture wattage')
     expect(warnings).toContain('not a measured diagnostic accuracy estimate')
     expect(warnings).toContain('not interchangeable measurements')
-    expect(record?.media).toHaveLength(0)
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]?.sourceUrl).toBe('https://doi.org/10.1016/j.envexpbot.2025.106085')
+    expect(record?.media[0]?.url).toBe('https://ars.els-cdn.com/content/image/1-s2.0-S0098847225000024-gr2.jpg')
+    expect(record?.media[0]?.license).toBe('CC BY 4.0')
+    expect(record?.media[0]?.hostContext).toBe('cannabis')
+    expect(record?.media[0]?.confirmation).toBe('expert-reviewed')
+    expect(record?.media[0]?.sha256).toBe('e781ade099fdaaec5e91638b5b54cf783cccc8f2b4ee9cd34f4579533eb596f1')
+    expect(record?.media[0]?.perceptualHash).toBe('dhash64:54d4545250505555')
+    expect(record?.media[0]?.trainingEligible).toBe(false)
+    expect(record?.media[0]?.useLimitations.join(' ').toLowerCase()).toContain('universal heat-stress class')
   })
 
   it('keeps late-cycle leaf aging age-positioned and non-diagnostic from color', () => {

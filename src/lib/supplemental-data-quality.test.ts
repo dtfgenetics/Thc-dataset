@@ -115,6 +115,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['root-knot-nematodes', 1],
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
       ['southern-blight-athelia-rolfsii', 1],
+      ['heat-light-stress', 1],
     ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'spotted-cucumber-beetle') {

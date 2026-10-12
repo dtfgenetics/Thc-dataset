@@ -1,0 +1,48 @@
+{
+  "base_commit": "5050ec1b84bfba280e353bc30dc8f28937cd4e77",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261012",
+  "changed_paths": [
+    "data/profiles/env-heat.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "gd-diag-001-f5034595f78a",
+  "head_commit": "f9e2f42a14bd936b80fc8588bb5ac88f3705ccee",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "10.1016/j.envexpbot.2025.106085"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the Wageningen University research record, the CC BY license, and Elsevier Figure 2 original asset on 2026-10-12. The heat profile now indexes the controlled two-genotype Cannabis composite as reference context with its exact URL, checksum, dimensions, attribution, treatment bounds, and visual confounders. The composite is display-permitted but remains excluded from automated training because it mixes whole-plant PPFD context and a heat-associated flowering close-up and does not isolate genotype, PPFD, developmental stage, or acquisition color. No media binary was copied into the repository. Claim released after validation.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

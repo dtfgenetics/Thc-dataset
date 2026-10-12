@@ -489,7 +489,8 @@
       "A spatial gradient repeats with measured temperature or irradiance rather than merely with leaf age",
       "The same marked plant and canopy position are followed before, during, and after the measured exposure so new growth can be separated from permanently damaged tissue",
       "Upper- and lower-canopy images are paired with localized PPFD measurements because whole-canopy averages do not establish the exposure received by one photographed leaf",
-      "A measured hot spot or irradiance gradient recurs across nearby plants at comparable canopy height while cooler or lower-exposure reference plants remain less affected"
+      "A measured hot spot or irradiance gradient recurs across nearby plants at comparable canopy height while cooler or lower-exposure reference plants remain less affected",
+      "In the controlled Holweg et al. study, abnormal new inflorescence clusters were photographed above older inflorescences under the 31/27 degrees Celsius treatment; the phenotype was associated with that treatment and genotype, not validated as a universal heat signature"
     ],
     "exclusions": [
       "No time-stamped canopy-level temperature, leaf-temperature, PPFD, photoperiod, or humidity record supports an exposure event",
@@ -572,7 +573,7 @@
       "A controlled Stillwater trial produced linearly increasing inflorescence yield through 1,800 micromoles per square metre per second; therefore PPFD magnitude alone does not prove injury or define a universal damaging threshold.",
       "Temperature optima for photosynthesis differed among tested drug- and fiber-type varieties, so 25, 30, 35, or 40 degrees Celsius must not be generalized into one cultivar-independent diagnosis.",
       "The abnormal inflorescence-cluster observation came from defined 31/27 degrees Celsius flowering treatments in two genotypes and should be labeled treatment-associated, not universally heat-specific.",
-      "No reusable Cannabis symptom photograph with exposure measurements and adequate causal confirmation was admitted in this record; media remain empty rather than promoting anecdotal or vendor imagery."
+      "One CC BY controlled-study composite is indexed as reference context, but it is not a standalone symptom photograph, does not isolate temperature from genotype and PPFD, and remains ineligible for automated training."
     ],
     "sources": [
       {
@@ -595,7 +596,8 @@
         "supportedClaims": [
           "In controlled short-day production, plants of two medical Cannabis genotypes were compared at 25/21 and 31/27 degrees Celsius day/night temperatures and at PPFDs of 600, 900, and 1,200 micromoles per square metre per second.",
           "The higher-temperature treatment reduced total cannabinoid concentration in both genotypes but reduced inflorescence dry matter only in Harmony CBD, demonstrating a genotype-specific production response.",
-          "High temperature produced abnormal new inflorescence clusters on top of older inflorescences and disrupted normal maturation; this flowering morphology is treatment-associated but is not a universal image-only heat threshold."
+          "High temperature produced abnormal new inflorescence clusters on top of older inflorescences and disrupted normal maturation; this flowering morphology is treatment-associated but is not a universal image-only heat threshold.",
+          "Figure 2 pairs whole-plant views across 600, 900, and 1,200 micromoles per square metre per second with a close view of an abnormal inflorescence cluster; the article is distributed under CC BY, but the composite does not isolate temperature from genotype, PPFD, camera color, or developmental context for automated classification."
         ]
       },
       {
@@ -645,7 +647,41 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "holweg-cannabis-heat-figure-2-2025",
+        "url": "https://ars.els-cdn.com/content/image/1-s2.0-S0098847225000024-gr2.jpg",
+        "alt": "Controlled medical Cannabis study composite with three whole plants grown at increasing PPFD and a close view marking an abnormal new inflorescence cluster above older flowers",
+        "caption": "Reference-only Figure 2 composite from Holweg et al. (2025). Panel A supplies whole-plant PPFD context and Panel B marks a heat-treatment-associated abnormal inflorescence cluster; the composite is not a universal image-only heat diagnostic.",
+        "creator": "Mexximiliaan M. S. F. Holweg, Thomas Curren, Aurora Cravino, Elias Kaiser, Iris F. Kappers, Ep Heuvelink, and Leo F. M. Marcelis",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.1016/j.envexpbot.2025.106085",
+        "mediaType": "image",
+        "requiredAttribution": "Holweg MMSF, Curren T, Cravino A, Kaiser E, Kappers IF, Heuvelink E, Marcelis LFM. 2025. Environmental and Experimental Botany 230:106085. Figure 2. CC BY 4.0.",
+        "diagnosticLabel": "heat-light-stress — high-temperature-associated abnormal inflorescence cluster in controlled Cannabis treatment context",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-only composite from a controlled two-genotype study; no image file is stored in this repository.",
+          "Do not crop Panel B into a universal heat-stress class without preserving genotype, temperature, PPFD, developmental stage, and source-group metadata.",
+          "Panel A compares PPFD treatments and is contextual evidence, not visible-injury ground truth.",
+          "The magenta illumination and composite layout are acquisition artifacts that can confound color- or texture-based models.",
+          "Automated training remains disabled pending panel-level segmentation, source-group isolation, and confirmation that the intended use preserves the study's bounded treatment label."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "e781ade099fdaaec5e91638b5b54cf783cccc8f2b4ee9cd34f4579533eb596f1",
+        "perceptualHash": "dhash64:54d4545250505555",
+        "width": 565,
+        "height": 224,
+        "view": "whole-plant",
+        "stage": "short-day flowering",
+        "severity": "treatment-associated abnormal inflorescence development",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "env-herbicide-clomazone",
