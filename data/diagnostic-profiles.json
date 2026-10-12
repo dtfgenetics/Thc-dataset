@@ -1428,7 +1428,7 @@
       "The seven-to-eight-week onset, middle-canopy predominance, cultivar differences, and combined-disease yield results are study-specific observations, not universal Bipolaris timing, distribution, susceptibility, yield, or action thresholds.",
       "The original report used ITS and partial 28S placement, while later multilocus work found multiple genotypes and ploidy states; photographs cannot resolve this diversity.",
       "Recovery from a lesion or nearby weed does not by itself prove causation, infection source, or transmission direction.",
-      "No image or video was indexed because no stable, item-level, plant-linked B. gigantea asset with sufficiently clear reuse and training rights was verified.",
+      "The UF/IFAS Figure 2 reference is an attributed institutional differential, not a lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without additional permission.",
       "All symptom-only, detached, mixed-pathogen, culture-unlinked, single-locus-only, low-resolution, and rights-unclear samples require human review."
     ],
     "sources": [
@@ -1508,9 +1508,64 @@
           "Haploid and heteroploid isolates caused similar disease on hemp, so lesion appearance cannot resolve ploidy, genotype, or the source host.",
           "Species- and genotype-level labels therefore require lesion-linked laboratory evidence; a symptom photograph or single recovered isolate cannot establish population structure or transmission direction."
         ]
+      },
+      {
+        "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+        "organization": "UF/IFAS Extension",
+        "url": "https://doi.org/10.32473/edis-pp379-2024",
+        "authors": [
+          "Kevin Korus",
+          "Wael Elwakil",
+          "Nicholas Dufault",
+          "Zachary D. Eldred"
+        ],
+        "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+        "publicationDate": "2024-12-05",
+        "year": 2024,
+        "accessedDate": "2026-10-12",
+        "doi": "10.32473/edis-pp379-2024",
+        "supportedClaims": [
+          "The UF/IFAS field guide describes small circular light-green hemp leaf spots that expand to about 1 to 2 mm and turn brown with a dark border, while noting that lesions can also remain light tan without a border.",
+          "The guide states that lesions may coalesce into larger irregular lesions and that dark gray or black fungal growth can occur on both leaf surfaces; these are differential features rather than image-only species confirmation.",
+          "UF/IFAS Figure 2 is an institutional hemp-leaf reference credited to Thomas Isakeit, Texas A&M University, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
+          "The guide recommends plant-diagnostic-center identification and confirmation, so its photograph supplies bounded visual context rather than laboratory ground truth for an individual dataset sample."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "uf-ifas-bipolaris-field-guide-figure-2-2024",
+        "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Ierqcxqfm0/Ierqcxqfm0-2048.webp",
+        "alt": "Institutional hemp leaf reference showing numerous small circular tan to brown lesions with dark margins",
+        "caption": "Reference-only UF/IFAS Figure 2 credited to Thomas Isakeit, Texas A&M University. The image supports a Bipolaris differential but is not a lesion-linked laboratory record and cannot confirm species from appearance.",
+        "creator": "Thomas Isakeit, Texas A&M University",
+        "license": "CC BY-NC-ND 4.0",
+        "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+        "mediaType": "image",
+        "requiredAttribution": "Thomas Isakeit, Texas A&M University, Figure 2 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+        "diagnosticLabel": "bipolaris-leaf-spot — institutional visual differential, not sample-level laboratory confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, panel extraction, cropping, and derivative preparation require additional permission.",
+          "Do not infer Bipolaris gigantea from lesion color, shape, density, or this image alone; retain laboratory and plant linkage requirements.",
+          "Automated training and evaluation use are not permitted by this record."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "not-permitted",
+        "sha256": "0ae5416c4053f7782e5ca3e09e31aca2e5a51c3476f22eb3983aef9395a61d09",
+        "perceptualHash": "dhash64:4547038b9b264209",
+        "width": 960,
+        "height": 720,
+        "view": "close-up",
+        "stage": "field foliage",
+        "severity": "multiple scattered leaf lesions",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "fungal-botrytis-bud-rot",

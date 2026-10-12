@@ -1984,6 +1984,29 @@
     ]
   },
   {
+    "sourceKey": "10.32473/edis-pp379-2024",
+    "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+    "organization": "UF/IFAS Extension",
+    "url": "https://doi.org/10.32473/edis-pp379-2024",
+    "authors": [
+      "Kevin Korus",
+      "Wael Elwakil",
+      "Nicholas Dufault",
+      "Zachary D. Eldred"
+    ],
+    "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+    "publicationDate": "2024-12-05",
+    "year": 2024,
+    "accessedDate": "2026-10-12",
+    "doi": "10.32473/edis-pp379-2024",
+    "supportedClaims": [
+      "The UF/IFAS field guide describes small circular light-green hemp leaf spots that expand to about 1 to 2 mm and turn brown with a dark border, while noting that lesions can also remain light tan without a border.",
+      "The guide states that lesions may coalesce into larger irregular lesions and that dark gray or black fungal growth can occur on both leaf surfaces; these are differential features rather than image-only species confirmation.",
+      "UF/IFAS Figure 2 is an institutional hemp-leaf reference credited to Thomas Isakeit, Texas A&M University, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
+      "The guide recommends plant-diagnostic-center identification and confirmation, so its photograph supplies bounded visual context rather than laboratory ground truth for an individual dataset sample."
+    ]
+  },
+  {
     "sourceKey": "10.3389/fagro.2021.706138",
     "title": "Pathogenicity and Mefenoxam Sensitivity of Pythium, Globisporangium, and Fusarium Isolates From Coconut Coir and Rockwool in Marijuana (Cannabis sativa L.) Production",
     "organization": "Frontiers in Agronomy",

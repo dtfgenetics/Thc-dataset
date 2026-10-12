@@ -215,6 +215,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media.every((item) => item.useLimitations.join(' ').includes('no image file is stored'))).toBe(true)
         continue
       }
+      if (issue.slug === 'bipolaris-leaf-spot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -568,6 +577,21 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media).toEqual([])
   })
 
+  it('keeps the UF/IFAS Bipolaris figure reference-only and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'bipolaris-leaf-spot')
+    const media = record?.media[0]
+    expect(record?.sources.some((source) => source.doi === '10.32473/edis-pp379-2024')).toBe(true)
+    expect(record?.media).toHaveLength(1)
+    expect(media?.creator).toBe('Thomas Isakeit, Texas A&M University')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('0ae5416c4053f7782e5ca3e09e31aca2e5a51c3476f22eb3983aef9395a61d09')
+    expect(media?.perceptualHash).toBe('dhash64:4547038b9b264209')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('no image file is stored')
+  })
+
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'bipolaris-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
@@ -575,20 +599,21 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
-    expect(record?.sources).toHaveLength(3)
+    expect(record?.sources).toHaveLength(4)
     expect(record?.sources.map((source) => source.doi)).toEqual(expect.arrayContaining([
       '10.1094/PHP-01-20-0004-BR',
       '10.1094/PDIS-11-23-2483-RE',
       '10.1080/00275514.2023.2224699',
+      '10.32473/edis-pp379-2024',
     ]))
     expect(confirmation).toContain('use lesion-linked fungal morphology and validated molecular evidence')
     expect(confirmation).toContain('require validated multilocus evidence')
     expect(confirmation).toContain('symptom reproduction, recovery of the same organism, and symptomless appropriate controls')
     expect(confirmation).toContain('keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, its-only, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and unverified samples out')
     expect(warnings).toContain('study-specific observations, not universal bipolaris timing, distribution, susceptibility, yield, or action thresholds')
-    expect(warnings).toContain('no image or video was indexed')
+    expect(warnings).toContain('institutional differential, not a lesion-linked laboratory record')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Septoria leaf spot complex', 'Cercospora leaf spot', 'Pseudocercospora olive leaf spot', 'Alternaria leaf spot', 'Anthracnose leaf spot', 'Bacterial leaf spot', 'Caterpillar, beetle, slug, or snail feeding', 'Hail, wind, handling, or training tear']))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
   })
 
   it('keeps promoted supplemental media hashes unique', () => {
