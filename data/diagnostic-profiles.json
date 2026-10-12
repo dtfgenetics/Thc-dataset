@@ -3736,7 +3736,7 @@
       "The 2021 Kentucky S. cannabis assignment used morphology and seven loci but lacked published S. cannabis reference sequences; the 2024 Japanese ex-type S. cannabicola occupies a different clade, and historical ex-type sequences remain unavailable.",
       "Lesion dimensions, conidial measurements, canopy distribution, inoculation response, timing, cultivar effects, disease progress, and product efficacy are bounded to the cited studies and are not universal thresholds.",
       "The hemp disease cycle remains incompletely established; debris survival, stomatal entry, wind or water dispersal, and polycyclic spread should be recorded as plausible epidemiology rather than certain reconstruction of an individual case.",
-      "No media was added: the Japanese article presents conflicting license statements and a mixed natural-symptom, inoculation, microscopy, and culture figure, while the Cornell photographs lack item-level reuse terms.",
+      "The UF/IFAS Figure 5 reference is an attributed institutional upper-surface differential, not a lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without additional permission.",
       "Pesticide efficacy does not confirm diagnosis, and every application must follow current product labeling, registration, resistance-management, worker-safety, and jurisdictional requirements.",
       "Human review remains mandatory for symptom-only, detached, mixed-pathogen, culture-unlinked, generic-PCR, ITS-only, single-locus, species-inferred, low-resolution, or rights-unclear samples."
     ],
@@ -3863,9 +3863,64 @@
           "The trial establishes that repeated plant-linked severity measurements can quantify Septoria disease progress; it does not make one cultivar, isolate, location, season, product response, or legal label universal.",
           "Treatment response cannot retroactively confirm an image-only diagnosis, and product selection requires current jurisdiction-specific registration, label compliance, resistance management, and professional guidance."
         ]
+      },
+      {
+        "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+        "organization": "UF/IFAS Extension",
+        "url": "https://doi.org/10.32473/edis-pp379-2024",
+        "authors": [
+          "Kevin Korus",
+          "Wael Elwakil",
+          "Nicholas Dufault",
+          "Zachary D. Eldred"
+        ],
+        "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+        "publicationDate": "2024-12-05",
+        "year": 2024,
+        "accessedDate": "2026-10-12",
+        "doi": "10.32473/edis-pp379-2024",
+        "supportedClaims": [
+          "The UF/IFAS field guide describes Septoria symptoms beginning on older lower foliage and spreading through the canopy, with irregular light-brown spots becoming brown and surrounded by bright yellow halos.",
+          "The guide states that lesions can expand and coalesce as severity increases, contributing to yellow-brown tissue and leaf drop, while black pinhead-sized pycnidia may be visible in lesion centers.",
+          "UF/IFAS Figure 5 is an institutional hemp-leaf reference credited to Nicole Gauthier, University of Kentucky, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
+          "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 5 supplies bounded upper-surface visual context rather than laboratory ground truth for an individual dataset sample."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "uf-ifas-septoria-field-guide-figure-5-2024",
+        "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/I7uep0mds4/I7uep0mds4-2048.webp",
+        "alt": "Institutional upper-surface hemp leaf reference showing numerous yellow-haloed brown lesions with dark central dots",
+        "caption": "Reference-only UF/IFAS Figure 5 credited to Nicole Gauthier, University of Kentucky. The image supplies upper-surface Septoria differential context, including compatible haloed lesions and central dark structures, but is not sample-linked laboratory confirmation.",
+        "creator": "Nicole Gauthier, University of Kentucky",
+        "license": "CC BY-NC-ND 4.0",
+        "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+        "mediaType": "image",
+        "requiredAttribution": "Nicole Gauthier, University of Kentucky. Figure 5 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+        "diagnosticLabel": "septoria-leaf-spot — institutional upper-surface differential, not sample-level laboratory confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, and derivative preparation require additional permission.",
+          "The asset shows only the upper leaf surface and lacks same-lesion lower-surface, scale, plant distribution, sampling, culture, microscopy, and multilocus records; do not infer Septoria species or causality from appearance.",
+          "Automated training and evaluation use are not permitted by this record."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "not-permitted",
+        "sha256": "5d5771e1a14167124aeb196c3db016236fe00c9383d75891812dd76f95309192",
+        "perceptualHash": "dhash64:2d87931b2d73e7ce",
+        "width": 932,
+        "height": 622,
+        "view": "close-up",
+        "stage": "field foliage, upper leaf surface",
+        "severity": "numerous distributed lesions across one leaf",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "fungal-southern-blight",

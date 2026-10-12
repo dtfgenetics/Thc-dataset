@@ -233,6 +233,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'septoria-leaf-spot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -617,6 +626,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('do not separate panels')
+  })
+
+  it('keeps the UF/IFAS Septoria image upper-surface-only, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'septoria-leaf-spot')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(6)
+    expect(record?.sources.some((source) => source.doi === '10.32473/edis-pp379-2024')).toBe(true)
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('institutional upper-surface differential, not a lesion-linked laboratory record')
+    expect(record?.media).toHaveLength(1)
+    expect(media?.creator).toBe('Nicole Gauthier, University of Kentucky')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('5d5771e1a14167124aeb196c3db016236fe00c9383d75891812dd76f95309192')
+    expect(media?.perceptualHash).toBe('dhash64:2d87931b2d73e7ce')
+    expect(media?.view).toBe('close-up')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('upper leaf surface')
   })
 
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {
