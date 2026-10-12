@@ -35,7 +35,7 @@ export function ReferenceLibrary({ onOpenIssue }: { onOpenIssue: (slug: string) 
   const [gapPage, setGapPage] = useState(1)
   const matchingUncovered = useMemo(() => uncoveredIssues.filter((issue) =>
     (gapCategory === 'All' || issue.category === gapCategory) &&
-    [issue.name, issue.category, issue.scientificName].filter(Boolean).join(' ').toLowerCase().includes(gapQuery.trim().toLowerCase())), [gapQuery, gapCategory])
+    [issue.slug, issue.name, issue.category, issue.scientificName].filter(Boolean).join(' ').toLowerCase().includes(gapQuery.trim().toLowerCase())), [gapQuery, gapCategory])
   const downloadMissingGuideCsv = () => {
     if (!matchingUncovered.length) return
     const blob = new Blob([buildReferenceGapCsv(matchingUncovered)], { type: 'text/csv;charset=utf-8' })
