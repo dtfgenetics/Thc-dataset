@@ -1,0 +1,67 @@
+name: Phase 4B Live Release Metadata Audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '13 7 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  live-release-metadata:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      RELEASE_TAG: bulk-transfer-phase4b-2026-08-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch full paginated release asset inventory
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_id="$(gh api "repos/$GH_REPO/releases/tags/$RELEASE_TAG" --jq '.id')"
+          [[ "$release_id" =~ ^[0-9]+$ ]] || { echo 'Invalid release ID'; exit 1; }
+          gh api --paginate "repos/$GH_REPO/releases/$release_id/assets?per_page=100" | jq -s 'add' > "$RUNNER_TEMP/phase4b-assets.json"
+          jq -e 'type == "array" and length > 0' "$RUNNER_TEMP/phase4b-assets.json" > /dev/null
+      - name: Download and verify release manifest digest
+        shell: bash
+        run: |
+          set -euo pipefail
+          expected="$(jq -r '[.[] | select(.name == "phase4b-manifest.json") | .digest] | if length == 1 then .[0] else empty end' "$RUNNER_TEMP/phase4b-assets.json")"
+          [[ "$expected" =~ ^sha256:[0-9a-f]{64}$ ]] || { echo 'Missing or invalid manifest digest'; exit 1; }
+          mkdir -p "$RUNNER_TEMP/phase4b"
+          gh release download "$RELEASE_TAG" --repo "$GH_REPO" --pattern 'phase4b-manifest.json' --dir "$RUNNER_TEMP/phase4b"
+          manifest="$RUNNER_TEMP/phase4b/phase4b-manifest.json"
+          [[ -s "$manifest" ]] || { echo 'Missing release manifest'; exit 1; }
+          actual="sha256:$(sha256sum "$manifest" | cut -d ' ' -f1)"
+          [[ "$actual" == "$expected" ]] || { echo 'Downloaded manifest digest mismatch'; exit 1; }
+      - name: Audit live release metadata against manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          result=0
+          python scripts/audit-phase4b-release-metadata.py \
+            --manifest "$RUNNER_TEMP/phase4b/phase4b-manifest.json" \
+            --assets "$RUNNER_TEMP/phase4b-assets.json" \
+            | tee "$RUNNER_TEMP/phase4b-metadata-audit.json" || result=$?
+          {
+            echo '## Phase 4B live release metadata'
+            echo 'Metadata only: archive bytes, scientific validity, image rights, and training eligibility are NOT verified.'
+            echo '~~~json'
+            cat "$RUNNER_TEMP/phase4b-metadata-audit.json"
+            echo '~~~'
+          } >> "$GITHUB_STEP_SUMMARY"
+          exit "$result"
+      - name: Preserve audit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase4b-live-metadata-audit
+          path: |
+            ${{ runner.temp }}/phase4b-assets.json
+            ${{ runner.temp }}/phase4b-metadata-audit.json
+          if-no-files-found: warn
+          retention-days: 30
