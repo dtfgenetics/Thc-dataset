@@ -28,6 +28,8 @@
     "data/profiles/index.json",
     "data/sources.json",
     "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
     "src/lib/data-quality.test.ts",
     "src/lib/supplemental-data-quality.test.ts"
   ],
