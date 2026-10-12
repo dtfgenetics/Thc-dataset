@@ -1,12 +1,12 @@
 {
-  "base_commit": "ef58ef6c6ccc27439105173a6b3853a14a805f0e",
+  "base_commit": "292743ae047c6a78c966a80a03f402c0ed5f4bac",
   "branch": "work/grow-doc/GD-DIAG-001/batch-20261012e",
   "changed_paths": [
     "data/profiles/fungal-curvularia-leaf-spot.json",
     "src/data/expanded-issues.ts"
   ],
   "contribution_id": "gd-diag-001-c838a1383290",
-  "head_commit": "664f0e5ea11fcc531a9f949603e0c89180c0db8f",
+  "head_commit": "c7f33e1d4586ee9c408fa5b5cdc0291a4f18129b",
   "lane": "diagnostic",
   "schema_version": "grow-doc-contribution-receipt-v1",
   "source_ids": [
@@ -32,6 +32,8 @@
     "data/release-readiness.json",
     "data/sources.json",
     "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
     "src/lib/catalog-accuracy-expansion.test.ts",
     "src/lib/supplemental-data-quality.test.ts"
   ],
