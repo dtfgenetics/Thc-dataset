@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 DATASETS = {"DS-142", "DS-143", "DS-146"}
-PART = re.compile(r"^(DS-\d+)_archive\.part(\d{3})$")
+PART = re.compile(r"^(DS-[0-9]+)_archive\.part([0-9]{3})$")
 
 
 def audit(manifest, assets):
@@ -18,7 +18,7 @@ def audit(manifest, assets):
     expected = {}
     seen_datasets = set()
     for row in manifest["results"]:
-        if not isinstance(row, dict) or row.get("datasetId") not in DATASETS:
+        if not isinstance(row, dict) or not isinstance(row.get("datasetId"), str) or row["datasetId"] not in DATASETS:
             errors.append("Unexpected manifest dataset")
             continue
         did = row["datasetId"]
@@ -77,7 +77,7 @@ def audit(manifest, assets):
             if name in published:
                 errors.append("Duplicate published part: " + name)
             published[name] = asset
-        elif re.match(r"^DS-\d+_archive\.part", name):
+        elif re.match(r"^DS-.*_archive\.part", name):
             errors.append("Malformed published archive part: " + name)
     for name, part in expected.items():
         asset = published.get(name)
