@@ -34,6 +34,15 @@ describe('commercial media display licensing gate', () => {
     expect(isDisplayableMedia(example(license))).toBe(false)
   })
 
+  it.each([
+    'https://creativecommons.org/licenses/by-nc-nd/4.0/',
+    'https://creativecommons.org/licenses/by-nc-sa/4.0/',
+    'CC BY–NC–ND 4.0',
+    'CC BY—NC—SA 4.0',
+  ])('blocks noncommercial license URLs and Unicode dashes: %s', (license) => {
+    expect(isDisplayableMedia(example(license))).toBe(false)
+  })
+
   it('blocks noncommercial use limitations even with a permissive license label', () => {
     expect(isDisplayableMedia(example('other', {
       useLimitations: ['Non-commercial reference display only'],
