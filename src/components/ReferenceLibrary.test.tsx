@@ -99,7 +99,7 @@ describe('Reference discovery and guide evidence', () => {
       .some(({ media }) => media.url || media.thumbnailUrl))
     if (!missing.length) return
 
-    const createObjectURL = vi.fn(() => 'blob:mock-reference-gaps')
+    const createObjectURL = vi.fn((_blob: Blob) => 'blob:mock-reference-gaps')
     const revokeObjectURL = vi.fn()
     Object.defineProperty(URL, 'createObjectURL', { configurable: true, value: createObjectURL })
     Object.defineProperty(URL, 'revokeObjectURL', { configurable: true, value: revokeObjectURL })
@@ -114,8 +114,6 @@ describe('Reference discovery and guide evidence', () => {
 
     render(<ReferenceLibrary onOpenIssue={() => {}} />)
     const first = missing[0]
-    fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: first.slug } })
-    // Guide IDs are not searchable by the UI; use the name instead.
     fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), { target: { value: first.name } })
     fireEvent.click(screen.getByRole('button', { name: 'Export matching missing-image guides (CSV)' }))
     expect(createObjectURL).toHaveBeenCalledOnce()
