@@ -1,0 +1,47 @@
+{
+  "base_commit": "c6b798cd364c59f3af7b665fb9f6d002a225ff31",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261012b",
+  "changed_paths": [
+    "data/profiles/fungal-bipolaris-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "gd-diag-001-b8e81685a65f",
+  "head_commit": "404dca8b04eb4de9b77af2a2446ec5dd5cf62bc5",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "10.32473/edis-pp379-2024"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the UF/IFAS publication, Figure 2 creator credit, CC BY-NC-ND 4.0 publication license, stable original asset URL, dimensions, checksum, and visual content on 2026-10-12. The Bipolaris profile now indexes the institutional hemp-leaf image as bounded differential context. The record permits unchanged noncommercial reference display with attribution but prohibits automated training and derivative use; it is not plant-linked laboratory ground truth. No media binary was copied into the repository. Claim released after validation.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
