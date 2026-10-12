@@ -4,11 +4,12 @@ import type { IssueRecord, MediaRecord } from '../types'
 // reference does not override a source license or its use restrictions.
 // Keep restricted references in the dataset for attribution and provenance,
 // but never render their images through this shared media resolver.
-const nonCommercialLicense = /(?:^|[^a-z0-9])cc[\s_-]*by[\s_-]*nc(?:[\s_-]*(?:nd|sa))?(?=$|[^a-z0-9])|non[\s_-]*commercial/i
+const nonCommercialLicense = /(?:^|[^a-z0-9])cc[\\s_-]*by[\\s_-]*nc(?:[\\s_-]*(?:nd|sa))?(?=$|[^a-z0-9])|non[\\s_-]*commercial|creativecommons\\.org\\/licenses\\/by-nc(?:-nd|-sa)?(?:\\/|$)/i
 const commercialUseRestriction = /non[\s_-]*commercial|no[\s_-]+commercial[\s_-]+(?:use|reuse|display)|commercial[\s_-]+(?:use|reuse|display)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted)/i
 
 export function isDisplayableMedia(media: MediaRecord): boolean {
-  if (nonCommercialLicense.test(media.license ?? '')) return false
+  const license = (media.license ?? '').replace(/[\\u2010-\\u2015\\u2212]/g, '-')
+  if (nonCommercialLicense.test(license)) return false
   if ((media.useLimitations ?? []).some((limitation) => commercialUseRestriction.test(limitation))) return false
 
   return media.displayPermission === 'permitted'
