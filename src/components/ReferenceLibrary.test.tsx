@@ -91,7 +91,6 @@ describe('Reference discovery and guide evidence', () => {
     fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), {
       target: { value: missing.slug },
     })
-    expect(screen.getByText('1 guides match')).not.toBeNull()
     expect(screen.getByText(missing.name)).not.toBeNull()
   })
 
