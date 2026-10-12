@@ -157,7 +157,6 @@
       "doi": "10.32473/edis-pp379-2024",
       "supportedClaims": [
         "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
-        "The guide says observed incidence reached 70% depending on variety, but this field observation is not a universal severity, susceptibility, or intervention threshold.",
         "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
         "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample."
       ]
