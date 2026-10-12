@@ -224,6 +224,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'cercospora-leaf-spot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -590,6 +599,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('no image file is stored')
+  })
+
+  it('keeps the UF/IFAS Cercospora composite intact, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'cercospora-leaf-spot')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources.some((source) => source.doi === '10.32473/edis-pp379-2024')).toBe(true)
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('institutional differential, not a lesion-linked laboratory record')
+    expect(record?.media).toHaveLength(1)
+    expect(media?.creator).toBe('Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('cd7f347351c0f4199d803b8f4333ef37cb177035956e0b99c2b29c7f0d6008c7')
+    expect(media?.perceptualHash).toBe('dhash64:860f2bc8f6e787f3')
+    expect(media?.view).toBe('whole-plant')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('do not separate panels')
   })
 
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {

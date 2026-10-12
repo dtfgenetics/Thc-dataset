@@ -1,0 +1,47 @@
+{
+  "base_commit": "e30302d42816f78e559e597fc5b55eb616cb1826",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261012c",
+  "changed_paths": [
+    "data/profiles/fungal-cercospora-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "gd-diag-001-65902f1e0d0b",
+  "head_commit": "7b4b3ac42be5019d382a5c2712a61a3878f785e2",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "10.32473/edis-pp379-2024"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the UF/IFAS publication, Figure 3 caption and creator credit, CC BY-NC-ND 4.0 publication license, stable original asset URL, dimensions, checksum, and visual content on 2026-10-12. The Cercospora profile now indexes the intact two-panel institutional hemp reference as bounded lesion and severe-progression context. The record permits unchanged noncommercial reference display with attribution but prohibits automated training, panel extraction, cropping, and other derivative use; it is not plant-linked laboratory ground truth. No media binary was copied into the repository. Claim released after validation.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
