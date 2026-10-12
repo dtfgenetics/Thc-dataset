@@ -923,6 +923,30 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-03-20-0546-PDN",
+    "title": "First Report of Curvularia pseudobrachyspora Causing Leaf Spot on Hemp (Cannabis sativa) in Florida",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-03-20-0546-PDN",
+    "authors": [
+      "Marcus V. Marin",
+      "Nan-Yi Wang",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2020-06-29",
+    "year": 2020,
+    "accessedDate": "2026-10-12",
+    "doi": "10.1094/PDIS-03-20-0546-PDN",
+    "supportedClaims": [
+      "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
+      "Four single-spored isolates were characterized by colony and conidial morphology plus ITS, GAPDH, and EF1-alpha sequences; three grouped closely with Curvularia pseudobrachyspora while one diverged enough to raise a cryptic-species possibility.",
+      "Spray inoculation of four five-week-old Puma-3 plants per isolate reproduced leaf spots after two weeks, water controls remained healthy, and the organism was reisolated; the experiment was repeated once.",
+      "The report states that epidemiology and management require additional study, so the Florida observations do not establish universal cultivar susceptibility, field prevalence, progression timing, or action thresholds."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-04-19-0782-PDN",
     "title": "First Report of Serratia marcescens Causing a Leaf Spot Disease on Industrial Hemp (Cannabis sativa)",
     "organization": "Plant Disease",
@@ -2008,6 +2032,10 @@
       "The guide states that central sporulating structures may be visible and that severe disease can include whole-leaf yellowing and defoliation; these are differential features rather than image-only species confirmation.",
       "UF/IFAS Figure 3 is a two-panel institutional hemp reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
       "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 3 supplies bounded progression context rather than laboratory ground truth for an individual dataset sample.",
+      "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
+      "The guide says observed incidence reached 70% depending on variety, but this field observation is not a universal severity, susceptibility, or intervention threshold.",
+      "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
+      "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample.",
       "The UF/IFAS field guide describes Septoria symptoms beginning on older lower foliage and spreading through the canopy, with irregular light-brown spots becoming brown and surrounded by bright yellow halos.",
       "The guide states that lesions can expand and coalesce as severity increases, contributing to yellow-brown tissue and leaf drop, while black pinhead-sized pycnidia may be visible in lesion centers.",
       "UF/IFAS Figure 5 is an institutional hemp-leaf reference credited to Nicole Gauthier, University of Kentucky, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",

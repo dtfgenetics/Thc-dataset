@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0.0",
   "status": "generated-from-reviewed-catalog",
-  "recordCount": 61,
+  "recordCount": 62,
   "description": "Deterministic machine-readable index generated from the same reviewed catalog used by the application. Source errata, evidence augmentation, and category normalization are applied before export.",
   "records": [
     {
@@ -111,6 +111,18 @@
       "sourceLayer": "supplemental",
       "sourceFile": "src/data/catalog.ts",
       "path": "data/profiles/fungal-cercospora-leaf-spot.json"
+    },
+    {
+      "id": "fungal-curvularia-leaf-spot",
+      "slug": "curvularia-leaf-spot",
+      "name": "Curvularia leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "recordType": "diagnostic-profile",
+      "sourceLayer": "supplemental",
+      "sourceFile": "src/data/catalog.ts",
+      "path": "data/profiles/fungal-curvularia-leaf-spot.json"
     },
     {
       "id": "fungal-exserohilum-leaf-blight",

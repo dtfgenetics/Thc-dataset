@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "recordCount": 61,
+  "recordCount": 62,
   "records": [
     {
       "id": "bacterial-serratia-leaf-spot",
@@ -100,6 +100,17 @@
       "sourceCount": 5,
       "mediaCount": 1,
       "path": "data/profiles/fungal-cercospora-leaf-spot.json"
+    },
+    {
+      "id": "fungal-curvularia-leaf-spot",
+      "slug": "curvularia-leaf-spot",
+      "name": "Curvularia leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 1,
+      "path": "data/profiles/fungal-curvularia-leaf-spot.json"
     },
     {
       "id": "fungal-exserohilum-leaf-blight",

@@ -14,9 +14,9 @@
   "splitPolicy": "data/split-policy.json",
   "readinessGate": "data/model-training-readiness.json",
   "knowledgeLayerSnapshot": {
-    "diagnosticProfiles": 61,
-    "evidenceSources": 181,
-    "profileLinkedReferenceMedia": 71,
+    "diagnosticProfiles": 62,
+    "evidenceSources": 182,
+    "profileLinkedReferenceMedia": 72,
     "referenceOriginals": 28,
     "referenceCrops": 66
   },
@@ -34,5 +34,5 @@
     "test": 0.15,
     "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
   },
-  "reasonBlocked": "The current corpus contains a 61-profile, 167-source diagnostic knowledge layer plus 28 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+  "reasonBlocked": "The current corpus contains a 62-profile, 182-source diagnostic knowledge layer plus 28 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
 }

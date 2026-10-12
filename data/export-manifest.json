@@ -13,10 +13,10 @@
   ],
   "counts": {
     "primaryDiagnosticProfiles": 29,
-    "supplementalDiagnosticProfiles": 32,
-    "diagnosticProfiles": 61,
-    "sources": 181,
-    "profileReferenceMedia": 71,
+    "supplementalDiagnosticProfiles": 33,
+    "diagnosticProfiles": 62,
+    "sources": 182,
+    "profileReferenceMedia": 72,
     "trainingEligibleMedia": 0
   },
   "files": {
