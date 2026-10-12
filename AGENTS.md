@@ -84,3 +84,16 @@ After merge, production integration must reference the exact validated canonical
 ## Contribution task claims
 
 Before editing a canonical Grow Doc dataset/model slice, select an active task from `contributions/tasks.json` and record the session in `contributions/claims.json`. One active task may have only one session claim at a time. Blocked tasks cannot be claimed. The claim branch must follow `work/grow-doc/<task>/<session-id>`. Release the claim when the PR is merged/closed. Every data/model contribution should carry a receipt conforming to `contributions/receipt.schema.json`; RAG facts and evaluation cases must remain in their non-training lanes unless a separate reviewed promotion contract explicitly authorizes otherwise.
+
+### Pull-request freshness integration gate
+
+The `PR Base Freshness` workflow checks out the exact PR head and verifies
+that the current base branch is an ancestor of that head. A passing application
+build alone does not guarantee that a branch includes concurrent work merged
+since it was created. If freshness fails, reconcile the latest base, push the
+updated head, and rerun **all** required workflows on that exact SHA.
+
+The check runs when a PR opens or its head is updated. Because merging another
+PR into `main` does not necessarily rerun existing PR checks, integration
+owners must also recheck the live PR base/head relationship immediately before
+merging. Never rely on stale green statuses.
