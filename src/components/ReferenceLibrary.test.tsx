@@ -83,6 +83,18 @@ describe('Reference discovery and guide evidence', () => {
     }
   })
 
+  it('finds uncovered guides by stable guide ID', () => {
+    const missing = issues.find((issue) => !resolvedDisplayMediaForIssue(issue, issues)
+      .some(({ media }) => media.url || media.thumbnailUrl))
+    if (!missing) return
+    render(<ReferenceLibrary onOpenIssue={() => {}} />)
+    fireEvent.change(screen.getByRole('textbox', { name: 'Search guides missing images' }), {
+      target: { value: missing.slug },
+    })
+    expect(screen.getByText('1 guides match')).not.toBeNull()
+    expect(screen.getByText(missing.name)).not.toBeNull()
+  })
+
   it('shows the CSV export only for available gaps', () => {
     render(<ReferenceLibrary onOpenIssue={() => {}} />)
     const search = screen.queryByRole('textbox', { name: 'Search guides missing images' })
