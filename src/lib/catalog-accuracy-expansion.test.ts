@@ -40,7 +40,7 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(record.progression.length).toBeGreaterThanOrEqual(5)
     expect(record.lookAlikes.length).toBeGreaterThanOrEqual(14)
     expect(record.confirmation.length).toBeGreaterThanOrEqual(8)
-    expect(record.sources).toHaveLength(5)
+    expect(record.sources).toHaveLength(6)
     expect(kentucky?.authors).toHaveLength(6)
     expect(japan?.authors).toHaveLength(5)
     expect(evidence).toContain('different phylogenetic clades')
@@ -48,7 +48,11 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(evidence).toContain('human review')
     expect(record.sources.some((item) => item.doi === '10.1094/PHP-04-25-0127-RS')).toBe(true)
     expect(record.sources.some((item) => item.organization.includes('Cornell University'))).toBe(true)
-    expect(record.media).toHaveLength(0)
+    expect(record.sources.some((item) => item.doi === '10.32473/edis-pp379-2024')).toBe(true)
+    expect(record.media).toHaveLength(1)
+    expect(record.media[0].license).toBe('CC BY-NC-ND 4.0')
+    expect(record.media[0].trainingPermission).toBe('not-permitted')
+    expect(record.media[0].trainingEligible).toBe(false)
   })
 
   it('classifies Cannabis downy mildew as an oomycete rather than a true fungus', () => {
