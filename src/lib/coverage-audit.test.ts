@@ -272,7 +272,7 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media).toHaveLength(0)
   })
 
-  it('keeps Cercospora labels multilocus-bounded, causal, and free of unlicensed media', () => {
+  it('keeps Cercospora labels multilocus-bounded, causal, and reference-media-safe', () => {
     const record = issues.find((issue) => issue.slug === 'cercospora-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
@@ -287,11 +287,12 @@ describe('diagnostic coverage audit', () => {
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-01-19-0135-PDN')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-11-19-2287-PDN')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-05-25-0946-PDN')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.32473/edis-pp379-2024')).toBe(true)
     expect(confirmation).toContain('use validated multilocus evidence')
     expect(confirmation).toContain('symptom reproduction on cannabis, recovery of the same organism, and symptomless matched controls')
     expect(confirmation).toContain('keep symptom-only, detached-leaf-only, upper-surface-only, culture-unlinked, its-only, single-locus-only, mixed-pathogen, low-resolution, stock, vendor, forum, generated, and rights-unclear samples out')
     expect(warnings).toContain('study-specific observations, not universal timing, severity, cultivar, yield, or action thresholds')
-    expect(warnings).toContain('no image or video was added')
+    expect(warnings).toContain('institutional differential, not a lesion-linked laboratory record')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Septoria leaf spot complex',
       'Pseudocercospora olive or sooty leaf spot',
@@ -301,7 +302,9 @@ describe('diagnostic coverage audit', () => {
       'Bacterial leaf spot or blight',
       'Spray, droplet, light, nutrient, salinity, or water-stress injury',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].trainingPermission).toBe('not-permitted')
+    expect(record?.media[0].trainingEligible).toBe(false)
   })
 
   it.each([['zinc-deficiency', 0.15], ['manganese-deficiency', 0.15], ['sulfur-deficiency', 0.20]] as const)('bounds %s visual labels by linked analytical evidence', (slug, ceiling) => {
