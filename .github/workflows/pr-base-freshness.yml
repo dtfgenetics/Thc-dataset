@@ -1,0 +1,33 @@
+name: PR Base Freshness
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  base-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact proposed head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check PR branch contains the current base
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin "+refs/heads/${BASE_REF}:refs/remotes/origin/${BASE_REF}"
+          if ! git merge-base --is-ancestor "refs/remotes/origin/${BASE_REF}" HEAD; then
+            echo "::error::PR head is behind the current base. Rebase or merge the latest base into your branch, then rerun required checks."
+            echo "Base: ${BASE_REF}"
+            echo "Head: $(git rev-parse HEAD)"
+            echo "Base SHA: $(git rev-parse "refs/remotes/origin/${BASE_REF}")"
+            exit 1
+          fi
+          echo "Verified: PR head contains the current ${BASE_REF} base."
