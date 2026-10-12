@@ -113,7 +113,7 @@
     "The cf. flagellaris designation is laboratory-bounded and cannot be resolved from lesion color, lesion dimensions, central dark structures, one culture, or ordinary image and video evidence.",
     "The two-to-six-millimeter lesion range, Florida foliage involvement, Kentucky canopy patterns, and seven- or fourteen-day controlled results are study-specific observations, not universal timing, severity, cultivar, yield, or action thresholds.",
     "Cercospora, Bipolaris, and Septoria occurred together in Kentucky field experiments; a combined leaf-spot severity or yield result cannot be assigned to Cercospora alone.",
-    "No image or video was added because available article and institutional figures lacked sufficiently clear item-level automated-training permission and panel-resolved labels.",
+    "The UF/IFAS Figure 3 composite is an attributed institutional differential, not a lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without additional permission.",
     "A positive organism result from one sampled lesion does not establish that every lesion on a plant or in a field has the same cause."
   ],
   "sources": [
@@ -216,7 +216,62 @@
         "Reported yield associations concerned the combined leaf-spot disease complex under the tested cultivars, sites, and seasons and must not be attributed to Bipolaris alone.",
         "Overlapping leaf-spot syndromes mean paired canopy observations, temporal follow-up, fungal morphology, culture, and molecular diagnostics are more reliable than one lesion photograph."
       ]
+    },
+    {
+      "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+      "organization": "UF/IFAS Extension",
+      "url": "https://doi.org/10.32473/edis-pp379-2024",
+      "authors": [
+        "Kevin Korus",
+        "Wael Elwakil",
+        "Nicholas Dufault",
+        "Zachary D. Eldred"
+      ],
+      "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+      "publicationDate": "2024-12-05",
+      "year": 2024,
+      "accessedDate": "2026-10-12",
+      "doi": "10.32473/edis-pp379-2024",
+      "supportedClaims": [
+        "The UF/IFAS field guide describes Cercospora symptoms beginning on older foliage and spreading through the canopy, with yellow flecks expanding into light tan or white lesions surrounded by yellow halos.",
+        "The guide states that central sporulating structures may be visible and that severe disease can include whole-leaf yellowing and defoliation; these are differential features rather than image-only species confirmation.",
+        "UF/IFAS Figure 3 is a two-panel institutional hemp reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
+        "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 3 supplies bounded progression context rather than laboratory ground truth for an individual dataset sample."
+      ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "uf-ifas-cercospora-field-guide-figure-3-2024",
+      "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Ig8mlmx0eu/Ig8mlmx0eu-2048.webp",
+      "alt": "Two-panel institutional hemp reference showing round pale-centered leaf lesions and advanced yellowing and defoliation",
+      "caption": "Reference-only UF/IFAS Figure 3 credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres. Panel A shows compatible Cercospora leaf lesions and Panel B supplies severe chlorosis and defoliation context; neither panel is image-only species confirmation.",
+      "creator": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC",
+      "license": "CC BY-NC-ND 4.0",
+      "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+      "mediaType": "image",
+      "requiredAttribution": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC. Figure 3 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+      "diagnosticLabel": "cercospora-leaf-spot — institutional lesion and severe-progression differential, not sample-level laboratory confirmation",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+        "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, panel extraction, cropping, and derivative preparation require additional permission.",
+        "The composite mixes lesion close-up and severe whole-plant progression context; do not separate panels or infer a universal sequence, severity threshold, or Cercospora cf. flagellaris identity from appearance.",
+        "Automated training and evaluation use are not permitted by this record."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "not-permitted",
+      "sha256": "cd7f347351c0f4199d803b8f4333ef37cb177035956e0b99c2b29c7f0d6008c7",
+      "perceptualHash": "dhash64:860f2bc8f6e787f3",
+      "width": 456,
+      "height": 738,
+      "view": "whole-plant",
+      "stage": "field foliage, lesion detail through severe defoliation context",
+      "severity": "compatible lesions and severe canopy-level chlorosis/defoliation",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }
