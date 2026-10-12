@@ -1,0 +1,24 @@
+name: Phase 4B Metadata Audit Tests
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit-phase4b-release-metadata.py'
+      - 'tests/test_phase4b_release_metadata_audit.py'
+      - '.github/workflows/phase4b-metadata-audit.yml'
+  push:
+    paths:
+      - 'scripts/audit-phase4b-release-metadata.py'
+      - 'tests/test_phase4b_release_metadata_audit.py'
+      - '.github/workflows/phase4b-metadata-audit.yml'
+jobs:
+  audit-tests:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify metadata auditor
+        run: python -m unittest discover -s tests -p test_phase4b_release_metadata_audit.py -v
