@@ -27,13 +27,29 @@ const hempArmywormsUtah = source({
   organization: 'Utah State University Extension Integrated Pest Management',
   url: 'https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms',
   publisher: 'Utah State University Extension',
-  accessedDate: '2026-08-24',
+  accessedDate: '2026-10-13',
   supportedClaims: [
     'Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.',
     'The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.',
     'Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.',
     'On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.',
     'Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds.',
+    'The institutional page captions its yellowstriped-armyworm photograph as a larva found on hemp and credits the image to the Utah State University Extension Integrated Pest Management Program; the frame is plant-associated morphology context, not a documented feeding progression or species voucher.',
+  ],
+})
+
+const utahStateWebsiteCopyright = source({
+  title: 'Disclaimers and Copyright',
+  organization: 'Utah State University',
+  url: 'https://www.usu.edu/copyright/index.cfm',
+  authors: ['Utah State University'],
+  publisher: 'Utah State University',
+  publicationDate: '2021-12-20',
+  year: 2021,
+  accessedDate: '2026-10-13',
+  supportedClaims: [
+    'Utah State University states that its website content is all rights reserved, redistribution or reproduction is prohibited without express written permission, and site images may not be copied or published without authorization.',
+    'A direct link to an official Utah State University page is permitted, so the yellowstriped-armyworm asset is retained only as reference metadata and is not copied into the repository, displayed by the application, or admitted to automated training.',
   ],
 })
 
@@ -798,8 +814,8 @@ export const expandedIssuesBatch3: IssueRecord[] = [
     immediateActions: ['Mark affected plants and preserve plant-linked larvae, egg masses, frass, and pre-intervention images before disturbing feeding sites.', 'Inspect leaf undersides, fresh feeding fronts, inner canopy, maturing buds, and the surface beneath plants, recording larvae by size and location.', 'Separate suspected floral feeding from bud-rot diagnosis and preserve both entomology and plant-pathology samples when decay is present.'],
     correctivePlan: ['Use an integrated response based on confirmed caterpillar identity, larval size, density, crop stage, fresh injury, regional guidance, and options currently legal for hemp in the jurisdiction.', 'Track new injury and live larvae at fixed marked plants; old holes and stripped tissue do not recover and cannot measure treatment response.', 'Protect beneficial arthropods and flower quality, and reopen the differential if feeding advances without recovery of a compatible larva.'],
     prevention: ['Scout leaf undersides for egg masses and grouped young larvae before injury disperses, while recording regional season rather than assuming a universal late-season window.', 'Maintain plant- and location-specific counts across field edges and interiors so clustered egg laying is not converted into a whole-field severity label.', 'Conserve documented natural enemies where appropriate and remove alternate-host or crop-residue risks only within a locally supported IPM plan.'],
-    warnings: ['This record is an armyworm complex, not a species classifier; Spodoptera, Mamestra, corn earworms, budworms, cutworms, and loopers overlap in color and chewing injury.', 'Photo or video alone is capped at 0.30 because even detailed larval images may lack ventral prolegs, complete segment markings, plant linkage, or species-confirming characters.', 'Utah hemp guidance reports few armyworms and little foliar injury locally, while Missouri describes potentially severe feeding; neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold.', 'The Pacific Northwest hemp guide identifies corn earworm as the most damaging regional caterpillar and says other mature-hemp caterpillar injury is usually minor; bud injury must not be defaulted to armyworm.', 'The Florida synthesis distinguishes established, intercepted, and reported species and warns that presence does not prove reproduction or damage; regional lists are not image ground truth.', 'The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission. No media was copied or indexed, and no training-eligible asset is included.'],
-    sources: [hempPestsMissouri, hempArmywormsUtah, hempCaterpillarsPnw, floridaHempPestSurvey], media: [],
+    warnings: ['This record is an armyworm complex, not a species classifier; Spodoptera, Mamestra, corn earworms, budworms, cutworms, and loopers overlap in color and chewing injury.', 'Photo or video alone is capped at 0.30 because even detailed larval images may lack ventral prolegs, complete segment markings, plant linkage, or species-confirming characters.', 'Utah hemp guidance reports few armyworms and little foliar injury locally, while Missouri describes potentially severe feeding; neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold.', 'The Pacific Northwest hemp guide identifies corn earworm as the most damaging regional caterpillar and says other mature-hemp caterpillar injury is usually minor; bud injury must not be defaulted to armyworm.', 'The Florida synthesis distinguishes established, intercepted, and reported species and warns that presence does not prove reproduction or damage; regional lists are not image ground truth.', 'The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission.', 'The Utah State University yellowstriped-armyworm image is a Cannabis-associated institutional reference, but it lacks reuse permission, a scale, a ventral proleg view, an uninterrupted feeding sequence, and a specimen or laboratory identifier. Only link metadata and verified technical fingerprints are indexed; no media binary is copied, display and automated training are prohibited, and no training-eligible asset is included.'],
+    sources: [hempPestsMissouri, hempArmywormsUtah, hempCaterpillarsPnw, floridaHempPestSurvey, utahStateWebsiteCopyright], media: [],
   },
   {
     id: 'root-white-root-rot', slug: 'white-root-rot-dematophora-necatrix', name: 'White root rot', scientificName: 'Dematophora necatrix (Rosellinia necatrix)', category: 'Root pathogen', severity: 'critical', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.2,
