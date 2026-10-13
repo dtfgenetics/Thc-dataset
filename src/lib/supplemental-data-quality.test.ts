@@ -242,6 +242,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'curvularia-leaf-spot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -644,6 +653,23 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('upper leaf surface')
+  })
+
+  it('keeps the UF/IFAS Curvularia image whole-leaf-only, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('institutional whole-leaf differential')
+    expect(media?.creator).toContain('Marcus Marin')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('66762b5fcd00a6fe5cf62b569efb0dfe59c86e167964a289483b87cc969af832')
+    expect(media?.perceptualHash).toBe('dhash64:5193d25474b070c9')
+    expect(media?.view).toBe('close-up')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('paired underside')
   })
 
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {
