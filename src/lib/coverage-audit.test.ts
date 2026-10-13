@@ -143,7 +143,7 @@ describe('diagnostic coverage audit', () => {
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0) // CC BY-NC references are retained, not displayed commercially
     expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
     expect(confirmation).toContain('map affected and unaffected cannabis plants')
