@@ -3,11 +3,11 @@
   "status": "blocked-reference-corpus-only",
   "readyForSupervisedCannabisDiagnosisTraining": false,
   "knowledgeLayer": {
-    "diagnosticProfiles": 62,
-    "materializedProfiles": 62,
+    "diagnosticProfiles": 63,
+    "materializedProfiles": 63,
     "evidenceSources": 182,
-    "profileLinkedReferenceMedia": 72,
-    "status": "complete-for-current-62-profile-taxonomy"
+    "profileLinkedReferenceMedia": 73,
+    "status": "complete-for-current-63-profile-taxonomy"
   },
   "visionLayer": {
     "referenceOriginalManifest": "images/reference/manifest.json",

@@ -11,6 +11,7 @@
 "fungal-curvularia-leaf-spot","curvularia-leaf-spot","Curvularia leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-curvularia-leaf-spot.json"
 "fungal-exserohilum-leaf-blight","exserohilum-helminthosporium-leaf-blight","Exserohilum / Helminthosporium leaf blight","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-exserohilum-leaf-blight.json"
 "fungal-fusarium-foliar-flower-blight","fusarium-foliar-flower-head-blight","Fusarium foliar, flower and head blight complex","Fungal pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-fusarium-foliar-flower-blight.json"
+"fungal-hemp-rust","hemp-rust","Hemp rust","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-hemp-rust.json"
 "fungal-pm","powdery-mildew","Powdery mildew","Fungal pathogen","high","reviewed","core","diagnostic-profile","data/profiles/fungal-pm.json"
 "fungal-pseudocercospora-leaf-spot","pseudocercospora-olive-sooty-leaf-spot","Pseudocercospora olive / sooty leaf spot","Fungal pathogen","moderate","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-pseudocercospora-leaf-spot.json"
 "fungal-sclerotinia-white-mold","sclerotinia-white-mold","Sclerotinia white mold / crown rot complex","Fungal pathogen","high","reviewed","supplemental","diagnostic-profile","data/profiles/fungal-sclerotinia-white-mold.json"

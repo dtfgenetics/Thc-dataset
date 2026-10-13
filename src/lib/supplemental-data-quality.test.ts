@@ -251,6 +251,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'hemp-rust') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -279,6 +288,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(isDisplayableMedia(media)).toBe(true)
       }
     }
+  })
+
+  it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(1)
+    expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
+    expect(media?.creator).toContain('Zachariah Hansen')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('e41cdcc830b272b2a05bc22791e5375853f48fa4561021db21487667a96d3f25')
+    expect(media?.perceptualHash).toBe('dhash64:d4d4d4d4fc2b8407')
+    expect(media?.width).toBe(634)
+    expect(media?.height).toBe(600)
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('panel extraction')
   })
 
   it('keeps spotted cucumber beetle labels adult-linked, root-conflicted, and media-safe', () => {

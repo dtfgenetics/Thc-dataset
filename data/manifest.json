@@ -1,11 +1,11 @@
 {
   "schemaVersion": "3.0.0",
-  "releaseStatus": "62-profile-release-triple-verified",
-  "diagnosticProfileCount": 62,
-  "standaloneDetailedProfileCount": 62,
+  "releaseStatus": "63-profile-release-triple-verified",
+  "diagnosticProfileCount": 63,
+  "standaloneDetailedProfileCount": 63,
   "pendingStandaloneDetailedProfileCount": 0,
   "evidenceSourceCount": 182,
-  "profileReferenceMediaCount": 72,
+  "profileReferenceMediaCount": 73,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
@@ -58,7 +58,7 @@
     },
     {
       "path": "src/data/expanded-issues.ts",
-      "profileCount": 14
+      "profileCount": 15
     },
     {
       "path": "src/data/expanded-issues-batch2.ts",
@@ -75,11 +75,11 @@
     }
   ],
   "measuredReleaseCounts": {
-    "diagnosticProfiles": 62,
+    "diagnosticProfiles": 63,
     "coreProfiles": 29,
-    "supplementalAndExpandedProfiles": 33,
+    "supplementalAndExpandedProfiles": 34,
     "uniqueEvidenceSources": 94,
-    "profileLinkedMedia": 44,
+    "profileLinkedMedia": 45,
     "trainingEligibleMedia": 0,
     "status": "confirmed independently by PR export, main read-back, and clean-room revalidation"
   },
