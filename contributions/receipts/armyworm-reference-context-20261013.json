@@ -30,6 +30,8 @@
     "data/profiles/index.json",
     "data/splits/manifest.json",
     "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
     "src/lib/supplemental-data-quality.test.ts"
   ],
   "validation": {
