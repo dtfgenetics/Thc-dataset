@@ -116,6 +116,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
       ['southern-blight-athelia-rolfsii', 1],
       ['heat-light-stress', 1],
+      ['drought-water-deficit-stress', 1],
     ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'spotted-cucumber-beetle') {
@@ -439,10 +440,11 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
-    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources).toHaveLength(6)
     expect(record?.sources.some((source) => source.doi === '10.21273/HORTSCI13510-18')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1080/15427528.2021.1883175')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1016/j.indcrop.2022.115331')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3389/fpls.2026.1930650')).toBe(true)
     expect(confirmation).toContain('multiple center, perimeter, and depth positions')
     expect(confirmation).toContain('same time of day and camera geometry')
     expect(confirmation).toContain('matched same-cultivar irrigated plant')
@@ -453,7 +455,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('root binding, hydrophobic substrate, preferential flow, blocked emitters')
     expect(warnings).toContain('must not be used as universal thresholds')
     expect(warnings).toContain('does not recommend intentional drought stress')
-    expect(warnings).toContain('no licensed, plant-linked cannabis drought progression image or verified diagnostic video')
+    expect(warnings).toContain('final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal cultivar-specific or circadian leaf posture',
       'High-temperature or high-VPD midday depression',
@@ -462,7 +464,21 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Root binding / container-restriction stress',
       'Camera angle, lens perspective, or time-of-day mismatch',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]).toMatchObject({
+      id: 'frontiers-cannabis-drought-figure-4-2026',
+      sourceUrl: 'https://doi.org/10.3389/fpls.2026.1930650',
+      license: 'CC BY 4.0',
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '52fdde639715c262b3774d26a833ad5bf372867a220e505be8ec57fcd4f55f2b',
+      perceptualHash: 'dhash64:cc4949596c6d4d4d',
+      width: 1003,
+      height: 1176,
+      trainingEligible: false,
+    })
+    expect(record?.media[0].useLimitations.join(' ')).toContain('do not detach panels')
   })
 
   it('keeps salinity labels chemistry-linked, composition-aware, and threshold-safe', () => {

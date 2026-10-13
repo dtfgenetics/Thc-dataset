@@ -50,7 +50,7 @@
     {"id":"pest-fungus-gnats","priority":"P1","needs":["larva/adult/root-zone pairs","root-disease controls"]},
     {"id":"root-fusarium-crown-rot","priority":"P0","needs":["crown cross-sections","lab-confirmed roots","Pythium controls"]},
     {"id":"stress-salinity-high-ec","priority":"P0","needs":["measured EC series","ion/source metadata","K/N-toxicity negatives"]},
-    {"id":"stress-drought-water-deficit","priority":"P0","needs":["measured moisture series","recovery sequences","salinity/root-disease negatives"]},
+    {"id":"stress-drought-water-deficit","priority":"P0","needs":["serial measured-moisture and recovery images","root/crown/EC and pathogen negatives","earlier-stage and additional-cultivar progression","panel-level treatment and genotype annotations for any training promotion"]},
     {"id":"nut-def-b","priority":"P1","needs":["controlled progression panels","root-tip images","mite/calcium/herbicide negatives","tissue/root-zone metadata"]},
     {"id":"nut-tox-mn","priority":"P2","needs":["analytically confirmed high-Mn cases","B/K/salinity negatives","pH context"]},
     {"id":"nut-def-mo-analytical","priority":"P2","needs":["analytical low-Mo cases","symptom-negative controls","explicit image-only abstention examples"]},
