@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "recordCount": 62,
+  "recordCount": 63,
   "records": [
     {
       "id": "bacterial-serratia-leaf-spot",
@@ -133,6 +133,17 @@
       "sourceCount": 5,
       "mediaCount": 1,
       "path": "data/profiles/fungal-fusarium-foliar-flower-blight.json"
+    },
+    {
+      "id": "fungal-hemp-rust",
+      "slug": "hemp-rust",
+      "name": "Hemp rust",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 1,
+      "path": "data/profiles/fungal-hemp-rust.json"
     },
     {
       "id": "fungal-pm",
