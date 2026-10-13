@@ -8,9 +8,13 @@ const nonCommercialLicense = /(?:^|[^a-z0-9])cc[\s_-]*by[\s_-]*nc(?:[\s_-]*(?:nd
 const commercialUseRestriction = /non[\s_-]*commercial|(?:no|not[\s_-]+for)[\s_-]+commercial[\s_-]+(?:use|reuse|display)|commercial[\s_-]+(?:use|reuse|display)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted|not[\s_-]+allowed|requires?[\s_-]+(?:written[\s_-]+)?permission)|(?:personal|educational)[\s_-]+use[\s_-]+only/i
 
 export function isDisplayableMedia(media: MediaRecord): boolean {
-  const license = (media.license ?? '').replace(/[\u2010-\u2015\u2212]/g, '-')
-  if (nonCommercialLicense.test(license)) return false
-  if ([...(media.useLimitations ?? []), media.requiredAttribution ?? ''].some((note) => commercialUseRestriction.test(note))) return false
+  // Conflicting rights metadata must fail closed, regardless of which field
+  // contains the restriction. Normalize typographic dashes in every field.
+  const rightsStatements = [media.license ?? '', ...(media.useLimitations ?? []), media.requiredAttribution ?? '']
+  if (rightsStatements.some((statement) => {
+    const normalized = statement.replace(/[\u2010-\u2015\u2212]/g, '-')
+    return nonCommercialLicense.test(normalized) || commercialUseRestriction.test(normalized)
+  })) return false
 
   return media.displayPermission === 'permitted'
     && (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training')
