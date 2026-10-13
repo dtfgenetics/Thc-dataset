@@ -261,6 +261,16 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'armyworm-caterpillar-feeding') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toContain('All rights reserved')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -604,8 +614,8 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.progression).toHaveLength(5)
     expect(record?.lookAlikes).toHaveLength(12)
     expect(record?.confirmation).toHaveLength(7)
-    expect(record?.sources).toHaveLength(4)
-    expect(record?.media).toEqual([])
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.media).toHaveLength(1)
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Corn earworm',
       'Tobacco budworm',
@@ -619,10 +629,26 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(confirmation).toContain('keep damage-only, frass-only, silk-only, egg-only, moth-only, body-color-only, incomplete-marking, detached-leaf, non-cannabis, organism/injury-unlinked, low-resolution, stock, shutterstock, bugguide, vendor, generated, anecdotal, forum, and unverified samples out')
     expect(exclusions).toContain('three rear proleg pairs and a looping gait supports cabbage, alfalfa, or soybean looper')
     expect(warnings).toContain('neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold')
-    expect(warnings).toContain('no media was copied or indexed, and no training-eligible asset is included')
+    expect(warnings).toContain('only link metadata and verified technical fingerprints are indexed; no media binary is copied, display and automated training are prohibited, and no training-eligible asset is included')
     expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad028')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms'))).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars'))).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://www.usu.edu/copyright/index.cfm')).toBe(true)
+    const media = record?.media[0]
+    expect(media?.url).toBe('https://extension.usu.edu/planthealth/ipm/images/agricultural/hemp/armyworm/IMG_1705.jpg')
+    expect(media?.sourceUrl).toBe('https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms')
+    expect(media?.creator).toBe('Utah State University Extension Integrated Pest Management Program')
+    expect(media?.license).toContain('All rights reserved')
+    expect(media?.hostContext).toBe('cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.reviewStatus).toBe('license-review')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.sha256).toBe('ef606bfd902e3501c8d7539348fedd38382859f5de5a000870fb53d0b8d7032b')
+    expect(media?.perceptualHash).toBe('dhash64:7870c884e3cc9c1a')
+    expect(media?.width).toBe(810)
+    expect(media?.height).toBe(660)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('source caption supports only that the larva was found on hemp')
   })
 
   it('keeps anthracnose labels lesion-linked, multilocus-confirmed, and media-safe', () => {

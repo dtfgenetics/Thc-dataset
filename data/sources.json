@@ -3474,13 +3474,14 @@
     "organization": "Utah State University Extension Integrated Pest Management",
     "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
     "publisher": "Utah State University Extension",
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-13",
     "supportedClaims": [
       "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
       "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
       "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
       "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
-      "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+      "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds.",
+      "The institutional page captions its yellowstriped-armyworm photograph as a larva found on hemp and credits the image to the Utah State University Extension Integrated Pest Management Program; the frame is plant-associated morphology context, not a documented feeding progression or species voucher."
     ]
   },
   {
@@ -4133,6 +4134,23 @@
       "The Finola sequence documents chlorosis on young leaves, upper-leaf chlorosis and general paleness in new growth, and progression from moderate to severe chlorosis; increased stem woodiness and shortened internodes are additional context.",
       "The guide states that sulfur availability decreases below pH 6.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.",
       "Figures 18 through 21 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training."
+    ]
+  },
+  {
+    "sourceKey": "https://www.usu.edu/copyright/index.cfm",
+    "title": "Disclaimers and Copyright",
+    "organization": "Utah State University",
+    "url": "https://www.usu.edu/copyright/index.cfm",
+    "authors": [
+      "Utah State University"
+    ],
+    "publisher": "Utah State University",
+    "publicationDate": "2021-12-20",
+    "year": 2021,
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "Utah State University states that its website content is all rights reserved, redistribution or reproduction is prohibited without express written permission, and site images may not be copied or published without authorization.",
+      "A direct link to an official Utah State University page is permitted, so the yellowstriped-armyworm asset is retained only as reference metadata and is not copied into the repository, displayed by the application, or admitted to automated training."
     ]
   }
 ]
