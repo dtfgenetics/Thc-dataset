@@ -1,0 +1,45 @@
+{
+  "base_commit": "0b62093dadcf0f887947c2cd604c387147a5ace7",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261013b",
+  "changed_paths": [
+    "data/profiles/stress-drought-water-deficit.json",
+    "src/data/supplemental-issues.ts"
+  ],
+  "contribution_id": "gd-diag-001-aaa399d",
+  "head_commit": "aaa399da0e2fff62cdb26acfdb41fddf2b93e4ea",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "10.3389/fpls.2026.1930650"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the official Frontiers article, Figure 4 caption and author attribution, CC BY 4.0 license, stable original asset URL, visual content, dimensions, checksum, and perceptual hash on 2026-10-13. The drought profile now records a controlled final-harvest comparison of Kanada and Terra Italia Cannabis under control, moderate, and severe water-deficit treatments. The complete six-panel composite remains reference-only: no media binary is stored, panel extraction and unlabeled treatment collapse are prohibited by this record, and automated training remains ineligible until panel bounds, treatment and genotype labels, source grouping, and leakage-safe controls are validated. Study-specific container-capacity endpoints, plant posture, genotype response, and production conclusions are not generalized into universal diagnostic thresholds.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/release-readiness.json",
+    "data/sources.json",
+    "data/splits/manifest.json"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

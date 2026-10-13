@@ -111,7 +111,7 @@
     "The approximately 11-day drying period, -1.5 MPa plant-water-potential endpoint, and roughly 52% leaf-angle change came from one controlled flowering chemovar and must not be used as universal thresholds.",
     "Hemp cultivars differ substantially in soil-drying and VPD responses, and observation time changes apparent wilting; a model must not learn one canopy posture as genotype-independent drought ground truth.",
     "Published effects on cannabinoid concentration, biomass, and yield vary by genotype, severity, stage, and protocol; this diagnostic profile does not recommend intentional drought stress.",
-    "No licensed, plant-linked Cannabis drought progression image or verified diagnostic video with reusable item-level rights was located for this batch; publisher figures remain citations only and media stays empty."
+    "The licensed Figure 4 reference is a final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence; it must not be treated as a universal image-only drought classifier or split into unlabeled panels."
   ],
   "sources": [
     {
@@ -210,7 +210,66 @@
         "These single-cultivar endpoint responses support drought as a growth and yield stress but do not validate a universal visible severity scale, mortality expectation, or cannabinoid-production response for other Cannabis genotypes and stages.",
         "The article is marked in copyright by its institutional repository; no image, figure, or video is indexed or copied as reusable media."
       ]
+    },
+    {
+      "title": "Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis",
+      "organization": "Frontiers in Plant Science",
+      "url": "https://doi.org/10.3389/fpls.2026.1930650",
+      "authors": [
+        "Danilo Crispim Massuela",
+        "Sebastian Munz",
+        "Jens Hartung",
+        "Alejandro Pieters",
+        "Folkard Asch",
+        "Simone Graeff-Hönninger"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2026-09-03",
+      "year": 2026,
+      "accessedDate": "2026-10-13",
+      "doi": "10.3389/fpls.2026.1930650",
+      "supportedClaims": [
+        "A controlled indoor experiment compared two high-CBD Cannabis genotypes, Kanada (KAN) and Terra Italia (TIT), under well-watered control, moderate deficit, and severe water-withholding treatments during flowering.",
+        "Pots were weighed twice daily; controls were maintained at 60–80% container capacity, moderate-stress plants received daily replenishment to prevent leaf wilting, and severe-stress plants received no replenishment until the marked major leaf wilted by more than 50 degrees relative to the main stem.",
+        "Figure 4 shows intact exemplary plants at the final harvest, 79 days after planting, with KAN above and TIT below and control, moderate, and severe treatments from left to right; the authors report that the marked major leaf did not wilt under moderate stress at the endpoint but did under severe stress.",
+        "TIT plants were taller, had greater leaf area, consumed water faster, and wilted sooner than KAN plants, demonstrating that genotype and plant architecture constrain any image-based drought comparison.",
+        "Severe drought caused leaf abscission and canopy loss and offered no production benefit in this experiment; conclusions are limited to two high-CBD genotypes, one controlled indoor flowering cycle, and the study protocol.",
+        "The article and Figure 4 are distributed under CC BY 4.0, permitting attributed reuse; the full six-panel composite is indexed only as reference context and is not admitted to training without panel-level treatment and genotype annotations."
+      ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "frontiers-cannabis-drought-figure-4-2026",
+      "url": "https://www.frontiersin.org/files/Articles/1930650/xml-images/fpls-17-1930650-g004.webp",
+      "alt": "Controlled final-harvest Cannabis comparison with Kanada and Terra Italia rows and control, moderate-stress, and severe-stress columns",
+      "caption": "Reference-only Figure 4 from Crispim Massuela et al. (2026). The intact composite compares two high-CBD genotypes and three irrigation treatments at 79 days after planting; it preserves treatment, genotype, and scale context but is not an image-only diagnosis.",
+      "creator": "Danilo Crispim Massuela, Sebastian Munz, Jens Hartung, Alejandro Pieters, Folkard Asch, and Simone Graeff-Hönninger",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3389/fpls.2026.1930650",
+      "mediaType": "image",
+      "requiredAttribution": "Crispim Massuela D, Munz S, Hartung J, Pieters A, Asch F, Graeff-Hönninger S. Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis. Frontiers in Plant Science 17 (2026), Figure 4. https://doi.org/10.3389/fpls.2026.1930650. CC BY 4.0. Indicate modifications.",
+      "diagnosticLabel": "drought-water-deficit-stress — controlled two-genotype, three-treatment final-harvest comparison; composite reference only",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+        "Preserve the full composite, row labels, treatment labels, arrows, and scale bars; do not detach panels or collapse KAN and TIT into one genotype-independent class.",
+        "The severe-treatment panels are study endpoints, not universal severity examples; control and moderate panels are matched context rather than negative ground truth for every cultivar or environment.",
+        "Automated training remains ineligible until panel bounds, treatment and genotype labels, source grouping, and leakage-safe split controls are recorded and validated."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "52fdde639715c262b3774d26a833ad5bf372867a220e505be8ec57fcd4f55f2b",
+      "perceptualHash": "dhash64:cc4949596c6d4d4d",
+      "width": 1003,
+      "height": 1176,
+      "view": "whole-plant",
+      "stage": "late flowering; final harvest at 79 days after planting",
+      "severity": "well-watered control through moderate and severe water deficit",
+      "confirmation": "illustrative",
+      "trainingEligible": false
+    }
+  ]
 }

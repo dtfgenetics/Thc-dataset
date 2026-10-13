@@ -2420,6 +2420,33 @@
     ]
   },
   {
+    "sourceKey": "10.3389/fpls.2026.1930650",
+    "title": "Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis",
+    "organization": "Frontiers in Plant Science",
+    "url": "https://doi.org/10.3389/fpls.2026.1930650",
+    "authors": [
+      "Danilo Crispim Massuela",
+      "Sebastian Munz",
+      "Jens Hartung",
+      "Alejandro Pieters",
+      "Folkard Asch",
+      "Simone Graeff-Hönninger"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2026-09-03",
+    "year": 2026,
+    "accessedDate": "2026-10-13",
+    "doi": "10.3389/fpls.2026.1930650",
+    "supportedClaims": [
+      "A controlled indoor experiment compared two high-CBD Cannabis genotypes, Kanada (KAN) and Terra Italia (TIT), under well-watered control, moderate deficit, and severe water-withholding treatments during flowering.",
+      "Pots were weighed twice daily; controls were maintained at 60–80% container capacity, moderate-stress plants received daily replenishment to prevent leaf wilting, and severe-stress plants received no replenishment until the marked major leaf wilted by more than 50 degrees relative to the main stem.",
+      "Figure 4 shows intact exemplary plants at the final harvest, 79 days after planting, with KAN above and TIT below and control, moderate, and severe treatments from left to right; the authors report that the marked major leaf did not wilt under moderate stress at the endpoint but did under severe stress.",
+      "TIT plants were taller, had greater leaf area, consumed water faster, and wilted sooner than KAN plants, demonstrating that genotype and plant architecture constrain any image-based drought comparison.",
+      "Severe drought caused leaf abscission and canopy loss and offered no production benefit in this experiment; conclusions are limited to two high-CBD genotypes, one controlled indoor flowering cycle, and the study protocol.",
+      "The article and Figure 4 are distributed under CC BY 4.0, permitting attributed reuse; the full six-panel composite is indexed only as reference context and is not admitted to training without panel-level treatment and genotype annotations."
+    ]
+  },
+  {
     "sourceKey": "10.3390/agronomy16060651",
     "title": "Cultivar Identity and Spider Mite Herbivory Shape Rhizosphere Bacteria in Hemp (Cannabis sativa L.)",
     "organization": "Agronomy (Thweatt et al.)",
