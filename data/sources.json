@@ -3649,6 +3649,18 @@
     ]
   },
   {
+    "sourceKey": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+    "title": "Legal Notices—UC IPM: Use of materials",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.",
+      "The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training."
+    ]
+  },
+  {
     "sourceKey": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
     "title": "Dematophora Root Rot, or Rosellinia Root Rot",
     "organization": "University of California Statewide Integrated Pest Management Program",
@@ -3673,6 +3685,18 @@
       "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
       "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
       "Predatory mites are typically more active and have longer legs than plant-feeding spider mites, so visible mite-like organisms are not automatically pests."
+    ]
+  },
+  {
+    "sourceKey": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+    "title": "Larvae of a fungus gnat, Bradysia sp., feeding on the underside of a fallen leaf",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "The institutional image page identifies Bradysia sp. larvae feeding on the underside of a fallen leaf on the surface of container-plant medium in a UC Davis greenhouse and credits Jack Kelly Clark, UC IPM.",
+      "The image supplies cross-crop larval and media-surface context only: it does not show Cannabis, fine-root injury, a whole-plant distribution, a time sequence, severity, or a species-resolving voucher."
     ]
   },
   {

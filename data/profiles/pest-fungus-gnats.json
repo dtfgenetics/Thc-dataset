@@ -109,6 +109,7 @@
     "The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.",
     "Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.",
     "Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.",
+    "The UC IPM larval photograph is a non-Cannabis greenhouse reference with rights that prohibit software distribution without written consent. Only lawful reference metadata is stored; the binary is not copied, displayed, or admitted to training.",
     "No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training."
   ],
   "sources": [
@@ -176,7 +177,59 @@
         "Yellow sticky cards can monitor adults, potato pieces can monitor larvae, and roots of poorly performing plants should be inspected directly; wet conditions and poor drainage favor populations.",
         "The page gives greenhouse life-stage timings, but those values are context-dependent cross-crop guidance and must not be treated as universal Cannabis progression intervals."
       ]
+    },
+    {
+      "title": "Larvae of a fungus gnat, Bradysia sp., feeding on the underside of a fallen leaf",
+      "organization": "University of California Statewide Integrated Pest Management Program",
+      "url": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+      "publisher": "University of California Agriculture and Natural Resources",
+      "accessedDate": "2026-10-13",
+      "supportedClaims": [
+        "The institutional image page identifies Bradysia sp. larvae feeding on the underside of a fallen leaf on the surface of container-plant medium in a UC Davis greenhouse and credits Jack Kelly Clark, UC IPM.",
+        "The image supplies cross-crop larval and media-surface context only: it does not show Cannabis, fine-root injury, a whole-plant distribution, a time sequence, severity, or a species-resolving voucher."
+      ]
+    },
+    {
+      "title": "Legal Notices—UC IPM: Use of materials",
+      "organization": "University of California Statewide Integrated Pest Management Program",
+      "url": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+      "publisher": "University of California Agriculture and Natural Resources",
+      "accessedDate": "2026-10-13",
+      "supportedClaims": [
+        "UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.",
+        "The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training."
+      ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-fungus-gnat-larvae-ucipm-reference-only",
+      "url": "https://ipm.ucanr.edu/PMG/IMAGES/B/I-DP-BRAD-LV.004.jpg",
+      "alt": "UC IPM greenhouse reference showing Bradysia sp. larvae on the underside of a fallen leaf at the surface of container-plant medium.",
+      "caption": "Institutional cross-crop greenhouse reference for larval context. It does not show Cannabis, plant-linked root injury, progression, severity, or a species-resolving voucher, and UC IPM does not authorize distribution in software without written consent.",
+      "creator": "Jack Kelly Clark, UC IPM",
+      "license": "Copyright © Regents of the University of California; software and electronic-media distribution require written consent under the UC IPM use policy",
+      "sourceUrl": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+      "mediaType": "image",
+      "requiredAttribution": "Jack Kelly Clark, UC IPM. Landing page: University of California Statewide IPM Program. Obtain written consent before copying, software distribution, publication, modification, or automated training.",
+      "diagnosticLabel": "fungus-gnats-root-feeding — Bradysia sp. larvae on fallen leaf at container-medium surface, non-Cannabis institutional reference only",
+      "hostSpecies": "Unidentified fallen plant leaf and container-plant medium; not Cannabis",
+      "hostContext": "non-cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; the media binary is not copied into the repository and application display is prohibited by the recorded rights policy.",
+        "Do not use for automated training, redistribution, publication, modification, or derivative crops unless the rights holder provides written consent.",
+        "The photograph does not show Cannabis, a fine-root interface, plant-linked injury, whole-plant distribution, temporal progression, crop stage, prevalence, or severity.",
+        "The landing-page identification is Bradysia sp.; do not infer a species, causal injury label, or pathogen interaction from this frame alone.",
+        "Use the record only as traceable institutional context for annotation design and larval inspection planning."
+      ],
+      "displayPermission": "not-permitted",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "view": "close-up",
+      "stage": "larvae on fallen leaf at container-medium surface; host crop and date not stated",
+      "severity": "not established; no Cannabis injury shown",
+      "confirmation": "visual",
+      "trainingEligible": false
+    }
+  ]
 }

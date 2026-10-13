@@ -1,6 +1,37 @@
 import type { MediaRecord } from '../types'
 
 export const verifiedReferenceMediaBatch3BySlug: Record<string, MediaRecord[]> = {
+  'fungus-gnats-root-feeding': [
+    {
+      id: 'media-fungus-gnat-larvae-ucipm-reference-only',
+      url: 'https://ipm.ucanr.edu/PMG/IMAGES/B/I-DP-BRAD-LV.004.jpg',
+      alt: 'UC IPM greenhouse reference showing Bradysia sp. larvae on the underside of a fallen leaf at the surface of container-plant medium.',
+      caption: 'Institutional cross-crop greenhouse reference for larval context. It does not show Cannabis, plant-linked root injury, progression, severity, or a species-resolving voucher, and UC IPM does not authorize distribution in software without written consent.',
+      creator: 'Jack Kelly Clark, UC IPM',
+      license: 'Copyright © Regents of the University of California; software and electronic-media distribution require written consent under the UC IPM use policy',
+      sourceUrl: 'https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html',
+      mediaType: 'image',
+      requiredAttribution: 'Jack Kelly Clark, UC IPM. Landing page: University of California Statewide IPM Program. Obtain written consent before copying, software distribution, publication, modification, or automated training.',
+      diagnosticLabel: 'fungus-gnats-root-feeding — Bradysia sp. larvae on fallen leaf at container-medium surface, non-Cannabis institutional reference only',
+      hostSpecies: 'Unidentified fallen plant leaf and container-plant medium; not Cannabis',
+      hostContext: 'non-cannabis',
+      useLimitations: [
+        'Reference-link metadata only; the media binary is not copied into the repository and application display is prohibited by the recorded rights policy.',
+        'Do not use for automated training, redistribution, publication, modification, or derivative crops unless the rights holder provides written consent.',
+        'The photograph does not show Cannabis, a fine-root interface, plant-linked injury, whole-plant distribution, temporal progression, crop stage, prevalence, or severity.',
+        'The landing-page identification is Bradysia sp.; do not infer a species, causal injury label, or pathogen interaction from this frame alone.',
+        'Use the record only as traceable institutional context for annotation design and larval inspection planning.',
+      ],
+      displayPermission: 'not-permitted',
+      reviewStatus: 'license-review',
+      trainingPermission: 'not-permitted',
+      view: 'close-up',
+      stage: 'larvae on fallen leaf at container-medium surface; host crop and date not stated',
+      severity: 'not established; no Cannabis injury shown',
+      confirmation: 'visual',
+      trainingEligible: false,
+    },
+  ],
   'exserohilum-helminthosporium-leaf-blight': [
     {
       id: 'media-exserohilum-industrial-hemp-ncsu-license-review',
