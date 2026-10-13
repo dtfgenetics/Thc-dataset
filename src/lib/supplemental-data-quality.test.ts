@@ -139,7 +139,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'herbicide-clomazone-bleaching-injury') {
         expect(issue.media).toHaveLength(2)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0) // CC BY-NC-SA is not commercially displayable
         expect(issue.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
         expect(issue.media.every((item) => item.license === 'CC BY-NC-SA 4.0')).toBe(true)
         expect(issue.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
