@@ -1,0 +1,199 @@
+{
+  "id": "fungal-curvularia-leaf-spot",
+  "slug": "curvularia-leaf-spot",
+  "name": "Curvularia leaf spot",
+  "scientificName": "Curvularia pseudobrachyspora",
+  "category": "Fungal pathogen",
+  "severity": "moderate",
+  "reviewStatus": "reviewed",
+  "photoOnlyMaxConfidence": 0.2,
+  "summary": "A Florida hemp leaf-spot disease supported by isolation, morphology, three-locus sequence evidence, repeated pathogenicity testing, and reisolation. Yellow spots on young or old leaves can become tan to brown with yellow halos, but this shared leaf-spot phenotype cannot establish Curvularia pseudobrachyspora from images alone.",
+  "affectedParts": [
+    "leaf blades",
+    "young leaves",
+    "old leaves",
+    "upper leaf surface",
+    "lower leaf surface for paired inspection",
+    "lesion margins and centers",
+    "whole plant and neighboring plants for distribution context"
+  ],
+  "stages": [
+    "one-month-old field hemp in the Florida report",
+    "five-week-old greenhouse plants in pathogenicity testing",
+    "early yellow spotting",
+    "tan-to-brown haloed lesions",
+    "diagnostic isolation and molecular identification"
+  ],
+  "indicators": [
+    "The reported field phenotype began as small yellow spots on both young and old hemp leaves.",
+    "Spots progressed to tan or brown lesions surrounded by yellow halos, a pattern shared with several other foliar diseases.",
+    "The institutional Figure 4 reference shows numerous discrete to locally merging lesions across one detached hemp leaf and supplies whole-leaf distribution context rather than a universal progression sequence.",
+    "Paired upper- and lower-surface views are needed because one institutional upper-surface-style view cannot exclude underside sporulation, arthropods, residue, or an oomycete differential.",
+    "Representative lesion-edge isolates in the primary report produced sparse aerial mycelium, fimbriate colony margins, and pale-gray or gray-olivaceous-to-brown zones.",
+    "Compatible conidia were mostly curved, ellipsoidal to obovoid, pale brown to brown, two- to three-distoseptate, and borne in groups from geniculate conidiophores; trained microscopy is required.",
+    "Three-locus ITS, GAPDH, and EF1-alpha evidence plus phylogenetic analysis supported C. pseudobrachyspora for three isolates, while a fourth isolate raised a cryptic-species warning.",
+    "Repeated inoculation reproduced comparable leaf spots after two weeks and reisolation linked the organism to symptoms while water-treated controls stayed healthy."
+  ],
+  "exclusions": [
+    "Black pinhead pycnidia embedded in lesion centers with compatible plant-linked testing support Septoria rather than Curvularia.",
+    "Pale tan or white centers with conspicuous melanized conidiophore fascicles and compatible testing support Cercospora.",
+    "Gray-brown velvety or sooty lower-surface patches following veins support Pseudocercospora as a differential.",
+    "Dark gray or black fuzzy sporulation on both surfaces and a compatible Bipolaris isolate support Bipolaris leaf spot.",
+    "Concentric target-like rings or compatible Alternaria structures and sequence evidence support Alternaria.",
+    "Water-soaked or angular lesions, bacterial streaming or ooze, and plant-linked bacterial identification support bacterial leaf spot.",
+    "Purple-to-gray underside growth with corresponding angular upper-surface chlorosis and oomycete testing supports downy mildew.",
+    "Mites, thrips, eggs, frass, webbing, chewing evidence, or punctures without lesion-linked fungal evidence support arthropod injury.",
+    "A sharp spray, light, aisle, contact, or weather boundary with negative representative lesion testing supports abiotic injury."
+  ],
+  "progression": [
+    {
+      "stage": "Baseline",
+      "description": "Record cultivar, plant age, canopy position, neighboring plants, both leaf surfaces, and matched apparently healthy leaves before interpreting spots."
+    },
+    {
+      "stage": "Early yellow spot",
+      "description": "Small yellow spots appear on young or old leaves; tag the same leaves because this stage is visually nonspecific."
+    },
+    {
+      "stage": "Defined lesion",
+      "description": "Spots become tan to brown while retaining a yellow halo; capture scale, lesion count, distribution, and both surfaces."
+    },
+    {
+      "stage": "Increasing involvement",
+      "description": "Additional lesions or locally merging necrotic areas can involve more of the leaf; do not convert the trial-specific incidence or damage observations into a universal severity threshold."
+    },
+    {
+      "stage": "Confirmed case",
+      "description": "A confirmed label requires lesion-linked isolation, compatible morphology and multilocus evidence, plus pathogenicity evidence when causality must be established."
+    }
+  ],
+  "lookAlikes": [
+    "Cercospora leaf spot",
+    "Septoria leaf spot complex",
+    "Bipolaris leaf spot or blight",
+    "Alternaria leaf spot",
+    "Anthracnose / Colletotrichum leaf spot",
+    "Pseudocercospora olive / sooty leaf spot",
+    "Exserohilum leaf blight",
+    "Downy mildew / Pseudoperonospora",
+    "Xanthomonas or another bacterial leaf spot",
+    "Spider mite or thrips injury",
+    "Chewing-insect or mechanical injury",
+    "Spray or contact injury",
+    "Light or heat injury",
+    "Nutrient, salinity, drought, or root-zone stress"
+  ],
+  "confirmation": [
+    "Capture the whole plant, canopy neighborhood, full leaf, and matched upper- and lower-surface close-ups with a scale and stable plant and lesion identifiers.",
+    "Revisit tagged leaves to distinguish new yellow spots and lesion expansion from fixed spray marks, old injury, or unrelated holes.",
+    "Collect multiple fresh representative lesions, including active margins, before saprophytes dominate; retain cultivar, age, field position, recent weather, irrigation, and foliar-input metadata.",
+    "Use lesion-edge isolation and trained examination of colony, conidiophore, and conidium morphology while recording every organism recovered from the sample.",
+    "For species-level confirmation, link the photographed plant and lesion to validated multilocus evidence including ITS, GAPDH, and EF1-alpha or an equivalently resolving current method; ITS or appearance alone is insufficient.",
+    "Interpret divergent isolates cautiously because one isolate in the first report raised a cryptic-species possibility despite similarity to C. pseudobrachyspora.",
+    "When causality is required, retain symptom reproduction, reisolation, and negative controls linked to the isolate; organism detection alone does not prove that every visible lesion was caused by it.",
+    "Keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and route unresolved evidence to review."
+  ],
+  "immediateActions": [
+    "Tag and photograph representative plants before removing tissue, preserving field and canopy distribution.",
+    "Limit movement of symptomatic propagation material and retain fresh, traceable lesions for a plant diagnostic laboratory.",
+    "Map affected plants against cultivar blocks, splash or irrigation zones, leaf wetness, airflow, recent foliar applications, and mechanical or weather injury."
+  ],
+  "correctivePlan": [
+    "Base management on the organism confirmed from representative plant-linked lesions and on current crop, site, and jurisdiction requirements.",
+    "Track new lesion incidence on tagged plants after sanitation or environmental changes; persistent old lesions do not measure treatment success.",
+    "Reassess the diagnosis when new lesions do not match the documented sequence or repeated representative tests do not support Curvularia."
+  ],
+  "prevention": [
+    "Use clean propagation material and avoid moving symptomatic leaves, residue, tools, or splash water into clean production areas.",
+    "Reduce avoidable prolonged leaf wetness and retain adequate spacing and airflow where production constraints allow.",
+    "Scout young and old leaves with stable plant IDs, paired surfaces, and repeated views so nonspecific yellow spots are not prematurely labeled."
+  ],
+  "warnings": [
+    "Yellow spots, tan-to-brown centers, yellow halos, and leaf-level lesion abundance are not individually or jointly species-specific in an image.",
+    "The primary report covers one Florida field trial, four selected isolates, defined cultivars, and a small controlled inoculation; it does not establish universal prevalence, susceptibility, timing, yield loss, or thresholds.",
+    "One isolate was phylogenetically differentiated from the other three and may represent a cryptic species, so species labels require isolate-linked multilocus interpretation.",
+    "UF/IFAS Figure 4 is an attributed institutional whole-leaf differential, not a plant- and lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without permission.",
+    "The reference lacks a scale, paired underside, whole-plant distribution, sample identifier, culture, microscopy, sequence accessions, and pathogenicity linkage for the pictured leaf.",
+    "All unresolved symptom-only, detached, mixed-organism, unlinked-laboratory, single-locus-only, low-resolution, and rights-unclear samples retain review flags."
+  ],
+  "sources": [
+    {
+      "title": "First Report of Curvularia pseudobrachyspora Causing Leaf Spot on Hemp (Cannabis sativa) in Florida",
+      "organization": "Plant Disease",
+      "url": "https://doi.org/10.1094/PDIS-03-20-0546-PDN",
+      "authors": [
+        "Marcus V. Marin",
+        "Nan-Yi Wang",
+        "Jacqueline Coburn",
+        "Johan Desaeger",
+        "Natalia A. Peres"
+      ],
+      "publisher": "American Phytopathological Society",
+      "publicationDate": "2020-06-29",
+      "year": 2020,
+      "accessedDate": "2026-10-12",
+      "doi": "10.1094/PDIS-03-20-0546-PDN",
+      "supportedClaims": [
+        "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
+        "Four single-spored isolates were characterized by colony and conidial morphology plus ITS, GAPDH, and EF1-alpha sequences; three grouped closely with Curvularia pseudobrachyspora while one diverged enough to raise a cryptic-species possibility.",
+        "Spray inoculation of four five-week-old Puma-3 plants per isolate reproduced leaf spots after two weeks, water controls remained healthy, and the organism was reisolated; the experiment was repeated once.",
+        "The report states that epidemiology and management require additional study, so the Florida observations do not establish universal cultivar susceptibility, field prevalence, progression timing, or action thresholds."
+      ]
+    },
+    {
+      "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+      "organization": "UF/IFAS Extension",
+      "url": "https://doi.org/10.32473/edis-pp379-2024",
+      "authors": [
+        "Kevin Korus",
+        "Wael Elwakil",
+        "Nicholas Dufault",
+        "Zachary D. Eldred"
+      ],
+      "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+      "publicationDate": "2024-12-05",
+      "year": 2024,
+      "accessedDate": "2026-10-12",
+      "doi": "10.32473/edis-pp379-2024",
+      "supportedClaims": [
+        "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
+        "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
+        "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample."
+      ]
+    }
+  ],
+  "media": [
+    {
+      "id": "uf-ifas-curvularia-field-guide-figure-4-2024",
+      "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Inthfwb94c/Inthfwb94c-2048.webp",
+      "alt": "Institutional whole hemp leaf reference showing numerous yellow-haloed tan-to-brown lesions",
+      "caption": "Reference-only UF/IFAS Figure 4 credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres. It supplies whole-leaf Curvularia differential context but is not sample-linked laboratory confirmation.",
+      "creator": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC",
+      "license": "CC BY-NC-ND 4.0",
+      "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+      "mediaType": "image",
+      "requiredAttribution": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC. Figure 4 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+      "diagnosticLabel": "curvularia-leaf-spot — institutional whole-leaf differential, not sample-level laboratory confirmation",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+        "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, and derivative preparation require additional permission.",
+        "The asset lacks a scale, paired underside, whole-plant distribution, sampling, culture, microscopy, sequence, and pathogenicity linkage; do not infer species or causality from appearance.",
+        "Automated training and evaluation use are not permitted by this record."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "not-permitted",
+      "sha256": "66762b5fcd00a6fe5cf62b569efb0dfe59c86e167964a289483b87cc969af832",
+      "perceptualHash": "dhash64:5193d25474b070c9",
+      "width": 633,
+      "height": 644,
+      "view": "close-up",
+      "stage": "detached field foliage, whole leaf",
+      "severity": "numerous distributed lesions across one leaf",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "3.0.0",
-  "releaseStatus": "61-profile-release-triple-verified",
-  "diagnosticProfileCount": 61,
-  "standaloneDetailedProfileCount": 61,
+  "releaseStatus": "63-profile-release-triple-verified",
+  "diagnosticProfileCount": 63,
+  "standaloneDetailedProfileCount": 63,
   "pendingStandaloneDetailedProfileCount": 0,
-  "evidenceSourceCount": 181,
-  "profileReferenceMediaCount": 71,
+  "evidenceSourceCount": 183,
+  "profileReferenceMediaCount": 74,
   "curatedReferenceMediaRecordCount": 21,
   "referenceAnnotationCount": 21,
   "verifiedExternalTransferDatasetCount": 3,
@@ -58,7 +58,7 @@
     },
     {
       "path": "src/data/expanded-issues.ts",
-      "profileCount": 13
+      "profileCount": 15
     },
     {
       "path": "src/data/expanded-issues-batch2.ts",
@@ -75,11 +75,11 @@
     }
   ],
   "measuredReleaseCounts": {
-    "diagnosticProfiles": 61,
+    "diagnosticProfiles": 63,
     "coreProfiles": 29,
-    "supplementalAndExpandedProfiles": 32,
-    "uniqueEvidenceSources": 93,
-    "profileLinkedMedia": 43,
+    "supplementalAndExpandedProfiles": 34,
+    "uniqueEvidenceSources": 94,
+    "profileLinkedMedia": 45,
     "trainingEligibleMedia": 0,
     "status": "confirmed independently by PR export, main read-back, and clean-room revalidation"
   },
@@ -118,7 +118,7 @@
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
-    "The 61-profile diagnostic knowledge release is triple-verified, but the image corpus is still not statistically sufficient for supervised Cannabis diagnosis training.",
+    "The 62-profile diagnostic knowledge release is triple-verified, but the image corpus is still not statistically sufficient for supervised Cannabis diagnosis training.",
     "Ninety-four source-controlled reference images are evidence/context images, not 91 independent training samples; many are related scientific panels and must stay source-grouped.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
@@ -126,13 +126,13 @@
   ],
   "nextReleaseGate": {
     "completed": [
-      "expand diagnostic taxonomy to 61 evidence-backed profiles",
+      "expand diagnostic taxonomy to 62 evidence-backed profiles",
       "increase normalized evidence base to 93 unique sources",
       "add seven additional evidence-backed pest/root-disease differentials",
       "augment existing Pythium, Fusarium and Sclerotinia profiles with newer species-specific evidence without fragmenting visual labels",
       "remove obsolete fungal-bucket wording from downy mildew",
-      "persist and read back generated 61-profile data from main",
-      "align model-training and split metadata with the 61-profile release",
+      "persist and read back generated 62-profile data from main",
+      "align model-training and split metadata with the 62-profile release",
       "add cross-file release metadata consistency validation",
       "complete three independent verification passes including clean-room PR #26"
     ],

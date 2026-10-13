@@ -116,6 +116,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
       ['southern-blight-athelia-rolfsii', 1],
       ['heat-light-stress', 1],
+      ['drought-water-deficit-stress', 1],
     ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'spotted-cucumber-beetle') {
@@ -139,7 +140,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'herbicide-clomazone-bleaching-injury') {
         expect(issue.media).toHaveLength(2)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0) // CC BY-NC-SA is not commercially displayable
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
         expect(issue.media.every((item) => item.license === 'CC BY-NC-SA 4.0')).toBe(true)
         expect(issue.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
@@ -242,6 +243,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'curvularia-leaf-spot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'hemp-rust') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
+        expect(issue.media[0].displayPermission).toBe('permitted')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -270,6 +289,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(isDisplayableMedia(media)).toBe(true)
       }
     }
+  })
+
+  it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(1)
+    expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
+    expect(media?.creator).toContain('Zachariah Hansen')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('e41cdcc830b272b2a05bc22791e5375853f48fa4561021db21487667a96d3f25')
+    expect(media?.perceptualHash).toBe('dhash64:d4d4d4d4fc2b8407')
+    expect(media?.width).toBe(634)
+    expect(media?.height).toBe(600)
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('panel extraction')
   })
 
   it('keeps spotted cucumber beetle labels adult-linked, root-conflicted, and media-safe', () => {
@@ -358,7 +395,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Camera white-balance or exposure artifact',
     ]))
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0) // Noncommercial references remain provenance-only
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
     expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
     expect(record?.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
@@ -403,10 +440,11 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
-    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources).toHaveLength(6)
     expect(record?.sources.some((source) => source.doi === '10.21273/HORTSCI13510-18')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1080/15427528.2021.1883175')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.1016/j.indcrop.2022.115331')).toBe(true)
+    expect(record?.sources.some((source) => source.doi === '10.3389/fpls.2026.1930650')).toBe(true)
     expect(confirmation).toContain('multiple center, perimeter, and depth positions')
     expect(confirmation).toContain('same time of day and camera geometry')
     expect(confirmation).toContain('matched same-cultivar irrigated plant')
@@ -417,7 +455,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('root binding, hydrophobic substrate, preferential flow, blocked emitters')
     expect(warnings).toContain('must not be used as universal thresholds')
     expect(warnings).toContain('does not recommend intentional drought stress')
-    expect(warnings).toContain('no licensed, plant-linked cannabis drought progression image or verified diagnostic video')
+    expect(warnings).toContain('final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal cultivar-specific or circadian leaf posture',
       'High-temperature or high-VPD midday depression',
@@ -426,7 +464,21 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Root binding / container-restriction stress',
       'Camera angle, lens perspective, or time-of-day mismatch',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]).toMatchObject({
+      id: 'frontiers-cannabis-drought-figure-4-2026',
+      sourceUrl: 'https://doi.org/10.3389/fpls.2026.1930650',
+      license: 'CC BY 4.0',
+      displayPermission: 'permitted',
+      reviewStatus: 'approved-reference',
+      trainingPermission: 'permitted',
+      sha256: '52fdde639715c262b3774d26a833ad5bf372867a220e505be8ec57fcd4f55f2b',
+      perceptualHash: 'dhash64:cc4949596c6d4d4d',
+      width: 1003,
+      height: 1176,
+      trainingEligible: false,
+    })
+    expect(record?.media[0].useLimitations.join(' ')).toContain('do not detach panels')
   })
 
   it('keeps salinity labels chemistry-linked, composition-aware, and threshold-safe', () => {
@@ -644,6 +696,23 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('upper leaf surface')
+  })
+
+  it('keeps the UF/IFAS Curvularia image whole-leaf-only, reference-only, and non-training', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')
+    const media = record?.media[0]
+    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)
+    expect(record?.warnings.join(' ').toLowerCase()).toContain('institutional whole-leaf differential')
+    expect(media?.creator).toContain('Marcus Marin')
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.sourceUrl).toBe('https://ask.ifas.ufl.edu/publication/PP379')
+    expect(media?.sha256).toBe('66762b5fcd00a6fe5cf62b569efb0dfe59c86e167964a289483b87cc969af832')
+    expect(media?.perceptualHash).toBe('dhash64:5193d25474b070c9')
+    expect(media?.view).toBe('close-up')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('paired underside')
   })
 
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {

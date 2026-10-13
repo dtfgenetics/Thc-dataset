@@ -143,7 +143,7 @@ describe('diagnostic coverage audit', () => {
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0) // CC BY-NC references are retained, not displayed commercially
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
     expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
     expect(confirmation).toContain('map affected and unaffected cannabis plants')
@@ -168,23 +168,24 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('media remains an explicit gap')
   })
 
-  it('keeps drought as a measured temporal diagnosis with an explicit media gap', () => {
+  it('keeps drought as a measured temporal diagnosis with bounded reference media', () => {
     const record = issues.find((issue) => issue.slug === 'drought-water-deficit-stress')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
 
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
-    expect(record?.sources).toHaveLength(5)
+    expect(record?.sources).toHaveLength(6)
     expect(record?.indicators.length).toBeGreaterThanOrEqual(7)
     expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
     expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(14)
     expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0].trainingEligible).toBe(false)
     expect(confirmation).toContain('before deficit, during the suspected event, immediately before rehydration, and after rehydration')
     expect(confirmation).toContain('root-zone ec and ph')
     expect(warnings).toContain('drought remains an exposure-linked diagnosis')
-    expect(warnings).toContain('publisher figures remain citations only and media stays empty')
+    expect(warnings).toContain('final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence')
   })
 
   it('keeps salinity as a measured composition-aware diagnosis with an explicit media gap', () => {

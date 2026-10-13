@@ -2154,6 +2154,205 @@
     ]
   },
   {
+    "id": "fungal-curvularia-leaf-spot",
+    "slug": "curvularia-leaf-spot",
+    "name": "Curvularia leaf spot",
+    "scientificName": "Curvularia pseudobrachyspora",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.2,
+    "summary": "A Florida hemp leaf-spot disease supported by isolation, morphology, three-locus sequence evidence, repeated pathogenicity testing, and reisolation. Yellow spots on young or old leaves can become tan to brown with yellow halos, but this shared leaf-spot phenotype cannot establish Curvularia pseudobrachyspora from images alone.",
+    "affectedParts": [
+      "leaf blades",
+      "young leaves",
+      "old leaves",
+      "upper leaf surface",
+      "lower leaf surface for paired inspection",
+      "lesion margins and centers",
+      "whole plant and neighboring plants for distribution context"
+    ],
+    "stages": [
+      "one-month-old field hemp in the Florida report",
+      "five-week-old greenhouse plants in pathogenicity testing",
+      "early yellow spotting",
+      "tan-to-brown haloed lesions",
+      "diagnostic isolation and molecular identification"
+    ],
+    "indicators": [
+      "The reported field phenotype began as small yellow spots on both young and old hemp leaves.",
+      "Spots progressed to tan or brown lesions surrounded by yellow halos, a pattern shared with several other foliar diseases.",
+      "The institutional Figure 4 reference shows numerous discrete to locally merging lesions across one detached hemp leaf and supplies whole-leaf distribution context rather than a universal progression sequence.",
+      "Paired upper- and lower-surface views are needed because one institutional upper-surface-style view cannot exclude underside sporulation, arthropods, residue, or an oomycete differential.",
+      "Representative lesion-edge isolates in the primary report produced sparse aerial mycelium, fimbriate colony margins, and pale-gray or gray-olivaceous-to-brown zones.",
+      "Compatible conidia were mostly curved, ellipsoidal to obovoid, pale brown to brown, two- to three-distoseptate, and borne in groups from geniculate conidiophores; trained microscopy is required.",
+      "Three-locus ITS, GAPDH, and EF1-alpha evidence plus phylogenetic analysis supported C. pseudobrachyspora for three isolates, while a fourth isolate raised a cryptic-species warning.",
+      "Repeated inoculation reproduced comparable leaf spots after two weeks and reisolation linked the organism to symptoms while water-treated controls stayed healthy."
+    ],
+    "exclusions": [
+      "Black pinhead pycnidia embedded in lesion centers with compatible plant-linked testing support Septoria rather than Curvularia.",
+      "Pale tan or white centers with conspicuous melanized conidiophore fascicles and compatible testing support Cercospora.",
+      "Gray-brown velvety or sooty lower-surface patches following veins support Pseudocercospora as a differential.",
+      "Dark gray or black fuzzy sporulation on both surfaces and a compatible Bipolaris isolate support Bipolaris leaf spot.",
+      "Concentric target-like rings or compatible Alternaria structures and sequence evidence support Alternaria.",
+      "Water-soaked or angular lesions, bacterial streaming or ooze, and plant-linked bacterial identification support bacterial leaf spot.",
+      "Purple-to-gray underside growth with corresponding angular upper-surface chlorosis and oomycete testing supports downy mildew.",
+      "Mites, thrips, eggs, frass, webbing, chewing evidence, or punctures without lesion-linked fungal evidence support arthropod injury.",
+      "A sharp spray, light, aisle, contact, or weather boundary with negative representative lesion testing supports abiotic injury."
+    ],
+    "progression": [
+      {
+        "stage": "Baseline",
+        "description": "Record cultivar, plant age, canopy position, neighboring plants, both leaf surfaces, and matched apparently healthy leaves before interpreting spots."
+      },
+      {
+        "stage": "Early yellow spot",
+        "description": "Small yellow spots appear on young or old leaves; tag the same leaves because this stage is visually nonspecific."
+      },
+      {
+        "stage": "Defined lesion",
+        "description": "Spots become tan to brown while retaining a yellow halo; capture scale, lesion count, distribution, and both surfaces."
+      },
+      {
+        "stage": "Increasing involvement",
+        "description": "Additional lesions or locally merging necrotic areas can involve more of the leaf; do not convert the trial-specific incidence or damage observations into a universal severity threshold."
+      },
+      {
+        "stage": "Confirmed case",
+        "description": "A confirmed label requires lesion-linked isolation, compatible morphology and multilocus evidence, plus pathogenicity evidence when causality must be established."
+      }
+    ],
+    "lookAlikes": [
+      "Cercospora leaf spot",
+      "Septoria leaf spot complex",
+      "Bipolaris leaf spot or blight",
+      "Alternaria leaf spot",
+      "Anthracnose / Colletotrichum leaf spot",
+      "Pseudocercospora olive / sooty leaf spot",
+      "Exserohilum leaf blight",
+      "Downy mildew / Pseudoperonospora",
+      "Xanthomonas or another bacterial leaf spot",
+      "Spider mite or thrips injury",
+      "Chewing-insect or mechanical injury",
+      "Spray or contact injury",
+      "Light or heat injury",
+      "Nutrient, salinity, drought, or root-zone stress"
+    ],
+    "confirmation": [
+      "Capture the whole plant, canopy neighborhood, full leaf, and matched upper- and lower-surface close-ups with a scale and stable plant and lesion identifiers.",
+      "Revisit tagged leaves to distinguish new yellow spots and lesion expansion from fixed spray marks, old injury, or unrelated holes.",
+      "Collect multiple fresh representative lesions, including active margins, before saprophytes dominate; retain cultivar, age, field position, recent weather, irrigation, and foliar-input metadata.",
+      "Use lesion-edge isolation and trained examination of colony, conidiophore, and conidium morphology while recording every organism recovered from the sample.",
+      "For species-level confirmation, link the photographed plant and lesion to validated multilocus evidence including ITS, GAPDH, and EF1-alpha or an equivalently resolving current method; ITS or appearance alone is insufficient.",
+      "Interpret divergent isolates cautiously because one isolate in the first report raised a cryptic-species possibility despite similarity to C. pseudobrachyspora.",
+      "When causality is required, retain symptom reproduction, reisolation, and negative controls linked to the isolate; organism detection alone does not prove that every visible lesion was caused by it.",
+      "Keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and route unresolved evidence to review."
+    ],
+    "immediateActions": [
+      "Tag and photograph representative plants before removing tissue, preserving field and canopy distribution.",
+      "Limit movement of symptomatic propagation material and retain fresh, traceable lesions for a plant diagnostic laboratory.",
+      "Map affected plants against cultivar blocks, splash or irrigation zones, leaf wetness, airflow, recent foliar applications, and mechanical or weather injury."
+    ],
+    "correctivePlan": [
+      "Base management on the organism confirmed from representative plant-linked lesions and on current crop, site, and jurisdiction requirements.",
+      "Track new lesion incidence on tagged plants after sanitation or environmental changes; persistent old lesions do not measure treatment success.",
+      "Reassess the diagnosis when new lesions do not match the documented sequence or repeated representative tests do not support Curvularia."
+    ],
+    "prevention": [
+      "Use clean propagation material and avoid moving symptomatic leaves, residue, tools, or splash water into clean production areas.",
+      "Reduce avoidable prolonged leaf wetness and retain adequate spacing and airflow where production constraints allow.",
+      "Scout young and old leaves with stable plant IDs, paired surfaces, and repeated views so nonspecific yellow spots are not prematurely labeled."
+    ],
+    "warnings": [
+      "Yellow spots, tan-to-brown centers, yellow halos, and leaf-level lesion abundance are not individually or jointly species-specific in an image.",
+      "The primary report covers one Florida field trial, four selected isolates, defined cultivars, and a small controlled inoculation; it does not establish universal prevalence, susceptibility, timing, yield loss, or thresholds.",
+      "One isolate was phylogenetically differentiated from the other three and may represent a cryptic species, so species labels require isolate-linked multilocus interpretation.",
+      "UF/IFAS Figure 4 is an attributed institutional whole-leaf differential, not a plant- and lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without permission.",
+      "The reference lacks a scale, paired underside, whole-plant distribution, sample identifier, culture, microscopy, sequence accessions, and pathogenicity linkage for the pictured leaf.",
+      "All unresolved symptom-only, detached, mixed-organism, unlinked-laboratory, single-locus-only, low-resolution, and rights-unclear samples retain review flags."
+    ],
+    "sources": [
+      {
+        "title": "First Report of Curvularia pseudobrachyspora Causing Leaf Spot on Hemp (Cannabis sativa) in Florida",
+        "organization": "Plant Disease",
+        "url": "https://doi.org/10.1094/PDIS-03-20-0546-PDN",
+        "authors": [
+          "Marcus V. Marin",
+          "Nan-Yi Wang",
+          "Jacqueline Coburn",
+          "Johan Desaeger",
+          "Natalia A. Peres"
+        ],
+        "publisher": "American Phytopathological Society",
+        "publicationDate": "2020-06-29",
+        "year": 2020,
+        "accessedDate": "2026-10-12",
+        "doi": "10.1094/PDIS-03-20-0546-PDN",
+        "supportedClaims": [
+          "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
+          "Four single-spored isolates were characterized by colony and conidial morphology plus ITS, GAPDH, and EF1-alpha sequences; three grouped closely with Curvularia pseudobrachyspora while one diverged enough to raise a cryptic-species possibility.",
+          "Spray inoculation of four five-week-old Puma-3 plants per isolate reproduced leaf spots after two weeks, water controls remained healthy, and the organism was reisolated; the experiment was repeated once.",
+          "The report states that epidemiology and management require additional study, so the Florida observations do not establish universal cultivar susceptibility, field prevalence, progression timing, or action thresholds."
+        ]
+      },
+      {
+        "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+        "organization": "UF/IFAS Extension",
+        "url": "https://doi.org/10.32473/edis-pp379-2024",
+        "authors": [
+          "Kevin Korus",
+          "Wael Elwakil",
+          "Nicholas Dufault",
+          "Zachary D. Eldred"
+        ],
+        "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+        "publicationDate": "2024-12-05",
+        "year": 2024,
+        "accessedDate": "2026-10-12",
+        "doi": "10.32473/edis-pp379-2024",
+        "supportedClaims": [
+          "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
+          "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
+          "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample."
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": "uf-ifas-curvularia-field-guide-figure-4-2024",
+        "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Inthfwb94c/Inthfwb94c-2048.webp",
+        "alt": "Institutional whole hemp leaf reference showing numerous yellow-haloed tan-to-brown lesions",
+        "caption": "Reference-only UF/IFAS Figure 4 credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres. It supplies whole-leaf Curvularia differential context but is not sample-linked laboratory confirmation.",
+        "creator": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC",
+        "license": "CC BY-NC-ND 4.0",
+        "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+        "mediaType": "image",
+        "requiredAttribution": "Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; UF/IFAS GCREC. Figure 4 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+        "diagnosticLabel": "curvularia-leaf-spot — institutional whole-leaf differential, not sample-level laboratory confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, and derivative preparation require additional permission.",
+          "The asset lacks a scale, paired underside, whole-plant distribution, sampling, culture, microscopy, sequence, and pathogenicity linkage; do not infer species or causality from appearance.",
+          "Automated training and evaluation use are not permitted by this record."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "not-permitted",
+        "sha256": "66762b5fcd00a6fe5cf62b569efb0dfe59c86e167964a289483b87cc969af832",
+        "perceptualHash": "dhash64:5193d25474b070c9",
+        "width": 633,
+        "height": 644,
+        "view": "close-up",
+        "stage": "detached field foliage, whole leaf",
+        "severity": "numerous distributed lesions across one leaf",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
+  },
+  {
     "id": "fungal-exserohilum-leaf-blight",
     "slug": "exserohilum-helminthosporium-leaf-blight",
     "name": "Exserohilum / Helminthosporium leaf blight",
@@ -2651,6 +2850,180 @@
         "stage": "flower through postharvest drying",
         "severity": "visible surface and internal colonization",
         "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
+  },
+  {
+    "id": "fungal-hemp-rust",
+    "slug": "hemp-rust",
+    "name": "Hemp rust",
+    "scientificName": "Uredo kriegeriana",
+    "category": "Fungal pathogen",
+    "severity": "moderate",
+    "reviewStatus": "reviewed",
+    "photoOnlyMaxConfidence": 0.25,
+    "summary": "An institutional hemp rust differential characterized by orange-to-brown lesions on both leaf surfaces and erumpent orange spore masses from lower-surface pustules. These signs support a rust diagnosis, but a photograph does not establish Uredo kriegeriana, infection source, alternate host, or the full disease cycle.",
+    "affectedParts": [
+      "leaf blades",
+      "upper leaf surface",
+      "lower leaf surface",
+      "corresponding tissue across both surfaces",
+      "pustule and lesion centers",
+      "whole plant and neighboring plants for distribution context"
+    ],
+    "stages": [
+      "apparently healthy matched foliage",
+      "early light-orange lesion",
+      "dark-orange to brown lesion",
+      "erumpent lower-surface pustule",
+      "microscopy and laboratory resolution"
+    ],
+    "indicators": [
+      "Compatible early lesions are light orange rather than white powder, purple-gray downy growth, black pycnidia, or a colorless puncture.",
+      "Lesions can darken from light orange to dark orange, brown, or rust-colored as they develop; color alone remains nonspecific.",
+      "The institutional composite pairs top and bottom views of one affected leaf with close views of an early upper-surface lesion and a lower-surface pustule.",
+      "The strongest visible sign is an orange powdery spore mass erupting from a pustule on the lower leaf surface.",
+      "The same-lesion upper/lower relationship is more informative than an isolated orange spot because rust structures may be concentrated on the underside.",
+      "Whole-plant and neighboring-plant views are still needed because the institutional composite does not establish canopy position, incidence, or field distribution.",
+      "A stable color reference and scale are needed to distinguish true orange sporulation from lighting, senescence, residue, frass, or dried spray deposits.",
+      "A rust-level label is strengthened by lesion-linked microscopy of compatible rust spores; species-level naming requires current taxonomic and laboratory support beyond this photograph."
+    ],
+    "exclusions": [
+      "Purple-to-gray branching growth on the corresponding lower surface with an oomycete result supports downy mildew rather than rust.",
+      "White superficial colonies on either surface that wipe or reveal hyphae and conidia support powdery mildew.",
+      "Black embedded pycnidia and compatible conidia support Septoria; dark gray or black fuzzy growth supports a Bipolaris differential.",
+      "Mite, thrips, egg, webbing, frass, cast skin, or feeding evidence without lesion-linked rust spores supports arthropod injury or contamination.",
+      "Orange pollen, mineral residue, dried spray, soil splash, or foreign material that lifts from intact tissue excludes a symptom-only rust label.",
+      "A sharp lamp, spray, droplet, aisle, contact, or weather boundary with no pustules or compatible spores supports abiotic injury.",
+      "Uniform late-season yellowing or bronzing without erumpent pustules and with age-linked distribution supports senescence or nutrient/root-zone stress.",
+      "Representative microscopy or laboratory testing identifies another organism, or repeated active lesions lack compatible rust structures."
+    ],
+    "progression": [
+      {
+        "stage": "Baseline",
+        "description": "Record cultivar, plant stage, canopy position, field or room map, recent weather and foliar inputs, plus matched apparently healthy leaves."
+      },
+      {
+        "stage": "Early light-orange lesion",
+        "description": "Tag attached leaves and capture full-leaf plus paired upper/lower views before visible powder is disturbed."
+      },
+      {
+        "stage": "Darkening lesion",
+        "description": "Reimage the same lesion as color becomes dark orange, brown, or rust-colored; do not infer a universal time interval from the institutional guide."
+      },
+      {
+        "stage": "Pustule eruption",
+        "description": "Capture an intact lower-surface pustule before and after gentle diagnostic sampling, with a scale and color reference, while preserving the matching upper-surface view."
+      },
+      {
+        "stage": "Laboratory resolution",
+        "description": "Link microscopy, specimen or isolate identifiers, current taxonomic interpretation, and any molecular result back to the photographed plant and lesion."
+      }
+    ],
+    "lookAlikes": [
+      "Downy mildew / Pseudoperonospora",
+      "Powdery mildew",
+      "Septoria leaf spot",
+      "Bipolaris leaf spot or blight",
+      "Cercospora leaf spot",
+      "Pseudocercospora olive or sooty leaf spot",
+      "Alternaria leaf spot",
+      "Two-spotted spider mite injury",
+      "Thrips injury",
+      "Orange pollen or fungal residue",
+      "Dried foliar spray or mineral residue",
+      "Light or heat injury",
+      "Potassium or magnesium stress",
+      "Normal late-season senescence"
+    ],
+    "confirmation": [
+      "Capture the whole plant, canopy neighborhood, full leaf, and same-lesion upper- and lower-surface macro views with a scale, neutral color reference, and stable plant and lesion identifiers.",
+      "Revisit tagged lesions to document light-orange onset, darkening, and pustule eruption on the same tissue rather than assembling unrelated single frames.",
+      "Use magnification before sampling to distinguish an erumpent pustule and attached spores from residue, pollen, arthropods, frass, pycnidia, downy growth, or superficial mildew.",
+      "Collect intact representative pustules and lesion margins following a plant diagnostic laboratory protocol while retaining cultivar, age, site, weather, irrigation, leaf-wetness, and foliar-input metadata.",
+      "Require lesion-linked microscopy of compatible rust structures for a confirmed rust label and preserve measurements, images, preparer, method, and specimen identifiers.",
+      "Use current specialist taxonomic or validated molecular evidence when a Uredo kriegeriana species label matters; do not resolve the species from orange color, pustule appearance, host alone, or a guide image.",
+      "Keep symptom-only, residue-uncleared, detached-leaf-only, unmatched-surface, specimen-unlinked, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and retain an unresolved classification when the evidence is incomplete."
+    ],
+    "immediateActions": [
+      "Tag and photograph representative plants and intact pustules before handling or applying a product.",
+      "Limit movement of symptomatic propagation material and avoid disturbing powdery pustules until traceable samples are retained.",
+      "Map affected plants against cultivar blocks, airflow, field edges, recent weather, irrigation, foliar applications, and possible residue sources."
+    ],
+    "correctivePlan": [
+      "Base management on a plant-linked laboratory result and current crop, site, and jurisdiction requirements rather than on orange color alone.",
+      "Contain confirmed diseased foliage and clean tools or handling surfaces as locally appropriate, then monitor tagged plants for new pustules.",
+      "Reassess the diagnosis if new lesions lack compatible lower-surface pustules or repeated representative microscopy does not support rust."
+    ],
+    "prevention": [
+      "Use clean propagation material and avoid moving symptomatic foliage, debris, tools, or dislodged spores into clean areas.",
+      "Maintain traceable scouting across both leaf surfaces and neighboring plants so early lesions and new pustules can be separated from residue or senescence.",
+      "Manage avoidable prolonged foliage wetness and dense stagnant canopies where feasible without treating environmental response as retrospective confirmation."
+    ],
+    "warnings": [
+      "Orange, brown, or rust-colored lesions are not by themselves diagnostic; the strongest visible rust evidence is an attached erumpent pustule with compatible spores.",
+      "The institutional guide supplies a visual differential but no plant-linked specimen ID, microscopy record, sequence result, cultivar, canopy distribution, incidence, or progression interval for the pictured leaves.",
+      "UF/IFAS states that the alternate host is unknown and that little is known about the disease cycle and epidemiology, so source, reservoir, timing, thresholds, prevalence, and yield effects must not be inferred.",
+      "The Uredo kriegeriana name is not visually resolvable and should remain provisional without current lesion-linked taxonomic evidence.",
+      "Figure 9 is an attributed institutional three-panel reference under CC BY-NC-ND 4.0; crops, panel extraction, derivatives, commercial reuse, and automated training are not permitted by this record.",
+      "Unresolved symptom-only, residue-uncleared, detached, unmatched-surface, specimen-unlinked, low-resolution, and rights-unclear samples retain review flags."
+    ],
+    "sources": [
+      {
+        "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+        "organization": "UF/IFAS Extension",
+        "url": "https://doi.org/10.32473/edis-pp379-2024",
+        "authors": [
+          "Kevin Korus",
+          "Wael Elwakil",
+          "Nicholas Dufault",
+          "Zachary D. Eldred"
+        ],
+        "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+        "publicationDate": "2024-12-05",
+        "year": 2024,
+        "accessedDate": "2026-10-13",
+        "doi": "10.32473/edis-pp379-2024",
+        "supportedClaims": [
+          "The UF/IFAS guide describes hemp rust as orange, brown, or rust-colored lesions on both leaf surfaces, beginning light orange and darkening as disease progresses.",
+          "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
+          "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
+          "UF/IFAS Figure 9 is an institutional three-panel hemp reference credited to Zachariah Hansen, University of Tennessee Extension; CC BY-NC-ND 4.0 permits unchanged noncommercial display with attribution but not crops, derivatives, commercial reuse, or automated training."
+        ]
+      }
+    ],
+    "media": [
+      {
+        "id": "uf-ifas-hemp-rust-field-guide-figure-9-2024",
+        "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/I56qij3s0d/I56qij3s0d-2048.webp",
+        "alt": "Institutional three-panel hemp rust reference showing paired leaf surfaces, an early upper-surface lesion, and an erumpent lower-surface orange pustule",
+        "caption": "Reference-only UF/IFAS Figure 9 credited to Zachariah Hansen, University of Tennessee Extension. The intact composite supplies paired-surface and pustule context but is not a specimen-linked laboratory record.",
+        "creator": "Zachariah Hansen, University of Tennessee Extension",
+        "license": "CC BY-NC-ND 4.0",
+        "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+        "mediaType": "image",
+        "requiredAttribution": "Zachariah Hansen, University of Tennessee Extension. Figure 9 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+        "diagnosticLabel": "hemp-rust — institutional paired-surface and pustule differential, not specimen-level laboratory confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, panel extraction, and derivative preparation require additional permission.",
+          "The composite lacks scale, plant distribution, specimen identifier, microscopy, culture, sequence, and current species-level taxonomic linkage; do not infer Uredo kriegeriana from appearance.",
+          "Automated training and evaluation use are not permitted by this record."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "not-permitted",
+        "sha256": "e41cdcc830b272b2a05bc22791e5375853f48fa4561021db21487667a96d3f25",
+        "perceptualHash": "dhash64:d4d4d4d4fc2b8407",
+        "width": 634,
+        "height": 600,
+        "view": "close-up",
+        "stage": "early lesion through erumpent pustule",
+        "severity": "localized lesions and one close pustule",
+        "confirmation": "expert-reviewed",
         "trainingEligible": false
       }
     ]
@@ -14503,7 +14876,7 @@
       "The approximately 11-day drying period, -1.5 MPa plant-water-potential endpoint, and roughly 52% leaf-angle change came from one controlled flowering chemovar and must not be used as universal thresholds.",
       "Hemp cultivars differ substantially in soil-drying and VPD responses, and observation time changes apparent wilting; a model must not learn one canopy posture as genotype-independent drought ground truth.",
       "Published effects on cannabinoid concentration, biomass, and yield vary by genotype, severity, stage, and protocol; this diagnostic profile does not recommend intentional drought stress.",
-      "No licensed, plant-linked Cannabis drought progression image or verified diagnostic video with reusable item-level rights was located for this batch; publisher figures remain citations only and media stays empty."
+      "The licensed Figure 4 reference is a final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence; it must not be treated as a universal image-only drought classifier or split into unlabeled panels."
     ],
     "sources": [
       {
@@ -14602,9 +14975,68 @@
           "These single-cultivar endpoint responses support drought as a growth and yield stress but do not validate a universal visible severity scale, mortality expectation, or cannabinoid-production response for other Cannabis genotypes and stages.",
           "The article is marked in copyright by its institutional repository; no image, figure, or video is indexed or copied as reusable media."
         ]
+      },
+      {
+        "title": "Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis",
+        "organization": "Frontiers in Plant Science",
+        "url": "https://doi.org/10.3389/fpls.2026.1930650",
+        "authors": [
+          "Danilo Crispim Massuela",
+          "Sebastian Munz",
+          "Jens Hartung",
+          "Alejandro Pieters",
+          "Folkard Asch",
+          "Simone Graeff-Hönninger"
+        ],
+        "publisher": "Frontiers Media SA",
+        "publicationDate": "2026-09-03",
+        "year": 2026,
+        "accessedDate": "2026-10-13",
+        "doi": "10.3389/fpls.2026.1930650",
+        "supportedClaims": [
+          "A controlled indoor experiment compared two high-CBD Cannabis genotypes, Kanada (KAN) and Terra Italia (TIT), under well-watered control, moderate deficit, and severe water-withholding treatments during flowering.",
+          "Pots were weighed twice daily; controls were maintained at 60–80% container capacity, moderate-stress plants received daily replenishment to prevent leaf wilting, and severe-stress plants received no replenishment until the marked major leaf wilted by more than 50 degrees relative to the main stem.",
+          "Figure 4 shows intact exemplary plants at the final harvest, 79 days after planting, with KAN above and TIT below and control, moderate, and severe treatments from left to right; the authors report that the marked major leaf did not wilt under moderate stress at the endpoint but did under severe stress.",
+          "TIT plants were taller, had greater leaf area, consumed water faster, and wilted sooner than KAN plants, demonstrating that genotype and plant architecture constrain any image-based drought comparison.",
+          "Severe drought caused leaf abscission and canopy loss and offered no production benefit in this experiment; conclusions are limited to two high-CBD genotypes, one controlled indoor flowering cycle, and the study protocol.",
+          "The article and Figure 4 are distributed under CC BY 4.0, permitting attributed reuse; the full six-panel composite is indexed only as reference context and is not admitted to training without panel-level treatment and genotype annotations."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "frontiers-cannabis-drought-figure-4-2026",
+        "url": "https://www.frontiersin.org/files/Articles/1930650/xml-images/fpls-17-1930650-g004.webp",
+        "alt": "Controlled final-harvest Cannabis comparison with Kanada and Terra Italia rows and control, moderate-stress, and severe-stress columns",
+        "caption": "Reference-only Figure 4 from Crispim Massuela et al. (2026). The intact composite compares two high-CBD genotypes and three irrigation treatments at 79 days after planting; it preserves treatment, genotype, and scale context but is not an image-only diagnosis.",
+        "creator": "Danilo Crispim Massuela, Sebastian Munz, Jens Hartung, Alejandro Pieters, Folkard Asch, and Simone Graeff-Hönninger",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://doi.org/10.3389/fpls.2026.1930650",
+        "mediaType": "image",
+        "requiredAttribution": "Crispim Massuela D, Munz S, Hartung J, Pieters A, Asch F, Graeff-Hönninger S. Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis. Frontiers in Plant Science 17 (2026), Figure 4. https://doi.org/10.3389/fpls.2026.1930650. CC BY 4.0. Indicate modifications.",
+        "diagnosticLabel": "drought-water-deficit-stress — controlled two-genotype, three-treatment final-harvest comparison; composite reference only",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "Preserve the full composite, row labels, treatment labels, arrows, and scale bars; do not detach panels or collapse KAN and TIT into one genotype-independent class.",
+          "The severe-treatment panels are study endpoints, not universal severity examples; control and moderate panels are matched context rather than negative ground truth for every cultivar or environment.",
+          "Automated training remains ineligible until panel bounds, treatment and genotype labels, source grouping, and leakage-safe split controls are recorded and validated."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "52fdde639715c262b3774d26a833ad5bf372867a220e505be8ec57fcd4f55f2b",
+        "perceptualHash": "dhash64:cc4949596c6d4d4d",
+        "width": 1003,
+        "height": 1176,
+        "view": "whole-plant",
+        "stage": "late flowering; final harvest at 79 days after planting",
+        "severity": "well-watered control through moderate and severe water deficit",
+        "confirmation": "illustrative",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "stress-salinity-high-ec",

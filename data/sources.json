@@ -923,6 +923,30 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-03-20-0546-PDN",
+    "title": "First Report of Curvularia pseudobrachyspora Causing Leaf Spot on Hemp (Cannabis sativa) in Florida",
+    "organization": "Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-03-20-0546-PDN",
+    "authors": [
+      "Marcus V. Marin",
+      "Nan-Yi Wang",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2020-06-29",
+    "year": 2020,
+    "accessedDate": "2026-10-12",
+    "doi": "10.1094/PDIS-03-20-0546-PDN",
+    "supportedClaims": [
+      "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
+      "Four single-spored isolates were characterized by colony and conidial morphology plus ITS, GAPDH, and EF1-alpha sequences; three grouped closely with Curvularia pseudobrachyspora while one diverged enough to raise a cryptic-species possibility.",
+      "Spray inoculation of four five-week-old Puma-3 plants per isolate reproduced leaf spots after two weeks, water controls remained healthy, and the organism was reisolated; the experiment was repeated once.",
+      "The report states that epidemiology and management require additional study, so the Florida observations do not establish universal cultivar susceptibility, field prevalence, progression timing, or action thresholds."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-04-19-0782-PDN",
     "title": "First Report of Serratia marcescens Causing a Leaf Spot Disease on Industrial Hemp (Cannabis sativa)",
     "organization": "Plant Disease",
@@ -1997,7 +2021,7 @@
     "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
     "publicationDate": "2024-12-05",
     "year": 2024,
-    "accessedDate": "2026-10-12",
+    "accessedDate": "2026-10-13",
     "doi": "10.32473/edis-pp379-2024",
     "supportedClaims": [
       "The UF/IFAS field guide describes small circular light-green hemp leaf spots that expand to about 1 to 2 mm and turn brown with a dark border, while noting that lesions can also remain light tan without a border.",
@@ -2008,6 +2032,13 @@
       "The guide states that central sporulating structures may be visible and that severe disease can include whole-leaf yellowing and defoliation; these are differential features rather than image-only species confirmation.",
       "UF/IFAS Figure 3 is a two-panel institutional hemp reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
       "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 3 supplies bounded progression context rather than laboratory ground truth for an individual dataset sample.",
+      "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
+      "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
+      "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample.",
+      "The UF/IFAS guide describes hemp rust as orange, brown, or rust-colored lesions on both leaf surfaces, beginning light orange and darkening as disease progresses.",
+      "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
+      "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
+      "UF/IFAS Figure 9 is an institutional three-panel hemp reference credited to Zachariah Hansen, University of Tennessee Extension; CC BY-NC-ND 4.0 permits unchanged noncommercial display with attribution but not crops, derivatives, commercial reuse, or automated training.",
       "The UF/IFAS field guide describes Septoria symptoms beginning on older lower foliage and spreading through the canopy, with irregular light-brown spots becoming brown and surrounded by bright yellow halos.",
       "The guide states that lesions can expand and coalesce as severity increases, contributing to yellow-brown tissue and leaf drop, while black pinhead-sized pycnidia may be visible in lesion centers.",
       "UF/IFAS Figure 5 is an institutional hemp-leaf reference credited to Nicole Gauthier, University of Kentucky, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
@@ -2386,6 +2417,33 @@
       "Under severe adult-plant disease pressure, susceptible genotypes could show colonization of flower sugar leaves, petioles, and stem tissue; adult susceptibility sometimes exceeded the earlier clone-assay result.",
       "PM2 resistance strongly suppressed conidia generation and involved a localized microscopic hypersensitive response without macroscopic chlorotic spots, so symptom-negative or visually clean tissue is not proof that all pathogen interaction is absent.",
       "The scale and response were generated in controlled inoculation and resistance-mapping experiments and are not universal field severity, yield-loss, or intervention thresholds."
+    ]
+  },
+  {
+    "sourceKey": "10.3389/fpls.2026.1930650",
+    "title": "Less water, same buds: moderate drought as a water-saving strategy for indoor cannabis",
+    "organization": "Frontiers in Plant Science",
+    "url": "https://doi.org/10.3389/fpls.2026.1930650",
+    "authors": [
+      "Danilo Crispim Massuela",
+      "Sebastian Munz",
+      "Jens Hartung",
+      "Alejandro Pieters",
+      "Folkard Asch",
+      "Simone Graeff-Hönninger"
+    ],
+    "publisher": "Frontiers Media SA",
+    "publicationDate": "2026-09-03",
+    "year": 2026,
+    "accessedDate": "2026-10-13",
+    "doi": "10.3389/fpls.2026.1930650",
+    "supportedClaims": [
+      "A controlled indoor experiment compared two high-CBD Cannabis genotypes, Kanada (KAN) and Terra Italia (TIT), under well-watered control, moderate deficit, and severe water-withholding treatments during flowering.",
+      "Pots were weighed twice daily; controls were maintained at 60–80% container capacity, moderate-stress plants received daily replenishment to prevent leaf wilting, and severe-stress plants received no replenishment until the marked major leaf wilted by more than 50 degrees relative to the main stem.",
+      "Figure 4 shows intact exemplary plants at the final harvest, 79 days after planting, with KAN above and TIT below and control, moderate, and severe treatments from left to right; the authors report that the marked major leaf did not wilt under moderate stress at the endpoint but did under severe stress.",
+      "TIT plants were taller, had greater leaf area, consumed water faster, and wilted sooner than KAN plants, demonstrating that genotype and plant architecture constrain any image-based drought comparison.",
+      "Severe drought caused leaf abscission and canopy loss and offered no production benefit in this experiment; conclusions are limited to two high-CBD genotypes, one controlled indoor flowering cycle, and the study protocol.",
+      "The article and Figure 4 are distributed under CC BY 4.0, permitting attributed reuse; the full six-panel composite is indexed only as reference context and is not admitted to training without panel-level treatment and genotype annotations."
     ]
   },
   {

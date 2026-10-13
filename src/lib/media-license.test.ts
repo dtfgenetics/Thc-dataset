@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { IssueRecord, MediaRecord } from '../types'
 import { isDisplayableMedia, resolvedDisplayMediaForIssue } from './media'
+import { issues } from '../data/catalog'
 
 const example = (license: string, overrides: Partial<MediaRecord> = {}): MediaRecord => ({
   id: 'institutional-reference',
@@ -23,6 +24,20 @@ const example = (license: string, overrides: Partial<MediaRecord> = {}): MediaRe
 })
 
 describe('commercial media display licensing gate', () => {
+  it('quarantines every explicitly noncommercial catalog reference, even with approved display metadata', () => {
+    const restricted = issues.flatMap((issue) => issue.media.map((media) => ({ slug: issue.slug, media })))
+      .filter(({ media }) => {
+        const rights = [media.license, media.requiredAttribution, ...(media.useLimitations ?? [])]
+          .filter((value): value is string => typeof value === 'string')
+          .join(' ').normalize('NFKC').replace(/[\u2010-\u2015\u2212]/g, '-')
+        return /(?:^|[^a-z0-9])cc[\s_-]*by[\s_-]*nc|non[\s_-]*commercial|(?:no|not[\s_-]+for)[\s_-]+commercial[\s_-]+(?:use|reuse|display)|commercial[\s_-]+(?:use|reuse|display)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted|not[\s_-]+allowed|requires?[\s_-]+(?:written[\s_-]+)?permission)/i.test(rights)
+      })
+    expect(restricted.length).toBeGreaterThan(0)
+    for (const { slug, media } of restricted) {
+      expect(isDisplayableMedia(media), `${slug}/${media.id} must not be commercially displayed`).toBe(false)
+    }
+  })
+
   it.each([
     'CC BY-NC-ND 4.0',
     'CC BY-NC-SA 4.0',

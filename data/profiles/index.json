@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.1.0",
-  "recordCount": 61,
+  "recordCount": 63,
   "records": [
     {
       "id": "bacterial-serratia-leaf-spot",
@@ -102,6 +102,17 @@
       "path": "data/profiles/fungal-cercospora-leaf-spot.json"
     },
     {
+      "id": "fungal-curvularia-leaf-spot",
+      "slug": "curvularia-leaf-spot",
+      "name": "Curvularia leaf spot",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 2,
+      "mediaCount": 1,
+      "path": "data/profiles/fungal-curvularia-leaf-spot.json"
+    },
+    {
       "id": "fungal-exserohilum-leaf-blight",
       "slug": "exserohilum-helminthosporium-leaf-blight",
       "name": "Exserohilum / Helminthosporium leaf blight",
@@ -122,6 +133,17 @@
       "sourceCount": 5,
       "mediaCount": 1,
       "path": "data/profiles/fungal-fusarium-foliar-flower-blight.json"
+    },
+    {
+      "id": "fungal-hemp-rust",
+      "slug": "hemp-rust",
+      "name": "Hemp rust",
+      "category": "Fungal pathogen",
+      "severity": "moderate",
+      "reviewStatus": "reviewed",
+      "sourceCount": 1,
+      "mediaCount": 1,
+      "path": "data/profiles/fungal-hemp-rust.json"
     },
     {
       "id": "fungal-pm",
@@ -625,8 +647,8 @@
       "category": "Water / root-zone",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 5,
-      "mediaCount": 0,
+      "sourceCount": 6,
+      "mediaCount": 1,
       "path": "data/profiles/stress-drought-water-deficit.json"
     },
     {

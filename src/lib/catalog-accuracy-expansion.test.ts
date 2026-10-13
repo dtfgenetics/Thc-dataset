@@ -8,6 +8,43 @@ const bySlug = (slug: string) => {
 }
 
 describe('canonical diagnostic catalog accuracy expansion', () => {
+  it('keeps hemp rust paired-surface context distinct from species confirmation', () => {
+    const record = bySlug('hemp-rust')
+    const evidence = [...record.indicators, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    expect(record.reviewStatus).toBe('reviewed')
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record.sources).toHaveLength(1)
+    expect(record.sources[0].doi).toBe('10.32473/edis-pp379-2024')
+    expect(record.indicators).toHaveLength(8)
+    expect(record.exclusions).toHaveLength(8)
+    expect(record.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(evidence).toContain('erumpent')
+    expect(evidence).toContain('species label')
+    expect(evidence).toContain('alternate host is unknown')
+    expect(record.media).toHaveLength(1)
+    expect(record.media[0].license).toBe('CC BY-NC-ND 4.0')
+    expect(record.media[0].trainingPermission).toBe('not-permitted')
+    expect(record.media[0].trainingEligible).toBe(false)
+  })
+
+  it('keeps Curvularia image context distinct from species confirmation', () => {
+    const record = bySlug('curvularia-leaf-spot')
+    const evidence = record.confirmation.join(' ').toLowerCase()
+    expect(record.reviewStatus).toBe('reviewed')
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record.sources).toHaveLength(2)
+    expect(record.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)
+    expect(record.indicators).toHaveLength(8)
+    expect(record.exclusions).toHaveLength(9)
+    expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(14)
+    expect(evidence).toContain('its, gapdh, and ef1-alpha')
+    expect(evidence).toContain('cryptic-species')
+    expect(record.media).toHaveLength(1)
+    expect(record.media[0].license).toBe('CC BY-NC-ND 4.0')
+    expect(record.media[0].trainingPermission).toBe('not-permitted')
+    expect(record.media[0].trainingEligible).toBe(false)
+  })
+
   it('contains the expanded evidence-backed diagnostic baseline without duplicate ids or slugs', () => {
     expect(issues.length).toBeGreaterThanOrEqual(54)
     expect(new Set(issues.map((item) => item.id)).size).toBe(issues.length)
