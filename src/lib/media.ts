@@ -1,5 +1,8 @@
 import type { IssueRecord, MediaRecord } from '../types'
 
+const nonCommercialLicense = /(?:^|[^a-z0-9])cc[\s_-]*by[\s_-]*nc(?:[\s_-]*(?:nd|sa))?(?=$|[^a-z0-9])|non[\s_-]*commercial|creativecommons[.]org\/licenses\/by-nc(?:-nd|-sa)?(?:\/|$)/i
+const commercialUseRestriction = /non[\s_-]*commercial|(?:no|not[\s_-]+for)[\s_-]+commercial[\s_-]+(?:use|reuse|display)|commercial[\s_-]+(?:use|reuse|display)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted|not[\s_-]+allowed|requires?[\s_-]+(?:written[\s_-]+)?permission)|(?:personal|educational)[\s_-]+use[\s_-]+only/i
+
 export function isDisplayableMedia(media: MediaRecord): boolean {
   return media.displayPermission === 'permitted'
     && (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training')
