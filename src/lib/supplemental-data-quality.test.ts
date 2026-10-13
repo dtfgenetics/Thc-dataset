@@ -130,6 +130,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['southern-blight-athelia-rolfsii', 1],
       ['heat-light-stress', 1],
       ['drought-water-deficit-stress', 1],
+      ['salinity-high-ec-stress', 2],
     ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'spotted-cucumber-beetle') {
@@ -536,7 +537,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('root-ball geometry, substrate compaction, container temperature, and root restriction')
     expect(warnings).toContain('ec is a conductivity measurement, not an ion identity')
     expect(warnings).toContain('not universal safe, toxic, correction, or training-label thresholds')
-    expect(warnings).toContain('no licensed, plant-linked cannabis salinity progression image or verified diagnostic video')
+    expect(warnings).toContain('two cc by treatment-response diagrams are indexed as reference context')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Drought / water-deficit stress',
       'Root-zone hypoxia / overwatering',
@@ -545,7 +546,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Pythium or Fusarium root/crown disease',
       'Normal late-flowering senescence',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.map((item) => item.id)).toEqual([
+      'media-salinity-cannabis-growth-index-yep-figure-1',
+      'media-salinity-cannabis-chlorophyll-index-yep-figure-2',
+    ])
+    expect(record?.media.every((item) => item.view === 'diagram')).toBe(true)
+    expect(record?.media.every((item) => item.license?.includes('CC BY 4.0') === true)).toBe(true)
+    expect(record?.media.every((item) => item.displayPermission === 'permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingPermission === 'permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
+    expect(record?.media.map((item) => item.sha256)).toEqual([
+      '3d4e37d7281dc574ca2ebb5db36e35bfa2466f1bddbd265c787db932d1423548',
+      'f433c9b480ce5592ea9a292e21160a9a3cfecb34282dfbecef3db3e524e71f1f',
+    ])
+    expect(record?.media.map((item) => item.perceptualHash)).toEqual([
+      'dhash64:3358103121a2e66a',
+      'dhash64:3316424266b2d146',
+    ])
   })
 
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {

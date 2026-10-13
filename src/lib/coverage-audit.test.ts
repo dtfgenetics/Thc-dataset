@@ -188,7 +188,7 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('final-harvest, six-panel study composite rather than a longitudinal diagnostic sequence')
   })
 
-  it('keeps salinity as a measured composition-aware diagnosis with an explicit media gap', () => {
+  it('keeps salinity measured and composition-aware while bounding reference diagrams', () => {
     const record = issues.find((issue) => issue.slug === 'salinity-high-ec-stress')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
@@ -200,11 +200,12 @@ describe('diagnostic coverage audit', () => {
     expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
     expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(14)
     expect(record?.confirmation.length).toBeGreaterThanOrEqual(8)
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.every((item) => item.view === 'diagram' && item.trainingEligible === false)).toBe(true)
     expect(confirmation).toContain('source-water analysis, sodium and chloride inputs')
     expect(confirmation).toContain('solution, substrate-extract, and tissue analysis')
     expect(warnings).toContain('same ec can be produced by nacl or by different nutrient mixtures')
-    expect(warnings).toContain('media remains an explicit gap')
+    expect(warnings).toContain('neither is a symptom photograph, a plant-linked diagnostic sequence, or a verified diagnostic video')
   })
 
   it('counts only the licensed Dectes specimen as displayable', () => {

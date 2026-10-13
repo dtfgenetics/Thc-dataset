@@ -1,0 +1,49 @@
+{
+  "base_commit": "eb1352c0e70f94380f1591d618e6e567fae0159f",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261013e",
+  "changed_paths": [
+    "data/profiles/stress-salinity-high-ec.json",
+    "src/data/supplemental-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "gd-diag-salinity-response-20261013",
+  "head_commit": "b3e239fb74e93df92ba195a84c3126065a1826b3",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2020.01169",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424260/"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the Frontiers article, experimental methods, Figure 1 and Figure 2 captions, direct PMC asset URLs, CC BY terms, attribution, dimensions, and file hashes on 2026-10-13. The two diagrams add controlled Cannabis temporal context for canopy growth index and chlorophyll content index under matched hydroponic and aquaponic NaCl treatments. They are derived treatment-response graphs rather than symptom photographs, plant-linked diagnostic sequences, or universal thresholds. Display with attribution is approved; automated training remains excluded pending graph-specific annotation, source-group isolation, leakage review, and a separate admission decision. This agent review does not represent human, expert, or laboratory verification of any new sample.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
