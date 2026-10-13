@@ -59,6 +59,24 @@ describe('commercial media display licensing gate', () => {
     }))).toBe(false)
   })
 
+  it.each([
+    'Not for commercial use',
+    'Commercial use requires written permission',
+    'Commercial use not allowed',
+    'Personal use only',
+    'Educational use only',
+  ])('blocks additional commercial-use limitations: %s', (restriction) => {
+    expect(isDisplayableMedia(example('CC BY 4.0', {
+      useLimitations: [restriction],
+    }))).toBe(false)
+  })
+
+  it('rejects restrictions embedded in attribution metadata', () => {
+    expect(isDisplayableMedia(example('CC BY 4.0', {
+      requiredAttribution: 'Creator. Not for commercial use.',
+    }))).toBe(false)
+  })
+
   it('excludes restricted shared composite references', () => {
     const restricted = example('CC BY-NC 4.0', {
       sha256: 'c9200d6cb4fc0ee7a31908b9df06240a86ec6f2cf53fb8bece5098e4ee422952',
