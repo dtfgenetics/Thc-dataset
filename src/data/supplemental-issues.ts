@@ -180,6 +180,28 @@ const sources = {
       'The page gives greenhouse life-stage timings, but those values are context-dependent cross-crop guidance and must not be treated as universal Cannabis progression intervals.',
     ],
   }),
+  fungusGnatUcipmLarvae: source({
+    title: 'Larvae of a fungus gnat, Bradysia sp., feeding on the underside of a fallen leaf',
+    organization: 'University of California Statewide Integrated Pest Management Program',
+    url: 'https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html',
+    publisher: 'University of California Agriculture and Natural Resources',
+    accessedDate: '2026-10-13',
+    supportedClaims: [
+      'The institutional image page identifies Bradysia sp. larvae feeding on the underside of a fallen leaf on the surface of container-plant medium in a UC Davis greenhouse and credits Jack Kelly Clark, UC IPM.',
+      'The image supplies cross-crop larval and media-surface context only: it does not show Cannabis, fine-root injury, a whole-plant distribution, a time sequence, severity, or a species-resolving voucher.',
+    ],
+  }),
+  fungusGnatUcipmRights: source({
+    title: 'Legal Notices—UC IPM: Use of materials',
+    organization: 'University of California Statewide Integrated Pest Management Program',
+    url: 'https://ipm.ucanr.edu/GENERAL/copyright.html',
+    publisher: 'University of California Agriculture and Natural Resources',
+    accessedDate: '2026-10-13',
+    supportedClaims: [
+      'UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.',
+      'The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training.',
+    ],
+  }),
   fusariumField: source({
     title: 'Root and crown rot pathogens causing wilt symptoms on field-grown marijuana (Cannabis sativa L.) plants',
     organization: 'Canadian Journal of Plant Pathology',
@@ -542,8 +564,8 @@ export const supplementalIssues: IssueRecord[] = [
     immediateActions: ['Preserve plant-linked adult, larval, medium, and root evidence before treatment, root washing, or irrigation changes.', 'Inspect moisture, drainage, algae, decomposing debris, propagation material, and nearby containers using the same documented protocol.', 'Keep suspected pathogen or abiotic root-zone problems as separate concurrent labels until each has been evaluated.'],
     correctivePlan: ['Use sanitation, moisture and drainage correction, physical or biological controls, and other locally legal integrated measures appropriate to the confirmed organism and production system.', 'Track adults and larvae separately during follow-up; fewer adults alone do not prove that larvae or root injury have resolved.', 'If root or canopy decline continues after larval pressure falls, continue the independent pathogen, irrigation, pH, EC, salinity, nutrition, and root-restriction workup.'],
     prevention: ['Avoid chronic surface wetness while maintaining crop-appropriate root hydration and drainage.', 'Remove algae, decomposing roots, discarded media, and plant debris that support development without disturbing verified evidence before documentation.', 'Inspect incoming media, clones, rooted cuttings, and propagation areas, and use dated low-position monitoring before symptoms appear.', 'Retain plant- and location-specific records so recurring adults can be connected to direct larval and root inspections rather than treated as facility-wide injury proof.'],
-    warnings: ['Photo or video alone is capped at low confidence because adult fungus gnats, wet media, yellowing, wilt, and stunting do not prove that larvae caused plant injury.', 'A few adults or a sticky-card capture establish neither a plant link nor economic injury; the same-plant root zone must be inspected.', 'The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.', 'Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.', 'Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.', 'No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training.'],
-    sources: [sources.fungusGnatEcology, sources.fungusGnatUnh, sources.fungusGnatUtHemp, sources.fungusGnatPnw],
+    warnings: ['Photo or video alone is capped at low confidence because adult fungus gnats, wet media, yellowing, wilt, and stunting do not prove that larvae caused plant injury.', 'A few adults or a sticky-card capture establish neither a plant link nor economic injury; the same-plant root zone must be inspected.', 'The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.', 'Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.', 'Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.', 'The UC IPM larval photograph is a non-Cannabis greenhouse reference with rights that prohibit software distribution without written consent. Only lawful reference metadata is stored; the binary is not copied, displayed, or admitted to training.', 'No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training.'],
+    sources: [sources.fungusGnatEcology, sources.fungusGnatUnh, sources.fungusGnatUtHemp, sources.fungusGnatPnw, sources.fungusGnatUcipmLarvae, sources.fungusGnatUcipmRights],
     media: [],
   },
   {

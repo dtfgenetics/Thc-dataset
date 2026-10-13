@@ -1,0 +1,49 @@
+{
+  "base_commit": "345763a2208a08064a361d77df014137edbdd834",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261013d",
+  "changed_paths": [
+    "data/profiles/pest-fungus-gnats.json",
+    "src/data/supplemental-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "gd-diag-001-6c07f98",
+  "head_commit": "6c07f9858f8cc1de6f040922e2fbf582655674d9",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+    "https://ipm.ucanr.edu/GENERAL/copyright.html"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the current University of California Statewide IPM fungus-gnat larval image page, creator credit, direct original-asset URL, greenhouse and container-medium context, and UC IPM photograph policy on 2026-10-13. The profile now records a rights-complete metadata-only non-Cannabis reference and an explicit source-to-rights link. UC IPM prohibits software and electronic-media distribution without written consent, so the binary was not copied, application display and automated training are prohibited, and the image does not establish Cannabis injury, severity, progression, species beyond Bradysia sp., or a plant-linked causal diagnosis. Agent review approved only the bounded metadata record; it does not represent human, expert, or laboratory verification.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/splits/manifest.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

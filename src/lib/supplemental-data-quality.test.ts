@@ -50,8 +50,8 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.progression).toHaveLength(5)
     expect(record?.lookAlikes).toHaveLength(12)
     expect(record?.confirmation).toHaveLength(7)
-    expect(record?.sources).toHaveLength(4)
-    expect(record?.media).toEqual([])
+    expect(record?.sources).toHaveLength(6)
+    expect(record?.media).toHaveLength(1)
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Shore flies',
       'Rice root aphid',
@@ -68,6 +68,19 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.sources.some((source) => source.doi === '10.3390/insects6020325')).toBe(true)
     expect(record?.sources.some((source) => source.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat'))).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html')).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://ipm.ucanr.edu/GENERAL/copyright.html')).toBe(true)
+    const media = record?.media[0]
+    expect(media?.url).toBe('https://ipm.ucanr.edu/PMG/IMAGES/B/I-DP-BRAD-LV.004.jpg')
+    expect(media?.sourceUrl).toBe('https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html')
+    expect(media?.creator).toBe('Jack Kelly Clark, UC IPM')
+    expect(media?.hostContext).toBe('non-cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.reviewStatus).toBe('license-review')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('media binary is not copied')
+    expect(isDisplayableMedia(media!)).toBe(false)
   })
 
   it('keeps rice root aphid labels plant-linked, root-confirmed, and canopy-cautious', () => {
@@ -265,6 +278,16 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media).toHaveLength(1)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toContain('All rights reserved')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'fungus-gnats-root-feeding') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toContain('software and electronic-media distribution require written consent')
         expect(issue.media[0].displayPermission).toBe('not-permitted')
         expect(issue.media[0].reviewStatus).toBe('license-review')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -767,9 +790,11 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
   it('keeps promoted supplemental media hashes unique', () => {
     const media = supplementalIssues.flatMap((issue) => issue.media)
+    const sha256 = media.flatMap((item) => item.sha256 ? [item.sha256] : [])
+    const perceptualHashes = media.flatMap((item) => item.perceptualHash ? [item.perceptualHash] : [])
     expect(new Set(media.map((item) => item.id)).size).toBe(media.length)
-    expect(new Set(media.map((item) => item.sha256)).size).toBe(media.length)
-    expect(new Set(media.map((item) => item.perceptualHash)).size).toBe(media.length)
+    expect(new Set(sha256).size).toBe(sha256.length)
+    expect(new Set(perceptualHashes).size).toBe(perceptualHashes.length)
   })
 
   it('keeps Fusarium laboratory-bounded and tied to the controlled policy', () => {
