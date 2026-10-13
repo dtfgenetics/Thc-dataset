@@ -77,6 +77,16 @@ describe('commercial media display licensing gate', () => {
     }))).toBe(false)
   })
 
+  it('rejects contradictory license text', () => {
+    expect(isDisplayableMedia(example('CC BY 4.0; commercial use prohibited'))).toBe(false)
+  })
+
+  it('rejects restrictions with Unicode dashes in attribution', () => {
+    expect(isDisplayableMedia(example('CC BY 4.0', {
+      requiredAttribution: 'CC BY–NC–ND 4.0',
+    }))).toBe(false)
+  })
+
   it('excludes restricted shared composite references', () => {
     const restricted = example('CC BY-NC 4.0', {
       sha256: 'c9200d6cb4fc0ee7a31908b9df06240a86ec6f2cf53fb8bece5098e4ee422952',
