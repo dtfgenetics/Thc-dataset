@@ -4,6 +4,38 @@
   "policy": "All crops remain reference-only. Pixel isolation of a panel does not make it training-eligible; parent source grouping, diagnostic review, embedded figure-label risk, and evidence requirements still apply.",
   "crops": [
     {
+      "id": "crop-waterlogging-cannabis-figure-2",
+      "parentId": "nbha-cannabis-waterlogging-figure-2-source-page",
+      "parentPath": "images/reference/original/nbha-cannabis-waterlogging-figure-2-source-page.png",
+      "sourceGroupId": "doi-10.15835-nbha53414864-fig2",
+      "issueSlug": "overwatering-root-hypoxia",
+      "box": [185, 115, 1035, 1010],
+      "label": "waterlogging-cannabis-rwc-msi-lai-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "view": "controlled-treatment-response-diagram",
+      "severity": "reference-only",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Controlled Figure 2 preserves control, water-shortage, and waterlogging identities across three durations; it is reference context, not specimen-level visual ground truth."
+    },
+    {
+      "id": "crop-waterlogging-cannabis-figure-4",
+      "parentId": "nbha-cannabis-waterlogging-figure-4-source-page",
+      "parentPath": "images/reference/original/nbha-cannabis-waterlogging-figure-4-source-page.png",
+      "sourceGroupId": "doi-10.15835-nbha53414864-fig4",
+      "issueSlug": "overwatering-root-hypoxia",
+      "box": [185, 115, 1035, 920],
+      "label": "waterlogging-cannabis-gas-exchange-chlorophyll-fluorescence-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "view": "controlled-treatment-response-diagram",
+      "severity": "reference-only",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "embeddedPanelLabel": true,
+      "trainingEligible": false,
+      "reason": "Controlled Figure 4 preserves control, water-shortage, and waterlogging identities across three durations; overlapping drought responses prohibit a visual waterlogging class."
+    },
+    {
       "id": "crop-cannabis-aphid-a",
       "parentId": "media-cannabis-aphid-figure-2",
       "parentPath": "images/reference/original/media-cannabis-aphid-figure-2.png",

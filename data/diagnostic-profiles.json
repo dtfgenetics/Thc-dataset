@@ -16204,7 +16204,8 @@
       "Brown or decayed roots can occur with excessive water and with Pythium, Phytophthora, Fusarium, Rhizoctonia, and other diseases; morphology alone cannot establish an abiotic cause.",
       "Excess water can both injure roots and favor or spread root pathogens, so drainage correction does not retrospectively prove that the original syndrome was pathogen-free.",
       "The greenhouse pathogen source is a management review, not an abiotic waterlogging trial; it supports differentials and measurement safeguards rather than a positive visual hypoxia class.",
-      "No symptom photograph or video with plant-linked Cannabis saturation or oxygen measurements, laboratory pathogen exclusions, serial progression, and reusable item-level rights was admitted; media remain empty rather than using anecdotal, vendor, forum, or generated imagery.",
+      "Two CC BY 4.0 controlled-response diagrams are indexed as reference context. Neither is a symptom photograph, plant-linked field diagnosis, serial root-zone sequence, pathogen exclusion, or verified diagnostic video, and both remain outside automated training.",
+      "No symptom photograph or video with plant-linked Cannabis saturation or oxygen measurements, laboratory pathogen exclusions, serial progression, and reusable item-level rights was admitted; anecdotal, vendor, forum, generated, and measurement-free imagery remains excluded.",
       "All symptom-only, root-unlinked, measurement-free, single-timepoint, or disease-confounded samples require human review."
     ],
     "sources": [
@@ -16220,13 +16221,15 @@
         "publisher": "University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca",
         "publicationDate": "2025-12-23",
         "year": 2025,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-14",
         "doi": "10.15835/nbha53414864",
         "supportedClaims": [
           "In a controlled Cannabis sativa cv. G1 experiment, waterlogging was imposed by standing potted plants in a two-centimetre sheet of water; diagnosis therefore depended on verified root-zone exposure rather than canopy appearance alone.",
           "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
           "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
-          "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+          "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements.",
+          "Figure 2 plots reproductive-stage relative water content, membrane-stability index, and leaf-area index for control, water-shortage, and waterlogging treatments at 7, 14, and 21 days; it is a treatment-response diagram rather than a visible symptom image.",
+          "Figure 4 plots stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching for the same reproductive-stage treatment durations; its instrument-derived values cannot establish an image-only diagnosis."
         ]
       },
       {
@@ -16290,6 +16293,73 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-waterlogging-cannabis-rwc-msi-lai-rincon-figure-2",
+        "url": "https://www.notulaebotanicae.ro/index.php/nbha/article/download/14864/10100/75178#page=9",
+        "alt": "Three-panel controlled Cannabis treatment-response diagram comparing relative water content, membrane stability index, and leaf-area index under control, water-shortage, and waterlogging treatments at 7, 14, and 21 days.",
+        "caption": "Controlled-study Figure 2 plots reproductive-stage response measurements for Cannabis sativa cv. G1 across three exposure durations. It documents measured treatment response, not a visible symptom phenotype, oxygen measurement, or universal severity threshold.",
+        "creator": "Camilo A. Rincón-Bohórquez, Cristhian C. Chávez-Arias, and Hermann Restrepo-Díaz",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+        "mediaType": "image",
+        "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz. Cite Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, DOI 10.15835/nbha53414864, Figure 2; link the CC BY 4.0 license; note that the repository display is a cropped 144-dpi rendering of PDF page 9.",
+        "diagnosticLabel": "overwatering-root-hypoxia — controlled Cannabis waterlogging response diagram for RWC, MSI, and LAI, reference only",
+        "hostSpecies": "Cannabis sativa cv. G1",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: it contains treatment means, standard errors, and significance groups rather than inspectable plant, leaf, root, substrate, water, or injury imagery.",
+          "Control, water-shortage, and waterlogging bars must remain distinguished; do not relabel the full composite or any plotted bar as specimen-level image ground truth.",
+          "Relative water content, membrane-stability index, and leaf-area index require measurement and cannot be inferred from a camera frame.",
+          "The one-genotype, controlled reproductive-stage experiment and 7-, 14-, and 21-day treatments are study-specific and are not universal diagnostic or intervention thresholds.",
+          "Reference-only pending graph-extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "081335a871ebf8c5d1dcd5a5f8b4c4655163507631a349d2091687de7b013042",
+        "perceptualHash": "dhash64:c8ec6c30f0ccc400",
+        "width": 1224,
+        "height": 1584,
+        "view": "diagram",
+        "stage": "reproductive stage; 7, 14, and 21 days of controlled treatment",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-waterlogging-cannabis-gas-exchange-chlorophyll-rincon-figure-4",
+        "url": "https://www.notulaebotanicae.ro/index.php/nbha/article/download/14864/10100/75178#page=11",
+        "alt": "Four-panel controlled Cannabis treatment-response diagram comparing stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching under control, water-shortage, and waterlogging treatments.",
+        "caption": "Controlled-study Figure 4 plots reproductive-stage physiological measurements for Cannabis sativa cv. G1 at 7, 14, and 21 days. The figure supports exposure-linked temporal context but does not show leaf color, root condition, standing water, or a diagnostic visual sequence.",
+        "creator": "Camilo A. Rincón-Bohórquez, Cristhian C. Chávez-Arias, and Hermann Restrepo-Díaz",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+        "mediaType": "image",
+        "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz. Cite Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, DOI 10.15835/nbha53414864, Figure 4; link the CC BY 4.0 license; note that the repository display is a cropped 144-dpi rendering of PDF page 11.",
+        "diagnosticLabel": "overwatering-root-hypoxia — controlled Cannabis waterlogging gas-exchange, chlorophyll, and fluorescence response diagram, reference only",
+        "hostSpecies": "Cannabis sativa cv. G1",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: stomatal conductance, SPAD, Phi2, and NPQt are instrument-derived responses; the figure contains no inspectable leaf-color, posture, margin, underside, root, or whole-plant phenotype.",
+          "Control, water-shortage, and waterlogging bars overlap in several durations and must not be collapsed into a binary visual waterlogging class.",
+          "The shared decline under water shortage demonstrates confounding; reduced chlorophyll or photosynthetic performance alone cannot identify excess water.",
+          "The one-genotype, controlled reproductive-stage experiment and 7-, 14-, and 21-day treatments are study-specific and are not universal diagnostic or intervention thresholds.",
+          "Reference-only pending graph-extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "f1beb6e4cc565f6a380cce200d40540ecd3f05d28fd30c58ebed34dfb126a2a0",
+        "perceptualHash": "dhash64:68e86c6cc4e86928",
+        "width": 1224,
+        "height": 1584,
+        "view": "diagram",
+        "stage": "reproductive stage; 7, 14, and 21 days of controlled treatment",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
   }
 ]

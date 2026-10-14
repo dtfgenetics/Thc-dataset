@@ -1,0 +1,59 @@
+{
+  "base_commit": "e64c696c49627f1d5a4454575657d53d49a912af",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261014a",
+  "changed_paths": [
+    "data/profiles/water-over.json",
+    "src/data/issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "gd-diag-waterlogging-response-diagrams-20261014",
+  "head_commit": "970e4a9ce20b4b76178c3720a395fd7313dc16c4",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.15835/nbha53414864",
+    "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+    "https://www.notulaebotanicae.ro/index.php/nbha/article/download/14864/10100/75178"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the official Notulae Botanicae article landing page, DOI, publication date, authors, publisher, PDF, Figure 2 and Figure 4 captions, controlled Cannabis sativa cv. G1 treatment design, and article-wide CC BY 4.0 license on 2026-10-14. Two 144-dpi PDF-page renderings and caption-preserving diagram crops were hashed and persisted with original asset URLs, landing-page URL, creator, license, attribution, diagnostic label, view, stage, confirmation, and use limits. The diagrams report controlled treatment means rather than visible symptom ground truth; they remain displayable reference context with trainingEligible=false. No symptom photograph, video, new field observation, human review, expert diagnosis, or laboratory verification of a new sample is claimed.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/reference-crop-spec.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "dataset/reviewed/vision_admission_review_queue_v1.json",
+    "images/reference/crops-manifest.json",
+    "images/reference/crops/crop-waterlogging-cannabis-figure-2.png",
+    "images/reference/crops/crop-waterlogging-cannabis-figure-4.png",
+    "images/reference/manifest.json",
+    "images/reference/original/nbha-cannabis-waterlogging-figure-2-source-page.png",
+    "images/reference/original/nbha-cannabis-waterlogging-figure-4-source-page.png",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts",
+    "src/lib/waterlogging-context.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

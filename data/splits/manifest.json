@@ -16,9 +16,9 @@
   "knowledgeLayerSnapshot": {
     "diagnosticProfiles": 63,
     "evidenceSources": 186,
-    "profileLinkedReferenceMedia": 79,
-    "referenceOriginals": 28,
-    "referenceCrops": 66
+    "profileLinkedReferenceMedia": 81,
+    "referenceOriginals": 30,
+    "referenceCrops": 68
   },
   "rules": [
     "Do not populate any supervised split from reference-only samples.",
@@ -34,5 +34,5 @@
     "test": 0.15,
     "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
   },
-  "reasonBlocked": "The current corpus contains a 63-profile, 184-source diagnostic knowledge layer plus 28 persisted reference originals and 66 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+  "reasonBlocked": "The current corpus contains a 63-profile, 186-source diagnostic knowledge layer plus 30 persisted reference originals and 68 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
 }
