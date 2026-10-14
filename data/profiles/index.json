@@ -582,7 +582,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/root-binding-container-stress.json"
     },
     {

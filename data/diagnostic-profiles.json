@@ -13682,7 +13682,7 @@
       "The controlled rooting-volume meta-analysis and University of Maryland morphology guide are non-Cannabis transfer evidence and do not establish Cannabis thresholds, universal symptoms, severity, or treatment efficacy.",
       "The hemp evidence is a diagnostic survey rather than a controlled container-size trial, so cultivar response, incidence, timing, yield effect, and a pathological root-density threshold remain unresolved.",
       "Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.",
-      "No licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located for this batch; media remains an explicit gap rather than using vendor, anecdotal, or non-Cannabis imagery as ground truth."
+      "One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located."
     ],
     "sources": [
       {
@@ -13740,15 +13740,48 @@
         "publisher": "University of Maryland Extension",
         "publicationDate": "2023-03-13",
         "year": 2023,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "supportedClaims": [
           "The institutional guide describes pot-bound morphology in non-Cannabis indoor plants as roots encircling the pot perimeter and forming a tight mass that can fill the pot or extend over its edge.",
           "It also reports that water can pass through a pot-bound root mass too quickly while the root-ball center remains dry, and that resulting desiccation can produce tip dieback or marginal browning.",
-          "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis."
+          "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis.",
+          "The page labels an institutional photograph as a pot-bound plant and shows an extracted non-Cannabis root mass beside its container; it is morphology-planning context only and does not establish a Cannabis diagnosis, plant linkage, progression, or causal stress."
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-pot-bound-root-mass-umd-reference-only",
+        "url": "https://extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/hgic_houseplant_pot_bound_plant_--0053-051-slide.jpg?itok=HAjmW2dw",
+        "alt": "University of Maryland Extension photograph of an unidentified non-Cannabis indoor plant removed from a pot, with a dense root mass retaining the tapered container shape beside the empty pot.",
+        "caption": "Institutional non-Cannabis morphology reference for an extracted pot-bound root mass. The frame supports inspection planning for container-outline retention and dense boundary roots, but it does not document Cannabis, a matched control, progression, measured irrigation effects, or a plant-linked diagnosis.",
+        "creator": "University of Maryland Extension Home & Garden Information Center; individual photographer not stated",
+        "license": "Copyright © 2018–2026 College of Agriculture and Natural Resources; no item-level reuse license stated",
+        "sourceUrl": "https://extension.umd.edu/resource/pot-bound-indoor-plants",
+        "mediaType": "image",
+        "requiredAttribution": "University of Maryland Extension Home & Garden Information Center, “Pot-Bound Indoor Plants,” updated March 13, 2023. Copyright College of Agriculture and Natural Resources; obtain documented permission before copying, display, publication, modification, or automated training.",
+        "diagnosticLabel": "root-binding-container-stress — non-Cannabis extracted pot-bound root-mass morphology, institutional reference only",
+        "hostSpecies": "Unidentified indoor plant; not Cannabis",
+        "hostContext": "non-cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no media binary is copied into the repository and application display is prohibited without documented permission.",
+          "Do not copy, redistribute, publish, modify, or use for automated training unless the rights holder supplies explicit reusable terms.",
+          "The photograph is non-Cannabis and cannot establish Cannabis container-restriction ground truth, severity, crop-stage response, prevalence, or treatment efficacy.",
+          "The single extracted-root view lacks an intact whole plant, persistent specimen identifier, matched comparison, scale, multiple root-ball faces, container history, center-versus-edge moisture, EC, pH, and temporal follow-up.",
+          "Dense roots and retained pot geometry are morphology context only; exclude infectious root disease, root-knot nematodes, irrigation failure, salinity, hypoxia, and transplant injury using plant-linked observations and measurements."
+        ],
+        "displayPermission": "not-permitted",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "width": 1920,
+        "height": 1080,
+        "view": "root-crown",
+        "stage": "plant removed from container; species, age, and production stage not stated",
+        "severity": "dense root mass occupies the former pot volume; Cannabis severity not established",
+        "confirmation": "illustrative",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "root-fusarium-crown-rot",

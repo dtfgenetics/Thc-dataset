@@ -150,7 +150,7 @@ describe('diagnostic coverage audit', () => {
     expect(warnings).toContain('transfer references for color and field-edge context only')
   })
 
-  it('keeps root-binding as a root-inspection diagnosis with an explicit media gap', () => {
+  it('keeps root-binding as a root-inspection diagnosis with bounded transfer media', () => {
     const record = issues.find((issue) => issue.slug === 'root-binding-container-stress')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
@@ -162,10 +162,19 @@ describe('diagnostic coverage audit', () => {
     expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
     expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(12)
     expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]).toMatchObject({
+      id: 'media-pot-bound-root-mass-umd-reference-only',
+      hostContext: 'non-cannabis',
+      displayPermission: 'not-permitted',
+      trainingPermission: 'not-permitted',
+      trainingEligible: false,
+      view: 'root-crown',
+      confirmation: 'illustrative',
+    })
     expect(confirmation).toContain('extract the root ball intact')
     expect(confirmation).toContain('plant identity linked across dates')
-    expect(warnings).toContain('media remains an explicit gap')
+    expect(warnings).toContain('reference metadata only')
   })
 
   it('keeps drought as a measured temporal diagnosis with bounded reference media', () => {
@@ -595,6 +604,13 @@ describe('diagnostic coverage audit', () => {
     expect(confirmation).toContain('persistent plant and root-specimen identifiers')
     expect(confirmation).toContain('causally attributed container-restriction injury as separate labels')
     expect(exclusions).toContain('universal Cannabis diagnostic threshold')
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media[0]).toMatchObject({
+      id: 'media-pot-bound-root-mass-umd-reference-only',
+      hostContext: 'non-cannabis',
+      displayPermission: 'not-permitted',
+      trainingPermission: 'not-permitted',
+      trainingEligible: false,
+    })
   })
 })
