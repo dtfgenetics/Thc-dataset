@@ -10,12 +10,12 @@
     "near_duplicate_isolation_required": true,
     "coverage_thresholds_required": true
   },
-  "record_count": 66,
-  "source_group_count": 9,
+  "record_count": 68,
+  "source_group_count": 11,
   "priority_counts": {
     "high": 54,
     "medium": 6,
-    "low": 6
+    "low": 8
   },
   "records": [
     {
@@ -2019,7 +2019,7 @@
       "perceptual_hash": "dhash64:36189151864ed6d3",
       "parent_source_article": "https://doi.org/10.3390/plants14060931",
       "parent_license": "CC BY 4.0",
-      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20× stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
+      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20\u00d7 stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
       "parent_host_species": null,
       "automated_priority": "low",
       "automated_flags": {
@@ -2053,7 +2053,7 @@
       "perceptual_hash": "dhash64:3961653d12a597d3",
       "parent_source_article": "https://doi.org/10.3390/plants14060931",
       "parent_license": "CC BY 4.0",
-      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20× stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
+      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20\u00d7 stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
       "parent_host_species": null,
       "automated_priority": "low",
       "automated_flags": {
@@ -2087,7 +2087,7 @@
       "perceptual_hash": "dhash64:1430f060f0a4a848",
       "parent_source_article": "https://doi.org/10.3390/plants14060931",
       "parent_license": "CC BY 4.0",
-      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20× stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
+      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20\u00d7 stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
       "parent_host_species": null,
       "automated_priority": "low",
       "automated_flags": {
@@ -2121,7 +2121,7 @@
       "perceptual_hash": "dhash64:0646c563b30c84ca",
       "parent_source_article": "https://doi.org/10.3390/plants14060931",
       "parent_license": "CC BY 4.0",
-      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20× stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
+      "parent_confirmation": "Peer-reviewed open-access Cannabis aphid study established colonies on Cannabis sativa and used morphology under 20\u00d7 stereo microscopy to distinguish Phorodon cannabis from similar aphids.",
       "parent_host_species": null,
       "automated_priority": "low",
       "automated_flags": {
@@ -2191,6 +2191,74 @@
       "parent_license": "CC BY 4.0",
       "parent_confirmation": "Peer-reviewed Cannabis powdery mildew study; the source also characterized Golovinomyces ambrosiae conidia and conidiophores from infected Cannabis leaves and used controlled inoculation/phenotyping.",
       "parent_host_species": null,
+      "automated_priority": "low",
+      "automated_flags": {
+        "cannabis_host": true,
+        "strong_confirmation_metadata": true,
+        "embedded_panel_label": true,
+        "reference_only_class": false
+      },
+      "review_state": "pending-human-review",
+      "review_decision": "pending",
+      "training_eligible": false,
+      "blockers": [
+        "human diagnostic/scientific review pending",
+        "source-group split assignment pending",
+        "independent-source/class coverage threshold pending",
+        "embedded figure/panel label must be removed or explicitly accepted"
+      ]
+    },
+    {
+      "crop_id": "crop-waterlogging-cannabis-figure-2",
+      "parent_id": "nbha-cannabis-waterlogging-figure-2-source-page",
+      "source_group_id": "doi-10.15835-nbha53414864-fig2",
+      "issue_slug": "overwatering-root-hypoxia",
+      "label": "waterlogging-cannabis-rwc-msi-lai-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "view": "controlled-treatment-response-diagram",
+      "severity": "reference-only",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "repository_path": "images/reference/crops/crop-waterlogging-cannabis-figure-2.png",
+      "sha256": "bf27fe90386aec83e63d94c1920ff8f1060761fa00d8591bf3c8490f8d90077b",
+      "perceptual_hash": "dhash64:d4ccccf47070b08c",
+      "parent_source_article": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "parent_license": "CC BY 4.0",
+      "parent_confirmation": "lab-confirmed",
+      "parent_host_species": "Cannabis sativa cv. G1",
+      "automated_priority": "low",
+      "automated_flags": {
+        "cannabis_host": true,
+        "strong_confirmation_metadata": true,
+        "embedded_panel_label": true,
+        "reference_only_class": false
+      },
+      "review_state": "pending-human-review",
+      "review_decision": "pending",
+      "training_eligible": false,
+      "blockers": [
+        "human diagnostic/scientific review pending",
+        "source-group split assignment pending",
+        "independent-source/class coverage threshold pending",
+        "embedded figure/panel label must be removed or explicitly accepted"
+      ]
+    },
+    {
+      "crop_id": "crop-waterlogging-cannabis-figure-4",
+      "parent_id": "nbha-cannabis-waterlogging-figure-4-source-page",
+      "source_group_id": "doi-10.15835-nbha53414864-fig4",
+      "issue_slug": "overwatering-root-hypoxia",
+      "label": "waterlogging-cannabis-gas-exchange-chlorophyll-fluorescence-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "view": "controlled-treatment-response-diagram",
+      "severity": "reference-only",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "repository_path": "images/reference/crops/crop-waterlogging-cannabis-figure-4.png",
+      "sha256": "1f844b034d22ed2e1c0ee0bc9311a30d33314c797bde3f8079bb1c09fb71d873",
+      "perceptual_hash": "dhash64:c4dccce4caccec92",
+      "parent_source_article": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "parent_license": "CC BY 4.0",
+      "parent_confirmation": "lab-confirmed",
+      "parent_host_species": "Cannabis sativa cv. G1",
       "automated_priority": "low",
       "automated_flags": {
         "cannabis_host": true,

@@ -1845,13 +1845,15 @@
     "publisher": "University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca",
     "publicationDate": "2025-12-23",
     "year": 2025,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-14",
     "doi": "10.15835/nbha53414864",
     "supportedClaims": [
       "In a controlled Cannabis sativa cv. G1 experiment, waterlogging was imposed by standing potted plants in a two-centimetre sheet of water; diagnosis therefore depended on verified root-zone exposure rather than canopy appearance alone.",
       "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
       "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
-      "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+      "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements.",
+      "Figure 2 plots reproductive-stage relative water content, membrane-stability index, and leaf-area index for control, water-shortage, and waterlogging treatments at 7, 14, and 21 days; it is a treatment-response diagram rather than a visible symptom image.",
+      "Figure 4 plots stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching for the same reproductive-stage treatment durations; its instrument-derived values cannot establish an image-only diagnosis."
     ]
   },
   {
@@ -2021,9 +2023,14 @@
     "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
     "publicationDate": "2024-12-05",
     "year": 2024,
-    "accessedDate": "2026-10-13",
+    "accessedDate": "2026-10-14",
     "doi": "10.32473/edis-pp379-2024",
     "supportedClaims": [
+      "The UF/IFAS field guide describes Xanthomonas-associated hemp injury as small necrotic leaf spots with yellow or chlorotic halos, leaf yellowing, and blighting.",
+      "UF/IFAS Figure 15 is a four-panel institutional hemp reference credited to Rui Yang, Joshua Freeman, and Mathews Paret; it combines a whole potted-plant view with multiple leaf and lesion close-ups.",
+      "The guide states that bacteria can enter through natural openings or wounds and that excessive moisture or extended leaf wetness can increase disease intensity, while emphasizing that little is known about this hemp disease complex.",
+      "The guide recommends plant-diagnostic-center pathogen identification and confirmation; Figure 15 is therefore a visual differential rather than specimen-linked laboratory or current species-level proof.",
+      "The publication is licensed CC BY-NC-ND 4.0, limiting reuse to unchanged noncommercial distribution with attribution and excluding derivative preparation without additional permission.",
       "The UF/IFAS field guide describes small circular light-green hemp leaf spots that expand to about 1 to 2 mm and turn brown with a dark border, while noting that lesions can also remain light tan without a border.",
       "The guide states that lesions may coalesce into larger irregular lesions and that dark gray or black fungal growth can occur on both leaf surfaces; these are differential features rather than image-only species confirmation.",
       "UF/IFAS Figure 2 is an institutional hemp-leaf reference credited to Thomas Isakeit, Texas A&M University, but its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display and does not authorize derivative crops or automated training.",
@@ -2236,11 +2243,13 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2020-08-05",
     "year": 2020,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-13",
     "doi": "10.3389/fpls.2020.01169",
     "supportedClaims": [
       "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
       "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
+      "Figure 1 reports weekly canopy growth-index trajectories during flowering for 1, 5, 10, 20, and 40 mM NaCl in matched hydroponic and aquaponic panels; it is a treatment-response diagram, not a symptom photograph or a universal diagnostic threshold.",
+      "Figure 2 reports chlorophyll content index from the most recently expanded center leaflet over the same flowering-stage treatments; the hydroponic 40 mM treatment declined while the aquaponic panel did not show the same NaCl response.",
       "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
       "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
     ]
@@ -2382,7 +2391,7 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2024-03-15",
     "year": 2024,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-13",
     "doi": "10.3389/fpls.2024.1293184",
     "supportedClaims": [
       "Felina 32 fiber hemp in an outdoor mesocosm was irrigated with NaCl solutions at 2, 4, and 6 dS/m and compared with a 0.4 dS/m tap-water control.",
@@ -3104,6 +3113,24 @@
     ]
   },
   {
+    "sourceKey": "https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/",
+    "title": "Rhizoctonia Sore Shin and Root Rot",
+    "organization": "USDA Hemp Multistate Project S1084",
+    "url": "https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/",
+    "authors": [
+      "Nicole Gauthier"
+    ],
+    "publisher": "Cornell University, University of Kentucky, and USDA Hemp Multistate Project S1084",
+    "year": 2024,
+    "accessedDate": "2026-10-14",
+    "supportedClaims": [
+      "The institutional hemp-disease gallery categorizes eight Kentucky Cannabis/hemp photographs under Rhizoctonia sore shin and root rot, identifies Rhizoctonia solani, and credits the photographs to N. Gauthier.",
+      "The indexed 1920 by 1280 field photograph provides a whole-plot view of widespread late-season brown, dried, or collapsed plants rather than a root, crown, lower-stem, lesion, or microscopy view.",
+      "The gallery does not publish a plant identifier, cultivar, date, scale, severity rubric, sample-to-assay linkage, culture, sequence accession, pathogenicity result, or item-level diagnostic method for the pictured field; it therefore supports institutional reference context but not specimen-level Rhizoctonia ground truth.",
+      "The gallery page and asset metadata do not state an item-level reuse license or automated-training permission, so the photograph is retained as reference-link metadata only and is not displayed, copied into the repository, or admitted to training."
+    ]
+  },
+  {
     "sourceKey": "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/f/10739/files/2025/10/Septoria-Leaf-Spot-of-Hemp.pdf",
     "title": "Septoria Leaf Spot of Hemp",
     "organization": "Cornell University Plant Disease Diagnostic Clinic",
@@ -3419,11 +3446,12 @@
     "publisher": "University of Maryland Extension",
     "publicationDate": "2023-03-13",
     "year": 2023,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-13",
     "supportedClaims": [
       "The institutional guide describes pot-bound morphology in non-Cannabis indoor plants as roots encircling the pot perimeter and forming a tight mass that can fill the pot or extend over its edge.",
       "It also reports that water can pass through a pot-bound root mass too quickly while the root-ball center remains dry, and that resulting desiccation can produce tip dieback or marginal browning.",
-      "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis."
+      "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis.",
+      "The page labels an institutional photograph as a pot-bound plant and shows an extracted non-Cannabis root mass beside its container; it is morphology-planning context only and does not establish a Cannabis diagnosis, plant linkage, progression, or causal stress."
     ]
   },
   {
@@ -3474,13 +3502,14 @@
     "organization": "Utah State University Extension Integrated Pest Management",
     "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
     "publisher": "Utah State University Extension",
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-13",
     "supportedClaims": [
       "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
       "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
       "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
       "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
-      "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+      "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds.",
+      "The institutional page captions its yellowstriped-armyworm photograph as a larva found on hemp and credits the image to the Utah State University Extension Integrated Pest Management Program; the frame is plant-associated morphology context, not a documented feeding progression or species voucher."
     ]
   },
   {
@@ -3648,6 +3677,18 @@
     ]
   },
   {
+    "sourceKey": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+    "title": "Legal Notices—UC IPM: Use of materials",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.",
+      "The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training."
+    ]
+  },
+  {
     "sourceKey": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
     "title": "Dematophora Root Rot, or Rosellinia Root Rot",
     "organization": "University of California Statewide Integrated Pest Management Program",
@@ -3672,6 +3713,18 @@
       "Spider-mite feeding can cause stippling, bronzing or yellowing, leaf drop, and fine silk webbing; damage can remain visible after mites have left, so injury alone does not establish an active infestation.",
       "Diagnosis should include leaf-underside inspection with a hand lens and tapping suspect foliage over white paper to look for moving mites; eggs, mites, and webbing provide stronger evidence than leaf color alone.",
       "Predatory mites are typically more active and have longer legs than plant-feeding spider mites, so visible mite-like organisms are not automatically pests."
+    ]
+  },
+  {
+    "sourceKey": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+    "title": "Larvae of a fungus gnat, Bradysia sp., feeding on the underside of a fallen leaf",
+    "organization": "University of California Statewide Integrated Pest Management Program",
+    "url": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+    "publisher": "University of California Agriculture and Natural Resources",
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "The institutional image page identifies Bradysia sp. larvae feeding on the underside of a fallen leaf on the surface of container-plant medium in a UC Davis greenhouse and credits Jack Kelly Clark, UC IPM.",
+      "The image supplies cross-crop larval and media-surface context only: it does not show Cannabis, fine-root injury, a whole-plant distribution, a time sequence, severity, or a species-resolving voucher."
     ]
   },
   {
@@ -4071,6 +4124,21 @@
     ]
   },
   {
+    "sourceKey": "https://www.library.cornell.edu/copyright/",
+    "title": "Copyright Statement",
+    "organization": "Cornell University Library",
+    "url": "https://www.library.cornell.edu/copyright/",
+    "authors": [
+      "Cornell University Library"
+    ],
+    "publisher": "Cornell University",
+    "accessedDate": "2026-10-14",
+    "supportedClaims": [
+      "Cornell University Library states that Cornell web material is protected by copyright unless explicit terms say otherwise and advises seeking permission for redistribution or other uses outside the stated terms.",
+      "No explicit license or automated-training grant was found on the Rhizoctonia gallery or asset page; the conservative rights status for this record is therefore unknown display permission and not-permitted training use pending written authorization from the rights holder."
+    ]
+  },
+  {
     "sourceKey": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
     "title": "Nutrient Deficiency ID Guide for Hemp",
     "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
@@ -4133,6 +4201,23 @@
       "The Finola sequence documents chlorosis on young leaves, upper-leaf chlorosis and general paleness in new growth, and progression from moderate to severe chlorosis; increased stem woodiness and shortened internodes are additional context.",
       "The guide states that sulfur availability decreases below pH 6.0, but that statement is soil-oriented context and must not be converted into a universal substrate, hydroponic, tissue, or diagnostic cutoff.",
       "Figures 18 through 21 are proprietary institutional photographs without item-level reuse or automated-training permission; they are claim evidence only and are not copied, indexed, or admitted to training."
+    ]
+  },
+  {
+    "sourceKey": "https://www.usu.edu/copyright/index.cfm",
+    "title": "Disclaimers and Copyright",
+    "organization": "Utah State University",
+    "url": "https://www.usu.edu/copyright/index.cfm",
+    "authors": [
+      "Utah State University"
+    ],
+    "publisher": "Utah State University",
+    "publicationDate": "2021-12-20",
+    "year": 2021,
+    "accessedDate": "2026-10-13",
+    "supportedClaims": [
+      "Utah State University states that its website content is all rights reserved, redistribution or reproduction is prohibited without express written permission, and site images may not be copied or published without authorization.",
+      "A direct link to an official Utah State University page is permitted, so the yellowstriped-armyworm asset is retained only as reference metadata and is not copied into the repository, displayed by the application, or admitted to automated training."
     ]
   }
 ]

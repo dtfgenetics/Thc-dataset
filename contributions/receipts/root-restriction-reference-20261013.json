@@ -1,0 +1,50 @@
+{
+  "base_commit": "aa6f256441c27ee9fd707fa6b538353676388fc9",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261013f",
+  "changed_paths": [
+    "data/profiles/root-binding-container-stress.json",
+    "src/data/expanded-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "gd-diag-root-restriction-reference-20261013",
+  "head_commit": "41ac972e4c9e2199f790019edf4c1a5a6da54610",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://extension.umd.edu/resource/pot-bound-indoor-plants",
+    "https://extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/hgic_houseplant_pot_bound_plant_--0053-051-slide.jpg?itok=HAjmW2dw"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the University of Maryland Extension landing page, its pot-bound morphology and watering claims, the labeled institutional image asset, 1920 by 1080 intrinsic dimensions, page update date, and College of Agriculture and Natural Resources copyright notice on 2026-10-13. The image is an unidentified non-Cannabis indoor plant and is retained only as link metadata for root-ball inspection planning. No binary was copied, application display and automated training are prohibited without explicit reusable rights, and the record does not establish Cannabis ground truth, severity, progression, or causal stress. This agent review does not represent human, expert, or laboratory verification of a new sample.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/coverage-audit.test.ts",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

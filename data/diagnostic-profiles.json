@@ -257,7 +257,9 @@
       "The chlorotic halo is proportionally wider than the necrotic center in the documented Cannabis lesion geometry.",
       "Comparable focal lesions occur on more than one attached leaf and can be mapped on both leaf surfaces rather than appearing only as one detached spot.",
       "Serial views preserve the water-soaked-to-necrotic-with-halo sequence instead of a stable crystal, residue, glare, or camera-color artifact.",
-      "A high-confidence causal label requires a representative active lesion linked to bacterial recovery and validated molecular or genomic identification consistent with Xanthomonas cannabis."
+      "A high-confidence causal label requires a representative active lesion linked to bacterial recovery and validated molecular or genomic identification consistent with Xanthomonas cannabis.",
+      "The UF/IFAS institutional composite shows that compatible presentation can combine broader whole-plant yellowing or blighting with multiple discrete necrotic, yellow-haloed spots on individual leaflets.",
+      "Figure 15 combines whole-plant and close lesion views but supplies no visible scale, plant or sample identifier, laboratory result, isolate, sequence accession, or current species-level linkage for the pictured material."
     ],
     "exclusions": [
       "White surface colonies, fungal fruiting structures, diagnostic conidia, or a positive fungal assay support powdery mildew or a fungal leaf spot rather than Xanthomonas.",
@@ -338,7 +340,9 @@
       "Xanthomonas cannabis is genetically and host diverse; a species-level result, virulence marker, or non-Cannabis pathogenicity assay is not by itself proof of causal Cannabis disease.",
       "Cannabis excess-nutrient salt injury can produce pathogen-like leaf spots, necrosis, blighting, wilt, and white deposits; surface appearance must remain linked to exposure, microscopy, and pathogen exclusions.",
       "General greenhouse bacterial-leaf-spot guidance is used only for differential diagnosis and handling precautions, not as Cannabis-specific epidemiological proof.",
-      "No plant-linked, laboratory-confirmed Cannabis image or video with verified item-level automated-training permission was found for this batch; no media was copied or admitted."
+      "UF/IFAS Figure 15 is an attributed institutional composite, not a plant- and lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without permission.",
+      "The reference lacks scale, sample identity, culture, microscopy, sequence accessions, pathogenicity linkage, and a current Xanthomonas cannabis identification for the pictured plant.",
+      "No plant-linked, laboratory-confirmed Cannabis image or video with verified item-level automated-training permission was found; the new reference remains metadata-only and training-ineligible."
     ],
     "sources": [
       {
@@ -377,6 +381,29 @@
         "supportedClaims": [
           "Cannabis bacterial leaf spot was described as water-soaked lesions followed by necrosis with a yellow halo.",
           "The study sequenced two geographically distinct strains previously isolated from symptomatic cannabis tissue in Japan and Romania and proposed the species name Xanthomonas cannabis."
+        ]
+      },
+      {
+        "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+        "organization": "UF/IFAS Extension",
+        "url": "https://doi.org/10.32473/edis-pp379-2024",
+        "authors": [
+          "Kevin Korus",
+          "Wael Elwakil",
+          "Nicholas Dufault",
+          "Zachary D. Eldred"
+        ],
+        "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+        "publicationDate": "2024-12-05",
+        "year": 2024,
+        "accessedDate": "2026-10-14",
+        "doi": "10.32473/edis-pp379-2024",
+        "supportedClaims": [
+          "The UF/IFAS field guide describes Xanthomonas-associated hemp injury as small necrotic leaf spots with yellow or chlorotic halos, leaf yellowing, and blighting.",
+          "UF/IFAS Figure 15 is a four-panel institutional hemp reference credited to Rui Yang, Joshua Freeman, and Mathews Paret; it combines a whole potted-plant view with multiple leaf and lesion close-ups.",
+          "The guide states that bacteria can enter through natural openings or wounds and that excessive moisture or extended leaf wetness can increase disease intensity, while emphasizing that little is known about this hemp disease complex.",
+          "The guide recommends plant-diagnostic-center pathogen identification and confirmation; Figure 15 is therefore a visual differential rather than specimen-linked laboratory or current species-level proof.",
+          "The publication is licensed CC BY-NC-ND 4.0, limiting reuse to unchanged noncommercial distribution with attribution and excluding derivative preparation without additional permission."
         ]
       },
       {
@@ -458,7 +485,41 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "uf-ifas-xanthomonas-field-guide-figure-15-2024",
+        "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Iua76rd67o/Iua76rd67o-2048.webp",
+        "alt": "Four-panel institutional hemp reference showing a chlorotic potted plant and multiple leaf close-ups with small necrotic yellow-haloed spots",
+        "caption": "Reference-only UF/IFAS Figure 15 credited to Rui Yang, Joshua Freeman, and Mathews Paret. The intact composite supplies whole-plant and lesion-distribution context but is not a specimen-linked laboratory record.",
+        "creator": "Rui Yang, Joshua Freeman, and Mathews Paret; UF/IFAS NFREC",
+        "license": "CC BY-NC-ND 4.0",
+        "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+        "mediaType": "image",
+        "requiredAttribution": "Rui Yang, Joshua Freeman, and Mathews Paret; UF/IFAS NFREC. Figure 15 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+        "diagnosticLabel": "xanthomonas-bacterial-leaf-spot — institutional whole-plant and lesion composite, not sample-level laboratory confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+          "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, panel extraction, and derivative preparation require additional permission.",
+          "The composite lacks scale, plant and sample identity, culture, microscopy, molecular identification, sequence accessions, and pathogenicity linkage; do not infer Xanthomonas cannabis or causality from appearance.",
+          "The figure label uses Xanthomonas spp. and the historical guide heading; it does not resolve the current species or pathovar for the pictured material.",
+          "Automated training and evaluation use are not permitted by this record."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "not-permitted",
+        "sha256": "12b06502867f107461ce6ded48eef4ad56ee995f78a342bac179be6a568e6b8a",
+        "perceptualHash": "dhash64:4d4f4ecec7cbae5c",
+        "width": 907,
+        "height": 551,
+        "view": "close-up",
+        "stage": "whole potted hemp plant and detached foliage; growth stage not reported",
+        "severity": "whole-plant yellowing or blighting with scattered to numerous leaf lesions across composite panels",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "env-heat",
@@ -4897,7 +4958,8 @@
       "Utah hemp guidance reports few armyworms and little foliar injury locally, while Missouri describes potentially severe feeding; neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold.",
       "The Pacific Northwest hemp guide identifies corn earworm as the most damaging regional caterpillar and says other mature-hemp caterpillar injury is usually minor; bud injury must not be defaulted to armyworm.",
       "The Florida synthesis distinguishes established, intercepted, and reported species and warns that presence does not prove reproduction or damage; regional lists are not image ground truth.",
-      "The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission. No media was copied or indexed, and no training-eligible asset is included."
+      "The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission.",
+      "The Utah State University yellowstriped-armyworm image is a Cannabis-associated institutional reference, but it lacks reuse permission, a scale, a ventral proleg view, an uninterrupted feeding sequence, and a specimen or laboratory identifier. Only link metadata and verified technical fingerprints are indexed; no media binary is copied, display and automated training are prohibited, and no training-eligible asset is included."
     ],
     "sources": [
       {
@@ -4932,13 +4994,14 @@
         "organization": "Utah State University Extension Integrated Pest Management",
         "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
         "publisher": "Utah State University Extension",
-        "accessedDate": "2026-08-24",
+        "accessedDate": "2026-10-13",
         "supportedClaims": [
           "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
           "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
           "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
           "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
-          "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+          "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds.",
+          "The institutional page captions its yellowstriped-armyworm photograph as a larva found on hemp and credits the image to the Utah State University Extension Integrated Pest Management Program; the frame is plant-associated morphology context, not a documented feeding progression or species voucher."
         ]
       },
       {
@@ -4978,9 +5041,59 @@
           "The paper emphasizes identification across life stages and warns that immature organisms can be confused; occurrence in a regional list or an organism-only image is not plant-linked proof of injury, prevalence, or severity.",
           "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media."
         ]
+      },
+      {
+        "title": "Disclaimers and Copyright",
+        "organization": "Utah State University",
+        "url": "https://www.usu.edu/copyright/index.cfm",
+        "authors": [
+          "Utah State University"
+        ],
+        "publisher": "Utah State University",
+        "publicationDate": "2021-12-20",
+        "year": 2021,
+        "accessedDate": "2026-10-13",
+        "supportedClaims": [
+          "Utah State University states that its website content is all rights reserved, redistribution or reproduction is prohibited without express written permission, and site images may not be copied or published without authorization.",
+          "A direct link to an official Utah State University page is permitted, so the yellowstriped-armyworm asset is retained only as reference metadata and is not copied into the repository, displayed by the application, or admitted to automated training."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-yellowstriped-armyworm-hemp-usu-license-review",
+        "url": "https://extension.usu.edu/planthealth/ipm/images/agricultural/hemp/armyworm/IMG_1705.jpg",
+        "alt": "Close lateral view of a striped armyworm larva beside a partially visible Cannabis leaf in a container; the larva has paired yellow dorsal stripes, dark triangular markings, and a pale lateral stripe.",
+        "caption": "Utah State University Extension IPM Cannabis-associated yellowstriped-armyworm reference. The source page says the larva was found on hemp, but the frame does not document active feeding, fresh injury, an intact plant, a scale, complete ventral morphology, or specimen confirmation.",
+        "creator": "Utah State University Extension Integrated Pest Management Program",
+        "license": "All rights reserved — Utah State University; link-only reference metadata",
+        "sourceUrl": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+        "mediaType": "image",
+        "requiredAttribution": "Utah State University Extension Integrated Pest Management Program, “Yellowstriped armyworm larva found on hemp,” Armyworms. Copyright © Utah State University; obtain express written permission before copying, display, publication, modification, or automated training.",
+        "diagnosticLabel": "armyworm-caterpillar-feeding — yellowstriped-armyworm-compatible larva found on hemp, institutional reference only",
+        "hostSpecies": "Cannabis sativa (hemp), based on the Utah State University Extension caption",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; the media binary is not copied into the repository and application display is prohibited by the recorded rights policy.",
+          "Do not use for automated training, redistribution, publication, modification, or derivative crops unless the rights holder provides express written permission.",
+          "The source caption supports only that the larva was found on hemp; the image does not show an uninterrupted active-feeding event, fresh injury progression, whole-plant location, crop stage, field distribution, prevalence, or severity.",
+          "The lateral frame lacks a metric scale, complete head detail, ventral proleg count, and a retained specimen or molecular identifier, so it cannot independently establish species-level ground truth or exclude other noctuid larvae.",
+          "Keep the image outside training and evaluation splits; use it only as a traceable institutional reference for annotation design and morphology review."
+        ],
+        "displayPermission": "not-permitted",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "ef606bfd902e3501c8d7539348fedd38382859f5de5a000870fb53d0b8d7032b",
+        "perceptualHash": "dhash64:7870c884e3cc9c1a",
+        "width": 810,
+        "height": 660,
+        "view": "close-up",
+        "stage": "larva; crop stage and date not stated",
+        "severity": "not established; no injury progression shown",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "insect-cabbage-looper",
@@ -12917,6 +13030,7 @@
       "The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.",
       "Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.",
       "Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.",
+      "The UC IPM larval photograph is a non-Cannabis greenhouse reference with rights that prohibit software distribution without written consent. Only lawful reference metadata is stored; the binary is not copied, displayed, or admitted to training.",
       "No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training."
     ],
     "sources": [
@@ -12984,9 +13098,61 @@
           "Yellow sticky cards can monitor adults, potato pieces can monitor larvae, and roots of poorly performing plants should be inspected directly; wet conditions and poor drainage favor populations.",
           "The page gives greenhouse life-stage timings, but those values are context-dependent cross-crop guidance and must not be treated as universal Cannabis progression intervals."
         ]
+      },
+      {
+        "title": "Larvae of a fungus gnat, Bradysia sp., feeding on the underside of a fallen leaf",
+        "organization": "University of California Statewide Integrated Pest Management Program",
+        "url": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+        "publisher": "University of California Agriculture and Natural Resources",
+        "accessedDate": "2026-10-13",
+        "supportedClaims": [
+          "The institutional image page identifies Bradysia sp. larvae feeding on the underside of a fallen leaf on the surface of container-plant medium in a UC Davis greenhouse and credits Jack Kelly Clark, UC IPM.",
+          "The image supplies cross-crop larval and media-surface context only: it does not show Cannabis, fine-root injury, a whole-plant distribution, a time sequence, severity, or a species-resolving voucher."
+        ]
+      },
+      {
+        "title": "Legal Notices—UC IPM: Use of materials",
+        "organization": "University of California Statewide Integrated Pest Management Program",
+        "url": "https://ipm.ucanr.edu/GENERAL/copyright.html",
+        "publisher": "University of California Agriculture and Natural Resources",
+        "accessedDate": "2026-10-13",
+        "supportedClaims": [
+          "UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.",
+          "The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-fungus-gnat-larvae-ucipm-reference-only",
+        "url": "https://ipm.ucanr.edu/PMG/IMAGES/B/I-DP-BRAD-LV.004.jpg",
+        "alt": "UC IPM greenhouse reference showing Bradysia sp. larvae on the underside of a fallen leaf at the surface of container-plant medium.",
+        "caption": "Institutional cross-crop greenhouse reference for larval context. It does not show Cannabis, plant-linked root injury, progression, severity, or a species-resolving voucher, and UC IPM does not authorize distribution in software without written consent.",
+        "creator": "Jack Kelly Clark, UC IPM",
+        "license": "Copyright © Regents of the University of California; software and electronic-media distribution require written consent under the UC IPM use policy",
+        "sourceUrl": "https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html",
+        "mediaType": "image",
+        "requiredAttribution": "Jack Kelly Clark, UC IPM. Landing page: University of California Statewide IPM Program. Obtain written consent before copying, software distribution, publication, modification, or automated training.",
+        "diagnosticLabel": "fungus-gnats-root-feeding — Bradysia sp. larvae on fallen leaf at container-medium surface, non-Cannabis institutional reference only",
+        "hostSpecies": "Unidentified fallen plant leaf and container-plant medium; not Cannabis",
+        "hostContext": "non-cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; the media binary is not copied into the repository and application display is prohibited by the recorded rights policy.",
+          "Do not use for automated training, redistribution, publication, modification, or derivative crops unless the rights holder provides written consent.",
+          "The photograph does not show Cannabis, a fine-root interface, plant-linked injury, whole-plant distribution, temporal progression, crop stage, prevalence, or severity.",
+          "The landing-page identification is Bradysia sp.; do not infer a species, causal injury label, or pathogen interaction from this frame alone.",
+          "Use the record only as traceable institutional context for annotation design and larval inspection planning."
+        ],
+        "displayPermission": "not-permitted",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "view": "close-up",
+        "stage": "larvae on fallen leaf at container-medium surface; host crop and date not stated",
+        "severity": "not established; no Cannabis injury shown",
+        "confirmation": "visual",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "pest-rice-root-aphid",
@@ -13577,7 +13743,7 @@
       "The controlled rooting-volume meta-analysis and University of Maryland morphology guide are non-Cannabis transfer evidence and do not establish Cannabis thresholds, universal symptoms, severity, or treatment efficacy.",
       "The hemp evidence is a diagnostic survey rather than a controlled container-size trial, so cultivar response, incidence, timing, yield effect, and a pathological root-density threshold remain unresolved.",
       "Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.",
-      "No licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located for this batch; media remains an explicit gap rather than using vendor, anecdotal, or non-Cannabis imagery as ground truth."
+      "One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located."
     ],
     "sources": [
       {
@@ -13635,15 +13801,48 @@
         "publisher": "University of Maryland Extension",
         "publicationDate": "2023-03-13",
         "year": 2023,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "supportedClaims": [
           "The institutional guide describes pot-bound morphology in non-Cannabis indoor plants as roots encircling the pot perimeter and forming a tight mass that can fill the pot or extend over its edge.",
           "It also reports that water can pass through a pot-bound root mass too quickly while the root-ball center remains dry, and that resulting desiccation can produce tip dieback or marginal browning.",
-          "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis."
+          "These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis.",
+          "The page labels an institutional photograph as a pot-bound plant and shows an extracted non-Cannabis root mass beside its container; it is morphology-planning context only and does not establish a Cannabis diagnosis, plant linkage, progression, or causal stress."
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-pot-bound-root-mass-umd-reference-only",
+        "url": "https://extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/hgic_houseplant_pot_bound_plant_--0053-051-slide.jpg?itok=HAjmW2dw",
+        "alt": "University of Maryland Extension photograph of an unidentified non-Cannabis indoor plant removed from a pot, with a dense root mass retaining the tapered container shape beside the empty pot.",
+        "caption": "Institutional non-Cannabis morphology reference for an extracted pot-bound root mass. The frame supports inspection planning for container-outline retention and dense boundary roots, but it does not document Cannabis, a matched control, progression, measured irrigation effects, or a plant-linked diagnosis.",
+        "creator": "University of Maryland Extension Home & Garden Information Center; individual photographer not stated",
+        "license": "Copyright © 2018–2026 College of Agriculture and Natural Resources; no item-level reuse license stated",
+        "sourceUrl": "https://extension.umd.edu/resource/pot-bound-indoor-plants",
+        "mediaType": "image",
+        "requiredAttribution": "University of Maryland Extension Home & Garden Information Center, “Pot-Bound Indoor Plants,” updated March 13, 2023. Copyright College of Agriculture and Natural Resources; obtain documented permission before copying, display, publication, modification, or automated training.",
+        "diagnosticLabel": "root-binding-container-stress — non-Cannabis extracted pot-bound root-mass morphology, institutional reference only",
+        "hostSpecies": "Unidentified indoor plant; not Cannabis",
+        "hostContext": "non-cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no media binary is copied into the repository and application display is prohibited without documented permission.",
+          "Do not copy, redistribute, publish, modify, or use for automated training unless the rights holder supplies explicit reusable terms.",
+          "The photograph is non-Cannabis and cannot establish Cannabis container-restriction ground truth, severity, crop-stage response, prevalence, or treatment efficacy.",
+          "The single extracted-root view lacks an intact whole plant, persistent specimen identifier, matched comparison, scale, multiple root-ball faces, container history, center-versus-edge moisture, EC, pH, and temporal follow-up.",
+          "Dense roots and retained pot geometry are morphology context only; exclude infectious root disease, root-knot nematodes, irrigation failure, salinity, hypoxia, and transplant injury using plant-linked observations and measurements."
+        ],
+        "displayPermission": "not-permitted",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "width": 1920,
+        "height": 1080,
+        "view": "root-crown",
+        "stage": "plant removed from container; species, age, and production stage not stated",
+        "severity": "dense root mass occupies the former pot volume; Cannabis severity not established",
+        "confirmation": "illustrative",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "root-fusarium-crown-rot",
@@ -14526,7 +14725,7 @@
       "The Pacific Northwest environment and symptom descriptions are crop-specific but do not establish a universal cultivar response, severity scale, or image-only label.",
       "Rhizoctonia can coexist with other root pathogens, nematodes, container restriction, or abiotic stress, and a single assay or image may not resolve a mixed case.",
       "Photo/video-only confidence is capped at 0.20; confirmed labels require plant-linked diagnostic evidence and human review.",
-      "No Rhizoctonia-specific Cannabis image or video with clear item-level reuse rights and linked organism confirmation was verified for this batch."
+      "The USDA Hemp Multistate Project S1084 Kentucky image is a whole-field institutional reference without visible root, crown, lower-stem, lesion, scale, specimen identifier, laboratory linkage, or item-level reuse license; it is hidden, metadata-only, and training-ineligible."
     ],
     "sources": [
       {
@@ -14588,9 +14787,74 @@
           "Warmer soil favors disease, while early over-irrigation and irrigation-related soil cooling can slow emergence and favor the fungus; these conditions are epidemiologic context and are not diagnostic proof.",
           "The handbook recommends rotation away from susceptible hosts and avoiding early over-irrigation, supporting soil/debris movement and irrigation-history checks without establishing a universal treatment interval for every production system."
         ]
+      },
+      {
+        "title": "Rhizoctonia Sore Shin and Root Rot",
+        "organization": "USDA Hemp Multistate Project S1084",
+        "url": "https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/",
+        "authors": [
+          "Nicole Gauthier"
+        ],
+        "publisher": "Cornell University, University of Kentucky, and USDA Hemp Multistate Project S1084",
+        "year": 2024,
+        "accessedDate": "2026-10-14",
+        "supportedClaims": [
+          "The institutional hemp-disease gallery categorizes eight Kentucky Cannabis/hemp photographs under Rhizoctonia sore shin and root rot, identifies Rhizoctonia solani, and credits the photographs to N. Gauthier.",
+          "The indexed 1920 by 1280 field photograph provides a whole-plot view of widespread late-season brown, dried, or collapsed plants rather than a root, crown, lower-stem, lesion, or microscopy view.",
+          "The gallery does not publish a plant identifier, cultivar, date, scale, severity rubric, sample-to-assay linkage, culture, sequence accession, pathogenicity result, or item-level diagnostic method for the pictured field; it therefore supports institutional reference context but not specimen-level Rhizoctonia ground truth.",
+          "The gallery page and asset metadata do not state an item-level reuse license or automated-training permission, so the photograph is retained as reference-link metadata only and is not displayed, copied into the repository, or admitted to training."
+        ]
+      },
+      {
+        "title": "Copyright Statement",
+        "organization": "Cornell University Library",
+        "url": "https://www.library.cornell.edu/copyright/",
+        "authors": [
+          "Cornell University Library"
+        ],
+        "publisher": "Cornell University",
+        "accessedDate": "2026-10-14",
+        "supportedClaims": [
+          "Cornell University Library states that Cornell web material is protected by copyright unless explicit terms say otherwise and advises seeking permission for redistribution or other uses outside the stated terms.",
+          "No explicit license or automated-training grant was found on the Rhizoctonia gallery or asset page; the conservative rights status for this record is therefore unknown display permission and not-permitted training use pending written authorization from the rights holder."
+        ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "cornell-s1084-rhizoctonia-kentucky-field-ngauthier-2024",
+        "url": "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/f/10739/files/2024/06/Rhizoctonia-solani__KY__NGauthier.jpg",
+        "alt": "Wide Kentucky hemp field view with numerous brown, dried, or collapsed mature plants; no root, crown, lower-stem, or lesion detail is visible",
+        "caption": "Metadata-only institutional whole-field reference categorized by USDA Hemp Multistate Project S1084 as Rhizoctonia solani in Kentucky and credited to N. Gauthier. The page does not link the pictured field or individual plants to specimen-level diagnostic evidence.",
+        "creator": "Nicole Gauthier, University of Kentucky",
+        "license": "Copyright presumed; no item-level reuse license stated on the landing page or asset",
+        "sourceUrl": "https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/",
+        "mediaType": "image",
+        "requiredAttribution": "Photo: N. Gauthier, Kentucky; USDA Hemp Multistate Project S1084, hosted by Cornell University. Obtain permission from the rights holder before display, copying, modification, or automated-training use.",
+        "diagnosticLabel": "rhizoctonia-solani — institutional Kentucky whole-field context, not specimen-linked laboratory confirmation",
+        "hostSpecies": "Cannabis sativa / hemp",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Reference-link metadata only; no image file is stored in this repository.",
+          "Do not display, copy, modify, redistribute, or use for automated training without documented permission from the rights holder.",
+          "The wide field view does not show roots, crown, lower stem, lesion margins, fungal structures, or microscopy and cannot support a visual Rhizoctonia label by itself.",
+          "The landing page provides no plant identifier, cultivar, capture date, scale, field map, symptom timeline, sampling method, culture, sequence accession, pathogenicity result, or image-to-assay linkage.",
+          "Treat the broad field pattern as distribution context only; drought, harvest maturity, senescence, other root diseases, and abiotic injury remain unresolved visual confounders."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "license-review",
+        "trainingPermission": "not-permitted",
+        "sha256": "8f30b81f39f690514eacb9fac97d84d810e8d22099e3af9526274bdcc8b7c3d3",
+        "perceptualHash": "dhash64:6676356565e4ec4b",
+        "width": 1920,
+        "height": 1280,
+        "view": "whole-plant",
+        "stage": "field-grown mature hemp; exact cultivar, date, and crop stage not reported",
+        "severity": "widespread field-level brown, dried, or collapsed plants; cause and plant-level severity not independently resolvable from the image",
+        "confirmation": "expert-reviewed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "root-white-root-rot",
@@ -15146,7 +15410,7 @@
       "Do not diagnose “nutrient burn” or salinity from brown tips, marginal necrosis, chlorosis, curl, wilt, dark foliage, or stunting alone; photo/video-only confidence is capped at 0.20.",
       "Visible necrosis was restricted to the highest NaCl treatments in one Early Haze rockwool experiment, while other measured effects occurred without that sign; absence or presence of necrosis is not decisive.",
       "The evidence spans one drug-type chemovar, Early Haze, and Felina 32 fiber hemp under distinct hydroponic, aquaponic, rockwool, mesocosm, nutrient, NaCl, and biostimulant conditions; cultivar and system transfer requires human review.",
-      "No licensed, plant-linked Cannabis salinity progression image or verified diagnostic video met the acquisition standard, so media remains an explicit gap and automated training eligibility remains false."
+      "Two CC BY treatment-response diagrams are indexed as reference context, but neither is a symptom photograph, a plant-linked diagnostic sequence, or a verified diagnostic video; automated training eligibility remains false."
     ],
     "sources": [
       {
@@ -15164,7 +15428,7 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2024-03-15",
         "year": 2024,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "doi": "10.3389/fpls.2024.1293184",
         "supportedClaims": [
           "Felina 32 fiber hemp in an outdoor mesocosm was irrigated with NaCl solutions at 2, 4, and 6 dS/m and compared with a 0.4 dS/m tap-water control.",
@@ -15185,11 +15449,13 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2020-08-05",
         "year": 2020,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "doi": "10.3389/fpls.2020.01169",
         "supportedClaims": [
           "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
           "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
+          "Figure 1 reports weekly canopy growth-index trajectories during flowering for 1, 5, 10, 20, and 40 mM NaCl in matched hydroponic and aquaponic panels; it is a treatment-response diagram, not a symptom photograph or a universal diagnostic threshold.",
+          "Figure 2 reports chlorophyll content index from the most recently expanded center leaflet over the same flowering-stage treatments; the hydroponic 40 mM treatment declined while the aquaponic panel did not show the same NaCl response.",
           "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
           "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
         ]
@@ -15216,7 +15482,76 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-salinity-cannabis-growth-index-yep-figure-1",
+        "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/bce290d014cd/fpls-11-01169-g001.jpg",
+        "thumbnailUrl": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/bce290d014cd/fpls-11-01169-g001.jpg",
+        "alt": "Two-panel line graph of Cannabis canopy growth index over flowering time under five sodium chloride concentrations in hydroponic and aquaponic solutions.",
+        "caption": "Controlled-study Figure 1 plots repeated Cannabis canopy growth-index measurements for 1–40 mM NaCl in hydroponic and aquaponic systems. It documents treatment-linked temporal divergence, not a visible symptom phenotype or a universal EC threshold.",
+        "creator": "Brandon Yep, Nigel V. Gale, and Youbin Zheng",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424260/#F1",
+        "mediaType": "image",
+        "requiredAttribution": "© 2020 Yep, Gale and Zheng. Cite Frontiers in Plant Science 11:1169, DOI 10.3389/fpls.2020.01169, Figure 1, and link the CC BY 4.0 license.",
+        "diagnosticLabel": "salinity-high-ec-stress — controlled Cannabis NaCl canopy-growth response diagram, reference only",
+        "hostSpecies": "Cannabis sativa L. “Nordle” type-II chemovar",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: it contains derived treatment means and standard errors, not inspectable plant, leaf, root, meter, or injury imagery.",
+          "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
+          "The 1–40 mM NaCl treatments, one chemovar, continuous root exposure, and flowering-stage design are study-specific and are not universal EC or action thresholds.",
+          "Keep the whole figure, axes, treatment legend, panel identities, caption, and attribution together; do not relabel a plotted point as specimen-level ground truth.",
+          "Reference-only pending graph extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "3d4e37d7281dc574ca2ebb5db36e35bfa2466f1bddbd265c787db932d1423548",
+        "perceptualHash": "dhash64:3358103121a2e66a",
+        "width": 666,
+        "height": 267,
+        "view": "diagram",
+        "stage": "flowering; repeated measurements across the controlled exposure period",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-salinity-cannabis-chlorophyll-index-yep-figure-2",
+        "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/119b90c4db1f/fpls-11-01169-g002.jpg",
+        "thumbnailUrl": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/119b90c4db1f/fpls-11-01169-g002.jpg",
+        "alt": "Two-panel line graph of Cannabis leaf chlorophyll content index over flowering time under five sodium chloride concentrations in hydroponic and aquaponic solutions.",
+        "caption": "Controlled-study Figure 2 plots chlorophyll content index from the center leaflet of the most recently expanded leaf for 1–40 mM NaCl treatments. The hydroponic 40 mM response diverged over time; the figure does not show leaf color or establish an image-only diagnosis.",
+        "creator": "Brandon Yep, Nigel V. Gale, and Youbin Zheng",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424260/#F2",
+        "mediaType": "image",
+        "requiredAttribution": "© 2020 Yep, Gale and Zheng. Cite Frontiers in Plant Science 11:1169, DOI 10.3389/fpls.2020.01169, Figure 2, and link the CC BY 4.0 license.",
+        "diagnosticLabel": "salinity-high-ec-stress — controlled Cannabis NaCl chlorophyll-index response diagram, reference only",
+        "hostSpecies": "Cannabis sativa L. “Nordle” type-II chemovar",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: chlorophyll content index is a meter-derived measurement and the figure contains no inspectable leaf-color, margin, underside, root, or whole-plant phenotype.",
+          "The plotted center leaflet of the most recently expanded leaf does not represent older foliage, every canopy position, or a visible chlorosis threshold.",
+          "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
+          "The one-chemovar flowering experiment cannot establish cultivar-independent response timing, severity, recovery, or diagnostic specificity.",
+          "Reference-only pending graph extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "f433c9b480ce5592ea9a292e21160a9a3cfecb34282dfbecef3db3e524e71f1f",
+        "perceptualHash": "dhash64:3316424266b2d146",
+        "width": 666,
+        "height": 269,
+        "view": "diagram",
+        "stage": "flowering; repeated measurements across the controlled exposure period",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "viroid-hplvd",
@@ -15995,7 +16330,8 @@
       "Brown or decayed roots can occur with excessive water and with Pythium, Phytophthora, Fusarium, Rhizoctonia, and other diseases; morphology alone cannot establish an abiotic cause.",
       "Excess water can both injure roots and favor or spread root pathogens, so drainage correction does not retrospectively prove that the original syndrome was pathogen-free.",
       "The greenhouse pathogen source is a management review, not an abiotic waterlogging trial; it supports differentials and measurement safeguards rather than a positive visual hypoxia class.",
-      "No symptom photograph or video with plant-linked Cannabis saturation or oxygen measurements, laboratory pathogen exclusions, serial progression, and reusable item-level rights was admitted; media remain empty rather than using anecdotal, vendor, forum, or generated imagery.",
+      "Two CC BY 4.0 controlled-response diagrams are indexed as reference context. Neither is a symptom photograph, plant-linked field diagnosis, serial root-zone sequence, pathogen exclusion, or verified diagnostic video, and both remain outside automated training.",
+      "No symptom photograph or video with plant-linked Cannabis saturation or oxygen measurements, laboratory pathogen exclusions, serial progression, and reusable item-level rights was admitted; anecdotal, vendor, forum, generated, and measurement-free imagery remains excluded.",
       "All symptom-only, root-unlinked, measurement-free, single-timepoint, or disease-confounded samples require human review."
     ],
     "sources": [
@@ -16011,13 +16347,15 @@
         "publisher": "University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca",
         "publicationDate": "2025-12-23",
         "year": 2025,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-14",
         "doi": "10.15835/nbha53414864",
         "supportedClaims": [
           "In a controlled Cannabis sativa cv. G1 experiment, waterlogging was imposed by standing potted plants in a two-centimetre sheet of water; diagnosis therefore depended on verified root-zone exposure rather than canopy appearance alone.",
           "After seven vegetative-stage days, waterlogged plants had shorter roots, lower leaf area, lower leaf-area index, lower chlorophyll-meter readings, and less biomass than controls; their growth remained lowest after a seven-day recovery period.",
           "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
-          "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements."
+          "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements.",
+          "Figure 2 plots reproductive-stage relative water content, membrane-stability index, and leaf-area index for control, water-shortage, and waterlogging treatments at 7, 14, and 21 days; it is a treatment-response diagram rather than a visible symptom image.",
+          "Figure 4 plots stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching for the same reproductive-stage treatment durations; its instrument-derived values cannot establish an image-only diagnosis."
         ]
       },
       {
@@ -16081,6 +16419,73 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-waterlogging-cannabis-rwc-msi-lai-rincon-figure-2",
+        "url": "https://www.notulaebotanicae.ro/index.php/nbha/article/download/14864/10100/75178#page=9",
+        "alt": "Three-panel controlled Cannabis treatment-response diagram comparing relative water content, membrane stability index, and leaf-area index under control, water-shortage, and waterlogging treatments at 7, 14, and 21 days.",
+        "caption": "Controlled-study Figure 2 plots reproductive-stage response measurements for Cannabis sativa cv. G1 across three exposure durations. It documents measured treatment response, not a visible symptom phenotype, oxygen measurement, or universal severity threshold.",
+        "creator": "Camilo A. Rincón-Bohórquez, Cristhian C. Chávez-Arias, and Hermann Restrepo-Díaz",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+        "mediaType": "image",
+        "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz. Cite Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, DOI 10.15835/nbha53414864, Figure 2; link the CC BY 4.0 license; note that the repository display is a cropped 144-dpi rendering of PDF page 9.",
+        "diagnosticLabel": "overwatering-root-hypoxia — controlled Cannabis waterlogging response diagram for RWC, MSI, and LAI, reference only",
+        "hostSpecies": "Cannabis sativa cv. G1",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: it contains treatment means, standard errors, and significance groups rather than inspectable plant, leaf, root, substrate, water, or injury imagery.",
+          "Control, water-shortage, and waterlogging bars must remain distinguished; do not relabel the full composite or any plotted bar as specimen-level image ground truth.",
+          "Relative water content, membrane-stability index, and leaf-area index require measurement and cannot be inferred from a camera frame.",
+          "The one-genotype, controlled reproductive-stage experiment and 7-, 14-, and 21-day treatments are study-specific and are not universal diagnostic or intervention thresholds.",
+          "Reference-only pending graph-extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "081335a871ebf8c5d1dcd5a5f8b4c4655163507631a349d2091687de7b013042",
+        "perceptualHash": "dhash64:c8ec6c30f0ccc400",
+        "width": 1224,
+        "height": 1584,
+        "view": "diagram",
+        "stage": "reproductive stage; 7, 14, and 21 days of controlled treatment",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-waterlogging-cannabis-gas-exchange-chlorophyll-rincon-figure-4",
+        "url": "https://www.notulaebotanicae.ro/index.php/nbha/article/download/14864/10100/75178#page=11",
+        "alt": "Four-panel controlled Cannabis treatment-response diagram comparing stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching under control, water-shortage, and waterlogging treatments.",
+        "caption": "Controlled-study Figure 4 plots reproductive-stage physiological measurements for Cannabis sativa cv. G1 at 7, 14, and 21 days. The figure supports exposure-linked temporal context but does not show leaf color, root condition, standing water, or a diagnostic visual sequence.",
+        "creator": "Camilo A. Rincón-Bohórquez, Cristhian C. Chávez-Arias, and Hermann Restrepo-Díaz",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+        "mediaType": "image",
+        "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz. Cite Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, DOI 10.15835/nbha53414864, Figure 4; link the CC BY 4.0 license; note that the repository display is a cropped 144-dpi rendering of PDF page 11.",
+        "diagnosticLabel": "overwatering-root-hypoxia — controlled Cannabis waterlogging gas-exchange, chlorophyll, and fluorescence response diagram, reference only",
+        "hostSpecies": "Cannabis sativa cv. G1",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: stomatal conductance, SPAD, Phi2, and NPQt are instrument-derived responses; the figure contains no inspectable leaf-color, posture, margin, underside, root, or whole-plant phenotype.",
+          "Control, water-shortage, and waterlogging bars overlap in several durations and must not be collapsed into a binary visual waterlogging class.",
+          "The shared decline under water shortage demonstrates confounding; reduced chlorophyll or photosynthetic performance alone cannot identify excess water.",
+          "The one-genotype, controlled reproductive-stage experiment and 7-, 14-, and 21-day treatments are study-specific and are not universal diagnostic or intervention thresholds.",
+          "Reference-only pending graph-extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "f1beb6e4cc565f6a380cce200d40540ecd3f05d28fd30c58ebed34dfb126a2a0",
+        "perceptualHash": "dhash64:68e86c6cc4e86928",
+        "width": 1224,
+        "height": 1584,
+        "view": "diagram",
+        "stage": "reproductive stage; 7, 14, and 21 days of controlled treatment",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
   }
 ]

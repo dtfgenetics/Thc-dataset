@@ -1,0 +1,49 @@
+{
+  "base_commit": "fd52f26cd922c5f068c45206184815280d326192",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261013c",
+  "changed_paths": [
+    "data/profiles/insect-armyworm-complex.json",
+    "src/data/expanded-issues-batch3.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "gd-diag-001-4b199b4c469c",
+  "head_commit": "4b199b4c469c8a3f234c8e13a3861ee1f1d9c9fc",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+    "https://www.usu.edu/copyright/index.cfm"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the current Utah State University Extension armyworm page, its Cannabis-associated yellowstriped-armyworm caption and creator credit, the direct original asset, the university copyright policy, visual content, dimensions, checksum, and perceptual hash on 2026-10-13. The profile now records a rights-complete metadata-only image reference and an explicit source-to-rights link. USU prohibits unauthorized copying and publication, so the binary was not committed, application display and automated training are prohibited, and the reference does not establish active feeding, fresh injury progression, severity, a complete ventral proleg pattern, or species-level ground truth. Agent review approved only the bounded metadata record; it does not represent human, expert, or laboratory verification.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/splits/manifest.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

@@ -196,11 +196,12 @@ const sources = {
     publisher: 'University of Maryland Extension',
     publicationDate: '2023-03-13',
     year: 2023,
-    accessedDate: '2026-08-20',
+    accessedDate: '2026-10-13',
     supportedClaims: [
       'The institutional guide describes pot-bound morphology in non-Cannabis indoor plants as roots encircling the pot perimeter and forming a tight mass that can fill the pot or extend over its edge.',
       'It also reports that water can pass through a pot-bound root mass too quickly while the root-ball center remains dry, and that resulting desiccation can produce tip dieback or marginal browning.',
       'These morphology and watering observations are transfer context only: they support root-ball inspection and drought exclusion but do not establish Cannabis ground truth, severity, progression, or a camera-only diagnosis.',
+      'The page labels an institutional photograph as a pot-bound plant and shows an extracted non-Cannabis root mass beside its container; it is morphology-planning context only and does not establish a Cannabis diagnosis, plant linkage, progression, or causal stress.',
     ],
   }),
   hempHerbicideTolerance: source({
@@ -1854,7 +1855,7 @@ export const expandedIssues: IssueRecord[] = [
       'The controlled rooting-volume meta-analysis and University of Maryland morphology guide are non-Cannabis transfer evidence and do not establish Cannabis thresholds, universal symptoms, severity, or treatment efficacy.',
       'The hemp evidence is a diagnostic survey rather than a controlled container-size trial, so cultivar response, incidence, timing, yield effect, and a pathological root-density threshold remain unresolved.',
       'Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.',
-      'No licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located for this batch; media remains an explicit gap rather than using vendor, anecdotal, or non-Cannabis imagery as ground truth.',
+      'One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located.',
     ],
     sources: [sources.hempSurvey, sources.rootingVolumeMetaAnalysis, sources.umdPotBoundPlants],
     media: [],

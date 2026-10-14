@@ -109,7 +109,8 @@
     "Utah hemp guidance reports few armyworms and little foliar injury locally, while Missouri describes potentially severe feeding; neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold.",
     "The Pacific Northwest hemp guide identifies corn earworm as the most damaging regional caterpillar and says other mature-hemp caterpillar injury is usually minor; bud injury must not be defaulted to armyworm.",
     "The Florida synthesis distinguishes established, intercepted, and reported species and warns that presence does not prove reproduction or damage; regional lists are not image ground truth.",
-    "The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission. No media was copied or indexed, and no training-eligible asset is included."
+    "The Florida field-guide armyworm images are Shutterstock or BugGuide references without verified item-level automated-training permission.",
+    "The Utah State University yellowstriped-armyworm image is a Cannabis-associated institutional reference, but it lacks reuse permission, a scale, a ventral proleg view, an uninterrupted feeding sequence, and a specimen or laboratory identifier. Only link metadata and verified technical fingerprints are indexed; no media binary is copied, display and automated training are prohibited, and no training-eligible asset is included."
   ],
   "sources": [
     {
@@ -144,13 +145,14 @@
       "organization": "Utah State University Extension Integrated Pest Management",
       "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
       "publisher": "Utah State University Extension",
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-13",
       "supportedClaims": [
         "Utah hemp guidance covers beet armyworm (Spodoptera exigua), bertha armyworm (Mamestra configurata), and yellowstriped armyworm (Spodoptera ornithogalli), so armyworm is a multi-species complex rather than one visual label.",
         "The guide describes beet armyworm larvae as generally light green with lengthwise green-yellow stripes and a small black spot on each side of the second body segment, yellowstriped armyworms as green to black with yellow-orange dorsal stripes, a fourth-segment lateral spot, and black dorsal-side triangles, and bertha armyworms as green to black with a pale lateral stripe.",
         "Eggs are pale, ribbed, usually occur in masses on leaf undersides, and may be partly covered with moth hairs; young larvae feed in groups while older larvae feed singly and may curl into a C-shape when disturbed.",
         "On hemp, young larvae may skeletonize foliage while older larvae produce irregular holes, shredded leaves, or defoliation; silk may occur and high populations may move into maturing buds.",
-        "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds."
+        "Utah observations found few caterpillars and little foliar damage in field hemp and assigned a low-to-medium threat level; regional timing, generation count, severity, and treatment guidance are not universal Cannabis thresholds.",
+        "The institutional page captions its yellowstriped-armyworm photograph as a larva found on hemp and credits the image to the Utah State University Extension Integrated Pest Management Program; the frame is plant-associated morphology context, not a documented feeding progression or species voucher."
       ]
     },
     {
@@ -190,7 +192,57 @@
         "The paper emphasizes identification across life stages and warns that immature organisms can be confused; occurrence in a regional list or an organism-only image is not plant-linked proof of injury, prevalence, or severity.",
         "Armyworm images in the article field guide are credited to Shutterstock or BugGuide rather than presented with clear item-level automated-training rights; they are not added as reusable dataset media."
       ]
+    },
+    {
+      "title": "Disclaimers and Copyright",
+      "organization": "Utah State University",
+      "url": "https://www.usu.edu/copyright/index.cfm",
+      "authors": [
+        "Utah State University"
+      ],
+      "publisher": "Utah State University",
+      "publicationDate": "2021-12-20",
+      "year": 2021,
+      "accessedDate": "2026-10-13",
+      "supportedClaims": [
+        "Utah State University states that its website content is all rights reserved, redistribution or reproduction is prohibited without express written permission, and site images may not be copied or published without authorization.",
+        "A direct link to an official Utah State University page is permitted, so the yellowstriped-armyworm asset is retained only as reference metadata and is not copied into the repository, displayed by the application, or admitted to automated training."
+      ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "media-yellowstriped-armyworm-hemp-usu-license-review",
+      "url": "https://extension.usu.edu/planthealth/ipm/images/agricultural/hemp/armyworm/IMG_1705.jpg",
+      "alt": "Close lateral view of a striped armyworm larva beside a partially visible Cannabis leaf in a container; the larva has paired yellow dorsal stripes, dark triangular markings, and a pale lateral stripe.",
+      "caption": "Utah State University Extension IPM Cannabis-associated yellowstriped-armyworm reference. The source page says the larva was found on hemp, but the frame does not document active feeding, fresh injury, an intact plant, a scale, complete ventral morphology, or specimen confirmation.",
+      "creator": "Utah State University Extension Integrated Pest Management Program",
+      "license": "All rights reserved — Utah State University; link-only reference metadata",
+      "sourceUrl": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms",
+      "mediaType": "image",
+      "requiredAttribution": "Utah State University Extension Integrated Pest Management Program, “Yellowstriped armyworm larva found on hemp,” Armyworms. Copyright © Utah State University; obtain express written permission before copying, display, publication, modification, or automated training.",
+      "diagnosticLabel": "armyworm-caterpillar-feeding — yellowstriped-armyworm-compatible larva found on hemp, institutional reference only",
+      "hostSpecies": "Cannabis sativa (hemp), based on the Utah State University Extension caption",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference-link metadata only; the media binary is not copied into the repository and application display is prohibited by the recorded rights policy.",
+        "Do not use for automated training, redistribution, publication, modification, or derivative crops unless the rights holder provides express written permission.",
+        "The source caption supports only that the larva was found on hemp; the image does not show an uninterrupted active-feeding event, fresh injury progression, whole-plant location, crop stage, field distribution, prevalence, or severity.",
+        "The lateral frame lacks a metric scale, complete head detail, ventral proleg count, and a retained specimen or molecular identifier, so it cannot independently establish species-level ground truth or exclude other noctuid larvae.",
+        "Keep the image outside training and evaluation splits; use it only as a traceable institutional reference for annotation design and morphology review."
+      ],
+      "displayPermission": "not-permitted",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "sha256": "ef606bfd902e3501c8d7539348fedd38382859f5de5a000870fb53d0b8d7032b",
+      "perceptualHash": "dhash64:7870c884e3cc9c1a",
+      "width": 810,
+      "height": 660,
+      "view": "close-up",
+      "stage": "larva; crop stage and date not stated",
+      "severity": "not established; no injury progression shown",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

@@ -20,8 +20,8 @@
       "category": "Bacterial pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 6,
-      "mediaCount": 0,
+      "sourceCount": 7,
+      "mediaCount": 1,
       "path": "data/profiles/bacterial-xanthomonas-leaf-spot.json"
     },
     {
@@ -218,8 +218,8 @@
       "category": "Insect",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 1,
       "path": "data/profiles/insect-armyworm-complex.json"
     },
     {
@@ -548,8 +548,8 @@
       "category": "Insect",
       "severity": "low",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
-      "mediaCount": 0,
+      "sourceCount": 6,
+      "mediaCount": 1,
       "path": "data/profiles/pest-fungus-gnats.json"
     },
     {
@@ -582,7 +582,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/root-binding-container-stress.json"
     },
     {
@@ -625,8 +625,8 @@
       "category": "Root pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 1,
       "path": "data/profiles/root-rhizoctonia.json"
     },
     {
@@ -659,7 +659,7 @@
       "severity": "moderate",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 0,
+      "mediaCount": 2,
       "path": "data/profiles/stress-salinity-high-ec.json"
     },
     {
@@ -692,7 +692,7 @@
       "severity": "high",
       "reviewStatus": "reviewed",
       "sourceCount": 4,
-      "mediaCount": 0,
+      "mediaCount": 2,
       "path": "data/profiles/water-over.json"
     }
   ]

@@ -50,8 +50,8 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.progression).toHaveLength(5)
     expect(record?.lookAlikes).toHaveLength(12)
     expect(record?.confirmation).toHaveLength(7)
-    expect(record?.sources).toHaveLength(4)
-    expect(record?.media).toEqual([])
+    expect(record?.sources).toHaveLength(6)
+    expect(record?.media).toHaveLength(1)
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Shore flies',
       'Rice root aphid',
@@ -68,6 +68,19 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.sources.some((source) => source.doi === '10.3390/insects6020325')).toBe(true)
     expect(record?.sources.some((source) => source.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/hort/greenhouse/greenhouse-ornamentals-fungus-gnat'))).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html')).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://ipm.ucanr.edu/GENERAL/copyright.html')).toBe(true)
+    const media = record?.media[0]
+    expect(media?.url).toBe('https://ipm.ucanr.edu/PMG/IMAGES/B/I-DP-BRAD-LV.004.jpg')
+    expect(media?.sourceUrl).toBe('https://ipm.ucanr.edu/PMG/B/I-DP-BRAD-LV.004.html')
+    expect(media?.creator).toBe('Jack Kelly Clark, UC IPM')
+    expect(media?.hostContext).toBe('non-cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.reviewStatus).toBe('license-review')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('media binary is not copied')
+    expect(isDisplayableMedia(media!)).toBe(false)
   })
 
   it('keeps rice root aphid labels plant-linked, root-confirmed, and canopy-cautious', () => {
@@ -117,6 +130,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['southern-blight-athelia-rolfsii', 1],
       ['heat-light-stress', 1],
       ['drought-water-deficit-stress', 1],
+      ['salinity-high-ec-stress', 2],
     ])
     for (const issue of supplementalIssues) {
       if (issue.slug === 'spotted-cucumber-beetle') {
@@ -259,6 +273,50 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
         expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'armyworm-caterpillar-feeding') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toContain('All rights reserved')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'fungus-gnats-root-feeding') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].license).toContain('software and electronic-media distribution require written consent')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'root-binding-container-stress') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('non-cannabis')
+        expect(issue.media[0].license).toContain('no item-level reuse license stated')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
+      if (issue.slug === 'rhizoctonia-sore-shin-root-rot') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('cannabis')
+        expect(issue.media[0].license).toContain('no item-level reuse license stated')
+        expect(issue.media[0].displayPermission).toBe('unknown')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        expect(issue.media[0].sha256).toMatch(/^[a-f0-9]{64}$/)
+        expect(issue.media[0].perceptualHash).toMatch(/^dhash64:[a-f0-9]{16}$/)
         continue
       }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
@@ -421,6 +479,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('culture or molecular testing')
     expect(warnings).toContain('non-cannabis transfer evidence')
     expect(warnings).toContain('diagnostic survey rather than a controlled container-size trial')
+    expect(warnings).toContain('one institutional non-cannabis pot-bound root-mass photograph is indexed')
     expect(warnings).toContain('no licensed, plant-linked cannabis root-binding progression image or verified diagnostic video')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal cohesive nursery root ball or vigorous roots at drainage holes',
@@ -429,7 +488,18 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Root-knot nematodes',
       'Container-side heat injury',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    const media = record?.media[0]
+    expect(media?.id).toBe('media-pot-bound-root-mass-umd-reference-only')
+    expect(media?.url).toContain('extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/')
+    expect(media?.sourceUrl).toBe('https://extension.umd.edu/resource/pot-bound-indoor-plants')
+    expect(media?.hostContext).toBe('non-cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.width).toBe(1920)
+    expect(media?.height).toBe(1080)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
   })
 
   it('keeps drought labels measurement-linked, genotype-bounded, and threshold-safe', () => {
@@ -503,7 +573,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('root-ball geometry, substrate compaction, container temperature, and root restriction')
     expect(warnings).toContain('ec is a conductivity measurement, not an ion identity')
     expect(warnings).toContain('not universal safe, toxic, correction, or training-label thresholds')
-    expect(warnings).toContain('no licensed, plant-linked cannabis salinity progression image or verified diagnostic video')
+    expect(warnings).toContain('two cc by treatment-response diagrams are indexed as reference context')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Drought / water-deficit stress',
       'Root-zone hypoxia / overwatering',
@@ -512,7 +582,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Pythium or Fusarium root/crown disease',
       'Normal late-flowering senescence',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.map((item) => item.id)).toEqual([
+      'media-salinity-cannabis-growth-index-yep-figure-1',
+      'media-salinity-cannabis-chlorophyll-index-yep-figure-2',
+    ])
+    expect(record?.media.every((item) => item.view === 'diagram')).toBe(true)
+    expect(record?.media.every((item) => item.license?.includes('CC BY 4.0') === true)).toBe(true)
+    expect(record?.media.every((item) => item.displayPermission === 'permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingPermission === 'permitted')).toBe(true)
+    expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
+    expect(record?.media.map((item) => item.sha256)).toEqual([
+      '3d4e37d7281dc574ca2ebb5db36e35bfa2466f1bddbd265c787db932d1423548',
+      'f433c9b480ce5592ea9a292e21160a9a3cfecb34282dfbecef3db3e524e71f1f',
+    ])
+    expect(record?.media.map((item) => item.perceptualHash)).toEqual([
+      'dhash64:3358103121a2e66a',
+      'dhash64:3316424266b2d146',
+    ])
   })
 
   it('keeps Japanese beetle labels organism-linked, morphology-confirmed, and license-safe', () => {
@@ -604,8 +691,8 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.progression).toHaveLength(5)
     expect(record?.lookAlikes).toHaveLength(12)
     expect(record?.confirmation).toHaveLength(7)
-    expect(record?.sources).toHaveLength(4)
-    expect(record?.media).toEqual([])
+    expect(record?.sources).toHaveLength(5)
+    expect(record?.media).toHaveLength(1)
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Corn earworm',
       'Tobacco budworm',
@@ -619,10 +706,26 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(confirmation).toContain('keep damage-only, frass-only, silk-only, egg-only, moth-only, body-color-only, incomplete-marking, detached-leaf, non-cannabis, organism/injury-unlinked, low-resolution, stock, shutterstock, bugguide, vendor, generated, anecdotal, forum, and unverified samples out')
     expect(exclusions).toContain('three rear proleg pairs and a looping gait supports cabbage, alfalfa, or soybean looper')
     expect(warnings).toContain('neither regional observation establishes universal prevalence, severity, yield loss, or an economic threshold')
-    expect(warnings).toContain('no media was copied or indexed, and no training-eligible asset is included')
+    expect(warnings).toContain('only link metadata and verified technical fingerprints are indexed; no media binary is copied, display and automated training are prohibited, and no training-eligible asset is included')
     expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad028')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms'))).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars'))).toBe(true)
+    expect(record?.sources.some((source) => source.url === 'https://www.usu.edu/copyright/index.cfm')).toBe(true)
+    const media = record?.media[0]
+    expect(media?.url).toBe('https://extension.usu.edu/planthealth/ipm/images/agricultural/hemp/armyworm/IMG_1705.jpg')
+    expect(media?.sourceUrl).toBe('https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-armyworms')
+    expect(media?.creator).toBe('Utah State University Extension Integrated Pest Management Program')
+    expect(media?.license).toContain('All rights reserved')
+    expect(media?.hostContext).toBe('cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.reviewStatus).toBe('license-review')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.sha256).toBe('ef606bfd902e3501c8d7539348fedd38382859f5de5a000870fb53d0b8d7032b')
+    expect(media?.perceptualHash).toBe('dhash64:7870c884e3cc9c1a')
+    expect(media?.width).toBe(810)
+    expect(media?.height).toBe(660)
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('source caption supports only that the larva was found on hemp')
   })
 
   it('keeps anthracnose labels lesion-linked, multilocus-confirmed, and media-safe', () => {
@@ -741,9 +844,11 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
   it('keeps promoted supplemental media hashes unique', () => {
     const media = supplementalIssues.flatMap((issue) => issue.media)
+    const sha256 = media.flatMap((item) => item.sha256 ? [item.sha256] : [])
+    const perceptualHashes = media.flatMap((item) => item.perceptualHash ? [item.perceptualHash] : [])
     expect(new Set(media.map((item) => item.id)).size).toBe(media.length)
-    expect(new Set(media.map((item) => item.sha256)).size).toBe(media.length)
-    expect(new Set(media.map((item) => item.perceptualHash)).size).toBe(media.length)
+    expect(new Set(sha256).size).toBe(sha256.length)
+    expect(new Set(perceptualHashes).size).toBe(perceptualHashes.length)
   })
 
   it('keeps Fusarium laboratory-bounded and tied to the controlled policy', () => {

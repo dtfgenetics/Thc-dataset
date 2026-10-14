@@ -13,18 +13,18 @@
     "sharedFigureText": "A reason/comment applying to a multi-column figure cannot mark sibling diagnostic columns reference-only; only explicit per-column referenceOnlyClass or a -reference issue slug can do that."
   },
   "summary": {
-    "panelCropCount": 66,
-    "sourceGroupCount": 9,
+    "panelCropCount": 68,
+    "sourceGroupCount": 11,
     "panelReviewCandidateCount": 54,
-    "blockedPanelCount": 12,
+    "blockedPanelCount": 14,
     "trainingEligibleCount": 0,
-    "classCount": 17,
+    "classCount": 18,
     "classStatusCounts": {
-      "collection_required": 17
+      "collection_required": 18
     },
     "panelBlockerCounts": {
       "confirmation_not_strong_enough_for_causal_seed": 2,
-      "embedded_panel_label_shortcut_risk": 6,
+      "embedded_panel_label_shortcut_risk": 8,
       "reference_only_or_unmaterialized_canonical_class": 6
     }
   },
@@ -186,6 +186,20 @@
       ],
       "classAdmissionStatus": "collection_required",
       "classBlockers": [
+        "fewer_than_two_independent_eligible_source_groups",
+        "insufficient_independent_groups_for_train_validation_locked_eval_design"
+      ],
+      "nextAction": "Collect additional independent Cannabis/hemp cases from different plants/sessions/sources before class training admission."
+    },
+    {
+      "issueSlug": "overwatering-root-hypoxia",
+      "panelCount": 2,
+      "sourceGroupCount": 2,
+      "eligibleSourceGroupCount": 0,
+      "eligibleSourceGroupIds": [],
+      "classAdmissionStatus": "collection_required",
+      "classBlockers": [
+        "no_panel_review_candidates",
         "fewer_than_two_independent_eligible_source_groups",
         "insufficient_independent_groups_for_train_validation_locked_eval_design"
       ],
@@ -1630,6 +1644,52 @@
       "trainingEligible": false,
       "datasetSplit": "none",
       "blockers": []
+    },
+    {
+      "cropId": "crop-waterlogging-cannabis-figure-2",
+      "issueSlug": "overwatering-root-hypoxia",
+      "parentId": "nbha-cannabis-waterlogging-figure-2-source-page",
+      "parentPath": "images/reference/original/nbha-cannabis-waterlogging-figure-2-source-page.png",
+      "repositoryPath": "images/reference/crops/crop-waterlogging-cannabis-figure-2.png",
+      "sourceGroupId": "doi-10.15835-nbha53414864-fig2",
+      "severity": "reference-only",
+      "view": "controlled-treatment-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "license": "CC BY 4.0",
+      "sourceArticle": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz; Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, Figure 2, DOI 10.15835/nbha53414864, CC BY 4.0; indicate the 144-dpi page rendering and crop.",
+      "sha256": "bf27fe90386aec83e63d94c1920ff8f1060761fa00d8591bf3c8490f8d90077b",
+      "perceptualHash": "dhash64:d4ccccf47070b08c",
+      "panelReviewCandidate": false,
+      "trainingEligible": false,
+      "datasetSplit": "none",
+      "blockers": [
+        "embedded_panel_label_shortcut_risk"
+      ]
+    },
+    {
+      "cropId": "crop-waterlogging-cannabis-figure-4",
+      "issueSlug": "overwatering-root-hypoxia",
+      "parentId": "nbha-cannabis-waterlogging-figure-4-source-page",
+      "parentPath": "images/reference/original/nbha-cannabis-waterlogging-figure-4-source-page.png",
+      "repositoryPath": "images/reference/crops/crop-waterlogging-cannabis-figure-4.png",
+      "sourceGroupId": "doi-10.15835-nbha53414864-fig4",
+      "severity": "reference-only",
+      "view": "controlled-treatment-response-diagram",
+      "host": "Cannabis sativa cv. G1",
+      "confirmation": "lab-confirmed-controlled-water-treatment",
+      "license": "CC BY 4.0",
+      "sourceArticle": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "requiredAttribution": "© 2025 Rincón-Bohórquez, Chávez-Arias, and Restrepo-Díaz; Notulae Botanicae Horti Agrobotanici Cluj-Napoca 53(4):14864, Figure 4, DOI 10.15835/nbha53414864, CC BY 4.0; indicate the 144-dpi page rendering and crop.",
+      "sha256": "1f844b034d22ed2e1c0ee0bc9311a30d33314c797bde3f8079bb1c09fb71d873",
+      "perceptualHash": "dhash64:c4dccce4caccec92",
+      "panelReviewCandidate": false,
+      "trainingEligible": false,
+      "datasetSplit": "none",
+      "blockers": [
+        "embedded_panel_label_shortcut_risk"
+      ]
     },
     {
       "cropId": "crop-zinc-deficiency-vegetative-advanced",
