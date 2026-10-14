@@ -77,7 +77,7 @@
       "yBands": [[127,599],[613,1085],[1099,1575]],
       "columns": [
         {"id":"manganese-deficiency","issueSlug":"manganese-deficiency","diagnosis":"Manganese deficiency"},
-        {"id":"boron-deficiency-reference","issueSlug":"boron-deficiency-reference","diagnosis":"Boron deficiency reference","referenceOnlyClass":true},
+        {"id":"boron-deficiency-reference","issueSlug":"boron-deficiency","diagnosis":"Boron deficiency reference","referenceOnlyClass":true},
         {"id":"copper-deficiency","issueSlug":"copper-deficiency","diagnosis":"Copper deficiency"}
       ],
       "rows": [

@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "boron-display-link-20261014",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "8e91e81f7ccffbf3abd4d003a8d6c9e2d151305c",
+  "head_commit": "4bb9b93aafe4912a7a8b9545e7f7c59527c790cb",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-display-20261014",
+  "changed_paths": ["data/profiles/nut-def-b.json", "src/data/expanded-issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/reference-grid-crop-spec.json", "dataset/reviewed/vision_admission_review_queue_v1.json", "images/reference/crops-manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/media.ts", "src/lib/reference-media-assets.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://www.mdpi.com/applsci/applsci-09-04432/article_deploy/html/images/applsci-09-04432-g004.png"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-14, agent inspection of the existing persisted and attributed CC BY 4.0 Figure 4 confirmed its labeled boron center column and initial/intermediate/advanced rows. Three existing crop records used the noncanonical boron-deficiency-reference slug, preventing the reviewed boron profile from resolving its local reference. Corrected only those diagnosis links, preserved stable crop IDs, geometry, hashes, binary files, referenceOnlyClass, and source grouping, and shared the uniquely owned Figure 4 record without duplicating media. The regression test checks center-column geometry, source/rights metadata, three severities, local resolution, unique asset ownership, and trainingEligible=false. Refreshed the generated review queue and frozen model pins; no sample, human review, laboratory result, or training admission is newly claimed. Publisher pages returned rate limiting during this run; rights and source metadata are retained from the existing verified repository record, not asserted as newly revalidated. All 62 package validation commands, 273 tests, type checks, and build passed. PHP lint requires hosted CI because PHP is not available locally. The diagnostic task claim was released after validation.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
