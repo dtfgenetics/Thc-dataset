@@ -163,7 +163,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'tarnished-plant-bug') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
         expect(issue.media[0].hostContext).toBe('organism-only')
         expect(issue.media[0].license).toMatch(/public domain/i)
         expect(issue.media[0].trainingPermission).toBe('permitted')
