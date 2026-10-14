@@ -15251,7 +15251,7 @@
       "Do not diagnose “nutrient burn” or salinity from brown tips, marginal necrosis, chlorosis, curl, wilt, dark foliage, or stunting alone; photo/video-only confidence is capped at 0.20.",
       "Visible necrosis was restricted to the highest NaCl treatments in one Early Haze rockwool experiment, while other measured effects occurred without that sign; absence or presence of necrosis is not decisive.",
       "The evidence spans one drug-type chemovar, Early Haze, and Felina 32 fiber hemp under distinct hydroponic, aquaponic, rockwool, mesocosm, nutrient, NaCl, and biostimulant conditions; cultivar and system transfer requires human review.",
-      "No licensed, plant-linked Cannabis salinity progression image or verified diagnostic video met the acquisition standard, so media remains an explicit gap and automated training eligibility remains false."
+      "Two CC BY treatment-response diagrams are indexed as reference context, but neither is a symptom photograph, a plant-linked diagnostic sequence, or a verified diagnostic video; automated training eligibility remains false."
     ],
     "sources": [
       {
@@ -15269,7 +15269,7 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2024-03-15",
         "year": 2024,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "doi": "10.3389/fpls.2024.1293184",
         "supportedClaims": [
           "Felina 32 fiber hemp in an outdoor mesocosm was irrigated with NaCl solutions at 2, 4, and 6 dS/m and compared with a 0.4 dS/m tap-water control.",
@@ -15290,11 +15290,13 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2020-08-05",
         "year": 2020,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-13",
         "doi": "10.3389/fpls.2020.01169",
         "supportedClaims": [
           "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
           "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
+          "Figure 1 reports weekly canopy growth-index trajectories during flowering for 1, 5, 10, 20, and 40 mM NaCl in matched hydroponic and aquaponic panels; it is a treatment-response diagram, not a symptom photograph or a universal diagnostic threshold.",
+          "Figure 2 reports chlorophyll content index from the most recently expanded center leaflet over the same flowering-stage treatments; the hydroponic 40 mM treatment declined while the aquaponic panel did not show the same NaCl response.",
           "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
           "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
         ]
@@ -15321,7 +15323,76 @@
         ]
       }
     ],
-    "media": []
+    "media": [
+      {
+        "id": "media-salinity-cannabis-growth-index-yep-figure-1",
+        "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/bce290d014cd/fpls-11-01169-g001.jpg",
+        "thumbnailUrl": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/bce290d014cd/fpls-11-01169-g001.jpg",
+        "alt": "Two-panel line graph of Cannabis canopy growth index over flowering time under five sodium chloride concentrations in hydroponic and aquaponic solutions.",
+        "caption": "Controlled-study Figure 1 plots repeated Cannabis canopy growth-index measurements for 1–40 mM NaCl in hydroponic and aquaponic systems. It documents treatment-linked temporal divergence, not a visible symptom phenotype or a universal EC threshold.",
+        "creator": "Brandon Yep, Nigel V. Gale, and Youbin Zheng",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424260/#F1",
+        "mediaType": "image",
+        "requiredAttribution": "© 2020 Yep, Gale and Zheng. Cite Frontiers in Plant Science 11:1169, DOI 10.3389/fpls.2020.01169, Figure 1, and link the CC BY 4.0 license.",
+        "diagnosticLabel": "salinity-high-ec-stress — controlled Cannabis NaCl canopy-growth response diagram, reference only",
+        "hostSpecies": "Cannabis sativa L. “Nordle” type-II chemovar",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: it contains derived treatment means and standard errors, not inspectable plant, leaf, root, meter, or injury imagery.",
+          "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
+          "The 1–40 mM NaCl treatments, one chemovar, continuous root exposure, and flowering-stage design are study-specific and are not universal EC or action thresholds.",
+          "Keep the whole figure, axes, treatment legend, panel identities, caption, and attribution together; do not relabel a plotted point as specimen-level ground truth.",
+          "Reference-only pending graph extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "3d4e37d7281dc574ca2ebb5db36e35bfa2466f1bddbd265c787db932d1423548",
+        "perceptualHash": "dhash64:3358103121a2e66a",
+        "width": 666,
+        "height": 267,
+        "view": "diagram",
+        "stage": "flowering; repeated measurements across the controlled exposure period",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      },
+      {
+        "id": "media-salinity-cannabis-chlorophyll-index-yep-figure-2",
+        "url": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/119b90c4db1f/fpls-11-01169-g002.jpg",
+        "thumbnailUrl": "https://cdn.ncbi.nlm.nih.gov/pmc/blobs/5aad/7424260/119b90c4db1f/fpls-11-01169-g002.jpg",
+        "alt": "Two-panel line graph of Cannabis leaf chlorophyll content index over flowering time under five sodium chloride concentrations in hydroponic and aquaponic solutions.",
+        "caption": "Controlled-study Figure 2 plots chlorophyll content index from the center leaflet of the most recently expanded leaf for 1–40 mM NaCl treatments. The hydroponic 40 mM response diverged over time; the figure does not show leaf color or establish an image-only diagnosis.",
+        "creator": "Brandon Yep, Nigel V. Gale, and Youbin Zheng",
+        "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+        "sourceUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7424260/#F2",
+        "mediaType": "image",
+        "requiredAttribution": "© 2020 Yep, Gale and Zheng. Cite Frontiers in Plant Science 11:1169, DOI 10.3389/fpls.2020.01169, Figure 2, and link the CC BY 4.0 license.",
+        "diagnosticLabel": "salinity-high-ec-stress — controlled Cannabis NaCl chlorophyll-index response diagram, reference only",
+        "hostSpecies": "Cannabis sativa L. “Nordle” type-II chemovar",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Diagram only: chlorophyll content index is a meter-derived measurement and the figure contains no inspectable leaf-color, margin, underside, root, or whole-plant phenotype.",
+          "The plotted center leaflet of the most recently expanded leaf does not represent older foliage, every canopy position, or a visible chlorosis threshold.",
+          "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
+          "The one-chemovar flowering experiment cannot establish cultivar-independent response timing, severity, recovery, or diagnostic specificity.",
+          "Reference-only pending graph extraction policy, source-group isolation, leakage review, and an explicit model-training admission decision."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "f433c9b480ce5592ea9a292e21160a9a3cfecb34282dfbecef3db3e524e71f1f",
+        "perceptualHash": "dhash64:3316424266b2d146",
+        "width": 666,
+        "height": 269,
+        "view": "diagram",
+        "stage": "flowering; repeated measurements across the controlled exposure period",
+        "severity": "treatment-response range; not a visual severity scale",
+        "confirmation": "lab-confirmed",
+        "trainingEligible": false
+      }
+    ]
   },
   {
     "id": "viroid-hplvd",
