@@ -30,7 +30,7 @@
   },
   "classReviews": [
     {
-      "issueSlug": "boron-deficiency-reference",
+      "issueSlug": "boron-deficiency",
       "panelCount": 3,
       "sourceGroupCount": 1,
       "eligibleSourceGroupCount": 0,
@@ -298,7 +298,7 @@
   "panels": [
     {
       "cropId": "crop-boron-deficiency-reference-advanced",
-      "issueSlug": "boron-deficiency-reference",
+      "issueSlug": "boron-deficiency",
       "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
       "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-advanced.png",
@@ -321,7 +321,7 @@
     },
     {
       "cropId": "crop-boron-deficiency-reference-initial",
-      "issueSlug": "boron-deficiency-reference",
+      "issueSlug": "boron-deficiency",
       "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
       "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-initial.png",
@@ -344,7 +344,7 @@
     },
     {
       "cropId": "crop-boron-deficiency-reference-intermediate",
-      "issueSlug": "boron-deficiency-reference",
+      "issueSlug": "boron-deficiency",
       "parentId": "mdpi-cannabis-mn-b-cu-deficiency-figure-4",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-cu-deficiency-figure-4.png",
       "repositoryPath": "images/reference/crops/crop-boron-deficiency-reference-intermediate.png",
