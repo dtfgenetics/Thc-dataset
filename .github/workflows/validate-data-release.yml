@@ -66,6 +66,16 @@ jobs:
       - name: Validate profiles sources media bytes crops and training gate
         run: npm run validate:data-release
 
+      - name: Reject uncommitted generated exports on pull requests
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain --untracked-files=all -- data/)" ]]; then
+            echo '::error::Generated data differs from the committed release. Run npm run export:data and commit the generated data files.'
+            git status --short --untracked-files=all -- data/
+            exit 1
+          fi
+
       - name: Validate manual and grid crop geometry
         run: npm run validate:crop-geometry
 
