@@ -388,12 +388,19 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps waterlogging diagnoses exposure-measured and pathogen-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'overwatering-root-hypoxia')
+    const catalogRecord = catalogIssues.find((issue) => issue.slug === 'overwatering-root-hypoxia')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/container weight|substrate-water|standing water/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/laboratory/)
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/image-only|photograph.*cannot/)
     expect(record?.lookAlikes).toContain('Water shortage or drought')
     expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
+    expect(catalogRecord?.media).toHaveLength(2)
+    expect(catalogRecord?.media.every((item) => item.view === 'diagram')).toBe(true)
+    expect(catalogRecord?.media.every((item) => item.license?.includes('CC BY 4.0'))).toBe(true)
+    expect(catalogRecord?.media.every((item) => item.displayPermission === 'permitted')).toBe(true)
+    expect(catalogRecord?.media.every((item) => item.trainingPermission === 'permitted' && !item.trainingEligible)).toBe(true)
+    expect(catalogRecord?.warnings.join(' ').toLowerCase()).toContain('two cc by 4.0 controlled-response diagrams')
   })
 
   it('keeps substrate-pH stress measured, medium-bounded, and non-visual', () => {

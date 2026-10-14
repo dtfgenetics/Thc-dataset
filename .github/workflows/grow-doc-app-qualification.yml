@@ -70,7 +70,9 @@ jobs:
           test -f dist/api/visual-observations.php
           test -d dist/reference-media/crops
           test ! -e dist/reference-media/original
-          test "$(find dist/reference-media/crops -type f | wc -l | tr -d ' ')" = "66"
+          expected_crop_count="$(node -p "require('./images/reference/crops-manifest.json').recordCount")"
+          published_crop_count="$(find dist/reference-media/crops -type f | wc -l | tr -d ' ')"
+          test "$published_crop_count" = "$expected_crop_count"
 
       - name: Upload qualified application bundle
         uses: actions/upload-artifact@v7
