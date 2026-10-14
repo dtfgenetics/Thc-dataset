@@ -17,6 +17,9 @@ const sharedCompositeHashesByIssue: Record<string, string[]> = {
   'copper-deficiency': [
     'd564930612a16469a967ff1d200a042f62685bb22425ae5bc3e73dda5ef22956',
   ],
+  'boron-deficiency': [
+    'd564930612a16469a967ff1d200a042f62685bb22425ae5bc3e73dda5ef22956',
+  ],
 }
 
 export interface ResolvedMediaReference {
