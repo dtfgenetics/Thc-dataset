@@ -1,0 +1,47 @@
+{
+  "base_commit": "23c8f5956901f5a0e54b30aa5c6ed54cb1d80f75",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261014b",
+  "changed_paths": [
+    "data/profiles/bacterial-xanthomonas-leaf-spot.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "gd-diag-xanthomonas-field-guide-reference-20261014",
+  "head_commit": "d9c0936d2d42213eb07a89792e46598c9fa63493",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.32473/edis-pp379-2024",
+    "https://ask.ifas.ufl.edu/publication/PP379",
+    "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Iua76rd67o/Iua76rd67o-2048.webp"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the official UF/IFAS PP379 landing page, DOI, publication date, authors, Figure 15 caption, photo creators, original asset URL, 907 by 551 pixel dimensions, file SHA-256, perceptual hash, and publication-wide CC BY-NC-ND 4.0 license on 2026-10-14. The four-panel Cannabis sativa composite is indexed as an unchanged noncommercial institutional reference with complete attribution. No binary is stored because commercial display and derivative rights are not established for this project context. The figure is not linked to a visible scale, plant or sample identifier, isolate, culture, microscopy, molecular result, sequence accession, or current species-level identification, so it remains reference-only with trainingEligible=false. No human review, expert diagnosis of a new sample, or laboratory verification of the pictured plant is claimed.",
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "src/lib/catalog-accuracy-expansion.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

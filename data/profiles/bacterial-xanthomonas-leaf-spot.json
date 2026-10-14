@@ -26,7 +26,9 @@
     "The chlorotic halo is proportionally wider than the necrotic center in the documented Cannabis lesion geometry.",
     "Comparable focal lesions occur on more than one attached leaf and can be mapped on both leaf surfaces rather than appearing only as one detached spot.",
     "Serial views preserve the water-soaked-to-necrotic-with-halo sequence instead of a stable crystal, residue, glare, or camera-color artifact.",
-    "A high-confidence causal label requires a representative active lesion linked to bacterial recovery and validated molecular or genomic identification consistent with Xanthomonas cannabis."
+    "A high-confidence causal label requires a representative active lesion linked to bacterial recovery and validated molecular or genomic identification consistent with Xanthomonas cannabis.",
+    "The UF/IFAS institutional composite shows that compatible presentation can combine broader whole-plant yellowing or blighting with multiple discrete necrotic, yellow-haloed spots on individual leaflets.",
+    "Figure 15 combines whole-plant and close lesion views but supplies no visible scale, plant or sample identifier, laboratory result, isolate, sequence accession, or current species-level linkage for the pictured material."
   ],
   "exclusions": [
     "White surface colonies, fungal fruiting structures, diagnostic conidia, or a positive fungal assay support powdery mildew or a fungal leaf spot rather than Xanthomonas.",
@@ -107,7 +109,9 @@
     "Xanthomonas cannabis is genetically and host diverse; a species-level result, virulence marker, or non-Cannabis pathogenicity assay is not by itself proof of causal Cannabis disease.",
     "Cannabis excess-nutrient salt injury can produce pathogen-like leaf spots, necrosis, blighting, wilt, and white deposits; surface appearance must remain linked to exposure, microscopy, and pathogen exclusions.",
     "General greenhouse bacterial-leaf-spot guidance is used only for differential diagnosis and handling precautions, not as Cannabis-specific epidemiological proof.",
-    "No plant-linked, laboratory-confirmed Cannabis image or video with verified item-level automated-training permission was found for this batch; no media was copied or admitted."
+    "UF/IFAS Figure 15 is an attributed institutional composite, not a plant- and lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without permission.",
+    "The reference lacks scale, sample identity, culture, microscopy, sequence accessions, pathogenicity linkage, and a current Xanthomonas cannabis identification for the pictured plant.",
+    "No plant-linked, laboratory-confirmed Cannabis image or video with verified item-level automated-training permission was found; the new reference remains metadata-only and training-ineligible."
   ],
   "sources": [
     {
@@ -146,6 +150,29 @@
       "supportedClaims": [
         "Cannabis bacterial leaf spot was described as water-soaked lesions followed by necrosis with a yellow halo.",
         "The study sequenced two geographically distinct strains previously isolated from symptomatic cannabis tissue in Japan and Romania and proposed the species name Xanthomonas cannabis."
+      ]
+    },
+    {
+      "title": "Field Guide to Hemp (Cannabis sativa) Diseases",
+      "organization": "UF/IFAS Extension",
+      "url": "https://doi.org/10.32473/edis-pp379-2024",
+      "authors": [
+        "Kevin Korus",
+        "Wael Elwakil",
+        "Nicholas Dufault",
+        "Zachary D. Eldred"
+      ],
+      "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
+      "publicationDate": "2024-12-05",
+      "year": 2024,
+      "accessedDate": "2026-10-14",
+      "doi": "10.32473/edis-pp379-2024",
+      "supportedClaims": [
+        "The UF/IFAS field guide describes Xanthomonas-associated hemp injury as small necrotic leaf spots with yellow or chlorotic halos, leaf yellowing, and blighting.",
+        "UF/IFAS Figure 15 is a four-panel institutional hemp reference credited to Rui Yang, Joshua Freeman, and Mathews Paret; it combines a whole potted-plant view with multiple leaf and lesion close-ups.",
+        "The guide states that bacteria can enter through natural openings or wounds and that excessive moisture or extended leaf wetness can increase disease intensity, while emphasizing that little is known about this hemp disease complex.",
+        "The guide recommends plant-diagnostic-center pathogen identification and confirmation; Figure 15 is therefore a visual differential rather than specimen-linked laboratory or current species-level proof.",
+        "The publication is licensed CC BY-NC-ND 4.0, limiting reuse to unchanged noncommercial distribution with attribution and excluding derivative preparation without additional permission."
       ]
     },
     {
@@ -227,5 +254,39 @@
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "uf-ifas-xanthomonas-field-guide-figure-15-2024",
+      "url": "https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/Iua76rd67o/Iua76rd67o-2048.webp",
+      "alt": "Four-panel institutional hemp reference showing a chlorotic potted plant and multiple leaf close-ups with small necrotic yellow-haloed spots",
+      "caption": "Reference-only UF/IFAS Figure 15 credited to Rui Yang, Joshua Freeman, and Mathews Paret. The intact composite supplies whole-plant and lesion-distribution context but is not a specimen-linked laboratory record.",
+      "creator": "Rui Yang, Joshua Freeman, and Mathews Paret; UF/IFAS NFREC",
+      "license": "CC BY-NC-ND 4.0",
+      "sourceUrl": "https://ask.ifas.ufl.edu/publication/PP379",
+      "mediaType": "image",
+      "requiredAttribution": "Rui Yang, Joshua Freeman, and Mathews Paret; UF/IFAS NFREC. Figure 15 in Korus K, Elwakil W, Dufault N, Eldred ZD. Field Guide to Hemp (Cannabis sativa) Diseases. UF/IFAS Extension PP379 (2024). CC BY-NC-ND 4.0.",
+      "diagnosticLabel": "xanthomonas-bacterial-leaf-spot — institutional whole-plant and lesion composite, not sample-level laboratory confirmation",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
+        "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, panel extraction, and derivative preparation require additional permission.",
+        "The composite lacks scale, plant and sample identity, culture, microscopy, molecular identification, sequence accessions, and pathogenicity linkage; do not infer Xanthomonas cannabis or causality from appearance.",
+        "The figure label uses Xanthomonas spp. and the historical guide heading; it does not resolve the current species or pathovar for the pictured material.",
+        "Automated training and evaluation use are not permitted by this record."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "not-permitted",
+      "sha256": "12b06502867f107461ce6ded48eef4ad56ee995f78a342bac179be6a568e6b8a",
+      "perceptualHash": "dhash64:4d4f4ecec7cbae5c",
+      "width": 907,
+      "height": 551,
+      "view": "close-up",
+      "stage": "whole potted hemp plant and detached foliage; growth stage not reported",
+      "severity": "whole-plant yellowing or blighting with scattered to numerous leaf lesions across composite panels",
+      "confirmation": "expert-reviewed",
+      "trainingEligible": false
+    }
+  ]
 }

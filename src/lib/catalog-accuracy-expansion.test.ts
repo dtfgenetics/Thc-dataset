@@ -45,6 +45,25 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(record.media[0].trainingEligible).toBe(false)
   })
 
+  it('keeps the UF/IFAS Xanthomonas composite reference-only and species-bounded', () => {
+    const record = bySlug('xanthomonas-bacterial-leaf-spot')
+    const evidence = [...record.indicators, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
+    const source = record.sources.find((item) => item.doi === '10.32473/edis-pp379-2024')
+    const media = record.media.find((item) => item.id === 'uf-ifas-xanthomonas-field-guide-figure-15-2024')
+
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(source?.accessedDate).toBe('2026-10-14')
+    expect(source?.supportedClaims?.join(' ')).toMatch(/diagnostic-center.*confirmation/i)
+    expect(media?.license).toBe('CC BY-NC-ND 4.0')
+    expect(media?.displayPermission).toBe('permitted')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.sha256).toBe('12b06502867f107461ce6ded48eef4ad56ee995f78a342bac179be6a568e6b8a')
+    expect(media?.useLimitations.join(' ').toLowerCase()).toContain('no image file is stored')
+    expect(evidence).toContain('current species-level linkage')
+    expect(evidence).toContain('cannot confirm xanthomonas cannabis')
+  })
+
   it('contains the expanded evidence-backed diagnostic baseline without duplicate ids or slugs', () => {
     expect(issues.length).toBeGreaterThanOrEqual(54)
     expect(new Set(issues.map((item) => item.id)).size).toBe(issues.length)
