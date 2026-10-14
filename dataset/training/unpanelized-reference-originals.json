@@ -2,14 +2,14 @@
   "schemaVersion": "1.0.0",
   "policy": "Persisted originals are not automatically cropped or training-eligible. New crop geometry requires scientific/figure review, and all derivatives inherit source grouping and rights constraints.",
   "summary": {
-    "persistedOriginalCount": 28,
-    "currentlyPanelizedOriginalCount": 9,
+    "persistedOriginalCount": 30,
+    "currentlyPanelizedOriginalCount": 11,
     "unpanelizedOriginalCount": 19,
     "p0PanelizationReviewCount": 18,
     "statusCounts": {
+      "panelized": 11,
       "reference_review_required": 1,
-      "panelization_review_required": 18,
-      "panelized": 9
+      "panelization_review_required": 18
     }
   },
   "records": [
@@ -456,6 +456,38 @@
       "license": "CC BY 4.0",
       "sha256": "373860a3230e75afaebd94fbc0ed95fe8e3620fc812b1b659b321597010182ef",
       "existingCropCount": 6,
+      "status": "panelized",
+      "priority": "P2",
+      "nextAction": "Keep source-grouped; use the training-admission audit for next gates.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "nbha-cannabis-waterlogging-figure-2-source-page",
+      "issueSlug": "overwatering-root-hypoxia",
+      "repositoryPath": "images/reference/original/nbha-cannabis-waterlogging-figure-2-source-page.png",
+      "sourceArticle": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "hostSpecies": "Cannabis sativa cv. G1",
+      "hostContext": "cannabis",
+      "confirmation": "lab-confirmed",
+      "license": "CC BY 4.0",
+      "sha256": "081335a871ebf8c5d1dcd5a5f8b4c4655163507631a349d2091687de7b013042",
+      "existingCropCount": 1,
+      "status": "panelized",
+      "priority": "P2",
+      "nextAction": "Keep source-grouped; use the training-admission audit for next gates.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "nbha-cannabis-waterlogging-figure-4-source-page",
+      "issueSlug": "overwatering-root-hypoxia",
+      "repositoryPath": "images/reference/original/nbha-cannabis-waterlogging-figure-4-source-page.png",
+      "sourceArticle": "https://notulaebotanicae.ro/index.php/nbha/article/view/14864",
+      "hostSpecies": "Cannabis sativa cv. G1",
+      "hostContext": "cannabis",
+      "confirmation": "lab-confirmed",
+      "license": "CC BY 4.0",
+      "sha256": "f1beb6e4cc565f6a380cce200d40540ecd3f05d28fd30c58ebed34dfb126a2a0",
+      "existingCropCount": 1,
       "status": "panelized",
       "priority": "P2",
       "nextAction": "Keep source-grouped; use the training-admission audit for next gates.",
