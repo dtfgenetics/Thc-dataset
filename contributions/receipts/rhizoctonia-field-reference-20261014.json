@@ -1,0 +1,51 @@
+{
+  "base_commit": "c13d95f009242c35ffbd60e46860acfac2eaefa4",
+  "branch": "work/grow-doc/GD-DIAG-001/batch-20261014c",
+  "changed_paths": [
+    "data/profiles/root-rhizoctonia.json",
+    "src/data/expanded-issues-batch2.ts"
+  ],
+  "contribution_id": "gd-diag-rhizoctonia-field-reference-20261014",
+  "head_commit": "be5444b2ca0e1219cff20f87f6e17054addfff09",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/",
+    "https://www.library.cornell.edu/copyright/",
+    "https://bpb-us-e1.wpmucdn.com/blogs.cornell.edu/dist/f/10739/files/2024/06/Rhizoctonia-solani__KY__NGauthier.jpg"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent verified the USDA Hemp Multistate Project S1084 Rhizoctonia gallery and its first Kentucky hemp asset on 2026-10-14. The 1920 by 1280 JPEG credited to N. Gauthier was visually inspected and fingerprinted, but it is only a whole-field view: no root, crown, lower-stem, lesion, scale, plant identifier, laboratory linkage, or item-level diagnostic method is published. Cornell's copyright guidance and the gallery provide no explicit item-level reuse or automated-training license, so only lawful reference metadata was indexed; no binary was copied into the repository, display permission remains unknown, and trainingPermission is not-permitted. No human review, expert diagnosis of a new sample, or laboratory verification of the pictured plants is claimed.",
+  "related_release_paths": [
+    "contributions/claims.json",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

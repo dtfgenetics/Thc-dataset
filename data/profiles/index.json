@@ -625,8 +625,8 @@
       "category": "Root pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
-      "mediaCount": 0,
+      "sourceCount": 5,
+      "mediaCount": 1,
       "path": "data/profiles/root-rhizoctonia.json"
     },
     {
