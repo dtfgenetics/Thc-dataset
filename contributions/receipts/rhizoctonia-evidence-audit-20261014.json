@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rhizoctonia-evidence-audit-20261014",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c7e68b634b86d7878bc31d460c3411a39427a4be",
+  "head_commit": "3a5f8c995f61c8acf345b8ab6aa3a9b19f1ae68c",
+  "branch": "work/grow-doc/GD-DIAG-001/evidence-audit-20261014",
+  "changed_paths": ["data/profiles/root-rhizoctonia.json", "src/data/expanded-issues-batch2.ts"],
+  "related_release_paths": ["contributions/claims.json", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/profile-reference-media.json", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-accuracy-expansion.test.ts"],
+  "source_ids": ["https://blogs.cornell.edu/s1084hemp/resources/images/diseases/rhizoctonia-sore-shin-and-root-rot/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Rechecked the institutional gallery on 2026-10-14. It identifies Rhizoctonia solani and credits Kentucky images to N. Gauthier, but supplies no publication/capture date or specimen-linked confirmation. Removed the unsupported publication year inferred from the hosting path, changed the asset confirmation to illustrative, separated agent visual observations from diagnostic claims, and marked crop stage and timeline unknown. The stable media ID and fingerprints are preserved; rights remain unresolved, display remains blocked, and no media are copied or promoted to training. Released this session's diagnostic task claim. All 62 package validation commands, TypeScript checking, 272 tests, and build passed; PHP lint is delegated to hosted CI because PHP is not installed locally.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
