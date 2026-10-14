@@ -295,6 +295,17 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
       }
+      if (issue.slug === 'root-binding-container-stress') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('non-cannabis')
+        expect(issue.media[0].license).toContain('no item-level reuse license stated')
+        expect(issue.media[0].displayPermission).toBe('not-permitted')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
@@ -455,6 +466,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(exclusions).toContain('culture or molecular testing')
     expect(warnings).toContain('non-cannabis transfer evidence')
     expect(warnings).toContain('diagnostic survey rather than a controlled container-size trial')
+    expect(warnings).toContain('one institutional non-cannabis pot-bound root-mass photograph is indexed')
     expect(warnings).toContain('no licensed, plant-linked cannabis root-binding progression image or verified diagnostic video')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal cohesive nursery root ball or vigorous roots at drainage holes',
@@ -463,7 +475,18 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Root-knot nematodes',
       'Container-side heat injury',
     ]))
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    const media = record?.media[0]
+    expect(media?.id).toBe('media-pot-bound-root-mass-umd-reference-only')
+    expect(media?.url).toContain('extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/')
+    expect(media?.sourceUrl).toBe('https://extension.umd.edu/resource/pot-bound-indoor-plants')
+    expect(media?.hostContext).toBe('non-cannabis')
+    expect(media?.displayPermission).toBe('not-permitted')
+    expect(media?.trainingPermission).toBe('not-permitted')
+    expect(media?.trainingEligible).toBe(false)
+    expect(media?.width).toBe(1920)
+    expect(media?.height).toBe(1080)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
   })
 
   it('keeps drought labels measurement-linked, genotype-bounded, and threshold-safe', () => {
