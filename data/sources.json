@@ -2893,7 +2893,9 @@
       "Hemp leaves at three crown positions were followed from full expansion for 42 days; photosynthetic capacity declined with leaf age regardless of crown position, light intensity, or photoperiod.",
       "The measured leaves remained green while photosynthetic capacity declined, demonstrating that physiological aging is not equivalent to visible yellowing.",
       "The experiment evaluated aging leaves before abscission in hemp crowns and did not establish a drug-type Cannabis harvest cue, a cultivar-independent color sequence, or proof that visible chlorosis is normal.",
-      "The leaf-aging experiment used vegetative Cannabis sativa Cherry Wine; Figure 4e reports leaf spectral index, a greenness/chlorophyll proxy, rather than a photographic yellowing sequence. Its physiological decline must not be relabeled as late-flower symptom progression."
+      "The leaf-aging experiment used vegetative Cannabis sativa Cherry Wine; Figure 4e reports leaf spectral index, a greenness/chlorophyll proxy, rather than a photographic yellowing sequence. Its physiological decline must not be relabeled as late-flower symptom progression.",
+      "Figure 4 pools three-day leaf-age bins across treatments and crown positions, with means, standard errors, and bubble diameters encoding sample size; the plotted points are not individual plant photographs or a matched symptom timeline.",
+      "The Results prose first groups the CO2 compensation point with decreasing parameters, but later describes its increase and Figure 4d plots an increasing curve. This directional inconsistency is retained for human review, not adopted as a diagnostic rule."
     ]
   },
   {

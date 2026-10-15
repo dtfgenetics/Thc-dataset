@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "leaf-age-physiology-reference-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "9c90bd3a925262606d7c96ec5fd267c6f69c9a15",
+  "head_commit": "78f471da50216288fd5fd76aea4df556a85be029",
+  "branch": "work/grow-doc/GD-DIAG-001/leaf-age-reference-20261015",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/normal-fade.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profile-reference-media.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "images/reference/manifest.json", "images/reference/original/media-leaf-age-physiology-bauerle-figure-4.png", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-media-quality.test.ts", "src/lib/coverage-audit.test.ts", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/plants9020271", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7076434/fullTextXML", "https://mdpi-res.com/d_attachment/plants/plants-09-00271/article_deploy/html/images/plants-09-00271-g004.png", "https://creativecommons.org/licenses/by/4.0/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 inspected current main, task claims, schemas, diagnostic profiles, validation scripts and recent audit changes. Selected zero-media normal leaf-aging context. Read the primary article through Europe PMC public fullTextXML, including permissions, Figure 4 caption, results and methods; verified CC BY 4.0 rights. Downloaded, visually inspected and preserved the unmodified publisher PNG (569,842 bytes, 1607x5118). This is a five-panel vegetative Cherry Wine leaf-age physiology diagram, not a photograph, healthy-control image, visible-fade sequence, maturity marker or confirmed diagnosis. Metadata includes original/landing/rights URLs, creators, attribution and modification notice, view, stage, severity limits, dimensions and fingerprints. Added two exact claims to the existing source identity: pooled three-day means/standard errors with sample-size bubbles; and the source's internal CO2 compensation-point directional inconsistency (first Results sentence versus later text and panel d). The discrepancy remains an explicit human-review flag, not a diagnostic rule. Green plot bubbles are not leaf color; days after leaf expansion are not flowering day; pooled points are not independently identified plants/source groups. Retained 0.20 image-only ceiling, differential/exclusion guidance and symptom-only human-review flags. One normal-development profile enriched, one licensed image added, no new citation identity: 63 profiles, 190 sources, 88 media references, 34 originals plus 68 crops, zero training-eligible media. PNG decode and persisted SHA-256 checks passed; exact hash unique among 88 media; nearest dhash64 distance 20 bits is screening evidence, not proof against all duplicates. Updated empty-media assertions and added graph/uncertainty test coverage. Deterministic exports and model-data fingerprint pins refreshed; 191 frozen text-training rows do not imply a model run or vision admission. Fresh local checks passed: 62 validators, 287 tests, type check, build, artifact bytes and git diff checks. PHP unavailable locally; hosted checks required before merge. No human/expert/lab dataset review, video verification, production deployment or full-project completion asserted. Longitudinal plant-linked photos/video, healthy controls and training admission remain gaps.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
