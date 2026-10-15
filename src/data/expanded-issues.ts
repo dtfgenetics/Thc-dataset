@@ -3,6 +3,22 @@ import type { IssueRecord, SourceRecord } from '../types'
 const source = (record: SourceRecord) => record
 
 const sources = {
+  israelCannabisFungalAssays: source({
+    title: 'Fungal Pathogens Affecting the Production and Quality of Medical Cannabis in Israel',
+    organization: 'Plants',
+    url: 'https://doi.org/10.3390/plants9070882',
+    authors: ['Shachar Jerushalmi', 'Marcel Maymon', 'Aviv Dombrovsky', 'Stanley Freeman'],
+    publisher: 'MDPI',
+    publicationDate: '2020-07-13',
+    year: 2020,
+    accessedDate: '2026-10-15',
+    doi: '10.3390/plants9070882',
+    supportedClaims: [
+      'Figure 3 compares detached Cannabis leaves inoculated with Alternaria alternata isolate 22A, Botrytis cinerea isolate 63A, and sterile PDAC plugs.',
+      'Figure 4 separately compares intact Cannabis plants sprayed with those isolates and a sterile-water control; detached-leaf and intact-plant assays are distinct evidence contexts.',
+      'Both Alternaria and Botrytis produced rapidly spreading brown lesions on inoculated leaves, so lesion color and expansion alone do not distinguish them.',
+    ],
+  }),
   ontarioHempBoronDeficiencyGuide: source({
     title: 'Nutrient Deficiency ID Guide for Hemp',
     organization: 'Ontario Ministry of Agriculture, Food and Rural Affairs',
@@ -987,6 +1003,7 @@ export const expandedIssues: IssueRecord[] = [
       'Alternaria-associated disease can involve leaves, petioles, stems, buds, inflorescences, or propagation material, so a whole-plant and organ-level sequence is more informative than a detached-leaf crop.',
       'Repeated lesions associated with wet foliage, affected residue, or a wind/water spread pattern support a foliar pathogen pathway but do not identify Alternaria by themselves.',
       'A Northern China investigation found multiple Alternaria taxa associated with hemp leaf spot and tested their pathogenicity; similar leaf injury can therefore belong to different taxa within this complex.',
+      'In the Israeli assays, rapidly expanding brown leaf lesions also occurred with Botrytis; record organism evidence rather than assigning Alternaria by appearance.',
     ],
     exclusions: [
       'Dark pycnidia embedded in lesions and laboratory evidence support Septoria rather than Alternaria.',
@@ -1007,7 +1024,7 @@ export const expandedIssues: IssueRecord[] = [
       {stage:'Sporulating lesions',description:'Compatible lesion centers or affected outer surfaces may darken and develop sooty black spore masses under conducive conditions.'},
       {stage:'Advanced injury',description:'Lesions can merge, centers may break or perforate, and disease may involve petioles, stems, buds, or other Cannabis tissues; the sequence is not universal across tissue types.'},
     ],
-    lookAlikes: ['Septoria leaf spot', 'Cercospora leaf spot', 'Bipolaris leaf spot or blight', 'Anthracnose / Colletotrichum leaf spot', 'Exserohilum leaf blight', 'Pseudocercospora olive or sooty leaf spot', 'Fusarium foliar or flower blight', 'Stemphylium leaf spot', 'Bacterial leaf spot', 'Spray or contact injury', 'Thrips or mite feeding', 'Nutrient, pH, salinity, or water-stress necrosis'],
+    lookAlikes: ['Septoria leaf spot', 'Cercospora leaf spot', 'Bipolaris leaf spot or blight', 'Anthracnose / Colletotrichum leaf spot', 'Exserohilum leaf blight', 'Pseudocercospora olive or sooty leaf spot', 'Fusarium foliar or flower blight', 'Stemphylium leaf spot', 'Botrytis foliar lesions under inoculation-assay conditions', 'Bacterial leaf spot', 'Spray or contact injury', 'Thrips or mite feeding', 'Nutrient, pH, salinity, or water-stress necrosis'],
     confirmation: [
       'Capture a traceable series from the same plant: whole canopy, upper/middle/lower canopy, both leaf surfaces, lesion-center macro with a scale, and any petiole, stem, bud, or inflorescence involvement.',
       'Record plant ID, cultivar, stage, production setting, symptom-onset date, leaf or node age, recent wetness or irrigation events, nearby residue, environmental conditions, and any spray or mechanical exposure.',
@@ -1018,12 +1035,13 @@ export const expandedIssues: IssueRecord[] = [
       'Keep symptom-only, detached-leaf-only, unlinked culture, mixed-organism, low-resolution, and stock/vendor/generated captures out of the confirmed Alternaria class and route them to human review.',
       'For a named species, preserve isolate and voucher identifiers, loci, sequence accessions, and the diagnostic laboratory\'s interpretation against appropriate references; the Cheng study used ITS, gapdh, tef1, rpb2, and ATPase for A. cannabina, not a universal assay for every Alternaria taxon.',
       'Record visible leaf injury, lesion-linked Alternaria detection, and causally attributed disease as separate labels. Preserve persistent plant, leaf, lesion, specimen, and isolate identifiers; require compatible symptom reproduction and recovery with appropriate controls when establishing causality rather than incidental colonization.',
+      'Label detached-leaf plug assays separately from intact-plant spray assays. Keep isolate, inoculation method, and matching sterile-plug or sterile-water control attached to every assay image.',
     ],
     immediateActions: ['Preserve representative untreated tissue and traceable photographs before removing heavily affected material.', 'Separate symptomatic propagation material from clean stock and reduce avoidable prolonged leaf wetness while diagnosis is pending.', 'Map affected plants against irrigation zones, airflow, cultivar blocks, incoming plant lots, and residue sources.'],
     correctivePlan: ['Use a disease-management plan appropriate to the organism confirmed by the diagnostic laboratory and the production setting.', 'Remove or contain confirmed diseased material and residue as locally appropriate, then monitor tagged plants for new lesions.', 'Evaluate response with new-growth and lesion-count records; old necrotic tissue will not become healthy after correction.'],
     prevention: ['Use clean propagation material and do not move symptomatic plants, tools, or debris into clean areas.', 'Improve air circulation, limit avoidable leaf wetness, and manage infected crop or weed residue where feasible.', 'Scout both leaf surfaces and multiple canopy levels with consistent plant IDs so early spots can be followed over time.'],
     warnings: ['Brown lesions, yellow halos, concentric rings, shot holes, and black sporulation are not individually specific to Alternaria.', 'The complex includes multiple hemp-pathogenic taxa; a generic image cannot resolve species and the profile must not default to A. alternata.', 'The primary studies are regional and used specific isolates, tissues, and production contexts; prevalence, aggressiveness, severity, and timing are not universal.', 'Alternaria can be recovered from seed or inflorescence material, but recovery alone does not prove it caused every visible lesion.', 'No image or video was added in this batch because no stable, item-level, panel-resolved Cannabis Alternaria asset with sufficiently clear reuse and training rights was verified.', 'All symptom-only, mixed-organism, detached, unlinked-laboratory, ITS-only, generic-PCR, and low-resolution samples require human review.', 'The Northern China evidence was verified from the publisher abstract; unverified full-text details and figures are not ground truth. Image/video-only confidence is capped at 0.25.'],
-    sources: [sources.alternaria, sources.alternariaNorthernChina, sources.alternariaCannabisPathogenicity, sources.alternariaPnwHandbook], media: [],
+    sources: [sources.alternaria, sources.alternariaNorthernChina, sources.alternariaCannabisPathogenicity, sources.alternariaPnwHandbook, sources.israelCannabisFungalAssays], media: [],
   },
   {
     id: 'fungal-septoria-leaf-spot',

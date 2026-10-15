@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "alternaria-assay-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "16f748662cc94c4a130b67c7a5bf762f62e4cde9",
+  "head_commit": "64b56de82948d341fd35e28f2193e1e1f4c47c43",
+  "branch": "work/grow-doc/GD-DIAG-001/evidence-20261015b",
+  "changed_paths": ["data/profiles/fungal-alternaria-leaf-spot.json", "src/data/expanded-issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-accuracy-expansion.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/plants9070882", "https://pubmed.ncbi.nlm.nih.gov/32668702/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 used the primary-study PubMed record (authors, publication date, abstract, and Figure 3/4 captions) and publisher/PMC indexed primary text. Added one primary citation with three bounded supported claims and clarified the Alternaria/Botrytis visual differential, detached-leaf PDAC-plug versus intact-plant spray contexts, isolate IDs, and matching controls. Existing plant-linked laboratory requirements, image-only confidence cap 0.25, human-review flags, and media gap remain. Cornell gallery fetching failed transiently, PMC presented a browser challenge, and the MDPI full-page reader returned rate limiting; these are retrieval limitations, not disease evidence or permission grants. No challenged access was bypassed, no unverified full-text conditions or universal progression timing were added, and no figure, original-asset URL, license, image binary, or confirmed training sample was invented. Item-level original media and reuse rights were insufficient for indexing this paper's figures. Regression coverage checks citation/date/isolates/controls, the Botrytis look-alike, assay separation, confidence cap, and media exclusion. Source count increases to 189; profiles remain 63 and training-eligible media remain zero. All 62 validators, 276 tests, type checks, build, and diff checks passed; PHP lint requires hosted CI because PHP is unavailable locally. The research-repair skill guided rejection of unverifiable media while preserving actionable primary-evidence enrichment.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
