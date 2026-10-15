@@ -115,6 +115,17 @@ describe('commercial media display licensing gate', () => {
     expect(isDisplayableMedia(example('CC BY 4.0'))).toBe(true)
   })
 
+  it.each([
+    'All rights reserved',
+    'Commercial exploitation prohibited',
+    'Commercial distribution not allowed',
+    'Commercial reproduction not permitted',
+  ])('quarantines restrictive rights statements: %s', (restriction) => {
+    expect(isDisplayableMedia(example('CC BY 4.0', {
+      useLimitations: [restriction],
+    }))).toBe(false)
+  })
+
   it('quarantines references without an explicit source license', () => {
     expect(isDisplayableMedia(example(''))).toBe(false)
     expect(isDisplayableMedia(example('   '))).toBe(false)
