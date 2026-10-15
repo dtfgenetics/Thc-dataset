@@ -1301,6 +1301,7 @@
     ],
     "indicators": [
       "The reported sequence began with scattered light-green specks rather than an immediately open hole.",
+      "In the Kentucky collection, lesions occurred on mature leaves in the lower half of plants entering reproduction; record that location but do not exclude other canopy positions from investigation.",
       "Developing lesions became round or angular and approximately 3 to 4 mm across.",
       "Compatible lesions had tan centers, darker brown margins, and yellow halos, but this color combination is not unique to anthracnose.",
       "Lesion centers could crack and later drop out, creating a shot-hole or frog-eye appearance only after surrounding lesion development.",
@@ -1360,6 +1361,7 @@
       "Track the same intact early lesions through center cracking or loss; a single frame of an existing hole cannot establish the reported progression.",
       "Collect multiple fresh lesions spanning intact early margins to developing centers before saprophytes obscure the lesion edge, following the receiving laboratory's packaging instructions.",
       "Use lesion-edge culture and trained morphological examination to recover a dominant compatible Colletotrichum isolate, while recording other organisms recovered from the same tissue.",
+      "Keep culture photographs separate from field-leaf photographs: preserve lesion, isolate, medium, incubation, and capture identifiers. Orange exudate after three weeks on PDA in the report is culture context, not a required camera-visible sign on the plant.",
       "For C. fioriniae-level confirmation, require plant-linked multilocus sequence evidence comparable to the four-gene approach in the first report; do not assign the species from color, ITS alone, or a generic Colletotrichum image.",
       "Where causality is uncertain or the isolate represents a new host or presentation, use pathogenicity evidence with symptom reproduction, reisolation, and symptomless controls.",
       "Keep symptom-only, shot-hole-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, generated, vendor, anecdotal, forum, unverified, and low-resolution samples out of confirmed training labels and route them to human review."
@@ -1403,12 +1405,14 @@
         "publisher": "American Phytopathological Society",
         "publicationDate": "2020-02-23",
         "year": 2020,
-        "accessedDate": "2026-08-21",
+        "accessedDate": "2026-10-15",
         "doi": "10.1094/PDIS-10-19-2216-PDN",
         "supportedClaims": [
           "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
           "Colletotrichum fioriniae was identified by morphology and four gene sequences, and inoculation reproduced characteristic leaf spots while controls remained symptomless.",
-          "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots."
+          "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots.",
+          "The August 2018 Jackson County, Kentucky field report described spots on the lower half of plants entering reproduction, including mature leaves; Cherry × Cherry, Trump 1, and Sweetened were affected. This observation is not a universal canopy preference or cultivar-susceptibility ranking.",
+          "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval."
         ]
       },
       {
