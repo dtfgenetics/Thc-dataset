@@ -2,12 +2,12 @@
   "schemaVersion": "1.0.0",
   "policy": "Persisted originals are not automatically cropped or training-eligible. New crop geometry requires scientific/figure review, and all derivatives inherit source grouping and rights constraints.",
   "summary": {
-    "persistedOriginalCount": 33,
+    "persistedOriginalCount": 34,
     "currentlyPanelizedOriginalCount": 11,
-    "unpanelizedOriginalCount": 22,
-    "p0PanelizationReviewCount": 21,
+    "unpanelizedOriginalCount": 23,
+    "p0PanelizationReviewCount": 22,
     "statusCounts": {
-      "panelization_review_required": 21,
+      "panelization_review_required": 22,
       "panelized": 11,
       "reference_review_required": 1
     }
@@ -231,6 +231,22 @@
       "confirmation": "Peer-reviewed 2025 Cannabis HLVd study using RT-PCR/RT-qPCR and sequence confirmation. Figure 1 ties sampled Cannabis plants to molecular HLVd detection rather than visual diagnosis alone.",
       "license": "CC BY 4.0",
       "sha256": "843e7d7421152fb9cc8a0b35c62610a2a5933367dbe2105ea2edacb2119f90d8",
+      "existingCropCount": 0,
+      "status": "panelization_review_required",
+      "priority": "P0",
+      "nextAction": "Review figure geometry/caption, define diagnostic panel bounds, preserve sourceGroupId, then generate hashed reference-only crops.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "media-leaf-age-physiology-bauerle-figure-4",
+      "issueSlug": "normal-late-flower-fade",
+      "repositoryPath": "images/reference/original/media-leaf-age-physiology-bauerle-figure-4.png",
+      "sourceArticle": "https://doi.org/10.3390/plants9020271",
+      "hostSpecies": "Cannabis sativa Cherry Wine",
+      "hostContext": "cannabis",
+      "confirmation": "illustrative",
+      "license": "CC BY 4.0",
+      "sha256": "3b22f4dd59e2f9834928eeb7efe2615633339a3a9921259735bcec0a8b5025fa",
       "existingCropCount": 0,
       "status": "panelization_review_required",
       "priority": "P0",
