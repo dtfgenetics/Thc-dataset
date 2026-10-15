@@ -2,12 +2,12 @@
   "schemaVersion": "1.0.0",
   "policy": "Persisted originals are not automatically cropped or training-eligible. New crop geometry requires scientific/figure review, and all derivatives inherit source grouping and rights constraints.",
   "summary": {
-    "persistedOriginalCount": 34,
+    "persistedOriginalCount": 35,
     "currentlyPanelizedOriginalCount": 11,
-    "unpanelizedOriginalCount": 23,
-    "p0PanelizationReviewCount": 22,
+    "unpanelizedOriginalCount": 24,
+    "p0PanelizationReviewCount": 23,
     "statusCounts": {
-      "panelization_review_required": 22,
+      "panelization_review_required": 23,
       "panelized": 11,
       "reference_review_required": 1
     }
@@ -295,6 +295,22 @@
       "confirmation": "Bugwood/Invasive.org record 5569060 identifies the subject as Thrips tabaci, descriptor Damage, host Cannabis sativa L., with severe leaf injury to hemp and CC BY 3.0 reuse terms.",
       "license": "CC BY 3.0",
       "sha256": "04234384d5ab682600c748a65a62395adbf1cdfbe1f9489df43969025d53e54c",
+      "existingCropCount": 0,
+      "status": "panelization_review_required",
+      "priority": "P0",
+      "nextAction": "Review figure geometry/caption, define diagnostic panel bounds, preserve sourceGroupId, then generate hashed reference-only crops.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "media-trv-pds-bleaching-comparison-figure-1",
+      "issueSlug": "genetic-variegation",
+      "repositoryPath": "images/reference/original/media-trv-pds-bleaching-comparison-figure-1.png",
+      "sourceArticle": "https://doi.org/10.3390/plants11030327",
+      "hostSpecies": "Cannabis sativa; MF-71, MF-169, MF-219 experimental lines",
+      "hostContext": "cannabis",
+      "confirmation": "illustrative",
+      "license": "CC BY 4.0",
+      "sha256": "458f352f1bb1f6f2764089a8df6cc50dca26a40bc05ebb2ea3ee23f227277e70",
       "existingCropCount": 0,
       "status": "panelization_review_required",
       "priority": "P0",
