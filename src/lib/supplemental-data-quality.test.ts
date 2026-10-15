@@ -741,6 +741,20 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('source caption supports only that the larva was found on hemp')
   })
 
+  it('separates anthracnose collection context and culture timing from field-image labels', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')!
+    const source = record.sources.find((item) => item.doi === '10.1094/PDIS-10-19-2216-PDN')!
+    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.publicationDate).toBe('2020-02-23')
+    expect(source.supportedClaims.join(' ')).toContain('not a universal canopy preference')
+    expect(source.supportedClaims.join(' ')).toContain('plant infection-to-symptom interval')
+    expect(record.indicators.join(' ')).toContain('mature leaves in the lower half')
+    expect(record.confirmation.join(' ')).toContain('Keep culture photographs separate from field-leaf photographs')
+    expect(record.confirmation.join(' ')).toContain('lesion, isolate, medium, incubation, and capture identifiers')
+    expect(record.media).toEqual([])
+    expect(record.photoOnlyMaxConfidence).toBe(0.3)
+  })
+
   it('keeps anthracnose labels lesion-linked, multilocus-confirmed, and media-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''

@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "anthracnose-field-culture-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "8670fa7147bc2464ef73dba584849031bc674127",
+  "head_commit": "049ca618e3b9beb33d8cc040368a97360c16b792",
+  "branch": "work/grow-doc/GD-DIAG-001/anthracnose-context-20261015",
+  "changed_paths": ["data/profiles/fungal-anthracnose-leaf-spot.json", "src/data/expanded-issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/supplemental-data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-10-19-2216-PDN", "https://apsjournals.apsnet.org/doi/10.1094/PDIS-10-19-2216-PDN", "https://scholars.uky.edu/en/publications/first-report-of-anthracnose-leaf-spot-caused-by-colletotrichum-fi/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 enriched one Fungal pathogen profile with two claims from the fresh indexed primary disease note: bounded field collection context and culture versus field-image interpretation. Added leaf-age/canopy context and lesion-to-culture capture linkage, without asserting a universal canopy preference, cultivar susceptibility ranking, field sporulation requirement or infection latency. Refreshed the existing citation access date and preserved its publisher-supported 2020-02-23 publication date; the university catalog records the May 2020 issue date, not a conflicting exact day. Direct publisher open returned HTTP 403; indexed primary text and the independently accessible author-institution bibliographic record were used, with no access barrier bypassed. The indexed note names Supplementary Figure S1 but no verified original asset URL or item-level reuse terms were recovered, so no media metadata, copied image/video, license grant or training sample was invented. Existing multilocus/laboratory linkage, human-review flags, empty media list and 0.30 image-only confidence safeguard remain. Profile/source/media counts remain 63/190/84; training-eligible media remain zero. New regression checks cover collection-versus-universal interpretation, culture-versus-field timing, sample identifiers and unchanged training/media safeguards. All 62 validators, 281 tests, type check, build, deterministic artifact freeze and diff checks passed locally. PHP is absent locally, so hosted lint remains required. The research-repair skill guided evidence-bound context expansion rather than speculative media admission. No production deployment or actual human/expert review is asserted.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
