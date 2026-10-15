@@ -16,8 +16,8 @@
   "knowledgeLayerSnapshot": {
     "diagnosticProfiles": 63,
     "evidenceSources": 190,
-    "profileLinkedReferenceMedia": 85,
-    "referenceOriginals": 31,
+    "profileLinkedReferenceMedia": 87,
+    "referenceOriginals": 33,
     "referenceCrops": 68
   },
   "rules": [
@@ -34,5 +34,5 @@
     "test": 0.15,
     "assignmentUnit": "sourceGroupId first; plant/capture group second; never individual panel/frame when related observations exist"
   },
-  "reasonBlocked": "The current corpus contains a 63-profile, 190-source diagnostic knowledge layer plus 31 persisted reference originals and 68 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
+  "reasonBlocked": "The current corpus contains a 63-profile, 190-source diagnostic knowledge layer plus 33 persisted reference originals and 68 derived reference crops, but zero samples have yet passed the stricter trainingEligible gate."
 }

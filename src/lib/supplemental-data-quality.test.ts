@@ -121,6 +121,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
   it('admits only fully verified reference media into supplemental profiles', () => {
     const permittedMediaCounts = new Map([
+      ['alternaria-leaf-spot', 2],
       ['rice-root-aphid', 1],
       ['fusarium-crown-root-rot', 1],
       ['fusarium-foliar-flower-head-blight', 1],

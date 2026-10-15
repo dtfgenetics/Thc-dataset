@@ -22,7 +22,14 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(record.confirmation.join(' ')).toContain('detached-leaf plug assays separately from intact-plant spray assays')
     expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
     expect(record.warnings.join(' ')).toContain('human review')
-    expect(record.media).toHaveLength(0)
+    expect(record.media).toHaveLength(2)
+    for (const media of record.media) {
+      expect(media.caption).toContain('A = Alternaria alternata 22A')
+      expect(media.caption).toContain('B = Botrytis cinerea 63A')
+      expect(media.caption).toContain('C = sterile')
+      expect(media.license).toBe('CC BY 4.0')
+      expect(media.trainingEligible).toBe(false)
+    }
   })
   it('keeps hemp rust paired-surface context distinct from species confirmation', () => {
     const record = bySlug('hemp-rust')
