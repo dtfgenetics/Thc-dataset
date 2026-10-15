@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "photoperiod-reversion-differential-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "348e52a3c52916ef9421eea1336c171aa884e9ff",
+  "head_commit": "c25e5eaebf7b03214c8c92d2c1a812640fd55e8c",
+  "branch": "work/grow-doc/GD-DIAG-001/trait-20261015",
+  "changed_paths": ["data/profiles/env-heat.json", "src/data/issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.1016/j.indcrop.2025.121442", "https://research.wur.nl/en/publications/long-days-during-the-last-two-weeks-before-harvest-applied-to-sho/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 verified the peer-reviewed Sae-Tang et al. study through Wageningen University & Research's institutional record, including nine authors, publication status/date, DOI, and abstract. Added two supported claims distinguishing early versus final-two-week daylength extension. Enriched the existing heat/light profile rather than introducing a duplicate phenotype: leaves above an inflorescence after photoperiod change are a vegetative-reversion differential, not heat-specific ground truth. Added serial same-apex capture context with date-linked photoperiod and measured temperature, pre-existing foliage comparison, matched controls, and explicit non-universal timing. Confidence cap 0.20, laboratory/exclusion requirements, human-review notes, existing media/rights, and zero training-eligible images remain unchanged. Full-page OUP, PMC, ScienceDirect, and document readers returned redirect/access/challenge errors; no access challenge was bypassed. The university record supports the bounded abstract-level claims, but no new figure, asset URL, item-level license, image binary, video, field sample, or training admission is invented. Source count becomes 190; profile and media counts remain 63 and 84. Model pins and deterministic exports are refreshed. All 62 validators, 277 tests, type checks, build, and diff checks passed; PHP lint awaits hosted CI because PHP is unavailable locally. The research-repair skill guided the source-bound differential instead of a photo-only stress label.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

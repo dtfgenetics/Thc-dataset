@@ -31,7 +31,7 @@
       "category": "Environmental stress",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 1,
       "path": "data/profiles/env-heat.json"
     },
