@@ -3,6 +3,25 @@ import { issues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('runtime catalog media quality', () => {
+  it('preserves HLVd mixed-panel identities and the exact primary-paper attribution', () => {
+    const record = issues.find((issue) => issue.slug === 'hop-latent-viroid')!
+    const media = record.media.find((item) => item.id === 'media-hlvd-cannabis-figure-1')!
+    const source = record.sources.find((item) => item.doi === '10.3390/plants14050830')!
+    expect(media.requiredAttribution).toContain(source.title)
+    expect(media.requiredAttribution).toContain(source.url)
+    expect(media.requiredAttribution).toContain('Figure 1')
+    expect(media.requiredAttribution).toContain('CC BY 4.0')
+    expect(media.caption).toContain('noninfected comparator (h)')
+    expect(media.caption).toContain('noninfected top')
+    expect(media.caption).toContain('flowering-stem assays (j,k)')
+    expect(media.useLimitations.join(' ')).toContain('not positive HLVd examples')
+    expect(media.useLimitations.join(' ')).toContain('not a same-plant video timeline')
+    expect(media.stage).not.toBe('all')
+    expect(media.severity).toContain('no unified severity')
+    expect(media.sha256).toBe('843e7d7421152fb9cc8a0b35c62610a2a5933367dbe2105ea2edacb2119f90d8')
+    expect(media.trainingEligible).toBe(false)
+    expect(source.accessedDate).toBe('2026-10-15')
+  })
   const allMedia = issues.flatMap((issue) => issue.media.map((media) => ({ issue, media })))
   const approved = allMedia.filter(({ media }) => isDisplayableMedia(media))
 

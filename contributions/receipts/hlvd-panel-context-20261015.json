@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "hlvd-panel-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "248c99a5e10eda12b3facbc56457b90d2738e2c6",
+  "head_commit": "92b5fae6696d4b889121fd9db008c7dccc72070d",
+  "branch": "work/grow-doc/GD-DIAG-001/hlvd-20261015",
+  "changed_paths": ["data/profiles/viroid-hplvd.json", "src/data/issues.ts", "src/data/verified-reference-media.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/profile-reference-media.json", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-media-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/plants14050830", "https://pubmed.ncbi.nlm.nih.gov/40094815/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 checked the primary-study PubMed title, authors, date and Figure 1 caption, publisher-indexed primary text, and the existing persisted image. Corrected the runtime media attribution's invented short paper title to the actual bibliographic title and DOI. Enriched one existing HLVd profile/reference record with panel identities: stock sampling a-c, assays d-f and j-k, infected flowering plant g, noninfected h, and paired inflorescences i with noninfected at top. The previous stock-only caption omitted the flowering comparisons and assays. Replaced all-stage/moderate tags with mixed stage/comparator context; no serial same-plant timeline or unified severity is asserted. Added one exact source-to-panel claim and refreshed access date without altering the existing NLM-supported publication date. Preserved image ID, original asset URL, hash, dimensions, CC BY 4.0 rights, display approval, source group, laboratory dependence, human-review flags, and trainingEligible=false. No binary, crop, duplicate sample, source, license grant, or video was added. The source-page reader returned rate limiting, so the fresh indexed primary caption and NLM primary-study record were used; no access barrier was bypassed. New regression checks require exact title/DOI attribution, noninfected comparator identities, assay/image separation, no fabricated timeline/severity, and unchanged hash/training exclusion. All 62 validators, 278 tests, type check, build, and diff checks passed; PHP lint awaits hosted CI because PHP is unavailable locally. The research-repair skill guided evidence-bound correction rather than promoting a mixed figure into a positive training class.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
