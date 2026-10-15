@@ -600,4 +600,17 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toContain('Hop latent viroid')
     expect(record?.media).toHaveLength(0)
   })
+
+  it('does not turn vegetative hemp physiology into late-flower visual progression', () => {
+    const record = issues.find((issue) => issue.slug === 'normal-late-flower-fade')!
+    const source = record.sources.find((item) => item.doi === '10.3390/plants9020271')!
+    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.supportedClaims?.join(' ')).toContain('vegetative Cannabis sativa Cherry Wine')
+    expect(source.supportedClaims?.join(' ')).toContain('rather than a photographic yellowing sequence')
+    expect(record.stages.join(' ')).toContain('not a late-flower symptom sequence')
+    expect(record.progression.find((item) => item.stage === 'Evidence-stage separation')?.description).toContain('days after full leaf expansion')
+    expect(record.progression.find((item) => item.stage === 'Evidence-stage separation')?.description).toContain('weeks after photoperiod transition')
+    expect(record.media).toEqual([])
+    expect(record.photoOnlyMaxConfidence).toBe(0.2)
+  })
 })

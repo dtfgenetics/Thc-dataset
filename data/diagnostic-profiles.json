@@ -7864,7 +7864,8 @@
       "inflorescences and sugar leaves as exclusion-check tissue"
     ],
     "stages": [
-      "flowering time series; strongest Cannabis evidence compares weeks 1, 5, and 9 after transition to a 12-hour photoperiod"
+      "flowering time series; Stillwater evidence compares weeks 1, 5, and 9 after transition to a 12-hour photoperiod",
+      "vegetative Cherry Wine hemp leaf-aging physiology; not a late-flower symptom sequence"
     ],
     "indicators": [
       "Change is gradual across serial observations rather than abrupt between captures",
@@ -7888,6 +7889,10 @@
       "Different leaves or plants are substituted across a supposed progression sequence without persistent specimen identifiers"
     ],
     "progression": [
+      {
+        "stage": "Evidence-stage separation",
+        "description": "Keep vegetative Cherry Wine leaf-aging measurements separate from flowering Stillwater observations. Neither pooling across studies nor aligning days after full leaf expansion with weeks after photoperiod transition creates a same-plant image or video timeline."
+      },
       {
         "stage": "Baseline",
         "description": "At flowering transition, map leaf node, canopy position, cultivar, photoperiod, PPFD, root-zone measurements, color reference, and a matched healthy plant."
@@ -7992,12 +7997,13 @@
         "publisher": "MDPI AG",
         "publicationDate": "2020-02-19",
         "year": 2020,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-15",
         "doi": "10.3390/plants9020271",
         "supportedClaims": [
           "Hemp leaves at three crown positions were followed from full expansion for 42 days; photosynthetic capacity declined with leaf age regardless of crown position, light intensity, or photoperiod.",
           "The measured leaves remained green while photosynthetic capacity declined, demonstrating that physiological aging is not equivalent to visible yellowing.",
-          "The experiment evaluated aging leaves before abscission in hemp crowns and did not establish a drug-type Cannabis harvest cue, a cultivar-independent color sequence, or proof that visible chlorosis is normal."
+          "The experiment evaluated aging leaves before abscission in hemp crowns and did not establish a drug-type Cannabis harvest cue, a cultivar-independent color sequence, or proof that visible chlorosis is normal.",
+          "The leaf-aging experiment used vegetative Cannabis sativa Cherry Wine; Figure 4e reports leaf spectral index, a greenness/chlorophyll proxy, rather than a photographic yellowing sequence. Its physiological decline must not be relabeled as late-flower symptom progression."
         ]
       },
       {
