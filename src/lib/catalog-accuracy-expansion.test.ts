@@ -169,6 +169,15 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(mo.sources.some((source) => source.url === 'https://ask.ifas.ufl.edu/publication/EP081')).toBe(true)
     expect(mo.warnings.join(' ').toLowerCase()).toContain('human review')
     expect(mo.media).toHaveLength(0)
+    const endpoint = mo.progression.find((item) => item.stage === 'Negative visual endpoint')!.description
+    expect(endpoint).toContain('In the T1 experiment')
+    expect(endpoint).toContain('does not negate')
+    expect(endpoint).not.toContain('no supported Cannabis color')
+    const clock = mo.progression.find((item) => item.stage === 'Treatment clock and capture context')!.description
+    expect(clock).toContain('propagation age separate')
+    const t1 = mo.sources.find((source) => source.doi === '10.3390/app9204432')!
+    expect(t1.accessedDate).toBe('2026-10-15')
+    expect(t1.supportedClaims.join(' ')).toContain('not plant age from seed')
   })
 
   it('keeps Fusarium flower/head disease separate from the root/crown profile', () => {
