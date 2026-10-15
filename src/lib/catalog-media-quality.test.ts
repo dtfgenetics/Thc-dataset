@@ -3,6 +3,25 @@ import { issues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('runtime catalog media quality', () => {
+  it('keeps leaf-age diagram encodings and the source discrepancy out of visual ground truth', () => {
+    const issue = issues.find((item) => item.slug === 'normal-late-flower-fade')!
+    const media = issue.media.find((item) => item.id === 'media-leaf-age-physiology-bauerle-figure-4')!
+    const source = issue.sources.find((item) => item.doi === '10.3390/plants9020271')!
+    expect(media.view).toBe('diagram')
+    expect(media.confirmation).toBe('illustrative')
+    expect(media.license).toBe('CC BY 4.0')
+    expect(media.trainingPermission).toBe('permitted')
+    expect(media.trainingEligible).toBe(false)
+    expect(media.stage).toContain('not a late-flower symptom sequence')
+    expect(media.useLimitations.join(' ')).toContain('green bubbles encode sample size, not leaf color')
+    expect(media.useLimitations.join(' ')).toContain('retain human review')
+    expect(media.useLimitations.join(' ')).toContain('not human/expert dataset review')
+    expect(media.requiredAttribution).toContain('https://creativecommons.org/licenses/by/4.0/')
+    expect(source.supportedClaims.join(' ')).toContain('not individual plant photographs')
+    expect(source.supportedClaims.join(' ')).toContain('directional inconsistency')
+    expect(issue.photoOnlyMaxConfidence).toBe(0.2)
+    expect(issue.warnings.join(' ')).toContain('Longitudinal Cannabis photographs/video with causal exclusions remain gaps')
+  })
   it('separates Alternaria assay panels, shot types, and exposure intervals from field progression', () => {
     const issue = issues.find((item) => item.slug === 'alternaria-leaf-spot')!
     const leaf = issue.media.find((item) => item.id === 'media-alternaria-botrytis-detached-leaf-assay-figure-3')!
