@@ -778,7 +778,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
-    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources).toHaveLength(3)
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-10-19-2216-PDN')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('Science-of-Hemp-Conference-Proceedings'))).toBe(true)
     expect(confirmation).toContain('same intact early lesions through center cracking or loss')
@@ -790,6 +790,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(warnings).toContain('no image or video was indexed')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Cercospora leaf spot', 'Septoria leaf spot complex', 'Alternaria leaf spot', 'Bacterial leaf spot', 'Caterpillar, beetle, slug, or snail feeding', 'Hail, wind, handling, or training tear']))
     expect(record?.media).toEqual([])
+  })
+
+  it('uses the Kentucky guide only for anthracnose differentials without implying rights or confirmation', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')!
+    const guide = record.sources.find((item) => item.url.endsWith('/PPFS-AG-H-03.pdf'))!
+    expect(guide.authors).toHaveLength(6)
+    expect(guide.accessedDate).toBe('2026-10-15')
+    expect(guide.publicationDate).toBeUndefined()
+    expect(guide.supportedClaims).toHaveLength(3)
+    expect(guide.supportedClaims.join(' ')).toContain('Bipolaris gigantea')
+    expect(guide.supportedClaims.join(' ')).toContain('Cercospora flagellaris')
+    expect(guide.supportedClaims.join(' ')).toContain('Septoria cannabis')
+    expect(record.exclusions.join(' ')).toContain('shot holes do not distinguish')
+    expect(record.confirmation.join(' ')).toContain('hair-like surface conidiophores from compact raised pycnidia')
+    expect(record.warnings.join(' ')).toContain('contains no anthracnose entry')
+    expect(record.warnings.join(' ')).toContain('none of its media was copied')
+    expect(record.media).toEqual([])
+    expect(record.photoOnlyMaxConfidence).toBe(0.3)
   })
 
   it('keeps the UF/IFAS Bipolaris figure reference-only and non-training', () => {
