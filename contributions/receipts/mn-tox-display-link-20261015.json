@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "mn-tox-display-link-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "f85921d9967db4f88b872f2fe9fdf4328192e673",
+  "head_commit": "f9ee93a84183bed26f647a7d250c9c58a3e15caa",
+  "branch": "work/grow-doc/GD-DIAG-001/mn-tox-display-20261015",
+  "changed_paths": ["data/profiles/nut-tox-mn.json", "src/data/expanded-issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/reference-grid-crop-spec.json", "dataset/reviewed/vision_admission_review_queue_v1.json", "images/reference/crops-manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/media.ts", "src/lib/reference-media-assets.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://www.mdpi.com/applsci/applsci-09-04432/article_deploy/html/images/applsci-09-04432-g005.png"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review of the existing persisted and attributed CC BY 4.0 Figure 5 identified manganese in the left column, boron in the right, and initial/intermediate/advanced rows. On 2026-10-15, official publisher search confirmed Figure 5 identifies manganese and boron toxicity in Cannabis sativa T1 (Characterization of Nutrient Disorders of Cannabis sativa, Cockson et al., MDPI, 2019-10-18, doi:10.3390/app9204432). Corrected three existing noncanonical manganese-toxicity-reference issue slugs to manganese-toxicity; stable crop IDs, geometry, hashes, binary files, referenceOnlyClass, and source grouping are unchanged. The uniquely owned parent is shared for reference display without duplicate media. Corrected the obsolete note that a standalone profile was missing. No new scientific threshold, field sample, video timeline, human/laboratory review, license grant, or training admission is claimed. Existing claim-level source and asset rights metadata remain canonical. Regression coverage verifies left-column geometry, three severities, local resolution, unique ownership, citation/license, and trainingEligible=false. Generated exports, review queue, and frozen model pins are refreshed. PHP lint requires hosted CI because PHP is unavailable locally.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

@@ -11,6 +11,9 @@ export function isDisplayableMedia(media: MediaRecord): boolean {
 // same composite as a shared reference. This is display-only: it does not make the
 // full composite training-eligible for the linked diagnosis.
 const sharedCompositeHashesByIssue: Record<string, string[]> = {
+  'manganese-toxicity': [
+    'a5ea13b2d3cbf9e54a74c14cada967951295f773ae78682a6be5537022441ce3',
+  ],
   'nitrogen-deficiency': [
     'c9200d6cb4fc0ee7a31908b9df06240a86ec6f2cf53fb8bece5098e4ee422952',
   ],
