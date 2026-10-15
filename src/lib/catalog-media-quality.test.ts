@@ -3,6 +3,25 @@ import { issues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('runtime catalog media quality', () => {
+  it('separates Alternaria assay panels, shot types, and exposure intervals from field progression', () => {
+    const issue = issues.find((item) => item.slug === 'alternaria-leaf-spot')!
+    const leaf = issue.media.find((item) => item.id === 'media-alternaria-botrytis-detached-leaf-assay-figure-3')!
+    const flower = issue.media.find((item) => item.id === 'media-alternaria-botrytis-intact-plant-assay-figure-4')!
+    expect(leaf.view).toBe('close-up')
+    expect(flower.view).toBe('close-up')
+    expect(leaf.stage).toContain('leaf age and original canopy position unspecified')
+    expect(flower.stage).toContain('early inflorescence development')
+    expect(flower.useLimitations.join(' ')).toContain('Do not concatenate Figures 3 and 4')
+    expect(leaf.useLimitations.join(' ')).toContain('not a field incubation')
+    for (const media of [leaf, flower]) {
+      expect(media.confirmation).toBe('illustrative')
+      expect(media.trainingPermission).toBe('permitted')
+      expect(media.trainingEligible).toBe(false)
+      expect(media.requiredAttribution).toContain('https://creativecommons.org/licenses/by/4.0/')
+      expect(media.sourceUrl).toBe('https://doi.org/10.3390/plants9070882')
+    }
+    expect(issue.sources.find((item) => item.doi === '10.3390/plants9070882')?.supportedClaims.join(' ')).toContain('not field incubation periods')
+  })
   it('keeps the licensed aphid egg still distinct from species confirmation and adult-panel crops', () => {
     const issue = issues.find((item) => item.slug === 'cannabis-aphid')!
     const media = issue.media.find((item) => item.id === 'media-cannabis-aphid-eggs-bugwood-5596882')!

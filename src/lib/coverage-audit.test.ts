@@ -253,7 +253,7 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
-  it('keeps Alternaria species labels organism-linked and records the open-media gap', () => {
+  it('keeps Alternaria species labels organism-linked and records the training-media gap', () => {
     const record = issues.find((issue) => issue.slug === 'alternaria-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
@@ -271,7 +271,8 @@ describe('diagnostic coverage audit', () => {
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)
     expect(confirmation).toContain('validated molecular identification from the sampled plant')
     expect(confirmation).toContain('keep symptom-only, detached-leaf-only, unlinked culture, mixed-organism, low-resolution, and stock/vendor/generated captures out of the confirmed alternaria class')
-    expect(warnings).toContain('no image or video was added in this batch')
+    expect(warnings).toContain('two cc by 4.0 assay composites are reference-only')
+    expect(warnings).toContain('panel-resolved training admission and independent field/video samples remain gaps')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Septoria leaf spot',
       'Cercospora leaf spot',
@@ -280,7 +281,7 @@ describe('diagnostic coverage audit', () => {
       'Bacterial leaf spot',
       'Spray or contact injury',
     ]))
-    expect(record?.media).toHaveLength(0)
+    expect(record?.media).toHaveLength(2)
   })
 
   it('keeps Cercospora labels multilocus-bounded, causal, and reference-media-safe', () => {
