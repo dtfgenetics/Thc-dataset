@@ -362,10 +362,24 @@ describe('supplemental diagnostic catalog quality gates', () => {
     }
   })
 
+  it('separates rust pustule visibility from microscopic spore confirmation', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')!
+    const guide = record.sources.find((item) => item.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')!
+    expect(guide.publicationDate).toBe('2020-06')
+    expect(guide.accessedDate).toBe('2026-10-15')
+    expect(guide.authors).toHaveLength(7)
+    expect(guide.supportedClaims.join(' ')).toContain('cultivar susceptibility differences remain unresolved')
+    expect(record.indicators.join(' ')).toContain('poorly defined margins')
+    expect(record.confirmation.join(' ')).toContain('different capture types linked to the same lesion')
+    expect(record.confirmation.join(' ')).toContain('visible orange powder does not show individual spore morphology')
+    expect(record.photoOnlyMaxConfidence).toBe(0.25)
+    expect(record.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
     const media = record?.media[0]
-    expect(record?.sources).toHaveLength(1)
+    expect(record?.sources).toHaveLength(2)
     expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
     expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
     expect(media?.creator).toContain('Zachariah Hansen')

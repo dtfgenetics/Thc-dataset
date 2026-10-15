@@ -615,6 +615,18 @@ const sources = {
       'The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample.',
     ],
   }),
+  hempRustTennesseeGuide: source({
+    title: 'Hemp Disease and Pest Management',
+    organization: 'University of Tennessee Extension',
+    url: 'https://solutions.tennessee.edu/?view_pub_pdf=2571',
+    authors: ['Zachariah Hansen', 'Ernest Bernard', 'Jerome Grant', 'Kimberly Gwinn', 'Frank Hale', 'Heather Kelly', 'Scott Stewart'],
+    publisher: 'University of Tennessee Extension',
+    publicationDate: '2020-06', year: 2020, accessedDate: '2026-10-15',
+    supportedClaims: [
+      'The Tennessee W 916 guide describes poorly bounded yellow-orange spots, followed by darker orange-brown lesions that may merge; cultivar susceptibility differences remain unresolved.',
+      'The guide distinguishes lower-surface pustules visible without magnification, a pustule viewed with a dissecting microscope, and uredospores viewed with a compound microscope. Pustule visibility does not mean an ordinary photograph resolves individual spores or their species.',
+    ],
+  }),
   hempRustFieldGuide: source({
     title: 'Field Guide to Hemp (Cannabis sativa) Diseases',
     organization: 'UF/IFAS Extension',
@@ -1404,6 +1416,7 @@ export const expandedIssues: IssueRecord[] = [
     indicators: [
       'Compatible early lesions are light orange rather than white powder, purple-gray downy growth, black pycnidia, or a colorless puncture.',
       'Lesions can darken from light orange to dark orange, brown, or rust-colored as they develop; color alone remains nonspecific.',
+      'The Tennessee guide describes poorly defined margins on early yellow-orange spots and possible merging of darkened lesions; an early spot need not have a sharply bounded ring.',
       'The institutional composite pairs top and bottom views of one affected leaf with close views of an early upper-surface lesion and a lower-surface pustule.',
       'The strongest visible sign is an orange powdery spore mass erupting from a pustule on the lower leaf surface.',
       'The same-lesion upper/lower relationship is more informative than an isolated orange spot because rust structures may be concentrated on the underside.',
@@ -1435,6 +1448,7 @@ export const expandedIssues: IssueRecord[] = [
       'Use magnification before sampling to distinguish an erumpent pustule and attached spores from residue, pollen, arthropods, frass, pycnidia, downy growth, or superficial mildew.',
       'Collect intact representative pustules and lesion margins following a plant diagnostic laboratory protocol while retaining cultivar, age, site, weather, irrigation, leaf-wetness, and foliar-input metadata.',
       'Require lesion-linked microscopy of compatible rust structures for a confirmed rust label and preserve measurements, images, preparer, method, and specimen identifiers.',
+      'Record unaided macro, dissecting-microscope pustule, and compound-microscope spore views as different capture types linked to the same lesion; visible orange powder does not show individual spore morphology or establish species.',
       'Use current specialist taxonomic or validated molecular evidence when a Uredo kriegeriana species label matters; do not resolve the species from orange color, pustule appearance, host alone, or a guide image.',
       'Keep symptom-only, residue-uncleared, detached-leaf-only, unmatched-surface, specimen-unlinked, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and retain an unresolved classification when the evidence is incomplete.',
     ],
@@ -1449,7 +1463,7 @@ export const expandedIssues: IssueRecord[] = [
       'Figure 9 is an attributed institutional three-panel reference under CC BY-NC-ND 4.0; crops, panel extraction, derivatives, commercial reuse, and automated training are not permitted by this record.',
       'Unresolved symptom-only, residue-uncleared, detached, unmatched-surface, specimen-unlinked, low-resolution, and rights-unclear samples retain review flags.',
     ],
-    sources: [sources.hempRustFieldGuide],
+    sources: [sources.hempRustFieldGuide, sources.hempRustTennesseeGuide],
     media: [{
       id: 'uf-ifas-hemp-rust-field-guide-figure-9-2024',
       url: 'https://ask.ifas.ufl.edu/image/PP379/Dxa6gfyzbo/I56qij3s0d/I56qij3s0d-2048.webp',

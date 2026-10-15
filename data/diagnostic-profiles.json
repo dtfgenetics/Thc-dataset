@@ -3001,6 +3001,7 @@
     "indicators": [
       "Compatible early lesions are light orange rather than white powder, purple-gray downy growth, black pycnidia, or a colorless puncture.",
       "Lesions can darken from light orange to dark orange, brown, or rust-colored as they develop; color alone remains nonspecific.",
+      "The Tennessee guide describes poorly defined margins on early yellow-orange spots and possible merging of darkened lesions; an early spot need not have a sharply bounded ring.",
       "The institutional composite pairs top and bottom views of one affected leaf with close views of an early upper-surface lesion and a lower-surface pustule.",
       "The strongest visible sign is an orange powdery spore mass erupting from a pustule on the lower leaf surface.",
       "The same-lesion upper/lower relationship is more informative than an isolated orange spot because rust structures may be concentrated on the underside.",
@@ -3062,6 +3063,7 @@
       "Use magnification before sampling to distinguish an erumpent pustule and attached spores from residue, pollen, arthropods, frass, pycnidia, downy growth, or superficial mildew.",
       "Collect intact representative pustules and lesion margins following a plant diagnostic laboratory protocol while retaining cultivar, age, site, weather, irrigation, leaf-wetness, and foliar-input metadata.",
       "Require lesion-linked microscopy of compatible rust structures for a confirmed rust label and preserve measurements, images, preparer, method, and specimen identifiers.",
+      "Record unaided macro, dissecting-microscope pustule, and compound-microscope spore views as different capture types linked to the same lesion; visible orange powder does not show individual spore morphology or establish species.",
       "Use current specialist taxonomic or validated molecular evidence when a Uredo kriegeriana species label matters; do not resolve the species from orange color, pustule appearance, host alone, or a guide image.",
       "Keep symptom-only, residue-uncleared, detached-leaf-only, unmatched-surface, specimen-unlinked, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and retain an unresolved classification when the evidence is incomplete."
     ],
@@ -3109,6 +3111,28 @@
           "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
           "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
           "UF/IFAS Figure 9 is an institutional three-panel hemp reference credited to Zachariah Hansen, University of Tennessee Extension; CC BY-NC-ND 4.0 permits unchanged noncommercial display with attribution but not crops, derivatives, commercial reuse, or automated training."
+        ]
+      },
+      {
+        "title": "Hemp Disease and Pest Management",
+        "organization": "University of Tennessee Extension",
+        "url": "https://solutions.tennessee.edu/?view_pub_pdf=2571",
+        "authors": [
+          "Zachariah Hansen",
+          "Ernest Bernard",
+          "Jerome Grant",
+          "Kimberly Gwinn",
+          "Frank Hale",
+          "Heather Kelly",
+          "Scott Stewart"
+        ],
+        "publisher": "University of Tennessee Extension",
+        "publicationDate": "2020-06",
+        "year": 2020,
+        "accessedDate": "2026-10-15",
+        "supportedClaims": [
+          "The Tennessee W 916 guide describes poorly bounded yellow-orange spots, followed by darker orange-brown lesions that may merge; cultivar susceptibility differences remain unresolved.",
+          "The guide distinguishes lower-surface pustules visible without magnification, a pustule viewed with a dissecting microscope, and uredospores viewed with a compound microscope. Pustule visibility does not mean an ordinary photograph resolves individual spores or their species."
         ]
       }
     ],
