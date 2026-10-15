@@ -226,7 +226,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Boron toxicity"
@@ -268,7 +268,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Boron toxicity"
@@ -310,7 +310,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Boron toxicity"
@@ -1104,7 +1104,7 @@
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "sourceGroupId": "doi-10.3390-app9204432-fig5",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "box": [
         188,
         1280,
@@ -1118,7 +1118,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Manganese toxicity reference",
@@ -1147,7 +1147,7 @@
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "sourceGroupId": "doi-10.3390-app9204432-fig5",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "box": [
         188,
         131,
@@ -1161,7 +1161,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Manganese toxicity reference",
@@ -1190,7 +1190,7 @@
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "sourceGroupId": "doi-10.3390-app9204432-fig5",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "box": [
         188,
         705,
@@ -1204,7 +1204,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "gridId": "cockson-mn-b-toxicity-figure-5",
       "columnContext": {
         "diagnosis": "Manganese toxicity reference",

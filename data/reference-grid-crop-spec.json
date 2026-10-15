@@ -93,11 +93,11 @@
       "sourceGroupId": "doi-10.3390-app9204432-fig5",
       "host": "Cannabis sativa T1",
       "confirmation": "lab-confirmed-controlled-nutrient-toxicity-treatment",
-      "reason": "Controlled manganese/boron toxicity progression. Manganese-toxicity panels are retained as reference-only pending a standalone toxicity diagnostic profile.",
+      "reason": "Controlled manganese/boron toxicity progression. Manganese left-column panels link to the reviewed toxicity profile; all panels remain source-grouped, reference-only, and training-ineligible pending separate training-admission review.",
       "xBands": [[188,1099],[1132,2051]],
       "yBands": [[131,688],[705,1263],[1280,1844]],
       "columns": [
-        {"id":"manganese-toxicity-reference","issueSlug":"manganese-toxicity-reference","diagnosis":"Manganese toxicity reference","referenceOnlyClass":true},
+        {"id":"manganese-toxicity-reference","issueSlug": "manganese-toxicity","diagnosis":"Manganese toxicity reference","referenceOnlyClass":true},
         {"id":"boron-toxicity","issueSlug":"boron-toxicity","diagnosis":"Boron toxicity"}
       ],
       "rows": [

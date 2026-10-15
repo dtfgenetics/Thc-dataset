@@ -30,6 +30,31 @@ function persistedParentId(media: { id: string; sha256?: string }) {
 }
 
 describe('persisted reference media', () => {
+  it('resolves manganese toxicity to three left-column crops without duplicating or promoting its parent', () => {
+    const manganese = issues.find((issue) => issue.slug === 'manganese-toxicity')!
+    const references = resolvedDisplayMediaForIssue(manganese, issues)
+    expect(manganese.media).toHaveLength(0)
+    expect(references).toHaveLength(1)
+    const reference = references[0]
+    expect(reference.shared).toBe(true)
+    expect(reference.ownerSlug).toBe('boron-toxicity')
+    expect(reference.media.sourceUrl).toBe('https://doi.org/10.3390/app9204432')
+    expect(reference.media.license).toBe('CC BY 4.0')
+    expect(reference.media.trainingEligible).toBe(false)
+    const parent = persistedParentId(reference.media)
+    const matched = cropManifest.records.filter((crop) => crop.issueSlug === manganese.slug)
+    expect(matched).toHaveLength(3)
+    expect(matched.map((crop) => crop.severity).sort()).toEqual(['advanced', 'initial', 'intermediate'])
+    for (const crop of matched) {
+      expect(crop.parentId).toBe(parent)
+      expect(crop.sourceGroupId).toBe('doi-10.3390-app9204432-fig5')
+      expect(crop.box[0]).toBe(188)
+      expect(crop.box[2]).toBe(1099)
+      expect(crop.trainingEligible).toBe(false)
+    }
+    expect(issues.flatMap((issue) => issue.media).filter((media) => media.id === reference.media.id)).toHaveLength(1)
+    expect(localReferenceMediaUrl(reference.media, manganese.slug)).toContain('crop-manganese-toxicity-reference-intermediate.png')
+  })
   it('resolves boron to three center-column crops without duplicating or promoting its parent', () => {
     const boron = issues.find((issue) => issue.slug === 'boron-deficiency')!
     const references = resolvedDisplayMediaForIssue(boron, issues)
