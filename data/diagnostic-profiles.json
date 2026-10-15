@@ -1045,7 +1045,8 @@
       "OSU field observations found some hemp spots about 0.1 inch or smaller, while more humid conditions can be associated with larger spots; size is contextual rather than a diagnostic threshold.",
       "Alternaria-associated disease can involve leaves, petioles, stems, buds, inflorescences, or propagation material, so a whole-plant and organ-level sequence is more informative than a detached-leaf crop.",
       "Repeated lesions associated with wet foliage, affected residue, or a wind/water spread pattern support a foliar pathogen pathway but do not identify Alternaria by themselves.",
-      "A Northern China investigation found multiple Alternaria taxa associated with hemp leaf spot and tested their pathogenicity; similar leaf injury can therefore belong to different taxa within this complex."
+      "A Northern China investigation found multiple Alternaria taxa associated with hemp leaf spot and tested their pathogenicity; similar leaf injury can therefore belong to different taxa within this complex.",
+      "In the Israeli assays, rapidly expanding brown leaf lesions also occurred with Botrytis; record organism evidence rather than assigning Alternaria by appearance."
     ],
     "exclusions": [
       "Dark pycnidia embedded in lesions and laboratory evidence support Septoria rather than Alternaria.",
@@ -1090,6 +1091,7 @@
       "Pseudocercospora olive or sooty leaf spot",
       "Fusarium foliar or flower blight",
       "Stemphylium leaf spot",
+      "Botrytis foliar lesions under inoculation-assay conditions",
       "Bacterial leaf spot",
       "Spray or contact injury",
       "Thrips or mite feeding",
@@ -1104,7 +1106,8 @@
       "Compare lesion progression with matched healthy plants from the same cultivar, stage, source group, and environment; absence of symptoms in appropriate controls strengthens but does not replace organism evidence.",
       "Keep symptom-only, detached-leaf-only, unlinked culture, mixed-organism, low-resolution, and stock/vendor/generated captures out of the confirmed Alternaria class and route them to human review.",
       "For a named species, preserve isolate and voucher identifiers, loci, sequence accessions, and the diagnostic laboratory's interpretation against appropriate references; the Cheng study used ITS, gapdh, tef1, rpb2, and ATPase for A. cannabina, not a universal assay for every Alternaria taxon.",
-      "Record visible leaf injury, lesion-linked Alternaria detection, and causally attributed disease as separate labels. Preserve persistent plant, leaf, lesion, specimen, and isolate identifiers; require compatible symptom reproduction and recovery with appropriate controls when establishing causality rather than incidental colonization."
+      "Record visible leaf injury, lesion-linked Alternaria detection, and causally attributed disease as separate labels. Preserve persistent plant, leaf, lesion, specimen, and isolate identifiers; require compatible symptom reproduction and recovery with appropriate controls when establishing causality rather than incidental colonization.",
+      "Label detached-leaf plug assays separately from intact-plant spray assays. Keep isolate, inoculation method, and matching sterile-plug or sterile-water control attached to every assay image."
     ],
     "immediateActions": [
       "Preserve representative untreated tissue and traceable photographs before removing heavily affected material.",
@@ -1216,6 +1219,27 @@
           "OSU surveys in 2021 observed hemp leaf spots about 0.1 inch or smaller, while higher relative humidity can be associated with larger spots; lesion size is therefore context-dependent.",
           "The institutional guidance emphasizes improving air circulation, minimizing leaf wetness, and removing infected leaves; these are risk-reduction measures and do not substitute for diagnosis.",
           "The page is institutionally copyrighted and exposes no explicit reusable license for disease media; no page graphic was copied or indexed as training ground truth."
+        ]
+      },
+      {
+        "title": "Fungal Pathogens Affecting the Production and Quality of Medical Cannabis in Israel",
+        "organization": "Plants",
+        "url": "https://doi.org/10.3390/plants9070882",
+        "authors": [
+          "Shachar Jerushalmi",
+          "Marcel Maymon",
+          "Aviv Dombrovsky",
+          "Stanley Freeman"
+        ],
+        "publisher": "MDPI",
+        "publicationDate": "2020-07-13",
+        "year": 2020,
+        "accessedDate": "2026-10-15",
+        "doi": "10.3390/plants9070882",
+        "supportedClaims": [
+          "Figure 3 compares detached Cannabis leaves inoculated with Alternaria alternata isolate 22A, Botrytis cinerea isolate 63A, and sterile PDAC plugs.",
+          "Figure 4 separately compares intact Cannabis plants sprayed with those isolates and a sterile-water control; detached-leaf and intact-plant assays are distinct evidence contexts.",
+          "Both Alternaria and Botrytis produced rapidly spreading brown lesions on inoculated leaves, so lesion color and expansion alone do not distinguish them."
         ]
       }
     ],

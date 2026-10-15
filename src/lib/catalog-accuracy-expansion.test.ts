@@ -8,6 +8,22 @@ const bySlug = (slug: string) => {
 }
 
 describe('canonical diagnostic catalog accuracy expansion', () => {
+  it('keeps Alternaria assay context and Botrytis look-alikes separate from field ground truth', () => {
+    const record = bySlug('alternaria-leaf-spot')
+    const study = record.sources.find((item) => item.doi === '10.3390/plants9070882')!
+    expect(study.authors).toEqual(['Shachar Jerushalmi', 'Marcel Maymon', 'Aviv Dombrovsky', 'Stanley Freeman'])
+    expect(study.publicationDate).toBe('2020-07-13')
+    expect(study.accessedDate).toBe('2026-10-15')
+    expect(study.supportedClaims.join(' ')).toContain('isolate 22A')
+    expect(study.supportedClaims.join(' ')).toContain('isolate 63A')
+    expect(study.supportedClaims.join(' ')).toContain('sterile-water control')
+    expect(record.indicators.join(' ')).toContain('also occurred with Botrytis')
+    expect(record.lookAlikes).toContain('Botrytis foliar lesions under inoculation-assay conditions')
+    expect(record.confirmation.join(' ')).toContain('detached-leaf plug assays separately from intact-plant spray assays')
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record.warnings.join(' ')).toContain('human review')
+    expect(record.media).toHaveLength(0)
+  })
   it('keeps hemp rust paired-surface context distinct from species confirmation', () => {
     const record = bySlug('hemp-rust')
     const evidence = [...record.indicators, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
