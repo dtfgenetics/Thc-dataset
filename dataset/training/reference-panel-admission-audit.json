@@ -148,7 +148,7 @@
       "nextAction": "Collect additional independent Cannabis/hemp cases from different plants/sessions/sources before class training admission."
     },
     {
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "panelCount": 3,
       "sourceGroupCount": 1,
       "eligibleSourceGroupCount": 0,
@@ -839,7 +839,7 @@
     },
     {
       "cropId": "crop-manganese-toxicity-reference-advanced",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-advanced.png",
@@ -862,7 +862,7 @@
     },
     {
       "cropId": "crop-manganese-toxicity-reference-initial",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-initial.png",
@@ -885,7 +885,7 @@
     },
     {
       "cropId": "crop-manganese-toxicity-reference-intermediate",
-      "issueSlug": "manganese-toxicity-reference",
+      "issueSlug": "manganese-toxicity",
       "parentId": "mdpi-cannabis-mn-b-toxicity-figure-5",
       "parentPath": "images/reference/original/mdpi-cannabis-mn-b-toxicity-figure-5.png",
       "repositoryPath": "images/reference/crops/crop-manganese-toxicity-reference-intermediate.png",
