@@ -4,6 +4,25 @@ import { issues as catalogIssues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('diagnostic dataset quality gates', () => {
+  it('separates photoperiod reversion from heat-specific inflorescence injury', () => {
+    const record = issues.find((issue) => issue.slug === 'heat-light-stress')!
+    const study = record.sources.find((item) => item.doi === '10.1016/j.indcrop.2025.121442')!
+    expect(study.publicationDate).toBe('2025-10-01')
+    expect(study.accessedDate).toBe('2026-10-15')
+    expect(study.authors).toHaveLength(9)
+    expect(study.authors?.[0]).toBe('Wannida Sae-Tang')
+    expect(study.supportedClaims.join(' ')).toContain('two or four weeks')
+    expect(study.supportedClaims.join(' ')).toContain('final two weeks')
+    expect(record.lookAlikes).toContain('Photoperiod-associated vegetative reversion with leaves above inflorescences')
+    const differential = record.progression.find((item) => item.stage === 'Photoperiod differential')!
+    expect(differential.description).toContain('not heat-specific injury')
+    expect(differential.description).toContain('same apex serially')
+    expect(differential.description).toContain('not universal thresholds')
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
+    expect(record.media).toHaveLength(1)
+    expect(record.media.every((media) => !media.trainingEligible)).toBe(true)
+    expect(record.warnings.join(' ')).toContain('human review')
+  })
   it('keeps identifiers and slugs unique', () => {
     expect(new Set(issues.map((issue) => issue.id)).size).toBe(issues.length)
     expect(new Set(issues.map((issue) => issue.slug)).size).toBe(issues.length)
