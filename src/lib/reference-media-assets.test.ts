@@ -31,6 +31,14 @@ function persistedParentId(media: { id: string; sha256?: string }) {
 }
 
 describe('persisted reference media', () => {
+  it('never substitutes adult aphid crops for the separately sourced egg reference', () => {
+    const issue = issues.find((item) => item.slug === 'cannabis-aphid')!
+    const media = issue.media.find((item) => item.id === 'media-cannabis-aphid-eggs-bugwood-5596882')!
+    expect(persistedParentId(media)).toBe(media.id)
+    expect(localReferenceMediaUrl(media, issue.slug)).toBeUndefined()
+    expect(referenceMediaSources(media, issue.slug).filter(Boolean)).toEqual([media.url])
+    expect(originalManifest.records.find((item) => item.id === media.id)?.sha256).toBe(media.sha256)
+  })
   it('keeps Figure 4 shared context separate from each panel diagnosis and severity', () => {
     const grid = gridSpec.grids.find((item) => item.id === 'cockson-mn-b-cu-deficiency-figure-4')!
     const panels = cropManifest.records.filter((item) => item.gridId === grid.id)

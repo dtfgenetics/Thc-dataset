@@ -12847,6 +12847,7 @@
       "Map the evidence to the same plant: inspect leaf undersides, petioles, stems, shoot tips, flower or seed-head tissues, and the stem base with magnification, and document living aphids in place.",
       "Inspect the roots and growing medium when root aphid is plausible; do not relabel a root-associated colony from a transient canopy alate.",
       "Record colony distribution, life stages, date, production setting, host stage, and repeated counts; preserve pre-treatment close-ups with a scale and the plant-to-colony link.",
+      "For suspected eggs, record leaf versus seed-capsule location, host maturity, date, scale, and linked adults. The NC State egg photograph is one dated still with unspecified leaf age, not a hardening time-lapse or a species-identification assay.",
       "Confirm Aphididae on intact specimens using body form, antennae, legs, cauda, and paired siphunculi; cast skins, honeydew, or plant symptoms alone are insufficient.",
       "For a Phorodon cannabis label, have a qualified identifier examine suitable wingless specimens for the combined head, setal, siphuncular, and antennal characters and explicitly exclude Phorodon humuli.",
       "Treat winged specimens, damaged material, low-resolution photographs, and trap captures as lower-confidence evidence because alate Phorodon species are more difficult to separate.",
@@ -12871,7 +12872,8 @@
       "Hop aphid is visually similar. Species-level separation requires an intact suitable specimen and microscope-level characters; ordinary photographs should not be treated as definitive.",
       "Large late-season hemp colonies have been observed without obvious wilting or yellowing, so visible damage is not a reliable proxy for population size or causal severity.",
       "Cultivar-specific performance, three-variety greenhouse response, and extension observations are study- or setting-specific, not universal susceptibility, injury, economic, or treatment thresholds.",
-      "The existing CC BY 4.0 Figure 2 is a mixed-scale, multi-panel reference and remains excluded from automated training without panel-resolved labels and crop review."
+      "The existing CC BY 4.0 Figure 2 is a mixed-scale, multi-panel reference and remains excluded from automated training without panel-resolved labels and crop review.",
+      "Dark egg-like objects alone remain human-review candidates: exclude debris and other arthropod eggs using linked specimens and suitable identification, not color or the reference photograph alone."
     ],
     "sources": [
       {
@@ -12919,12 +12921,13 @@
         "publisher": "North Carolina State University",
         "publicationDate": "2020-07-03",
         "year": 2020,
-        "accessedDate": "2026-08-24",
+        "accessedDate": "2026-10-15",
         "supportedClaims": [
           "Cannabis aphids occur on hemp leaves and stems, vary from cream or yellow through green, pink, and brown, and may produce winged forms and overwintering eggs; color and life stage therefore cannot establish the species alone.",
           "The guide describes cannabis aphid as very similar to hop aphid and requires microscope examination of the head region, including antennal-base projections and bulb-tipped setae, for morphological separation.",
           "Honeydew, cast skins, sooty mold, ants, wilting, yellowing, and slowed growth are compatible infestation cues but are not species-specific evidence.",
-          "No hemp action threshold had been established in the guide, so colony counts or symptom severity must not be converted into a universal treatment threshold."
+          "No hemp action threshold had been established in the guide, so colony counts or symptom severity must not be converted into a universal treatment threshold.",
+          "Sexually produced cannabis aphid eggs are initially yellow-green and darken to black as they harden; the guide describes seed capsules as a typical egg location and separately photographs eggs on a hemp leaf on November 9, 2019."
         ]
       },
       {
@@ -12973,6 +12976,39 @@
       }
     ],
     "media": [
+      {
+        "id": "media-cannabis-aphid-eggs-bugwood-5596882",
+        "url": "https://content.ces.ncsu.edu/media/images/5596882-WEB.jpeg",
+        "alt": "Dark oval egg-like objects clustered on a hemp leaf, identified by NC State as cannabis aphid eggs.",
+        "caption": "Leaf-associated cannabis aphid eggs photographed November 9, 2019; institutional identification, not an independently confirmed dataset specimen.",
+        "creator": "Whitney Cranshaw, Colorado State University, Bugwood.org",
+        "license": "CC BY 4.0",
+        "sourceUrl": "https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp",
+        "mediaType": "image",
+        "requiredAttribution": "Whitney Cranshaw, Colorado State University, Bugwood.org, image 5596882. Via NC State Extension, Cannabis Aphid in Industrial Hemp, 2020-07-03. https://content.ces.ncsu.edu/print_image/12472 — CC BY 4.0, https://creativecommons.org/licenses/by/4.0/; retain credit and indicate modifications. Unmodified publisher-delivered JPEG.",
+        "diagnosticLabel": "cannabis-aphid — institution-identified egg-stage reference on hemp leaf; not species confirmation",
+        "hostSpecies": "Cannabis sativa",
+        "hostContext": "cannabis",
+        "useLimitations": [
+          "Rights and caption checked on NC State publication and item page on 2026-10-15; CC BY 4.0 permits reuse with attribution, license link, and modification notice.",
+          "Low-resolution 384 × 216 publisher-delivered still; no scale, leaf age, matched adult specimen, laboratory confirmation, or longitudinal sequence supplied.",
+          "Leaf-associated egg-stage context only: do not label leaf discoloration as aphid injury or infer severity, viability, hatch timing, or species identity from these dark objects.",
+          "Human review and specimen-linked identification remain necessary for new egg-only samples. Reference display approved by agent evidence review, not a human or expert dataset review.",
+          "Reuse rights are permitted; automated training admission remains false pending resolution, specimen evidence, deduplication, source grouping, and split review."
+        ],
+        "displayPermission": "permitted",
+        "reviewStatus": "approved-reference",
+        "trainingPermission": "permitted",
+        "sha256": "c75a4bb712aac0fa90cfc6ceb7409da5a6417ed699d354320a63dad003e32464",
+        "perceptualHash": "dhash64:25373d1f2b0f1d27",
+        "width": 384,
+        "height": 216,
+        "view": "close-up",
+        "stage": "eggs; host maturity and leaf age unspecified; photographed 2019-11-09",
+        "severity": "not assessed; organism-stage reference",
+        "confirmation": "illustrative",
+        "trainingEligible": false
+      },
       {
         "id": "media-cannabis-aphid-figure-2",
         "url": "https://mdpi-res.com/d_attachment/plants/plants-14-00931/article_deploy/html/images/plants-14-00931-g002.png",

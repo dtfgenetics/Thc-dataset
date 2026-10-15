@@ -3,6 +3,24 @@ import { issues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('runtime catalog media quality', () => {
+  it('keeps the licensed aphid egg still distinct from species confirmation and adult-panel crops', () => {
+    const issue = issues.find((item) => item.slug === 'cannabis-aphid')!
+    const media = issue.media.find((item) => item.id === 'media-cannabis-aphid-eggs-bugwood-5596882')!
+    const source = issue.sources.find((item) => item.url === media.sourceUrl)!
+    expect(source.publicationDate).toBe('2020-07-03')
+    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.supportedClaims.join(' ')).toContain('initially yellow-green')
+    expect(media.url).toBe('https://content.ces.ncsu.edu/media/images/5596882-WEB.jpeg')
+    expect(media.requiredAttribution).toContain('https://creativecommons.org/licenses/by/4.0/')
+    expect(media.requiredAttribution).toContain('Whitney Cranshaw')
+    expect(media.confirmation).toBe('illustrative')
+    expect(media.trainingPermission).toBe('permitted')
+    expect(media.trainingEligible).toBe(false)
+    expect(media.stage).toContain('leaf age unspecified')
+    expect(media.useLimitations.join(' ')).toContain('not a human or expert')
+    expect(issue.confirmation.join(' ')).toContain('not a hardening time-lapse')
+    expect(issue.warnings.join(' ')).toContain('Dark egg-like objects alone')
+  })
   it('preserves HLVd mixed-panel identities and the exact primary-paper attribution', () => {
     const record = issues.find((issue) => issue.slug === 'hop-latent-viroid')!
     const media = record.media.find((item) => item.id === 'media-hlvd-cannabis-figure-1')!
