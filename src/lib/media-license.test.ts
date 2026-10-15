@@ -115,6 +115,12 @@ describe('commercial media display licensing gate', () => {
     expect(isDisplayableMedia(example('CC BY 4.0'))).toBe(true)
   })
 
+  it('quarantines references without an explicit source license', () => {
+    expect(isDisplayableMedia(example(''))).toBe(false)
+    expect(isDisplayableMedia(example('   '))).toBe(false)
+    expect(isDisplayableMedia(example('CC BY 4.0', { license: undefined as unknown as string }))).toBe(false)
+  })
+
   it('preserves permission and review gates', () => {
     expect(isDisplayableMedia(example('CC BY 4.0', { displayPermission: 'unknown' }))).toBe(false)
     expect(isDisplayableMedia(example('CC BY 4.0', { reviewStatus: 'candidate' }))).toBe(false)
