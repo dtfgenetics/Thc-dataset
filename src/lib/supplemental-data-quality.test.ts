@@ -124,7 +124,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['rice-root-aphid', 1],
       ['fusarium-crown-root-rot', 1],
       ['fusarium-foliar-flower-head-blight', 1],
-      ['cannabis-aphid', 1],
+      ['cannabis-aphid', 2],
       ['root-knot-nematodes', 1],
       ['pseudocercospora-olive-sooty-leaf-spot', 2],
       ['southern-blight-athelia-rolfsii', 1],
@@ -921,7 +921,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(cannabisAphid?.exclusions).toHaveLength(10)
     expect(cannabisAphid?.progression).toHaveLength(5)
     expect(cannabisAphid?.lookAlikes).toHaveLength(14)
-    expect(cannabisAphid?.confirmation).toHaveLength(7)
+    expect(cannabisAphid?.confirmation).toHaveLength(8)
     expect(cannabisAphid?.affectedParts.join(' ').toLowerCase()).toMatch(/leaf|stem|petiole/)
     expect(cannabisAphid?.exclusions.join(' ').toLowerCase()).toMatch(/only roots or growing medium contain/)
     expect(cannabisAphid?.confirmation.join(' ').toLowerCase()).toMatch(/exclude phorodon humuli/)
@@ -929,9 +929,10 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(cannabisAphid?.warnings.join(' ').toLowerCase()).toMatch(/human review is mandatory/)
     expect(cannabisAphid?.warnings.join(' ').toLowerCase()).toMatch(/not universal susceptibility, injury, economic, or treatment thresholds/)
     expect(cannabisAphid?.sources.map((item) => item.doi)).toEqual(expect.arrayContaining(['10.5281/zenodo.3710022', '10.3389/fpls.2023.1223894', '10.3390/plants14060931']))
-    expect(cannabisAphid?.media).toHaveLength(1)
-    expect(cannabisAphid?.media[0]?.trainingEligible).toBe(false)
-    expect(cannabisAphid?.media[0]?.useLimitations.join(' ').toLowerCase()).toMatch(/mixed-scale, multi-panel|panel-resolved/)
+    expect(cannabisAphid?.media).toHaveLength(2)
+    expect(cannabisAphid?.media.every((item) => !item.trainingEligible)).toBe(true)
+    const adultComposite = cannabisAphid?.media.find((item) => item.id === 'media-cannabis-aphid-figure-2')
+    expect(adultComposite?.useLimitations.join(' ').toLowerCase()).toMatch(/mixed-scale, multi-panel|panel-resolved/)
     expect(rootAphid?.affectedParts.join(' ').toLowerCase()).toMatch(/root/)
     expect(rootAphid?.confirmation.join(' ').toLowerCase()).toMatch(/roots|root zone/)
     expect(rootAphid?.sources.map((item) => item.doi)).toContain('10.1111/eea.70014')

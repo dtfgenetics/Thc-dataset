@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "aphid-egg-reference-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "0891b80d53102656c260c36576e57fc140c759d4",
+  "head_commit": "d495ea7614c409b679d708537b4bebd545e07fb7",
+  "branch": "work/grow-doc/GD-DIAG-001/aphid-reference-20261015",
+  "changed_paths": ["src/data/supplemental-issues.ts", "src/data/verified-reference-media.ts", "data/profiles/pest-cannabis-aphid.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profile-reference-media.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "images/reference/manifest.json", "images/reference/original/media-cannabis-aphid-eggs-bugwood-5596882.jpeg", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-media-quality.test.ts", "src/lib/reference-media-assets.test.ts", "src/lib/supplemental-data-quality.test.ts"],
+  "source_ids": ["https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp", "https://content.ces.ncsu.edu/print_image/12472", "https://content.ces.ncsu.edu/media/images/5596882-WEB.jpeg", "https://creativecommons.org/licenses/by/4.0/legalcode"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 inspected the NC State Extension publication, its egg-image print page, explicit item-level CC BY 4.0 credit, linked license, and delivered JPEG. Added one independent egg-stage reference to the existing cannabis aphid profile, one exact source-bound claim about egg color/location and dated capture, and capture/confirmation safeguards. The institutional caption is preserved as attribution, not an independently confirmed specimen or species ground truth. Original source asset, landing pages, creator, reuse/attribution conditions, dimensions, cryptographic/perceptual hashes, view, stage, unspecified leaf age and severity, and limitations are recorded. Copied only the explicitly licensed unmodified 15,993-byte JPEG. Decode and persisted SHA-256 verification passed; no exact SHA duplicate among 85 profile-linked media; nearest existing dhash64 distance is 19 bits, not proof against all possible near-duplicates. Reuse rights permitted but trainingEligible remains false: 384x216 image lacks scale, linked adult voucher, lab confirmation, host maturity and temporal sequence. Egg-only new samples retain human-review flags. Added tests for reference scope and preventing unrelated adult-crop substitution; replaced stale single-image ordering/count assumptions while retaining composite safeguards. Updated deterministic exports, release counters and model-data fingerprint pins. Counts: 63 profiles, 190 unique sources, 85 profile-linked media, 31 originals plus 68 crops, zero training-eligible media. All 62 package validators, 285 tests, type check, production build, artifact-byte verification, and git diff checks passed fresh after changes. PHP unavailable locally; hosted checks required before integration. No human/expert/lab review, model run, video verification, production deployment, or full-project completion asserted.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
