@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "white-root-rot-reference-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "78624d2d25323e264962af368ade45913d5ec033",
+  "head_commit": "23ea971b5013e54199ecc7dac535e1a8c5743e2c",
+  "branch": "work/grow-doc/GD-DIAG-001/coverage-20261015",
+  "changed_paths": ["data/profiles/root-white-root-rot.json", "src/data/expanded-issues-batch3.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profile-reference-media.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-coverage-expansion.test.ts", "src/lib/supplemental-data-quality.test.ts"],
+  "source_ids": ["https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot", "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot/white-root-rot-figure-1.JPG"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent source-page review on 2026-10-15 verified the Figure 1 apple-base caption, original asset link, Queensland credit, and last-updated date. This adds one hidden metadata-only cross-crop reference, not a Cannabis specimen or image binary. No reuse license or automated-training permission was verified. All missing specimen, capture timing, scale, serial progression, culture, and image-linked laboratory evidence remain explicit; the image is illustrative, license-review, display-unknown, and training-not-permitted. Corrected 11 May 2026 from a purported publication date to a supported last-updated statement; copyright 2020 is not a capture date. Existing Cannabis diagnostic claims and laboratory requirements are preserved. Regression tests enforce host boundaries, unique asset identity, date semantics, no rendering, and training exclusion. Export totals increase from 83 to 84 metadata references, not local images or training samples; model pins are refreshed with 191 text-training rows unchanged. All 62 validators, 275 tests, type checks, build, and diff checks passed. PHP lint requires hosted CI because PHP is unavailable locally. The skill's evidence-bound review retained the licensed Cannabis image/video gap rather than treating apple metadata as ground truth.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

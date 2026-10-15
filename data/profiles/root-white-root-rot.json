@@ -111,7 +111,7 @@
     "The direct Cannabis evidence is one pathogenicity-confirmed commercial-field report from Campania; its approximately 10% incidence and two-to-three-week decline are site-specific observations.",
     "UC IPM and Agriculture Victoria provide non-Cannabis morphology and biosecurity context. Their woody-host symptoms, timing, climate associations, host outcomes, and management claims are not Cannabis thresholds.",
     "Rosellinia/Dematophora taxonomy, white mycelium, and fan-like sub-bark growth do not make images species-resolving; mixed infections and multiple white-growth look-alikes require laboratory exclusion.",
-    "The Agriculture Victoria figures are credited to the State of Queensland and lack verified item-level automated-training rights. No media file was copied or indexed, and this profile intentionally remains an explicit licensed-image and video gap.",
+    "The Agriculture Victoria figures are credited to the State of Queensland and lack verified item-level automated-training rights. One apple trunk-base figure is indexed as hidden, metadata-only cross-crop context; no media file is copied or displayed. Cannabis-specific licensed imagery and video remain missing.",
     "Human review is mandatory for canopy-only, detached-root, white-growth-only, incubation-only, morphology-only, culture-unlinked, molecularly ambiguous, mixed-pathogen, cross-crop, low-resolution, generated, vendor, forum, anecdotal, or rights-unclear samples."
   ],
   "sources": [
@@ -157,15 +157,43 @@
       "organization": "Agriculture Victoria",
       "url": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
       "publisher": "State Government of Victoria",
-      "publicationDate": "2026-05-11",
-      "year": 2026,
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-15",
       "supportedClaims": [
         "The institutional cross-crop profile describes mycelial webs and strands near roots, bark invasion with fan-like growth, and white-to-greyish mats beneath bark that accompany progressive root-tissue rot.",
         "The source identifies a broad host range that includes herbaceous plants, but its apple-tree timing, canopy morphology, climate, and control statements must not be transferred as Cannabis thresholds or expected progression.",
-        "Its three credited photographs are copyrighted to the State of Queensland and lack item-level automated-training permission; their landing-page metadata may inform capture planning, but no image is copied, displayed, or indexed as Cannabis ground truth."
+        "Its three credited photographs are copyrighted to the State of Queensland and lack item-level automated-training permission; their landing-page metadata may inform capture planning, but no image is copied, displayed, or indexed as Cannabis ground truth.",
+        "Figure 1 is captioned as a mycelial mat at an apple-tree base; it is a non-Cannabis root-crown reference with no specimen-linked laboratory result on the page.",
+        "The page reports a last-updated date of 11 May 2026, not an original publication date or image-capture date."
       ]
     }
   ],
-  "media": []
+  "media": [
+    {
+      "id": "agvic-white-root-rot-apple-base-figure-1",
+      "url": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot/white-root-rot-figure-1.JPG",
+      "alt": "Apple trunk base with exposed pale mycelial material at the bark interface and surrounding soil",
+      "caption": "Metadata-only cross-crop reference: Agriculture Victoria Figure 1, apple-tree base. Not a confirmed Cannabis sample.",
+      "creator": "The State of Queensland; hosted by Agriculture Victoria",
+      "license": "Copyright The State of Queensland 2020; item-level reuse license not verified",
+      "sourceUrl": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
+      "mediaType": "image",
+      "requiredAttribution": "Figure 1 courtesy of The State of Queensland 2020, via Agriculture Victoria. Obtain rights-holder permission before copying, display, redistribution, or training.",
+      "diagnosticLabel": "White root rot — institutional apple root-crown context only; not Cannabis ground truth",
+      "hostSpecies": "Malus domestica / apple",
+      "hostContext": "non-cannabis",
+      "useLimitations": [
+        "Reference metadata only; no binary is stored or displayed. Automated training is not permitted without documented rights and separate scientific admission.",
+        "Apple host and trunk-base view cannot establish Cannabis symptoms, leaf age, canopy distribution, progression rate, or severity.",
+        "No capture date, cultivar, persistent specimen ID, scale, serial sequence, culture, or image-linked laboratory result is supplied. The 2020 copyright credit is not a capture date.",
+        "White material alone cannot exclude Armillaria, other fungi, residue, or saprophytic growth. Obtain plant-linked lesion-margin samples and qualified laboratory confirmation."
+      ],
+      "displayPermission": "unknown",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "view": "root-crown",
+      "stage": "Apple trunk-base context; plant age and capture timing unknown",
+      "confirmation": "illustrative",
+      "trainingEligible": false
+    }
+  ]
 }

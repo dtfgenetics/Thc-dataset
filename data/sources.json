@@ -3035,13 +3035,13 @@
     "organization": "Agriculture Victoria",
     "url": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
     "publisher": "State Government of Victoria",
-    "publicationDate": "2026-05-11",
-    "year": 2026,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-15",
     "supportedClaims": [
       "The institutional cross-crop profile describes mycelial webs and strands near roots, bark invasion with fan-like growth, and white-to-greyish mats beneath bark that accompany progressive root-tissue rot.",
       "The source identifies a broad host range that includes herbaceous plants, but its apple-tree timing, canopy morphology, climate, and control statements must not be transferred as Cannabis thresholds or expected progression.",
-      "Its three credited photographs are copyrighted to the State of Queensland and lack item-level automated-training permission; their landing-page metadata may inform capture planning, but no image is copied, displayed, or indexed as Cannabis ground truth."
+      "Its three credited photographs are copyrighted to the State of Queensland and lack item-level automated-training permission; their landing-page metadata may inform capture planning, but no image is copied, displayed, or indexed as Cannabis ground truth.",
+      "Figure 1 is captioned as a mycelial mat at an apple-tree base; it is a non-Cannabis root-crown reference with no specimen-linked laboratory result on the page.",
+      "The page reports a last-updated date of 11 May 2026, not an original publication date or image-capture date."
     ]
   },
   {

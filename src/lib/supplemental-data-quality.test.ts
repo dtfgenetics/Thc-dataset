@@ -319,6 +319,19 @@ describe('supplemental diagnostic catalog quality gates', () => {
         expect(issue.media[0].perceptualHash).toMatch(/^dhash64:[a-f0-9]{16}$/)
         continue
       }
+      if (issue.slug === 'white-root-rot-dematophora-necatrix') {
+        expect(issue.media).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media[0].hostContext).toBe('non-cannabis')
+        expect(issue.media[0].hostSpecies).toContain('apple')
+        expect(issue.media[0].license).toContain('item-level reuse license not verified')
+        expect(issue.media[0].displayPermission).toBe('unknown')
+        expect(issue.media[0].reviewStatus).toBe('license-review')
+        expect(issue.media[0].trainingPermission).toBe('not-permitted')
+        expect(issue.media[0].trainingEligible).toBe(false)
+        expect(issue.media[0].confirmation).toBe('illustrative')
+        continue
+      }
       const expectedMediaCount = permittedMediaCounts.get(issue.slug)
       if (!expectedMediaCount) {
         expect(issue.media, `${issue.slug} should remain an explicit image gap until rights/provenance are verified`).toEqual([])
