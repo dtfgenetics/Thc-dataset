@@ -47,12 +47,16 @@
       "description": "Substrate pH persists outside the intended system range; solution pH alone does not establish the root-zone exposure."
     },
     {
+      "stage": "Root-view capture scope",
+      "description": "Preserve plant, chamber, observation-window, scale, and date identity across captures; record which roots are visible and the counting rule. This annotation protocol follows the study measurement limits, not a validated camera diagnostic. Do not infer hidden root volume or biomass from a wall view."
+    },
+    {
       "stage": "Early root response",
       "description": "Root-tip expansion can slow before a diagnostic foliage pattern appears. In Baox, separation at pH 3.1 and 7.1 was evident by 21 days after planting."
     },
     {
       "stage": "Vegetative growth response",
-      "description": "Plant diameter, root mass, or shoot dry mass can fall while height remains deceptively similar; compare serial whole-plant and root-zone measurements with matched controls."
+      "description": "Plant diameter or shoot dry mass can fall while height remains deceptively similar. Keep these endpoints separate from wall-visible root length and tip counts; a root-window image does not measure total root biomass."
     },
     {
       "stage": "Cultivar-dependent foliage response",
@@ -61,6 +65,10 @@
     {
       "stage": "After correction",
       "description": "New root tips, canopy expansion, and new-leaf quality should be followed over time; existing necrosis will not reverse and response alone does not prove the original diagnosis."
+    },
+    {
+      "stage": "Reference interpretation",
+      "description": "Study Figures 4 and 5 are five-week vegetative treatment comparisons, not serial frames of one plant. Figure 6 documents lower-leaf progression in Sweetened under excess micronutrients; it is not a pure low-pH syndrome."
     }
   ],
   "lookAlikes": [
@@ -137,7 +145,7 @@
       "publisher": "Wiley Periodicals LLC on behalf of the Crop Science Society of America and the American Society of Agronomy",
       "publicationDate": "2025-02-21",
       "year": 2025,
-      "accessedDate": "2026-08-14",
+      "accessedDate": "2026-10-15",
       "doi": "10.1002/agg2.70044",
       "supportedClaims": [
         "In a controlled peat-perlite experiment, industrial hemp shoot dry weight was lower at substrate pH 3.0 and 4.0 than at pH 5.0 through 7.0; plant diameter was smaller at pH 3.0, while mean plant height did not differ across that pH range.",
@@ -145,7 +153,9 @@
         "Termination EC was higher at pH 3.0 and 7.0 than at intermediate pH values in the first experiment, so pH response cannot be interpreted without the accompanying salt and fertility context.",
         "Lower pH increased several leaf-tissue micronutrient concentrations, but normal micronutrient supply did not produce a universal toxicity phenotype; the authors concluded that Cannabis growth was inhibited below pH 5.0 and recommended a greenhouse substrate range of 5.5 to 6.5 for the systems evaluated.",
         "With fourfold micronutrients at target pH 3.8, Sweetened developed lower-foliage tip bronzing that advanced to necrosis, inward spread, and chlorosis, whereas Cherry Wine did not show the same response, demonstrating cultivar- and fertility-dependent appearance.",
-        "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds."
+        "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds.",
+        "Experiment 2 measured the five longest wall-visible roots per chamber and counted visible root tips at 6 to 21 days after planting; roots inside the substrate were not measured. These endpoints are not total root biomass.",
+        "Figures 4 and 5 compare Cherry Wine and Sweetened, respectively, after five weeks of vegetative growth; they are treatment comparisons, whereas Figure 6 shows the Sweetened lower-foliage bronzing progression under fourfold micronutrients."
       ]
     },
     {
