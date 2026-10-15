@@ -97,7 +97,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -140,7 +140,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -183,7 +183,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Boron deficiency reference",
@@ -614,7 +614,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -656,7 +656,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -698,7 +698,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Copper deficiency"
@@ -992,7 +992,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"
@@ -1034,7 +1034,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"
@@ -1076,7 +1076,7 @@
       "confirmation": "lab-confirmed-controlled-nutrient-withholding",
       "embeddedPanelLabel": false,
       "trainingEligible": false,
-      "reason": "Controlled manganese/boron/copper withholding sequence. The center boron-deficiency panels map to the reviewed boron profile but remain reference-only until panel crops, provenance, labels, and dataset splits are approved.",
+      "reason": "Figure 4 controlled T1 withholding composite: left manganese deficiency, center boron deficiency, right copper deficiency. Each crop retains its own columnContext diagnosis and rowContext severity; the shared figure is not a single boron-class sample. Preserve source grouping and reference-only status pending separate training-admission review. Copper prose cites Figure 5 inconsistently; use the Figure 4 caption and embedded column labels for panel identity.",
       "gridId": "cockson-mn-b-cu-deficiency-figure-4",
       "columnContext": {
         "diagnosis": "Manganese deficiency"

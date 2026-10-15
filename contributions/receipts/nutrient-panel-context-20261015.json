@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "nutrient-panel-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "4392711af732d102fc74c6c64c7caa3790307d0c",
+  "head_commit": "a8c6cd6a1e5cc7e6b8f207202bfe4b38adf762cf",
+  "branch": "work/grow-doc/GD-DIAG-001/panel-context-20261015",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-def-mn.json"],
+  "related_release_paths": ["data/reference-grid-crop-spec.json", "images/reference/crops-manifest.json", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/profile-reference-media.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/reference-media-assets.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/app9204432", "https://www.mdpi.com/2076-3417/9/20/4432"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 inspected the persisted primary Figure 4 and indexed publisher caption. Corrected contradictory shared crop context: six manganese/copper panel records had a reason describing only the center boron column. The canonical grid reason and all nine generated reasons now identify all columns and preserve per-panel columnContext diagnosis and rowContext severity; copper's source figure-number inconsistency remains explicit. Enriched the unique parent media caption with row order and mixed detached-leaf/attached-canopy view context, without inventing same-leaf video continuity. Nine crop records and one existing parent reference enriched across manganese, boron and copper deficiency; no new media, claim, citation identity, license grant, sample or training admission. Existing CC BY 4.0 attribution, source URL, hashes, geometry, IDs, labels, source grouping and trainingEligible=false retained. A complete comparison of all 68 manifest records found only nine reason changes; every other field was identical. Publisher reader returned HTTP 429; indexed primary caption and the already persisted source original were used, without bypassing access controls. Regression test checks grid/generated reason parity, all three diagnoses, all three severity rows, source grouping and training exclusion. TypeScript initially rejected test union access; explicit guards repaired that failure, and a fresh full run passed all 62 validators, 282 tests, type check, build, deterministic freeze and diff checks. No image bytes changed. PHP unavailable locally; hosted lint required. No actual human review, model run or production deployment asserted.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
