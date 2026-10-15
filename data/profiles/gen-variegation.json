@@ -163,11 +163,12 @@
       "publisher": "MDPI AG",
       "publicationDate": "2022-01-26",
       "year": 2022,
-      "accessedDate": "2026-10-10",
+      "accessedDate": "2026-10-15",
       "doi": "10.3390/plants11030327",
       "supportedClaims": [
         "The primary study abstract reports experimentally induced PDS-silencing photobleaching largely restricted to the treated Cannabis leaves despite limited vector spread; localized pigment loss therefore does not by itself establish a stable genetic trait.",
-        "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant."
+        "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant.",
+        "Figure 1 compares three Cannabis lines two weeks after experimental PDS silencing: a = MF-71, b = MF-169, c = MF-219, while d is an empty-vector control. Local bleaching was mainly vein-associated and varied among lines; the panels are not serial stages of one plant."
       ]
     },
     {
@@ -226,6 +227,40 @@
       "view": "close-up",
       "stage": "vegetative and flowering leaf samples",
       "severity": "mixed chlorotic and mosaic-like foliar patterns",
+      "confirmation": "illustrative",
+      "trainingEligible": false
+    },
+    {
+      "id": "media-trv-pds-bleaching-comparison-figure-1",
+      "url": "https://mdpi-res.com/d_attachment/plants/plants-11-00327/article_deploy/html/images/plants-11-00327-g001.png",
+      "alt": "Four labeled Cannabis leaf panels: a through c show localized pale vein-associated areas in experimental lines; d shows the empty-vector comparison",
+      "caption": "Alter et al. Figure 1: a = MF-71, b = MF-169, c = MF-219 after experimental PDS silencing; d = empty-vector control. Two-week endpoint with 2 cm scale bars, not a time series or natural variegation diagnosis.",
+      "creator": "Hanan Alter, Reut Peer, Aviv Dombrovsky, Moshe Flaishman, and Ben Spitzer-Rimon",
+      "license": "CC BY 4.0",
+      "sourceUrl": "https://doi.org/10.3390/plants11030327",
+      "mediaType": "image",
+      "requiredAttribution": "© 2022 Alter H, Peer R, Dombrovsky A, Flaishman M, Spitzer-Rimon B. Tobacco Rattle Virus as a Tool for Rapid Reverse-Genetics Screens and Analysis of Gene Function in Cannabis sativa L. Plants 11(3):327, Figure 1. https://doi.org/10.3390/plants11030327. CC BY 4.0, https://creativecommons.org/licenses/by/4.0/; retain credit and indicate modifications. Unmodified publisher PNG.",
+      "diagnosticLabel": "genetic-variegation — experimental PDS-silencing bleaching look-alike composite; not genetic ground truth",
+      "hostSpecies": "Cannabis sativa; MF-71, MF-169, MF-219 experimental lines",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Primary full-text XML, caption and CC BY 4.0 terms verified through Europe PMC on 2026-10-15; publisher PNG visually inspected and hashed.",
+        "Preserve panel identities and scale bars; d is an empty-vector control, not an untreated healthy control or a bleaching-positive sample.",
+        "Different genetic lines at one experimental endpoint are not independent field cases, a progression sequence, severity grades, or evidence of seed inheritance.",
+        "Physiological leaf age, node identity, original canopy position and persistent photographed-plant identifiers are not supplied by this figure; do not invent them.",
+        "Induced pigment-gene silencing is a look-alike only: it cannot establish spontaneous genetic variegation, natural TRV infection, nutrient deficiency or pathogen freedom.",
+        "Agent-approved reference display only. CC BY permits reuse with attribution; supervised diagnostic training remains excluded pending panel-resolved confirmation, provenance grouping, leakage and admission review."
+      ],
+      "displayPermission": "permitted",
+      "reviewStatus": "approved-reference",
+      "trainingPermission": "permitted",
+      "sha256": "458f352f1bb1f6f2764089a8df6cc50dca26a40bc05ebb2ea3ee23f227277e70",
+      "perceptualHash": "dhash64:29a9a9aca6260a82",
+      "width": 3042,
+      "height": 816,
+      "view": "close-up",
+      "stage": "two weeks after experimental treatment; leaf age and node unspecified",
+      "severity": "mixed treatment/control panels; no unified severity grade",
       "confirmation": "illustrative",
       "trainingEligible": false
     }

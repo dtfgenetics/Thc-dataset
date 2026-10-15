@@ -581,6 +581,13 @@ describe('diagnostic dataset quality gates', () => {
     expect(record.exclusions.join(' ')).toContain('solely because it remains confined to one leaf')
     expect(record.confirmation.join(' ')).toContain('never infer TRV infection')
     expect(record.warnings.join(' ')).toContain('not field evidence of natural TRV disease')
+    expect(source.accessedDate).toBe('2026-10-15')
+    const comparison = record.media.find((item) => item.id === 'media-trv-pds-bleaching-comparison-figure-1')!
+    expect(comparison.caption).toContain('d = empty-vector control')
+    expect(comparison.useLimitations.join(' ')).toContain('not an untreated healthy control')
+    expect(comparison.license).toBe('CC BY 4.0')
+    expect(comparison.confirmation).toBe('illustrative')
+    expect(comparison.sha256).toBe('458f352f1bb1f6f2764089a8df6cc50dca26a40bc05ebb2ea3ee23f227277e70')
     expect(record.photoOnlyMaxConfidence).toBe(0.10)
     expect(record.media.every((item) => !item.trainingEligible)).toBe(true)
   })

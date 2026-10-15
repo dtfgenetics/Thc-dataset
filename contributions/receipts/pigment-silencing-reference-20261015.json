@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "pigment-silencing-reference-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "495b494fad41a4d70a7532074f81468a2ee165d4",
+  "head_commit": "3d92703198f04ecfcaca5950dc4903b73fb9a619",
+  "branch": "work/grow-doc/GD-DIAG-001/trait-evidence-20261015",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/gen-variegation.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/profile-reference-media.json", "data/sources.json", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/splits/manifest.json", "images/reference/manifest.json", "images/reference/original/media-trv-pds-bleaching-comparison-figure-1.png", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/plants11030327", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC8838890/fullTextXML", "https://mdpi-res.com/d_attachment/plants/plants-11-00327/article_deploy/html/images/plants-11-00327-g001.png"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, history, contracts, task claims, schemas, genetic/developmental coverage, existing records and validators. Enriched one suspected-variegation profile with an experimental pigment-silencing look-alike, not genetic or natural-infection ground truth. Official Europe PMC full-text XML returned HTTP 200 and supplied the primary caption, Results and CC BY 4.0 terms. Original publisher PNG returned HTTP 200 and was visually inspected, fingerprinted and persisted unchanged (3042 by 816, 2477993 bytes). Figure 1 preserves a/MF-71, b/MF-169, c/MF-219 and d/empty-vector identities, the two-week endpoint and scale bars. Different lines are not a time series, severity grades or independent field cases; the empty-vector panel is not an untreated healthy control. Leaf age, node and persistent photographed-plant identity remain unspecified. Added attribution, landing/original asset URLs, rights evidence, source claim and access date; no new source identity. Patent/vendor search results were not used as diagnostic evidence. Direct MDPI/PMC web-page access was unavailable; no restriction bypass attempted. The first validation run exposed a missing parent-profile slug in the new diagnostic label. Corrected that record and manifest without weakening tests; targeted 35 tests and then all 288 tests passed. Fresh full rerun passed all 62 validators, type check, build, artifact-byte verification and diff checks; receipt/claims rerun after creation. PHP unavailable locally and remains a hosted requirement. Totals: 63 profiles, 191 sources, 89 profile-linked media, 35 originals plus 68 crops (103 files), zero training-eligible media. One licensed original and one claim in an existing citation added; no crops or videos. Model-data fingerprints updated; 191 frozen text-training rows do not imply training. Keep 0.10 photo-only ceiling, human-review flags and panel/source grouping and admission requirements. Independent natural-trait, longitudinal and diagnostic-video evidence remain gaps. Agent review is not human/expert/lab review; no deployment or project-completion claim.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
