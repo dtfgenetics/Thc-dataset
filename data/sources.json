@@ -2709,11 +2709,12 @@
     "publisher": "MDPI AG",
     "publicationDate": "2022-01-26",
     "year": 2022,
-    "accessedDate": "2026-10-10",
+    "accessedDate": "2026-10-15",
     "doi": "10.3390/plants11030327",
     "supportedClaims": [
       "The primary study abstract reports experimentally induced PDS-silencing photobleaching largely restricted to the treated Cannabis leaves despite limited vector spread; localized pigment loss therefore does not by itself establish a stable genetic trait.",
-      "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant."
+      "The study concerns an engineered reverse-genetics system, not a survey of spontaneous Cannabis variegation or natural Tobacco rattle virus disease; its phenotype cannot establish natural infection, inheritance, or pathogen freedom in an unknown plant.",
+      "Figure 1 compares three Cannabis lines two weeks after experimental PDS silencing: a = MF-71, b = MF-169, c = MF-219, while d is an empty-vector control. Local bleaching was mainly vein-associated and varied among lines; the panels are not serial stages of one plant."
     ]
   },
   {
