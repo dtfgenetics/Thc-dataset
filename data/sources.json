@@ -3840,6 +3840,27 @@
     ]
   },
   {
+    "sourceKey": "https://plantpathology.mgcafe.uky.edu/sites/plantpathology.ca.uky.edu/files/PPFS-AG-H-03.pdf",
+    "title": "An IPM Scouting Guide for Common Pests and Diseases of Kentucky Hemp",
+    "organization": "University of Kentucky Cooperative Extension Service, PPFS-AG-H-03",
+    "url": "https://plantpathology.mgcafe.uky.edu/sites/plantpathology.ca.uky.edu/files/PPFS-AG-H-03.pdf",
+    "authors": [
+      "Henry Smith",
+      "Nicole Gauthier",
+      "Raul Villanueva",
+      "Magdalena Ricciardi",
+      "Bob Pearce",
+      "Kim Leonberger"
+    ],
+    "publisher": "University of Kentucky Cooperative Extension Service",
+    "accessedDate": "2026-10-15",
+    "supportedClaims": [
+      "The Kentucky guide describes Bipolaris gigantea hemp leaf spot as small white circular lesions with black hair-like conidiophores; centers can fall out and spots can merge into blight. These are anthracnose look-alike cues, not Colletotrichum confirmation.",
+      "Its Cercospora flagellaris description includes irregular tan-to-brown-centered lesions with a distinct purple border and a regional late-season context; that appearance and timing cannot identify anthracnose or establish a universal leaf-age order.",
+      "Its Septoria cannabis description includes irregular brown-to-black spots with broad bright-yellow halos, raised central black pycnidia, coalescence, yellowing and leaf drop. The guide is a differential reference, not a specimen-linked anthracnose report."
+    ]
+  },
+  {
     "sourceKey": "https://pnwhandbooks.org/insect/agronomic/hemp/hemp-caterpillars",
     "title": "Hemp-Caterpillars",
     "organization": "Pacific Northwest Pest Management Handbooks",

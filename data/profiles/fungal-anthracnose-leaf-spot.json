@@ -36,6 +36,7 @@
   "exclusions": [
     "Physical holes, chewing, hail tears, handling damage, or training injury occur without a preceding discolored lesion, halo, or lesion-linked fungus.",
     "Dark embedded pycnidia and a compatible laboratory result support Septoria leaf spot.",
+    "Small white circular lesions with black hair-like conidiophores, center loss, or coalescing blight also fit the Kentucky Bipolaris description; shot holes do not distinguish it from anthracnose.",
     "Gray-brown sooty or velvety lower-surface conidial patches support Pseudocercospora.",
     "Tan-to-white centers with conspicuous melanized conidiophores and a compatible result support Cercospora leaf spot.",
     "Concentric target-like rings or dark central sporulation with a compatible isolate support Alternaria as a differential.",
@@ -85,6 +86,7 @@
     "Collect multiple fresh lesions spanning intact early margins to developing centers before saprophytes obscure the lesion edge, following the receiving laboratory's packaging instructions.",
     "Use lesion-edge culture and trained morphological examination to recover a dominant compatible Colletotrichum isolate, while recording other organisms recovered from the same tissue.",
     "Keep culture photographs separate from field-leaf photographs: preserve lesion, isolate, medium, incubation, and capture identifiers. Orange exudate after three weeks on PDA in the report is culture context, not a required camera-visible sign on the plant.",
+    "For look-alike review, pair scaled lesion-center macros with both leaf surfaces and a full-leaf view. Distinguish hair-like surface conidiophores from compact raised pycnidia through qualified microscopy, and retain the lesion-linked laboratory identification.",
     "For C. fioriniae-level confirmation, require plant-linked multilocus sequence evidence comparable to the four-gene approach in the first report; do not assign the species from color, ITS alone, or a generic Colletotrichum image.",
     "Where causality is uncertain or the isolate represents a new host or presentation, use pathogenicity evidence with symptom reproduction, reisolation, and symptomless controls.",
     "Keep symptom-only, shot-hole-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, generated, vendor, anecdotal, forum, unverified, and low-resolution samples out of confirmed training labels and route them to human review."
@@ -110,6 +112,7 @@
     "The 2021 Kentucky survey only reports separate field occurrences and explicitly characterizes its findings as preliminary; it does not validate a camera-only label.",
     "A Colletotrichum culture without plant and lesion linkage can represent incidental or secondary recovery and is not sufficient ground truth.",
     "No image or video was indexed because no stable, item-level Cannabis anthracnose asset with clear reuse rights, plant linkage, and species-resolved confirmation was verified.",
+    "The undated Kentucky scouting guide is used only for named fungal look-alikes; it contains no anthracnose entry and does not confirm Colletotrichum in any dataset specimen. Photo credits alone do not establish reuse or automated-training permission, and none of its media was copied.",
     "All symptom-only, hole-only, detached, mixed-organism, unlinked-laboratory, single-locus-only, low-resolution, and rights-unclear samples require human review."
   ],
   "sources": [
@@ -155,6 +158,26 @@
         "A 2021 University of Kentucky survey at the Spindletop Farm and Robinson Center observed separate cases of anthracnose identified as Colletotrichum fioriniae in field-grown hemp research plantings.",
         "The survey covered hemp grown for cannabinoid, grain, and fiber purposes and documented multiple fungal diseases in the same season, so field context does not make a photographed lesion specific to anthracnose.",
         "The conference report explicitly described its results as preliminary and called for additional research; it does not establish prevalence, cultivar susceptibility, symptom timing, yield impact, or a visual decision threshold for anthracnose."
+      ]
+    },
+    {
+      "title": "An IPM Scouting Guide for Common Pests and Diseases of Kentucky Hemp",
+      "organization": "University of Kentucky Cooperative Extension Service, PPFS-AG-H-03",
+      "url": "https://plantpathology.mgcafe.uky.edu/sites/plantpathology.ca.uky.edu/files/PPFS-AG-H-03.pdf",
+      "authors": [
+        "Henry Smith",
+        "Nicole Gauthier",
+        "Raul Villanueva",
+        "Magdalena Ricciardi",
+        "Bob Pearce",
+        "Kim Leonberger"
+      ],
+      "publisher": "University of Kentucky Cooperative Extension Service",
+      "accessedDate": "2026-10-15",
+      "supportedClaims": [
+        "The Kentucky guide describes Bipolaris gigantea hemp leaf spot as small white circular lesions with black hair-like conidiophores; centers can fall out and spots can merge into blight. These are anthracnose look-alike cues, not Colletotrichum confirmation.",
+        "Its Cercospora flagellaris description includes irregular tan-to-brown-centered lesions with a distinct purple border and a regional late-season context; that appearance and timing cannot identify anthracnose or establish a universal leaf-age order.",
+        "Its Septoria cannabis description includes irregular brown-to-black spots with broad bright-yellow halos, raised central black pycnidia, coalescence, yellowing and leaf drop. The guide is a differential reference, not a specimen-linked anthracnose report."
       ]
     }
   ],

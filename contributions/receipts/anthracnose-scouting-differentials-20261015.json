@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "anthracnose-scouting-differentials-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "94356b58eadae1a00545375e9faa3520ac7a2ec9",
+  "head_commit": "9e8f75d41f5609305c88e8cd02bec3bb4ec6707f",
+  "branch": "work/grow-doc/GD-DIAG-001/anthracnose-guide-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-anthracnose-leaf-spot.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/supplemental-data-quality.test.ts"],
+  "source_ids": ["https://plantpathology.mgcafe.uky.edu/sites/plantpathology.ca.uky.edu/files/PPFS-AG-H-03.pdf", "https://kentuckypestnews.wordpress.com/2026/05/26/ipm-scouting-guides-for-common-problems-of-hemp/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, schemas, coverage, task claims, validators, recent changes and existing anthracnose evidence. Read the University of Kentucky institutional scouting-guide text, including contributor list, named disease entries and photo credits, via the public PDF source. Added one new institutional source identity and three exact differential claims for Bipolaris gigantea, Cercospora flagellaris and Septoria cannabis; the guide contains no anthracnose entry and is not used as a Colletotrichum report, causal confirmation or national timing threshold. Strengthened the shot-hole exclusion and paired full-leaf/both-surface/scaled-macro capture guidance, with qualified microscopy and lesion-linked laboratory identification retained. Regional lesion descriptions are comparative cues, not species classification from a camera image. No explicit publication date appeared in the retrieved guide, so publicationDate/year are omitted; the May 26, 2026 institutional announcement is availability context, not an inferred guide-publication date. PDF page screenshot attempts timed out; figures were not visually verified and no media was copied or indexed. Photo credits do not establish reusable rights or automated-training permission. Existing 0.30 photo-only ceiling, multilocus/pathogenicity criteria and human-review flags remain. One fungal-pathogen profile enriched, no new diagnostic class or media/license: 63 profiles, 191 sources, 88 media references, 34 originals plus 68 crops, zero training-eligible media. Source URL occurs once in the exported source catalog. Deterministic exports and model-data fingerprint pins updated; frozen 191 text-training rows imply no model run or vision admission. Fresh local validation passed all 62 validators, 288 tests, type check, build, artifact-byte verification and diff checks; receipt/claim validators rerun after receipt creation. PHP unavailable locally and remains a hosted-check requirement. No human/expert/lab dataset review, diagnostic-video verification, deployment or full-project completion asserted. Rights-cleared plant-linked anthracnose imagery/video and training-admission evidence remain gaps.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
