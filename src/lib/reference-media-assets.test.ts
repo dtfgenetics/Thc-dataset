@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import cropManifest from '../../images/reference/crops-manifest.json'
 import originalManifest from '../../images/reference/manifest.json'
+import gridSpec from '../../data/reference-grid-crop-spec.json'
 import { issues } from '../data/catalog'
 import { isDisplayableMedia, resolvedDisplayMediaForIssue } from './media'
 import { localReferenceMediaCoverage, localReferenceMediaUrl, referenceMediaSources } from './reference-media-assets'
@@ -30,6 +31,28 @@ function persistedParentId(media: { id: string; sha256?: string }) {
 }
 
 describe('persisted reference media', () => {
+  it('keeps Figure 4 shared context separate from each panel diagnosis and severity', () => {
+    const grid = gridSpec.grids.find((item) => item.id === 'cockson-mn-b-cu-deficiency-figure-4')!
+    const panels = cropManifest.records.filter((item) => item.gridId === grid.id)
+    expect(panels).toHaveLength(9)
+    expect(grid.reason).toContain('left manganese deficiency, center boron deficiency, right copper deficiency')
+    expect(grid.reason).toContain('not a single boron-class sample')
+    expect(grid.reason).toContain('Copper prose cites Figure 5 inconsistently')
+    for (const column of grid.columns) {
+      if (!('diagnosis' in column)) throw new Error(`${column.id}: missing diagnosis`)
+      const matched = panels.filter((item) => item.issueSlug === column.issueSlug)
+      expect(matched).toHaveLength(3)
+      expect(matched.map((item) => item.severity).sort()).toEqual(['advanced', 'initial', 'intermediate'])
+      for (const panel of matched) {
+        expect(panel.reason).toBe(grid.reason)
+        if (!panel.columnContext || !('diagnosis' in panel.columnContext)) throw new Error(`${panel.id}: missing diagnosis context`)
+        expect(panel.columnContext.diagnosis).toBe(column.diagnosis)
+        expect(panel.rowContext?.severity).toBe(panel.severity)
+        expect(panel.trainingEligible).toBe(false)
+        expect(panel.sourceGroupId).toBe('doi-10.3390-app9204432-fig4')
+      }
+    }
+  })
   it('resolves manganese toxicity to three left-column crops without duplicating or promoting its parent', () => {
     const manganese = issues.find((issue) => issue.slug === 'manganese-toxicity')!
     const references = resolvedDisplayMediaForIssue(manganese, issues)
