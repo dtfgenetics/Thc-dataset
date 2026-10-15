@@ -103,6 +103,12 @@ describe('61-profile evidence-backed coverage expansion', () => {
 
   it('withholds the apple white-root-rot reference from display and Cannabis training', () => {
     const record = bySlug('white-root-rot-dematophora-necatrix')
+    const primary = record.sources.find((source) => source.doi === '10.1094/PDIS-07-20-1521-PDN')!
+    expect(primary.accessedDate).toBe('2026-10-15')
+    expect(primary.supportedClaims.join(' ')).toContain('MW541068')
+    expect(primary.supportedClaims.join(' ')).toContain('laboratory morphology')
+    expect(record.progression.find((stage) => stage.stage === 'Laboratory observation scope')?.description).toContain('not an additional symptom stage')
+    expect(record.confirmation.join(' ')).toContain('not a result for a new sample')
     expect(resolvedDisplayMediaForIssue(record, issues)).toHaveLength(0)
     expect(record.media.every((media) => !isDisplayableMedia(media) && !media.trainingEligible)).toBe(true)
     expect(issues.flatMap((issue) => issue.media).filter((media) => media.id === 'agvic-white-root-rot-apple-base-figure-1')).toHaveLength(1)

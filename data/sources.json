@@ -1121,12 +1121,14 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2021-10-01",
     "year": 2021,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-15",
     "doi": "10.1094/PDIS-07-20-1521-PDN",
     "supportedClaims": [
       "Affected hemp developed yellowing, apical wilt, root rot, white mycelium covering roots, and fan-like mycelium beneath root bark before death.",
       "In the single reported commercial field in Campania, death generally occurred within two to three weeks after first symptoms and about 10% of plants were affected; these are outbreak observations, not universal Cannabis timing or prevalence.",
       "Inoculated hemp reproduced chlorosis, apical wilt, and death while controls remained healthy; the fungus was reisolated and confirmed by morphology and molecular analysis.",
+      "Cultured mycelia from 15 hemp isolates had pear-shaped swellings next to septa; reported conidia were aseptate, hyaline, ellipsoid to ovoid, and 3 to 5 by 2.5 to 3 micrometers. These are laboratory morphology observations, not canopy-photo features.",
+      "After pathogenicity testing, the fungus was recovered from roots of all 15 inoculated plants and checked by morphology and a second molecular target, translation elongation factor 1-alpha; the deposited sequence accession was MW541068.",
       "Root signs and laboratory confirmation are required because canopy yellowing and wilt overlap many Cannabis root-zone disorders."
     ]
   },

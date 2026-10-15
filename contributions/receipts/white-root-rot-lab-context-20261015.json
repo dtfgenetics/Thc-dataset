@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "white-root-rot-lab-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "0701d28079136ce7835ceffc0dfca6848ee72fea",
+  "head_commit": "95a63b24a943209d23968a2423943893b694a36c",
+  "branch": "work/grow-doc/GD-DIAG-001/root-pathogen-context-20261015",
+  "changed_paths": ["src/data/expanded-issues-batch3.ts", "data/profiles/root-white-root-rot.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-coverage-expansion.test.ts"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-07-20-1521-PDN"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, recent changes, contracts, task registry, schemas, coverage, existing white-root-rot records and validator commands. Selected white root rot because its only media reference is a hidden, rights-unclear non-Cannabis apple image and its direct Cannabis laboratory context was incomplete. Added two exact claims to the existing hemp primary-report citation: cultured-isolate microscopic morphology and post-pathogenicity reisolation with a second molecular target/accession. Added a laboratory-observation scope step and capture/confirmation fields, explicitly not an additional field symptom stage or a result transferable to a new sample. Refreshed source access date and extended existing test assertions. The publisher page returned HTTP 403; only retrieved publisher-indexed passages were used, without bypass, full-text access claims or figure verification. No new citation identity, media, license, diagnosis or training admission. Existing 0.20 photo-only ceiling, human-review exclusions, cross-crop rights restrictions and plant-linked laboratory-confirmation requirements remain. Totals unchanged: 63 profiles, 191 sources, 88 media references, 34 originals plus 68 crops, zero training-eligible media. Fresh local verification passed all 62 package validators, 288 tests, type check, build, artifact-byte verification and diff checks; receipt/claim checks rerun after receipt creation. PHP unavailable locally and remains a hosted requirement. Deterministic CSV/JSON/JSONL/source exports and frozen-data fingerprints updated; frozen 191 text-training rows do not imply model training. Rights-cleared Cannabis imagery/video and specimen-linked analytical/causal evidence remain gaps. Agent review is not human, expert or lab review. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
