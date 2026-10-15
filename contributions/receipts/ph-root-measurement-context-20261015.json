@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "ph-root-measurement-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "1ad79f51aa9ddf56ce1566f7db48f89d49350dc6",
+  "head_commit": "62725b1cb1c70f6360fcd3998b3547eb4768f8fc",
+  "branch": "work/grow-doc/GD-DIAG-001/context-20261015",
+  "changed_paths": ["data/profiles/root-ph-extreme.json", "src/data/issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.1002/agg2.70044", "https://acsess.onlinelibrary.wiley.com/doi/full/10.1002/agg2.70044"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent source review on 2026-10-15 checked the primary article's methods 2.2.4, Figure 4-6 captions, bibliographic identity and publication date. Enriched one Water / root-zone profile with two exact source claims and corrected an endpoint mismatch: the root experiment's partial wall-visible measurements must not be represented as total root biomass. Added explicit capture-identity and observation-window annotation guidance, marked as a protocol inference rather than validated diagnostic performance, plus treatment-comparison versus progression boundaries. Source access date refreshed; original authors, DOI and publication date retained. No new source identity, media reference, original asset URL, license permission, copied binary, crop, video or training admission was invented. The article text was accessible through the web reader, but a direct header request returned a Cloudflare HTTP 403 and the reader exposed no verified original figure asset URLs or item-level reuse terms; no barrier was bypassed. Existing media-empty and human-review safeguards remain. Profiles remain 63, sources 190, profile media references 84, training-eligible media zero. All 62 validators, 280 tests, type check, build, deterministic artifact freeze and diff checks passed locally. PHP absent locally; hosted lint remains required. The research-repair skill guided measurement-specific correction and conservative media handling. This dataset contribution does not assert production deployment, human review or a model run.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

@@ -441,6 +441,21 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media).toHaveLength(0)
   })
 
+  it('keeps pH root-window measurements distinct from biomass and serial imagery', () => {
+    const record = issues.find((issue) => issue.id === 'root-ph-extreme')!
+    const source = record.sources.find((item) => item.doi === '10.1002/agg2.70044')!
+    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.supportedClaims.join(' ')).toContain('five longest wall-visible roots per chamber')
+    expect(source.supportedClaims.join(' ')).toContain('not total root biomass')
+    expect(record.progression.find((item) => item.stage === 'Vegetative growth response')?.description).not.toContain('root mass')
+    expect(record.progression.find((item) => item.stage === 'Root-view capture scope')?.description).toContain('observation-window, scale, and date identity')
+    const references = record.progression.find((item) => item.stage === 'Reference interpretation')!.description
+    expect(references).toContain('not serial frames of one plant')
+    expect(references).toContain('not a pure low-pH syndrome')
+    expect(record.media).toEqual([])
+    expect(record.photoOnlyMaxConfidence).toBe(0.15)
+  })
+
   it('keeps heat and light labels exposure-measured and cultivar-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'heat-light-stress')
     expect(record?.reviewStatus).toBe('reviewed')
