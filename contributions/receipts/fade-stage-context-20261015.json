@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "fade-stage-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "4c9a161d614e3ad2e55de0862ad15d9977a6afaa",
+  "head_commit": "a404224a9016ce093ddcfceea22a5dcb8f923d71",
+  "branch": "work/grow-doc/GD-DIAG-001/fade-20261015",
+  "changed_paths": ["data/profiles/normal-fade.json", "src/data/issues.ts"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/plants9020271", "https://pmc.ncbi.nlm.nih.gov/articles/PMC7076434/", "https://doi.org/10.3389/fpls.2021.646020"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent source review on 2026-10-15 enriched one Normal development profile and its existing primary citation with one stage/figure-scope claim. Separated vegetative Cherry Wine physiology from flowering Stillwater observations and their different time origins; no stitched longitudinal image/video sequence is implied. Refreshed access date, retained bibliographic identity, publication date, uncertainty safeguards and empty media list. The article body and copyright were accessible in PMC, but its figure page presented a browser check and the publisher reader returned HTTP 429; neither barrier was bypassed. No original asset URL was invented and no image, video, license grant, source identity, diagnostic class, crop, or training sample was added. Source count remains 190, profile media references 84, profiles 63, training-eligible media zero. Regression checks stage separation, exact supporting claim and unchanged image-only confidence ceiling. All 62 validators, 279 tests, type check, build, deterministic artifact freeze and diff checks passed locally. PHP unavailable locally; lint awaits hosted CI. The research-repair skill guided an evidence-bound context correction instead of speculative visual expansion. Dataset work does not assert production deployment or expert/laboratory review.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
