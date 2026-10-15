@@ -2,14 +2,14 @@
   "schemaVersion": "1.0.0",
   "policy": "Persisted originals are not automatically cropped or training-eligible. New crop geometry requires scientific/figure review, and all derivatives inherit source grouping and rights constraints.",
   "summary": {
-    "persistedOriginalCount": 30,
+    "persistedOriginalCount": 31,
     "currentlyPanelizedOriginalCount": 11,
-    "unpanelizedOriginalCount": 19,
-    "p0PanelizationReviewCount": 18,
+    "unpanelizedOriginalCount": 20,
+    "p0PanelizationReviewCount": 19,
     "statusCounts": {
+      "panelization_review_required": 19,
       "panelized": 11,
-      "reference_review_required": 1,
-      "panelization_review_required": 18
+      "reference_review_required": 1
     }
   },
   "records": [
@@ -135,6 +135,22 @@
       "confirmation": "Peer-reviewed Cannabis molecular-diagnostics study. Figure 19 explicitly states that symptomatic indoor/outdoor plants were subjected to molecular diagnostics and BCTV presence was confirmed by RT-PCR.",
       "license": "CC BY 4.0",
       "sha256": "25decd9424d09359794823ac2357bb6b13e99d9f34247f4f1acfca6016343e90",
+      "existingCropCount": 0,
+      "status": "panelization_review_required",
+      "priority": "P0",
+      "nextAction": "Review figure geometry/caption, define diagnostic panel bounds, preserve sourceGroupId, then generate hashed reference-only crops.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "media-cannabis-aphid-eggs-bugwood-5596882",
+      "issueSlug": "cannabis-aphid",
+      "repositoryPath": "images/reference/original/media-cannabis-aphid-eggs-bugwood-5596882.jpeg",
+      "sourceArticle": "https://content.ces.ncsu.edu/cannabis-aphid-in-industrial-hemp",
+      "hostSpecies": "Cannabis sativa",
+      "hostContext": "cannabis",
+      "confirmation": "illustrative",
+      "license": "CC BY 4.0",
+      "sha256": "c75a4bb712aac0fa90cfc6ceb7409da5a6417ed699d354320a63dad003e32464",
       "existingCropCount": 0,
       "status": "panelization_review_required",
       "priority": "P0",
