@@ -452,6 +452,10 @@ describe('diagnostic dataset quality gates', () => {
     const references = record.progression.find((item) => item.stage === 'Reference interpretation')!.description
     expect(references).toContain('not serial frames of one plant')
     expect(references).toContain('not a pure low-pH syndrome')
+    expect(source.supportedClaims.join(' ')).toContain('Table 4')
+    expect(source.supportedClaims.join(' ')).toContain('Table 5')
+    expect(record.progression.find((item) => item.stage === 'Analytical differential')?.description).toContain('linked tissue analysis')
+    expect(record.progression.find((item) => item.stage === 'Treatment confounders')?.description).toContain('lime composition')
     expect(record.media).toEqual([])
     expect(record.photoOnlyMaxConfidence).toBe(0.15)
   })

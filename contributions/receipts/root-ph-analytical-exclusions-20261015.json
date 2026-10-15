@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-ph-analytical-exclusions-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "57f2abeef5e3612f90bea505355f33e13b408d7a",
+  "head_commit": "c4ba51c3f152ca3fcd02442af18de94a09054d75",
+  "branch": "work/grow-doc/GD-DIAG-001/root-ph-reference-20261015",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/root-ph-extreme.json"],
+  "related_release_paths": ["data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "source_ids": ["https://doi.org/10.1002/agg2.70044"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, repository contracts, task claims, existing records, coverage, recent history and validators. Reopened the primary publisher article by Veazie et al. (published 2025-02-21) and checked Experiment 1 Tables 4 and 5 and the authors' treatment interpretation. Enriched one existing root-zone profile with three exact source-linked analytical exclusions and two structured interpretation steps; no new source identity or diagnostic class. Preserved numerical-versus-statistical distinctions, the experiment-specific medium context and separation of exposure from causality. Extended the existing profile regression assertions without changing its 0.15 photo-only ceiling or media exclusions. Direct article download returned HTTP 403; no restriction bypass attempted. Search retrieval supplied article text but not independently verified stable original figure URLs or item-level reuse terms, so no figures or media records were copied or added and no license was asserted. Counts remain 63 profiles, 191 sources, 88 media references and 34 originals plus 68 crops; zero training-eligible media. Fresh local verification passed all 62 package validators, 288 tests, type check, build, artifact-byte verification and diff checks; claim and receipt validators rerun after receipt creation. PHP is unavailable locally and requires hosted checks. Exported JSON and JSONL plus source catalog updated deterministically; CSV unchanged because its selected fields were unchanged. Model-data fingerprint pins updated; 191 frozen text-training rows do not imply a model run or new training admission. Rights-cleared plant-linked root-zone imagery and video, causal confirmation and human review remain gaps. No deployment, human/expert/lab review or full-project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
