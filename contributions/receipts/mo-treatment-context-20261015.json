@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "mo-treatment-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "8f9d35148eb447e2345a3127fe779d963390103e",
+  "head_commit": "fa13181bc16c3c45b0a08b6d930d2ff7ea1bd47b",
+  "branch": "work/grow-doc/GD-DIAG-001/mo-context-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/nut-def-mo-analytical.json", "data/profiles/nut-def-b.json", "data/profiles/nut-tox-mn.json"],
+  "related_release_paths": ["data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-accuracy-expansion.test.ts"],
+  "source_ids": ["https://doi.org/10.3390/app9204432"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, history, task registry, schemas, generated records, zero-media coverage and validation commands. The existing molybdenum negative endpoint was worded as a Cannabis-wide lack of supported visual context despite its adjacent conflicting Finola evidence. Bounded that endpoint to the T1 study, preserved the Finola conflict and added one treatment-context claim plus a structured capture step separating propagation age from withholding duration. The publisher's indexed methods explicitly describe three-week rooted cuttings, amended peat-perlite propagation, acid-washed silica sand after transplant and termination nine weeks after treatments began. The exclusion of seed-age and whole-lifecycle inference is an annotation limitation based on those methods, not a new experimental result. Direct MDPI access returned HTTP 429; relied only on retrieved publisher-indexed methods text for this bounded claim, with no access-control bypass. No numerical tissue values, figures, assets, licenses or new source identities were added. Access date refreshed for the shared citation; boron-deficiency and manganese-toxicity exports carry that source update without changing their diagnostic labels. Molydbenum's 0.05 photo-only ceiling, empty media list and human-review/training exclusions remain. Counts remain 63 profiles, 191 sources, 88 media references and 102 persisted images, with zero training-eligible media. Fresh verification passed all 62 validators, 288 tests, type check, build, artifact-byte hashes and diff checks. Receipt and claim validators rerun after receipt creation. PHP unavailable locally and remains a hosted requirement. Deterministic JSON/JSONL/source exports and frozen-data fingerprint pins updated; CSV fields unchanged. Frozen 191 text-training rows imply no model run. Rights-cleared longitudinal imagery/video and plant-linked causal/analytical confirmation remain gaps. Agent review is not human/expert/lab review; no deployment or overall project completion asserted.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

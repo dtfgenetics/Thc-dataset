@@ -62,7 +62,7 @@ const sources = {
     publisher: 'MDPI AG',
     publicationDate: '2019-10-18',
     year: 2019,
-    accessedDate: '2026-08-24',
+    accessedDate: '2026-10-15',
     doi: '10.3390/app9204432',
     supportedClaims: [
       'Single-element withholding in Cannabis sativa T1 documented boron deficiency, manganese toxicity, and the absence of a visible molybdenum-deficiency phenotype during the nine-week experiment.',
@@ -74,6 +74,7 @@ const sources = {
       'The manganese-toxicity treatment used a tenfold increase over the complete formula (180 micromolar Mn versus 18 micromolar), but treated foliar Mn was 47.88 mg/kg, within the cited 41–93 mg/kg survey range; dry weight did not differ significantly from controls and the authors called for higher-concentration work to refine the threshold.',
       'Figure 5 is a six-panel composite: manganese toxicity occupies the left column and boron toxicity the right, with initial, intermediate, and advanced symptom rows.',
       'Molybdenum-withheld plants had foliar Mo 96% lower than controls yet developed no visual symptoms and no significant dry-weight difference by nine weeks, so a camera-visible Mo-deficiency phenotype was not established.',
+      'The T1 experiment began with cuttings rooted for three weeks in amended peat-perlite before transplant into acid-washed silica sand; the nine-week endpoint is time after treatment initiation, not plant age from seed or a whole-lifecycle withholding result.',
       'The experiment used one cultivar and complete withholding or tenfold treatments; tissue values and timing are experimental observations rather than universal Cannabis thresholds.',
     ],
   }),
@@ -989,7 +990,8 @@ export const expandedIssues: IssueRecord[] = [
     progression: [
       {stage:'Direct Cannabis baseline',description:'Control and complete-molybdenum-withholding T1 plants began without a validated visual distinction in the controlled study.'},
       {stage:'Analytical divergence',description:'After nine weeks, withheld plants had 96% lower foliar molybdenum than controls, establishing an analytical difference without establishing a camera-visible syndrome.'},
-      {stage:'Negative visual endpoint',description:'No visual symptoms and no significant dry-weight difference developed by the study endpoint; there is therefore no supported Cannabis color, morphology, canopy location, or temporal sequence for model training.'},
+      {stage:'Negative visual endpoint',description:'In the T1 experiment, no visual symptoms or significant dry-weight difference developed by the nine-week treatment endpoint. This study supplies no positive visual phenotype; it does not negate the separately reported Finola sequence or establish that every Cannabis cultivar remains symptom-free.'},
+      {stage:'Treatment clock and capture context',description:'Keep propagation age separate from days since withholding. T1 cuttings were rooted for three weeks in amended peat-perlite before transfer to silica sand; compare serial views by cultivar, rooting history, substrate, and treatment clock rather than pooling them as a universal deficiency timeline.'},
       {stage:'Conflicting Finola onset',description:'In a separate controlled vegetative Finola guide, reported symptoms begin on older leaves with yellowing, stunting, marginal scorch, and leaf cupping or rolling before extending toward younger expanding leaves.'},
       {stage:'Conflicting Finola progression',description:'The Finola guide reports chlorotic spots on younger and older leaves that can perforate while surrounding tissue remains green for a prolonged period; this qualitative sequence conflicts with the symptom-negative T1 endpoint and cannot be treated as universal.'},
       {stage:'Future-evidence gate',description:'A positive visual class should remain closed unless replicated Cannabis studies link a reproducible phenotype to defined tissue values, cultivars, stages, root-zone conditions, and recovery or causal testing.'},
