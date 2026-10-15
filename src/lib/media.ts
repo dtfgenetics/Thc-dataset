@@ -16,7 +16,11 @@ export function isDisplayableMedia(media: MediaRecord): boolean {
     return nonCommercialLicense.test(normalized) || commercialUseRestriction.test(normalized)
   })) return false
 
-  return media.displayPermission === 'permitted'
+  // An approved review state is insufficient without an explicit source license.
+  // Missing or blank licenses are rights-unclear and must remain quarantined.
+  return typeof media.license === 'string'
+    && media.license.trim().length > 0
+    && media.displayPermission === 'permitted'
     && (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training')
 }
 
