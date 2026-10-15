@@ -69,6 +69,14 @@
     {
       "stage": "Reference interpretation",
       "description": "Study Figures 4 and 5 are five-week vegetative treatment comparisons, not serial frames of one plant. Figure 6 documents lower-leaf progression in Sweetened under excess micronutrients; it is not a pure low-pH syndrome."
+    },
+    {
+      "stage": "Analytical differential",
+      "description": "Experiment 1 Table 4 did not show a significant phosphorus difference across the tested pH treatments. Do not infer phosphorus lockout from a chart or leaf color; retain linked tissue analysis and medium-specific exposure evidence."
+    },
+    {
+      "stage": "Treatment confounders",
+      "description": "Preserve lime composition alongside pH: calcium supply changed with liming. Retain iron treatment means and significance groups; the numerical peak at pH 5.0 does not establish a monotonic image label."
     }
   ],
   "lookAlikes": [
@@ -155,7 +163,10 @@
         "With fourfold micronutrients at target pH 3.8, Sweetened developed lower-foliage tip bronzing that advanced to necrosis, inward spread, and chlorosis, whereas Cherry Wine did not show the same response, demonstrating cultivar- and fertility-dependent appearance.",
         "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds.",
         "Experiment 2 measured the five longest wall-visible roots per chamber and counted visible root tips at 6 to 21 days after planting; roots inside the substrate were not measured. These endpoints are not total root biomass.",
-        "Figures 4 and 5 compare Cherry Wine and Sweetened, respectively, after five weeks of vegetative growth; they are treatment comparisons, whereas Figure 6 shows the Sweetened lower-foliage bronzing progression under fourfold micronutrients."
+        "Figures 4 and 5 compare Cherry Wine and Sweetened, respectively, after five weeks of vegetative growth; they are treatment comparisons, whereas Figure 6 shows the Sweetened lower-foliage bronzing progression under fourfold micronutrients.",
+        "In Experiment 1 Table 4, leaf phosphorus did not differ significantly across target pH 3.0 to 7.0; this peat-perlite result does not validate a phosphorus-lockout diagnosis from a generic field-soil availability chart.",
+        "Experiment 1 used calcium-containing lime to establish pH treatments; the authors related rising tissue calcium to lime availability. The pH and calcium-supply changes cannot be treated as independent causes.",
+        "Experiment 1 Table 5 reported the highest numerical leaf iron concentration at target pH 5.0, not 3.0; the two means shared a significance letter. A general low-pH accumulation trend is not a monotonic iron classifier."
       ]
     },
     {
