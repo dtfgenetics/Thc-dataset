@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rust-capture-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "2a9d75700f28cf31603e443d6f3193cbc283fe45",
+  "head_commit": "69bcaadd36c37d0b8fd3d5cc3b8b01674fb31cd5",
+  "branch": "work/grow-doc/GD-DIAG-001/rust-context-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-hemp-rust.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/profiles/index.json", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/supplemental-data-quality.test.ts", "src/lib/catalog-accuracy-expansion.test.ts", "dataset/reviewed/vision_admission_review_queue_v1.json"],
+  "source_ids": ["https://solutions.tennessee.edu/?view_pub_pdf=2571", "https://hemp.tennessee.edu/wp-content/uploads/sites/183/2020/12/Hemp_Disease_and_Pest_Management_W916.pdf"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-15 read Tennessee Extension W 916, inspected page 5, its rust captions and micrographs, and verified the page-15 footer June 2020 date. Attached this already-cataloged institutional work to hemp rust without creating a duplicate source identity. Two exact claims add poorly defined early lesion margins/coalescence and macro/dissecting/compound-view distinctions. Added specimen-linked capture guidance without promoting pustule color to spore/species confirmation or asserting cultivar susceptibility. The guide shares institutional image provenance with the existing Florida reference and is not an independent confirmed patient sample. Existing media, CC BY-NC-ND terms, attribution, hashes, confidence ceiling and human-review safeguards unchanged; no original figure URL or reuse permission invented. One rust profile enriched; one citation binding added, two claims, zero new source identities, media or licenses. Counts remain 63 profiles, 190 sources, 84 profile-media references and zero training-eligible media. Validation also exposed pre-existing review-queue drift from base commit 2a9d757, which regenerated two waterlogging PNGs without refreshing the queue. Regenerated the queue and verified its two changed SHA-256 fields against current binary bytes; no other queue field, image byte, review decision or eligibility flag changed. Updated stale rust source/indicator-count assertions and added microscopy-scope regression coverage. A final fresh full run passed all 62 validators, 283 tests, type check, build, deterministic freeze and diff checks. PHP absent locally; hosted lint required. No human/expert review, model run or production deployment asserted.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

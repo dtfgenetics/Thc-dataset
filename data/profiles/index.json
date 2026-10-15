@@ -141,7 +141,7 @@
       "category": "Fungal pathogen",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 1,
+      "sourceCount": 2,
       "mediaCount": 1,
       "path": "data/profiles/fungal-hemp-rust.json"
     },
