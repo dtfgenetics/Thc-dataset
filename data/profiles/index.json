@@ -637,7 +637,7 @@
       "severity": "critical",
       "reviewStatus": "reviewed",
       "sourceCount": 3,
-      "mediaCount": 0,
+      "mediaCount": 1,
       "path": "data/profiles/root-white-root-rot.json"
     },
     {

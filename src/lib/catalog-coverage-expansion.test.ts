@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { issues } from '../data/catalog'
+import { isDisplayableMedia, resolvedDisplayMediaForIssue } from './media'
 
 const bySlug = (slug: string) => {
   const record = issues.find((item) => item.slug === slug)
@@ -72,10 +73,39 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(whiteRootRot.sources.find((item) => item.doi === '10.1094/PDIS-07-20-1521-PDN')?.authors).toHaveLength(6)
     expect(whiteRootRot.sources.some((item) => item.organization.includes('University of California'))).toBe(true)
     expect(whiteRootRot.sources.some((item) => item.organization === 'Agriculture Victoria')).toBe(true)
+    const victoria = whiteRootRot.sources.find((item) => item.organization === 'Agriculture Victoria')!
+    expect(victoria.publicationDate).toBeUndefined()
+    expect(victoria.year).toBeUndefined()
+    expect(victoria.accessedDate).toBe('2026-10-15')
+    expect(victoria.supportedClaims.join(' ')).toContain('last-updated date')
     expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('one pathogenicity-confirmed commercial-field report')
     expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('non-cannabis')
     expect(whiteRootRot.warnings.join(' ').toLowerCase()).toContain('human review')
-    expect(whiteRootRot.media).toHaveLength(0)
+    expect(whiteRootRot.media).toHaveLength(1)
+    const media = whiteRootRot.media[0]
+    expect(media.id).toBe('agvic-white-root-rot-apple-base-figure-1')
+    expect(media.hostContext).toBe('non-cannabis')
+    expect(media.hostSpecies).toBe('Malus domestica / apple')
+    expect(media.sourceUrl).toBe(whiteRootRot.sources.find((item) => item.organization === 'Agriculture Victoria')?.url)
+    expect(media.url).toBe('https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot/white-root-rot-figure-1.JPG')
+    expect(media.view).toBe('root-crown')
+    expect(media.confirmation).toBe('illustrative')
+    expect(media.creator).toContain('State of Queensland')
+    expect(media.license).toContain('not verified')
+    expect(media.requiredAttribution).toContain('permission')
+    expect(media.useLimitations.join(' ')).toContain('not a capture date')
+    expect(media.displayPermission).toBe('unknown')
+    expect(media.reviewStatus).toBe('license-review')
+    expect(media.trainingPermission).toBe('not-permitted')
+    expect(media.trainingEligible).toBe(false)
+    expect(media.sha256).toBeUndefined()
+  })
+
+  it('withholds the apple white-root-rot reference from display and Cannabis training', () => {
+    const record = bySlug('white-root-rot-dematophora-necatrix')
+    expect(resolvedDisplayMediaForIssue(record, issues)).toHaveLength(0)
+    expect(record.media.every((media) => !isDisplayableMedia(media) && !media.trainingEligible)).toBe(true)
+    expect(issues.flatMap((issue) => issue.media).filter((media) => media.id === 'agvic-white-root-rot-apple-base-figure-1')).toHaveLength(1)
   })
 
   it('represents Sclerotinia as a multi-species white-mold/crown-rot complex', () => {

@@ -1,5 +1,36 @@
 [
   {
+    "id": "agvic-white-root-rot-apple-base-figure-1",
+    "url": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot/white-root-rot-figure-1.JPG",
+    "alt": "Apple trunk base with exposed pale mycelial material at the bark interface and surrounding soil",
+    "caption": "Metadata-only cross-crop reference: Agriculture Victoria Figure 1, apple-tree base. Not a confirmed Cannabis sample.",
+    "creator": "The State of Queensland; hosted by Agriculture Victoria",
+    "license": "Copyright The State of Queensland 2020; item-level reuse license not verified",
+    "sourceUrl": "https://agriculture.vic.gov.au/biosecurity/plant-diseases/fruit-and-nut-diseases/white-root-rot",
+    "mediaType": "image",
+    "requiredAttribution": "Figure 1 courtesy of The State of Queensland 2020, via Agriculture Victoria. Obtain rights-holder permission before copying, display, redistribution, or training.",
+    "diagnosticLabel": "White root rot — institutional apple root-crown context only; not Cannabis ground truth",
+    "hostSpecies": "Malus domestica / apple",
+    "hostContext": "non-cannabis",
+    "useLimitations": [
+      "Reference metadata only; no binary is stored or displayed. Automated training is not permitted without documented rights and separate scientific admission.",
+      "Apple host and trunk-base view cannot establish Cannabis symptoms, leaf age, canopy distribution, progression rate, or severity.",
+      "No capture date, cultivar, persistent specimen ID, scale, serial sequence, culture, or image-linked laboratory result is supplied. The 2020 copyright credit is not a capture date.",
+      "White material alone cannot exclude Armillaria, other fungi, residue, or saprophytic growth. Obtain plant-linked lesion-margin samples and qualified laboratory confirmation."
+    ],
+    "displayPermission": "unknown",
+    "reviewStatus": "license-review",
+    "trainingPermission": "not-permitted",
+    "view": "root-crown",
+    "stage": "Apple trunk-base context; plant age and capture timing unknown",
+    "confirmation": "illustrative",
+    "trainingEligible": false,
+    "issueId": "root-white-root-rot",
+    "issueSlug": "white-root-rot-dematophora-necatrix",
+    "issueName": "White root rot",
+    "issueCategory": "Root pathogen"
+  },
+  {
     "id": "bugwood-broad-mite-5077061",
     "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Broadmite.jpg",
     "thumbnailUrl": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Broadmite.jpg?width=640",
