@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-ph-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "d04585c9581fabe9102d16e8e2b7ff3b94380eb7",
+  "head_commit": "90f52aa5ec630e63f959d78690da89a19e4b6fd2",
+  "branch": "work/grow-doc/GD-DIAG-001/root-ph-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/root-ph-extreme.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "src/lib/data-quality.test.ts", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1002/agg2.70044", "https://acsess.onlinelibrary.wiley.com/doi/pdf/10.1002/agg2.70044"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main and recent changes, repository/task/claim instructions, canonical profile and source/media schemas, receipt schema, tests and CI. Enriched one sparse substrate-pH profile: three primary-source claims and two capture/confirmation stages covering separate upper/lower leaf assays, discarded roots, mixed-micronutrient treatment and Figure 6 iron-caption versus causal-evidence limits. Corrected an existing three-cultivar statement to four named cultivars across separate experiments. Re-read the original Wiley DOI landing page and full primary PDF, including Methods 2.3.2, Table 2, Figure 6 and discussion. Publication date remains 2025-02-21; access date updated to 2026-10-16. Source title/authors/publisher/DOI and exact supported claims retained. Article-level Creative Commons Attribution notice verified in primary PDF, but no stable original figure asset URL independently resolved; no new media, binaries, license records, permissions, training admissions or iron-specific ground truth added. UMass and raw HTML access returned 403; no access barrier bypass. Root-pH profile retains 0.15 photo-only cap, no admitted media and human review for ambiguous symptom-only or plant-unlinked evidence. Dataset totals unchanged: 63 profiles, 197 sources, 92 media references, 36 originals and 68 crops, zero training-eligible media. Initial tests exposed an obsolete access-date expectation; systematic debugging isolated it and the date-only fixture update passed all 35 tests in its file. Added regression coverage for leaf age, organ linkage, mixed treatment and four-cultivar scope. Final fresh full run passed 289 tests, all 62 package validators, type check, build, QLoRA artifact hashes and git diff check. Exports and model-data pins synchronized; frozen 191-row text mixture is not a model-training run or media promotion. PHP unavailable locally; hosted CI lint required before integration. Verification-before-completion gated publication on fresh results. Remaining gaps: independently linked pH/root/tissue samples, original reusable diagnostic assets, controlled single-element causal comparisons and longitudinal video. Agent review is not human or laboratory verification. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
