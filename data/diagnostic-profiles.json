@@ -8356,6 +8356,7 @@
       "Video evidence is most useful when an uninterrupted sequence links the plant identifier to node or branch position and then to a focused macro view of organ attachment"
     ],
     "exclusions": [
+      "New leaves and longer internodes at an existing inflorescence are called sex change without visible anthers or staminate flowers",
       "A seedling or vegetative plant is labeled male, female, or co-sexual from overall habit, height, leaf morphology, vigor, branching, or internode length alone",
       "Only stipules, reduced leaves, new axillary shoots, subtending bracts, or undifferentiated primordia are visible",
       "Apical solitary stigmas are counted as a developed terminal inflorescence without showing the surrounding branching and flower distribution",
@@ -8384,11 +8385,16 @@
         "description": "A few 2–3 mm bright-yellow anthers may emerge within bract tissue among stigmas, or anther clusters may replace part of a pistillate inflorescence. Sparse concealed organs may become visible only on later, multi-surface inspection."
       },
       {
+        "stage": "Inflorescence reversion / leafy regrowth context",
+        "description": "In a one-cultivar experiment, return from short to long days was followed by simple green leaves at the inflorescence top and elongating internodes that separated condensed flower clusters into solitary flowers. Map newly expanding apical leaves separately from older foliage and attached flower organs; the experimental days are not universal deadlines or an image-only causal test."
+      },
+      {
         "stage": "Maturation and distribution update",
         "description": "Pistillate stigmas can curl and shift toward brown or red as carpels and bracts swell; staminate flowers can release pollen. Update the label only for mapped organs and dates rather than treating maturation color or an earlier negative view as proof of future expression."
       }
     ],
     "lookAlikes": [
+      "Photoperiod-associated inflorescence reversion / leafy regrowth",
       "Stipules at the node",
       "Reduced leaves within an inflorescence",
       "New axillary shoots",
@@ -8405,6 +8411,7 @@
       "Mechanical injury or split bract tissue"
     ],
     "confirmation": [
+      "For suspected leafy regrowth, capture the same mapped inflorescence tip on serial dates, including the new simple leaves, intervening internodes, pre-existing flowers, older foliage, and a whole-plant distribution view; record actual light/dark hours, dates of regime changes, lamp spectrum, intensity, cultivar, and treatment history.",
       "Do not assign male, female, monoecious, or co-sexual ground truth from a seedling, vegetative silhouette, whole-canopy view, or reproductive-organ-free clip; use visually indeterminate.",
       "Capture a plant identifier and whole-plant view, then uninterrupted branch-to-node or branch-to-inflorescence context, followed by focused macro views with scale under repeatable lighting.",
       "Record several upper and lower nodes plus multiple surfaces of terminal and lateral inflorescences; preserve the surrounding bract, stigma, pedicel, tepal, stamen, and anther context needed to distinguish organs.",
@@ -8430,6 +8437,7 @@
       "Continue inspection of nominally female or marker-screened populations through flowering because co-sexual expression is not excluded by a single early observation."
     ],
     "warnings": [
+      "Leafy inflorescence reversion is a developmental look-alike, not proof of sex change, heat injury, harvest readiness, or a lighting fault from a single image. The cited one-cultivar morphology protocol differed in lamp type and intensity as well as day length; retain this confounding and require human review when lighting history or organ identity is missing.",
       "Image/video-only confidence is capped at 0.40 because visible organs can support a local expressed-phenotype label but cannot establish chromosomal sex, future stability, or absence elsewhere on the plant.",
       "Seedling silhouette, height, leaf number, leaf size, vigor, branching, and internode length are not reliable ground-truth sex labels across cultivars.",
       "A photograph of reproductive organs describes expressed floral phenotype at that place and time; it does not by itself establish chromosomal sex or guarantee future expression elsewhere on the plant.",
@@ -8529,6 +8537,31 @@
           "Under short photoperiod, the female inflorescence developed as condensed branchlets containing reduced leaves, bracts, solitary flowers, and axillary shoots; these neighboring structures are relevant visual confounders in node-scale imagery.",
           "Flowering timing and inflorescence architecture differed among the three cultivars, so the study-specific days after photoperiod change and plant habit are not universal sex or maturity thresholds.",
           "One cultivar produced terminal flowers with both pistils and anthers under the experiment conditions, supporting organ-level documentation instead of inferring the whole plant’s future expression from an earlier or distant view."
+        ]
+      },
+      {
+        "title": "Inflorescence development in female cannabis plants is mediated by photoperiod and gibberellin",
+        "organization": "Horticulture Research",
+        "url": "https://doi.org/10.1093/hr/uhae245",
+        "authors": [
+          "Hanan Alter",
+          "Yael Sade",
+          "Archit Sood",
+          "Mira Carmeli-Weissberg",
+          "Felix Shaya",
+          "Rina Kamenetsky-Goldstein",
+          "Nirit Bernstein",
+          "Ben Spitzer-Rimon"
+        ],
+        "publisher": "Oxford University Press",
+        "publicationDate": "2024-09-03",
+        "year": 2024,
+        "accessedDate": "2026-10-16",
+        "doi": "10.1093/hr/uhae245",
+        "supportedClaims": [
+          "In rooted cuttings of one commercial medical-Cannabis cultivar A, the morphology experiment compared short days (12 h light/12 h dark, HPS at 1000 micromoles per square metre per second) with long days (18 h light/6 h dark, metal-halide at 600 micromoles per square metre per second); spectrum and photon flux therefore also differed between these regimes.",
+          "After 15 short days followed by 13 long days, inflorescence development ceased, simple leaves developed at the inflorescence top, and elongating internodes separated condensed flower clusters into solitary flowers; this is study-specific developmental timing, not a universal visual threshold.",
+          "Figure 2 follows a representative plant through 15 short days and subsequent long-day regrowth, alongside a continuous-short-day comparison; the authors describe inflorescence reversion and eventual long-day growth patterns, with applicability beyond the single tested cultivar requiring investigation."
         ]
       }
     ],
