@@ -3770,9 +3770,11 @@
       "Use a hand lens or microscope to determine whether lower-surface dark material is attached conidiophore/conidium growth rather than residue, insects, frass, or necrotic tissue.",
       "Submit multiple representative, actively developing lesions with linked plant and location metadata to a plant diagnostic laboratory; do not base the result on a detached stock image.",
       "Use fungal morphology together with validated sequence evidence; preserve locus, accession, isolate, and sampling details when assigning Pseudocercospora cannabina.",
+      "For this study, preserve the Table 1 isolate-to-ITS/act/rpb2 mappings and record tef as unavailable; do not fill missing sequence fields from other species in the four-region alignment or count identical isolates as independent phylogenetic confirmations.",
       "Prefer multilocus evidence such as ITS plus act, tef1, and rpb2 when species resolution matters because type-material sequence data are unavailable and morphology alone is difficult.",
       "Where causality rather than detection is required, retain plant-linked isolation and pathogenicity or equivalent diagnostic evidence; organism detection alone does not prove every lesion was caused by it.",
       "Assign a persistent lesion identifier and revisit the same leaf from both surfaces so new lesion expansion, new lower-surface growth, and stable old necrosis are not mixed across different leaves or plants.",
+      "Keep inoculum-culture age separate from host age and record wet-box exposure, surfactant-matched controls and the actual reisolation assay. Thirty-five days describes fungal colonies; ITS-matched reisolation is not four-locus reconfirmation of each photographed lesion.",
       "Keep symptom-only, upper-surface-only, detached-leaf-only, mixed-pathogen, unlinked-laboratory, low-resolution, and stock/vendor/forum/generated captures out of the confirmed Pseudocercospora class and route them to human review."
     ],
     "immediateActions": [
@@ -3819,14 +3821,16 @@
         "publisher": "MDPI AG",
         "publicationDate": "2023-11-23",
         "year": 2023,
-        "accessedDate": "2026-10-09",
+        "accessedDate": "2026-10-16",
         "doi": "10.3390/horticulturae9121261",
         "supportedClaims": [
           "Twenty symptomatic Cannabis leaves were collected from one plantation in Chiang Rai, Thailand, in February 2022; field symptoms were circular-to-elliptical olive leaf spots with gray centers and dark brown-to-black margins, and severely affected plants defoliated.",
           "Upper-surface lesions were initially inconspicuous to slightly discolored and vein-limited, later becoming pale yellowish, irregular to subcircular, approximately 2 to 6 mm, without a distinct margin, and capable of covering the leaf.",
           "Lower-surface lesions were indistinct to pale yellowish and bore hypophyllous, vein-limited, grayish-to-pale-brown, velvety or sooty conidial patches.",
           "In the pathogenicity experiment, hyphae entered through lower-surface stomata within 24 hours, inoculated leaves developed leaf spots at 5 days, water controls remained symptomless, and the reisolate matched the inoculum by morphology and ITS sequence.",
-          "Two isolates were identified as Pseudocercospora cannabina using morphology plus ITS, act, tef1, and rpb2 sequence evidence; the authors note missing type-material sequence data and a weakly supported broader phylogenetic clade, limiting visual or single-locus species claims.",
+          "Two isolates were identified as Pseudocercospora cannabina using morphology and multilocus analysis, but Table 1 lists tef as unavailable for both. The four-region reference alignment must not be described as four successfully sequenced loci for each isolate; missing type-material sequences and weak broader-clade support limit species claims.",
+          "Table 1 links SDBR-CMU372 to ITS OR101673, act OR344083 and rpb2 OR344085, and SDBR-CMU373 to ITS OR101674, act OR344084 and rpb2 OR344086. Results state that available sequences matched, so only SDBR-CMU372 was included in phylogenetic analysis; they are not two independent phylogenetic confirmations.",
+          "The assay used one million conidia/mL prepared from 35-day-old fungal colonies, not plants of that age. Methods describe sterile-water-plus-Tween-20 controls and wet-box incubation; Results confirm reisolation by morphology and ITS identity, not a repeated four-locus analysis.",
           "Figure 1 is a mixed natural-symptom, whole-canopy, upper/underside, culture, cross-section, conidiophore, and conidium composite; Figure 2 combines controlled lower-surface penetration microscopy with symptom reproduction at 5 days post-inoculation.",
           "The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training."
         ]

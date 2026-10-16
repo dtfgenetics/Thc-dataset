@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "pseudocercospora-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "aeedd3273a1b037f87a3f44b7130b24388ce65fd",
+  "head_commit": "977117fc6867d9b2456479b48ea3e02fa39f0aae",
+  "branch": "work/grow-doc/GD-DIAG-001/pseudocercospora-context-20261016",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-pseudocercospora-leaf-spot.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/horticulturae9121261", "https://mdpi-res.com/d_attachment/horticulturae/horticulturae-09-01261/article_deploy/horticulturae-09-01261.pdf"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-16 agent review inspected current main, recent batches, repository instructions, task claims, source/media record types, receipt schema, Pseudocercospora profile, package validators and CI contract. Publisher HTML returned 429; no retry loop or access-control bypass. The publisher public PDF asset was retrieved successfully, text read and Table 1 visually inspected by rendering page 4. Corrected one overbroad existing claim: the reference phylogeny has four regions but Table 1 lists tef as NA for both Cannabis isolates. Added two exact claims recording ITS/act/rpb2 accession-to-isolate mappings, identical available sequences with only SDBR-CMU372 included in phylogeny, and assay scope. Thirty-five days refers to inoculum fungal colonies, not host age. Methods use water-plus-Tween controls and wet boxes; reisolation was checked by morphology and ITS, not four-locus reconfirmation. Added two specimen/locus/capture confirmation safeguards and regression assertions. One fungal-pathogen profile and one existing citation enriched; no new source identities, media, binaries, licenses, confidence changes or training admissions. Existing two CC BY 4.0 composite references remain excluded from training and require panel/sample linkage. Totals remain 63 profiles, 193 sources, 90 media references, 36 originals plus 68 crops (104 persisted images), zero training-eligible media. All 62 package validators, 289 tests, type check, build, frozen artifact hash verification and diff checks passed locally with no failures. PHP unavailable locally; hosted CI must cover lint. Exports and model-data fingerprint pins synchronized; 191 frozen text rows do not imply model training. Missing type-material sequences, weak broader-clade support, incomplete panel-linked evidence, independent field specimens and longitudinal video remain gaps and human-review flags. Agent source review is not human, expert or laboratory sample review. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
