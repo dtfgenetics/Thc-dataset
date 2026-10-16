@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "boron-sampling-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "60284e3fbccd115ab63c5b1bca5c6c8565866876",
+  "head_commit": "0f738f3ec843119ce7ac78c98926ce43e37c2216",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-context-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/nut-def-b.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/catalog-coverage-expansion.test.ts"],
+  "source_ids": ["https://content.ces.ncsu.edu/hemp-leaf-tissue-nutrient-ranges"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main and recent changes, repository instructions, task claims, canonical record types, boron profile, source metadata, media sharing, contribution schema and CI contract before editing. Re-read the NC State/NCDA&CS institutional publication dated 2026-08-26, including survey quartile derivation, Table 3b and vegetative sampling instructions. Enriched one nutrient-deficiency profile and one existing citation: refined one sampling claim and added two bounded claims about quartiles and pooled-sample inference. Added an exclusion, two confirmation safeguards and a warning distinguishing vegetative sampling, reproductive-organ uncertainty, pooled crop measurements and individual-image causality. Explicitly marks the pooled-sample conclusion as an annotation inference rather than an institution-validated diagnosis. Regression assertions preserve the new boundaries. No new source identities, media, binaries or licenses; no changes to image confidence ceilings, shared three-panel boron crops, training eligibility or ground-truth labels. Totals remain 63 profiles, 192 sources, 89 profile-linked media, 35 originals and 68 crops (103 persisted images), zero training-eligible media. All 62 package validators, 288 tests, type check, production build, frozen artifact hash verification and whitespace checks passed locally with no failures. PHP is unavailable locally and remains a hosted CI requirement. Exports and model-data fingerprints updated; 191 frozen text rows do not imply training execution. Image-only, pooled-only, unmatched or reproductive-tissue samples retain human-review requirements. Independent field imagery, plant-linked chemistry, healthy controls and longitudinal video remain coverage gaps. Routine agent evidence review is not human, expert or laboratory review; no production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
