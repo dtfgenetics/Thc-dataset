@@ -997,7 +997,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-10-07",
     "year": 2020,
-    "accessedDate": "2026-10-15",
+    "accessedDate": "2026-10-16",
     "doi": "10.1094/PDIS-03-20-0546-PDN",
     "supportedClaims": [
       "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
@@ -1006,7 +1006,10 @@
       "The report states that epidemiology and management require additional study, so the Florida observations do not establish universal cultivar susceptibility, field prevalence, progression timing, or action thresholds.",
       "The report measured 25 conidia: length 20.3–31.7 micrometers and width 9.5–15.9 micrometers, with middle cells larger and darker than the others. These culture observations support trained microscopy, not a species cutoff or camera-visible leaf diagnosis.",
       "Reported GenBank groups are ITS MT071994 and MT072019–MT072021, GAPDH MT085362–MT085365, and EF1-alpha MT085366–MT085369. Isolates 19-407, 19-409 and 19-410 grouped closely with C. pseudobrachyspora, while 19-405 was differentiated phylogenetically; the grouped accession list alone does not specify every isolate-to-locus pairing.",
-      "The pathogenicity assay used 100,000 spores/mL in 0.01% Tween 20 and bagged inoculated plants for 72 hours; sterile-water controls received the same conditions. The two-week symptom observation is an assay endpoint, not a field incubation or video-progression standard."
+      "The pathogenicity assay used 100,000 spores/mL in 0.01% Tween 20 and bagged inoculated plants for 72 hours; sterile-water controls received the same conditions. The two-week symptom observation is an assay endpoint, not a field incubation or video-progression standard.",
+      "Initial isolation used surface-disinfested leaf tissue on general isolation medium at 25 degrees C with a 12-hour light/12-hour dark cycle. These are laboratory culture conditions, not demonstrated field infection requirements.",
+      "Field varieties included Pumma-2, Eletta Campana, Carmagnola Selezionata and Tygra; the inoculation test used Puma-3. Preserve those distinct reported names and settings rather than inferring a replicated cultivar-susceptibility ranking.",
+      "The authors cite prior reports on areca palm and goosegrass but propose goosegrass only as a possible alternative host. Dataset inference: nearby weeds or a shared host report do not establish the source of a photographed hemp infection."
     ]
   },
   {

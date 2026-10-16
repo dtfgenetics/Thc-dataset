@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "curvularia-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "d1a131125d25bc4e5dad27a0e595a06bcd63add3",
+  "head_commit": "a6bd6d8bc636d0c5eab796feb9209f30365aa469",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-context-20261016",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-curvularia-leaf-spot.json"],
+  "related_release_paths": ["src/lib/supplemental-data-quality.test.ts", "src/lib/catalog-accuracy-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-03-20-0546-PDN"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main/recent batches, repository structure/instructions, task and claims, schemas, current two-source Curvularia profile, tests and CI. Enriched the existing Marin et al. primary citation with three bounded claims rather than adding duplicate source records: initial culture conditions are not field infection requirements; named field varieties differ from greenhouse Puma-3; goosegrass is proposed as a possible alternative host rather than demonstrated local transmission source. Publisher direct open returned 403 and an indexed UF report URL returned 404; neither barrier was bypassed. The public search service returned the publisher's complete indexed disease-note text, methods, author metadata and 2020-10-07 publication history (APS DOI page), corroborated in part by the FAO AGRIS/National Agricultural Library abstract. No inaccessible supplemental media were used. Added separate field-lesion/culture-plate/inoculated-plant capture contexts and metadata, preserving reported cultivar labels rather than silently normalizing them; source-attribution inference explicitly identified. No universal field climate rule, cultivar ranking, nearby-weed causal label or species threshold inferred. Existing visual progression, microscopy/multilocus safeguards, cryptic-isolate warning, 0.2 photo-only cap and CC BY-NC-ND metadata-only media exclusions retained. No new media, binaries, citations, licenses or training admissions. Totals remain 63 profiles, 201 sources, 92 media references, 36 originals plus 68 crops and zero training-eligible media. Updated the exact access-date test proactively and added context/uncertainty assertions. Fresh targeted run passed 47 tests; fresh full run passed 291 tests, all 62 package validators, type check and build; artifact byte hashes and git diff check passed. PHP unavailable locally; hosted CI lint required before merge. Canonical exports and model-data hash pins synchronized; frozen 191-row text mixture is not an executed model-training run. Verification-before-completion gated publication. Local task claim retained through integration then released without publishing operational claim state. Remaining gaps: independently confirmed Cannabis image/video series, isolate-to-accession mapping, multi-cultivar field replication and actual weed-to-hemp transmission evidence. Unresolved specimen, cultivar and reservoir assignments retain human-review flags; agent review is not actual human or laboratory confirmation. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
