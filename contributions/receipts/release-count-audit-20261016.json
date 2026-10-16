@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "release-count-audit-20261016",
+  "task_id": "GD-SYS-004",
+  "lane": "system",
+  "base_commit": "9bcd07858452daa6fba12df2c58a70725ea0dc18",
+  "head_commit": "da1aaf0f67e94ec3f7172bfa46cf314f2eb155ba",
+  "branch": "work/grow-doc/GD-SYS-004/release-count-audit-20261016",
+  "changed_paths": ["scripts/validate-release-metadata.mjs", "package.json"],
+  "related_release_paths": ["contributions/tasks.json", "data/manifest.json", "data/profile-materialization-status.json", "tests/test_release_metadata_validation.py"],
+  "source_ids": ["data/profiles/index.json", "data/sources.json", "data/profile-reference-media.json", "data/export-manifest.json", "images/reference/manifest.json", "images/reference/crops-manifest.json"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent audit on 2026-10-16 inspected current main, recent batches, repository ownership/routing/schema and validator contracts. Found that top-level current totals were correct but measuredReleaseCounts still reported 94 sources and 47 media, descriptive text still referred to 30 originals and 98 total images, and historical 61-profile materialization verification lacked an explicit historical scope. Added a narrow GD-SYS-004 maintenance task without taking either occupied system task claim. Current measured counts now match the materialized artifacts: 63 profiles, 29 core plus 34 supplemental/expanded, 202 sources, 92 profile-linked references, 36 originals, 68 crops, 104 persisted images and zero training-eligible media. Preserved previous measured counts, backup-artifact provenance and verification statements under historical-prefixed keys; the historical materialization record keeps its original counts and pass details with a scope and pointer to the current manifest. Current release label is validated rather than reusing a historical triple-verification claim. Removed duplicated prose counts to avoid future drift. Extended the existing validator to enforce current summaries, profile release label and explicit historical materialization scope; added seven isolated mutation tests invoking the actual Node validator, wired into the existing validate:release-metadata command. After correcting a test-fixture field-name error, the old validator accepted six deliberately invalid cases and failed the new tests as expected. Implementation then passed all seven tests. Fresh full run passed type check, all 291 application tests, build and all 62 package validators. Full Python discovery additionally passed 103 tests. Frozen model artifact hashes remained unchanged and verified; diff check passed. Receipt/task validators passed before publication; hosted PHP lint and all required CI must pass before merge. No diagnostic profiles, biological claims, citations, media bytes, licenses, labels, confidence caps or training admissions changed. Historical verification was preserved rather than invented for the current release. Training remains blocked on independent confirmed samples, controls, rights, source grouping and review; image/video and specimen-linkage gaps remain. Test-driven development and verification-before-completion guided the fix. Local task claim retained until integration then released. No model run, production deployment or overall dataset completion claimed.",
+  "validation": {
+    "required": ["validate:grow-doc-contributions", "validate:grow-doc-claims", "validate:release-metadata", "validate:data-release", "validate:grow-doc-task-registry"],
+    "completed": ["validate:grow-doc-contributions", "validate:grow-doc-claims", "validate:release-metadata", "validate:data-release", "validate:grow-doc-task-registry"]
+  }
+}

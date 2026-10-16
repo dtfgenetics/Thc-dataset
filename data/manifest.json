@@ -1,6 +1,6 @@
 {
   "schemaVersion": "3.0.0",
-  "releaseStatus": "63-profile-release-triple-verified",
+  "releaseStatus": "63-profile-release-validated",
   "diagnosticProfileCount": 63,
   "standaloneDetailedProfileCount": 63,
   "pendingStandaloneDetailedProfileCount": 0,
@@ -78,12 +78,23 @@
     "diagnosticProfiles": 63,
     "coreProfiles": 29,
     "supplementalAndExpandedProfiles": 34,
+    "uniqueEvidenceSources": 202,
+    "profileLinkedMedia": 92,
+    "referenceOriginals": 36,
+    "referenceCrops": 68,
+    "totalReferenceImages": 104,
+    "trainingEligibleMedia": 0
+  },
+  "historicalReleaseCounts": {
+    "diagnosticProfiles": 63,
+    "coreProfiles": 29,
+    "supplementalAndExpandedProfiles": 34,
     "uniqueEvidenceSources": 94,
     "profileLinkedMedia": 47,
     "trainingEligibleMedia": 0,
     "status": "confirmed independently by PR export, main read-back, and clean-room revalidation"
   },
-  "referenceArtifactVerification": {
+  "historicalReferenceArtifactVerification": {
     "sourceWorkflowRun": 32080877843,
     "artifactId": 9305073118,
     "artifactZipSha256": "0da03e15ffde7c7dd8fbe6c53fcd18e2cee1b393c0f01d0007b5538c63ed8b77",
@@ -99,7 +110,7 @@
     "profileWorkflow": ".github/workflows/export-machine-data.yml",
     "continuousReleaseValidationWorkflow": ".github/workflows/validate-data-release.yml"
   },
-  "verificationStatus": {
+  "historicalVerificationStatus": {
     "previous54ProfileRelease": "PR-export-validated-and-main-persisted",
     "coverageExpansionPassesRequired": 3,
     "coverageExpansionPassesCompleted": 3,
@@ -114,12 +125,12 @@
     "typescriptSources": "The reviewed application catalog is canonical. Generated JSON, JSONL, CSV and diagnostic index are materialized from the same catalog used by the app.",
     "sourceErrata": "Known source errata and taxonomy corrections are normalized before app use and export.",
     "complexLabels": "Pythium, Fusarium and Sclerotinia remain syndrome/complex labels where visual evidence cannot reliably resolve species; new literature augments those profiles instead of creating false species-level image classes.",
-    "referenceBinaries": "Thirty rights-cleared original references and sixty-eight source-grouped panel derivatives remain reference evidence, not supervised model ground truth.",
+    "referenceBinaries": "Persisted originals and source-grouped panel derivatives remain reference evidence, not supervised model ground truth. Current totals are recorded in measuredReleaseCounts.",
     "trainingGate": "Supervised Cannabis training remains blocked until independent samples pass rights, confirmation, source-group, duplicate and coverage gates."
   },
   "limitations": [
     "The 63-profile diagnostic knowledge release is evidence-backed, but the image corpus is still not statistically sufficient for supervised Cannabis diagnosis training.",
-    "Ninety-eight source-controlled reference images are evidence/context images, not independent training samples; many are related scientific panels and must stay source-grouped.",
+    "Persisted reference images are evidence/context images, not independent training samples; related scientific panels must stay source-grouped.",
     "No current sample is trainingEligible; train/validation/test/holdout splits remain intentionally empty.",
     "Many pathogen and root-disease labels require organism-level or analytical confirmation for high confidence.",
     "New insect profiles require organism evidence because feeding damage alone is generally not species-specific."

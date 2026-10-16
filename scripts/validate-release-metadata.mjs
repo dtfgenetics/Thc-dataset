@@ -4,7 +4,7 @@ async function json(path) {
   return JSON.parse(await fs.readFile(path, 'utf8'))
 }
 
-const [manifest, profileIndex, sources, profileMedia, trainingMedia, modelReadiness, splitManifest, referenceManifest, cropManifest] = await Promise.all([
+const [manifest, profileIndex, sources, profileMedia, trainingMedia, modelReadiness, splitManifest, referenceManifest, cropManifest, materialization, exportManifest] = await Promise.all([
   json('data/manifest.json'),
   json('data/profiles/index.json'),
   json('data/sources.json'),
@@ -14,6 +14,8 @@ const [manifest, profileIndex, sources, profileMedia, trainingMedia, modelReadin
   json('data/splits/manifest.json'),
   json('images/reference/manifest.json'),
   json('images/reference/crops-manifest.json'),
+  json('data/profile-materialization-status.json'),
+  json('data/export-manifest.json'),
 ])
 
 const expected = {
@@ -39,6 +41,23 @@ requireEqual('manifest.trainingEligibleMediaCount', manifest.trainingEligibleMed
 requireEqual('manifest.localReferenceImageBinaryCount', manifest.localReferenceImageBinaryCount, expected.originals)
 requireEqual('manifest.referencePanelCropCount', manifest.referencePanelCropCount, expected.crops)
 requireEqual('manifest.totalPersistedReferenceImageFiles', manifest.totalPersistedReferenceImageFiles, expected.totalReferenceImages)
+requireEqual('manifest.releaseStatus', manifest.releaseStatus, `${expected.profiles}-profile-release-validated`)
+requireEqual('materialization.scope', materialization.scope, 'historical-release-verification')
+
+const measured = {
+  diagnosticProfiles: expected.profiles,
+  coreProfiles: exportManifest.counts?.primaryDiagnosticProfiles,
+  supplementalAndExpandedProfiles: exportManifest.counts?.supplementalDiagnosticProfiles,
+  uniqueEvidenceSources: expected.sources,
+  profileLinkedMedia: expected.profileMedia,
+  referenceOriginals: expected.originals,
+  referenceCrops: expected.crops,
+  totalReferenceImages: expected.totalReferenceImages,
+  trainingEligibleMedia: expected.trainingEligible,
+}
+for (const [key, count] of Object.entries(measured)) {
+  requireEqual(`manifest.measuredReleaseCounts.${key}`, manifest.measuredReleaseCounts?.[key], count)
+}
 
 requireEqual('modelReadiness.knowledgeLayer.diagnosticProfiles', modelReadiness.knowledgeLayer?.diagnosticProfiles, expected.profiles)
 requireEqual('modelReadiness.knowledgeLayer.materializedProfiles', modelReadiness.knowledgeLayer?.materializedProfiles, expected.profiles)
