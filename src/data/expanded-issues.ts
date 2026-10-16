@@ -208,6 +208,19 @@ const sources = {
       'The authors caution that appropriate pot size depends on plant size; the paper\'s experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis.',
     ],
   }),
+  ugaRepottingDifferentials: source({
+    title: 'Repotting Container Plants for Long-Term Health',
+    organization: 'UGA Extension – Madison County',
+    url: 'https://site.extension.uga.edu/madison/2026/08/repotting-container-plants-for-long-term-health/',
+    authors: ['Travis Tankersley'],
+    publisher: 'University of Georgia Cooperative Extension',
+    publicationDate: '2026-08-18', year: 2026, accessedDate: '2026-10-15',
+    supportedClaims: [
+      'The guide concerns ornamental trees, shrubs and flowering perennials, not a Cannabis container-size experiment; its 3–4-inch pot-diameter increment and seasonal repotting advice are not Cannabis treatment standards.',
+      'An unnecessarily large replacement container can leave excess medium wet longer and increase root-disease risk; adequate drainage and root inspection remain necessary after repotting.',
+      'The guide describes firm, light-colored healthy roots and inspection for damaged or decayed roots. Using that appearance as inspection context rather than proof of pathogen absence is a dataset annotation safeguard, not a validated exclusion test.',
+    ],
+  }),
   umdPotBoundPlants: source({
     title: 'Pot-Bound Indoor Plants',
     organization: 'University of Maryland Extension, Home & Garden Information Center',
@@ -1862,12 +1875,14 @@ export const expandedIssues: IssueRecord[] = [
       'Exclude transplant shock, torn roots, compressed plugs, buried crowns, stem girdling, and container heat injury using handling history and crown/root inspection.',
       'Exclude detached, washed, cut, or cropped root images that lack a persistent plant and root-specimen identifier linking the intact root ball, container history, canopy, sampling event, and follow-up.',
       'Do not use the non-Cannabis 43% mean biomass response, container volume, root density, number of circling roots, transplant timing, or post-transplant outcome as a universal Cannabis diagnostic threshold, severity rule, or production target.',
+      'After up-potting, prolonged wetness or decline is attributed to residual binding without checking excess wet medium, drainage, hypoxia, root damage and root disease in the new container.',
     ],
     progression: [
       {stage: 'Container contact', description: 'Root tips reach a physical boundary; contact or an occasional deflected root is normal and not diagnostic.'},
       {stage: 'Boundary deflection', description: 'Repeated roots begin following the wall or bottom; record the number of affected faces and preserve an intact comparison root ball.'},
       {stage: 'Dense perimeter matting', description: 'Wall-following roots become a tight root-dominant layer and may alter wetting, but moisture and EC measurements are still required to identify the stress mechanism.'},
       {stage: 'Post-transplant persistence', description: 'Cannabis-specific survey evidence reports that some root-bound hemp transplants did not reliably overcome the bound architecture after field transplanting.'},
+      {stage: 'Post-repotting confounder', description: 'UGA ornamental guidance warns that an oversized replacement pot can retain moisture longer and increase root-disease risk. Treat this as a separate water/root-health differential, not proof of persistent Cannabis root binding.'},
       {stage: 'Secondary decline', description: 'Poor establishment may overlap Fusarium or Pythium; later discoloration or decay must not be attributed to mechanical restriction alone.'},
     ],
     lookAlikes: [
@@ -1894,6 +1909,7 @@ export const expandedIssues: IssueRecord[] = [
       'Keep canopy-only, detached-root-only, non-Cannabis transfer, unmatched, generated, vendor, anecdotal, unverified, and rights-unclear samples out of the confirmed class and all automated training splits.',
       'Assign persistent plant and root-specimen identifiers before disturbance and carry them through intact and washed root views, container and transplant history, moisture and chemistry measurements, laboratory results, canopy images, and follow-up observations.',
       'Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels.',
+      'For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated.',
     ],
     immediateActions: [
       'Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.',
@@ -1915,9 +1931,10 @@ export const expandedIssues: IssueRecord[] = [
       'The controlled rooting-volume meta-analysis and University of Maryland morphology guide are non-Cannabis transfer evidence and do not establish Cannabis thresholds, universal symptoms, severity, or treatment efficacy.',
       'The hemp evidence is a diagnostic survey rather than a controlled container-size trial, so cultivar response, incidence, timing, yield effect, and a pathological root-density threshold remain unresolved.',
       'Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.',
+      'UGA repotting guidance is non-Cannabis ornamental transfer context: do not turn its pot-size increment, seasonal timing or pruning advice into a Cannabis prescription. Post-repotting wetness and root appearance require independent confirmation and human review when causality remains unresolved.',
       'One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located.',
     ],
-    sources: [sources.hempSurvey, sources.rootingVolumeMetaAnalysis, sources.umdPotBoundPlants],
+    sources: [sources.hempSurvey, sources.rootingVolumeMetaAnalysis, sources.umdPotBoundPlants, sources.ugaRepottingDifferentials],
     media: [],
   },
 ]

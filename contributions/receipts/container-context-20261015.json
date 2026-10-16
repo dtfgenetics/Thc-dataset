@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "container-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "f88afbce38174ba45d06b58d819d67f0f17aafbd",
+  "head_commit": "ecf86a48bfdee415b76be326677b4c1c495a4f88",
+  "branch": "work/grow-doc/GD-DIAG-001/container-context-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/root-binding-container-stress.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://site.extension.uga.edu/madison/2026/08/repotting-container-plants-for-long-term-health/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected latest main, recent batches, repository instructions, task claims, record types, receipt schema, package/CI validators, source identities and the current root-binding record. Reviewed the primary UGA Extension Madison County article by Travis Tankersley published 2026-08-18, with its linked Circular 1240 as contextual corroboration. Added one institutional citation with three exact bounded claims and enriched one water/root-zone profile with a post-repotting wet-medium differential, capture/confirmation guidance, exclusion and uncertainty warning. Ornamental pot increments, seasonal timing and pruning advice are explicitly not Cannabis treatment standards. Firm light-colored roots remain inspection context rather than pathogen-negative ground truth; that distinction is explicitly an annotation safeguard. Added regression assertions and synchronized source counts to 193 across 63 profiles. No new media references, binaries, licenses or training admissions; existing copyright-restricted non-Cannabis root-mass reference remains metadata-only with display/training prohibited. Public Europe PMC primary XML for a peony root-restriction study was also inspected during media discovery, but its measurement figures were not added as Cannabis diagnostic photographs or references. Current media totals remain 89 references, 35 originals and 68 crops (103 persisted images), zero training-eligible media. All 62 package validators, 288 tests, type check, build, frozen artifact hash verification and diff checks passed locally with no failures. PHP is unavailable locally; hosted CI must cover PHP lint. Deterministic exports and model-data fingerprint pins updated; 191 frozen text rows do not imply a model run. Plant-linked Cannabis root progression imagery, matched controls, diagnostic videos, measured physiology and causal attribution remain gaps. Unresolved causal and cross-crop observations retain human-review flags. Agent review is not human, expert or lab review; no production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
