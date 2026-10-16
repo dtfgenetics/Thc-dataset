@@ -346,7 +346,7 @@ describe('diagnostic coverage audit', () => {
     expect(confirmation).toContain('persistent plant and leaf-sample identifier')
     expect(confirmation).toContain('causally attributed copper injury as separate labels')
     const excessSource = record?.sources.find((source) => source.doi === '10.3390/environments8110111')
-    expect(excessSource?.supportedClaims).toHaveLength(3)
+    expect(excessSource?.supportedClaims).toHaveLength(6)
     expect(excessSource?.supportedClaims.join(' ')).toContain('hydroponically')
     expect(record?.lookAlikes).toContain('Copper excess or contaminated-medium exposure')
     expect(confirmation).toContain('SPAD leaf, shoot digest and root digest')

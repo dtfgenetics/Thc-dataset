@@ -270,6 +270,15 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps copper deficiency publication-aware, analytically bounded, and image-conservative', () => {
     const record = issues.find((issue) => issue.slug === 'copper-deficiency')
+    const excess = record?.sources.find((source) => source.doi === '10.3390/environments8110111')
+    expect(excess?.supportedClaims).toHaveLength(6)
+    expect(excess?.supportedClaims.join(' ')).toMatch(/higher in roots than shoots.*36%/)
+    expect(excess?.supportedClaims.join(' ')).toMatch(/shoot iron concentrations 34% and 37%/)
+    expect(excess?.supportedClaims.join(' ')).toMatch(/no significant malondialdehyde increase/)
+    expect(record?.confirmation.join(' ')).toMatch(/separately identified shoot, root/)
+    expect(record?.confirmation.join(' ')).toMatch(/not a required routine copper diagnostic test/)
+    expect(record?.warnings.join(' ')).toMatch(/do not establish.*recovery of shoot growth/)
+    expect(record?.warnings.join(' ')).toMatch(/one negative research biomarker.*human review/)
     const survey = record?.sources.find((source) => source.url.endsWith('/hemp-leaf-tissue-nutrient-ranges'))
     expect(survey?.publicationDate).toBe('2026-08-26')
     expect(survey?.accessedDate).toBe('2026-10-10')
