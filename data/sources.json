@@ -16,7 +16,7 @@
     "publisher": "Wiley Periodicals LLC on behalf of the Crop Science Society of America and the American Society of Agronomy",
     "publicationDate": "2025-02-21",
     "year": 2025,
-    "accessedDate": "2026-10-15",
+    "accessedDate": "2026-10-16",
     "doi": "10.1002/agg2.70044",
     "supportedClaims": [
       "In the first peat-perlite experiment, industrial-hemp shoot growth was reduced at substrate pH 3.0 or 4.0 relative to pH at or above 5.0; a separate mini-rhizotron experiment found inhibited root growth at very low pH. Those growth responses do not identify manganese toxicity by themselves.",
@@ -30,12 +30,15 @@
       "Termination EC was higher at pH 3.0 and 7.0 than at intermediate pH values in the first experiment, so pH response cannot be interpreted without the accompanying salt and fertility context.",
       "Lower pH increased several leaf-tissue micronutrient concentrations, but normal micronutrient supply did not produce a universal toxicity phenotype; the authors concluded that Cannabis growth was inhibited below pH 5.0 and recommended a greenhouse substrate range of 5.5 to 6.5 for the systems evaluated.",
       "With fourfold micronutrients at target pH 3.8, Sweetened developed lower-foliage tip bronzing that advanced to necrosis, inward spread, and chlorosis, whereas Cherry Wine did not show the same response, demonstrating cultivar- and fertility-dependent appearance.",
-      "The experiments evaluated peat-based greenhouse substrates and three cultivars; their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds.",
+      "The experiments evaluated peat-based greenhouse substrates and four cultivars across separate experiments: Baox, T1, Cherry Wine, and Sweetened. Their pH values, timing, tissue concentrations, and symptom expression are treatment-specific and do not establish universal soil, coco, rockwool, or hydroponic thresholds.",
       "Experiment 2 measured the five longest wall-visible roots per chamber and counted visible root tips at 6 to 21 days after planting; roots inside the substrate were not measured. These endpoints are not total root biomass.",
       "Figures 4 and 5 compare Cherry Wine and Sweetened, respectively, after five weeks of vegetative growth; they are treatment comparisons, whereas Figure 6 shows the Sweetened lower-foliage bronzing progression under fourfold micronutrients.",
       "In Experiment 1 Table 4, leaf phosphorus did not differ significantly across target pH 3.0 to 7.0; this peat-perlite result does not validate a phosphorus-lockout diagnosis from a generic field-soil availability chart.",
       "Experiment 1 used calcium-containing lime to establish pH treatments; the authors related rising tissue calcium to lime availability. The pH and calcium-supply changes cannot be treated as independent causes.",
-      "Experiment 1 Table 5 reported the highest numerical leaf iron concentration at target pH 5.0, not 3.0; the two means shared a significance letter. A general low-pH accumulation trend is not a monotonic iron classifier."
+      "Experiment 1 Table 5 reported the highest numerical leaf iron concentration at target pH 5.0, not 3.0; the two means shared a significance letter. A general low-pH accumulation trend is not a monotonic iron classifier.",
+      "Experiment 3 analyzed recently matured upper-third leaves separately from older lower leaves at the five-week harvest; remaining shoots were harvested separately and roots discarded. Its leaf assays are not root assays.",
+      "Experiment 3 Table 2 increased Fe, Mn, Cu, Zn, B, and Mo together across micronutrient treatments; the bronzing treatment was not an isolated iron challenge.",
+      "Although Figure 6 calls the appearance iron bronzing, the discussion describes lower-leaf iron values as similar to a prior survey and suggests Cannabis is not an iron accumulator under these conditions; the caption alone does not establish iron-specific toxicity."
     ]
   },
   {
