@@ -899,6 +899,21 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('paired underside')
   })
 
+  it('separates Curvularia field, culture and inoculation context from reservoir claims', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')!
+    const study = record.sources.find((item) => item.doi === '10.1094/PDIS-03-20-0546-PDN')!
+    expect(study.accessedDate).toBe('2026-10-16')
+    expect(study.supportedClaims).toHaveLength(10)
+    expect(study.supportedClaims.join(' ')).toContain('general isolation medium')
+    expect(study.supportedClaims.join(' ')).toContain('Dataset inference')
+    expect(record.confirmation.join(' ')).toContain('field-lesion, culture-plate, and inoculated-plant')
+    expect(record.confirmation.join(' ')).toContain('medium, incubation temperature, light cycle and culture age')
+    expect(record.warnings.join(' ')).toContain('not interchangeable spellings')
+    expect(record.warnings.join(' ')).toContain('not a demonstrated local transmission source')
+    expect(record.photoOnlyMaxConfidence).toBe(0.2)
+    expect(record.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps Bipolaris labels lesion-linked, multilocus-bounded, and media-safe', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'bipolaris-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
