@@ -4931,6 +4931,10 @@
         "description": "Mark the shoot and record successive leaves and any cuttings over time. A stable lineage association increases suspicion of a developmental or genetic origin but does not exclude latent or localized infection."
       },
       {
+        "stage": "Named-cultivar comparison context",
+        "description": "The Divina/Pilar abstract reports lower leaf chlorophyll and generally slower growth in the named variegated cultivar under comparable long days. Record longitudinal growth and pigment measurements separately from sector imagery; this is not a same-leaf symptom progression or an image-only diagnosis of the cause."
+      },
+      {
         "stage": "Differential testing",
         "description": "Compare matched healthy tissue and evaluate pests, root-zone pH and EC, nutrient status, exposure history, and a region- and facility-appropriate virus/viroid panel before narrowing the cause."
       },
@@ -4954,6 +4958,7 @@
       "Camera color, glare, or shadow artifact"
     ],
     "confirmation": [
+      "For a claimed named variegated cultivar, retain authenticated propagation provenance and compare serial sector distribution, leaf-age position, growth and pigment measurements under matched conditions; resemblance to Divina alone cannot authenticate cultivar or exclude infection.",
       "Do not confirm genetic variegation, chimerism, mutation, virus freedom, or training ground truth from a photograph or video.",
       "Record the exact leaf, node, branch, plant, cultivar, propagation source, date, stage, lighting, and serial change; include healthy plants of the same cultivar and environment.",
       "Inspect both leaf surfaces and protected growth with magnification, and document pest organisms or their absence separately from the color phenotype.",
@@ -4980,6 +4985,9 @@
       "Capture healthy reference plants under repeatable lighting and camera settings for color comparison."
     ],
     "warnings": [
+      "The Divina/Pilar evidence here is limited to the public primary-study abstract; no full methods, item-level media rights or sample-level genetic confirmation was reviewed. Its authors attribute the selected phenotype to a spontaneous chimera, but no unknown plant inherits that causal label.",
+      "Lower growth in a documented variegated cultivar can be developmental context rather than proof of a new disorder, but this comparison cannot normalize new distortion, spreading chlorosis or unexplained decline; keep the infectious, nutritional and exposure differential active.",
+      "Neither pale-sector area nor resemblance to Divina establishes cannabinoid or terpenoid content, harvest maturity, cultivar identity, seed inheritance or a universal biomass penalty; unsupported causal or chemical labels require human review.",
       "Image/video-only confidence is capped at 0.10 as a conservative annotation policy, not a measured accuracy estimate; visible sectoring remains a phenotype label until independently supported causal attribution.",
       "The sequencing study used three stem positions on one Honey Banana mother plant, not paired pale and green leaf sectors; its variant counts cannot validate a sector label, predict potency loss, or establish inheritance.",
       "“Genetic mosaicism” describes within-organism genetic variation; a visible “mosaic symptom” is not evidence of that mechanism.",
@@ -5077,6 +5085,28 @@
           "Those negative results apply only to the sampled tissues, agents, assays, and observation period and therefore do not establish genetic causality or exclude every virus, viroid, pest, nutrient, root-zone, or chemical cause.",
           "Figure 19 documents indoor Cannabis plants with stunting, extensive young-leaf curling, and twisted or deformed stem growth plus outdoor plants from four genotypes with visibly different symptom presentations; BCTV presence was confirmed by RT-PCR with universal BCTV primers.",
           "The Figure 19 asset is a multi-genotype, multi-setting composite rather than a panel-resolved progression series, so it supports visual context but not a universal phenotype or panel-level automated-training label."
+        ]
+      },
+      {
+        "title": "Cannabinoids and terpenoids yields of the ornamental Cannabis sativa L. cultivar 'Divina' characterized by a variegated foliage as morphological marker",
+        "organization": "Acta Horticulturae 1287:161–168",
+        "url": "https://doi.org/10.17660/ActaHortic.2020.1287.21",
+        "authors": [
+          "V. Codesido",
+          "M. Marín",
+          "C. Sánchez-Carnerero Callado",
+          "C. Ferreiro-Vera",
+          "S. Casano"
+        ],
+        "publisher": "International Society for Horticultural Science",
+        "publicationDate": "2020",
+        "year": 2020,
+        "accessedDate": "2026-10-16",
+        "doi": "10.17660/ActaHortic.2020.1287.21",
+        "supportedClaims": [
+          "The publisher abstract describes variegated Divina as a cultivar selected from a spontaneous chimera detected in green-leaved Pilar. This is a named cultivar-lineage report, not proof that any visually similar Cannabis leaf has the same genetic cause or cultivar identity.",
+          "The abstract reports significantly lower leaf chlorophyll in Divina and generally slower growth and less biomass than Pilar when mother plants were grown under similar long-day conditions; the proposed chlorophyll-related explanation is presented as supposition, not a mapped causal mutation.",
+          "In a same-location comparison under artificial growing conditions, Pilar produced higher cannabinoid and terpenoid yields than Divina. Dataset annotation inference: this cultivar comparison does not validate a color-to-potency rule, chemical prediction from an image, or a universal yield penalty for spontaneous sectoring."
         ]
       }
     ],
