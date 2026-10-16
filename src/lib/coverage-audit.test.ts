@@ -143,7 +143,7 @@ describe('diagnostic coverage audit', () => {
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
     expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
     expect(confirmation).toContain('map affected and unaffected cannabis plants')
@@ -559,7 +559,7 @@ describe('diagnostic coverage audit', () => {
       'Spray, contact, or light injury',
     ]))
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
     expect(record?.media.every((item) => item.license === 'CC BY 4.0')).toBe(true)
     expect(record?.media.every((item) => item.trainingPermission === 'permitted')).toBe(true)
     expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)

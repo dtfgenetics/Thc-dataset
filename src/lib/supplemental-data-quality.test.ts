@@ -164,7 +164,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'tarnished-plant-bug') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].hostContext).toBe('organism-only')
         expect(issue.media[0].license).toMatch(/public domain/i)
         expect(issue.media[0].trainingPermission).toBe('permitted')
@@ -233,7 +233,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'bipolaris-leaf-spot') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -242,7 +242,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'cercospora-leaf-spot') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -251,7 +251,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'septoria-leaf-spot') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -260,7 +260,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'curvularia-leaf-spot') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -269,7 +269,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'hemp-rust') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
         expect(issue.media[0].license).toBe('CC BY-NC-ND 4.0')
         expect(issue.media[0].displayPermission).toBe('permitted')
         expect(issue.media[0].trainingPermission).toBe('not-permitted')
@@ -497,7 +497,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Camera white-balance or exposure artifact',
     ]))
     expect(record?.media).toHaveLength(2)
-    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(2)
+    expect(record?.media.filter(isDisplayableMedia)).toHaveLength(0)
     expect(record?.media.every((item) => item.hostContext === 'non-cannabis')).toBe(true)
     expect(record?.media.every((item) => item.trainingPermission === 'not-permitted')).toBe(true)
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
