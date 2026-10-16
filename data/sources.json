@@ -2887,7 +2887,7 @@
     "publisher": "MDPI AG",
     "publicationDate": "2025-03-06",
     "year": 2025,
-    "accessedDate": "2026-10-15",
+    "accessedDate": "2026-10-16",
     "doi": "10.3390/plants14050830",
     "supportedClaims": [
       "RT-PCR/RT-qPCR detected HLVd in asymptomatic stock plants and rooted vegetative cuttings; in the stock genotypes tested, roots were the most consistent positive tissue while individual upper or lower leaf samples were not consistently positive.",
@@ -2895,7 +2895,10 @@
       "The study detected HLVd in inflorescence tissue, glandular trichomes, dried flowers, pollen, seeds, and other production-system materials, supporting plant-part and propagation context but not image-only confirmation.",
       "Figure 1 combines stock and flowering plant appearance with tissue-specific RT-PCR results and sequence-confirmed bands; it is a molecularly anchored CC BY 4.0 reference but not a single-class visual training sample.",
       "Figure 1 maps stock sampling to panels a–c, assays to d–f and j–k, infected flowering growth to g, and noninfected comparisons to h and the top of i; these panel identities must not be pooled into one positive image label.",
-      "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol."
+      "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol.",
+      "For the vegetative-cutting experiment, time zero meant first root emergence, about 10–14 days after cuttings were obtained; duplicate root samples were taken at 0, 4, 8 and 12 days after emergence, with a further collection at day 14 (28 days after cutting).",
+      "Results describe delayed root detection in T8 until day 12 after emergence, while Figure 3f uses genotype labels G1–G3 and describes delayed detection in G1; retain the section-specific identifiers and do not silently equate anonymized panel labels with named genotypes.",
+      "Both rooted and unrooted cuttings in Figure 3k were subsequently HLVd-positive, so their infrared contrast did not discriminate infected from uninfected plants; Results and caption reverse which rooting group had the higher reported temperature, precluding a reliable direction-specific thermal label from that text."
     ]
   },
   {

@@ -96,7 +96,7 @@ describe('runtime catalog media quality', () => {
     expect(media.severity).toContain('no unified severity')
     expect(media.sha256).toBe('843e7d7421152fb9cc8a0b35c62610a2a5933367dbe2105ea2edacb2119f90d8')
     expect(media.trainingEligible).toBe(false)
-    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.accessedDate).toBe('2026-10-16')
   })
   const allMedia = issues.flatMap((issue) => issue.media.map((media) => ({ issue, media })))
   const approved = allMedia.filter(({ media }) => isDisplayableMedia(media))

@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "viroid-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "2fd60568f549a8496fd892ac56c528ea2dc4ed08",
+  "head_commit": "988388716e4540560b8de21c65b4c282999707aa",
+  "branch": "work/grow-doc/GD-DIAG-001/viroid-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/viroid-hplvd.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "src/lib/catalog-media-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/plants14050830", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11902214/fullTextXML"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent batches, repository instructions, claims, schemas, HLVd profile and source metadata, existing tests and CI. PMC browser reader presented a check and publisher returned 429; neither was bypassed or repeatedly retried. Read the independently public Europe PMC full-text XML, including methods, Results and Figure 3 caption. Added three bounded claims to the existing Punja et al. 2025 citation, refreshed access date and retained NLM-supported publication date. Distinguished first-root-emergence day zero from cutting age; recorded delayed root detection and section-specific T8 versus G1 labeling without inventing a genotype map. All four infrared-comparison cuttings were HLVd-positive; the contrast cannot separate positive from negative infection status. Results and caption reverse which rooting group had the higher temperature. Preserve this contradiction rather than generating a direction-specific thermal training label. Enriched one viroid profile with root-emergence progression, two plant/mother/sample-linked serial and thermal capture checks, and human-review warning for unresolved mapping and thermal direction. No new source identities, profiles, media, binaries, licenses, confidence changes or training admissions. Existing three references retain item-level rights and training exclusions; photo-only confidence remains at most 0.25. Totals remain 63 profiles, 194 sources, 90 media references, 36 originals and 68 crops, zero training-eligible media. Initial suite caught a stale access-date assertion; a minimally scoped correction was verified by the targeted test and full rerun. Final 289 tests, all 62 package validators, type check, build, artifact-hash verification and diff checks passed. PHP unavailable locally; hosted CI must pass lint before integration. Exports and artifact pins synchronized; no model run implied. Unresolved primary-caption direction, genotype mapping, independent assay-linked thermal controls and longitudinal diagnostic video remain gaps and human-review flags. Source review by an agent is not human or laboratory sample review. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
