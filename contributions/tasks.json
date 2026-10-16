@@ -2,6 +2,18 @@
   "schema_version": "grow-doc-task-registry-v2",
   "tasks": [
     {
+      "id": "GD-SYS-004",
+      "lane": "system",
+      "priority": "P1",
+      "status": "active",
+      "title": "Validate current release counts separately from historical verification",
+      "evidence_gap": "Current numeric totals can disagree with secondary release summaries while historical verification snapshots appear current.",
+      "dependencies": [],
+      "allowed_paths": ["scripts/validate-release-metadata.mjs", "package.json"],
+      "required_validators": ["validate:release-metadata", "validate:data-release", "validate:grow-doc-task-registry"],
+      "definition_of_done": ["current count summaries match materialized artifacts", "historical verification remains explicitly scoped and unchanged", "mutation tests reject stale current counts", "training eligibility remains evidence-gated"]
+    },
+    {
       "id": "GD-SYS-001",
       "lane": "system",
       "priority": "P0",

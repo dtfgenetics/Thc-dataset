@@ -1,5 +1,7 @@
 {
   "schemaVersion": "2.4.0",
+  "scope": "historical-release-verification",
+  "currentReleaseManifest": "data/manifest.json",
   "status": "61-profile-release-triple-verified",
   "targetProfileCount": 61,
   "materializedProfileCount": 61,
