@@ -15704,6 +15704,10 @@
         "description": "Plant water relations, chlorophyll index, gas exchange, nutrient uptake, or canopy expansion may diverge from matched controls before a specific color or morphology appears."
       },
       {
+        "stage": "Symptom-negative comparison",
+        "description": "The T1 nutrient-input experiment reported no visible treatment injury despite solution accumulation. Preserve this negative result separately from NaCl injury; a normal-looking canopy does not measure nutrient concentration or identify ions."
+      },
+      {
         "stage": "Growth suppression",
         "description": "Repeated whole-plant views may show reduced height, width, leaf production, biomass, or inflorescence growth, but the pattern depends on cultivar, stage, medium, solution type, and ion mixture."
       },
@@ -15829,6 +15833,26 @@
           "Visible leaf necrosis occurred only in the 9 and 12 mS/cm NaCl treatments; absence of necrosis did not exclude yield effects, and necrosis at those extreme study treatments is not a universal field threshold.",
           "Low leaf phosphorus in some low-EC treatments was associated with root-zone pH above 7.5, showing why pH and tissue chemistry must be checked rather than treating EC or leaf appearance as a single-nutrient diagnosis.",
           "The trial used one cultivar, rockwool, hydroponic nutrient solutions, and deliberately constructed EC treatments; transfer to other cultivars, media, salt mixtures, and irrigation systems requires human review."
+        ]
+      },
+      {
+        "title": "Elevated root-zone P and nutrient concentration do not increase yield or cannabinoids in medical cannabis",
+        "organization": "Frontiers in Plant Science; Utah State University Crop Physiology Laboratory",
+        "url": "https://doi.org/10.3389/fpls.2025.1433985",
+        "authors": [
+          "Julie A. Hershkowitz",
+          "F. Mitchell Westmoreland",
+          "Bruce Bugbee"
+        ],
+        "publisher": "Frontiers Media SA",
+        "publicationDate": "2025-02-20",
+        "year": 2025,
+        "accessedDate": "2026-10-15",
+        "doi": "10.3389/fpls.2025.1433985",
+        "supportedClaims": [
+          "Two trials used high-CBD T1 cuttings in closed, aerated deep-flow hydroponics through 56 days of reproductive growth. Refill EC treatments were 2 or 4 mS/cm, with P inputs from 15 to 90 mg/L; these were nutrient-supply treatments, not a NaCl challenge.",
+          "Higher nutrient input increased solution accumulation without significantly improving yield or quality, and the study reported no leaf necrosis or other visible treatment effects. A measured nutrient excess therefore did not define a visible injury class in this experiment.",
+          "The reported treatment EC was the daily refill-solution EC; tub EC and pH were measured before refill. Nominal input treatment values and the evolving closed root-zone composition are distinct measurements."
         ]
       }
     ],
