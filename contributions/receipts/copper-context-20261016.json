@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "copper-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "35d3bf8d428ddcfcc0c443054ba8f4c0b2fbc6bb",
+  "head_commit": "0a686fbae823fa8325b52efcc5cce0937b8c7946",
+  "branch": "work/grow-doc/GD-DIAG-001/copper-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-def-cu.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "src/components/ReferenceLibrary.test.tsx", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/environments8110111", "https://iris.unito.it/handle/2318/1951914"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent batches, repository instructions, active task/claims, source/media and receipt schemas, copper profile and shared Figure 4/crop mappings, tests and CI contract. Selected the copper deficiency/toxicity look-alike gap; no duplicate figure or crop added. Publisher HTML returned 429; no retry loop or access barrier bypass. Read the original Quagliata et al. 2021 paper via the publicly open University of Turin institutional PDF, verifying bibliographic metadata, 2021-10-20 publication date, methods and Results. Added one primary citation and three bounded claims: hydroponic Tisza exposure despite soil-focused title, copper-excess chlorosis and shoot-growth inhibition without a statistically supported sulfate rescue, and youngest-fully-expanded-leaf SPAD versus separate shoot/root mineral digests. Added excess-copper differential, exclusion and organ-specific exposure/capture safeguards. Do not convert treatment concentrations into field-soil limits, fertilizer prescriptions or universal toxicity thresholds, nor low chlorophyll into deficiency. No leaf-age progression or lesion specificity is inferred from a single harvest endpoint. Ambiguous shortage/excess labels retain human review; photo-only cap remains 0.15. No new media, binaries, licenses or training admissions; shared Figure 4 references/crops retain exclusions and numbering caveat. Totals: 63 profiles, 197 sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. Initial tests detected a hardcoded three-source UI expectation; systematic debugging traced this to the fourth citation and updated the test to require rendering every actual attached source. Targeted 18-test UI file and full final rerun passed: 289 tests, all 62 package validators, type check, build, frozen artifact hashes and diff check. PHP unavailable locally; hosted CI must pass lint before integration. Exports and model-data pins synchronized; no model training implied. Plant-linked excess/shortage comparisons, matched analytical organs, independent field evidence and longitudinal video remain gaps. Agent review is not human or laboratory sample review. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
