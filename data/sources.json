@@ -2629,6 +2629,30 @@
     ]
   },
   {
+    "sourceKey": "10.3390/horticulturae8060531",
+    "title": "Effects of Cold Temperature and Acclimation on Cold Tolerance and Cannabinoid Profiles of Cannabis sativa L. (Hemp)",
+    "organization": "Horticulturae (Galic et al.)",
+    "url": "https://doi.org/10.3390/horticulturae8060531",
+    "authors": [
+      "Andrei Galic",
+      "Heather Grab",
+      "Nicholas Kaczmar",
+      "Kady Maser",
+      "William B. Miller",
+      "Lawrence B. Smart"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2022-06-15",
+    "year": 2022,
+    "accessedDate": "2026-10-16",
+    "doi": "10.3390/horticulturae8060531",
+    "supportedClaims": [
+      "The controlled trial used day-neutral AutoCBD and FINOLA hemp in three age cohorts planted 14 days apart; whole plants received zero to three cold exposures, each at minus 0.5 degrees Celsius for three hours in darkness and separated by 24 hours, with post-exposure stress measurements four days after the final exposure.",
+      "The separate detached-leaf experiment used upper-half leaves with intact petioles from plants receiving no whole-plant cold stress; three-hour freezer treatments at minus 2, minus 4 or minus 8 degrees Celsius were followed immediately by stress measurements, so these leaf treatments cannot be relabeled as whole-plant frost survival tests.",
+      "Cold response was quantified using chlorophyll fluorescence, SPAD and electrolyte leakage rather than a validated photograph-based lesion sequence; the authors explicitly state that they could not be certain every cold treatment froze all plant tissues, so chamber temperature is not proof of tissue freezing."
+    ]
+  },
+  {
     "sourceKey": "10.3390/horticulturae9040431",
     "title": "Variation in Hydric Response of Two Industrial Hemp Varieties (Cannabis sativa) to Induced Water Stress",
     "organization": "Horticulturae",
