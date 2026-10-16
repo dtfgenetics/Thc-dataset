@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "curvularia-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "dc34d28cee6b503ae5a2e29ae31c8cc42b815fe0",
+  "head_commit": "f95f6f6572a31e12cbfc82dd829e5ab3e06f6907",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-context-20261015",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-curvularia-leaf-spot.json"],
+  "related_release_paths": ["src/lib/catalog-accuracy-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-03-20-0546-PDN", "https://agris.fao.org/search/en/providers/122535/records/65e00d5b4c5aef494fe7c6c0"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected latest main including updated training-admission audits, recent batches, repository instructions, task claims, schemas/types, Curvularia source and media records, validators and CI contract. Publisher full-page access returned 403 and a university report link returned 404; no restrictions were bypassed. Read the primary report text reproduced by the National Agricultural Library through FAO AGRIS, and verified the publisher-indexed publication history and table of contents. Corrected the citation publication date from 2020-06-29 to publisher publication date 2020-10-07 (distinct from accepted 2020-06-24, first-look 2020-06-26 and issue 2020-12-01). Added three claims to one existing citation: calibrated 25-conidium measurements and darker/larger middle cells, grouped ITS/GAPDH/EF1-alpha accessions with divergent isolate 19-405, and controlled inoculation/bagging/observation context. Enriched one fungal-pathogen profile with calibrated microscopy capture, specimen/culture/locus linkage, an exclusion and assay-timing warning. Grouped accessions do not invent isolate-to-locus pairing; morphology and experimental timing are not universal species or field-incubation thresholds. Tests preserve boundaries. All 62 package validators, 289 tests, type check, build, frozen artifact hashes and diff checks passed locally with no failures. PHP unavailable locally; hosted CI must cover lint. No new source identities, media, binaries or licenses. Existing CC BY-NC-ND institutional leaf reference and training exclusions remain unchanged. Totals remain 63 profiles, 193 sources, 90 references, 36 originals plus 68 crops (104 persisted images), zero training-eligible media. Exports and fingerprint pins synchronized; 191 frozen text rows do not imply training execution. Rights-cleared longitudinal Cannabis images/video, specimen-linked multilocus confirmation and independent samples remain gaps; unresolved evidence retains human-review flags. Agent review is not human, expert or laboratory review; no production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
