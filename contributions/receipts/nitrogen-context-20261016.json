@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "nitrogen-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "5dcae8a5c73b82cd22a90d1b674a3c30be315f86",
+  "head_commit": "0a696e4c544af504a7279722c03de19b09836e9a",
+  "branch": "work/grow-doc/GD-DIAG-001/nitrogen-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-tox-n.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3389/fpls.2022.830224", "https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.830224/full"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main and recent batches, repository structure/instructions, active task/claim contract, source/media and receipt schemas, the two-source nitrogen-toxicity profile, tests and CI. Re-read original Saloner and Bernstein 2022 Frontiers study, including methods, Results, Figure 1 caption and discussion. Title/authors/publisher/DOI/publication date 2022-06-01 retained; access updated to 2026-10-16. Corrected the blanket symptom-free 0-30% ammonium description to retain the reported nitrate-only dotted marginal chlorosis. Added three exact primary-supported claims and three capture/confirmation stages: root-base brown material is residual coconut fiber rather than a scored root-necrosis endpoint; day-45 physiology versus day-59 mineral sampling and final-week fertilizer-free distilled-water history; paired input versus divergent leachate pH. Annotation safeguards are conservative inferences from these documented scope limits, not experimentally validated camera tests. Do not infer a symptom-free negative control, matched-time assays, withdrawal rescue, flushing benefit, a pure unconfounded injury mechanism or universal concentration/timing threshold. Keep residual medium separate from root tissue and plant/sample identity linked through capture, assays and intervention history. Total-nitrogen and nitrogen-form pathways remain distinct; photo-only cap remains 0.15. No new citations, media, binaries, licenses, permission grants or training admissions; one existing citation enriched. Existing media and review restrictions preserved. Totals unchanged: 63 profiles, 199 sources, 92 media references, 36 originals and 68 crops, zero training-eligible media. Fresh full run passed 289 tests, all 62 package validators, type check, build, artifact-hash verification and git diff check. Exports and frozen model-data pins synchronized; 191-row frozen text mixture is not a model-training run. PHP unavailable locally; hosted CI lint required before integration. Verification-before-completion gated publication. Local task claim retained through review and released after integration, without publishing an operational claim as canonical data. Remaining gaps: matched-time plant-linked imagery and assays, calibrated root/leaf captures, independently confirmed alternative causes, treatment-specific longitudinal video and recovery follow-up. Symptom-only, root-color-only, unmatched-time or unlinked-treatment samples retain low-confidence human review. Agent review is not human/expert/laboratory verification. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
