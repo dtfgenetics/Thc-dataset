@@ -2294,13 +2294,16 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2020-06-25",
     "year": 2020,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-16",
     "doi": "10.3389/fpls.2020.00718",
     "supportedClaims": [
       "Young pistillate inflorescences developed protruding white hair-like stigmas that later became yellowish-white, then curled and browned or reddened as carpels and surrounding bracts swelled during maturation.",
       "Staminate flowers formed in pedicillate clusters at leaf axils, opened five tepals, exposed five stamens, and released pollen through a longitudinal anther groove.",
       "In predominantly female inflorescences, co-sexual expression appeared as bright-yellow 2–3 mm anthers within bract tissue among stigmas; expression ranged from a few anthers to replacement of much of the female inflorescence and progressed over weeks.",
-      "The study figures are original Cannabis photographs and microscopy distributed with the article under the Creative Commons Attribution license."
+      "The study figures are original Cannabis photographs and microscopy distributed with the article under the Creative Commons Attribution license.",
+      "In the Hermaphrodite Inflorescence Development methods, pollen-tube emergence was scored microscopically from 100 grains after incubation on water agar, with the experiment repeated twice; Figure 8 separately includes pollen germination and pollen tubes on experimentally pollinated excised stigmas. Visible anthers or released grains in Figures 2 and 6 are morphology evidence, not a measured fertility result for every depicted flower.",
+      "The Results and Figure 9 report mature seeds in three anther-bearing inflorescences and subsequent seed germination. Dataset annotation inference: swelling, stigma browning, or a seed image alone cannot identify the pollen donor or establish self-parentage for an unlinked field specimen.",
+      "The study observed spontaneous anther development during commercial production rather than experimentally isolating a particular stress trigger; its Discussion presents environmental and hormonal explanations as possible mechanisms requiring further study. Dataset annotation inference: co-sexual floral morphology is not image-only confirmation of a light leak, heat exposure, chemical treatment, or heritable cause."
     ]
   },
   {
