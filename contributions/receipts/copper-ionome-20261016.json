@@ -1,0 +1,42 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "copper-ionome-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "ebe43276390926c00287986a21fc7861cb1fa1c9",
+  "head_commit": "f2153a7552c328c71d9e0ea571eb2edda980fde5",
+  "branch": "work/grow-doc/GD-DIAG-001/copper-ionome-20261016",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/nut-def-cu.json"
+  ],
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://doi.org/10.3390/environments8110111"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent merges, coverage by profile/category/source/media count, repository instructions, types, schemas, task/claim state, existing data, validators and CI. Selected the copper-deficiency profile's copper-excess/iron/manganese and biomarker differential gap. Rechecked Quagliata et al. (Environments, published 2021-10-20) via the institutional full-text copy https://iris.unito.it/retrieve/b4d5c7f6-ea15-4fb0-b406-f0647ad37823/Quagliata%20et%20al.%202021_Environments.pdf ; publisher pages were rate-limited during research, but the public University of Turin manuscript supplied the complete Methods/Results, figures, DOI, author/date metadata and CC BY 4.0 notice. Used Results 3.1/Figure 2B–D and Results 3.2/Figure 4: root copper exceeded shoot copper, sulfate-plus-copper reduced shoot copper relative to copper alone without establishing growth rescue, shoot iron and treatment-dependent manganese changed under copper excess, and excess-copper injury occurred without significant malondialdehyde elevation. Added three bounded claims to one existing citation, two confirmation steps and three warnings in one nutrient-deficiency profile; original three source claims preserved byte-for-byte and annotation inferences explicitly separated from measured outcomes. Keep organ-specific chemistry distinct from photographed lesion identity, primary nutrient shortage and lipid-peroxidation mechanism. MDA is not promoted as a routine diagnostic test, universal threshold or image-derived label. Existing visual plant-part/leaf-age/location/progression/distribution and temporal context, confounders, exclusions, photosensitivity ceiling 0.15 and review requirements retained. No new citations, licenses, media, binaries, relabeling or training admission; the mixed manganese/boron/copper Figure 4 remains uniquely indexed under manganese, not duplicated as a copper asset. Counts unchanged: 63 profiles, 202 unique sources, 92 references, 36 originals plus 68 crops, zero training-eligible media. Targeted two-file run passed 65 tests. Initial full run exposed a stale exact-three-claims assertion in coverage-audit; updated it to six without relaxing analytical safeguards. Final fresh run passed 291 application tests (two workers, unchanged timeouts), 103 Python tests, all 62 package validators, type check, build, frozen byte hashes and git diff check (68 commands, zero failures). Export syntax, identifiers, uniqueness, labels, source links, provenance, source/acquisition/transfer controls and release counts validated; no new media URLs to admit. Exports and model artifact hash pins synchronized; frozen 191 text rows do not imply an executed model run. PHP absent locally; hosted lint and every triggered workflow required before squash merge with live base/head freshness check. Verification-before-completion and systematic-debugging skills gated publication. Operational claim excluded from canonical publication and released after integration. Remaining gaps: independent cultivar/site copper symptom and video series, plant/organ-linked chemistry, separately annotated copper panels and independently validated mixed-nutrient cases. Unresolved primary-cause, biomarker-mechanism, assay-unlinked and symptom-only labels retain human-review flags. Agent review is not actual human or laboratory specimen confirmation. No production deployment or overall project completion claimed. Pre-publication filename review caught an existing copper-context receipt; the original receipt was restored byte-for-byte and this batch received the distinct copper-ionome identifier and branch before remote publication.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
