@@ -532,6 +532,14 @@ describe('diagnostic coverage audit', () => {
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)
     const primary = record?.sources.find((source) => source.doi === '10.3390/horticulturae9121261')!
     expect(primary.accessedDate).toBe('2026-10-16')
+    const submission = record?.sources.find((source) => source.url === 'https://plantclinic.cornell.edu/services/collection-tips/')!
+    expect(submission.accessedDate).toBe('2026-10-16')
+    expect(submission.supportedClaims).toHaveLength(3)
+    expect(submission.supportedClaims.join(' ')).toContain('not a Pseudocercospora-specific test')
+    expect(submission.supportedClaims.join(' ')).toContain('Dataset inference')
+    expect(confirmation).toContain('living/dead tissue margins')
+    expect(confirmation).toContain('plant/lesion/submission ids')
+    expect(confirmation).toContain('wet-box experimental images are not a template for sample shipment')
     expect(primary.supportedClaims.join(' ')).toContain('Table 1 lists tef as unavailable for both')
     expect(primary.supportedClaims.join(' ')).toContain('ITS OR101673, act OR344083 and rpb2 OR344085')
     expect(primary.supportedClaims.join(' ')).toContain('ITS OR101674, act OR344084 and rpb2 OR344086')

@@ -3826,6 +3826,9 @@
       "Capture the same attached lesion from the upper surface, lower surface, and whole-plant or canopy context; include a scale and record whether lesions follow veins.",
       "Use a hand lens or microscope to determine whether lower-surface dark material is attached conidiophore/conidium growth rather than residue, insects, frass, or necrotic tissue.",
       "Submit multiple representative, actively developing lesions with linked plant and location metadata to a plant diagnostic laboratory; do not base the result on a detached stock image.",
+      "Include early-to-advanced lesions and living/dead tissue margins before pesticide application where feasible; completely dead centers can harbor secondary organisms. Record prior treatments rather than treating a poor-quality or post-treatment sample as an exclusion test.",
+      "For image-to-sample traceability, photograph both surfaces before collection, assign separate plant/lesion/submission IDs, and retain a site map, cultivar, collection date, exposure and treatment history. This identifier chain is a dataset safeguard based on Cornell submission guidance.",
+      "Keep roots and soil from contaminating foliage, do not add water to shipping material, and arrange prompt delivery following the receiving laboratory instructions. Record collection, packaging and receipt times and any laboratory incubation separately; wet-box experimental images are not a template for sample shipment.",
       "Use fungal morphology together with validated sequence evidence; preserve locus, accession, isolate, and sampling details when assigning Pseudocercospora cannabina.",
       "For this study, preserve the Table 1 isolate-to-ITS/act/rpb2 mappings and record tef as unavailable; do not fill missing sequence fields from other species in the four-region alignment or count identical isolates as independent phylogenetic confirmations.",
       "Prefer multilocus evidence such as ITS plus act, tef1, and rpb2 when species resolution matters because type-material sequence data are unavailable and morphology alone is difficult.",
@@ -3910,6 +3913,18 @@
           "Pseudocercospora cannabina can cause complete defoliation, while the page distinguishes the gray-centered, dark-bordered circular-to-elliptical spots described for Cercospora cannabis.",
           "The handbook recommends improving air circulation, minimizing leaf wetness, and removing infected leaves as cultural risk-reduction measures; these practices do not establish the causal species.",
           "The institutional page does not provide an item-level reusable Pseudocercospora image license, so no page media were copied or indexed for training."
+        ]
+      },
+      {
+        "title": "Sample collection and submission tips",
+        "organization": "Cornell University Plant Disease Diagnostic Clinic",
+        "url": "https://plantclinic.cornell.edu/services/collection-tips/",
+        "publisher": "Cornell University",
+        "accessedDate": "2026-10-16",
+        "supportedClaims": [
+          "Cornell recommends early symptoms, a range of damage stages and living/dead tissue margins, preferably collected before pesticide application; completely dead areas can contain secondary organisms that hinder primary-pathogen detection. This is general sampling guidance, not a Pseudocercospora-specific test.",
+          "Cornell requests site-pattern photographs, host/cultivar and cultural history, separate uniquely identified samples when individual answers are needed, and a location map for multiple samples. Dataset inference: retain the photograph-to-lesion-to-submission identifier chain.",
+          "Cornell advises keeping roots and soil separate from foliage, not adding water or moistening packaging, and prompt shipment with cooling or shade if delayed. Follow the receiving laboratory and destination-specific instructions; shipping preparation is not the controlled wet-box inoculation used in the Thailand study."
         ]
       }
     ],

@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "foliar-sampling-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "9d07f1acde29cb3e40582e74444e7c49b5d883bf",
+  "head_commit": "d2b82a26591b33471421797a2f29ea1d8f8f7aca",
+  "branch": "work/grow-doc/GD-DIAG-001/foliar-sampling-20261016",
+  "changed_paths": [
+    "src/data/expanded-issues.ts",
+    "data/profiles/fungal-pseudocercospora-leaf-spot.json"
+  ],
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://plantclinic.cornell.edu/services/collection-tips/"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main/recent batches, repository instructions, active task/claims, schemas, two-source Pseudocercospora profile and existing composites, tests and CI. Added one Cornell University Plant Disease Diagnostic Clinic institutional citation and three bounded claims about early-to-late symptom samples and living/dead margins, photograph/site/sample identifiers, and contamination/dry packaging/prompt delivery. No publication date or named individual author was visible, so neither was invented. Direct Cornell fetch timed out then returned 502; the public search service returned the complete indexed institutional collection/submission text. MDPI returned 429 and an author-repository PDF returned 403; no repeated rate-limit loop, access-barrier bypass, new primary-study method claim or new asset was used. Added three confirmation safeguards, explicitly distinguishing general sample handling from Pseudocercospora identification and controlled wet-box experiments. Identifier-chain and timestamp recommendations are dataset annotation safeguards, not measured test sensitivity. Preserve receiving-laboratory and destination-specific requirements rather than transferring one packaging protocol universally. No media, binaries, licenses or training admissions added; existing two CC BY 4.0 composites and 0.2 image-only cap retained. Totals: 63 profiles, 202 sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. A mistaken expected-media-count edit was caught by targeted tests, traced to confusing source and media counts, and reverted; fresh targeted rerun passed 62 tests. All 62 package validators passed; final fresh type check, all 291 tests and build passed after correction. Artifact byte hashes and git diff check passed. PHP unavailable locally; hosted CI lint required before merge. Exports, source counts and model-data pins synchronized; frozen 191-row text mixture is not an executed model-training run. Verification-before-completion gated publication. Local operational task claim retained through integration and released after merge without publishing claim state. Remaining gaps: same-lesion sample/assay-linked independent Cannabis image/video, representative stage and cultivar replication, and panel-level training review. Symptom-only, unlinked, degraded or post-treatment sample evidence must not be promoted to confirmed species or clean exclusion labels. Agent review is not actual human or laboratory confirmation. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

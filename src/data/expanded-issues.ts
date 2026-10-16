@@ -729,6 +729,18 @@ const sources = {
       'The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training.',
     ],
   }),
+  foliarSampleSubmission: source({
+    title: 'Sample collection and submission tips',
+    organization: 'Cornell University Plant Disease Diagnostic Clinic',
+    url: 'https://plantclinic.cornell.edu/services/collection-tips/',
+    publisher: 'Cornell University',
+    accessedDate: '2026-10-16',
+    supportedClaims: [
+      'Cornell recommends early symptoms, a range of damage stages and living/dead tissue margins, preferably collected before pesticide application; completely dead areas can contain secondary organisms that hinder primary-pathogen detection. This is general sampling guidance, not a Pseudocercospora-specific test.',
+      'Cornell requests site-pattern photographs, host/cultivar and cultural history, separate uniquely identified samples when individual answers are needed, and a location map for multiple samples. Dataset inference: retain the photograph-to-lesion-to-submission identifier chain.',
+      'Cornell advises keeping roots and soil separate from foliage, not adding water or moistening packaging, and prompt shipment with cooling or shade if delayed. Follow the receiving laboratory and destination-specific instructions; shipping preparation is not the controlled wet-box inoculation used in the Thailand study.',
+    ],
+  }),
   pseudocercosporaPnwHandbook: source({
     title: 'Hemp (Cannabis sativa)-Cercospora Leaf Spot (Olive Leaf Spot)',
     organization: 'Pacific Northwest Plant Disease Management Handbook',
@@ -1655,6 +1667,9 @@ export const expandedIssues: IssueRecord[] = [
       'Capture the same attached lesion from the upper surface, lower surface, and whole-plant or canopy context; include a scale and record whether lesions follow veins.',
       'Use a hand lens or microscope to determine whether lower-surface dark material is attached conidiophore/conidium growth rather than residue, insects, frass, or necrotic tissue.',
       'Submit multiple representative, actively developing lesions with linked plant and location metadata to a plant diagnostic laboratory; do not base the result on a detached stock image.',
+      'Include early-to-advanced lesions and living/dead tissue margins before pesticide application where feasible; completely dead centers can harbor secondary organisms. Record prior treatments rather than treating a poor-quality or post-treatment sample as an exclusion test.',
+      'For image-to-sample traceability, photograph both surfaces before collection, assign separate plant/lesion/submission IDs, and retain a site map, cultivar, collection date, exposure and treatment history. This identifier chain is a dataset safeguard based on Cornell submission guidance.',
+      'Keep roots and soil from contaminating foliage, do not add water to shipping material, and arrange prompt delivery following the receiving laboratory instructions. Record collection, packaging and receipt times and any laboratory incubation separately; wet-box experimental images are not a template for sample shipment.',
       'Use fungal morphology together with validated sequence evidence; preserve locus, accession, isolate, and sampling details when assigning Pseudocercospora cannabina.',
       'For this study, preserve the Table 1 isolate-to-ITS/act/rpb2 mappings and record tef as unavailable; do not fill missing sequence fields from other species in the four-region alignment or count identical isolates as independent phylogenetic confirmations.',
       'Prefer multilocus evidence such as ITS plus act, tef1, and rpb2 when species resolution matters because type-material sequence data are unavailable and morphology alone is difficult.',
@@ -1667,7 +1682,7 @@ export const expandedIssues: IssueRecord[] = [
     correctivePlan: ['Base sanitation and environmental changes on a confirmed foliar-pathogen diagnosis and applicable local rules.', 'Track marked lesions and new foliage after intervention; disappearance of leaf wetness or sporulation does not retroactively confirm the species.', 'Escalate persistent or spreading lesions to a plant diagnostic laboratory rather than repeatedly assigning a visual label.'],
     prevention: ['Scout both leaf surfaces, especially in field plantings and greenhouse zones near doors or vents.', 'Improve air circulation, minimize avoidable leaf wetness, and remove infected leaves using sanitary handling.', 'Reduce carryover of infected crop residue where appropriate because the institutional handbook identifies residue as an overwintering pathway.'],
     warnings: ['Olive color, gray centers, dark margins, vein limitation, underside growth, and defoliation are compatible features but are not individually or collectively species-specific.', 'The 0.20 image/video-only ceiling is an annotation safeguard, not measured model accuracy; photographs cannot establish species or causality.', 'Field prevalence, greenhouse proximity to openings, residue carryover, leaf wetness, and air circulation are risk context rather than visual confirmation.', 'The modern primary evidence is based on twenty symptomatic leaves and two isolates from one Thailand plantation plus one controlled wet-box experiment; cultivar, production-system, geographic, and severity generalization requires more evidence.', 'The reported 24-hour penetration and 5-day symptom timing came from controlled high-moisture inoculation and must not be treated as a universal field timeline.', 'Sequence data from Pseudocercospora cannabina type material were unavailable and the broader multilocus clade had weak bootstrap support; species labels need expert morpho-molecular interpretation.', 'The two CC BY 4.0 figures are mixed composites. They are approved as references but excluded from automated training until panel crops, labels, source grouping, and rights metadata receive human review.', 'No photograph or video is ground truth unless the same lesion, both leaf surfaces, sampling event, and organism evidence remain linked; all symptom-only, mixed-organism, unlinked-laboratory, or low-resolution samples require human review.'],
-    sources: [sources.pseudocercospora, sources.pseudocercosporaPnwHandbook], media: [],
+    sources: [sources.pseudocercospora, sources.pseudocercosporaPnwHandbook, sources.foliarSampleSubmission], media: [],
   },
   {
     id: 'oomycete-downy-mildew', slug: 'downy-mildew-pseudoperonospora', name: 'Downy mildew', scientificName: 'Pseudoperonospora cannabina', category: 'Oomycete pathogen', severity: 'high', reviewStatus: 'reviewed', photoOnlyMaxConfidence: 0.35,
