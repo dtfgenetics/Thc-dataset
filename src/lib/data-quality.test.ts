@@ -602,6 +602,17 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
     const record = issues.find((issue) => issue.slug === 'genetic-variegation')
+    const comparison = record?.sources.find((source) => source.doi === '10.17660/ActaHortic.2020.1287.21')
+    expect(comparison?.publicationDate).toBe('2020')
+    expect(comparison?.accessedDate).toBe('2026-10-16')
+    expect(comparison?.authors).toHaveLength(5)
+    expect(comparison?.supportedClaims).toHaveLength(3)
+    expect(comparison?.supportedClaims.join(' ')).toContain('named cultivar-lineage report')
+    expect(comparison?.supportedClaims.join(' ')).toContain('explanation is presented as supposition')
+    expect(record?.confirmation.join(' ')).toContain('authenticated propagation provenance')
+    expect(record?.progression.find((step) => step.stage === 'Named-cultivar comparison context')?.description).toContain('not a same-leaf symptom progression')
+    expect(record?.warnings.join(' ')).toContain('limited to the public primary-study abstract')
+    expect(record?.warnings.join(' ')).toContain('unsupported causal or chemical labels require human review')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.10)
     expect(record?.confirmation.join(' ').toLowerCase()).toContain('pale and adjacent green sectors')
