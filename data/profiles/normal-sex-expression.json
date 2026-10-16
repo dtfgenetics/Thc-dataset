@@ -91,6 +91,8 @@
     "Mechanical injury or split bract tissue"
   ],
   "confirmation": [
+    "Separate observed anthers, dehiscence, deposited grains, pollen germination, and seed development into distinct annotation events; for a fertility claim retain the linked flower or pollen sample, collection date, assay substrate, incubation conditions, grain count, controls, and laboratory interpretation rather than inferring viability from yellow dust.",
+    "For any seed-parentage or stress-cause claim, retain plant identity, pollen-exclusion or controlled-cross records, treatment and exposure logs, and the relevant genetic or experimental confirmation; otherwise keep donor, self-parentage, and cause unresolved.",
     "For suspected leafy regrowth, capture the same mapped inflorescence tip on serial dates, including the new simple leaves, intervening internodes, pre-existing flowers, older foliage, and a whole-plant distribution view; record actual light/dark hours, dates of regime changes, lamp spectrum, intensity, cultivar, and treatment history.",
     "Do not assign male, female, monoecious, or co-sexual ground truth from a seedling, vegetative silhouette, whole-canopy view, or reproductive-organ-free clip; use visually indeterminate.",
     "Capture a plant identifier and whole-plant view, then uninterrupted branch-to-node or branch-to-inflorescence context, followed by focused macro views with scale under repeatable lighting.",
@@ -117,6 +119,8 @@
     "Continue inspection of nominally female or marker-screened populations through flowering because co-sexual expression is not excluded by a single early observation."
   ],
   "warnings": [
+    "Visible anthers or released pollen establish organ or release context, not measured pollen viability, fertilization success, seed parentage, or a particular stress cause. Morphology-only fertility, donor, and cause labels require human review.",
+    "The source methods score pollen tubes on agar after 24–48 hours, whereas Figure 8A describes water-mounted germination after 72 hours; preserve these distinct assay contexts rather than assigning one pooled rate or universal waiting time to phone images or video.",
     "Leafy inflorescence reversion is a developmental look-alike, not proof of sex change, heat injury, harvest readiness, or a lighting fault from a single image. The cited one-cultivar morphology protocol differed in lamp type and intensity as well as day length; retain this confounding and require human review when lighting history or organ identity is missing.",
     "Image/video-only confidence is capped at 0.40 because visible organs can support a local expressed-phenotype label but cannot establish chromosomal sex, future stability, or absence elsewhere on the plant.",
     "Seedling silhouette, height, leaf number, leaf size, vigor, branching, and internode length are not reliable ground-truth sex labels across cultivars.",
@@ -187,13 +191,16 @@
       "publisher": "Frontiers Media SA",
       "publicationDate": "2020-06-25",
       "year": 2020,
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-16",
       "doi": "10.3389/fpls.2020.00718",
       "supportedClaims": [
         "Young pistillate inflorescences developed protruding white hair-like stigmas that later became yellowish-white, then curled and browned or reddened as carpels and surrounding bracts swelled during maturation.",
         "Staminate flowers formed in pedicillate clusters at leaf axils, opened five tepals, exposed five stamens, and released pollen through a longitudinal anther groove.",
         "In predominantly female inflorescences, co-sexual expression appeared as bright-yellow 2–3 mm anthers within bract tissue among stigmas; expression ranged from a few anthers to replacement of much of the female inflorescence and progressed over weeks.",
-        "The study figures are original Cannabis photographs and microscopy distributed with the article under the Creative Commons Attribution license."
+        "The study figures are original Cannabis photographs and microscopy distributed with the article under the Creative Commons Attribution license.",
+        "In the Hermaphrodite Inflorescence Development methods, pollen-tube emergence was scored microscopically from 100 grains after incubation on water agar, with the experiment repeated twice; Figure 8 separately includes pollen germination and pollen tubes on experimentally pollinated excised stigmas. Visible anthers or released grains in Figures 2 and 6 are morphology evidence, not a measured fertility result for every depicted flower.",
+        "The Results and Figure 9 report mature seeds in three anther-bearing inflorescences and subsequent seed germination. Dataset annotation inference: swelling, stigma browning, or a seed image alone cannot identify the pollen donor or establish self-parentage for an unlinked field specimen.",
+        "The study observed spontaneous anther development during commercial production rather than experimentally isolating a particular stress trigger; its Discussion presents environmental and hormonal explanations as possible mechanisms requiring further study. Dataset annotation inference: co-sexual floral morphology is not image-only confirmation of a light leak, heat exposure, chemical treatment, or heritable cause."
       ]
     },
     {
@@ -261,6 +268,7 @@
       "hostSpecies": "Cannabis sativa",
       "hostContext": "cannabis",
       "useLimitations": [
+        "Stigma color and bract swelling are maturation context, not proof of fertilization, a seed, pollen donor, or self-parentage.",
         "Composite figure with different cultivars and stages; preserve panel labels and caption context.",
         "Whole-plant panels do not independently establish sex; use the visible reproductive-organ panels.",
         "Reference-only pending a separate training, crop, and dataset-split review."
@@ -293,6 +301,7 @@
       "hostSpecies": "Cannabis sativa",
       "hostContext": "cannabis",
       "useLimitations": [
+        "Visible anthers and dehiscence do not measure pollen viability or establish the stress or genetic cause; link any functional or causal claim to a separate specimen-level assay or experiment.",
         "Composite close-up from one study strain; it does not represent every co-sexual presentation.",
         "The label requires visible anthers among pistillate structures and must not be inferred from yellow color alone.",
         "Reference-only pending a separate training, crop, and dataset-split review."
@@ -325,6 +334,7 @@
       "hostSpecies": "Cannabis sativa",
       "hostContext": "cannabis",
       "useLimitations": [
+        "Pollen release and anther morphology do not establish a germination percentage for the pictured flower; preserve the separately reported assay substrate and incubation interval.",
         "Composite includes macro and electron-microscope panels; preserve panel and scale context.",
         "Pollen and microscopic anther details are confirmation context, not features expected in ordinary phone imagery.",
         "Reference-only pending a separate training, crop, and dataset-split review."

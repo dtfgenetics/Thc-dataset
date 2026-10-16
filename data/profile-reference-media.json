@@ -2805,6 +2805,7 @@
     "hostSpecies": "Cannabis sativa",
     "hostContext": "cannabis",
     "useLimitations": [
+      "Visible anthers and dehiscence do not measure pollen viability or establish the stress or genetic cause; link any functional or causal claim to a separate specimen-level assay or experiment.",
       "Composite close-up from one study strain; it does not represent every co-sexual presentation.",
       "The label requires visible anthers among pistillate structures and must not be inferred from yellow color alone.",
       "Reference-only pending a separate training, crop, and dataset-split review."
@@ -2841,6 +2842,7 @@
     "hostSpecies": "Cannabis sativa",
     "hostContext": "cannabis",
     "useLimitations": [
+      "Stigma color and bract swelling are maturation context, not proof of fertilization, a seed, pollen donor, or self-parentage.",
       "Composite figure with different cultivars and stages; preserve panel labels and caption context.",
       "Whole-plant panels do not independently establish sex; use the visible reproductive-organ panels.",
       "Reference-only pending a separate training, crop, and dataset-split review."
@@ -2877,6 +2879,7 @@
     "hostSpecies": "Cannabis sativa",
     "hostContext": "cannabis",
     "useLimitations": [
+      "Pollen release and anther morphology do not establish a germination percentage for the pictured flower; preserve the separately reported assay substrate and incubation interval.",
       "Composite includes macro and electron-microscope panels; preserve panel and scale context.",
       "Pollen and microscopic anther details are confirmation context, not features expected in ordinary phone imagery.",
       "Reference-only pending a separate training, crop, and dataset-split review."
