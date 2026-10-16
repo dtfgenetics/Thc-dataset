@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "floral-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "14a00be2be7a14112230bef86df9a8d2cf187671",
+  "head_commit": "cf882468ff34d9fab2f1a0ee5b1e483300ef6e8b",
+  "branch": "work/grow-doc/GD-DIAG-001/floral-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/normal-sex-expression.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1093/hr/uhae245", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11560369/fullTextXML"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-16 agent review inspected current main, recent changes, repository instructions, task claims, schemas, existing reproductive-development profile, source records, tests and validation contract. Read the primary publisher article and public Europe PMC full-text XML for Alter et al. (2024), including methods, Results and Figure 2 context. Added one primary citation with complete bibliographic metadata and three bounded claims: single-cultivar LD/SD protocol with lamp/flux differences, SD15 plus LD13 simple-leaf/internode regrowth, and representative longitudinal figure scope. Enriched one normal-development / reproductive-sex profile with apical tissue progression, leafy-regrowth look-alike, same-tip serial capture and lighting-history guidance, anther-required exclusion, and uncertainty warning. Sex-change/heat/maturity exclusion is an annotation safeguard, not an experimental diagnostic-accuracy claim. No universal response timing, hormone treatment advice, independent light-duration causal inference, or whole-plant sex inference is asserted. Missing lighting history or organ identity requires human review. No new profiles, media, binaries, licenses or training admissions. Three existing composite references remain excluded from automated training; the photo-only confidence cap remains 0.40. Totals are 63 profiles, 194 sources, 90 media references, 36 originals and 68 crops, zero training-eligible media. All 62 package validators, 289 tests, type check, build, artifact-hash verification and diff checks passed locally. PHP unavailable locally; hosted CI must cover lint before integration. Exports and model fingerprint pins synchronized; 191 frozen text rows do not imply a model run. Single-cultivar generalizability, independently controlled light treatments, panel-level annotations and independently confirmed longitudinal video remain coverage gaps. Agent source review is not human or laboratory sample review. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

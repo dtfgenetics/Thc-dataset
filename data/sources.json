@@ -578,6 +578,32 @@
     ]
   },
   {
+    "sourceKey": "10.1093/hr/uhae245",
+    "title": "Inflorescence development in female cannabis plants is mediated by photoperiod and gibberellin",
+    "organization": "Horticulture Research",
+    "url": "https://doi.org/10.1093/hr/uhae245",
+    "authors": [
+      "Hanan Alter",
+      "Yael Sade",
+      "Archit Sood",
+      "Mira Carmeli-Weissberg",
+      "Felix Shaya",
+      "Rina Kamenetsky-Goldstein",
+      "Nirit Bernstein",
+      "Ben Spitzer-Rimon"
+    ],
+    "publisher": "Oxford University Press",
+    "publicationDate": "2024-09-03",
+    "year": 2024,
+    "accessedDate": "2026-10-16",
+    "doi": "10.1093/hr/uhae245",
+    "supportedClaims": [
+      "In rooted cuttings of one commercial medical-Cannabis cultivar A, the morphology experiment compared short days (12 h light/12 h dark, HPS at 1000 micromoles per square metre per second) with long days (18 h light/6 h dark, metal-halide at 600 micromoles per square metre per second); spectrum and photon flux therefore also differed between these regimes.",
+      "After 15 short days followed by 13 long days, inflorescence development ceased, simple leaves developed at the inflorescence top, and elongating internodes separated condensed flower clusters into solitary flowers; this is study-specific developmental timing, not a universal visual threshold.",
+      "Figure 2 follows a representative plant through 15 short days and subsequent long-day regrowth, alongside a continuous-short-day comparison; the authors describe inflorescence reversion and eventual long-day growth patterns, with applicability beyond the single tested cultivar requiring investigation."
+    ]
+  },
+  {
     "sourceKey": "10.1093/jee/toad004",
     "title": "A Novel Approach to Tally Aculops cannabicola (Acari: Eriophyidae) for Field and Laboratory Studies",
     "organization": "Journal of Economic Entomology (Falcon-Brindis et al.)",
