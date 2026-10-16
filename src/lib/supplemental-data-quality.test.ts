@@ -780,8 +780,18 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('separates anthracnose collection context and culture timing from field-image labels', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')!
     const source = record.sources.find((item) => item.doi === '10.1094/PDIS-10-19-2216-PDN')!
-    expect(source.accessedDate).toBe('2026-10-15')
+    expect(source.accessedDate).toBe('2026-10-16')
     expect(source.publicationDate).toBe('2020-02-23')
+    expect(source.supportedClaims).toHaveLength(8)
+    expect(source.supportedClaims.join(' ')).toContain('ACT, CHS-1, GAPDH, and TUB2')
+    expect(source.supportedClaims.join(' ')).toContain('MN544294, MN544295, MN544296, and MN544297, respectively')
+    expect(source.supportedClaims.join(' ')).toContain('four-locus confirmation did not use ITS')
+    expect(source.supportedClaims.join(' ')).toContain('setae were not observed')
+    expect(record.confirmation.join(' ')).toContain('not an ITS-only or unnamed four-sequence panel')
+    expect(record.confirmation.join(' ')).toContain('Annotate natural field lesions separately')
+    expect(record.progression.find((step) => step.stage === 'Controlled assay—not a field clock')?.description).toContain('four-week-old Georgina')
+    expect(record.warnings.join(' ')).toContain('their absence in a leaf macro or microscopy field cannot alone exclude anthracnose')
+    expect(record.warnings.join(' ')).toContain('not a positive result for a newly photographed plant')
     expect(source.supportedClaims.join(' ')).toContain('not a universal canopy preference')
     expect(source.supportedClaims.join(' ')).toContain('plant infection-to-symptom interval')
     expect(record.indicators.join(' ')).toContain('mature leaves in the lower half')

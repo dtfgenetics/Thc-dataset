@@ -1440,6 +1440,10 @@
       {
         "stage": "Coalescence",
         "description": "Lesions merge into larger necrotic areas, and marginal involvement may accompany scorching, puckering, or twisting."
+      },
+      {
+        "stage": "Controlled assay—not a field clock",
+        "description": "In greenhouse-inoculated four-week-old Georgina plants, first lesions appeared within seven days and characteristic spots were present by fourteen days. Keep this assay sequence distinct from the reproductive-stage Kentucky field collection and from an unobserved infection date in a new case."
       }
     ],
     "lookAlikes": [
@@ -1464,6 +1468,8 @@
       "Keep culture photographs separate from field-leaf photographs: preserve lesion, isolate, medium, incubation, and capture identifiers. Orange exudate after three weeks on PDA in the report is culture context, not a required camera-visible sign on the plant.",
       "For look-alike review, pair scaled lesion-center macros with both leaf surfaces and a full-leaf view. Distinguish hair-like surface conidiophores from compact raised pycnidia through qualified microscopy, and retain the lesion-linked laboratory identification.",
       "For C. fioriniae-level confirmation, require plant-linked multilocus sequence evidence comparable to the four-gene approach in the first report; do not assign the species from color, ITS alone, or a generic Colletotrichum image.",
+      "Retain lesion-to-isolate identity, locus names, sequence accessions and qualified comparison results; the reference isolate 18JK001 used ACT/CHS-1/GAPDH/TUB2, not an ITS-only or unnamed four-sequence panel.",
+      "Annotate natural field lesions separately from greenhouse inoculation images; record plant age, cultivar, inoculation status, observation interval and controls rather than translating seven- or fourteen-day assay observations into a field disease clock.",
       "Where causality is uncertain or the isolate represents a new host or presentation, use pathogenicity evidence with symptom reproduction, reisolation, and symptomless controls.",
       "Keep symptom-only, shot-hole-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, generated, vendor, anecdotal, forum, unverified, and low-resolution samples out of confirmed training labels and route them to human review."
     ],
@@ -1483,6 +1489,8 @@
       "Scout with stable plant IDs and matched full-plant, full-leaf, and macro views so early specks can be distinguished from later center loss."
     ],
     "warnings": [
+      "Setae were not observed in the reported clarified-V8 culture; their absence in a leaf macro or microscopy field cannot alone exclude anthracnose, and spore shape alone cannot establish C. fioriniae.",
+      "Reference isolate 18JK001 and its GenBank accessions document the published specimen, not a positive result for a newly photographed plant. Retain independent lesion-to-isolate and sequence evidence; assay-only timelines or marker-only labels without that linkage require human review.",
       "Shot-hole, frog-eye, tan-center, dark-margin, yellow-halo, puckering, and coalescence features are not individually or jointly species-specific in a photograph.",
       "The first report is a narrow Kentucky report; it does not establish national prevalence, cultivar susceptibility, universal canopy or leaf-age preference, infection timing, yield loss, or action thresholds.",
       "The 2021 Kentucky survey only reports separate field occurrences and explicitly characterizes its findings as preliminary; it does not validate a camera-only label.",
@@ -1507,14 +1515,17 @@
         "publisher": "American Phytopathological Society",
         "publicationDate": "2020-02-23",
         "year": 2020,
-        "accessedDate": "2026-10-15",
+        "accessedDate": "2026-10-16",
         "doi": "10.1094/PDIS-10-19-2216-PDN",
         "supportedClaims": [
           "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
           "Colletotrichum fioriniae was identified by morphology and four gene sequences, and inoculation reproduced characteristic leaf spots while controls remained symptomless.",
           "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots.",
           "The August 2018 Jackson County, Kentucky field report described spots on the lower half of plants entering reproduction, including mature leaves; Cherry × Cherry, Trump 1, and Sweetened were affected. This observation is not a universal canopy preference or cultivar-susceptibility ranking.",
-          "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval."
+          "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval.",
+          "Isolate 18JK001 was identified using ACT, CHS-1, GAPDH, and TUB2 sequences deposited as MN544294, MN544295, MN544296, and MN544297, respectively; the reported four-locus confirmation did not use ITS.",
+          "Whole four-week-old Georgina plants were spray-inoculated and maintained in a greenhouse: first small lesions appeared within seven days, characteristic spots occurred on all inoculated plants by fourteen days, the fungus was reisolated, and noninoculated controls remained symptomless. These assay observations are not a universal field incubation period.",
+          "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test."
         ]
       },
       {

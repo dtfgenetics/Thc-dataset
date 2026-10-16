@@ -1328,14 +1328,17 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-02-23",
     "year": 2020,
-    "accessedDate": "2026-10-15",
+    "accessedDate": "2026-10-16",
     "doi": "10.1094/PDIS-10-19-2216-PDN",
     "supportedClaims": [
       "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
       "Colletotrichum fioriniae was identified by morphology and four gene sequences, and inoculation reproduced characteristic leaf spots while controls remained symptomless.",
       "Shot-hole or frog-eye appearance is not species-specific and must be differentiated from other fungal and bacterial leaf spots.",
       "The August 2018 Jackson County, Kentucky field report described spots on the lower half of plants entering reproduction, including mature leaves; Cherry × Cherry, Trump 1, and Sweetened were affected. This observation is not a universal canopy preference or cultivar-susceptibility ranking.",
-      "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval."
+      "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval.",
+      "Isolate 18JK001 was identified using ACT, CHS-1, GAPDH, and TUB2 sequences deposited as MN544294, MN544295, MN544296, and MN544297, respectively; the reported four-locus confirmation did not use ITS.",
+      "Whole four-week-old Georgina plants were spray-inoculated and maintained in a greenhouse: first small lesions appeared within seven days, characteristic spots occurred on all inoculated plants by fourteen days, the fungus was reisolated, and noninoculated controls remained symptomless. These assay observations are not a universal field incubation period.",
+      "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test."
     ]
   },
   {
