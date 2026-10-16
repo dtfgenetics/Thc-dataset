@@ -290,6 +290,19 @@ const sources = {
       'The trial used one cultivar, rockwool, hydroponic nutrient solutions, and deliberately constructed EC treatments; transfer to other cultivars, media, salt mixtures, and irrigation systems requires human review.',
     ],
   }),
+  nutrientEcNegativeVisual: source({
+    title: 'Elevated root-zone P and nutrient concentration do not increase yield or cannabinoids in medical cannabis',
+    organization: 'Frontiers in Plant Science; Utah State University Crop Physiology Laboratory',
+    url: 'https://doi.org/10.3389/fpls.2025.1433985',
+    authors: ['Julie A. Hershkowitz', 'F. Mitchell Westmoreland', 'Bruce Bugbee'],
+    publisher: 'Frontiers Media SA', publicationDate: '2025-02-20', year: 2025,
+    accessedDate: '2026-10-15', doi: '10.3389/fpls.2025.1433985',
+    supportedClaims: [
+      'Two trials used high-CBD T1 cuttings in closed, aerated deep-flow hydroponics through 56 days of reproductive growth. Refill EC treatments were 2 or 4 mS/cm, with P inputs from 15 to 90 mg/L; these were nutrient-supply treatments, not a NaCl challenge.',
+      'Higher nutrient input increased solution accumulation without significantly improving yield or quality, and the study reported no leaf necrosis or other visible treatment effects. A measured nutrient excess therefore did not define a visible injury class in this experiment.',
+      'The reported treatment EC was the daily refill-solution EC; tub EC and pH were measured before refill. Nominal input treatment values and the evolving closed root-zone composition are distinct measurements.',
+    ],
+  }),
   droughtCannabisPrimary: source({
     title: 'Genotypic Variation in Photosynthesis and Biomass Partitioning Underlies Agronomic Performance and Cannabinoid Profile in Cannabis sativa Under Drought',
     organization: 'Plants',
@@ -668,6 +681,7 @@ export const supplementalIssues: IssueRecord[] = [
     progression: [
       { stage: 'Baseline and exposure', description: 'A source-water, fertilizer, recirculation, evaporation, drainage, or salt-addition event changes the measured input or root-zone EC; no reliable visible sign may yet be present.' },
       { stage: 'Early response', description: 'Plant water relations, chlorophyll index, gas exchange, nutrient uptake, or canopy expansion may diverge from matched controls before a specific color or morphology appears.' },
+      { stage: 'Symptom-negative comparison', description: 'The T1 nutrient-input experiment reported no visible treatment injury despite solution accumulation. Preserve this negative result separately from NaCl injury; a normal-looking canopy does not measure nutrient concentration or identify ions.' },
       { stage: 'Growth suppression', description: 'Repeated whole-plant views may show reduced height, width, leaf production, biomass, or inflorescence growth, but the pattern depends on cultivar, stage, medium, solution type, and ion mixture.' },
       { stage: 'Severe or sustained injury', description: 'Necrosis or broader decline may develop under severe exposure; direct Early Haze evidence limits visible necrosis to extreme NaCl treatments in that study and does not validate brown tips as a general threshold.' },
       { stage: 'Correction and reassessment', description: 'After the documented salt source and root-zone conditions are corrected, compare EC and new growth over time; old necrotic tissue does not reverse, and absent recovery triggers pH, moisture, root, vascular, and pathogen investigation.' },
@@ -709,7 +723,7 @@ export const supplementalIssues: IssueRecord[] = [
       'The evidence spans one drug-type chemovar, Early Haze, and Felina 32 fiber hemp under distinct hydroponic, aquaponic, rockwool, mesocosm, nutrient, NaCl, and biostimulant conditions; cultivar and system transfer requires human review.',
       'Two CC BY treatment-response diagrams are indexed as reference context, but neither is a symptom photograph, a plant-linked diagnostic sequence, or a verified diagnostic video; automated training eligibility remains false.',
     ],
-    sources: [sources.salinityFiberHemp, sources.salinityDrugType, sources.salinityYieldUptake],
+    sources: [sources.salinityFiberHemp, sources.salinityDrugType, sources.salinityYieldUptake, sources.nutrientEcNegativeVisual],
     media: [],
   },
   {

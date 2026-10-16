@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "salinity-negative-visual-context-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "5491a5d4fd836b20b4cb2cbe2461f0159c4e3026",
+  "head_commit": "330415c498c80665c551d4397295d4c62a23ea42",
+  "branch": "work/grow-doc/GD-DIAG-001/stress-context-20261015",
+  "changed_paths": ["src/data/supplemental-issues.ts", "data/profiles/stress-salinity-high-ec.json"],
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/supplemental-data-quality.test.ts", "src/lib/coverage-audit.test.ts"],
+  "source_ids": ["https://doi.org/10.3389/fpls.2025.1433985"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected current main, recent merges including refreshed reference-admission audits, repository instructions, task ownership, schemas, coverage, source identities, existing salinity records and validators. Read the primary Frontiers article by Hershkowitz, Westmoreland and Bugbee (published 2025-02-20), including Abstract and Materials and methods. Enriched one root-zone/salinity profile with one new source identity and three exact claims: bounded T1 nutrient-input treatment context, symptom-negative accumulation result, and refill-solution versus root-zone measurement distinction. Added a structured negative-comparison step. These experiments are not NaCl challenge, universal safe EC limits, visual absence proof of acceptable chemistry, or new diagnosed images. Existing 0.20 photo-only ceiling, chemistry linkage, human-review flags and media/training exclusions remain. No new images, videos, licenses or source-asset references; existing two diagrams remain reference-only. Totals: 63 profiles, 192 sources, 89 media references, 35 originals plus 68 crops (103 persisted images), zero training-eligible media. Source DOI occurs once in the exported catalog. Initial tests exposed a stale three-source expectation; an overly broad patch briefly touched the analogous root-binding assertion, which was restored. Targeted 30-test coverage run then passed. Final clean full verification passed all 62 package validators, 288 tests, type check, build, frozen-artifact byte verification and diff checks. Receipt/claim validators rerun after receipt creation. PHP unavailable locally and remains a hosted requirement. Deterministic exports and model-data fingerprint pins updated; 191 frozen text-training rows do not imply a model run or image admission. Independent symptom-linked imagery, longitudinal videos, controls and causal/analytical confirmation remain gaps. Agent review is not human/expert/lab review; no deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
