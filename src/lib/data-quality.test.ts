@@ -494,6 +494,12 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.lookAlikes).toEqual(expect.arrayContaining(['Hemp russet mite', 'Cyclamen mite', 'Two-spotted spider mite', 'Thrips feeding injury', 'Hop latent viroid']))
     expect(record?.sources.some((source) => source.doi === '10.1093/jipm/pmad028')).toBe(true)
     expect(record?.sources.some((source) => source.doi === '10.3389/fagro.2022.901416')).toBe(true)
+    const purdue = record?.media.filter((item) => item.id.startsWith('purdue-broad-mite')) ?? []
+    expect(purdue).toHaveLength(2)
+    expect(purdue.every((item) => item.displayPermission === 'unknown' && item.trainingPermission === 'unknown' && item.reviewStatus === 'license-review')).toBe(true)
+    expect(purdue.every((item) => !item.thumbnailUrl && !item.sha256 && item.hostContext === 'cannabis')).toBe(true)
+    expect(record?.sources.find((source) => source.url.includes('ag.purdue.edu/hemp-project/insects/pest-insects.html'))?.supportedClaims).toHaveLength(3)
+    expect(confirmation).toContain('a dot on a leaf is not a species confirmation')
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
