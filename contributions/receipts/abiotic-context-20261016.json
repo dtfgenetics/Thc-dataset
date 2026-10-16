@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "abiotic-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "e4a4ee0d66b7e2c363f6f3f83dc11ed13ee111de",
+  "head_commit": "c803069b2a97c01403bf96e67d86d3d93cb889e9",
+  "branch": "work/grow-doc/GD-DIAG-001/abiotic-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/env-heat.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/horticulturae8060531", "https://mdpi-res.com/d_attachment/horticulturae/horticulturae-08-00531/article_deploy/horticulturae-08-00531-v2.pdf?version=1655365729"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent changes, category/source/media counts, repository instructions, task claims, source/media and receipt schemas, existing environmental profile/tests and CI contract. Environmental coverage has only two profiles; this batch strengthens the cold differential within the measured heat/light profile rather than inventing a validated cold-symptom class. Publisher HTML returned 429; no retry loop or access barrier bypass. Retrieved and read the independently public publisher PDF found in search, verifying Galic et al. author list, 2022-06-15 publication date and methods. Added one primary source and three exact bounded claims: AutoCBD/FINOLA age-cohort and whole-plant cold protocol; separate upper-half detached-leaf freezer protocol with immediate measurement; and instrument-derived endpoints plus explicit uncertainty that all tissue froze. Added cold-exposure differential, exclusion, serial same-leaf/both-surface capture and exposure/sample-linkage guidance, with a warning against universal frost-survival thresholds or hardening prescriptions. No new visible cold-injury syndrome, causal diagnosis from color, freezing certainty from chamber setpoint, or whole-plant survival claim from detached-leaf tests is asserted. Missing exposure or specimen linkage retains human review. Existing heat/light confidence cap remains 0.20; existing composite reference and training exclusion unchanged. Totals: 63 profiles, 196 sources, 92 media references, 36 originals plus 68 crops (104 persisted images), zero training-eligible media. No new media asset references, binaries, licenses or training admissions. All 62 package validators, 289 tests, type check, build, frozen artifact-hash verification and diff checks passed locally. PHP unavailable locally; hosted CI must pass lint before integration. Exports and model-data fingerprint pins synchronized; no model run implied. Directly validated cold-injury imagery, attached-leaf temperature/ice evidence, cultivar-diverse field confirmation and longitudinal video remain gaps. Agent evidence review is not human or laboratory sample review. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
