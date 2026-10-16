@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "maturity-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "9dbb0299dee9f9b91dc6c9426d9c0204c2d15bbf",
+  "head_commit": "997c8a6054909ace223311a436af9728b14ea67f",
+  "branch": "work/grow-doc/GD-DIAG-001/maturity-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/normal-fade.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/plants14101532", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12114869/fullTextXML"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent evidence review on 2026-10-16 inspected current main, recent batches, repository structure/instructions, task/claims, source/media and receipt schemas, the normal-fade profile, tests and CI. Selected normal-development/maturity look-alike coverage without duplicating a new issue. Added one primary Tran et al. citation, publication 2025-05-20, complete authors/publisher/DOI/access date and three bounded supported claims. Verified primary full-text XML through Europe PMC: separate harvested inflorescences across four stigma stages and 25 genotypes; genotype exceptions to late-stage concentration peaks; distinct concentration/yield endpoints; fixed-light stigma segmentation contaminated by trichomes. Added two organ-specific capture/confirmation stages and narrowed an overly broad color warning to fan-leaf color, preserving the study-specific stigma association without making a universal harvest recommendation. No same-flower chemical timeline, camera potency assay, smartphone threshold, cultivar-independent stage, healthy-negative label or optimal-harvest guarantee is inferred. Publisher HTML returned 429 and PMC browser returned a challenge; did not retry or bypass those surfaces. Used publicly accessible primary Europe PMC XML, including Methods 3.1-3.3 and Results 2.1-2.2. CC BY 4.0 article notice verified, but no media or license records, binaries, display permissions or training admissions added. Totals: 63 profiles, 198 sources, 92 media references, 36 originals and 68 crops, zero training-eligible media. Existing media and human-review caveats retained; photo-only cap remains 0.20. Final fresh full run passed 289 tests, all 62 package validators, type check, build, artifact-hash verification and git diff check. Exports, source counts and frozen model-data pins synchronized; 191-row frozen text mixture is not a model-training run. PHP unavailable locally; hosted CI lint required before integration. Verification-before-completion gated publication. The data-quality skill shared dependency was unavailable, so repository audit/validation procedures supplied the fallback; no unsupported skill-completion claim. Remaining gaps: independently replicated genotype-specific maturity chemistry, calibrated organ-segmented images, same-flower longitudinal video and sample-level exclusion/diagnostic evidence. Ambiguous organ identity, uncalibrated color and sample-unlinked chemistry remain low-confidence human-review cases. Agent review is not human or laboratory verification. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

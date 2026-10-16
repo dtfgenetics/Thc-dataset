@@ -59,6 +59,14 @@
     {
       "stage": "Escalation check",
       "description": "Rapid spread, new-growth involvement, lesions, distortion, root abnormalities, pest signs, or inflorescence decline moves the sample out of the normal-development reference class pending diagnosis."
+    },
+    {
+      "stage": "Organ-specific maturity comparison",
+      "description": "Fan-leaf senescence, stigma color, and glandular-trichome appearance are different observations. The Tran et al. study staged stigmas on separate harvested inflorescences and found genotype-dependent chemical peaks; it does not turn a yellow fan leaf into a harvest cue. Link flower-region identity, genotype, capture date, organ label, and any chemical report before comparing stages; do not call different harvested flowers a same-flower video timeline."
+    },
+    {
+      "stage": "Segmentation and confirmation check",
+      "description": "Review stigma masks at magnification for included trichomes, leaves, background, or glare before using a color score. Preserve illumination and camera settings and retain unprocessed images. Published fixed-light thresholds are not calibrated smartphone cutoffs; genotype-specific replicated chemical measurements are needed to assess concentration or yield, not an unverified amber percentage or fan-leaf color."
     }
   ],
   "lookAlikes": [
@@ -105,7 +113,7 @@
     "A hemp leaf-aging study found photosynthetic capacity could decline while leaves remained green, so visible yellowing is not required for senescence.",
     "The Stillwater flowering study found temporal and canopy-position changes but did not resolve how much was caused by leaf age versus whole-plant ontogeny and did not validate a universal visible fade.",
     "Flowering Cannabis still responds materially to nitrogen and phosphorus supply; withholding nutrients to manufacture a fade is not evidence of normal development.",
-    "Color is not a validated harvest-maturity marker and this record does not recommend harvest timing, flushing, or a universal feeding concentration.",
+    "Fan-leaf color is not a validated harvest-maturity marker; the separate stigma-color study has genotype exceptions and segmentation limitations. This record does not recommend harvest timing, flushing, or a universal feeding concentration.",
     "The source experiments used limited cultivars and defined production systems; their weeks and nutrient concentrations must not be generalized as thresholds.",
     "The CC BY 4.0 Figure 4 is a vegetative leaf-age physiology diagram, not a normal-fade photograph, healthy-control image, or harvest-maturity standard. Longitudinal Cannabis photographs/video with causal exclusions remain gaps; source wording about CO2 compensation-point direction requires human review.",
     "All symptom-only samples remain low confidence and require human review.",
@@ -229,6 +237,30 @@
         "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
         "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
         "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+      ]
+    },
+    {
+      "title": "Determination of Optimal Harvest Time in Cannabis sativa L. Based upon Stigma Color Transition",
+      "organization": "Plants (Tran et al.; Agriculture Victoria Research and La Trobe University)",
+      "url": "https://doi.org/10.3390/plants14101532",
+      "authors": [
+        "Jonathan Tran",
+        "Adam M. Dimech",
+        "Simone Vassiliadis",
+        "Aaron C. Elkins",
+        "Noel O. I. Cogan",
+        "Erez Naim-Feil",
+        "Simone J. Rochfort"
+      ],
+      "publisher": "MDPI AG",
+      "publicationDate": "2025-05-20",
+      "year": 2025,
+      "accessedDate": "2026-10-16",
+      "doi": "10.3390/plants14101532",
+      "supportedClaims": [
+        "The study sampled four inflorescences from each of 25 genotypes at manually assigned stigma-color stages, producing 100 samples for chemical analysis; these are different harvested inflorescences, not serial chemical measurements of one flower.",
+        "Total cannabinoid concentration peaked at mostly or fully amber stigma stages in 22 genotypes, but genotypes 11, 13, and 15 peaked earlier; concentration and total cannabinoid yield were distinct endpoints, so the stage association is not a universal harvest or potency rule.",
+        "Fixed-illumination RGB analysis segmented stigmas, not fan leaves or trichome maturity; the authors attributed anomalous automated amber scores in genotypes 10, 18, and 25 to thresholding errors, including white trichomes contaminating stigma masks."
       ]
     }
   ],
