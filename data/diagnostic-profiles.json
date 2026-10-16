@@ -6703,7 +6703,7 @@
       "Repeated mapped scouting shows fresh scars and organisms in the same plant and canopy zones rather than relying on a detached leaf or room-level trap"
     ],
     "exclusions": [
-      "No thrips, larvae, shed skins, or dark fecal spots are found after repeat inspection, foliage tapping, and sticky-card monitoring",
+      "Repeated multi-method scouting finds no plant-linked thrips or fresh injury and independent evidence supports another cause; a negative card or single leaf search alone does not exclude hidden stages",
       "Fine webbing, round eggs, and two-spotted mites are present",
       "Microscopic cigar-shaped mites with two pairs of legs are present",
       "Only residue is visible and it wipes or dissolves without damaged epidermal tissue beneath it",
@@ -6738,6 +6738,14 @@
       {
         "stage": "Post-intervention interpretation",
         "description": "Old silver scars and expansion distortion persist after feeding stops. Judge change from new scars and plant-linked organism counts at the same mapped sites, not from whether old damage disappears."
+      },
+      {
+        "stage": "Hidden-stage capture scope",
+        "description": "Eggs within tissue and nonfeeding stages away from exposed leaf surfaces can escape a foliage photograph. Map leaf folds, flower crevices, and the associated substrate location separately; label recovered organisms by observed stage and preserve specimen identity. Do not assign fresh feeding to a nonfeeding pupa or infer absence from a clean leaf image."
+      },
+      {
+        "stage": "Negative-scout interpretation",
+        "description": "Record each method, plant or trap location, canopy position, date, effort, and life stage sought before interpreting zero detections. Pair repeated flight monitoring with direct protected-tissue inspection and tapping; a short negative interval is not proof of eradication. CSU guidance is multi-crop context, not a validated Cannabis sampling interval, treatment prescription, or damage threshold."
       }
     ],
     "lookAlikes": [
@@ -6845,6 +6853,18 @@
           "Onion thrips was the species commonly found on hemp foliage in eastern Colorado and could cause serious foliage damage during indoor production, while outdoor populations generally failed to reach damaging levels.",
           "Western flower thrips was also identified on Colorado hemp but was associated mainly with flowers and pollen; tobacco thrips was reported on young plants in an earlier Mississippi survey.",
           "Thrips on hemp remained incompletely characterized, so visual injury cannot safely assign species or predict economic impact without organism sampling and production context."
+        ]
+      },
+      {
+        "title": "Thrips — Controlled Environment Agriculture Pests",
+        "organization": "Colorado State University, Department of Agricultural Biology",
+        "url": "https://agsci.colostate.edu/agbio/ipm-pests/thrips/",
+        "publisher": "Colorado State University, College of Agricultural Sciences",
+        "accessedDate": "2026-10-16",
+        "supportedClaims": [
+          "CSU describes onion and western flower thrips depositing eggs within host tissue; their first two larval instars feed, whereas the third and fourth instars are nonfeeding prepupal and pupal stages.",
+          "The guide describes sheltering between adjacent leaves or flower structures and nonfeeding stages maturing in soil; surface foliage inspection does not sample all life-stage locations.",
+          "CSU recommends above-canopy blue or yellow traps to capture thrips in flight and direct plant inspection or tapping over white paper; its multi-crop guide records onion thrips on indoor hemp but does not establish a Cannabis-specific sampling interval or economic threshold."
         ]
       }
     ],
