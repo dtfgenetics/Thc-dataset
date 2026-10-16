@@ -12282,6 +12282,14 @@
       {
         "stage": "After source correction",
         "description": "Use new-lesion rate, new leaf quality, water and root-zone testing, and follow-up tissue boron to assess response; existing necrotic margins will not recover."
+      },
+      {
+        "stage": "Specific-ion measurement limit",
+        "description": "Acceptable EC or TDS cannot exclude excess boron: bulk salinity does not identify a specific ion. Keep measured EC, laboratory boron concentration, photographed marginal injury, and causal attribution as separate fields; request ion-specific water, substrate or soil, and defined-position tissue testing when exposure remains plausible."
+      },
+      {
+        "stage": "Comparison-sample separation",
+        "description": "Keep affected-plant foliage, apparently healthy same-cultivar comparison foliage, water, and root-zone samples separate and persist their plant, organ, location, collection-date, and report identifiers. Do not pool healthy and affected tissues or call an apparently healthy comparison a verified negative assay. UC landscape guidance supplies sampling context, not Cannabis thresholds, canopy-age rules, media labels, or a flushing prescription."
       }
     ],
     "lookAlikes": [
@@ -12412,6 +12420,18 @@
           "The boron-toxicity tissue analysis was elevated while other measured nutrients were described as sufficient, strengthening the treatment-to-symptom link under this small controlled trial.",
           "In this trial, toxicity caused persistent leaf-margin injury but height, SPAD, yield, and measured THC remained close to controls, showing that visual severity must not be converted into a universal yield-loss estimate.",
           "Researchers captured weekly close-ups, whole-plant photographs, and 360-degree video, but the public report does not expose original video asset URLs or a reuse license; those unlinked assets cannot be admitted to this dataset."
+        ]
+      },
+      {
+        "title": "Boron Toxicity or Other Specific Ions in Excess",
+        "organization": "University of California Statewide Integrated Pest Management Program",
+        "url": "https://ipm.ucanr.edu/home-and-landscape/boron-toxicity-or-other-specific-ions-in-excess/",
+        "publisher": "University of California Agriculture and Natural Resources",
+        "accessedDate": "2026-10-16",
+        "supportedClaims": [
+          "UC IPM states that boron and other specific ions can be toxic while overall EC or TDS remains acceptable; these bulk salinity measures do not identify individual ion concentrations.",
+          "The guide recommends ion-specific laboratory testing, potentially separate irrigation-water, foliage, and soil samples, and separately collected foliage from nearby apparently healthy plants for comparison.",
+          "This is landscape-plant guidance: boron injury can occur in older or expanding foliage depending on species, and its landscape soil/water thresholds and photographs are not Cannabis-specific diagnostic standards."
         ]
       }
     ],

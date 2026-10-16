@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "boron-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "9792f39161896ea239fb62ed489f8ffa20a4037c",
+  "head_commit": "268d56a5a281fd8daa9bd9b9232f190e993271b9",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-tox-b.json"],
+  "related_release_paths": ["src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://ipm.ucanr.edu/home-and-landscape/boron-toxicity-or-other-specific-ions-in-excess/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main/recent batches, repository instructions/structure, active task/claim contract, profile/source/media and receipt schemas, sparse two-source boron-toxicity profile, tests and CI. Added one public UC IPM institutional citation with organization/publisher, canonical redirected URL, access date and three bounded claims: acceptable EC/TDS does not rule out specific-ion excess; ion-specific assays and separately collected comparison foliage; landscape species/threshold transfer limits. No explicit publication date was visible; copyright range was not used as a publication date. Added two confirmation/capture stages requiring separate EC, boron assay, visible injury and causal labels and separately identified affected/comparison foliage, water and root-zone samples. These annotation safeguards do not establish a Cannabis-specific diagnostic cutoff or validated image test. Do not transfer the guide's landscape thresholds, canopy-age examples, photographs or leaching instructions to Cannabis ground truth. Existing Niagara report claims were left unchanged after search results exposed a confidential label; no additional report content or assets were repurposed. A recent primary ScienceDirect study returned 403 and a Cornell PDF returned 405; no access barrier bypass or claims drawn from inaccessible methods. No new media, binaries, licenses, display/training grants or training admissions. Existing media, review flags and 0.15 photo-only cap preserved. Totals: 63 profiles, 200 sources, 92 media references, 36 originals and 68 crops, zero training-eligible media. Fresh full run passed 289 tests, all 62 package validators, type check, build, artifact-hash verification and git diff check. New source URL syntax and institutional content checked; exports/source counts and model-data pins synchronized. Frozen 191-row text mixture is not a model-training run. PHP unavailable locally; hosted CI lint required before integration. Verification-before-completion gated publication. Local task claim retained through review and released after integration without publishing it as canonical data. Remaining gaps: rights-cleared Cannabis symptom/video assets, specimen-linked boron exposure and tissue assays, matched affected/comparison plants, cultivar/stage replication and causal recovery follow-up. Acceptable-EC-only, symptom-only, pooled or plant-unlinked samples remain low-confidence human-review cases. Agent review is not human/expert/laboratory verification. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
