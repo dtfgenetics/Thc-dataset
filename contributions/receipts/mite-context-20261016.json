@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "mite-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "3f503c934a260acdbf3ea756569794ac22676b43",
+  "head_commit": "c3ec983562d25b6d78ec243d2adca486f8f690cc",
+  "branch": "work/grow-doc/GD-DIAG-001/mite-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/mite-broad.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profile-reference-media.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://ag.purdue.edu/hemp-project/insects/pest-insects.html"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent batches, repository instructions, active task/claims, source/media and receipt schemas, broad-mite profile, tests and CI contract. Reviewed Purdue institutional Pest Insects guide via page reader and original HTML, and compared Virginia Cooperative Extension morphology/scouting guidance. Added one Purdue source with three bounded claims: morphology description, host-caption/HTML surface context and missing specimen/scale/age/timing evidence, and last-modified/rights/creator limitations. March 21, 2026 is page modification, not an invented publication date. Added two distinct original asset URL records for captioned broad mites and eggs on hemp leaves, with landing page, hosting institution rather than invented photographer, unknown license/training rights, license-review, image/microscope view, tentative diagnostic labels, and trainingEligible=false. Header-only URL checks returned 200 for both images; no asset body was downloaded, copied, displayed, modified, hashed, committed or independently visually reviewed. Unknown rights remain excluded from display and training. Added leaf-surface/age/stage/serial-capture guidance and revised warnings to distinguish the two new hemp metadata records from two pre-existing organism-only licensed references. Existing conflict between extension injury descriptions and traceable Cannabis causal evidence remains; institutional captions are not ground truth. All four samples remain excluded from training. Totals are 63 profiles, 195 sources, 92 media references, 36 originals and 68 crops (104 persisted images), zero training-eligible media. No license grants or binaries added. All 62 package validators, 289 tests, type check, build, artifact-hash verification and diff checks passed locally. PHP unavailable locally; hosted CI must pass lint before integration. Exports and frozen artifact pins synchronized; no model run or training admission implied. Missing individual photographer/reuse permission, independently reviewed organism identity, specimen linkage, calibrated imagery, leaf age, causal Cannabis injury and longitudinal video remain human-review flags and coverage gaps. Agent evidence review is not human/expert/laboratory sample review. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
