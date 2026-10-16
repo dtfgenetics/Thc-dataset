@@ -58,6 +58,10 @@
       "description": "Cuttings from infected mothers may root slowly or poorly. Capture matched clean and suspect clones from the same lineage, including root emergence and root-zone conditions, but retain a nonspecific weak-rooting label until molecular testing."
     },
     {
+      "stage": "Root-emergence sampling clock",
+      "description": "In the primary cutting experiment, sampling day zero was first root emergence, not the day the cutting was taken. Root detection was delayed in one genotype until day 12 after emergence. Record both clocks and serial root appearance; these study times are not a universal clearance window or an image-only infection date."
+    },
+    {
       "stage": "Vegetative expression",
       "description": "Depending on genotype, plants may remain asymptomatic or develop mild curl, mottling, smaller or misshapen leaves, short internodes, brittle growth, and reduced stature. There is no universal visual order."
     },
@@ -91,7 +95,9 @@
     "Retest when an assay is negative but sample timing, tissue choice, extraction quality, inhibition, chain of custody, or symptoms remain concerning; do not reinterpret one poorly contextualized negative leaf as proof that the whole plant is clean.",
     "Pair molecular testing with same-genotype, same-age, same-environment clean controls and serial whole-plant measurements so reductions in height, internode length, root emergence, flower development, or trichome appearance are not attributed across unmatched plants.",
     "Inspect and document roots, crown, leaf undersides, growing tips, root-zone pH/EC/moisture, irrigation history, light/temperature, and recent training or chemical exposure to evaluate common non-HLVd causes and possible mixed problems.",
-    "For image/video ground truth, preserve the plant ID, cultivar or genotype, sample date, sampled tissue and position, assay method and result, symptom date, and source group. Keep unlinked, symptom-only, detached-leaf-only, and assay-panel-only captures out of the confirmed class."
+    "For image/video ground truth, preserve the plant ID, cultivar or genotype, sample date, sampled tissue and position, assay method and result, symptom date, and source group. Keep unlinked, symptom-only, detached-leaf-only, and assay-panel-only captures out of the confirmed class.",
+    "For propagation captures, record the cutting date and first-root-emergence date separately, then link repeated root and whole-cutting images to the exact assay sample and mother-plant ID; show emerged roots, unrooted blocks, and comparators at matched scale without assigning infection from root length alone.",
+    "If thermal video or infrared stills are collected, preserve device settings, acquisition conditions, rooting status and plant-linked assay results. Do not train an HLVd-positive versus negative thermal classifier from Figure 3k: all four cuttings were positive, and the Results/caption temperature direction is inconsistent."
   ],
   "immediateActions": [
     "Flag and physically segregate suspect propagation material while results are pending; stop taking or distributing cuttings, pollen, seed, or tools from the suspect plant.",
@@ -109,6 +115,7 @@
     "Clean sap and plant debris from tools, benches, irrigation components, and equipment, then apply a viroid protocol validated for the specific surface, product concentration, contact time, and workflow."
   ],
   "warnings": [
+    "The primary study’s Figure 3 uses anonymized genotype labels and contains a Results/caption reversal of infrared temperature direction. Keep genotype mapping and directional thermal labels unresolved for human review; neither thermal contrast nor rooting status confirms HLVd.",
     "HLVd cannot be confirmed or excluded from visible symptoms; infected plants may be asymptomatic and visually abnormal plants may have many other causes.",
     "Growth reduction, flower loss, THC or terpene change, and trichome effects are genotype- and experiment-dependent; do not apply study percentages to an individual plant or cultivar.",
     "One tissue or canopy position may test negative while another tests positive, so sampling context and assay quality must remain attached to every laboratory label.",
@@ -174,7 +181,7 @@
       "publisher": "MDPI AG",
       "publicationDate": "2025-03-06",
       "year": 2025,
-      "accessedDate": "2026-10-15",
+      "accessedDate": "2026-10-16",
       "doi": "10.3390/plants14050830",
       "supportedClaims": [
         "RT-PCR/RT-qPCR detected HLVd in asymptomatic stock plants and rooted vegetative cuttings; in the stock genotypes tested, roots were the most consistent positive tissue while individual upper or lower leaf samples were not consistently positive.",
@@ -182,7 +189,10 @@
         "The study detected HLVd in inflorescence tissue, glandular trichomes, dried flowers, pollen, seeds, and other production-system materials, supporting plant-part and propagation context but not image-only confirmation.",
         "Figure 1 combines stock and flowering plant appearance with tissue-specific RT-PCR results and sequence-confirmed bands; it is a molecularly anchored CC BY 4.0 reference but not a single-class visual training sample.",
         "Figure 1 maps stock sampling to panels a–c, assays to d–f and j–k, infected flowering growth to g, and noninfected comparisons to h and the top of i; these panel identities must not be pooled into one positive image label.",
-        "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol."
+        "Chemical treatments in the study were evaluated partly by loss of amplifiable HLVd RNA; absence of an RT-PCR band after treatment must not be generalized into a universal facility sanitation guarantee without a validated protocol.",
+        "For the vegetative-cutting experiment, time zero meant first root emergence, about 10–14 days after cuttings were obtained; duplicate root samples were taken at 0, 4, 8 and 12 days after emergence, with a further collection at day 14 (28 days after cutting).",
+        "Results describe delayed root detection in T8 until day 12 after emergence, while Figure 3f uses genotype labels G1–G3 and describes delayed detection in G1; retain the section-specific identifiers and do not silently equate anonymized panel labels with named genotypes.",
+        "Both rooted and unrooted cuttings in Figure 3k were subsequently HLVd-positive, so their infrared contrast did not discriminate infected from uninfected plants; Results and caption reverse which rooting group had the higher reported temperature, precluding a reliable direction-specific thermal label from that text."
       ]
     },
     {
