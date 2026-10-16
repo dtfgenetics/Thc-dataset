@@ -4423,6 +4423,24 @@
     ]
   },
   {
+    "sourceKey": "https://www.npdn.org/newsletter/2024/05/rust_hubb_new_blast_searchable_online_tool_identification_rust_fungi",
+    "title": "Rust HUBB - A new BLAST searchable online tool for identification of rust fungi",
+    "organization": "National Plant Diagnostic Network",
+    "url": "https://www.npdn.org/newsletter/2024/05/rust_hubb_new_blast_searchable_online_tool_identification_rust_fungi",
+    "authors": [
+      "Clarissa Balbalian (editor)"
+    ],
+    "publisher": "National Plant Diagnostic Network, The Communicator, Volume 5, Issue 5",
+    "publicationDate": "2024-05",
+    "year": 2024,
+    "accessedDate": "2026-10-16",
+    "supportedClaims": [
+      "NPDN describes ITS intragenomic variation as a limitation for separating rust fungi and identifies the 28S large ribosomal subunit as their standard barcode; this is order-level method context, not validation of a Cannabis rust species assay.",
+      "Rust HUBB uses barcodes from Arthur Fungarium vouchers and fresh collections, with updates as vouchered and verified sequences become available; preserve the database access date and voucher linkage rather than assuming fixed coverage.",
+      "Rust HUBB reports query coverage, score, E value, identity, voucher and collection numbers, GenBank accession, host and country metadata. Dataset inference: retain these with the lesion-linked query and specialist interpretation; a ranked best match alone is not a confirmed hemp-rust species label."
+    ]
+  },
+  {
     "sourceKey": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
     "title": "Nutrient Deficiency ID Guide for Hemp",
     "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",

@@ -3167,7 +3167,7 @@
       },
       {
         "stage": "Laboratory resolution",
-        "description": "Link microscopy, specimen or isolate identifiers, current taxonomic interpretation, and any molecular result back to the photographed plant and lesion."
+        "description": "Link microscopy, specimen identifiers, current taxonomic interpretation, and any molecular result back to the photographed plant and lesion; preserve query locus, accession, database access date, and voucher links when barcode matching is used."
       }
     ],
     "lookAlikes": [
@@ -3194,6 +3194,8 @@
       "Require lesion-linked microscopy of compatible rust structures for a confirmed rust label and preserve measurements, images, preparer, method, and specimen identifiers.",
       "Record unaided macro, dissecting-microscope pustule, and compound-microscope spore views as different capture types linked to the same lesion; visible orange powder does not show individual spore morphology or establish species.",
       "Use current specialist taxonomic or validated molecular evidence when a Uredo kriegeriana species label matters; do not resolve the species from orange color, pustule appearance, host alone, or a guide image.",
+      "Ask the diagnostic laboratory to select a rust-appropriate locus: NPDN identifies 28S as the standard rust barcode and warns that ITS intragenomic variation limits separation. This general guidance does not validate a Cannabis-specific assay.",
+      "For Rust HUBB matching, retain the lesion-linked query sequence and locus, database access date, query coverage, identity, score and E value, reference accession and voucher, and host/country metadata. Dataset inference: require specialist interpretation instead of promoting a ranked best match directly to a species label.",
       "Keep symptom-only, residue-uncleared, detached-leaf-only, unmatched-surface, specimen-unlinked, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and retain an unresolved classification when the evidence is incomplete."
     ],
     "immediateActions": [
@@ -3216,6 +3218,7 @@
       "The institutional guide supplies a visual differential but no plant-linked specimen ID, microscopy record, sequence result, cultivar, canopy distribution, incidence, or progression interval for the pictured leaves.",
       "UF/IFAS states that the alternate host is unknown and that little is known about the disease cycle and epidemiology, so source, reservoir, timing, thresholds, prevalence, and yield effects must not be inferred.",
       "The Uredo kriegeriana name is not visually resolvable and should remain provisional without current lesion-linked taxonomic evidence.",
+      "Rust HUBB is a changing, voucher-based reference resource, not a guarantee that the pictured hemp rust is represented or uniquely resolved; an ITS-only result or a top-ranked barcode match does not override unresolved specimen evidence.",
       "Figure 9 is an attributed institutional three-panel reference under CC BY-NC-ND 4.0; crops, panel extraction, derivatives, commercial reuse, and automated training are not permitted by this record.",
       "Unresolved symptom-only, residue-uncleared, detached, unmatched-surface, specimen-unlinked, low-resolution, and rights-unclear samples retain review flags."
     ],
@@ -3262,6 +3265,23 @@
         "supportedClaims": [
           "The Tennessee W 916 guide describes poorly bounded yellow-orange spots, followed by darker orange-brown lesions that may merge; cultivar susceptibility differences remain unresolved.",
           "The guide distinguishes lower-surface pustules visible without magnification, a pustule viewed with a dissecting microscope, and uredospores viewed with a compound microscope. Pustule visibility does not mean an ordinary photograph resolves individual spores or their species."
+        ]
+      },
+      {
+        "title": "Rust HUBB - A new BLAST searchable online tool for identification of rust fungi",
+        "organization": "National Plant Diagnostic Network",
+        "url": "https://www.npdn.org/newsletter/2024/05/rust_hubb_new_blast_searchable_online_tool_identification_rust_fungi",
+        "authors": [
+          "Clarissa Balbalian (editor)"
+        ],
+        "publisher": "National Plant Diagnostic Network, The Communicator, Volume 5, Issue 5",
+        "publicationDate": "2024-05",
+        "year": 2024,
+        "accessedDate": "2026-10-16",
+        "supportedClaims": [
+          "NPDN describes ITS intragenomic variation as a limitation for separating rust fungi and identifies the 28S large ribosomal subunit as their standard barcode; this is order-level method context, not validation of a Cannabis rust species assay.",
+          "Rust HUBB uses barcodes from Arthur Fungarium vouchers and fresh collections, with updates as vouchered and verified sequences become available; preserve the database access date and voucher linkage rather than assuming fixed coverage.",
+          "Rust HUBB reports query coverage, score, E value, identity, voucher and collection numbers, GenBank accession, host and country metadata. Dataset inference: retain these with the lesion-linked query and specialist interpretation; a ranked best match alone is not a confirmed hemp-rust species label."
         ]
       }
     ],
