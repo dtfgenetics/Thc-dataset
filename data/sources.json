@@ -3266,6 +3266,19 @@
     ]
   },
   {
+    "sourceKey": "https://agsci.colostate.edu/agbio/ipm-pests/thrips/",
+    "title": "Thrips — Controlled Environment Agriculture Pests",
+    "organization": "Colorado State University, Department of Agricultural Biology",
+    "url": "https://agsci.colostate.edu/agbio/ipm-pests/thrips/",
+    "publisher": "Colorado State University, College of Agricultural Sciences",
+    "accessedDate": "2026-10-16",
+    "supportedClaims": [
+      "CSU describes onion and western flower thrips depositing eggs within host tissue; their first two larval instars feed, whereas the third and fourth instars are nonfeeding prepupal and pupal stages.",
+      "The guide describes sheltering between adjacent leaves or flower structures and nonfeeding stages maturing in soil; surface foliage inspection does not sample all life-stage locations.",
+      "CSU recommends above-canopy blue or yellow traps to capture thrips in flight and direct plant inspection or tapping over white paper; its multi-crop guide records onion thrips on indoor hemp but does not establish a Cannabis-specific sampling interval or economic threshold."
+    ]
+  },
+  {
     "sourceKey": "https://agsci.colostate.edu/agbio/ipm-pests/twospotted-spider-mite/",
     "title": "Twospotted spider mite",
     "organization": "Colorado State University Agricultural Biology",

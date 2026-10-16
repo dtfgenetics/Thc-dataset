@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "thrips-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c21c6ac60a4bbc688a51f7756bb9fee7781f8c14",
+  "head_commit": "7510f0b2d62be17718a2b9fe773c081dd7d25d74",
+  "branch": "work/grow-doc/GD-DIAG-001/thrips-context-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/insect-thrips.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://agsci.colostate.edu/agbio/ipm-pests/thrips/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main and recent batches, repository instructions/structure, active task/claim contract, profile/source/media and receipt schemas, thrips records, tests and CI. Selected the sparse three-source thrips profile. Original McCune DOI/PDF could not be read through the available web surface because the publisher presented an anti-bot challenge; did not bypass or expand its claims. Added one accessible institutional CSU Agricultural Biology source with publisher and exact URL, access date and three bounded claims: eggs within tissue, feeding versus nonfeeding stages, concealed/soil stage locations and trap versus direct plant sampling. No article-specific author or publication date was visible; copyright footer is not treated as publication date. Added two capture/scouting interpretation stages and corrected an overbroad negative-scout exclusion so absence alone is not accepted as proof against hidden stages. Fixed-site stage-aware counts, sample IDs, exposure of protected tissue and independent alternative-cause evidence remain required. CSU is multi-crop guidance with an indoor-hemp record, not a Cannabis-specific development-time, treatment, yield-loss or economic-threshold experiment. No CSU crop photographs, vector-virus examples, pesticide directions or unrelated-host symptoms were transferred as Cannabis ground truth. No new media, binaries, licenses, permission grants or training admissions. Existing three media references and their rights/scientific-review limits preserved; photo-only cap remains 0.25. Dataset totals: 63 profiles, 199 sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. Fresh full run passed 289 tests, all 62 package validators, type check, build, artifact hashes and git diff check. Source URL syntax and institutional page checked; export/source counts and frozen model-data pins synchronized. Frozen 191-row text mixture is not a model-training run. PHP unavailable locally; hosted CI lint required before integration. Verification-before-completion gated publication. Uncommitted local task claim remains active through review and is released after integration; it is not a canonical data change. Remaining gaps: species-confirmed plant-linked imagery, stage-specific sampling validation in Cannabis, diagnostic video, rights-cleared organism-plus-injury samples and recovery follow-up. Negative-scout, symptom-only or sample-unlinked cases retain low-confidence human review; agent review is not human/expert/laboratory verification. No production deployment or overall completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

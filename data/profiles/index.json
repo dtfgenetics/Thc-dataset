@@ -284,7 +284,7 @@
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 3,
       "path": "data/profiles/insect-thrips.json"
     },

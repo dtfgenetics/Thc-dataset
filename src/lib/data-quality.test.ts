@@ -520,6 +520,12 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/pre-existing.*newly appearing|old.*new/)
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/not a measured diagnostic-accuracy estimate/)
     expect(record?.lookAlikes).toContain('Two-spotted spider mites')
+    const hiddenStages = record?.sources.find((source) => source.url === 'https://agsci.colostate.edu/agbio/ipm-pests/thrips/')
+    expect(hiddenStages?.supportedClaims).toHaveLength(3)
+    expect(hiddenStages?.supportedClaims.join(' ')).toContain('nonfeeding prepupal and pupal stages')
+    expect(record?.exclusions.join(' ')).toContain('does not exclude hidden stages')
+    expect(record?.progression.find((step) => step.stage === 'Hidden-stage capture scope')?.description).toContain('Do not assign fresh feeding to a nonfeeding pupa')
+    expect(record?.progression.find((step) => step.stage === 'Negative-scout interpretation')?.description).toContain('not a validated Cannabis sampling interval')
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
