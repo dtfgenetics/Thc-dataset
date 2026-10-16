@@ -12750,6 +12750,18 @@
       {
         "stage": "After documented correction",
         "description": "Judge subsequent growth, root condition, new lesion formation, root-zone and leachate chemistry, and follow-up tissue analysis; existing necrosis will not recover."
+      },
+      {
+        "stage": "Root-material exclusion check",
+        "description": "The ammonium-study Figure 1 root-base brown material is a coconut-fiber propagation-plug remnant. Separate attached medium from living or necrotic root tissue in root views; retain pre-cleaning and carefully cleaned views with scale, plant ID, and sample location before assigning root injury or requesting diagnostic testing."
+      },
+      {
+        "stage": "Endpoint and intervention timing",
+        "description": "Keep day-45 physiology, day-59 mineral analysis, earlier leaf photographs, and harvest views on separate dated records. Preserve the final-week switch to fertilizer-free distilled water in the exposure history; do not relabel the study as a withdrawal-rescue trial or assign a later assay to an earlier image without explicit linkage."
+      },
+      {
+        "stage": "Input-versus-leachate comparison",
+        "description": "Record paired input and root-zone or leachate pH, EC, nitrogen form, sampling method, and dates. Similar input pH did not prevent divergent leachate pH in the study. Nitrate-only dotted marginal chlorosis also means that the reference treatment is not a universally symptom-free image class."
       }
     ],
     "lookAlikes": [
@@ -12845,16 +12857,19 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2022-06-01",
         "year": 2022,
-        "accessedDate": "2026-08-14",
+        "accessedDate": "2026-10-16",
         "doi": "10.3389/fpls.2022.830224",
         "supportedClaims": [
           "A controlled reproductive-stage experiment held total nitrogen at 200 mg/L and compared 0, 10, 30, 50, and 100% ammonium fractions, with five replicate medical Cannabis plants per treatment.",
-          "Plants receiving 0–30% ammonium appeared similar and did not show toxicity symptoms, while 50% ammonium plants appeared normal through most of the experiment before leaf necrosis and wilting emerged during the last two weeks.",
+          "Plants receiving 0–30% ammonium had similar overall structure and color, but nitrate-only plants developed dotted marginal chlorosis; 50% ammonium plants appeared normal through most of the experiment before late leaf necrosis and wilting.",
           "At 50% ammonium, 40% of plants wilted in the final week and inflorescence biomass was 46% lower than in the nitrate-only treatment; this late response cannot be inferred reliably from an earlier normal-looking image.",
           "The 100% ammonium treatment caused early stunting, curly leaves with marginal necrosis at growing tips, severe root damage, spread of necrosis to all plant parts, wilting, and plant death.",
           "The early 100% ammonium growing-tip image was taken 17 days after treatment began, while whole-plant, inflorescence, and root images were captured at maturation and the sampled leaf image ten days earlier.",
           "The authors cautioned that damage under 50–100% ammonium may also reflect reduced or absent nitrate supply, making ammonium-form toxicity mechanistically different from excessive total nitrogen dose.",
-          "Figures 1 and 2 are CC BY 4.0 visual references; Figure 1 mixes five ammonium ratios, organs, and capture times, while Figure 2 shows one apical view from the 100% ammonium treatment."
+          "Figures 1 and 2 are CC BY 4.0 visual references; Figure 1 mixes five ammonium ratios, organs, and capture times, while Figure 2 shows one apical view from the 100% ammonium treatment.",
+          "The Figure 1 caption identifies the brown material at the root base as residual coconut fiber from the propagation plug, not a scored root-necrosis endpoint.",
+          "Physiological measurements occurred on treatment day 45, mineral analysis at termination on day 59, and the final week used distilled water without fertilizer; these are not simultaneous organ assays or a randomized test of fertilizer withdrawal.",
+          "Irrigation pH was adjusted similarly across treatments, but nitrate-only leachate pH was higher and ammonium-only leachate pH lower than input pH; input pH alone did not represent the measured root-zone response."
         ]
       }
     ],
