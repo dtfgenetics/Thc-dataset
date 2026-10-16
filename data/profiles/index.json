@@ -339,7 +339,7 @@
       "category": "Normal development",
       "severity": "low",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
+      "sourceCount": 5,
       "mediaCount": 2,
       "path": "data/profiles/normal-fade.json"
     },

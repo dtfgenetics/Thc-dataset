@@ -2973,6 +2973,31 @@
     ]
   },
   {
+    "sourceKey": "10.3390/plants14101532",
+    "title": "Determination of Optimal Harvest Time in Cannabis sativa L. Based upon Stigma Color Transition",
+    "organization": "Plants (Tran et al.; Agriculture Victoria Research and La Trobe University)",
+    "url": "https://doi.org/10.3390/plants14101532",
+    "authors": [
+      "Jonathan Tran",
+      "Adam M. Dimech",
+      "Simone Vassiliadis",
+      "Aaron C. Elkins",
+      "Noel O. I. Cogan",
+      "Erez Naim-Feil",
+      "Simone J. Rochfort"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2025-05-20",
+    "year": 2025,
+    "accessedDate": "2026-10-16",
+    "doi": "10.3390/plants14101532",
+    "supportedClaims": [
+      "The study sampled four inflorescences from each of 25 genotypes at manually assigned stigma-color stages, producing 100 samples for chemical analysis; these are different harvested inflorescences, not serial chemical measurements of one flower.",
+      "Total cannabinoid concentration peaked at mostly or fully amber stigma stages in 22 genotypes, but genotypes 11, 13, and 15 peaked earlier; concentration and total cannabinoid yield were distinct endpoints, so the stage association is not a universal harvest or potency rule.",
+      "Fixed-illumination RGB analysis segmented stigmas, not fan leaves or trichome maturity; the authors attributed anomalous automated amber scores in genotypes 10, 18, and 25 to thresholding errors, including white trichomes contaminating stigma masks."
+    ]
+  },
+  {
     "sourceKey": "10.3390/plants14243840",
     "title": "Genotypic Variation in Photosynthesis and Biomass Partitioning Underlies Agronomic Performance and Cannabinoid Profile in Cannabis sativa Under Drought",
     "organization": "Plants",
