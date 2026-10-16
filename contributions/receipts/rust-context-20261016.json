@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rust-context-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "232076e97c157ee2d797c2d88cf3cad649966e7f",
+  "head_commit": "74bd3f5ad5ca74f5c0de8ab40e88d214efb211af",
+  "branch": "work/grow-doc/GD-DIAG-001/rust-context-20261016",
+  "changed_paths": ["src/data/expanded-issues.ts", "data/profiles/fungal-hemp-rust.json"],
+  "related_release_paths": ["src/lib/supplemental-data-quality.test.ts", "src/lib/catalog-accuracy-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://www.npdn.org/newsletter/2024/05/rust_hubb_new_blast_searchable_online_tool_identification_rust_fungi"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main and recent batches, structure, task/claim contract, profile/source/media and receipt schemas, sparse two-source rust profile, tests and CI. Added one public National Plant Diagnostic Network institutional citation (May 2024, accessed 2026-10-16) and three bounded claims: 28S versus ITS rust-barcode context, changing voucher-based reference coverage, and match/voucher metadata. Added lesion-linked locus/accession/database-date/voucher capture and specialist interpretation safeguards, explicitly marked as dataset inference rather than a Cannabis assay validation. No species coverage, percent-identity cutoff, culture-negative exclusion or universal diagnostic sensitivity asserted. A linked primary DOI was inaccessible through the research tool and was not used as evidence. Existing upper/lower lesion and microscope context remains intact; image-only cap stays 0.25. No new media, binaries, licenses, reuse grants or training admissions; the existing CC BY-NC-ND composite remains metadata-only and non-training. Totals: 63 profiles, 201 sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. Initial full test run found one stale two-source assertion; systematic debugging traced it to the added third citation, updated that exact expectation, and passed 46 targeted tests. Final fresh full run passed 290 tests, all 62 package validators, type check and build; frozen-artifact byte hashes and git diff check also passed. PHP unavailable locally; hosted lint must pass before integration. Exports, counts and model-data pins synchronized; frozen 191-row text mixture is not a model-training run. Verification-before-completion gated publication. Local operational task claim retained through review and released after merge without publishing it as canonical data. Remaining gaps: lesion-linked rust specimens and microscopy/sequences, verified species coverage and interpretation, rights-cleared Cannabis image/video series, cultivar/leaf-age/distribution and temporal replication. Unlinked, symptom-only or unresolved best-match samples retain human-review flags; agent review is not human or laboratory confirmation. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

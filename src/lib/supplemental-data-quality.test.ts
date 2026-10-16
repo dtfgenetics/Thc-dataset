@@ -380,7 +380,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
     const media = record?.media[0]
-    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources).toHaveLength(3)
     expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
     expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
     expect(media?.creator).toContain('Zachariah Hansen')
@@ -393,6 +393,22 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('panel extraction')
+  })
+
+  it('keeps rust barcode guidance locus-specific, voucher-linked, and provisional', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')!
+    const barcode = record.sources.find((item) => item.organization === 'National Plant Diagnostic Network')!
+    expect(barcode.publicationDate).toBe('2024-05')
+    expect(barcode.accessedDate).toBe('2026-10-16')
+    expect(barcode.supportedClaims).toHaveLength(3)
+    expect(barcode.supportedClaims.join(' ')).toContain('Dataset inference')
+    expect(record.confirmation.join(' ')).toContain('ITS intragenomic variation')
+    expect(record.confirmation.join(' ')).toContain('query coverage, identity, score and E value')
+    expect(record.confirmation.join(' ')).toContain('require specialist interpretation')
+    expect(record.progression.at(-1)?.description).toContain('voucher links')
+    expect(record.warnings.join(' ')).toContain('not a guarantee')
+    expect(record.photoOnlyMaxConfidence).toBe(0.25)
+    expect(record.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
   it('keeps spotted cucumber beetle labels adult-linked, root-conflicted, and media-safe', () => {

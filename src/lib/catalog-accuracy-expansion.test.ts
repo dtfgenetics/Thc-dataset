@@ -36,7 +36,7 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     const evidence = [...record.indicators, ...record.confirmation, ...record.warnings].join(' ').toLowerCase()
     expect(record.reviewStatus).toBe('reviewed')
     expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
-    expect(record.sources).toHaveLength(2)
+    expect(record.sources).toHaveLength(3)
     expect(record.sources[0].doi).toBe('10.32473/edis-pp379-2024')
     expect(record.sources.some((source) => source.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')).toBe(true)
     expect(record.indicators).toHaveLength(9)
