@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "witches-broom-assay-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "a83ac925c4faff8418198fe22a2ca2e1971eb915",
+  "head_commit": "6e4ca57c7d29b1b629e0c0c36cc0928b63035560",
+  "branch": "work/grow-doc/GD-DIAG-001/witches-broom-assay-20261016",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/phytoplasma-hemp-witches-broom.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PHYTOFR-05-23-0064-SC"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected fresh main and recent merges, repository structure/instructions, schemas, active task/claim state, source and media records, existing tests and validation/CI commands. Selected the comparatively sparse Phytoplasma/Spiroplasma profile's assay-specificity and tissue-to-photo linkage gap rather than adding another duplicate citation. Rechecked the existing Schoener and Wang primary study through the publisher's public indexed abstract, methods excerpt, Figure 2 caption and publication history; direct publisher open returned 403 and was not bypassed. Corrected publication date from 2023-12-01 to the publisher's Published 2023-10-13 date (distinct from the issue date), and refreshed access date. Added three bounded claims: P1/P7 amplified products from both phytoplasma and Spiroplasma with sequence evidence required for identity; the reported 200 mg midvein/petiole sample combined five to six leaves within one plant; 67 symptomatic diagnostic submissions from 2017–2019 do not establish random-survey prevalence or classifier accuracy. Added two capture/confirmation safeguards retaining sampled leaf/shoot locations, composite scope, case IDs, assay targets, controls, amplification round and sequence interpretation. Ground-truth restrictions are explicitly annotation inference, not measured diagnostic sensitivity or localization evidence. Existing whole-plant/paired-surface/serial context retained. One profile and one existing citation enriched; no new source identities, media, binaries, licenses, labels or training admissions. Three unknown-rights institutional references remain hidden, license-review flagged and not permitted for training; photo-only cap stays 0.15. Counts unchanged: 63 profiles, 202 sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. Targeted file passed 35 tests. Fresh full run passed type check, all 291 application tests, build and all 62 validators; full Python discovery passed 103 tests. Frozen byte hashes and git diff check passed; exports and model-data hash pins synchronized. PHP unavailable locally; hosted lint required before integration. Frozen 191 text rows do not imply an executed training run. Verification-before-completion gated publication. Local operational task claim retained through integration and released after merge without publishing it. Remaining gaps: rights-cleared Cannabis symptom/video series, leaf-level assay localization, independent mixed-infection samples and healthy controls, and broader cultivar/site replication. Band-only, case-unlinked or leaf-unlocalized labels retain human-review flags. Agent review is not human or laboratory sample confirmation. No production deployment or overall dataset completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
