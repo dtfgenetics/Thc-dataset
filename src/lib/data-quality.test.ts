@@ -371,6 +371,15 @@ describe('diagnostic dataset quality gates', () => {
     }
     const phytoplasma = issues.find((issue) => issue.slug === 'hemp-witches-broom-phytoplasma')
     expect(phytoplasma?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    const assay = phytoplasma?.sources.find((source) => source.doi === '10.1094/PHYTOFR-05-23-0064-SC')!
+    expect(assay.publicationDate).toBe('2023-10-13')
+    expect(assay.accessedDate).toBe('2026-10-16')
+    expect(assay.supportedClaims).toHaveLength(6)
+    expect(assay.supportedClaims.join(' ')).toContain('P1/P7 amplified rDNA products from both')
+    expect(assay.supportedClaims.join(' ')).toContain('Dataset inference')
+    expect(phytoplasma?.confirmation.join(' ')).toContain('before laboratory compositing')
+    expect(phytoplasma?.confirmation.join(' ')).toContain('band presence or approximate size alone')
+    expect(phytoplasma?.warnings.join(' ')).toContain('not a prevalence prior')
     expect(phytoplasma?.indicators.length).toBeGreaterThanOrEqual(8)
     expect(phytoplasma?.exclusions.length).toBeGreaterThanOrEqual(8)
     expect(phytoplasma?.progression.length).toBeGreaterThanOrEqual(5)

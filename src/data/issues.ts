@@ -1363,14 +1363,17 @@ const sources: Record<string, SourceRecord> = {
     url: 'https://doi.org/10.1094/PHYTOFR-05-23-0064-SC',
     authors: ['Jennifer L. Schoener', 'Shouhua Wang'],
     publisher: 'American Phytopathological Society',
-    publicationDate: '2023-12-01',
+    publicationDate: '2023-10-13',
     year: 2023,
-    accessedDate: '2026-08-13',
+    accessedDate: '2026-10-16',
     doi: '10.1094/PHYTOFR-05-23-0064-SC',
     supportedClaims: [
       'Across 67 symptomatic Nevada hemp samples, abnormal growth included stunting, yellowing, excessive apical branching, witches’ broom clusters, upward leaf rolling, mottling, and mosaic.',
       'Candidatus Phytoplasma trifolii was detected in 14 samples, Beet curly top virus in 57, and Spiroplasma citri in two; dual and triple infections occurred.',
       'The overlapping syndrome cannot assign one causal agent visually, so diagnostic testing should consider phytoplasma, Spiroplasma citri, and Beet curly top virus rather than treating witches’ broom as a species-specific image label.',
+      'P1/P7 amplified rDNA products from both Candidatus Phytoplasma trifolii and Spiroplasma citri in this study; cloning and sequencing identified Spiroplasma. Dataset inference: an expected-size P1/P7 band alone must not become a phytoplasma-specific ground-truth label.',
+      'The method used a 200 mg midvein-and-petiole subsample from five to six leaves of each symptomatic plant. This within-plant composite is not cross-plant pooling; its result does not localize infection to every photographed leaf or shoot.',
+      'The 67 samples were symptomatic diagnostic submissions received in Nevada during 2017–2019, not a random crop survey. Detection proportions describe that selected series, not field prevalence, visual-test accuracy or the probability that a new broom-like plant carries one particular agent.',
     ],
   },
   pnwHempWitchesBroom: {
@@ -2867,6 +2870,8 @@ export const issues: IssueRecord[] = [
       'Submit the most symptomatic young leaves with petioles to a plant diagnostic laboratory using that laboratory’s current sampling and shipping protocol; include a healthy comparator when requested.',
       'Use a validated phytoplasma molecular assay followed by sequence or classification evidence when group-level identity matters; the Nevada report combined real-time PCR, nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis.',
       'Request a differential panel that includes Beet curly top virus and Spiroplasma citri because the three agents can produce overlapping symptoms and can occur together.',
+      'Record assay target and primer set, controls, amplification round, sequence/classification result and plant case ID separately from symptom labels. In the Nevada study P1/P7 amplified both phytoplasma and Spiroplasma products; band presence or approximate size alone does not establish phytoplasma identity.',
+      'Record each sampled leaf and shoot position before laboratory compositing. Distinguish the study\'s midvein/petiole composite from five to six leaves of one plant from a pool across plants; a plant-linked positive result does not prove every pictured leaf or broom cluster is infected.',
       'Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof.',
       'Link every image sequence, tissue submission, and assay result to the same marked plant and sampling event; do not assign a plant-level label from a pooled or neighboring-plant result.',
       'Interpret a negative result only within the validated assay target, sampled tissue, sample quality, and collection time; it does not by itself establish pathogen freedom or prove a noninfectious cause.',
@@ -2874,7 +2879,7 @@ export const issues: IssueRecord[] = [
     immediateActions: ['Flag suspect plants and pause distribution of their cuttings pending laboratory results.', 'Scout nearby plants and leafhoppers while keeping vector presence separate from pathogen confirmation.', 'Keep all symptom-only images out of phytoplasma, Spiroplasma, and BCTV ground-truth classes.'],
     correctivePlan: ['Base removal and vector-management decisions on laboratory results, production policy, and locally legal recommendations.', 'If phytoplasma is not detected, continue testing or differential review for BCTV, Spiroplasma citri, mites, chemical injury, and physiological causes.', 'Continue serial observation because one plant or branch can combine architecture, foliar color, and distortion differently over time.'],
     prevention: ['Use tested and traceable propagation material.', 'Monitor leafhoppers and regional alerts without assuming every vector carries the same pathogen.', 'Control weed reservoirs and vectors only with locally appropriate, crop-legal practices.'],
-    warnings: ['Witches’ broom is a syndrome, not a species-level visual diagnosis.', 'Cannabis symptom overlap and documented mixed infections make image-only ground truth unsafe.', 'The 0.15 image/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The three institutional photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden and prohibited from automated training.', 'Cannabis-specific evidence does not establish a universal symptom order, cultivar response, infection-to-symptom interval, or universal dominant phytoplasma group.'],
+    warnings: ['Witches’ broom is a syndrome, not a species-level visual diagnosis.', 'Cannabis symptom overlap and documented mixed infections make image-only ground truth unsafe.', 'The 0.15 image/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The three institutional photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden and prohibited from automated training.', 'Cannabis-specific evidence does not establish a universal symptom order, cultivar response, infection-to-symptom interval, or universal dominant phytoplasma group.', 'The Nevada diagnostic-submission series was selected for symptoms; its detection proportions are not a prevalence prior or visual classifier accuracy. Band-only, case-unlinked or leaf-unlocalized assignments require review.'],
     sources: [sources.nevadaHempPhytoplasma, sources.nevadaHempAbnormalGrowth, sources.pnwHempWitchesBroom],
     media: [
       {
