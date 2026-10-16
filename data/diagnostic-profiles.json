@@ -8624,7 +8624,8 @@
       "Damage maps to spray droplets, a growth-regulator or herbicide exposure, a lamp-facing surface, a heat event, rubbing, pruning, or another localized injury",
       "Mosaic, vein clearing, brittle growth, asymmetrical spread, vascular discoloration, lesions, pathogen structures, or laboratory evidence supports a virus, viroid, phytoplasma, or other pathogen",
       "The same leaf geometry is stable in healthy clones or a cultivar reference, or appears only under altered white balance, grow-light color, glare, compression, or occlusion",
-      "Correctly positioned tissue boron is adequate for the cultivar, stage, sampled organ, laboratory method, and production system, or another measured nutrient disorder explains the syndrome better"
+      "Correctly positioned tissue boron is adequate for the cultivar, stage, sampled organ, laboratory method, and production system, or another measured nutrient disorder explains the syndrome better",
+      "A pooled crop sample or a result outside the survey interval is used as the sole confirmation of boron injury in one photographed plant"
     ],
     "progression": [
       {
@@ -8679,7 +8680,9 @@
       "Measure root-zone pH, EC, water content, temperature, drainage, and oxygenation as appropriate to the system, and inspect roots before changing boron supply.",
       "Submit correctly positioned most-recently-mature leaves plus matched symptomatic and healthy material and an appropriate solution, substrate, soil, leachate, or water sample to an agricultural or plant diagnostic laboratory; document sample position, contamination controls, and method.",
       "Inspect growing points and both leaf surfaces with sufficient magnification for broad and russet mites, and use a plant diagnostic laboratory when root pathogens, viruses, viroids, phytoplasmas, or mixed disorders remain plausible.",
-      "Interpret 2.46 mg/kg from the controlled T1 study and the NC survey range only within their methods and populations; correction response in subsequent growth is supporting evidence and does not retroactively make the original image ground truth."
+      "Interpret 2.46 mg/kg from the controlled T1 study and the NC survey range only within their methods and populations; correction response in subsequent growth is supporting evidence and does not retroactively make the original image ground truth.",
+      "Keep persistent plant, leaf-node, image/video, and laboratory-sample identifiers linked; mark pooled samples explicitly and retain all contributing plant IDs rather than inventing individual-plant analytical results.",
+      "Separate compatible meristem morphology, low measured boron, inadequate supply or availability, and causal boron injury as distinct evidence states. A pooled survey result alone does not promote an individual image to confirmed ground truth."
     ],
     "immediateActions": [
       "Mark affected and matched healthy plants and preserve pre-treatment images, roots, root-zone measurements, feed and water records, and representative tissue before changing nutrition.",
@@ -8699,6 +8702,7 @@
     "warnings": [
       "The direct progression evidence came from one Cannabis sativa T1 cultivar grown in silica sand with boron completely withheld; six weeks, 2.46 mg/kg tissue boron, 96% reduction from control, and 28% less dry biomass are experiment-specific, not universal thresholds.",
       "The NC State 30 to 90 ppm interval is a survey-based floral-hemp reference range, not a causal deficiency cutoff, and must not be transferred uncritically across cultivar, stage, plant part, production system, crop purpose, or laboratory method.",
+      "NC State specifies vegetative leaf sampling; reproductive tissues need laboratory-agreed sampling. Survey quartiles and pooled crop chemistry do not establish individual-plant causality; unmatched images remain suspected and require human review.",
       "Stem corking and reproductive-tissue signs are institutional hemp observations rather than a controlled Cannabis progression and require human review.",
       "The licensed Figure 4 asset is indexed once under manganese deficiency and shared with this guide without duplicating its ID or hash. The center boron panels remain reference-only: three reviewed crops show initial, intermediate, and advanced vegetative context from one T1 experiment, not independent field cases or a plant-linked video timeline. Source grouping and trainingEligible=false are preserved; training admission and leakage-safe splits require separate review.",
       "USU page images have mixed institutional and vendor credits without item-level reuse licenses and are excluded from media indexing and ground truth.",
@@ -8764,12 +8768,14 @@
         "publisher": "North Carolina Cooperative Extension and North Carolina Department of Agriculture and Consumer Services",
         "publicationDate": "2026-08-26",
         "year": 2026,
-        "accessedDate": "2026-10-10",
+        "accessedDate": "2026-10-15",
         "supportedClaims": [
           "The reference ranges were derived from 6,119 floral-hemp samples representing more than 100 varieties from field and greenhouse production in 76 North Carolina counties between 2017 and 2020.",
-          "For diagnostic hemp sampling, the publication recommends the most recently mature leaf, generally the third through fifth leaf below the growing point, using one or two leaves from 10 to 20 representative plants.",
+          "During vegetative growth, collect one or two fully expanded most-recently-mature leaves, generally third to fifth below the growing point, from 10 to 20 plants; submit promptly in a paper bag. This protocol is not stated as a reproductive-organ sampling standard.",
           "The adopted 30 to 90 ppm boron range is a survey-based floral-hemp reference interval rather than a causal deficiency threshold; the authors state that rate studies and further refinement are needed.",
-          "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method."
+          "The survey does not establish universal boron thresholds for every cultivar, plant part, growth stage, production system, grain or fiber crop, or laboratory method.",
+          "The reference interval represents the central half of the survey distribution, bounded by its first and third quartiles, not an experimentally established injury threshold.",
+          "Because the recommended sample pools multiple plants, attaching its boron result to one photographed plant as confirmed injury requires additional plant-linked evidence. This is an annotation inference from the sampling design, not a survey-validated diagnosis."
         ]
       },
       {
