@@ -2,12 +2,12 @@
   "schemaVersion": "1.0.0",
   "policy": "Persisted originals are not automatically cropped or training-eligible. New crop geometry requires scientific/figure review, and all derivatives inherit source grouping and rights constraints.",
   "summary": {
-    "persistedOriginalCount": 35,
+    "persistedOriginalCount": 36,
     "currentlyPanelizedOriginalCount": 11,
-    "unpanelizedOriginalCount": 24,
-    "p0PanelizationReviewCount": 23,
+    "unpanelizedOriginalCount": 25,
+    "p0PanelizationReviewCount": 24,
     "statusCounts": {
-      "panelization_review_required": 23,
+      "panelization_review_required": 24,
       "panelized": 11,
       "reference_review_required": 1
     }
@@ -183,6 +183,22 @@
       "confirmation": "illustrative",
       "license": "CC BY 4.0",
       "sha256": "c75a4bb712aac0fa90cfc6ceb7409da5a6417ed699d354320a63dad003e32464",
+      "existingCropCount": 0,
+      "status": "panelization_review_required",
+      "priority": "P0",
+      "nextAction": "Review figure geometry/caption, define diagnostic panel bounds, preserve sourceGroupId, then generate hashed reference-only crops.",
+      "trainingEligible": false
+    },
+    {
+      "parentId": "media-control-late-flower-chlorosis-figure-1",
+      "issueSlug": "normal-late-flower-fade",
+      "repositoryPath": "images/reference/original/media-control-late-flower-chlorosis-figure-1.png",
+      "sourceArticle": "https://doi.org/10.3390/plants12030422",
+      "hostSpecies": "Cannabis sativa Gelato 29",
+      "hostContext": "cannabis",
+      "confirmation": "illustrative",
+      "license": "CC BY 4.0",
+      "sha256": "2e80a9630f3f25550a59371d68d10470c89a5d9652dccca8eac82bf86c8dc03b",
       "existingCropCount": 0,
       "status": "panelization_review_required",
       "priority": "P0",
