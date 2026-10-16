@@ -180,6 +180,13 @@ if (!errors.length) {
   }
   if (jsonlProfiles.length !== profiles.length) errors.push('diagnostic-profiles.jsonl: record count does not match diagnostic-profiles.json')
   if (!sameJson(sorted(jsonlProfiles.map((r) => r.id)), sorted(profileIds))) errors.push('diagnostic-profiles.jsonl: IDs do not match master profile set')
+  // The exporter writes the complete master records in the same order. Matching
+  // IDs alone cannot detect stale or altered diagnostic content in JSONL.
+  for (let i = 0; i < Math.min(jsonlProfiles.length, profiles.length); i++) {
+    if (!sameJson(jsonlProfiles[i], profiles[i])) {
+      errors.push(`diagnostic-profiles.jsonl line ${i + 1}: content differs from diagnostic-profiles.json`)
+    }
+  }
 
   const sourceKeys = sources.map((r) => r.sourceKey)
   const duplicateSourceKeys = duplicates(sourceKeys)
@@ -192,6 +199,12 @@ if (!errors.length) {
   for (const row of trainingEligibleMedia) {
     if (row.trainingEligible !== true || row.trainingPermission !== 'permitted') errors.push(`${row.id}: training-eligible media violates permission gate`)
     if (!generatedMediaIds.includes(row.id)) errors.push(`${row.id}: training-eligible media missing from profile-reference-media.json`)
+  }
+  // Require exact subset parity, including record metadata and ordering. A
+  // dropped eligible asset or altered provenance must fail release validation.
+  const expectedEligibleMedia = profileReferenceMedia.filter((row) => row.trainingEligible === true && row.trainingPermission === 'permitted')
+  if (!sameJson(trainingEligibleMedia, expectedEligibleMedia)) {
+    errors.push('training-eligible-media.json: exported subset differs from eligible profile-reference-media records')
   }
 
   if (exportManifest.schemaVersion !== '2.0.0') errors.push('export-manifest.json: expected schemaVersion 2.0.0')
