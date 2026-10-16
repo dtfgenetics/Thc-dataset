@@ -440,7 +440,7 @@ describe('diagnostic coverage audit', () => {
     expect(record?.confirmation.join(' ')).toContain('persistent plant and leaf identifiers')
     expect(record?.confirmation.join(' ')).toContain('not a negative nutrient or pathogen assay')
     expect(record?.warnings.join(' ')).toContain('do not establish a harvest window')
-    expect(record?.media).toHaveLength(1)
+    expect(record?.media).toHaveLength(2)
     expect(record?.media[0]?.view).toBe('diagram')
     expect(record?.media[0]?.trainingEligible).toBe(false)
   })
