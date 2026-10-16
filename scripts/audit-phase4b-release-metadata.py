@@ -97,9 +97,16 @@ def audit(manifest, assets):
             errors.append("Invalid manifest SHA-256: " + name)
     for name in published.keys() - expected.keys():
         errors.append("Undeclared published part: " + name)
+    # GitHub can retain failed uploads as starter records; these are not published bytes.
+    uploaded = sorted(name for name in expected if name in published and published[name].get("state") == "uploaded")
+    incomplete = sorted(name for name in expected if name in published and published[name].get("state") != "uploaded")
+    missing = sorted(expected.keys() - published.keys())
     return {"status": "fail" if errors else "pass", "scope": "metadata-only",
             "archiveBytesVerified": False, "scientificOrTrainingApproval": False,
-            "expectedParts": len(expected), "publishedParts": len(published), "errors": errors}
+            "expectedParts": len(expected), "publishedParts": len(uploaded),
+            "incompleteParts": len(incomplete), "missingParts": len(missing),
+            "incompletePartNames": incomplete, "missingPartNames": missing,
+            "errors": errors}
 
 
 def main():
