@@ -3,6 +3,26 @@ import { issues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('runtime catalog media quality', () => {
+  it('keeps flowering control chlorosis panels separate from healthy-negative and harvest labels', () => {
+    const issue = issues.find((item) => item.slug === 'normal-late-flower-fade')!
+    const media = issue.media.find((item) => item.id === 'media-control-late-flower-chlorosis-figure-1')!
+    const source = issue.sources.find((item) => item.doi === '10.3390/plants12030422')!
+    expect(media.view).toBe('whole-plant')
+    expect(media.confirmation).toBe('illustrative')
+    expect(media.license).toBe('CC BY 4.0')
+    expect(media.trainingPermission).toBe('permitted')
+    expect(media.trainingEligible).toBe(false)
+    expect(media.displayPermission).toBe('permitted')
+    expect(media.sha256).toBe('2e80a9630f3f25550a59371d68d10470c89a5d9652dccca8eac82bf86c8dc03b')
+    expect(media.perceptualHash).toBe('dhash64:dcccccccd6cc8ccc')
+    expect(media.diagnosticLabel).toContain('not healthy-negative ground truth')
+    expect(media.useLimitations.join(' ')).toContain('not continuous video')
+    expect(media.useLimitations.join(' ')).toContain('pathogen-negative assays')
+    expect(media.useLimitations.join(' ')).toContain('calibrated color reference')
+    expect(media.requiredAttribution).toContain('Figure 1')
+    expect(source.supportedClaims.join(' ')).toContain('weeks six (b), seven (c) and eight (d)')
+    expect(issue.photoOnlyMaxConfidence).toBe(0.2)
+  })
   it('keeps leaf-age diagram encodings and the source discrepancy out of visual ground truth', () => {
     const issue = issues.find((item) => item.slug === 'normal-late-flower-fade')!
     const media = issue.media.find((item) => item.id === 'media-leaf-age-physiology-bauerle-figure-4')!

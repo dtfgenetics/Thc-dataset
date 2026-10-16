@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "late-flower-control-20261015",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "2381f75b88c45bd6ba5a85800fcecb3cc25d5800",
+  "head_commit": "02980c40dca7f3db02ab12e2edd64d07b362c0c9",
+  "branch": "work/grow-doc/GD-DIAG-001/photoperiod-context-20261015",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/normal-fade.json", "data/profiles/nut-def-ca.json", "data/profiles/nut-def-fe.json", "data/profiles/nut-def-k.json", "data/profiles/nut-def-mg.json", "data/profiles/nut-def-mn.json", "data/profiles/nut-def-n.json", "data/profiles/nut-def-s.json"],
+  "related_release_paths": ["src/lib/catalog-media-quality.test.ts", "src/lib/coverage-audit.test.ts", "src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profile-reference-media.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "images/reference/manifest.json", "images/reference/original/media-control-late-flower-chlorosis-figure-1.png", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/plants12030422", "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9920212/fullTextXML", "https://creativecommons.org/licenses/by/4.0/"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "On 2026-10-15 agent review inspected latest main, recent batches, repository instructions, active task claims, record types, media manifest, contribution schema, package validators and CI contract. Selected the normal-development profile because it had only a physiology diagram and no plant photograph. Reviewed primary Europe PMC full-text XML license, Figure 1 caption and control Results for Llewellyn et al., published 2023-01-17. Visually inspected, hashed and persisted the unmodified publisher PNG with CC BY 4.0 attribution. Added one controlled Gelato 29 flowering comparison composite and one exact claim to the existing primary citation; seven nutrient profiles receive only the shared citation/access-date update. Panels a–d remain mapped to flowering weeks five–eight, not independent plants, continuous video, severity grades, harvest standards or healthy/pathogen-negative training labels. Reported adequate nutrition does not provide panel-linked sample identifiers or pathogen-negative assays. Missing physiological leaf ages, node IDs, scale, calibrated color and changing framing are explicit limitations. No new source identities, control-ground-truth labels, confidence ceilings or training admissions. Totals: 63 profiles, 193 sources, 90 media references, 36 originals plus 68 crops (104 persisted images), zero training-eligible media. All 62 package validators, 289 tests, type check, build, frozen artifact hash verification, original byte/hash uniqueness and diff checks passed locally with no failures. PHP unavailable locally; hosted CI must cover lint. Exports and model-data fingerprint pins synchronized; 191 frozen text rows do not imply a model run. Independent controls with linked analytical/pathogen evidence, calibrated serial capture and diagnostic video remain gaps. Agent approval is reference-display evidence review, not human, expert or laboratory sample review; training and human-review safeguards remain. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
