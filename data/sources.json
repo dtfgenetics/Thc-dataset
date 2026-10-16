@@ -4005,6 +4005,19 @@
     ]
   },
   {
+    "sourceKey": "https://plantclinic.cornell.edu/services/collection-tips/",
+    "title": "Sample collection and submission tips",
+    "organization": "Cornell University Plant Disease Diagnostic Clinic",
+    "url": "https://plantclinic.cornell.edu/services/collection-tips/",
+    "publisher": "Cornell University",
+    "accessedDate": "2026-10-16",
+    "supportedClaims": [
+      "Cornell recommends early symptoms, a range of damage stages and living/dead tissue margins, preferably collected before pesticide application; completely dead areas can contain secondary organisms that hinder primary-pathogen detection. This is general sampling guidance, not a Pseudocercospora-specific test.",
+      "Cornell requests site-pattern photographs, host/cultivar and cultural history, separate uniquely identified samples when individual answers are needed, and a location map for multiple samples. Dataset inference: retain the photograph-to-lesion-to-submission identifier chain.",
+      "Cornell advises keeping roots and soil separate from foliage, not adding water or moistening packaging, and prompt shipment with cooling or shade if delayed. Follow the receiving laboratory and destination-specific instructions; shipping preparation is not the controlled wet-box inoculation used in the Thailand study."
+    ]
+  },
+  {
     "sourceKey": "https://plantpathology.ces.ncsu.edu/news/exserohilum-leaf-spot-causing-problems-in-nc-hemp/",
     "title": "Exserohilum Leaf Spot Causing Problems in NC Hemp",
     "organization": "NC State Extension Plant Pathology",
