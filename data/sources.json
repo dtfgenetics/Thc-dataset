@@ -2629,6 +2629,30 @@
     ]
   },
   {
+    "sourceKey": "10.3390/environments8110111",
+    "title": "Potential Use of Copper-Contaminated Soils for Hemp (Cannabis sativa L.) Cultivation",
+    "organization": "Environments (Quagliata et al.)",
+    "url": "https://doi.org/10.3390/environments8110111",
+    "authors": [
+      "Giulia Quagliata",
+      "Silvia Celletti",
+      "Eleonora Coppa",
+      "Tanja Mimmo",
+      "Stefano Cesco",
+      "Stefania Astolfi"
+    ],
+    "publisher": "MDPI AG",
+    "publicationDate": "2021-10-20",
+    "year": 2021,
+    "accessedDate": "2026-10-16",
+    "doi": "10.3390/environments8110111",
+    "supportedClaims": [
+      "Despite the soil-focused title, the experiment grew Tisza hemp seedlings hydroponically: after 14 days, plants received 0.2 or 20 micromolar copper sulfate with 1.2 or 2.4 millimolar sulfate, and were harvested after 21 days of hydroponic growth; these treatments are not field-soil or universal toxicity thresholds.",
+      "Copper excess, alone or combined with higher sulfate, reduced chlorophyll content, produced visible leaf chlorosis and inhibited shoot fresh-weight accumulation; sulfate alone did not significantly change growth or chlorophyll, and the two copper-excess treatments did not differ significantly in shoot-growth inhibition.",
+      "SPAD measurements at harvest used the youngest fully expanded attached leaf, while ICP-OES mineral analysis used separately dried and homogenized shoot and root samples; a chlorophyll reading and an organ-level copper assay are different observations, not interchangeable plant-part labels."
+    ]
+  },
+  {
     "sourceKey": "10.3390/horticulturae8060531",
     "title": "Effects of Cold Temperature and Acclimation on Cold Tolerance and Cannabinoid Profiles of Cannabis sativa L. (Hemp)",
     "organization": "Horticulturae (Galic et al.)",
