@@ -82,6 +82,7 @@
     "Collect several fresh active lesion margins under the same identifiers as the images; retain matched apparently healthy tissue and avoid relying only on dry late-stage centers.",
     "Examine lesion scrapings or cultures microscopically for pigmented septate conidia with Exserohilum-compatible morphology; “pepper-like” appearance in a photograph is not microscopy.",
     "Use culture plus multilocus or otherwise validated molecular identification; the Cannabis reports used ITS1 and RPB2 evidence for E. rostratum.",
+    "Link the photographed lesion to its isolate and each sequenced locus; preserve ITS1/5.8S/ITS2 versus RPB2 identity, and label culture images with medium and culture age separately from leaf observations.",
     "Investigate bacterial streaming/ooze, pycnidia, opposite-surface growth, other fungal structures, and mixed recovery because hemp leaf spots overlap and coinfection is possible.",
     "Keep symptom-only, detached-leaf, single-surface, low-resolution, culture-unlinked, ITS-only, mixed-organism, stock, forum, vendor, or generated captures out of the confirmed class and route them to human review."
   ],
@@ -103,6 +104,7 @@
     "“Helminthosporium” is a historical/common disease name and does not by itself identify the modern fungal taxon.",
     "Dark-bordered round spots, gray-brown centers, pepper-like dots, coalescence, and blight are not independently species-specific.",
     "The available Cannabis evidence does not establish a universal first-affected leaf age, canopy location, incubation period, progression rate, cultivar susceptibility, incidence threshold, or yield effect.",
+    "The eight-day Carmagnola lesion observation and two-to-three-day PDA color change are different experimental clocks, not a video sequence. Reference accession MH779469 cannot confirm a photographed plant; unlinked or timing-inferred labels require human review.",
     "A visually compatible image without plant-linked morphology and molecular evidence is a low-confidence differential, not ground truth.",
     "The NC State image has no item-level reusable license or linked laboratory record on the landing page and remains metadata-only, hidden, training-prohibited, and subject to human review."
   ],
@@ -118,13 +120,16 @@
       "publisher": "American Phytopathological Society",
       "publicationDate": "2019-04-03",
       "year": 2019,
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-17",
       "doi": "10.1094/PDIS-08-18-1434-PDN",
       "supportedClaims": [
         "During the 2017 and 2018 North Carolina growing seasons, several industrial-hemp cultivars grown for fiber, seed, and flower showed foliar, stem, and floral blight, establishing a multi-organ Cannabis disease context rather than a generic non-host transfer.",
         "Compatible hemp lesions were round and brown to black with dark margins and contained abundant conidia; lesion appearance alone was not the basis for the organism label.",
         "Fungal morphology together with ITS1 and RPB2 sequence evidence supported identification as Exserohilum rostratum.",
-        "The report is geographically and temporally bounded to sampled North Carolina production in 2017–2018 and does not establish a universal leaf-age order, canopy-position sequence, cultivar response, incidence threshold, or severity scale."
+        "The report is geographically and temporally bounded to sampled North Carolina production in 2017–2018 and does not establish a universal leaf-age order, canopy-position sequence, cultivar response, incidence threshold, or severity scale.",
+        "The pathogenicity assay used six two-week-old Carmagnola seedlings: dark-brown leaf lesions appeared after eight days, and the fungus was reisolated after three weeks. These growth-chamber observations are not a field incubation clock.",
+        "The molecular workflow amplified the ribosomal ITS1/5.8S/ITS2 region and RPB2; the deposited ITS1 accession was MH779469. These are reference-isolate data, not three independent genes or a positive result for a new plant.",
+        "PDA colonies changed from white to dark brown or black within two to three days; that culture-color interval is not lesion progression on a living hemp leaf."
       ]
     },
     {
