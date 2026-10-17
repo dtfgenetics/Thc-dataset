@@ -1,0 +1,47 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "ph-buffering-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "a056cf0e444e4766fe097cb8560017baea8c00bb",
+  "head_commit": "54924bc7ff07d317f869891ba20162dde3004eb8",
+  "branch": "work/grow-doc/GD-DIAG-001/ph-buffering-20261016",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/root-ph-extreme.json"
+  ],
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://content.ces.ncsu.edu/soil-acidity-and-liming-for-agricultural-soils"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected fresh main/recent commits, AGENTS.md, task/claims, receipt schema/history, source/media types, current profiles and weakest source/media counts, test/validation commands and CI contract before editing. Extreme-pH profile had two citations and no verified media; selected missing agricultural-soil lime-requirement/placement safeguards, not new visual phenotypes. Verified NC State Extension institutional publication Soil Acidity and Liming for Agricultural Soils, SoilFacts AG-439-50, Luke Gatiboni and David Hardy, published 2022-06-09, accessed 2026-10-16. Read Soil Testing, Liming Materials, Application and Incorporation, and author/date sections. Three claim mappings cover pH versus exchangeable acidity and laboratory lime requirement; calcium-carbonate equivalent/fineness and spatial amendment placement; and explicit cross-crop/soil-class limits. Added one plant-linked confirmation requirement, one field-soil corrective safeguard and one cross-system warning. Annotation inferences are identified, not presented as validated visual classification. No field-target values, Ac equation, application dose, fixed response time, or non-Cannabis symptom/media labels transferred to Cannabis, peat, coco, rockwool or hydroponics. Prior 2 citations preserved exactly; existing leaf-age, organ, morphology, spatial/progression context, look-alikes, exclusions, measurement linkage, media absence and 0.15 photo-only cap unchanged. No media or licenses added/copied; no training promotion or specimen confirmation. Current exports/release/readiness/split counts synchronized: 63 profiles, 205 unique sources, 92 media references, 36 persisted originals plus 68 crops and zero training-eligible media. Historical verification snapshots unchanged. Artifact pins synchronized for frozen 191 text rows, with no model execution implied. Targeted 35 data-quality tests passed. First full run found one stale coverage-test confirmation count (11 versus new 12); systematic-debugging review traced it to the added step, updated exact count and asserted new exchangeable-acidity content. Targeted 30 coverage tests then passed. Fresh complete rerun passed all 68 commands: all 62 package validators, 291 application tests (two workers, unchanged timeouts), 103 Python tests, typecheck, build, frozen-byte verification and diff check. JSON/JSONL/CSV syntax, identifiers, duplicates, label/source-claim links, source/acquisition/transfer controls, release counts and artifact contracts validate. New institutional URL fetched; syntax validation is not a claim of fresh network checking for every historical URL. PHP absent locally; all triggered hosted workflows including PHP lint must pass before squash merge with exact tree verification and live-main ancestry check. Operational task claim excluded from publication and released after integration. Remaining gaps: plant-linked pH exposure imagery/video with item-level rights; matched tissue/root/soil evidence; medium-specific confirmation and independently sampled spatial variation. Symptom-only, uncalibrated, pooled or unlinked observations remain human-review cases. Agent review is not actual human/expert/laboratory specimen review. No production deployment or whole-project completion claimed.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

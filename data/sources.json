@@ -3550,6 +3550,25 @@
     ]
   },
   {
+    "sourceKey": "https://content.ces.ncsu.edu/soil-acidity-and-liming-for-agricultural-soils",
+    "title": "Soil Acidity and Liming for Agricultural Soils",
+    "organization": "NC State Extension Publications, SoilFacts AG-439-50",
+    "url": "https://content.ces.ncsu.edu/soil-acidity-and-liming-for-agricultural-soils",
+    "authors": [
+      "Luke Gatiboni",
+      "David Hardy"
+    ],
+    "publisher": "North Carolina Cooperative Extension",
+    "publicationDate": "2022-06-09",
+    "year": 2022,
+    "accessedDate": "2026-10-16",
+    "supportedClaims": [
+      "The Soil Testing section distinguishes soil pH from exchangeable acidity (the NCDA&CS Ac value); a portable pH reading alone cannot determine an accurate agricultural-soil lime requirement. This supports a measurement safeguard, not a Cannabis amendment dose.",
+      "The Liming Materials section relates lime effectiveness to calcium-carbonate equivalent and particle fineness; the Application and Incorporation section describes limited movement and uneven spreading that can leave underlimed or overlimed strips. Amendment placement is therefore relevant context for spatial soil sampling.",
+      "The guide differentiates mineral, mineral-organic, and organic soils and crop-specific targets; its North Carolina field-soil targets and lime equations are not universal Cannabis, peat-container, coco, rockwool, or hydroponic guidance."
+    ]
+  },
+  {
     "sourceKey": "https://content.ces.ncsu.edu/twospotted-spider-mite-in-industrial-hemp",
     "title": "Twospotted Spider Mite in Industrial Hemp",
     "organization": "NC State Extension",

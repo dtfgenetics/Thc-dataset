@@ -114,7 +114,8 @@
     "Capture serial whole-plant top and side views, root-zone and cleaned-root views, upper- and lower-canopy views, and close-ups of both leaf surfaces under repeatable lighting with scale and a matched same-cultivar control.",
     "Record cultivar, plant age, stage, days of exposure, container volume, substrate composition, water content, root-zone temperature, dissolved oxygen where relevant, and root-tip quantity or standardized root coverage.",
     "Use representative leaf-tissue and root-zone or substrate analysis to separate a pH-associated exposure from a specific nutrient disorder; use a plant diagnostic laboratory when discolored or decaying roots, lesions, or pests remain plausible.",
-    "Retain a measured-exposure or suspected label unless the pH history, root or growth response, competing exposures, and analytical evidence are linked to the photographed plant."
+    "Retain a measured-exposure or suspected label unless the pH history, root or growth response, competing exposures, and analytical evidence are linked to the photographed plant.",
+    "For agricultural soil, retain the laboratory lime-requirement or exchangeable-acidity method, soil class, amendment identity and rate, application date, particle fineness or effective neutralizing value, incorporation depth, and a map linking sampled locations to photographed plants. A portable pH reading is not a lime-dose calculation."
   ],
   "immediateActions": [
     "Preserve pre-correction pH, EC, alkalinity, solution, substrate, tissue, root, and image records before changing the system.",
@@ -124,7 +125,8 @@
   "correctivePlan": [
     "Correct the verified cause gradually using substrate- and water-appropriate guidance, considering alkalinity and buffering rather than input pH alone.",
     "Restore a balanced fertilizer and irrigation program while monitoring substrate pH, EC, water content, drainage, and new root growth.",
-    "Reassess root pathogens, salinity, water status, temperature, and nutrient-specific differentials if new root tips and growth do not improve after the measured pH returns to the intended range."
+    "Reassess root pathogens, salinity, water status, temperature, and nutrient-specific differentials if new root tips and growth do not improve after the measured pH returns to the intended range.",
+    "For a field-soil case, obtain a soil-laboratory amendment recommendation with its method and crop/soil assumptions before changing lime supply. Preserve measured spatial differences and previous amendment placement rather than extrapolating one surface reading to the entire root zone."
   ],
   "prevention": [
     "Establish a production-system-specific substrate pH and EC monitoring protocol with calibrated meters, consistent extraction methods, replicate sampling, and trend alerts.",
@@ -142,7 +144,8 @@
     "Extraction method, substrate moisture, sampling location, equilibration or drainage time, calibration, and crop-specific interpretation materially affect pH and EC results; general greenhouse ranges are not Cannabis thresholds.",
     "The Purdue source is a cross-crop measurement protocol. Its non-Cannabis figures and general EC ranges are not diagnostic media or direct Cannabis response evidence.",
     "No image or video is admitted for this record because no stable original Cannabis asset with plant-linked pH exposure and suitable item-level rights was independently verified during this review.",
-    "All symptom-only, uncalibrated-pH, mixed-method, or plant-unlinked samples remain low confidence and require human review."
+    "All symptom-only, uncalibrated-pH, mixed-method, or plant-unlinked samples remain low confidence and require human review.",
+    "The NC State source is a general agricultural-soil guide, not a Cannabis diagnostic trial. Its crop targets, Ac-value equation, application rates, and amendment time courses must not be transferred to container or hydroponic systems; the added sampling safeguards are annotation inferences, not validated visual classifiers."
   ],
   "sources": [
     {
@@ -199,6 +202,24 @@
         "A monitoring program should use calibrated pH and conductivity standards, repeat a consistent extraction method, sample multiple representative containers separately, and interpret their average and trend with crop, substrate, fertilizer, irrigation-water, and production records.",
         "Directly inserting a probe into substrate is not recommended unless moisture content and sampling timing are tightly standardized; the saturated-media method instead samples the interior root zone and avoids the top and bottom inch because salt concentration may differ there.",
         "This greenhouse protocol is not Cannabis-specific and supports measurement quality and exclusion checks only; its general crop ranges and pictured non-Cannabis disorders are not Cannabis diagnostic thresholds or media ground truth."
+      ]
+    },
+    {
+      "title": "Soil Acidity and Liming for Agricultural Soils",
+      "organization": "NC State Extension Publications, SoilFacts AG-439-50",
+      "url": "https://content.ces.ncsu.edu/soil-acidity-and-liming-for-agricultural-soils",
+      "authors": [
+        "Luke Gatiboni",
+        "David Hardy"
+      ],
+      "publisher": "North Carolina Cooperative Extension",
+      "publicationDate": "2022-06-09",
+      "year": 2022,
+      "accessedDate": "2026-10-16",
+      "supportedClaims": [
+        "The Soil Testing section distinguishes soil pH from exchangeable acidity (the NCDA&CS Ac value); a portable pH reading alone cannot determine an accurate agricultural-soil lime requirement. This supports a measurement safeguard, not a Cannabis amendment dose.",
+        "The Liming Materials section relates lime effectiveness to calcium-carbonate equivalent and particle fineness; the Application and Incorporation section describes limited movement and uneven spreading that can leave underlimed or overlimed strips. Amendment placement is therefore relevant context for spatial soil sampling.",
+        "The guide differentiates mineral, mineral-organic, and organic soils and crop-specific targets; its North Carolina field-soil targets and lime equations are not universal Cannabis, peat-container, coco, rockwool, or hydroponic guidance."
       ]
     }
   ],
