@@ -137,7 +137,7 @@
       "publisher": "MDPI AG",
       "publicationDate": "2019-10-18",
       "year": 2019,
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-17",
       "doi": "10.3390/app9204432",
       "supportedClaims": [
         "Cannabis sativa T1 plants were grown in silica sand with a complete modified Hoagland solution or a solution withholding one nutrient, observed daily, photographed through initial, intermediate, and advanced symptoms, and sampled at first symptom expression for most-recent-mature-leaf tissue analysis.",
@@ -172,7 +172,10 @@
         "Zinc-withheld T1 plants first developed symptoms after nine weeks as marginal yellowing on newer and expanding leaves, concentrated along leaflet margins and toothed portions; tan, irregularly shaped marginal necrosis developed as the disorder progressed.",
         "At first zinc-deficiency symptom expression, zinc-withheld most-recent-mature leaves contained 10.70 mg/kg zinc compared with 25.33 mg/kg in controls, 58% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
         "Sulfur-withheld T1 plants first developed symptoms after seven weeks as slight overall yellowing, especially in the middle canopy and at leaflet bases; yellowing intensified at leaflet bases and on newly expanding leaves, then advanced to very pale yellow tissue around the midrib and leaflet bases.",
-        "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest."
+        "At first sulfur-deficiency symptom expression, sulfur-withheld most-recent-mature leaves contained 0.11% sulfur compared with 0.41% in controls, 73% lower under the experiment conditions; biomass did not differ significantly from the control at that harvest.",
+        "Section 3.2.4 reports T1 boron-toxicity symptoms seven weeks after treatment: lower-leaf marginal yellowing intensified inward toward the midrib, then margins browned and became necrotic.",
+        "Section 3.2.4 and Table 4 report 671.75 mg/kg foliar boron in the toxicity treatment versus 64.60 mg/kg in its control; Table 3 found no significant dry-weight difference at that harvest. These are experiment-specific observations, not universal thresholds or later-yield predictions.",
+        "The abstract specifies most-recent-mature-leaf analysis when symptoms appeared. Dataset annotation inference: that sample is not automatically the photographed older lower leaf or a measurement of each later progression panel."
       ]
     },
     {

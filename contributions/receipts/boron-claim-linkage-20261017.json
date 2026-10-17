@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "boron-claim-linkage-20261017",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "f4c0bf46ccb2bec801d9df53179050c44391e607",
+  "head_commit": "4038fe6cd03a5ba45234ed188083b5753c85838a",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-claim-linkage-20261017",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-tox-b.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3390/app9204432"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-17 inspected fresh main, recent changes, repository instructions, schemas, current profiles, task claims, tests and validation scripts. Enriched one existing three-source boron-toxicity profile with three exact T1 primary-source claim mappings: Section 3.2.4 seven-week lower-leaf marginal chlorosis-to-necrosis progression; Table 4 toxicity/control foliar boron 671.75/64.60 mg/kg and Table 3 absence of a significant dry-weight difference at that harvest; and the abstract's most-recent-mature-leaf sampling context. The distinction between that assay sample and photographed older leaves or later panels is explicitly a dataset annotation inference. These are experiment-specific observations, not universal thresholds, yield predictions or specimen-level assay links. Primary MDPI direct open returned 429; search returned full primary article text including the abstract, relevant section and tables. No access barrier was bypassed. Updated the existing citation access date; no new source, publication metadata, diagnostic label, visual field, confidence cap, specimen confirmation or media metadata changed. All non-source fields of the individual profile were compared with the baseline and preserved. No media, binaries, licenses or training admissions added. Totals remain 63 profiles, 205 sources, 92 media references, 36 original assets plus 68 crops and zero training-eligible media. Existing historical URLs were not all independently revalidated; primary source text was checked for the changed claim mappings. All 68 local validation/check commands passed, including 62 package validators, type check, 291 tests, build, 103 Python tests, frozen-artifact verification and diff check; five supplemental evaluator/artifact self-tests also passed. PHP is unavailable locally, so hosted CI lint and all PR-head workflows remain required before merge. The frozen 191-row text dataset and model-data hash pins were synchronized; no model training or production deployment occurred. Verification-before-completion gated publication. Operational task claim is excluded from publication and released after successful integration. Remaining gaps include assay-linked independent Cannabis media, cultivar and production-system replication, panel-level review and training admission. Agent review is not human, expert or laboratory specimen review; symptom-only and composite samples retain their existing review restrictions.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
