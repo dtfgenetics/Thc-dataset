@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-aphid-biology-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "f7c784a6a13aec72c63f67bdeb529626d07d8813",
+  "head_commit": "d55ef3c1bbb8e83aa5d9432c0bff9c3764b74e58",
+  "branch": "work/grow-doc/GD-DIAG-001/root-aphid-biology-20261016",
+  "changed_paths": [
+    "src/data/supplemental-issues.ts",
+    "data/profiles/pest-rice-root-aphid.json"
+  ],
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://webdoc.agsci.colostate.edu/hempinsects/PDFs/Rice%20Root%20Aphid%20extra%20info.pdf"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected current main, recent changes, AGENTS.md, task and claim registry, receipt schema/history, canonical rice-root-aphid profile, source/media types, tests, exports and CI contracts before editing. Chose the insect profile's lack of explicitly bounded institutional biology estimates and serial-capture metadata; its existing 3 citations and one CC BY 4.0 aeroponic image are preserved. Read CSU's complete two-page institutional PDF, Pest Management of Hemp in Enclosed Production: Rice Root Aphid; source title, publisher, stable URL, access date and 3 exact claim mappings recorded. Publication date and individual authors were not verified and are not fabricated. Added compatible wingless-body scouting context, conditional 9–10-day maturation / 1.6-day doubling at 73°F estimates, and warm-indoor living-host / nonpersistent-egg context. Replaced one duplicate indicator; added serial capture guidance and 3 warnings separating historical source nomenclature, unknown-plant identity, population timing and injury thresholds. No measured specimen timing or species confirmation is inferred. Retained plant parts, stages, root/canopy distribution, progression, look-alikes, exclusions, independent root-disease workup and 0.30 photo-only cap. Historical pesticide statements and proposed eradication intervals are explicitly not imported as current legal advice or universal clearance protocols. Reference discovery reviewed the Institute of Cannabis Research May 2022 Cranshaw webinar landing page and its linked YouTube URL https://www.youtube.com/watch?v=B3qML2u5WCI ; shot-level diagnostic evidence and reuse rights were not verified, so no video record or binary was admitted. Bugwood image 5596892 described an aphid/fungus-gnat sticky-trap comparison, but current item-level access returned 403 and indexed CC BY3.0 wording conflicted with a commercial-use restriction; no media or permission was admitted. No vendor/forum/generated/unverified media used as ground truth. No new media, licenses, specimens or training admissions. Current totals synchronized: 63 profiles, 204 unique sources, 92 media references, 36 originals plus 68 crops, zero training-eligible media. Historical release counts unchanged. Expanded existing test assertions for 3 claim mappings, missing publication date, exact access date, body cue, serial metadata and scope warnings. Initial targeted failure traced to a test phrase mismatch ('not imported' vs 'neither is imported'), corrected without weakening substantive policy. Targeted 32 tests passed, then fresh full verification passed all 68 commands: 291 application tests (two workers, unchanged timeouts), 103 Python tests, 62 package validators, type check, build, frozen byte verification and diff check. JSON/CSV/JSONL syntax, identifiers, duplicate/label/source links, provenance, release and acquisition/transfer contracts pass. New PDF URL fetched as a two-page institutional source; all URL syntax validated, not a claim that every historical URL was freshly network-retrieved. Frozen artifact hashes synchronized; 191 text rows do not imply model training. PHP unavailable locally; require all triggered hosted workflows including PHP lint and fresh-main ancestry on the exact published tree before squash merge. Verification-before-completion and systematic-debugging skills gated assertions and correction. Operational task claim excluded from publication and released after integration. Remaining gaps: specimen-linked diagnostic video, matched longitudinal root/canopy sequences, broader licensed system/cultivar coverage and source-group training admission. Unsupported species, injury, timing, outdoor-absence and root-pathogen causality claims require human review. Agent review is not a human, expert or laboratory specimen review. No production deployment or overall project completion claimed.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

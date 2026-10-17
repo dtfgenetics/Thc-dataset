@@ -4441,6 +4441,19 @@
     ]
   },
   {
+    "sourceKey": "https://webdoc.agsci.colostate.edu/hempinsects/PDFs/Rice%20Root%20Aphid%20extra%20info.pdf",
+    "title": "Pest Management of Hemp in Enclosed Production: Rice Root Aphid",
+    "organization": "Colorado State University",
+    "publisher": "Colorado State University",
+    "url": "https://webdoc.agsci.colostate.edu/hempinsects/PDFs/Rice%20Root%20Aphid%20extra%20info.pdf",
+    "accessedDate": "2026-10-16",
+    "supportedClaims": [
+      "The CSU note describes dark olive-green, generally round aphids, with wingless stages belowground and winged stages sometimes trapped on upper-leaf hairs; these are scouting cues, not species confirmation.",
+      "The note reports maturation in about 9–10 days and population doubling in 1.6 days at 73°F under favorable conditions; these context-dependent biology estimates are not a Cannabis injury threshold or a specimen-specific progression clock.",
+      "Warm indoor populations can reproduce year-round while living hosts remain, without a persistent indoor egg stage; calendar season or absence of visible eggs therefore cannot exclude an active root colony."
+    ]
+  },
+  {
     "sourceKey": "https://www.canada.ca/en/public-health/services/laboratory-biosafety-biosecurity/pathogen-safety-data-sheets-risk-assessment/serratia.html",
     "title": "Pathogen Safety Data Sheets: Infectious Substances – Serratia spp.",
     "organization": "Public Health Agency of Canada",

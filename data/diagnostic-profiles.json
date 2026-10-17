@@ -13890,7 +13890,7 @@
       "Small temporary colonies may occur on stems or foliage after alates colonize a plant, but most observed offspring move downward toward roots and large persistent foliar colonies are atypical in the primary Cannabis account.",
       "Dead alate aphids caught on upper-leaf hairs or low sticky cards can trigger root-zone inspection but cannot by themselves identify the infested plant or prove an active root colony.",
       "Heavy infestation may coincide with generalized decline, reduced growth rate, or lower-leaf off-coloration; these canopy signs are supporting context only and have no unique rice-root-aphid morphology.",
-      "Root-associated aphids occur while leaf undersides, petioles, and stems lack the sustained foliar-colony pattern expected for cannabis aphid.",
+      "Dark olive-green, generally round wingless aphids belowground are compatible with the CSU description, but color and body outline alone cannot establish species.",
       "Repeated observations show colony or alate abundance changing on the same tagged plant; unrelated before-and-after images are not a progression series."
     ],
     "exclusions": [
@@ -13944,6 +13944,7 @@
       "Record plant ID, cultivar, stage, production system, source lot, onset date, irrigation and root-zone history, root condition, inspected root area, aphid counts, alate counts, and sticky-card position and date.",
       "Preserve intact apterous adults and representative alates in a manner suitable for entomological identification; do not rely on color, a single nymph, or a low-resolution sticky-card silhouette.",
       "Use a qualified entomologist and appropriate morphological keys or validated molecular identification when a species-level Rhopalosiphum rufiabdominale label is required.",
+      "For serial video or repeat photographs, retain elapsed time, root-zone temperature, living-host continuity, inspected root area, and matched plant identity; do not assign elapsed time or expected population growth from body appearance alone.",
       "Inspect leaf undersides, petioles, and stems for sustained cannabis-aphid colonies, and compare fungus-gnat adults and larvae when flyers are the initial cue.",
       "Assess root color, firmness, odor, oxygen/moisture status, pH, EC, root restriction, and representative pathogen or nematode samples independently; finding aphids does not prove they caused every root or canopy symptom.",
       "Keep canopy-only, damage-only, sticky-card-only, alate-only, organism-only, unlinked-root, mixed-arthropod, low-resolution, stock, vendor, generated, anecdotal, forum, and unverified observations out of the confirmed class and route them to human review."
@@ -13972,7 +13973,10 @@
       "A 2025 ten-day greenhouse study found that rice root aphids selected and multiplied more strongly on rye and barley than on Cannabis. This bounded host-choice result does not negate Cannabis host status and supplies no universal Cannabis susceptibility, injury, economic, or management threshold.",
       "The proposed use of rye as a trap crop still requires commercial-production testing and must not be presented as validated Cannabis management guidance.",
       "The existing CC BY 4.0 reference is one aeroponic root-crown figure. It remains training-ineligible pending source-group review and does not represent soil, coir, rockwool, cultivar, stage, geography, or severity diversity.",
-      "No verified diagnostic video or matched Cannabis progression series is included."
+      "No verified diagnostic video or matched Cannabis progression series is included.",
+      "The undated CSU note uses the historical spelling Rhopalosiphum abdominalis. Preserve that source wording for traceability, not as a second confirmed species label; reconcile nomenclature with current entomological identification.",
+      "Its approximate 9–10-day maturation and 1.6-day doubling at 73°F are favorable-condition estimates, not measured timing in an unknown plant, a guaranteed rate, or a threshold for Cannabis injury. Indoor living-host continuity, not calendar season or visible eggs, governs the scope of its year-round reproduction statement.",
+      "The note contains historical pesticide statements and a proposed host-free eradication interval; neither is imported as current legal advice or a validated universal clearance protocol. Publication date and named authors were not verified."
     ],
     "sources": [
       {
@@ -14029,6 +14033,18 @@
           "In greenhouse two-choice experiments, rice root aphids selected and multiplied more strongly on rye than on Cannabis; this study-specific preference does not negate Cannabis host status or diagnose an infestation.",
           "In a ten-day no-choice greenhouse experiment, rice root aphids multiplied on Cannabis but significantly less than on rye or barley; the result must not be converted into a universal Cannabis susceptibility, population-growth, injury, or economic threshold.",
           "The authors proposed rye as a possible trap crop but explicitly stated that the concept still requires testing in commercial production; it is not validated management guidance for Cannabis facilities."
+        ]
+      },
+      {
+        "title": "Pest Management of Hemp in Enclosed Production: Rice Root Aphid",
+        "organization": "Colorado State University",
+        "publisher": "Colorado State University",
+        "url": "https://webdoc.agsci.colostate.edu/hempinsects/PDFs/Rice%20Root%20Aphid%20extra%20info.pdf",
+        "accessedDate": "2026-10-16",
+        "supportedClaims": [
+          "The CSU note describes dark olive-green, generally round aphids, with wingless stages belowground and winged stages sometimes trapped on upper-leaf hairs; these are scouting cues, not species confirmation.",
+          "The note reports maturation in about 9–10 days and population doubling in 1.6 days at 73°F under favorable conditions; these context-dependent biology estimates are not a Cannabis injury threshold or a specimen-specific progression clock.",
+          "Warm indoor populations can reproduce year-round while living hosts remain, without a persistent indoor egg stage; calendar season or absence of visible eggs therefore cannot exclude an active root colony."
         ]
       }
     ],
