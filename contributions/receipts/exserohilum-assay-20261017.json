@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "exserohilum-assay-20261017",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "68493ee1610f063ab186414dec076b88cee24409",
+  "head_commit": "c32649e06c930feafba37e66a674cca0a8fa5a51",
+  "branch": "work/grow-doc/GD-DIAG-001/exserohilum-assay-20261017",
+  "changed_paths": ["src/data/expanded-issues-batch2.ts", "data/profiles/fungal-exserohilum-leaf-blight.json"],
+  "related_release_paths": ["src/lib/catalog-accuracy-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-08-18-1434-PDN"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review inspected current main/history, AGENTS, task and claims, receipt schema, catalog exports/types, source records, existing profile/media, validation scripts and CI before edits. Selected Exserohilum from weaker three-source coverage rather than duplicate the recently enriched two-source Curvularia and nitrogen profiles. Read the primary disease-note text on author-affiliated Scholars@Duke institutional record https://scholars.duke.edu/publication/1624391, accessed2026-10-17, lines29-36, DOI10.1094/PDIS-08-18-1434-PDN. Publisher issue listing corroborates2019-04-03 publication; Duke displays June2019 issue date, so original publicationDate retained. Existing citation title, authors, publisher and DOI retained, access refreshed. Three paraphrased claims add six two-week-old Carmagnola seedling assay/eight-day lesion observation/three-week reisolation context, ribosomal ITS1/5.8S/ITS2 versus RPB2 and ITS1 accession MH779469, and PDA colony color timing distinct from living-leaf progression. No RPB2 accession manufactured. Added one confirmation step and one warning separating leaf, culture, locus, isolate and capture identities. Existing visual indicators, affected parts/stages, exclusions, progression, look-alikes, media metadata/rights/hashes/labels and confidence cap were compared unchanged. No new sources, media or licenses; no binaries copied or permissions inferred from open access. Existing NC State image remains license-review/display-unknown/training-not-permitted and trainingEligible=false. Counts remain63profiles,205unique sources,92media refs,36originals plus68crops,zero training-eligible media. Frozen191text rows unchanged and manifest pins refreshed; no model run. Full68-command run passed291app tests(two workers),103Python tests,62validators,typecheck,build,artifact verification,diff check. Five extra model-evaluation/artifact self-tests and production proxy-file check passed. Syntax/export, IDs/duplicates, labels, source-claim links, provenance and admission controls validated; all historical URLs were not freshly network-retrieved. PHP absent locally, so publication requires hosted PHP lint and all triggered checks plus exact remote-tree and fresh live-main ancestry before squash merge. Operational claim excluded from canonical tree and released after integration. Verification-before-completion skill gates claims and publication. Remaining gaps: plant-linked independent longitudinal Cannabis imagery/video and species-resolved sample evidence; symptom-only, culture-unlinked, sequence-unlinked, timing-inferred or rights-unclear samples require human review. Agent review is not human/expert/lab specimen confirmation. No production deployment or whole-project completion claimed.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

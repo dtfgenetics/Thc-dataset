@@ -1212,13 +1212,16 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2019-04-03",
     "year": 2019,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-17",
     "doi": "10.1094/PDIS-08-18-1434-PDN",
     "supportedClaims": [
       "During the 2017 and 2018 North Carolina growing seasons, several industrial-hemp cultivars grown for fiber, seed, and flower showed foliar, stem, and floral blight, establishing a multi-organ Cannabis disease context rather than a generic non-host transfer.",
       "Compatible hemp lesions were round and brown to black with dark margins and contained abundant conidia; lesion appearance alone was not the basis for the organism label.",
       "Fungal morphology together with ITS1 and RPB2 sequence evidence supported identification as Exserohilum rostratum.",
-      "The report is geographically and temporally bounded to sampled North Carolina production in 2017–2018 and does not establish a universal leaf-age order, canopy-position sequence, cultivar response, incidence threshold, or severity scale."
+      "The report is geographically and temporally bounded to sampled North Carolina production in 2017–2018 and does not establish a universal leaf-age order, canopy-position sequence, cultivar response, incidence threshold, or severity scale.",
+      "The pathogenicity assay used six two-week-old Carmagnola seedlings: dark-brown leaf lesions appeared after eight days, and the fungus was reisolated after three weeks. These growth-chamber observations are not a field incubation clock.",
+      "The molecular workflow amplified the ribosomal ITS1/5.8S/ITS2 region and RPB2; the deposited ITS1 accession was MH779469. These are reference-isolate data, not three independent genes or a positive result for a new plant.",
+      "PDA colonies changed from white to dark brown or black within two to three days; that culture-color interval is not lesion progression on a living hemp leaf."
     ]
   },
   {
