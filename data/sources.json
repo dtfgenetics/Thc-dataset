@@ -972,14 +972,25 @@
     "title": "First Report of Pythium aphanidermatum Causing Crown and Root Rot in Cannabis sativa in Florida",
     "organization": "Plant Disease",
     "url": "https://doi.org/10.1094/PDIS-02-25-0435-PDN",
+    "authors": [
+      "Eden S. Blit",
+      "Richard Philbrook",
+      "Matthew Indest",
+      "Jose Perez-Martinez",
+      "Dominick Palozzo",
+      "Jeremy Warren"
+    ],
     "publisher": "American Phytopathological Society",
     "publicationDate": "2025-07-24",
     "year": 2025,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-17",
     "doi": "10.1094/PDIS-02-25-0435-PDN",
     "supportedClaims": [
       "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
-      "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species."
+      "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species.",
+      "The October 2023 Florida observations involved unrooted cuttings from three cultivars with brown, water-soaked stems and failure to root; this is propagation-stage basal injury, not a mature-plant leaf-age sequence.",
+      "The isolate was resolved with concatenated ITS and COI evidence, deposited as OR731869 and PP806568, respectively. These reference accessions identify the published isolate, not a positive result for a newly photographed cutting.",
+      "Inoculated PBR cuttings in rockwool failed to root and developed brown, water-soaked stems after a 14-day indoor assay; controls rooted without symptoms, and recovered cultures matched both original loci. This controlled endpoint is not a universal incubation period."
     ]
   },
   {

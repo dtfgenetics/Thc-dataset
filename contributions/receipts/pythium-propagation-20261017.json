@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "pythium-propagation-20261017",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "49facd2cd5a7afc2ad30b232071a0ca7b5a6bff4",
+  "head_commit": "79cecce00c6c79015abe9e4e4a688be7ab53ebec",
+  "branch": "work/grow-doc/GD-DIAG-001/pythium-propagation-20261017",
+  "changed_paths": ["src/data/evidence-augmentations.ts", "src/data/issues.ts", "data/profiles/root-pythium.json"],
+  "related_release_paths": ["src/lib/catalog-coverage-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-02-25-0435-PDN"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review inspected current main/recent changes, AGENTS, types/catalog augmentation and export structure, task/claims, receipt schema, profile sources/media, validators and CI. Materialized catalog was audited rather than mistaking raw core source counts for final coverage. Removed the unfinished boron draft because accessible secondary listings did not verify its scientific and rights assertions; none of that draft is published. Selected a bounded propagation-stage evidence gap in the existing Pythium complex profile. Primary publisher search retrieval supplied the full Florida disease-note text, authors and publication history for DOI10.1094/PDIS-02-25-0435-PDN, accessed2026-10-17; direct open returned403, no bypass attempted. Added six missing authors and three paraphrased claim mappings: unrooted-cutting basal injury and failed rooting; ITS/COI accession identity; controlled PBR symptom reproduction, control rooting and matched reisolation. Added cutting-to-culture capture linkage and assay-timing warning. Existing source title/publisher/DOI/publication date retained. This peer-reviewed commercial-funded study is research evidence, not vendor media or specimen ground truth. No source or media added, no license asserted, no supplementary figures downloaded or indexed; publisher all-rights-reserved notice does not establish media or automated-training permission. Existing indicators, leaf/part/stage context, exclusions, progression, look-alikes, confidence cap and complete media metadata were byte-compared unchanged. Counts remain63profiles,205unique sources,92media refs,36originals plus68crops,zero training-eligible media. Frozen191text rows preserved and manifest pins refreshed without a model run. Fresh full68-command verification passed:291application tests(two workers),103Python tests,62package validators,typecheck,build,artifact verification,diff check. Syntax/export consistency, identifiers, duplicate/label/source-claim/provenance and admission controls validated. All historical URLs were not network-retrieved; changed source was freshly retrieved via primary search. PHP absent locally, so require hosted PHP lint and all triggered workflows, exact published-tree verification and live-main ancestry before squash merge. Agent review is not human/expert/laboratory confirmation. Remaining gaps include independently confirmed plant-linked root/crown/cutting longitudinal imagery/video, panel-level labels and training admission; symptom-only, unlinked-sequence and timing-inferred samples retain human-review flags. No production deployment or whole-project completion claimed. Operational claim excluded from publication and released after integration.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

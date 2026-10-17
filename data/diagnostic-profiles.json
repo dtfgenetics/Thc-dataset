@@ -15245,6 +15245,7 @@
       "Sample the active margin of plant-linked root and crown lesions before secondary decay dominates; keep roots, crown, substrate or water, and healthy controls traceable to their plant IDs.",
       "Use an appropriate selective isolation method and microscopy to recover an oomycete while checking for Fusarium, Rhizoctonia, Phytophthora, and mixed infections.",
       "Use a validated molecular test for the Pythium or Globisporangium complex; species-level labels require adequately discriminating loci such as ITS plus mitochondrial COI or COII, or an equivalent validated method.",
+      "For propagation failures, link serial cutting-base and rockwool-interface views to the same cutting, cultivar, rooting status, lesion sample, culture, and molecular report. The Florida PBR assay used ITS and COI; preserve each locus and its result separately rather than treating reference accessions as sample confirmation.",
       "Measure root-zone moisture or saturation, dissolved oxygen where relevant, temperature, pH, and EC, and inspect for insects, nematodes, root binding, and abiotic injury before attributing the syndrome to a pathogen.",
       "Do not confirm from canopy-only, detached-root, single-timepoint, morphology-only, ITS-only when resolution is inadequate, mixed-pathogen, laboratory-unlinked, generated, or anecdotal media; route those samples to human review."
     ],
@@ -15264,6 +15265,7 @@
       "Wet or saturated conditions and wounded roots can increase disease risk but do not prove that Pythium or Globisporangium caused an observed syndrome.",
       "Pythium and Globisporangium species differ in temperature and production-system ecology; do not transfer one study threshold to the entire complex.",
       "The controlled hemp 'Wife' study timings and severities are study-specific and must not become universal onset or mortality thresholds.",
+      "The Florida P. aphanidermatum report concerns unrooted cuttings and a 14-day PBR assay, not a leaf-age progression or universal rooting deadline. Failed rooting and basal browning alone remain nonspecific; unlinked cutting images or copied reference-sequence labels require human review.",
       "The existing Figure 7 reference is a multi-organism whole-plant composite without root or crown views; it is reference-only and training-ineligible until panel-resolved labels and human review are available.",
       "Human review is mandatory for canopy-only, detached-root, single-surface, morphology-only, ITS-only, mixed-pathogen, laboratory-unlinked, low-resolution, or rights-unclear samples.",
       "Pythium species differ in temperature and production-system ecology; do not treat one environmental threshold as universal for the entire complex."
@@ -15353,14 +15355,25 @@
         "title": "First Report of Pythium aphanidermatum Causing Crown and Root Rot in Cannabis sativa in Florida",
         "organization": "Plant Disease",
         "url": "https://doi.org/10.1094/PDIS-02-25-0435-PDN",
+        "authors": [
+          "Eden S. Blit",
+          "Richard Philbrook",
+          "Matthew Indest",
+          "Jose Perez-Martinez",
+          "Dominick Palozzo",
+          "Jeremy Warren"
+        ],
         "publisher": "American Phytopathological Society",
         "publicationDate": "2025-07-24",
         "year": 2025,
-        "accessedDate": "2026-08-24",
+        "accessedDate": "2026-10-17",
         "doi": "10.1094/PDIS-02-25-0435-PDN",
         "supportedClaims": [
           "Pythium aphanidermatum crown/root rot has been confirmed in indoor Cannabis grown in rockwool across multiple cultivars in Florida.",
-          "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species."
+          "Species occurrence across production systems supports retaining a Pythium complex label unless laboratory evidence resolves species.",
+          "The October 2023 Florida observations involved unrooted cuttings from three cultivars with brown, water-soaked stems and failure to root; this is propagation-stage basal injury, not a mature-plant leaf-age sequence.",
+          "The isolate was resolved with concatenated ITS and COI evidence, deposited as OR731869 and PP806568, respectively. These reference accessions identify the published isolate, not a positive result for a newly photographed cutting.",
+          "Inoculated PBR cuttings in rockwool failed to root and developed brown, water-soaked stems after a 14-day indoor assay; controls rooted without symptoms, and recovered cultures matched both original loci. This controlled endpoint is not a universal incubation period."
         ]
       },
       {
