@@ -109,7 +109,8 @@
     "Submit correctly positioned upper- and lower-canopy leaf tissue plus appropriate fertilizer solution, leachate, substrate, soil, and source-water samples to an agricultural or plant diagnostic laboratory; interpret nitrogen with other nutrients using crop-, cultivar-, organ-, stage-, and method-appropriate references.",
     "Do not use one tissue number as a universal threshold: in the flowering study, visible nitrogen symptoms occurred even though upper- and lower-canopy foliar nitrogen values overlapped controls and other treatments at symptom onset.",
     "Inspect both leaf surfaces, growing points, stems, and roots with magnification and use a plant diagnostic laboratory when arthropods, root disease, vascular disease, viruses, viroids, or other pathogens remain plausible.",
-    "Compare the rate and age-position pattern with untreated healthy same-cultivar plants; response of subsequent growth after correcting a documented cause is supporting evidence, not retrospective ground truth for the original image."
+    "Compare the rate and age-position pattern with untreated healthy same-cultivar plants; response of subsequent growth after correcting a documented cause is supporting evidence, not retrospective ground truth for the original image.",
+    "In partial-supply comparisons, preserve main-stem node, leaf age and position, sampled organ, treatment start, elapsed day, and actual nitrogen dose. Pair youngest-fully-developed-leaf close-ups with lower-older-leaf and whole-root views; do not infer nitrogen adequacy from one green young leaf or an unchanged node count."
   ],
   "immediateActions": [
     "Mark the plant and preserve pre-treatment serial images, fertilizer and irrigation records, root-zone measurements, and representative upper- and lower-canopy tissue before changing nutrition.",
@@ -134,7 +135,8 @@
     "Healthy control plants in the flowering study developed lower-fan-leaf chlorosis during weeks six through eight despite adequate nutrient solution and measured foliage, so late-cycle yellowing is not nitrogen-deficiency ground truth.",
     "Red or brown petioles, interveinal yellowing, stem color, and lower-leaf loss are not nitrogen-specific and require explicit confounder checks.",
     "The licensed flowering figure combines four panels, organs, views, weeks, and severity states; the separate vegetative Figure 2 combines nitrogen, phosphorus, and calcium classes. Both remain excluded from automated training until panels are bounded, individually annotated, scientifically reviewed, source-grouped, and assigned leakage-safe splits.",
-    "All symptom-only, detached-leaf-only, late-flower, unmeasured-root-zone, and unlinked-tissue samples require human review."
+    "All symptom-only, detached-leaf-only, late-flower, unmeasured-root-zone, and unlinked-tissue samples require human review.",
+    "The partial-supply study used 30 and 80 mg/L nitrogen, not zero nitrogen. Its day-31 youngest-leaf reference must not substitute for lower-older-leaf symptoms, a universal onset clock, or the separate T1 withholding and Gelato 29 flowering sequences. Figure 1 remains indexed once under toxicity solely to avoid duplicate assets; its low-dose columns are not toxicity examples."
   ],
   "sources": [
     {
@@ -239,6 +241,32 @@
         "By week six, green tissue was largely limited to inflorescences, sugar-leaf midribs, and some lower fan leaves; by week seven most non-inflorescence leaves were brown, curled, and dry, and some inflorescence leaves developed tip browning.",
         "Potassium-withheld plants averaged 535 g fresh inflorescence mass compared with 1110 g in controls and had the second-lowest root dry mass in this three-plant-per-treatment experiment; higher THCA concentration did not offset the lower plant-level yield.",
         "Figure 4 is a CC BY 4.0 four-panel flowering-stage potassium-deficiency progression showing distinct sugar-leaf and fan-leaf symptoms at week four and their middle-canopy distribution by week five."
+      ]
+    },
+    {
+      "title": "Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod",
+      "organization": "Frontiers in Plant Science (Saloner and Bernstein)",
+      "url": "https://doi.org/10.3389/fpls.2020.572293",
+      "authors": [
+        "Avia Saloner",
+        "Nirit Bernstein"
+      ],
+      "publisher": "Frontiers Media SA",
+      "publicationDate": "2020-11-17",
+      "year": 2020,
+      "accessedDate": "2026-10-16",
+      "doi": "10.3389/fpls.2020.572293",
+      "supportedClaims": [
+        "A controlled long-photoperiod experiment compared one medical Cannabis cultivar at 30, 80, 160, 240, and 320 mg/L total nitrogen in soilless media, with five replicate plants per treatment and repeated plant-development measurements.",
+        "At 320 mg/L nitrogen the plants and plant organs were smaller and dark green; at 240 mg/L shoot coloration and development appeared similar to the 160 mg/L treatment while root development was already restricted.",
+        "Supply above 160 mg/L restricted growth and biomass in this experiment, while nitrogen use efficiency declined and leaf, stem, and root total nitrogen and nitrate generally increased across the tested range.",
+        "The 160–320 mg/L treatments had similar dark-green leaf color, so dark foliage by itself did not distinguish the study optimum from excessive supply.",
+        "At high nitrogen, photosynthetic pigments continued to increase but photosynthesis did not; the authors associated the high-supply decline with stomatal closure and reduced stomatal conductance, transpiration, and intercellular carbon dioxide.",
+        "Irrigation EC rose with nitrogen treatment from 2080 µS/cm at 160 mg/L to 2510 and 2760 µS/cm at 240 and 320 mg/L, and high-treatment leachate nitrogen exceeded input concentration; nitrogen-dose effects therefore cannot be separated from the experiment-specific salt and formulation context by an image alone.",
+        "Figure 1 is a CC BY 4.0 composite showing whole plants, youngest fully developed leaves, and roots across the five nitrogen doses; the columns are treatment levels rather than independent diagnosis classes.",
+        "In the Results visual assessment, 30 mg/L nitrogen produced restricted growth and leaf chlorosis; at 80 mg/L, shoots and roots were restricted and chlorosis occurred mainly on lower, older main-stem leaves. These supplied-nitrogen treatments differ from complete withholding.",
+        "Figure 1 identifies its middle-row leaves as the youngest fully developed main-stem leaf, photographed 31 days after fertigation treatments began. Those leaf views are not the older lower leaves described at 80 mg/L and are not sequential frames of one plant.",
+        "The discussion and Figure 3 distinguish restricted elongation, stem diameter, branching, and biomass from node formation, which was not affected across the tested nitrogen range; node count alone is not a validated deficiency indicator."
       ]
     }
   ],

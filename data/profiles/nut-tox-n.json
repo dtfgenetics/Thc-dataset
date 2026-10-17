@@ -155,7 +155,7 @@
       "publisher": "Frontiers Media SA",
       "publicationDate": "2020-11-17",
       "year": 2020,
-      "accessedDate": "2026-08-14",
+      "accessedDate": "2026-10-16",
       "doi": "10.3389/fpls.2020.572293",
       "supportedClaims": [
         "A controlled long-photoperiod experiment compared one medical Cannabis cultivar at 30, 80, 160, 240, and 320 mg/L total nitrogen in soilless media, with five replicate plants per treatment and repeated plant-development measurements.",
@@ -164,7 +164,10 @@
         "The 160–320 mg/L treatments had similar dark-green leaf color, so dark foliage by itself did not distinguish the study optimum from excessive supply.",
         "At high nitrogen, photosynthetic pigments continued to increase but photosynthesis did not; the authors associated the high-supply decline with stomatal closure and reduced stomatal conductance, transpiration, and intercellular carbon dioxide.",
         "Irrigation EC rose with nitrogen treatment from 2080 µS/cm at 160 mg/L to 2510 and 2760 µS/cm at 240 and 320 mg/L, and high-treatment leachate nitrogen exceeded input concentration; nitrogen-dose effects therefore cannot be separated from the experiment-specific salt and formulation context by an image alone.",
-        "Figure 1 is a CC BY 4.0 composite showing whole plants, youngest fully developed leaves, and roots across the five nitrogen doses; the columns are treatment levels rather than independent diagnosis classes."
+        "Figure 1 is a CC BY 4.0 composite showing whole plants, youngest fully developed leaves, and roots across the five nitrogen doses; the columns are treatment levels rather than independent diagnosis classes.",
+        "In the Results visual assessment, 30 mg/L nitrogen produced restricted growth and leaf chlorosis; at 80 mg/L, shoots and roots were restricted and chlorosis occurred mainly on lower, older main-stem leaves. These supplied-nitrogen treatments differ from complete withholding.",
+        "Figure 1 identifies its middle-row leaves as the youngest fully developed main-stem leaf, photographed 31 days after fertigation treatments began. Those leaf views are not the older lower leaves described at 80 mg/L and are not sequential frames of one plant.",
+        "The discussion and Figure 3 distinguish restricted elongation, stem diameter, branching, and biomass from node formation, which was not affected across the tested nitrogen range; node count alone is not a validated deficiency indicator."
       ]
     },
     {
@@ -212,7 +215,9 @@
         "Five columns are distinct nitrogen doses and three rows are distinct organs or views; whole-image single-class labeling and random panel splitting are invalid.",
         "Only the 320 mg/L column was described as visually overdosed; 240 mg/L showed restricted roots while shoot coloration and development remained similar to the 160 mg/L treatment.",
         "One cultivar, long photoperiod, soilless media, treatment-specific EC, and one formulation do not establish universal visual or analytical thresholds.",
-        "Reference display only until panels are bounded, dose-, organ-, time-, and diagnosis-annotated, scientifically reviewed, source-grouped, and assigned a leakage-safe split."
+        "Reference display only until panels are bounded, dose-, organ-, time-, and diagnosis-annotated, scientifically reviewed, source-grouped, and assigned a leakage-safe split.",
+        "The 30 and 80 mg/L columns are low-nitrogen treatments, not toxicity ground truth. At 80 mg/L the reported chlorosis was mainly on lower, older main-stem leaves; a green young-leaf panel cannot exclude that distribution.",
+        "The leaf row shows youngest fully developed main-stem leaves at treatment day 31. Columns are parallel dose groups, not a video progression, and these leaf panels are not older-leaf symptom close-ups."
       ],
       "displayPermission": "permitted",
       "reviewStatus": "approved-reference",

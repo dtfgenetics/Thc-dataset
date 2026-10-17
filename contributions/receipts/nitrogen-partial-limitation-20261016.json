@@ -1,0 +1,44 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "nitrogen-partial-limitation-20261016",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "78a2608849bcbba7aeececeb18ec6bf938fb69b0",
+  "head_commit": "f61c7894785861d3b92259400b266466ffc7e456",
+  "branch": "work/grow-doc/GD-DIAG-001/nitrogen-partial-limitation-20261016",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/nut-def-n.json",
+    "data/profiles/nut-tox-n.json"
+  ],
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2020.572293"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-16 inspected fresh main/recent commits, repository instructions, active task/claims, source/media types, receipt schema/history, weakest source coverage, nitrogen profiles, validators and CI before editing. Nitrogen deficiency had only two withholding-based sources; chose partial-supply evidence already indexed solely under nitrogen toxicity. Read primary publisher Results, Figure 1 caption, discussion/Figure 3 node comparison and copyright/date sections: Saloner and Bernstein, Response of Medical Cannabis (Cannabis sativa L.) to Nitrogen Supply Under Long Photoperiod, Frontiers in Plant Science, published 2020-11-17, DOI10.3389/fpls.2020.572293, accessed 2026-10-16. PMC access showed a CAPTCHA; no bypass attempted, primary Frontiers full text supplied evidence. Added three claim mappings to the existing shared source: 30mg/L restricted growth/chlorosis and 80mg/L shoot/root restriction with predominantly lower-older main-stem chlorosis; youngest-fully-developed main-stem leaf row photographed day31 differs from symptomatic older leaves; node formation not affected across tested range despite other growth restrictions. Linked existing source to nitrogen deficiency without adding a unique source or duplicating the image. Added one confirmation step and one warning separating partial supply from zero-N withholding, sampled leaf age, source-specific timing and independent sequences. Shared source enrichment also materializes in nitrogen-toxicity profile. One existing fifteen-panel Figure1 media record received two use-limitations identifying low-dose columns as non-toxicity examples and parallel dose groups as not a video progression. Original asset/landing URLs, creator, CC BY4.0 license, required attribution, type/view, labels, hashes, permission flags and training exclusion preserved; publisher copyright reviewed. No new media or licenses copied/committed. Existing indicators, exclusions and progression are unchanged for both profiles, as confirmed by individual-profile comparisons; photo-only caps unchanged (0.60 deficiency,0.15 toxicity). Initial ad hoc comparison command had an extra brace, then whole-export git-show exceeded Node default buffer; following systematic debugging, switched read-only comparison to individual profiles, which verified preserved fields/rights. No repository code was changed to bypass these incidental checks. Fresh full verification passed all68 commands: 291app tests(two workers, unchanged timeouts),103Python tests,62package validators,typecheck,build,artifact byte verification,diff check. Targeted65 profile/coverage tests also passed before final added media assertions, which full291-test run covers. JSON/JSONL/CSV syntax, identifiers, duplicate/label/source-claim links, source/acquisition/transfer provenance and release/vision controls pass. Totals unchanged:63profiles,205unique sources,92media refs,36originals plus68crops,zero training-eligible media. Frozen191text rows and pins synchronized; no model execution implied. New source-to-profile citation link and access-date refreshed; not all historical URLs were freshly network-retrieved. PHP absent locally; require all triggered hosted checks including PHP lint, exact published-tree verification and fresh live-main ancestry before squash merge. Verification-before-completion gates publication. Claim excluded from canonical tree and released after integration. Remaining gaps: independently confirmed plant-linked deficiency media/video, matched old/young leaf and root longitudinal data, panel-level admission and source-group split review. Symptom-only, unlinked, wrong-leaf, dose-inferred, timing-inferred or whole-composite labels retain human-review flags. Agent review is not human/expert/laboratory specimen confirmation. No production deployment or whole-project completion claimed.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
