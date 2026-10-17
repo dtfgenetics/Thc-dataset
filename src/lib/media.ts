@@ -1,7 +1,26 @@
 import type { IssueRecord, MediaRecord } from '../types'
 
+// The diagnostic website is a commercial context. Approval to display a
+// reference does not override a source license or its use restrictions.
+// Keep restricted references in the dataset for attribution and provenance,
+// but never render their images through this shared media resolver.
+const nonCommercialLicense = /(?:^|[^a-z0-9])cc[\s_-]*by[\s_-]*nc(?:[\s_-]*(?:nd|sa))?(?=$|[^a-z0-9])|non[\s_-]*commercial|creativecommons[.]org\/licenses\/by-nc(?:-nd|-sa)?(?:\/|$)/i
+const commercialUseRestriction = /all[\s_-]+rights[\s_-]+reserved|commercial[\s_-]+(?:exploitation|distribution|reproduction)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted|not[\s_-]+allowed)|non[\s_-]*commercial|(?:no|not[\s_-]+for)[\s_-]+commercial[\s_-]+(?:use|reuse|display)|commercial[\s_-]+(?:use|reuse|display)[\s_-]+(?:prohibited|forbidden|not[\s_-]+permitted|not[\s_-]+allowed|requires?[\s_-]+(?:written[\s_-]+)?permission)|(?:personal|educational)[\s_-]+use[\s_-]+only/i
+
 export function isDisplayableMedia(media: MediaRecord): boolean {
-  return media.displayPermission === 'permitted'
+  // Conflicting rights metadata must fail closed, regardless of which field
+  // contains the restriction. Normalize typographic dashes in every field.
+  const rightsStatements = [media.license ?? '', ...(media.useLimitations ?? []), media.requiredAttribution ?? '']
+  if (rightsStatements.some((statement) => {
+    const normalized = statement.replace(/[\u2010-\u2015\u2212]/g, '-')
+    return nonCommercialLicense.test(normalized) || commercialUseRestriction.test(normalized)
+  })) return false
+
+  // An approved review state is insufficient without an explicit source license.
+  // Missing or blank licenses are rights-unclear and must remain quarantined.
+  return typeof media.license === 'string'
+    && media.license.trim().length > 0
+    && media.displayPermission === 'permitted'
     && (media.reviewStatus === 'approved-reference' || media.reviewStatus === 'approved-training')
 }
 
