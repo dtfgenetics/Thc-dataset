@@ -371,6 +371,11 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps boron toxicity exposure-confirmed, tissue-bounded, and composite-safe', () => {
     const record = issues.find((issue) => issue.slug === 'boron-toxicity')
     expect(record?.reviewStatus).toBe('reviewed')
+    const t1 = record?.sources.find((source) => source.doi === '10.3390/app9204432')
+    expect(t1?.accessedDate).toBe('2026-10-17')
+    expect(t1?.supportedClaims.join(' ')).toContain('Section 3.2.4 reports T1 boron-toxicity')
+    expect(t1?.supportedClaims.join(' ')).toContain('versus 64.60 mg/kg')
+    expect(t1?.supportedClaims.join(' ')).toContain('not automatically the photographed older lower leaf')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf tissue/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/source water|source-water/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ph.*ec|ec.*ph/)
