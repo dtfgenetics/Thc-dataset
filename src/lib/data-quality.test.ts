@@ -559,6 +559,13 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps thrips labels organism-confirmed and species-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'thrips')
+    const trial = record?.sources.find((source) => source.doi === '10.7202/1076365ar')
+    expect(trial?.publisher).toBe('Société de protection des plantes du Québec (SPPQ)')
+    expect(trial?.accessedDate).toBe('2026-10-18')
+    expect(trial?.supportedClaims.join(' ')).toContain('Bacillus pumilus')
+    expect(trial?.supportedClaims.join(' ')).toContain('not final population counts')
+    expect(trial?.supportedClaims.join(' ')).toContain('abstract-level result')
+    expect(record?.confirmation.join(' ')).toContain('starting infestation or exposure separately')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/tap.*white paper|collection tray/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/species-level.*laboratory|specialist/)
