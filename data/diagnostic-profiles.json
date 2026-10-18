@@ -6852,6 +6852,7 @@
       "Camera sharpening, compression, or grow-light color artifact"
     ],
     "confirmation": [
+      "Record starting infestation or exposure separately from contemporaneous plant, organ and trap counts, and retain substrate and biostimulant history. The preliminary study compared individual-plant starting treatments in two substrates; a photographed count or old scar cannot be substituted for its treatment assignment or used to predict fresh yield.",
       "Inspect both leaf surfaces, veins, folds, growing tips, and flowers with at least a 10× hand lens; record whether scars, dark fecal spots, larvae, adults, and shed skins occur together.",
       "Tap symptomatic foliage and flowers over white paper or a collection tray, then preserve representative insects for magnified examination.",
       "Use blue or yellow sticky cards as population and movement monitors, not as proof that a particular damaged leaf was caused by thrips.",
@@ -6895,14 +6896,16 @@
           "James Eaves",
           "Valérie Fournier"
         ],
-        "publisher": "Consortium Érudit",
+        "publisher": "Société de protection des plantes du Québec (SPPQ)",
         "year": 2021,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-18",
         "doi": "10.7202/1076365ar",
         "supportedClaims": [
           "A controlled preliminary study identified onion thrips, Thrips tabaci, proliferating on indoor-grown Cannabis and compared plants initially receiving zero, one, or five thrips.",
           "Plants initially receiving five thrips had lower fresh yield than plants receiving zero thrips; the result supports monitoring but does not establish an image-only diagnosis or a general action threshold.",
-          "The experiment was limited to defined indoor conditions and infestation treatments, so yield effects and severity must not be generalized across cultivars, production systems, or thrips species."
+          "The experiment was limited to defined indoor conditions and infestation treatments, so yield effects and severity must not be generalized across cultivars, production systems, or thrips species.",
+          "The primary abstract defines zero, one and five thrips as initial infestations on individual plants, tested in conventional substrate or substrate containing Bacillus pumilus. Dataset annotation inference: starting treatment assignments are not final population counts, per-leaf observations, sticky-card counts or camera-visible action thresholds.",
+          "The abstract reports only marginal mitigation of thrips impact by the biostimulant. This abstract-level result does not establish a generally effective control program, product recommendation, visible scar-to-yield prediction or a species diagnosis; additional methods and replication would be required for those uses."
         ]
       },
       {

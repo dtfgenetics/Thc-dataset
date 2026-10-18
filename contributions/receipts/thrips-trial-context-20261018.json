@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "thrips-trial-context-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "ddc579e85740e15be577733c73a43719fd8409ab",
+  "head_commit": "68b4d409a7f7a819e991d5363ecd49a07a860087",
+  "branch": "work/grow-doc/GD-DIAG-001/thrips-trial-context-20261018",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/insect-thrips.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.7202/1076365ar"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, repository instructions, schemas, task claims, current records, tests and validation scripts. Enriched one four-source insect/thrips profile and its existing primary citation with two bounded abstract-level claims: zero/one/five thrips are individual-plant initial treatments in conventional or Bacillus pumilus-containing substrate, not final/per-leaf/trap counts or camera-visible action thresholds; the abstract describes only marginal mitigation by the biostimulant and does not establish a general control recommendation or scar-to-yield prediction. Added one capture/confirmation safeguard separating starting exposure from contemporaneous plant, organ and trap counts and retaining substrate history. Annotation limitations are explicitly inferences rather than measured diagnostic accuracy. Corrected the publisher from dissemination platform Consortium Erudit to the primary PDF's publisher Societe de protection des plantes du Quebec (SPPQ), retaining the original accented spelling in canonical data. The primary PDF metadata and abstract were returned by search; a second engine verified the primary journal landing-page abstract. Direct landing-page and PDF opens encountered an Anubis challenge, which was not bypassed. No inaccessible full-text method, cultivar, dose-response percentage, chemical result or exact publication day was invented; the existing 2021 year remains the available publication date context. No new source, media, binary, license, diagnostic label, confidence cap or training permission added. All profile fields except sources and confirmation were programmatically compared with baseline and preserved. Counts remain 63 profiles, 205 sources, 92 media references, 36 originals plus 68 crops and zero training-eligible media. All 68 local commands passed: 62 validators, type check, 291 tests, build, 103 Python tests, frozen-artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. Candidate-source leakage passed; the blocked Botrytis draft remains untouched and excluded. Frozen 191-row text artifact hashes were synchronized without a model training run. Historical URLs were not all revalidated; changed claims were checked against the available primary abstract. PHP is unavailable locally; exact-head hosted workflows including PHP lint are required before integration. Verification-before-completion gated publication. Operational claim is excluded from publication and released after merge. No production deployment occurred. Remaining gaps: independently confirmed Cannabis image/video series, specimen-linked species identification, broader cultivar/system replication and usable item-level media rights. Symptom-only, unlinked, abstract-extrapolated, threshold-inferred and rights-unclear samples retain human-review restrictions. Agent review is not human or laboratory specimen confirmation.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
