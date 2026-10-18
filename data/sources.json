@@ -1902,11 +1902,14 @@
     "publisher": "Springer Nature",
     "publicationDate": "2019-12-26",
     "year": 2019,
-    "accessedDate": "2026-10-08",
+    "accessedDate": "2026-10-18",
     "doi": "10.1186/s13007-019-0542-5",
     "supportedClaims": [
       "Experimental silencing of Cannabis phytoene desaturase and magnesium-chelatase-subunit-I genes produced spotted leaf bleaching, 70–73% lower target-transcript expression, and corresponding carotenoid or chlorophyll-a reductions.",
-      "This deliberately induced, virus-vector phenotype shows that perturbing pigment-related gene expression can create visible bleaching; it does not establish that naturally occurring sectors are genetic or safe from infectious differentials."
+      "This deliberately induced, virus-vector phenotype shows that perturbing pigment-related gene expression can create visible bleaching; it does not establish that naturally occurring sectors are genetic or safe from infectious differentials.",
+      "In experimentally treated Finola, small white spots appeared on newly developed leaves approximately four weeks after treatment; neither PDS nor ChlI silencing produced completely bleached leaves. This is an induced, cultivar- and experiment-specific appearance, not a natural variegation timeline.",
+      "For PDS, 38 plants were treated, 13 died early, and five of 25 survivors showed bleaching; for ChlI, five of 23 survivors from 40 treated plants showed bleaching. The reported 20% and 22% efficiencies use survivor denominators, not all treated plants or field prevalence.",
+      "Five-week PCR detected both vector DNA components in empty-vector controls as well as PDS- and ChlI-silenced plants, although empty-vector controls lacked the bleaching phenotype. A green experimental control therefore cannot be relabeled pathogen-free from appearance or confused with an untreated wild-type control."
     ]
   },
   {

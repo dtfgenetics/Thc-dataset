@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "variegation-vigs-context-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "764d71125d3cb0585446a86177e666644895cc6d",
+  "head_commit": "5e78e4dc00388bb634de95ed097f0ff6858ac1ad",
+  "branch": "work/grow-doc/GD-DIAG-001/variegation-vigs-context-20261018",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/gen-variegation.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1186/s13007-019-0542-5"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, instructions, schemas, task claims, diagnostic standard, existing profiles, tests, validators and CI. Selected the sole Genetic/developmental profile and its sparsely mapped 2019 primary VIGS citation. Added three bounded mappings for new-leaf appearance and timing, survivor-based response denominators, and viral-DNA-positive green empty-vector controls. Primary publisher full text resolved at https://link.springer.com/article/10.1186/s13007-019-0542-5; Results, Figures 3-5 captions and methods were checked, and a second search engine verified the survivor-count passage. Existing bibliographic metadata retained and access date refreshed. Added one confirmation safeguard separating treatment/control identity, phenotype, molecular results, treated totals, losses and survivors; annotation limitations are inferences from study design, not validated field diagnostic performance. All profile fields except sources and confirmation, including media, visual context, labels, confidence ceiling, licenses and training permissions, were compared with baseline and preserved. Only gen-variegation changed across the full profile export. No new source, media, binary or license; totals remain 63 profiles, 205 sources, 92 media references, 36 originals, 68 crops and zero training-eligible media. Existing isolated worktree reused under using-git-worktrees; no new worktree or dependency change, unrelated image work and prior blocked Botrytis draft preserved and excluded. Clean baseline passed 292 application tests. All 68 final local commands passed: 62 validators, 292 application tests, 103 Python tests, type check, build, frozen-artifact verification and diff check; five supplemental evaluator/artifact self-tests passed. JSON/JSONL syntax, source identity, duplicate, label, source-claim and candidate-leakage gates passed. Serial artifact freezes matched actual input provenance; frozen 191-row text artifact pins synchronized without model training. Historical URLs were not all independently revalidated. PHP unavailable locally; all exact-head hosted workflows including PHP lint remain required before integration. Verification-before-completion gated publication. Operational claim excluded from publication and released after merge. No production deployment. Remaining gaps: naturally occurring sectoring with paired sector-specific genetic and pathogen testing, documented clone lineages, plant-linked serial image/video and independent training review. No induced phenotype is promoted to spontaneous genetic ground truth, no green control to pathogen-free, and no survivor efficiency to natural prevalence. Symptom-only and causally unlinked samples retain human-review restrictions. Agent review is not actual human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
