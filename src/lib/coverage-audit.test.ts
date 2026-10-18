@@ -504,6 +504,14 @@ describe('diagnostic coverage audit', () => {
     expect(confirmation).toContain('keep canopy-only, symptom-only, detached-root-only, unlinked soil/root assay, species-from-gall, low-resolution, stock, forum, vendor, or generated captures out of the confirmed root-knot class')
     expect(warnings).toContain('do not identify species or race')
     expect(warnings).toContain('seed-extract bioassays rather than infected-root symptoms')
+    const virulenceSource = record?.sources.find((source) => source.doi === '10.3390/plants14020227')
+    expect(virulenceSource?.accessedDate).toBe('2026-10-18')
+    expect(virulenceSource?.supportedClaims).toHaveLength(7)
+    const virulenceClaims = virulenceSource?.supportedClaims.join(' ').toLowerCase() ?? ''
+    expect(virulenceClaims).toContain('30-day greenhouse endpoint at 25–29 °c')
+    expect(virulenceClaims).toContain('destructive microscopy counts are not equivalent to gall counts')
+    expect(virulenceClaims).toContain('three endpoints have different denominators')
+    expect(confirmation).toContain('staining and destructive preparation')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal lateral-root branch points or root primordia',
       'Root binding / circling roots',

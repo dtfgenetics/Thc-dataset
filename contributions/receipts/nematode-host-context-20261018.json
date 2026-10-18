@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "nematode-host-context-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "e11ec24e3a60fa8eee0355712d62a773c895f190",
+  "head_commit": "4ee9f9893b8a85ccc563c226da07d8c99293de65",
+  "branch": "work/grow-doc/GD-DIAG-001/nematode-host-context-20261018",
+  "changed_paths": [
+    "src/data/expanded-issues-batch2.ts",
+    "data/profiles/nematode-root-knot.json"
+  ],
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://doi.org/10.3390/plants14020227"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, repository instructions, schemas, diagnostic standard, task claims, existing profiles, validators, tests and CI. Selected the single Nematode-category profile and an existing sparsely mapped primary citation. Added three bounded claims covering experimental exposure and sampling interval, destructive whole-root microscopy preparation, and endpoint denominators; added one confirmation safeguard. Checked indexed primary full-text passages from PMC11768826 and the publisher, Methods 4.2–4.3 and Tables 1–5; direct publisher requests were rate-limited and direct PMC access showed a browser challenge, so this receipt does not claim successful live full-page retrieval. Source bibliographic fields retained and access date refreshed. Sampling safeguards are annotation inferences from study design, not validated field diagnostic performance. Only nematode-root-knot changed across the full profile export, and only sources and confirmation changed within that profile. Visual symptom context, look-alikes, exclusions, progression, media, licenses, confidence ceiling and training permissions were preserved. No new citation identity, media, binary or license; totals remain 63 profiles, 205 sources, 92 media references and zero training-eligible media. Existing isolated worktree reused under using-git-worktrees; unrelated local image work and the prior blocked Botrytis draft were preserved and excluded. All 68 final local commands passed: 62 validators, 292 application tests, 103 Python tests, type check, build, artifact verification and diff check; five supplemental evaluator/artifact self-tests passed. JSON/JSONL syntax, source identity, duplicate, label, source-claim, CSV/export and candidate-leakage gates passed. Serial freezes matched actual input provenance and synchronized 191-row text artifact pins without model training. Historical URLs were not all independently revalidated. PHP is unavailable locally; exact-head hosted workflows including PHP lint are required before integration. Verification-before-completion gates publication. Operational claim is excluded from publication and released after merge. No production deployment. Remaining gaps include cultivar-diverse laboratory-linked root images, paired canopy/root/soil evidence, field injury thresholds and longitudinal diagnostic video. Image-only abundance, symptom-only infection, species/race from galls, and causal labels without linked tests remain restricted for human review. Agent review is not actual human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
