@@ -2443,7 +2443,9 @@
     "useLimitations": [
       "Reference-link metadata only; no image file is stored.",
       "Do not display, copy, modify, or train without documented permission.",
-      "Symptom association does not identify the phytoplasma or exclude mixed infection."
+      "Symptom association does not identify the phytoplasma or exclude mixed infection.",
+      "The caption identifies cupping, curling and deformation; it does not state leaf age, canopy position or a matched upper/lower surface pair. Do not assign young-leaf onset or side-specific distribution from this reference.",
+      "The 2022 credit is not a dated longitudinal series. No shared plant identifier or item-linked molecular result connects this photograph to the yellow-leaf or branch-tip references; retain separate reference records, not a progression or confirmed-species sample."
     ],
     "displayPermission": "unknown",
     "reviewStatus": "license-review",
@@ -2479,7 +2481,9 @@
     "useLimitations": [
       "Reference-link metadata only; no image file is stored.",
       "Do not display, copy, modify, or train without documented permission.",
-      "Architecture can overlap with training response, BCTV, Spiroplasma, and mixed infection."
+      "Architecture can overlap with training response, BCTV, Spiroplasma, and mixed infection.",
+      "The caption localizes meristem proliferation to a branch tip, not a measured whole-plant branching distribution. Crop stage, pruning history and an earlier same-tip comparison are not provided; do not infer spontaneous onset or a rate of shoot proliferation.",
+      "The 2022 credit does not establish temporal order. No shared plant identifier or item-linked molecular result connects the branch tip to either leaf reference; architectural association remains distinct from pathogen identity and causation."
     ],
     "displayPermission": "unknown",
     "reviewStatus": "license-review",
@@ -2515,7 +2519,9 @@
     "useLimitations": [
       "Reference-link metadata only; no image file is stored.",
       "Do not display, copy, modify, or train without documented permission.",
-      "Detached leaves omit canopy distribution; yellowing alone is not diagnostic."
+      "Detached leaves omit canopy distribution; yellowing alone is not diagnostic.",
+      "The caption identifies yellow coloration but supplies no leaf age, canopy position, paired-surface mapping, neutral color reference or exposure metadata. Do not infer an older-leaf-first nutrient pattern, calibrated color severity or pathogen-specific chlorosis.",
+      "The 2022 credit supplies no symptom-onset date or elapsed interval. No shared plant identifier or item-linked molecular result links this view to the curled-leaf or branch-tip references; do not rank these photographs as stages of one infection."
     ],
     "displayPermission": "unknown",
     "reviewStatus": "license-review",

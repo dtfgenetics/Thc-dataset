@@ -435,6 +435,27 @@ describe('diagnostic dataset quality gates', () => {
     expect(phytoplasma?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps witches-broom reference views separate from a plant-linked progression sequence', () => {
+    const record = issues.find((issue) => issue.slug === 'hemp-witches-broom-phytoplasma')!
+    const handbook = record.sources.find((source) => source.url.includes('pnwhandbooks.org'))!
+    expect(handbook.accessedDate).toBe('2026-10-18')
+    expect(handbook.supportedClaims).toHaveLength(6)
+    expect(handbook.supportedClaims.join(' ')).toContain('overwintering in weeds or other crop hosts')
+    expect(handbook.supportedClaims.join(' ')).toContain('no shared plant identifier')
+    expect(record.confirmation.join(' ')).toContain('do not stitch the three institutional 2022 reference photographs')
+    expect(record.media).toHaveLength(3)
+    for (const media of record.media) {
+      expect(media.useLimitations.join(' ')).toContain('No shared plant identifier or item-linked molecular result')
+      expect(media.displayPermission).toBe('unknown')
+      expect(media.reviewStatus).toBe('license-review')
+      expect(media.trainingPermission).toBe('not-permitted')
+      expect(media.trainingEligible).toBe(false)
+    }
+    expect(record.media[0].useLimitations.join(' ')).toContain('leaf age, canopy position')
+    expect(record.media[1].useLimitations.join(' ')).toContain('neutral color reference')
+    expect(record.media[2].useLimitations.join(' ')).toContain('pruning history')
+  })
+
   it('keeps reproductive-sex labels tied to visible flower organs and repeated inspection', () => {
     const record = issues.find((issue) => issue.slug === 'cannabis-reproductive-sex-expression')
     expect(record).toBeDefined()
