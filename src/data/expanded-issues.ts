@@ -192,6 +192,29 @@ const sources = {
       'Field and diagnostic observations also documented manganese toxicity as interveinal yellowing followed by interveinal necrosis, supporting it as a real hemp differential but not a camera-only diagnosis.',
     ],
   }),
+  osuHempRootAccess: source({
+    title: 'Planning a drought-resilient hemp crop',
+    organization: 'Oregon State University Extension Service',
+    url: 'https://extension.oregonstate.edu/catalog/em-9628-planning-drought-resilient-hemp-crop',
+    authors: ['Gordon B. Jones'],
+    publisher: 'Oregon State University Extension Service',
+    publicationDate: '2022-07', year: 2022, accessedDate: '2026-10-18',
+    supportedClaims: [
+      'EM 9628, published July 2022 and reviewed in 2026, identifies both root binding and soil compaction as limits to accessible soil volume in hemp; restricted moisture access is not specific to container binding.',
+      'The guide distinguishes greenhouse-origin root binding with possible season-long effects from a tillage pan below cultivated soil. Dataset inference: field capture should pair the former plug boundary with the surrounding soil profile rather than diagnose either mechanism from canopy drought symptoms.',
+    ],
+  }),
+  ucDavisHempRootPhoto: source({
+    title: 'Planning a Drought Resilient Hemp Crop',
+    organization: 'UC Davis Agronomy – Hemp',
+    url: 'https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop',
+    authors: ['Gordon Jones'],
+    publisher: 'University of California, Davis',
+    publicationDate: '2022-07-13', year: 2022, accessedDate: '2026-10-18',
+    supportedClaims: [
+      'Figure 2 is credited to Gordon Jones and captioned as rootbound hemp after poor starts or transplanting. Its single root close-up is an institutional morphology reference, not a paired disease exclusion, moisture assay, time series, or confirmed causal injury sample; no item-level reuse permission is stated.',
+    ],
+  }),
   rootingVolumeMetaAnalysis: source({
     title: 'Pot size matters: a meta-analysis of the effects of rooting volume on plant growth',
     organization: 'Functional Plant Biology (Poorter et al.)',
@@ -1958,6 +1981,7 @@ export const expandedIssues: IssueRecord[] = [
       'Transplant shock or mechanical root tearing',
       'Container-side heat injury',
       'Stem girdling, buried crown, or compressed propagation plug',
+      'Field soil compaction or a tillage pan restricting rooting depth',
       'Nutrient deficiency caused by pH or root-zone chemistry',
     ],
     confirmation: [
@@ -1971,6 +1995,7 @@ export const expandedIssues: IssueRecord[] = [
       'Assign persistent plant and root-specimen identifiers before disturbance and carry them through intact and washed root views, container and transplant history, moisture and chemistry measurements, laboratory results, canopy images, and follow-up observations.',
       'Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels.',
       'For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated.',
+      'For field transplants, pair the former plug boundary with a scaled surrounding soil-profile view and cultivation-depth history. Record whether roots remain in the old plug or encounter a deeper compacted layer; separate these observations from canopy drought and test moisture and root-health alternatives independently.',
     ],
     immediateActions: [
       'Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.',
@@ -1994,8 +2019,9 @@ export const expandedIssues: IssueRecord[] = [
       'Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.',
       'UGA repotting guidance is non-Cannabis ornamental transfer context: do not turn its pot-size increment, seasonal timing or pruning advice into a Cannabis prescription. Post-repotting wetness and root appearance require independent confirmation and human review when causality remains unresolved.',
       'One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located.',
+      'A second institutional reference shows hemp roots, but remains rights-unclear metadata only. The OSU catalog currently associates its rootbound-hemp caption with a wheat-field asset; use the separately inspected UC Davis Figure 2 root photograph, not that mismatched asset. Neither is confirmed causal ground truth.',
     ],
-    sources: [sources.hempSurvey, sources.rootingVolumeMetaAnalysis, sources.umdPotBoundPlants, sources.ugaRepottingDifferentials],
+    sources: [sources.hempSurvey, sources.rootingVolumeMetaAnalysis, sources.umdPotBoundPlants, sources.ugaRepottingDifferentials, sources.osuHempRootAccess, sources.ucDavisHempRootPhoto],
     media: [],
   },
 ]

@@ -157,13 +157,13 @@ describe('diagnostic coverage audit', () => {
 
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
-    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources).toHaveLength(6)
     expect(record?.indicators.length).toBeGreaterThanOrEqual(6)
     expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
     expect(record?.lookAlikes.length).toBeGreaterThanOrEqual(12)
     expect(record?.confirmation.length).toBeGreaterThanOrEqual(7)
-    expect(record?.media).toHaveLength(1)
-    expect(record?.media[0]).toMatchObject({
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.find((item) => item.id === 'media-pot-bound-root-mass-umd-reference-only')).toMatchObject({
       id: 'media-pot-bound-root-mass-umd-reference-only',
       hostContext: 'non-cannabis',
       displayPermission: 'not-permitted',
@@ -668,7 +668,7 @@ describe('diagnostic coverage audit', () => {
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
     expect(record?.indicators).toHaveLength(8)
     expect(record?.exclusions).toHaveLength(11)
-    expect(record?.confirmation).toHaveLength(10)
+    expect(record?.confirmation).toHaveLength(11)
     const repotting = record?.sources.find((source) => source.url.includes('/repotting-container-plants-for-long-term-health/'))
     expect(repotting?.publicationDate).toBe('2026-08-18')
     expect(repotting?.supportedClaims).toHaveLength(3)
@@ -680,8 +680,8 @@ describe('diagnostic coverage audit', () => {
     expect(confirmation).toContain('persistent plant and root-specimen identifiers')
     expect(confirmation).toContain('causally attributed container-restriction injury as separate labels')
     expect(exclusions).toContain('universal Cannabis diagnostic threshold')
-    expect(record?.media).toHaveLength(1)
-    expect(record?.media[0]).toMatchObject({
+    expect(record?.media).toHaveLength(2)
+    expect(record?.media.find((item) => item.id === 'media-pot-bound-root-mass-umd-reference-only')).toMatchObject({
       id: 'media-pot-bound-root-mass-umd-reference-only',
       hostContext: 'non-cannabis',
       displayPermission: 'not-permitted',

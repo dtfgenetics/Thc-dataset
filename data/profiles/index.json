@@ -581,8 +581,8 @@
       "category": "Water / root-zone",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
-      "mediaCount": 1,
+      "sourceCount": 6,
+      "mediaCount": 2,
       "path": "data/profiles/root-binding-container-stress.json"
     },
     {

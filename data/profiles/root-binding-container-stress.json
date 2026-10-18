@@ -81,6 +81,7 @@
     "Transplant shock or mechanical root tearing",
     "Container-side heat injury",
     "Stem girdling, buried crown, or compressed propagation plug",
+    "Field soil compaction or a tillage pan restricting rooting depth",
     "Nutrient deficiency caused by pH or root-zone chemistry"
   ],
   "confirmation": [
@@ -93,7 +94,8 @@
     "Keep canopy-only, detached-root-only, non-Cannabis transfer, unmatched, generated, vendor, anecdotal, unverified, and rights-unclear samples out of the confirmed class and all automated training splits.",
     "Assign persistent plant and root-specimen identifiers before disturbance and carry them through intact and washed root views, container and transplant history, moisture and chemistry measurements, laboratory results, canopy images, and follow-up observations.",
     "Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels.",
-    "For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated."
+    "For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated.",
+    "For field transplants, pair the former plug boundary with a scaled surrounding soil-profile view and cultivation-depth history. Record whether roots remain in the old plug or encounter a deeper compacted layer; separate these observations from canopy drought and test moisture and root-health alternatives independently."
   ],
   "immediateActions": [
     "Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.",
@@ -116,7 +118,8 @@
     "The hemp evidence is a diagnostic survey rather than a controlled container-size trial, so cultivar response, incidence, timing, yield effect, and a pathological root-density threshold remain unresolved.",
     "Root binding can coexist with Fusarium, Pythium, irrigation failure, or salinity; finding circling roots does not exclude a more proximate cause of decline.",
     "UGA repotting guidance is non-Cannabis ornamental transfer context: do not turn its pot-size increment, seasonal timing or pruning advice into a Cannabis prescription. Post-repotting wetness and root appearance require independent confirmation and human review when causality remains unresolved.",
-    "One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located."
+    "One institutional non-Cannabis pot-bound root-mass photograph is indexed as copyright-restricted reference metadata only; no licensed, plant-linked Cannabis root-binding progression image or verified diagnostic video was located.",
+    "A second institutional reference shows hemp roots, but remains rights-unclear metadata only. The OSU catalog currently associates its rootbound-hemp caption with a wheat-field asset; use the separately inspected UC Davis Figure 2 root photograph, not that mismatched asset. Neither is confirmed causal ground truth."
   ],
   "sources": [
     {
@@ -198,9 +201,68 @@
         "An unnecessarily large replacement container can leave excess medium wet longer and increase root-disease risk; adequate drainage and root inspection remain necessary after repotting.",
         "The guide describes firm, light-colored healthy roots and inspection for damaged or decayed roots. Using that appearance as inspection context rather than proof of pathogen absence is a dataset annotation safeguard, not a validated exclusion test."
       ]
+    },
+    {
+      "title": "Planning a drought-resilient hemp crop",
+      "organization": "Oregon State University Extension Service",
+      "url": "https://extension.oregonstate.edu/catalog/em-9628-planning-drought-resilient-hemp-crop",
+      "authors": [
+        "Gordon B. Jones"
+      ],
+      "publisher": "Oregon State University Extension Service",
+      "publicationDate": "2022-07",
+      "year": 2022,
+      "accessedDate": "2026-10-18",
+      "supportedClaims": [
+        "EM 9628, published July 2022 and reviewed in 2026, identifies both root binding and soil compaction as limits to accessible soil volume in hemp; restricted moisture access is not specific to container binding.",
+        "The guide distinguishes greenhouse-origin root binding with possible season-long effects from a tillage pan below cultivated soil. Dataset inference: field capture should pair the former plug boundary with the surrounding soil profile rather than diagnose either mechanism from canopy drought symptoms."
+      ]
+    },
+    {
+      "title": "Planning a Drought Resilient Hemp Crop",
+      "organization": "UC Davis Agronomy – Hemp",
+      "url": "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop",
+      "authors": [
+        "Gordon Jones"
+      ],
+      "publisher": "University of California, Davis",
+      "publicationDate": "2022-07-13",
+      "year": 2022,
+      "accessedDate": "2026-10-18",
+      "supportedClaims": [
+        "Figure 2 is credited to Gordon Jones and captioned as rootbound hemp after poor starts or transplanting. Its single root close-up is an institutional morphology reference, not a paired disease exclusion, moisture assay, time series, or confirmed causal injury sample; no item-level reuse permission is stated."
+      ]
     }
   ],
   "media": [
+    {
+      "id": "media-rootbound-hemp-jones-ucdavis-reference-only",
+      "url": "https://hemp.ucdavis.edu/sites/g/files/dgvnsk12601/files/media/images/planning_a_drought_figure2_blog_image.jpeg",
+      "sourceUrl": "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop",
+      "alt": "Close-up of pale curved roots around a compact brown root mass on a blue surface; UC Davis Figure 2 captions the specimen as rootbound hemp.",
+      "caption": "Gordon Jones photograph, UC Davis Figure 2. Institutional hemp-root morphology reference, not a causal diagnosis or progression series.",
+      "creator": "Gordon Jones",
+      "license": "Copyright The Regents of the University of California, Davis campus; all rights reserved; no item-level reuse license stated",
+      "mediaType": "image",
+      "requiredAttribution": "Gordon Jones, Figure 2, Planning a Drought Resilient Hemp Crop, UC Davis Agronomy, July 13, 2022. Attribution does not grant reuse rights; obtain documented permission before copying, displaying, modifying, distributing or automated training.",
+      "diagnosticLabel": "root-binding-container-stress — institution-captioned hemp root morphology; causal injury unconfirmed",
+      "hostSpecies": "Cannabis sativa (hemp), identified by institutional caption; cultivar not stated",
+      "hostContext": "cannabis",
+      "useLimitations": [
+        "Lawful reference metadata only; no binary copied, no application display, no automated training or evaluation admission.",
+        "Single root close-up lacks persistent plant ID, intact canopy, scale, multiple root-ball faces, original container dimensions, transplant date and temporal follow-up; leaf age and canopy distribution are not assessable.",
+        "Pale root color and curved boundary roots do not exclude infection, salinity, hypoxia, irrigation failure, transplant injury or field compaction; require linked root, soil, moisture, chemistry and laboratory evidence as indicated.",
+        "Rights-unclear and scientifically incomplete: retain human review. The OSU catalog wheat-field asset attached to a rootbound-hemp caption is not this photograph and must not inherit its diagnostic label."
+      ],
+      "displayPermission": "not-permitted",
+      "reviewStatus": "license-review",
+      "trainingPermission": "not-permitted",
+      "view": "root-crown",
+      "stage": "extracted hemp root specimen; age and transplant interval not stated",
+      "severity": "not established from a single root photograph",
+      "confirmation": "illustrative",
+      "trainingEligible": false
+    },
     {
       "id": "media-pot-bound-root-mass-umd-reference-only",
       "url": "https://extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/hgic_houseplant_pot_bound_plant_--0053-051-slide.jpg?itok=HAjmW2dw",
