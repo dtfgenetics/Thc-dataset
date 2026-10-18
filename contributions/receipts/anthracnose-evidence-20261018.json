@@ -1,0 +1,41 @@
+{
+  "base_commit": "e48f54805ca4872845c3928e111558d926dacf81",
+  "branch": "work/grow-doc/GD-DIAG-001/anthracnose-evidence-20261018",
+  "changed_paths": [
+    "data/profiles/fungal-anthracnose-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "anthracnose-evidence-20261018",
+  "head_commit": "39bfb3df778eef4cae09a2826e9b4c7a72c30df6",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-10-19-2216-PDN"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent review on 2026-10-18 inspected fresh main, recent changes, repository structure, instructions, diagnostic standard, schemas, source/media interfaces, task contract, current inventory and validation commands before editing. Selected anthracnose, among the weakest fungal profiles at 14 mapped claims. Enriched its existing primary citation with two mappings (16 profile mappings total) and one confirmation safeguard separating incidence/severity observation units and top/reverse culture imagery. Annotation inferences are explicitly identified and are not universal severity cutoffs, image-segmentation standards or a species test. Retrieved indexed primary publisher text at https://apsjournals.apsnet.org/doi/10.1094/PDIS-10-19-2216-PDN; direct publisher retrieval returned 403 and was not bypassed. University of Kentucky institutional bibliographic record independently corroborates the article identity and May issue date; the existing publisher first-publication date of 2020-02-23 is retained. Source title, authors, publisher, DOI and publication date preserved; access date refreshed. Only fungal-anthracnose-leaf-spot changed across all 63 exported profiles, within sources and confirmation. Existing symptoms, plant parts, leaf-age/canopy context, morphology, distribution, progression, confounders, exclusions, lesion-linked multilocus confirmation and photo-only confidence ceiling 0.30 retained. No source identity, media reference, binary, license or permission added or changed. Supplementary Figure S1 is mentioned in the report, but no inspected original asset URL and clear item-level reuse terms were obtained; no media was indexed or copied. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline and targeted tests passed 293 application tests. All 68 local commands passed: 62 validators, type check, application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV/export consistency, identifiers, duplicate detection, label consistency, URL syntax/source identity, claim links and candidate leakage checked by repository gates. Historical URLs were not all independently revisited. Two serial freezes matched actual provenance and synchronized pins for the 191-row text mixture; no model training or inference. Final suite including receipt and hosted exact-head workflows required before squash integration, including PHP lint and live base freshness. Isolated worktree reused under using-git-worktrees and verification-before-completion gates publication. Unrelated local files and blocked Botrytis draft preserved and excluded. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: reusable species-linked image/video, paired field-leaf and culture microscopy, documented scoring protocol and prospective tagged-lesion sequences. Unknown measurements, unlinked cultures, symptom-only or hole-only imagery and uncertain causal/species labels retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

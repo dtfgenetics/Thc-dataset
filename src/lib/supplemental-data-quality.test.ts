@@ -830,9 +830,13 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('separates anthracnose collection context and culture timing from field-image labels', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')!
     const source = record.sources.find((item) => item.doi === '10.1094/PDIS-10-19-2216-PDN')!
-    expect(source.accessedDate).toBe('2026-10-16')
+    expect(source.accessedDate).toBe('2026-10-18')
     expect(source.publicationDate).toBe('2020-02-23')
-    expect(source.supportedClaims).toHaveLength(8)
+    expect(source.supportedClaims).toHaveLength(10)
+    expect(source.supportedClaims.join(' ')).toContain('different observation units in one field')
+    expect(source.supportedClaims.join(' ')).toContain('bright pink-to-red pigment in the medium on the reverse')
+    expect(record.confirmation.join(' ')).toContain('top and reverse culture views from the same identified plate')
+    expect(record.confirmation.join(' ')).toContain('plant-incidence denominator separately from leaf severity')
     expect(source.supportedClaims.join(' ')).toContain('ACT, CHS-1, GAPDH, and TUB2')
     expect(source.supportedClaims.join(' ')).toContain('MN544294, MN544295, MN544296, and MN544297, respectively')
     expect(source.supportedClaims.join(' ')).toContain('four-locus confirmation did not use ITS')
