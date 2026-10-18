@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-aphid-identification-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "dc903b6aacdbcee5414f75426ad9cd35d6be9d4f",
+  "head_commit": "3d08ec0c7e04ce4948442c396a66bb455133d12b",
+  "branch": "work/grow-doc/GD-DIAG-001/root-aphid-identification-20261018",
+  "changed_paths": [
+    "src/data/supplemental-issues.ts",
+    "data/profiles/pest-rice-root-aphid.json"
+  ],
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1093/jipm/pmaa008"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, repository instructions, schemas, diagnostic standard, task claims, profile inventory, validators, tests and CI. Selected rice root aphid, lowest in the Insect category at 14 mapped claims. Added two mappings to its existing peer-reviewed primary Cannabis account plus one capture-context confirmation safeguard. Retrieved publisher full text at https://academic.oup.com/jipm/article/11/1/15/5873259, including the post-harvest observations and lower-stem monitoring description. Source title, authors, publisher, DOI and publication date retained; access date refreshed. Annotation limits are explicitly study-bounded inferences, not validated movement classification, clearance intervals or specimen-level identification. Only pest-rice-root-aphid changed across all 63 exported profiles, and only sources and confirmation within that profile. Existing affected parts, leaf-age context, indicators, progression, confounders, exclusions, laboratory/specimen requirements, confidence ceiling, media, licenses and permissions preserved. No new source identity, media reference, media file, binary, license or training permission. Totals remain 206 sources, 92 reference media, 36 originals, 68 crops and zero training-eligible media. Existing isolated worktree reused under using-git-worktrees; unrelated local image work and the prior blocked Botrytis draft preserved and excluded. Baseline passed 292 application tests. All 68 final local commands passed: 62 validators, 292 application tests, 103 Python tests, type check, build, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, label consistency, URL syntax/source identity, claim links and candidate-leakage gates passed. Historical URLs were not all independently revalidated. Two serial freezes matched actual input provenance and synchronized 191-row text artifact pins without a model run. PHP unavailable locally; all exact-head hosted workflows including PHP lint required before integration. Verification-before-completion gates publication. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: specimen-linked species identification, cultivar/media-diverse root-colony microscopy, tracked diagnostic video and matched causal root/canopy evidence. Sticky captures, inferred travel direction, canopy-only observations, unlinked organisms and unsupported clearance labels retain human-review restrictions. Agent review is not actual human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
