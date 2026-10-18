@@ -107,8 +107,14 @@ export const evidenceAugmentationsBySlug: Record<string, EvidenceAugmentation> =
     sources: [
       {
         title: 'First Report of Sclerotinia Crown Rot Caused by Sclerotinia minor on Hemp', organization: 'Plant Disease',
-        url: 'https://doi.org/10.1094/PDIS-01-19-0088-PDN', authors: ['S. T. Koike', 'H. Stanghellini', 'S. J. Mauzey', 'A. Burkhardt'], publisher: 'American Phytopathological Society', publicationDate: '2019-05-16', year: 2019, accessedDate: '2026-08-24', doi: '10.1094/PDIS-01-19-0088-PDN',
-        supportedClaims: ['Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.', 'The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label.'],
+        url: 'https://doi.org/10.1094/PDIS-01-19-0088-PDN', authors: ['S. T. Koike', 'H. Stanghellini', 'S. J. Mauzey', 'A. Burkhardt'], publisher: 'American Phytopathological Society', publicationDate: '2019-05-16', year: 2019, accessedDate: '2026-10-18', doi: '10.1094/PDIS-01-19-0088-PDN',
+        supportedClaims: [
+          'Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.',
+          'The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label.',
+          'The 2018 California field report documented necrotic crown tissue beneath the epidermis although roots appeared symptomless. Dataset inference: unremarkable root imagery alone cannot exclude this crown-rot presentation.',
+          'Sclerotia placed beside crowns of two-month-old potted hemp produced wilt and crown necrosis after two weeks; sterile-sand controls remained symptomless and reisolates matched the inoculum. This is an inoculation-assay interval, not a field infection clock.',
+          'Original and postinoculation cultures were identified by morphology and ITS1/ITS4 sequence comparison, with accessions MK356550 and MK356551; those reference accessions are not test results for a newly photographed plant.',
+        ],
       },
     ],
     patch: {

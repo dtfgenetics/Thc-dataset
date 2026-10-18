@@ -86,6 +86,7 @@
     "When safe and diagnostically appropriate, split a representative symptomatic stem longitudinally and photograph the pith and any internal sclerotia with scale, keeping it linked to exterior and whole-plant views.",
     "Submit an active lesion margin and representative sclerotia to a plant diagnostic laboratory for microscopy and culture; sample before disposal or a treatment obscures signs.",
     "Use validated molecular evidence to resolve Sclerotinia and species; the Oregon report combined ITS and G3PDH data with phylogeny, pathogenicity, symptom reproduction, and reisolation.",
+    "Photograph crown and roots separately, even when roots look symptomless. For inoculation series retain plant age, inoculum placement, elapsed time and controls. Link original and reisolated culture IDs to the sampled plant; published sequence accessions and a two-week assay response do not confirm a new case.",
     "Route symptom-only, detached, species-inferred, unlinked-laboratory, mixed-pathogen, low-resolution, rights-unclear, forum, vendor, stock, or generated images and videos to human review rather than confirmed ground truth."
   ],
   "immediateActions": [
@@ -199,11 +200,14 @@
       "publisher": "American Phytopathological Society",
       "publicationDate": "2019-05-16",
       "year": 2019,
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-18",
       "doi": "10.1094/PDIS-01-19-0088-PDN",
       "supportedClaims": [
         "Sclerotinia minor caused crown rot on field-grown hemp; foliage wilted and dried while the soil-contact crown developed white-to-gray mycelium and small irregular black sclerotia.",
-        "The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label."
+        "The crown-centered S. minor disease overlaps white-mold syndromes but requires organism-level confirmation rather than a canopy-only label.",
+        "The 2018 California field report documented necrotic crown tissue beneath the epidermis although roots appeared symptomless. Dataset inference: unremarkable root imagery alone cannot exclude this crown-rot presentation.",
+        "Sclerotia placed beside crowns of two-month-old potted hemp produced wilt and crown necrosis after two weeks; sterile-sand controls remained symptomless and reisolates matched the inoculum. This is an inoculation-assay interval, not a field infection clock.",
+        "Original and postinoculation cultures were identified by morphology and ITS1/ITS4 sequence comparison, with accessions MK356550 and MK356551; those reference accessions are not test results for a newly photographed plant."
       ]
     }
   ],

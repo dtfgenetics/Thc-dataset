@@ -1,0 +1,42 @@
+{
+  "base_commit": "4fad2c7a5b1737cd2683b0953ab68f7cba92dbc9",
+  "branch": "work/grow-doc/GD-DIAG-001/sclerotinia-crown-context-20261018",
+  "changed_paths": [
+    "data/profiles/fungal-sclerotinia-white-mold.json",
+    "src/data/evidence-augmentations.ts",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "sclerotinia-crown-context-20261018",
+  "head_commit": "e7479fbbde1ca7441aeeb205b225d14ad73c0cb4",
+  "lane": "diagnostic",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/catalog-coverage-expansion.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 UTC inspected fresh main, recent contributions, repository instructions, diagnostic quality standard, task registry, schemas, exported profiles, validators and CI. Selected white mold/crown rot among thinner fungal profiles (16 mapped claims before batch). Added three mappings to the existing Koike et al. Sclerotinia minor primary citation: necrotic crowns despite apparently symptomless roots, study-bounded two-week inoculation response with sterile-sand controls and matched reisolation, and original versus postinoculation ITS1/ITS4 culture evidence and accessions. Added one crown/root and assay-capture safeguard. Primary publisher indexed full text and metadata were retrieved by search; direct publisher opening returned HTTP 403 and no access restriction was bypassed. The National Agricultural Library-supplied FAO AGRIS reproduction at https://agris.fao.org/search/en/providers/122535/records/65df34850f3e94b9e5d608a4 independently reproduced the relevant report text and identifiers. Kept the original DOI identity, title, authors, publisher and 2019-05-16 publication date; refreshed access date. Annotation inferences are explicit and do not establish a universal symptom-free-root rule, incubation clock, assay specificity, or diagnosis of a new sample. Only fungal-sclerotinia-white-mold changed among 63 exported profiles, only sources and confirmation within it. Existing plant parts, leaf/canopy context, progression, morphology, look-alikes, exclusions, confidence ceiling and all media metadata/permissions preserved. No new source identity, image/video reference, downloaded or committed media, license or training permission. Totals remain 206 sources, 92 profile media, 36 originals, 68 crops and zero training-eligible media. Existing isolated worktree reused, preserving unrelated local files and the prior blocked draft. Baseline 293 application tests passed. All 68 local commands passed: 62 validators, 293 application tests, 103 Python tests, type check, build, artifact verifier and diff check; five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV/export consistency, identifiers, duplicate and label checks, URL syntax/source identity, claim links and candidate leakage passed. Current source text was verified through the indexed primary and institutional records, but historical media URLs were not all independently revalidated. Two serial freeze locks matched and synchronized provenance pins for 191 text rows without a model run. PHP is unavailable locally; exact-head hosted workflows including PHP lint must pass before integration. Receipt canonical paths generated from Git; exports/tests/pins separately listed. Operational claim excluded and released after merge. No production deployment. Remaining gaps: reusable Cannabis image rights, plant-linked paired crown/root views, controlled same-plant progression, diagnostic video and independent specimen-level confirmation. Symptom-only, species-inferred, reference-accession-only, assay-age-inferred, unlinked, mixed-organism and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory sample confirmation.",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-01-19-0088-PDN"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
