@@ -1,0 +1,41 @@
+{
+  "base_commit": "0e6a07ddd96bf74a11ebdf0b20bafd7bfb451731",
+  "branch": "work/grow-doc/GD-DIAG-001/aphid-capture-20261018",
+  "changed_paths": [
+    "data/profiles/pest-cannabis-aphid.json",
+    "src/data/supplemental-issues.ts"
+  ],
+  "contribution_id": "aphid-capture-20261018",
+  "head_commit": "d10b7bbd27ffa4d929b9dca1f52ef246a52a8c9e",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2023.1223894"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 inspected current main, recent merges, repository structure, instructions, diagnostic standard, schemas, source/media interfaces, task contract, inventory and validation commands before editing. Selected cannabis aphid, among the weaker Insect profiles at 17 mapped claims. Enriched the existing Frontiers primary citation with two study-bounded mappings (19 profile claims total) and one capture safeguard distinguishing life-history monitoring from winged settling and undisturbed colony growth. Full publisher text retrieved at https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2023.1223894/full, including methods sections on plant sources, whole-plant performance and preference. Source title, authors, publisher, DOI and publication date retained; access date refreshed. Genotype, host age, leaf surface, cage context, aphid form, release timing and deliberate removals must remain tied to the actual assay; annotation inferences are not field thresholds or species identification. Only pest-cannabis-aphid changed across all 63 exported profiles, within sources and confirmation. Existing affected parts, leaf-age and colony context, morphology, distribution, temporal behavior, confounders, exclusion checks, specimen-level identification and photo-only ceiling 0.35 unchanged. No new source identity, media reference, binary, license, permission or ground-truth promotion. Existing egg and mixed-panel image rights and training-ineligible status preserved; no permission or sample metadata borrowed from this separate study. The taxonomy DOI was inaccessible through the research reader, but no new claim relies on it. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline and targeted tests passed 293 application tests. All 68 local validation commands passed: 62 validators, type check, application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. Repository gates checked JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, label consistency, URL syntax/source identity, source-to-claim links and candidate leakage. Historical URLs were not all independently revisited; no new media URL or reuse rights asserted. Two serial freezes matched actual provenance and synchronized byte-level pins for the 191-row text mixture; no model training or inference. Final suite including receipt and all hosted exact-head workflows required before squash integration, including PHP lint and live base freshness. Isolated worktree reused under using-git-worktrees and verification-before-completion gates publication. Unrelated local work and the blocked Botrytis draft preserved. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: paired specimen-linked colony/individual microscopy and diagnostic video, naturally progressing multi-cultivar field cohorts and panel-resolved training admission. Alate-only, unlinked-colony, undocumented handling, uncertain genotype and unsupported causal/species labels retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

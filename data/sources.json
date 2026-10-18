@@ -2539,12 +2539,14 @@
     ],
     "publicationDate": "2023-10-17",
     "year": 2023,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-18",
     "doi": "10.3389/fpls.2023.1223894",
     "supportedClaims": [
       "Phorodon cannabis is a Cannabis-adapted aphid and was studied directly on Cannabis sativa hemp in whole-plant assays.",
       "Aphid performance differed between the tested high- and low-cannabinoid cultivars in whole-plant assays, so cultivar-specific performance cannot be converted into a universal visual severity rule.",
-      "Aphid feeding changed measured defense-related phytohormones, but the study did not validate yellowing, curling, cannabinoid content, or any other plant-only feature as species-level ground truth."
+      "Aphid feeding changed measured defense-related phytohormones, but the study did not validate yellowing, curling, cannabinoid content, or any other plant-only feature as species-level ground truth.",
+      "The life-history assay used clip cages beneath the third or fourth leaf of five-week-old Unicorn and Tiborszallasi plants; adults and later offspring were deliberately removed during the protocol. Dataset inference: those managed counts are not an undisturbed colony-expansion time series.",
+      "The settling assay instead compared three-week-old Unicorn and Elite plants after release of 50 winged aphids and observations through 72 hours; Elite replaced unavailable Tiborszallasi seed. Cultivar pair, host age, aphid form and settling endpoint must not be borrowed from the life-history assay or treated as a field-colonization threshold."
     ]
   },
   {
