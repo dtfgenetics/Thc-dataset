@@ -14033,6 +14033,7 @@
       "Preserve intact apterous adults and representative alates in a manner suitable for entomological identification; do not rely on color, a single nymph, or a low-resolution sticky-card silhouette.",
       "Use a qualified entomologist and appropriate morphological keys or validated molecular identification when a species-level Rhopalosiphum rufiabdominale label is required.",
       "For serial video or repeat photographs, retain elapsed time, root-zone temperature, living-host continuity, inspected root area, and matched plant identity; do not assign elapsed time or expected population growth from body appearance alone.",
+      "For harvested plants, link remaining roots to the original plant and record cutting date and living-root condition. For monitoring bands, retain stem height, installation/removal dates and crop identity; require continuous tracked movement for a direction label and direct root inspection for an active colony label.",
       "Inspect leaf undersides, petioles, and stems for sustained cannabis-aphid colonies, and compare fungus-gnat adults and larvae when flyers are the initial cue.",
       "Assess root color, firmness, odor, oxygen/moisture status, pH, EC, root restriction, and representative pathogen or nematode samples independently; finding aphids does not prove they caused every root or canopy symptom.",
       "Keep canopy-only, damage-only, sticky-card-only, alate-only, organism-only, unlinked-root, mixed-arthropod, low-resolution, stock, vendor, generated, anecdotal, forum, and unverified observations out of the confirmed class and route them to human review."
@@ -14078,7 +14079,7 @@
         "publisher": "Oxford University Press on behalf of the Entomological Society of America",
         "publicationDate": "2020-07-20",
         "year": 2020,
-        "accessedDate": "2026-08-23",
+        "accessedDate": "2026-10-18",
         "doi": "10.1093/jipm/pmaa008",
         "supportedClaims": [
           "Indoor Cannabis sativa has emerged as a common North American host of rice root aphid, Rhopalosiphum rufiabdominale.",
@@ -14086,7 +14087,9 @@
           "In indoor Cannabis the aphid is almost entirely root-associated; alate females can emerge from soil especially during flowering and near maturity, colonize new plants, and produce young on stems or foliage before most offspring migrate downward.",
           "Dead alates trapped on upper-leaf hairs can be an early facility-level cue, but a sticky-card or canopy alate is not plant-linked confirmation of a root colony.",
           "Heavy Cannabis infestations were associated with generalized decline, slower growth, and possible lower-leaf off-coloration, none of which is unique to rice root aphid.",
-          "The article explicitly states that a Cannabis association with increased pathogen susceptibility still requires confirmation; root discoloration or decay must therefore be diagnosed independently."
+          "The article explicitly states that a Cannabis association with increased pathogen susceptibility still requires confirmation; root discoloration or decay must therefore be diagnosed independently.",
+          "The authors observed large numbers of aphids continuing to develop and emerge from Cannabis plants cut for harvest when roots remained intact; harvest is not evidence of pest absence, and the observation supplies no universal persistence or clearance interval.",
+          "The article describes lower-stem sticky bands capturing aphids moving upward after soil emergence and downward after brief above-ground colonization. Dataset inference: a trapped individual in a still image does not establish its direction of travel or identify a root colony."
         ]
       },
       {
