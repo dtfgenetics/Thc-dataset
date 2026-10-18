@@ -1285,15 +1285,17 @@
       "Christine D. Smart"
     ],
     "publisher": "American Phytopathological Society",
-    "publicationDate": "2023-05-01",
+    "publicationDate": "2023-05-16",
     "year": 2023,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-18",
     "doi": "10.1094/PDIS-08-22-1930-PDN",
     "supportedClaims": [
       "In an August 2020 Ithaca, New York field trial, downy-mildew-like symptoms affected leaves and inflorescences of multiple hemp cultivars, including Auto CBD.",
       "ITS and cox2 sequences were 100% identical to Pseudoperonospora cannabina references and ypt1 was 97.95% identical; the representative isolate was deposited as CUP-070922.",
       "Whole-plant pathogenicity testing used ten four-week-old Anka plants and water controls; sporangia and the previously described symptoms occurred seven days after inoculation, controls remained asymptomatic, and the reisolate was confirmed by morphology plus ITS, cox2, and ypt1 sequencing.",
-      "The New York report establishes Pseudoperonospora cannabina as a causal oomycete on Cannabis, but field symptoms or dark underside material alone are not equivalent to its morpho-molecular confirmation."
+      "The New York report establishes Pseudoperonospora cannabina as a causal oomycete on Cannabis, but field symptoms or dark underside material alone are not equivalent to its morpho-molecular confirmation.",
+      "Anka plants were sprayed to runoff with 10,000 sporangia/mL, held at 19 degrees C with a 12-hour photoperiod, and misted for 30 minutes twice daily to maintain humidity above 80%. The seven-day result belongs to this assay, not a universal field timeline.",
+      "The pathogen was recovered onto detached Anka leaves, where sporangia and oospores were observed, then confirmed by morphology and ITS, cox2 and ypt1 sequencing. This was host-tissue recovery, not axenic agar culture."
     ]
   },
   {
@@ -1335,9 +1337,9 @@
       "Christine D. Smart"
     ],
     "publisher": "American Phytopathological Society",
-    "publicationDate": "2026-03-29",
+    "publicationDate": "2026-09-08",
     "year": 2026,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-18",
     "doi": "10.1094/PDIS-09-25-1916-RE",
     "supportedClaims": [
       "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides and can be associated with leaf curling, defoliation, and yield loss.",

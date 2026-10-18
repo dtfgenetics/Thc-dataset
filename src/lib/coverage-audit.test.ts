@@ -586,6 +586,17 @@ describe('diagnostic coverage audit', () => {
     const record = issues.find((issue) => issue.slug === 'downy-mildew-pseudoperonospora')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    const firstReport = record?.sources.find((source) => source.doi === '10.1094/PDIS-08-22-1930-PDN')!
+    const resistance = record?.sources.find((source) => source.doi === '10.1094/PDIS-09-25-1916-RE')!
+    expect(firstReport.accessedDate).toBe('2026-10-18')
+    expect(firstReport.publicationDate).toBe('2023-05-16')
+    expect(firstReport.supportedClaims).toHaveLength(6)
+    expect(firstReport.supportedClaims.join(' ')).toContain('19 degrees C')
+    expect(firstReport.supportedClaims.join(' ')).toContain('not axenic agar culture')
+    expect(resistance.publicationDate).toBe('2026-09-08')
+    expect(resistance.accessedDate).toBe('2026-10-18')
+    expect(confirmation).toContain('inoculum concentration rather than a measured deposited dose')
+    expect(confirmation).toContain('host-tissue recovery substrate')
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.35)
