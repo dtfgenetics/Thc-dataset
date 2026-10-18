@@ -82,6 +82,7 @@
     "Hop latent viroid or another systemic decline syndrome"
   ],
   "confirmation": [
+    "Keep SPAD readings linked to the measured leaf position and instrument protocol, and keep destructive leaf relative-water-content assays linked to sample identity and collection time. Neither assay substitutes for substrate-water or dissolved-oxygen measurement, and neither can be reconstructed from an uncalibrated photograph.",
     "Do not confirm overwatering, waterlogging, or root-zone hypoxia from droop, yellowing, brown roots, slow growth, one photograph, or one video.",
     "Document irrigation volume and timing, shot size and frequency, drainage duration, runoff, standing water, container mass, and calibrated substrate-water content across multiple wetting and dryback cycles.",
     "Capture serial whole-plant, upper/middle/lower-canopy, leaf-surface, container, drain, root-crown, and cleaned-root views with scale, neutral lighting, leaf age, and a matched healthy same-cultivar control.",
@@ -129,7 +130,7 @@
       "publisher": "University of Agricultural Sciences and Veterinary Medicine Cluj-Napoca",
       "publicationDate": "2025-12-23",
       "year": 2025,
-      "accessedDate": "2026-10-14",
+      "accessedDate": "2026-10-18",
       "doi": "10.15835/nbha53414864",
       "supportedClaims": [
         "In a controlled Cannabis sativa cv. G1 experiment, waterlogging was imposed by standing potted plants in a two-centimetre sheet of water; diagnosis therefore depended on verified root-zone exposure rather than canopy appearance alone.",
@@ -137,7 +138,10 @@
         "During reproductive-stage exposure, waterlogging reduced leaf-area index, root and shoot biomass, stomatal conductance, relative chlorophyll content, and photosystem-II efficiency as duration increased, but responses varied with stage and duration.",
         "Water shortage produced overlapping reductions in several above-ground measurements, so reduced canopy growth or greenness cannot distinguish excess water from insufficient water without root-zone measurements.",
         "Figure 2 plots reproductive-stage relative water content, membrane-stability index, and leaf-area index for control, water-shortage, and waterlogging treatments at 7, 14, and 21 days; it is a treatment-response diagram rather than a visible symptom image.",
-        "Figure 4 plots stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching for the same reproductive-stage treatment durations; its instrument-derived values cannot establish an image-only diagnosis."
+        "Figure 4 plots stomatal conductance, relative chlorophyll content, photosystem-II quantum yield, and non-photochemical quenching for the same reproductive-stage treatment durations; its instrument-derived values cannot establish an image-only diagnosis.",
+        "The chlorophyll protocol sampled three fully extended petiolate leaves in the middle third of the canopy and averaged ten SPAD readings per plant; these are leaf-position-specific instrument readings, not camera greenness measurements.",
+        "Reproductive-stage relative water content used two fully expanded middle-canopy leaves and fresh, turgid after 24-hour hydration, and dry weights; this destructive leaf assay is not a measurement of substrate moisture or root-zone oxygen.",
+        "The abstract repeats 17.2 cm for both control and waterlogged root length, whereas Results and Table 1 give 30.3 cm for control and 17.2 cm for waterlogging at the vegetative stress endpoint. Flag this internal conflict for human review; neither value is a universal diagnostic threshold."
       ]
     },
     {
