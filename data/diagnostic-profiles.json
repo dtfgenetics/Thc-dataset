@@ -1667,6 +1667,7 @@
       "Submit tissue spanning healthy and advancing lesion margins; recover and document a dominant compatible fungus while retaining mixed-organism results rather than selecting the closest visual class.",
       "Use lesion-linked fungal morphology and validated molecular evidence for a Bipolaris organism label; preserve loci, sequence quality, database/version, and isolate identifiers.",
       "Require validated multilocus evidence when exact B. gigantea placement or genotype-level interpretation matters; ITS-only, single-locus, morphology-only, and image-only evidence remain provisional.",
+      "For research ploidy annotations, retain isolate-linked RPB2, TEF1 and MAT1 results separately from lesion images; record sequencing platform and assembly program with genome size. Keep apparent heteroploidy qualified rather than assigning it from lesion severity or an assembly-size cutoff.",
       "When causality matters, require symptom reproduction, recovery of the same organism, and symptomless appropriate controls; nearby weed isolates alone do not establish source or transmission direction.",
       "Keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, ITS-only, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and unverified samples out of the confirmed class and route them to human review."
     ],
@@ -1762,13 +1763,15 @@
         "publisher": "Taylor & Francis on behalf of the Mycological Society of America",
         "publicationDate": "2023-07-18",
         "year": 2023,
-        "accessedDate": "2026-08-21",
+        "accessedDate": "2026-10-18",
         "doi": "10.1080/00275514.2023.2224699",
         "supportedClaims": [
           "The study examined Bipolaris gigantea isolates from hemp leaf-spot lesions and nearby weeds collected across 11 Kentucky counties.",
           "Twenty-three isolates were analyzed by multilocus phylogenetics and seven were also whole-genome sequenced, revealing multiple genotypes and both haploid and apparently heteroploid isolates.",
           "Haploid and heteroploid isolates caused similar disease on hemp, so lesion appearance cannot resolve ploidy, genotype, or the source host.",
-          "Species- and genotype-level labels therefore require lesion-linked laboratory evidence; a symptom photograph or single recovered isolate cannot establish population structure or transmission direction."
+          "Species- and genotype-level labels therefore require lesion-linked laboratory evidence; a symptom photograph or single recovered isolate cannot establish population structure or transmission direction.",
+          "In the 23-isolate study, 13 haploids had one RPB2 and TEF1 allele each and one MAT1 idiomorph; 10 apparent heteroploids had two alleles at each locus and both idiomorphs. These are laboratory observations, not visual diagnostic characters.",
+          "Genome assemblies from four haploids were 30 to 32 Mb; three heteroploids assembled 10 to 31 Mb larger, depending on sequencing platform and assembly program. Assembly size is method-dependent evidence, not a universal ploidy cutoff."
         ]
       },
       {

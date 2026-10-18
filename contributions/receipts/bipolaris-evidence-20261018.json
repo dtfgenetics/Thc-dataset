@@ -1,0 +1,41 @@
+{
+  "base_commit": "4405b2c5c2d540e20da039b07d152a98bf0609e3",
+  "branch": "work/grow-doc/GD-DIAG-001/bipolaris-evidence-20261018",
+  "changed_paths": [
+    "data/profiles/fungal-bipolaris-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "bipolaris-evidence-20261018",
+  "head_commit": "718c7bfde53717177a55c853535b10965ad4d928",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1080/00275514.2023.2224699"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 inspected fresh main, recent merges, repository instructions and structure, diagnostic standard, schemas, source/media interfaces, task claims, coverage and validation commands before editing. Selected Bipolaris leaf spot, among the shallower fungal profiles at 17 mapped claims; enriched one existing primary citation with two mappings (19 profile claims total) and one research-annotation safeguard. Primary abstract and bibliographic metadata were freshly retrieved at https://pubmed.ncbi.nlm.nih.gov/37463242/; publisher full text and DOI reader returned access errors, so no new methods, figure, pathogenicity-timing or licensing claim relies on inaccessible full text. Existing DOI, title, authors, publisher and publication date retained; access date refreshed. Allele patterns and method-dependent assembly sizes remain study-specific laboratory findings, not visual characters, universal cutoffs or confirmed ploidy for dataset samples. The instruction to keep marker/platform/assembly provenance separate from images is a bounded annotation inference from those findings. Only fungal-bipolaris-leaf-spot changed among all 63 exported profiles, within confirmation and sources; existing affected tissue, leaf age, canopy position, morphology, progression, exclusions, confounders and 0.3 photo-only ceiling remain unchanged. No new source identity, media reference, binary, license, permission or ground-truth promotion. Existing UF/IFAS image rights and training-ineligible status preserved without asserting fresh asset inspection or new reuse permission. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. Initial added assertions were accidentally placed in the rice-root-aphid test; exact failure and diff identified the misplaced block, which was moved to the Bipolaris test. Corrected full application suite and candidate-leakage audit passed before freezing. All 68 local commands passed: 62 validators, type check, application tests, build, 103 Python tests, artifact verifier and diff check. Five additional artifact/evaluator self-tests passed. Gates checked syntax, CSV/export consistency, identifiers, duplicates, labels, URL syntax/source identity and source-to-claim links; historical URLs were not all independently revisited. Two serial freezes matched the full actual artifact lock and synchronized byte-level pins for the 191-row text mixture; no model training or inference. Final suite including this receipt and all hosted exact-head workflows are required before squash integration, including PHP lint and live base freshness. Worktree isolation and verification-before-completion skills gate publication; systematic-debugging identified the misplaced test assertion. Unrelated work and blocked Botrytis draft preserved. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: specimen-linked culture/microscopy/molecular evidence, matched leaf-age and canopy progression video, and rights-cleared training samples. Image-only, mixed-pathogen, unlinked-isolate, single-locus and unsupported ploidy labels remain flagged for human review. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
