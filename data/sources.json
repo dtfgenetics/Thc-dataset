@@ -1360,7 +1360,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-02-23",
     "year": 2020,
-    "accessedDate": "2026-10-16",
+    "accessedDate": "2026-10-18",
     "doi": "10.1094/PDIS-10-19-2216-PDN",
     "supportedClaims": [
       "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
@@ -1370,7 +1370,9 @@
       "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval.",
       "Isolate 18JK001 was identified using ACT, CHS-1, GAPDH, and TUB2 sequences deposited as MN544294, MN544295, MN544296, and MN544297, respectively; the reported four-locus confirmation did not use ITS.",
       "Whole four-week-old Georgina plants were spray-inoculated and maintained in a greenhouse: first small lesions appeared within seven days, characteristic spots occurred on all inoculated plants by fourteen days, the fungus was reisolated, and noninoculated controls remained symptomless. These assay observations are not a universal field incubation period.",
-      "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test."
+      "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test.",
+      "The original field account reports about 20% severity on mature leaves and 100% plant incidence. These describe different observation units in one field; the note supplies no image-segmentation scoring protocol, and neither number is a universal severity threshold or a percentage to assign to a new photograph.",
+      "PDA colonies were gray and flat with a white border and aerial mycelia above, but bright pink-to-red pigment in the medium on the reverse. Dataset inference: top and reverse culture views need explicit orientation and isolate linkage; that pigment is not a described field-leaf feature or a species test."
     ]
   },
   {

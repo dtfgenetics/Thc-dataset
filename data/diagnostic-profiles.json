@@ -1473,6 +1473,7 @@
       "Collect multiple fresh lesions spanning intact early margins to developing centers before saprophytes obscure the lesion edge, following the receiving laboratory's packaging instructions.",
       "Use lesion-edge culture and trained morphological examination to recover a dominant compatible Colletotrichum isolate, while recording other organisms recovered from the same tissue.",
       "Keep culture photographs separate from field-leaf photographs: preserve lesion, isolate, medium, incubation, and capture identifiers. Orange exudate after three weeks on PDA in the report is culture context, not a required camera-visible sign on the plant.",
+      "Pair top and reverse culture views from the same identified plate and label their orientation. For field comparisons, record the plant-incidence denominator separately from leaf severity and its scoring method; leave unmeasured percentages unknown rather than estimating the published values from color or lesion count.",
       "For look-alike review, pair scaled lesion-center macros with both leaf surfaces and a full-leaf view. Distinguish hair-like surface conidiophores from compact raised pycnidia through qualified microscopy, and retain the lesion-linked laboratory identification.",
       "For C. fioriniae-level confirmation, require plant-linked multilocus sequence evidence comparable to the four-gene approach in the first report; do not assign the species from color, ITS alone, or a generic Colletotrichum image.",
       "Retain lesion-to-isolate identity, locus names, sequence accessions and qualified comparison results; the reference isolate 18JK001 used ACT/CHS-1/GAPDH/TUB2, not an ITS-only or unnamed four-sequence panel.",
@@ -1522,7 +1523,7 @@
         "publisher": "American Phytopathological Society",
         "publicationDate": "2020-02-23",
         "year": 2020,
-        "accessedDate": "2026-10-16",
+        "accessedDate": "2026-10-18",
         "doi": "10.1094/PDIS-10-19-2216-PDN",
         "supportedClaims": [
           "Hemp anthracnose lesions began as light-green specks and developed into 3 to 4 mm round or angular spots with tan centers, darker brown margins, and yellow halos; centers could crack or drop out and lesions could coalesce.",
@@ -1532,7 +1533,9 @@
           "Lesion-derived cultures on PDA developed orange acervular exudate after three weeks. That culture observation does not establish orange sporulation as a required field-leaf feature or three weeks as the plant infection-to-symptom interval.",
           "Isolate 18JK001 was identified using ACT, CHS-1, GAPDH, and TUB2 sequences deposited as MN544294, MN544295, MN544296, and MN544297, respectively; the reported four-locus confirmation did not use ITS.",
           "Whole four-week-old Georgina plants were spray-inoculated and maintained in a greenhouse: first small lesions appeared within seven days, characteristic spots occurred on all inoculated plants by fourteen days, the fungus was reisolated, and noninoculated controls remained symptomless. These assay observations are not a universal field incubation period.",
-          "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test."
+          "Conidia from two-week-old clarified-V8 cultures were hyaline, aseptate, and mostly fusiform with pointed ends; setae were not observed. Dataset annotation inference: absence of visible setae does not by itself exclude this reported Cannabis anthracnose presentation, and culture microscopy is not a phone-image species test.",
+          "The original field account reports about 20% severity on mature leaves and 100% plant incidence. These describe different observation units in one field; the note supplies no image-segmentation scoring protocol, and neither number is a universal severity threshold or a percentage to assign to a new photograph.",
+          "PDA colonies were gray and flat with a white border and aerial mycelia above, but bright pink-to-red pigment in the medium on the reverse. Dataset inference: top and reverse culture views need explicit orientation and isolate linkage; that pigment is not a described field-leaf feature or a species test."
         ]
       },
       {
