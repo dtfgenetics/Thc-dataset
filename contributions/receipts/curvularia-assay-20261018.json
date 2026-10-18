@@ -1,0 +1,44 @@
+{
+  "base_commit": "5adc4fe8f5e357b87d95498774838f5f10e48bbb",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-assay-20261018",
+  "changed_paths": [
+    "data/profiles/fungal-curvularia-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "curvularia-assay-20261018",
+  "head_commit": "6d660fb3663de5c755b9639a40a0da830fbeb5cf",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-03-20-0546-PDN",
+    "https://doi.org/10.32473/edis-pp379-2024"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent review on 2026-10-18 inspected fresh main, recent batches, instructions, structure, task contract, diagnostic quality standard, source/media interfaces, receipt schema, validation scripts and current profile inventory before editing. Selected Curvularia, among the weakest fungal profiles at 13 mapped claims. Enriched its existing primary citation with two explicit study-bounded mappings (15 profile mappings total) and one capture safeguard separating suspension concentration, delivered exposure and reported control composition. These annotation inferences do not reject the reported pathogenicity result or establish a new dose threshold. Retrieved indexed primary publisher text at https://apsjournals.apsnet.org/doi/10.1094/PDIS-03-20-0546-PDN; direct retrieval returned 403 and was not bypassed. Refreshed that citation's access date while retaining title, authors, publisher, DOI and publication date. Retrieved the UF/IFAS guide and opened its Figure 4 asset at the existing URL; added one limitation to the existing media record so unknown leaf age, canopy position and capture date are not borrowed from separate experiments. No new source identity, media reference, media binary, license, permission or ground-truth promotion. Existing CC BY-NC-ND limitations and not-permitted automated training/evaluation retained; no current rights expansion asserted. Only fungal-curvularia-leaf-spot changed across all 63 exported profiles, within sources, confirmation and media useLimitations. Symptoms, affected parts, leaf-age descriptions, distribution, progression, differential exclusions, specimen-linked multilocus confirmation and photo-only ceiling 0.20 unchanged. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline and updated tests passed 293 application tests. All 68 local commands passed: 62 validators, type check, application tests, build, 103 Python tests, artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. Repository checks cover JSON/JSONL syntax, CSV/export consistency, identifier and duplicate detection, label consistency, URL syntax/source identity and claim links; historical URLs were not all independently revisited. Candidate leakage passed. Two serial freezes matched with updated provenance pins for the 191-row text mixture; no model training or inference performed. Final suite including receipt and all exact-head hosted workflows required before squash integration, including PHP lint and live base freshness. Isolated checkout reused with using-git-worktrees, and verification-before-completion gates publication. Unrelated local files and blocked Botrytis draft preserved and excluded. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: specimen-linked paired leaf surfaces, calibrated microscopy, isolate/locus mapping, independently documented vehicle composition and delivered exposure, known leaf age and timed image/video progression. Incomplete samples retain human-review restrictions; agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

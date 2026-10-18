@@ -2510,6 +2510,7 @@
       "Capture calibrated microscopy of lesion-linked cultures with scale bars, conidial length and width, septation, middle-cell pigmentation, conidiophore origin and measurement count. Keep the reported 25-conidium size range as study context, not an identification threshold.",
       "Link plant, tagged lesion, culture and sequence IDs at each locus; retain chromatograms or laboratory reports and accession-to-isolate mapping. Do not manufacture individual mappings from the published grouped GenBank ranges, especially for divergent isolate 19-405.",
       "When causality is required, retain symptom reproduction, reisolation, and negative controls linked to the isolate; organism detection alone does not prove that every visible lesion was caused by it.",
+      "For inoculation-image sequences, retain suspension concentration, any measured delivered volume, runoff endpoint, formulation, control composition and plant identity separately. Mark missing deposited dose or surfactant matching as unreported, not zero or experimentally matched.",
       "Keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and route unresolved evidence to review."
     ],
     "immediateActions": [
@@ -2552,7 +2553,7 @@
         "publisher": "American Phytopathological Society",
         "publicationDate": "2020-10-07",
         "year": 2020,
-        "accessedDate": "2026-10-16",
+        "accessedDate": "2026-10-18",
         "doi": "10.1094/PDIS-03-20-0546-PDN",
         "supportedClaims": [
           "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
@@ -2564,7 +2565,9 @@
           "The pathogenicity assay used 100,000 spores/mL in 0.01% Tween 20 and bagged inoculated plants for 72 hours; sterile-water controls received the same conditions. The two-week symptom observation is an assay endpoint, not a field incubation or video-progression standard.",
           "Initial isolation used surface-disinfested leaf tissue on general isolation medium at 25 degrees C with a 12-hour light/12-hour dark cycle. These are laboratory culture conditions, not demonstrated field infection requirements.",
           "Field varieties included Pumma-2, Eletta Campana, Carmagnola Selezionata and Tygra; the inoculation test used Puma-3. Preserve those distinct reported names and settings rather than inferring a replicated cultivar-susceptibility ranking.",
-          "The authors cite prior reports on areca palm and goosegrass but propose goosegrass only as a possible alternative host. Dataset inference: nearby weeds or a shared host report do not establish the source of a photographed hemp infection."
+          "The authors cite prior reports on areca palm and goosegrass but propose goosegrass only as a possible alternative host. Dataset inference: nearby weeds or a shared host report do not establish the source of a photographed hemp infection.",
+          "The assay sprayed the suspension to runoff but reports no delivered volume per plant or leaf. Dataset inference: suspension concentration is not a measured deposited dose, and a leaf image cannot recover that missing exposure.",
+          "Inoculum was prepared in 0.01% Tween 20; controls are described as sterile-deionized-water sprays under the same conditions, without explicit surfactant matching. Dataset inference: record the reported water control, not an assumed vehicle-matched control; this reporting limit does not negate the reported symptom reproduction and reisolation."
         ]
       },
       {
@@ -2607,6 +2610,7 @@
           "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
           "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, and derivative preparation require additional permission.",
           "The asset lacks a scale, paired underside, whole-plant distribution, sampling, culture, microscopy, sequence, and pathogenicity linkage; do not infer species or causality from appearance.",
+          "Leaf age, canopy node and capture date are not supplied for this pictured leaf; do not inherit the field plant age or greenhouse inoculation endpoint from the separate primary report. One frame does not establish temporal progression.",
           "Automated training and evaluation use are not permitted by this record."
         ],
         "displayPermission": "permitted",
