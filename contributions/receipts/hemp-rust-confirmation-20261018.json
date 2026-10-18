@@ -1,0 +1,42 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "hemp-rust-confirmation-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "e35b9a4af3895b34c0486bf4256632d29c70c8fb",
+  "head_commit": "2f4033d28de7003e8b40dd4a555f412d3166b564",
+  "branch": "work/grow-doc/GD-DIAG-001/hemp-rust-confirmation-20261018",
+  "changed_paths": [
+    "src/data/expanded-issues.ts",
+    "data/profiles/fungal-hemp-rust.json"
+  ],
+  "related_release_paths": [
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://solutions.tennessee.edu/?view_pub_pdf=2571"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent evidence review on 2026-10-18 UTC inspected fresh main and recent batches, repository instructions, schemas, diagnostic standard, task claims, canonical records, tests, validators and CI. Hemp rust had the fewest source-mapped claims (nine) in the full current profile inventory. Enriched its existing Tennessee Extension W 916 citation with two mappings from page 5 and Table 2 with its uncertainty footnote; added one date/provenance confirmation safeguard, explicitly marked as dataset inference rather than validated diagnostic performance. Retrieved institutional PDF text at the canonical citation URL and corroborated the scope limits against UF/IFAS PP379. Existing seven authors and June 2020 date retained; footer W 916 06/20 checked. Access date refreshed. Only fungal-hemp-rust changed across all 63 exported profiles, and only sources and confirmation within that profile. Paired-surface visual cues, leaf/pustule progression, confounders, exclusions, specimen evidence requirements, provisional species interpretation, photo-only confidence ceiling and all media metadata were preserved. No new source identity, media, binary, license or permission. Totals remain 205 sources, 92 media references and zero training-eligible media. Existing isolated worktree reused under using-git-worktrees; unrelated local image work and the prior blocked Botrytis draft preserved and excluded. Baseline passed 292 application tests. Initial full run caught a stale access-date assertion; systematic-debugging reproduced the exact failure, updated only its expected date, and verified the focused test green. All 68 final local commands then passed: 62 validators, 292 application tests, 103 Python tests, type check, build, frozen-artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL, CSV/export, identifier, duplicate, label, source-claim and candidate-leakage gates passed. Two serial freezes matched current input provenance and synchronized 191-row text artifact pins without a model run. Historical URLs were not all independently revalidated. PHP unavailable locally; exact-head hosted workflows including PHP lint required before integration. Verification-before-completion gates publication. Operational task claim excluded from commits and released after merge. No production deployment. Remaining gaps: lesion-linked taxonomic/molecular specimens, cultivar-diverse serial image/video, infection timing, overwintering biology, field thresholds and independently reviewed training admission. Historical regional reports and likely spread routes do not establish an individual sample's infection date or source. Symptom-only, unmatched-surface, rights-unclear and causally unlinked captures retain review restrictions. Agent review is not actual human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
