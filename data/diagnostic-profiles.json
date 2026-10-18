@@ -14262,6 +14262,7 @@
       "Record each sampled leaf and shoot position before laboratory compositing. Distinguish the study's midvein/petiole composite from five to six leaves of one plant from a pool across plants; a plant-linked positive result does not prove every pictured leaf or broom cluster is infected.",
       "Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof.",
       "Link every image sequence, tissue submission, and assay result to the same marked plant and sampling event; do not assign a plant-level label from a pooled or neighboring-plant result.",
+      "Record nearby weed or crop hosts and leafhopper observations with dated field positions, but require independently linked testing before attributing a reservoir or transmission source. For image comparisons, retain leaf age, canopy position, paired surfaces and repeated plant identity; do not stitch the three institutional 2022 reference photographs into a progression sequence.",
       "Interpret a negative result only within the validated assay target, sampled tissue, sample quality, and collection time; it does not by itself establish pathogen freedom or prove a noninfectious cause."
     ],
     "immediateActions": [
@@ -14340,12 +14341,14 @@
         ],
         "publisher": "Oregon State University, Washington State University, and University of Idaho Extension",
         "year": 2026,
-        "accessedDate": "2026-10-08",
+        "accessedDate": "2026-10-18",
         "supportedClaims": [
           "Cannabis witches’ broom expression varies with the phytoplasma involved; typical plants are stunted with highly branched stems, axillary shoot proliferation, and small, distorted, chlorotic leaves.",
           "Phytoplasmas are leafhopper-transmitted, regional pathogen types vary, and vector presence or symptoms alone do not identify the phytoplasma involved.",
           "The handbook identifies beet leafhopper-transmitted virescence agent group VI as dominant in hemp including Oregon while noting that other phytoplasma types can occur; this regional statement is not a universal species assignment.",
-          "The three cannabis symptom photographs are credited to C. M. Ocamb, Oregon State University, 2022; the landing page states copyright but supplies no reuse license."
+          "The three cannabis symptom photographs are credited to C. M. Ocamb, Oregon State University, 2022; the landing page states copyright but supplies no reuse license.",
+          "The March 2026 handbook revision describes overwintering in weeds or other crop hosts and disease following leafhopper migration. Dataset inference: nearby hosts and migration history are exposure context, not evidence identifying the source, date or agent of an individual Cannabis infection.",
+          "The page captions separately identify cupped or curled leaves, yellow leaves and branch-tip meristem proliferation. It supplies no shared plant identifier, leaf age, paired-surface mapping, serial capture interval or item-linked molecular result; the three credited 2022 photographs are not an established progression sequence or species-confirmed image set."
         ]
       }
     ],
@@ -14367,7 +14370,9 @@
         "useLimitations": [
           "Reference-link metadata only; no image file is stored.",
           "Do not display, copy, modify, or train without documented permission.",
-          "Symptom association does not identify the phytoplasma or exclude mixed infection."
+          "Symptom association does not identify the phytoplasma or exclude mixed infection.",
+          "The caption identifies cupping, curling and deformation; it does not state leaf age, canopy position or a matched upper/lower surface pair. Do not assign young-leaf onset or side-specific distribution from this reference.",
+          "The 2022 credit is not a dated longitudinal series. No shared plant identifier or item-linked molecular result connects this photograph to the yellow-leaf or branch-tip references; retain separate reference records, not a progression or confirmed-species sample."
         ],
         "displayPermission": "unknown",
         "reviewStatus": "license-review",
@@ -14399,7 +14404,9 @@
         "useLimitations": [
           "Reference-link metadata only; no image file is stored.",
           "Do not display, copy, modify, or train without documented permission.",
-          "Detached leaves omit canopy distribution; yellowing alone is not diagnostic."
+          "Detached leaves omit canopy distribution; yellowing alone is not diagnostic.",
+          "The caption identifies yellow coloration but supplies no leaf age, canopy position, paired-surface mapping, neutral color reference or exposure metadata. Do not infer an older-leaf-first nutrient pattern, calibrated color severity or pathogen-specific chlorosis.",
+          "The 2022 credit supplies no symptom-onset date or elapsed interval. No shared plant identifier or item-linked molecular result links this view to the curled-leaf or branch-tip references; do not rank these photographs as stages of one infection."
         ],
         "displayPermission": "unknown",
         "reviewStatus": "license-review",
@@ -14431,7 +14438,9 @@
         "useLimitations": [
           "Reference-link metadata only; no image file is stored.",
           "Do not display, copy, modify, or train without documented permission.",
-          "Architecture can overlap with training response, BCTV, Spiroplasma, and mixed infection."
+          "Architecture can overlap with training response, BCTV, Spiroplasma, and mixed infection.",
+          "The caption localizes meristem proliferation to a branch tip, not a measured whole-plant branching distribution. Crop stage, pruning history and an earlier same-tip comparison are not provided; do not infer spontaneous onset or a rate of shoot proliferation.",
+          "The 2022 credit does not establish temporal order. No shared plant identifier or item-linked molecular result connects the branch tip to either leaf reference; architectural association remains distinct from pathogen identity and causation."
         ],
         "displayPermission": "unknown",
         "reviewStatus": "license-review",

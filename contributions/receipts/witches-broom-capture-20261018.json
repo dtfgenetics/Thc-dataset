@@ -1,0 +1,42 @@
+{
+  "base_commit": "bd1e008a7ee87cfad6012c5cafebc69b942767a4",
+  "branch": "work/grow-doc/GD-DIAG-001/witches-broom-capture-20261018",
+  "changed_paths": [
+    "data/profiles/phytoplasma-hemp-witches-broom.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "witches-broom-capture-20261018",
+  "head_commit": "bd8baf6176999d652aef3c04f77767094a4a2d30",
+  "lane": "diagnostic",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "scope_note": "Agent review on 2026-10-18 UTC inspected current main, recent contributions, schemas, diagnostic quality instructions, task registry, validators, tests and CI. Selected the phytoplasma witches-broom profile among the weakest mapped-claim coverage (13 before batch). Reopened and independently searched the institutional PNW handbook, latest revision March 2026, and reviewed its three caption/credit records and copyright statement. Added two source-claim mappings: overwintering/migration as exposure context rather than inferred individual transmission, and caption-level evidence limitations. Added one confirmation safeguard and enriched useLimitations in three existing restricted reference records for missing leaf-age, canopy, paired-surface, color-calibration, pruning-history, shared-plant, temporal and item-linked molecular evidence. These are source-metadata and annotation reviews, not a new visual inspection, actual human/expert review, laboratory confirmation or validated visual classifier. Only phytoplasma-hemp-witches-broom changed among 63 exported profiles; only confirmation, sources and media limitations within it. Existing source identity, authorship, publisher, year, original asset URLs, landing-page links, creators, licenses, attribution, diagnostic labels, shot types, hashes, dimensions, confirmation fields, rights restrictions and confidence ceiling preserved. No media downloaded, copied or committed; no new media, license or training permission. Totals remain 206 sources, 92 reference media, 36 originals, 68 crops and zero training-eligible media. Existing isolated worktree reused; unrelated local files and earlier blocked draft preserved and excluded. Baseline 292 application tests passed; all 68 final local commands passed (62 validators, 293 application tests, 103 Python tests, type check, build, frozen artifact verifier and diff check), plus five supplemental artifact/evaluator self-tests. JSON/JSONL and CSV/export consistency, identifiers, duplicate and label checks, URL syntax/source identity, claim links and candidate leakage passed. Source landing page freshly verified; unchanged historical asset URLs were not all independently revalidated. Two serial freezes matched current input and synchronized provenance pins for 191 text rows without a model run. A one-off comparison reader exceeded Node's default output buffer; increasing that audit command's buffer allowed the full baseline comparison, without repository code changes. PHP is unavailable locally, so hosted exact-head CI including PHP lint is required before merge. Receipt canonical paths are generated from Git; derived exports/tests/pins are separately listed. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps are explicit reusable rights, plant-linked paired/serial Cannabis images, diagnostic video and sample-linked molecular differentials. Neighbor-host, leafhopper, unlinked still-image, inferred-onset and species labels remain uncertain and require review; no infection source, timing or causal identity is assigned from these references.",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-witches-broom"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
