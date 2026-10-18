@@ -8038,7 +8038,8 @@
       "Record cultivar, nematode species or isolate, inoculum or starting population where known, sampling interval, and root-washing method because all can change visible burden and reproduction.",
       "Keep canopy-only, symptom-only, detached-root-only, unlinked soil/root assay, species-from-gall, low-resolution, stock, forum, vendor, or generated captures out of the confirmed root-knot class.",
       "Retain a persistent root-specimen identifier linking intact-root photographs, gall sections, and the laboratory assay; distinguish gall-compatible, Meloidogyne-confirmed, species-confirmed, and causally attributed injury labels.",
-      "Compare paired plants of the same cultivar, age, medium, and sampling interval; record root mass and soil volume and avoid transferring cucumber or tomato gall-severity scales to hemp."
+      "Compare paired plants of the same cultivar, age, medium, and sampling interval; record root mass and soil volume and avoid transferring cucumber or tomato gall-severity scales to hemp.",
+      "Record whether staining and destructive preparation preceded organism counts; retain endpoint units, root-mass denominators, inoculum and days after inoculation separately from intact-root photographs. Study-specific 30-day counts do not establish symptom onset, field thresholds or image-only nematode abundance."
     ],
     "immediateActions": [
       "Quarantine the sampled root-zone material and prevent movement of potentially infested soil, roots, runoff, tools, or containers into clean production areas.",
@@ -8168,13 +8169,16 @@
         "publisher": "MDPI AG",
         "publicationDate": "2025-01-15",
         "year": 2025,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-18",
         "doi": "10.3390/plants14020227",
         "supportedClaims": [
           "A controlled greenhouse experiment found M. javanica, M. incognita, M. arenaria, M. hapla, and M. luci pathogenic across nine tested industrial-hemp varieties, with all inoculated treatments showing reduced shoot weight relative to controls.",
           "M. incognita produced the lowest mean root weight among the tested species, while M. javanica and M. luci produced the lowest mean shoot weights, demonstrating that root and canopy effects differ by species.",
           "Females per gram of root, egg masses per gram of root, and fecundity differed by both hemp variety and Meloidogyne species; Futura 75 carried the lowest overall nematode numbers, whereas USO 31, Fedora 17, Ferimon 12, and Zenit were among the more susceptible varieties in this experiment.",
-          "The article figures concern laboratory seed-extract effects on juvenile mobility and egg hatch rather than visual diagnosis of infected Cannabis roots, so those graphs are not symptom ground truth."
+          "The article figures concern laboratory seed-extract effects on juvenile mobility and egg hatch rather than visual diagnosis of infected Cannabis roots, so those graphs are not symptom ground truth.",
+          "Methods sections 4.2–4.3 and Tables 1–5 describe 500 second-stage juveniles per plant and a 30-day greenhouse endpoint at 25–29 °C; this is experimental exposure context, not a universal time to visible symptoms or a field injury threshold.",
+          "Section 4.3 counted females and egg masses across the whole root system after acid-fuchsin staining and cutting roots into 1–2 cm pieces; these destructive microscopy counts are not equivalent to gall counts in an unstained root photograph.",
+          "Table 5 defines fecundity as eggs per egg mass, while Tables 3–4 report females and egg masses per gram of root; the three endpoints have different denominators and must not be interchanged."
         ]
       },
       {
