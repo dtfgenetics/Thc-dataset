@@ -3773,6 +3773,23 @@
     ]
   },
   {
+    "sourceKey": "https://extension.oregonstate.edu/catalog/em-9628-planning-drought-resilient-hemp-crop",
+    "title": "Planning a drought-resilient hemp crop",
+    "organization": "Oregon State University Extension Service",
+    "url": "https://extension.oregonstate.edu/catalog/em-9628-planning-drought-resilient-hemp-crop",
+    "authors": [
+      "Gordon B. Jones"
+    ],
+    "publisher": "Oregon State University Extension Service",
+    "publicationDate": "2022-07",
+    "year": 2022,
+    "accessedDate": "2026-10-18",
+    "supportedClaims": [
+      "EM 9628, published July 2022 and reviewed in 2026, identifies both root binding and soil compaction as limits to accessible soil volume in hemp; restricted moisture access is not specific to container binding.",
+      "The guide distinguishes greenhouse-origin root binding with possible season-long effects from a tillage pan below cultivated soil. Dataset inference: field capture should pair the former plug boundary with the surrounding soil profile rather than diagnose either mechanism from canopy drought symptoms."
+    ]
+  },
+  {
     "sourceKey": "https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196",
     "title": "Dectes Stem Borer Management in Soybeans (FS-1196)",
     "organization": "University of Maryland Extension",
@@ -4031,6 +4048,22 @@
       "The boron-toxicity tissue analysis was elevated while other measured nutrients were described as sufficient, strengthening the treatment-to-symptom link under this small controlled trial.",
       "In this trial, toxicity caused persistent leaf-margin injury but height, SPAD, yield, and measured THC remained close to controls, showing that visual severity must not be converted into a universal yield-loss estimate.",
       "Researchers captured weekly close-ups, whole-plant photographs, and 360-degree video, but the public report does not expose original video asset URLs or a reuse license; those unlinked assets cannot be admitted to this dataset."
+    ]
+  },
+  {
+    "sourceKey": "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop",
+    "title": "Planning a Drought Resilient Hemp Crop",
+    "organization": "UC Davis Agronomy – Hemp",
+    "url": "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop",
+    "authors": [
+      "Gordon Jones"
+    ],
+    "publisher": "University of California, Davis",
+    "publicationDate": "2022-07-13",
+    "year": 2022,
+    "accessedDate": "2026-10-18",
+    "supportedClaims": [
+      "Figure 2 is credited to Gordon Jones and captioned as rootbound hemp after poor starts or transplanting. Its single root close-up is an institutional morphology reference, not a paired disease exclusion, moisture assay, time series, or confirmed causal injury sample; no item-level reuse permission is stated."
     ]
   },
   {

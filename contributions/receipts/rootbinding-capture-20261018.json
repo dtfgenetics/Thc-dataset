@@ -1,0 +1,50 @@
+{
+  "base_commit": "4ca696c7ee6ba1be71cf5fd94f079fb5f74d3399",
+  "branch": "work/grow-doc/GD-DIAG-001/rootbinding-capture-20261018",
+  "changed_paths": [
+    "data/profiles/root-binding-container-stress.json",
+    "src/data/expanded-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "rootbinding-capture-20261018",
+  "head_commit": "fe3aa1167d224c2cf6caecfc34fbb26860e3c85a",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://extension.oregonstate.edu/catalog/em-9628-planning-drought-resilient-hemp-crop",
+    "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent review on 2026-10-18 inspected current main, recent merges, repository structure, instructions, task contract, schemas, diagnostic standard, source/media interfaces, tests and validators before editing. Selected root binding, one of the weakest Water / root-zone profiles at 14 mapped claims. Added two institutional source pages for the same extension guide, not independent experiments, and three mappings (17 total). OSU EM 9628 was published July 2022 and reviewed in 2026; UC Davis publication is dated July 13, 2022. Recorded source authors, publishers, stable URLs, access date and exact scope. Added field soil compaction/tillage pan as a look-alike and a capture safeguard linking the old plug boundary, surrounding soil profile and cultivation history. This is explicitly annotation inference, not a diagnostic threshold or efficacy claim. Inspected UC Davis Figure 2 at its source-hosted JPEG URL: pale curved roots around a compact brown root mass on blue background, institution-captioned as rootbound hemp and credited to Gordon Jones. Added one reference metadata record with full creator, landing page, asset URL, attribution, rights, shot, host, label and uncertainty fields; no binary copied. The UC Davis page states all rights reserved with no item-level reuse license. Display and automated training remain not-permitted, trainingEligible false, confirmation illustrative and reviewStatus license-review. OSU catalog incorrectly links its hemp caption to a wheat-field image, confirmed by opening the linked asset; this mismatch is documented and the wheat image is not admitted. Existing UMD reference unchanged. Only the root-binding profile changed across all 63 exports: lookAlikes, confirmation, warnings, sources and media. Confidence ceiling remains 0.15; existing visual symptoms, exclusion checks, plant linkage and laboratory requirements retained. Totals synchronized to 209 source pages and 93 media references; originals remain 36, crops 68, training-eligible media zero. Fresh baseline passed 293 tests. Initial test run identified stale coverage counts; assertions updated to the new source/reference/confirmation counts and tests rerun successfully. All 68 local validation commands passed: 62 validators, type check, 293 application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, label consistency, source identity and claim links checked by repository gates. New URLs and the relevant image assets opened; historical URLs were not all independently revalidated. Candidate leakage passed. Two serial freezes matched actual provenance; 191-row text mixture retained with updated byte-level pins, no model training or inference. Hosted exact-head checks including PHP lint and immediate base freshness required before squash integration. Isolated worktree reused under using-git-worktrees; verification-before-completion gates publication. Unrelated files and blocked Botrytis draft preserved. Operational claim excluded and released after merge. No production deployment. Remaining gaps: reusable photo rights, plant-linked multi-view or video progression, known cultivar/age, paired moisture/chemistry/soil evidence and causal exclusion. Rights-unclear or incomplete samples stay in human review; agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

@@ -322,9 +322,9 @@ describe('supplemental diagnostic catalog quality gates', () => {
         continue
       }
       if (issue.slug === 'root-binding-container-stress') {
-        expect(issue.media).toHaveLength(1)
+        expect(issue.media).toHaveLength(2)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
-        expect(issue.media[0].hostContext).toBe('non-cannabis')
+        expect(issue.media.map((item) => item.hostContext)).toEqual(expect.arrayContaining(['cannabis', 'non-cannabis']))
         expect(issue.media[0].license).toContain('no item-level reuse license stated')
         expect(issue.media[0].displayPermission).toBe('not-permitted')
         expect(issue.media[0].reviewStatus).toBe('license-review')
@@ -558,6 +558,13 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(warnings).toContain('diagnostic survey rather than a controlled container-size trial')
     expect(warnings).toContain('one institutional non-cannabis pot-bound root-mass photograph is indexed')
     expect(warnings).toContain('no licensed, plant-linked cannabis root-binding progression image or verified diagnostic video')
+    const rootAccess = record?.sources.find((item) => item.url.includes('catalog/em-9628'))
+    expect(rootAccess?.publicationDate).toBe('2022-07')
+    expect(rootAccess?.accessedDate).toBe('2026-10-18')
+    expect(rootAccess?.supportedClaims).toHaveLength(2)
+    expect(rootAccess?.supportedClaims.join(' ')).toContain('root binding and soil compaction')
+    expect(confirmation).toContain('scaled surrounding soil-profile view')
+    expect(warnings).toContain('wheat-field asset')
     expect(record?.lookAlikes).toEqual(expect.arrayContaining([
       'Normal cohesive nursery root ball or vigorous roots at drainage holes',
       'Irrigation channeling or hydrophobic substrate without mechanical root restriction',
@@ -565,8 +572,18 @@ describe('supplemental diagnostic catalog quality gates', () => {
       'Root-knot nematodes',
       'Container-side heat injury',
     ]))
-    expect(record?.media).toHaveLength(1)
-    const media = record?.media[0]
+    expect(record?.media).toHaveLength(2)
+    const hemp = record?.media.find((item) => item.id === 'media-rootbound-hemp-jones-ucdavis-reference-only')
+    expect(hemp?.hostContext).toBe('cannabis')
+    expect(hemp?.creator).toBe('Gordon Jones')
+    expect(hemp?.sourceUrl).toBe('https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop')
+    expect(hemp?.url).toContain('planning_a_drought_figure2_blog_image.jpeg')
+    expect(hemp?.confirmation).toBe('illustrative')
+    expect(hemp?.displayPermission).toBe('not-permitted')
+    expect(hemp?.trainingPermission).toBe('not-permitted')
+    expect(hemp?.trainingEligible).toBe(false)
+    expect(hemp?.useLimitations.join(' ')).toContain('leaf age and canopy distribution are not assessable')
+    const media = record?.media.find((item) => item.id === 'media-pot-bound-root-mass-umd-reference-only')
     expect(media?.id).toBe('media-pot-bound-root-mass-umd-reference-only')
     expect(media?.url).toContain('extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/')
     expect(media?.sourceUrl).toBe('https://extension.umd.edu/resource/pot-bound-indoor-plants')
