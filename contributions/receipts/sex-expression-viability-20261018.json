@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "sex-expression-viability-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "043015299a1b5cffdfcb46ca39bca9da3a3c6761",
+  "head_commit": "bb49365e41d7a69a6540b3d359e5f557886a5e77",
+  "branch": "work/grow-doc/GD-DIAG-001/sex-expression-viability-20261018",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/normal-sex-expression.json"
+  ],
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/profiles/index.json",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1371/journal.pone.0270799"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent evidence review on 2026-10-18 UTC inspected fresh main, recent batches, instructions, schemas, diagnostic standard, task claims, profiles, tests, validators and CI. Selected the less-deep of two Normal development profiles (sex expression had 21 mapped claims versus 51 for normal fade) and an uncovered assay-evidence gap. Added one primary citation with three claims and one pollen-lot confirmation safeguard. Checked publisher full text, methods, results and discussion at https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0270799 and corroborated identity through a second search engine. New citation includes title, authors, publisher, DOI, publication and access dates and exact supported claims. Annotation safeguards are study-bounded inferences, not validated camera performance or individual specimen confirmation. Only normal-sex-expression changed across the full profile export; only sources and confirmation changed within that profile. Existing organ-specific visual context, affected parts, stages, progression, exclusions, look-alikes, sample restrictions, confidence ceiling and all media metadata were preserved. No media file, new media reference, license or training permission added. Totals are 63 profiles, 206 sources, 92 reference media, 36 originals, 68 crops and zero training-eligible media. Existing isolated worktree reused under using-git-worktrees; unrelated local image work and prior blocked draft preserved and excluded. Baseline passed 292 application tests. Initial complete run passed 66/68 commands and exposed four current-release source-count mismatches across three metadata files, also causing the real-validator Python fixture failure. Systematic-debugging reproduced the failure and synchronized current metadata to measured sources; historical counts, blocked training readiness, and validator/test logic were unchanged. Focused release validator and all seven regression tests then passed. All 68 final local commands passed: 62 validators, 292 application tests, 103 Python tests, type check, build, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV/export consistency, URL syntax/source identity, duplicate, label, source-to-claim and candidate-leakage gates passed. Historical URLs were not all independently revalidated. Serial freezes matched current input provenance and synchronized the 191-row text artifact pins; no model training run. PHP unavailable locally; exact-head hosted workflows including PHP lint required before integration. Verification-before-completion gates publication. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: cultivar-diverse specimen-linked microscopy/video, matched assays and field fertilization outcomes, independently reviewed image-training admission. Stain-only fertility, detached grains, unresolved/clumped captures and source-unlinked specimens retain review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
