@@ -1935,6 +1935,27 @@
     ]
   },
   {
+    "sourceKey": "10.1371/journal.pone.0270799",
+    "title": "Methods for characterizing pollen fitness in Cannabis sativa L.",
+    "organization": "PLOS ONE",
+    "url": "https://doi.org/10.1371/journal.pone.0270799",
+    "authors": [
+      "Sydney B. Wizenberg",
+      "Michelle Dang",
+      "Lesley G. Campbell"
+    ],
+    "publisher": "Public Library of Science",
+    "publicationDate": "2022-07-07",
+    "year": 2022,
+    "accessedDate": "2026-10-18",
+    "doi": "10.1371/journal.pone.0270799",
+    "supportedClaims": [
+      "The experiments used CFX-2 hemp and selected the five earliest-flowering males from ten tagged males per experiment; this single-cultivar sampling does not calibrate pollen function in every genotype or co-sexual flower.",
+      "Paired modified-Alexander-stain non-abortion estimates did not significantly predict in vitro germination in the reported linear model; an intact-cytoplasm stain result must not be relabeled as a germination rate or proven fertilization.",
+      "The germination assay counted rehydrated grains with protruding pollen tubes after 24 hours at 28 °C; burst grains were tallied separately and excluded from totals, and clumped grains were excluded because their status could not be resolved."
+    ]
+  },
+  {
     "sourceKey": "10.15835/nbha53414864",
     "title": "Impact of varying water stress periods (water shortage vs. waterlogging) on Cannabis sativa growth, leaf physiology, and CBD content",
     "organization": "Notulae Botanicae Horti Agrobotanici Cluj-Napoca",

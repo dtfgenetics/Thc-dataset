@@ -102,7 +102,8 @@
     "State the observation as expressed floral phenotype at the recorded organ, location, and date; do not infer chromosomal sex, plant-wide distribution, or future stability from one visual sample.",
     "When pre-flower genetic sex is operationally important, use a validated Y-linked assay and retain sample-to-plant identity; interpret a negative result as female-or-monoecious genotype rather than proof of exclusively pistillate future expression.",
     "Record cultivar, seed or clonal origin, plant age, propagation cohort, photoperiod history, treatment history, node or branch location, observation date, and any pollen or seed development.",
-    "Require human review for detached, scale-free, single-view, low-resolution, organ-ambiguous, genetically discordant, generated, stock, anecdotal, or plant-unlinked samples."
+    "Require human review for detached, scale-free, single-view, low-resolution, organ-ambiguous, genetically discordant, generated, stock, anecdotal, or plant-unlinked samples.",
+    "Record stain-based non-abortion and germination as separate endpoints linked to the same pollen lot. Preserve scored, burst and clumped grain counts, collection stage, storage history, medium and incubation settings; do not convert excluded or unresolved grains into negative examples or extrapolate an assay percentage to field fertilization."
   ],
   "immediateActions": [
     "Keep the visual label indeterminate when reproductive organs are not yet visible.",
@@ -249,6 +250,26 @@
         "In rooted cuttings of one commercial medical-Cannabis cultivar A, the morphology experiment compared short days (12 h light/12 h dark, HPS at 1000 micromoles per square metre per second) with long days (18 h light/6 h dark, metal-halide at 600 micromoles per square metre per second); spectrum and photon flux therefore also differed between these regimes.",
         "After 15 short days followed by 13 long days, inflorescence development ceased, simple leaves developed at the inflorescence top, and elongating internodes separated condensed flower clusters into solitary flowers; this is study-specific developmental timing, not a universal visual threshold.",
         "Figure 2 follows a representative plant through 15 short days and subsequent long-day regrowth, alongside a continuous-short-day comparison; the authors describe inflorescence reversion and eventual long-day growth patterns, with applicability beyond the single tested cultivar requiring investigation."
+      ]
+    },
+    {
+      "title": "Methods for characterizing pollen fitness in Cannabis sativa L.",
+      "organization": "PLOS ONE",
+      "url": "https://doi.org/10.1371/journal.pone.0270799",
+      "authors": [
+        "Sydney B. Wizenberg",
+        "Michelle Dang",
+        "Lesley G. Campbell"
+      ],
+      "publisher": "Public Library of Science",
+      "publicationDate": "2022-07-07",
+      "year": 2022,
+      "accessedDate": "2026-10-18",
+      "doi": "10.1371/journal.pone.0270799",
+      "supportedClaims": [
+        "The experiments used CFX-2 hemp and selected the five earliest-flowering males from ten tagged males per experiment; this single-cultivar sampling does not calibrate pollen function in every genotype or co-sexual flower.",
+        "Paired modified-Alexander-stain non-abortion estimates did not significantly predict in vitro germination in the reported linear model; an intact-cytoplasm stain result must not be relabeled as a germination rate or proven fertilization.",
+        "The germination assay counted rehydrated grains with protruding pollen tubes after 24 hours at 28 °C; burst grains were tallied separately and excluded from totals, and clumped grains were excluded because their status could not be resolved."
       ]
     }
   ],
