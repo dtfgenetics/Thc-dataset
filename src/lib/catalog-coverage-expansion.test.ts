@@ -72,6 +72,13 @@ describe('61-profile evidence-backed coverage expansion', () => {
 
   it('keeps white root rot plant-linked, laboratory-dependent, and outbreak-bounded', () => {
     const whiteRootRot = bySlug('white-root-rot-dematophora-necatrix')
+    const campania = whiteRootRot.sources.find((item) => item.doi === '10.1094/PDIS-07-20-1521-PDN')!
+    expect(campania.publicationDate).toBe('2021-10-22')
+    expect(campania.accessedDate).toBe('2026-10-18')
+    expect(campania.supportedClaims.join(' ')).toContain('MK937913')
+    expect(campania.supportedClaims.join(' ')).toContain('two further weeks')
+    expect(campania.supportedClaims.join(' ')).toContain('does not demonstrate the infection reservoir')
+    expect(whiteRootRot.confirmation.join(' ')).toContain('initial-isolate ITS results from post-pathogenicity EF1-alpha')
     expect(whiteRootRot.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
     expect(whiteRootRot.indicators.length).toBeGreaterThanOrEqual(8)
     expect(whiteRootRot.exclusions.length).toBeGreaterThanOrEqual(8)
@@ -113,7 +120,7 @@ describe('61-profile evidence-backed coverage expansion', () => {
   it('withholds the apple white-root-rot reference from display and Cannabis training', () => {
     const record = bySlug('white-root-rot-dematophora-necatrix')
     const primary = record.sources.find((source) => source.doi === '10.1094/PDIS-07-20-1521-PDN')!
-    expect(primary.accessedDate).toBe('2026-10-15')
+    expect(primary.accessedDate).toBe('2026-10-18')
     expect(primary.supportedClaims.join(' ')).toContain('MW541068')
     expect(primary.supportedClaims.join(' ')).toContain('laboratory morphology')
     expect(record.progression.find((stage) => stage.stage === 'Laboratory observation scope')?.description).toContain('not an additional symptom stage')

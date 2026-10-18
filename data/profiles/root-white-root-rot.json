@@ -94,6 +94,7 @@
     "Record plant age and cultivar, onset and repeat dates, neighboring-plant pattern, prior crop or perennial-root history, planting-stock source, root-debris and soil movement, irrigation/runoff, substrate, root-zone temperature, moisture, pH, and EC.",
     "Submit plant-linked tissue to a qualified plant-diagnostic laboratory for isolation and morphology plus a validated molecular assay; preserve the chain between sample, image, culture, sequence result, and plant identifier.",
     "For laboratory reference captures, retain microscope scale, culture and root-sample identifiers, observed structures, assay target, sequence accession, and the matched reisolation result; the study accession is a reference, not a result for a new sample.",
+    "Separate field symptom-onset dates from controlled inoculation dates and initial-isolate ITS results from post-pathogenicity EF1-alpha results. Preserve the photographed plant, root sample, isolate, locus and accession links; neither a similar decline interval nor orchard history establishes cause or source.",
     "Request a differential workup for southern blight, Sclerotinia, Pythium/Phytophthora, Fusarium, Rhizoctonia, Armillaria where plausible, and pair pathogen testing with root-zone measurements and nematode assessment.",
     "Use serial imaging to document change but not to prove identity. Keep canopy-only, detached-root, white-growth-only, incubation-only, culture-unlinked, single-locus-ambiguous, mixed-pathogen, low-resolution, cross-crop, stock, generated, vendor, forum, anecdotal, or rights-unclear samples out of confirmed ground truth."
   ],
@@ -133,9 +134,9 @@
         "Ernesto Lahoz"
       ],
       "publisher": "American Phytopathological Society",
-      "publicationDate": "2021-10-01",
+      "publicationDate": "2021-10-22",
       "year": 2021,
-      "accessedDate": "2026-10-15",
+      "accessedDate": "2026-10-18",
       "doi": "10.1094/PDIS-07-20-1521-PDN",
       "supportedClaims": [
         "Affected hemp developed yellowing, apical wilt, root rot, white mycelium covering roots, and fan-like mycelium beneath root bark before death.",
@@ -143,6 +144,9 @@
         "Inoculated hemp reproduced chlorosis, apical wilt, and death while controls remained healthy; the fungus was reisolated and confirmed by morphology and molecular analysis.",
         "Cultured mycelia from 15 hemp isolates had pear-shaped swellings next to septa; reported conidia were aseptate, hyaline, ellipsoid to ovoid, and 3 to 5 by 2.5 to 3 micrometers. These are laboratory morphology observations, not canopy-photo features.",
         "After pathogenicity testing, the fungus was recovered from roots of all 15 inoculated plants and checked by morphology and a second molecular target, translation elongation factor 1-alpha; the deposited sequence accession was MW541068.",
+        "Initial molecular identification used DNA from five isolates, ITS1/ITS4 amplification and accession MK937913, with 98.83% BLASTn identity to representative D. necatrix sequences. This initial ITS result is distinct from the post-pathogenicity EF1-alpha result (MW541068; 99.67% identity), not an interchangeable assay or universal identity cutoff.",
+        "The pathogenicity assay used 15 four-week-old Kompolty plants in inoculated peat/perlite at 25 degrees C and ten sterile-millet controls. Chlorosis and apical wilt appeared after three weeks, followed by death within two further weeks; controls remained symptomless. These imposed-assay times are separate from the field symptom-to-death interval.",
+        "The affected farm had grown apples for more than 30 years, and the authors hypothesized adaptation to hemp. Dataset annotation inference: orchard history alone does not demonstrate the infection reservoir, transmission route or adaptation in a new photographed case.",
         "Root signs and laboratory confirmation are required because canopy yellowing and wilt overlap many Cannabis root-zone disorders."
       ]
     },
