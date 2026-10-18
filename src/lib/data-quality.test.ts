@@ -354,6 +354,13 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps nitrogen toxicity form-aware, analytically bounded, and mixed-dose safe', () => {
     const record = issues.find((issue) => issue.slug === 'nitrogen-toxicity')
+    const form = record?.sources.find((source) => source.doi === '10.3389/fpls.2022.830224')
+    expect(form?.accessedDate).toBe('2026-10-18')
+    expect(form?.supportedClaims).toHaveLength(13)
+    expect(form?.supportedClaims.join(' ')).toContain('third branch from the plant top')
+    expect(form?.supportedClaims.join(' ')).toContain('lowest first-order side branch')
+    expect(form?.supportedClaims.join(' ')).toContain('missing terpenoid measurements, not measured zero')
+    expect(record?.confirmation.join(' ')).toContain('unmeasured, below-detection, and measured-zero results as distinct states')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.sources).toHaveLength(2)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/nitrate.*ammonium|ammonium.*nitrate/)
