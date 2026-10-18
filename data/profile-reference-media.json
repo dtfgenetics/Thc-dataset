@@ -3129,6 +3129,7 @@
       "Reference URL and fingerprint metadata only; no image file is stored in this repository.",
       "CC BY-NC-ND 4.0 permits unchanged noncommercial reuse with attribution; commercial display, modification, cropping, and derivative preparation require additional permission.",
       "The asset lacks a scale, paired underside, whole-plant distribution, sampling, culture, microscopy, sequence, and pathogenicity linkage; do not infer species or causality from appearance.",
+      "Leaf age, canopy node and capture date are not supplied for this pictured leaf; do not inherit the field plant age or greenhouse inoculation endpoint from the separate primary report. One frame does not establish temporal progression.",
       "Automated training and evaluation use are not permitted by this record."
     ],
     "displayPermission": "permitted",

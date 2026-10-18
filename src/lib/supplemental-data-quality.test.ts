@@ -957,13 +957,18 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(media?.trainingPermission).toBe('not-permitted')
     expect(media?.trainingEligible).toBe(false)
     expect(media?.useLimitations.join(' ').toLowerCase()).toContain('paired underside')
+    expect(media?.useLimitations.join(' ')).toContain('Leaf age, canopy node and capture date are not supplied')
+    expect(media?.useLimitations.join(' ')).toContain('One frame does not establish temporal progression')
   })
 
   it('separates Curvularia field, culture and inoculation context from reservoir claims', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')!
     const study = record.sources.find((item) => item.doi === '10.1094/PDIS-03-20-0546-PDN')!
-    expect(study.accessedDate).toBe('2026-10-16')
-    expect(study.supportedClaims).toHaveLength(10)
+    expect(study.accessedDate).toBe('2026-10-18')
+    expect(study.supportedClaims).toHaveLength(12)
+    expect(study.supportedClaims.join(' ')).toContain('no delivered volume per plant or leaf')
+    expect(study.supportedClaims.join(' ')).toContain('without explicit surfactant matching')
+    expect(record.confirmation.join(' ')).toContain('unreported, not zero or experimentally matched')
     expect(study.supportedClaims.join(' ')).toContain('general isolation medium')
     expect(study.supportedClaims.join(' ')).toContain('Dataset inference')
     expect(record.confirmation.join(' ')).toContain('field-lesion, culture-plate, and inoculated-plant')
