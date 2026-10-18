@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "nitrogen-excess-context-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "644736c2e9346ed2923268f01d8bae424214f530",
+  "head_commit": "c900b6ead031f266d8f11fe4d72b6c6c8a75d29c",
+  "branch": "work/grow-doc/GD-DIAG-001/nitrogen-excess-context-20261018",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/nut-tox-n.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "src/lib/coverage-audit.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.3389/fpls.2022.830224"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, task claims, schemas, diagnostic content standard, profiles, test contracts, validators and CI. Selected the nutrient-toxicity slice with only two existing authoritative citations and added three bounded claim mappings to its nitrogen-form study: exact branch position of photographed leaves; distinction between sampled inflorescence organs; and absence of terpenoid assays for the extreme ammonium treatment. The primary publisher full text resolved at https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2022.830224/full; Figure 1 caption and chemical-analysis methods support the additions. Source access date refreshed. Missing-versus-zero and photograph-versus-assay distinctions are annotation safeguards, not measured diagnostic accuracy. Added one confirmation safeguard; all profile fields except sources and confirmation, including symptom context, media, labels, confidence ceiling, licenses and training permissions, were compared with baseline and preserved. Only nut-tox-n changed across the full profile export. No new source, media, binary or license; counts remain 63 profiles, 205 sources, 92 media references, 36 originals, 68 crops and zero training-eligible media. Primary publisher metadata and copyright statement were checked; no media was copied. A secondary PMC open returned a CAPTCHA, which was not bypassed; the publisher full text provided the evidence. Historical URLs were not all independently revalidated. Initial local testing passed 67 of 68 commands but exposed a stale coverage assertion expecting ten claims rather than thirteen. Exact failure inspection under systematic-debugging identified that count assertion; updated it while preserving existing diagnostic checks and adding content-specific assertions. Fresh rerun passed all 68 local commands, including 62 validators, 291 application tests, 103 Python tests, type check, build, artifact verification and diff check. Five supplemental evaluator/artifact self-tests passed. JSON/JSONL syntax, source identity, duplicates, labels, claim links and candidate-source leakage gates passed. Serial artifact regeneration was checked against actual input bytes; 191-row text artifact pins synchronized without model training. PHP unavailable locally; all exact-head hosted workflows including PHP lint remain required before integration. Verification-before-completion gated publication. Operational claim excluded from publication and released after merge. Prior blocked Botrytis draft untouched and excluded. No production deployment. Remaining gaps: plant-linked serial images/video, matched chemical and root-zone assays, broader genotype/system evidence and panel-level scientific training review. Unmeasured, below-detection and measured-zero outcomes remain distinct; image-inferred chemistry, symptom-only diagnoses and unlinked composite panels retain human-review restrictions. Agent review is not human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

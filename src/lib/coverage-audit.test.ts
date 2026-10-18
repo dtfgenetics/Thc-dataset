@@ -447,7 +447,7 @@ describe('diagnostic coverage audit', () => {
     expect(exclusions).toContain('universal diagnostic threshold')
     expect(exclusions).toContain('Excessive total-nitrogen dose and excessive ammonium fraction')
     const nitrogenForm = record?.sources.find((source) => source.doi === '10.3389/fpls.2022.830224')
-    expect(nitrogenForm?.supportedClaims).toHaveLength(10)
+    expect(nitrogenForm?.supportedClaims).toHaveLength(13)
     expect(nitrogenForm?.supportedClaims.join(' ')).toContain('nitrate-only plants developed dotted marginal chlorosis')
     expect(nitrogenForm?.supportedClaims.join(' ')).toContain('residual coconut fiber')
     expect(record?.progression.find((step) => step.stage === 'Root-material exclusion check')?.description).toContain('Separate attached medium')
