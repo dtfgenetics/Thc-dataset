@@ -1606,6 +1606,7 @@
     "hostContext": "cannabis",
     "useLimitations": [
       "Mixed thirteen-panel composite spanning canopy, symptom close-ups, underside signs, culture, tissue section, and microscopy; reference-only as a whole figure.",
+      "Microscopy preparation used lactic-acid mounts. Caption scales of 50 micrometers for F/H-K and 20 micrometers for L-M belong to those panels, not leaf-level dimensions; retain each panel identity and calibration instead of transferring one scale across the composite.",
       "Do not treat individual panels or the full composite as independent single-class training examples until panel boundaries, labels, source grouping, and crop quality are reviewed.",
       "Upper-surface discoloration and lower-surface dark material overlap other pathogens and contaminants; unknown samples still require plant-linked morphology and molecular evidence.",
       "The field material came from one plantation in Chiang Rai, Thailand, and does not establish universal cultivar, geography, severity, or progression labels.",
@@ -1643,6 +1644,7 @@
     "hostContext": "cannabis",
     "useLimitations": [
       "Four-panel composite mixes microscopy at 24 hours with a macroscopic lower-surface panel at 5 days; reference-only as a whole figure.",
+      "Calibration requires review: the published caption prints microscopic A/B bars as 20 microliters and C as 50 microliters; do not silently substitute micrometers or calculate physical lengths from these unresolved units. Panel D is separately captioned 1 cm; the figure bars themselves carry no numeric labels.",
       "The 24-hour and 5-day observations came from a controlled wet-box inoculation and must not be used as universal field timing labels.",
       "Do not infer species from stomatal penetration or dark underside structures alone; retain the study-linked reisolation, morphology, and sequence context.",
       "Keep training-ineligible until panel crops, experimental labels, source grouping, and scale-bar preservation receive human review.",

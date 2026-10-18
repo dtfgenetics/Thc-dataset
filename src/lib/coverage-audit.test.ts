@@ -539,7 +539,11 @@ describe('diagnostic coverage audit', () => {
     expect(record?.sources.some((source) => source.doi === '10.3390/horticulturae9121261')).toBe(true)
     expect(record?.sources.some((source) => source.url.includes('pnwhandbooks.org/plantdisease'))).toBe(true)
     const primary = record?.sources.find((source) => source.doi === '10.3390/horticulturae9121261')!
-    expect(primary.accessedDate).toBe('2026-10-16')
+    expect(primary.accessedDate).toBe('2026-10-18')
+    expect(primary.supportedClaims).toHaveLength(12)
+    expect(primary.supportedClaims.join(' ')).toContain('35 to 60 by 3.5 to 5 micrometers')
+    expect(confirmation).toContain('mounting medium, objective, calibration and isolate linkage')
+    expect(confirmation).toContain('unresolved length-unit discrepancy')
     const submission = record?.sources.find((source) => source.url === 'https://plantclinic.cornell.edu/services/collection-tips/')!
     expect(submission.accessedDate).toBe('2026-10-16')
     expect(submission.supportedClaims).toHaveLength(3)
@@ -572,6 +576,10 @@ describe('diagnostic coverage audit', () => {
     expect(record?.media.every((item) => item.trainingPermission === 'permitted')).toBe(true)
     expect(record?.media.every((item) => item.trainingEligible === false)).toBe(true)
     expect(record?.media.every((item) => item.confirmation === 'lab-confirmed')).toBe(true)
+    const natural = record?.media.find((item) => item.id === 'media-pseudocercospora-cannabis-figure-1-ccby4')!
+    const assay = record?.media.find((item) => item.id === 'media-pseudocercospora-cannabis-figure-2-pathogenicity-ccby4')!
+    expect(natural.useLimitations.join(' ')).toContain('not leaf-level dimensions')
+    expect(assay.useLimitations.join(' ')).toContain('do not silently substitute micrometers')
   })
 
   it('keeps downy mildew organism-linked and rights-unclear symptom references out of display and training', () => {
