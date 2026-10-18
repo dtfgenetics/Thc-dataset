@@ -987,6 +987,12 @@ describe('supplemental diagnostic catalog quality gates', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'bipolaris-leaf-spot')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    const diversity = record?.sources.find((source) => source.doi === '10.1080/00275514.2023.2224699')
+    expect(diversity?.accessedDate).toBe('2026-10-18')
+    expect(diversity?.supportedClaims).toHaveLength(6)
+    expect(diversity?.supportedClaims.join(' ')).toContain('13 haploids')
+    expect(diversity?.supportedClaims.join(' ')).toContain('not a universal ploidy cutoff')
+    expect(confirmation).toContain('isolate-linked rpb2, tef1 and mat1 results separately from lesion images')
 
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.3)
