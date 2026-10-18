@@ -352,6 +352,18 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
   })
 
+  it('keeps russet-mite molecular sensitivity separate from visual abundance', () => {
+    const record = issues.find((issue) => issue.slug === 'hemp-russet-mite')
+    const assay = record?.sources.find((source) => source.doi === '10.1093/ee/nvad060')
+    expect(assay?.accessedDate).toBe('2026-10-18')
+    expect(assay?.supportedClaims).toHaveLength(7)
+    expect(assay?.supportedClaims.join(' ')).toContain('48 copies per microlitre')
+    expect(assay?.supportedClaims.join(' ')).toContain('any technical replicate exceeded Cq 35')
+    expect(assay?.supportedClaims.join(' ')).toContain('GenBank OL944642.1')
+    expect(record?.confirmation.join(' ')).toContain('Do not convert plasmid-copy sensitivity into mites per leaf')
+    expect(record?.media.every((item) => !item.trainingEligible)).toBe(true)
+  })
+
   it('keeps nitrogen toxicity form-aware, analytically bounded, and mixed-dose safe', () => {
     const record = issues.find((issue) => issue.slug === 'nitrogen-toxicity')
     const form = record?.sources.find((source) => source.doi === '10.3389/fpls.2022.830224')
