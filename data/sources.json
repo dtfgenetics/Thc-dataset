@@ -2828,7 +2828,7 @@
     "publisher": "MDPI AG",
     "publicationDate": "2023-11-23",
     "year": 2023,
-    "accessedDate": "2026-10-16",
+    "accessedDate": "2026-10-18",
     "doi": "10.3390/horticulturae9121261",
     "supportedClaims": [
       "Twenty symptomatic Cannabis leaves were collected from one plantation in Chiang Rai, Thailand, in February 2022; field symptoms were circular-to-elliptical olive leaf spots with gray centers and dark brown-to-black margins, and severely affected plants defoliated.",
@@ -2839,7 +2839,10 @@
       "Table 1 links SDBR-CMU372 to ITS OR101673, act OR344083 and rpb2 OR344085, and SDBR-CMU373 to ITS OR101674, act OR344084 and rpb2 OR344086. Results state that available sequences matched, so only SDBR-CMU372 was included in phylogenetic analysis; they are not two independent phylogenetic confirmations.",
       "The assay used one million conidia/mL prepared from 35-day-old fungal colonies, not plants of that age. Methods describe sterile-water-plus-Tween-20 controls and wet-box incubation; Results confirm reisolation by morphology and ITS identity, not a repeated four-locus analysis.",
       "Figure 1 is a mixed natural-symptom, whole-canopy, upper/underside, culture, cross-section, conidiophore, and conidium composite; Figure 2 combines controlled lower-surface penetration microscopy with symptom reproduction at 5 days post-inoculation.",
-      "The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training."
+      "The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training.",
+      "The taxonomic description reports pale olivaceous-to-very-pale-brown, smooth, straight-to-curved conidia, 2 to 5 septa, 35 to 60 by 3.5 to 5 micrometers, with an unthickened, non-darkened hilum. These are microscopy observations, not leaf-level dimensions or stand-alone species confirmation.",
+      "Methods describe lactic-acid mounts, compound-microscope photography and software-based morphological measurement. Preserve preparation and calibration context when comparing new microscopy with Figure 1; an uncalibrated phone image is not an equivalent measurement.",
+      "The Figure 2 caption prints 20 microliters for panels A/B and 50 microliters for C, despite describing microscopic scale bars; D is labeled 1 cm. Retain this unresolved length-unit discrepancy for review rather than silently replacing the units or deriving physical dimensions."
     ]
   },
   {

@@ -751,7 +751,7 @@ const sources = {
     publisher: 'MDPI AG',
     publicationDate: '2023-11-23',
     year: 2023,
-    accessedDate: '2026-10-16',
+    accessedDate: '2026-10-18',
     doi: '10.3390/horticulturae9121261',
     supportedClaims: [
       'Twenty symptomatic Cannabis leaves were collected from one plantation in Chiang Rai, Thailand, in February 2022; field symptoms were circular-to-elliptical olive leaf spots with gray centers and dark brown-to-black margins, and severely affected plants defoliated.',
@@ -763,6 +763,9 @@ const sources = {
       'The assay used one million conidia/mL prepared from 35-day-old fungal colonies, not plants of that age. Methods describe sterile-water-plus-Tween-20 controls and wet-box incubation; Results confirm reisolation by morphology and ITS identity, not a repeated four-locus analysis.',
       'Figure 1 is a mixed natural-symptom, whole-canopy, upper/underside, culture, cross-section, conidiophore, and conidium composite; Figure 2 combines controlled lower-surface penetration microscopy with symptom reproduction at 5 days post-inoculation.',
       'The article and its figures are distributed under CC BY 4.0; whole composites still require panel-level review before automated training.',
+      'The taxonomic description reports pale olivaceous-to-very-pale-brown, smooth, straight-to-curved conidia, 2 to 5 septa, 35 to 60 by 3.5 to 5 micrometers, with an unthickened, non-darkened hilum. These are microscopy observations, not leaf-level dimensions or stand-alone species confirmation.',
+      'Methods describe lactic-acid mounts, compound-microscope photography and software-based morphological measurement. Preserve preparation and calibration context when comparing new microscopy with Figure 1; an uncalibrated phone image is not an equivalent measurement.',
+      'The Figure 2 caption prints 20 microliters for panels A/B and 50 microliters for C, despite describing microscopic scale bars; D is labeled 1 cm. Retain this unresolved length-unit discrepancy for review rather than silently replacing the units or deriving physical dimensions.',
     ],
   }),
   foliarSampleSubmission: source({
@@ -1719,6 +1722,8 @@ export const expandedIssues: IssueRecord[] = [
       'Where causality rather than detection is required, retain plant-linked isolation and pathogenicity or equivalent diagnostic evidence; organism detection alone does not prove every lesion was caused by it.',
       'Assign a persistent lesion identifier and revisit the same leaf from both surfaces so new lesion expansion, new lower-surface growth, and stable old necrosis are not mixed across different leaves or plants.',
       'Keep inoculum-culture age separate from host age and record wet-box exposure, surfactant-matched controls and the actual reisolation assay. Thirty-five days describes fungal colonies; ITS-matched reisolation is not four-locus reconfirmation of each photographed lesion.',
+      'Record mounting medium, objective, calibration and isolate linkage for microscopic comparisons; evaluate conidial size, septation, pigment and hilum together with molecular evidence, not as leaf-level or image-only identification rules.',
+      'Flag the Figure 2 caption as an unresolved length-unit discrepancy: its microscopic bars are printed in microliters. Do not derive pixel-to-length calibration from those values without authoritative clarification; preserve the source wording and separate the macroscopic D panel.',
       'Keep symptom-only, upper-surface-only, detached-leaf-only, mixed-pathogen, unlinked-laboratory, low-resolution, and stock/vendor/forum/generated captures out of the confirmed Pseudocercospora class and route them to human review.',
     ],
     immediateActions: ['Photograph the distribution before removing tissue, then capture matched upper and lower leaf surfaces with a scale.', 'Preserve several actively sporulating lesions for laboratory diagnosis and limit movement of symptomatic leaves or propagation material.', 'Record indoor versus field context, greenhouse proximity to open doors or vents, recent wetness, and whether neighboring plants show a clustered or exposure-edge pattern.'],

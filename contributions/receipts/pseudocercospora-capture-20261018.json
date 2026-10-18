@@ -1,0 +1,43 @@
+{
+  "base_commit": "24e308ec3116e05539ca0ae43f9f92493132b6aa",
+  "branch": "work/grow-doc/GD-DIAG-001/pseudocercospora-capture-20261018",
+  "changed_paths": [
+    "data/profiles/fungal-pseudocercospora-leaf-spot.json",
+    "src/data/expanded-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "pseudocercospora-capture-20261018",
+  "head_commit": "cb7f01c8328ccacd5b9ffcd9e92467061358b935",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3390/horticulturae9121261"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 inspected fresh main, recent merges, instructions, repository structure, schemas, source/media interfaces, diagnostic quality standard, validation commands, current records, coverage and task claims before editing. Selected Pseudocercospora, among the shallower fungal profiles at 17 mapped claims, avoiding recently enriched profiles and the separately blocked Botrytis slice. Enriched one existing primary citation with three study-bounded mappings (20 profile claims total), two microscopy/calibration confirmation safeguards and two existing image-reference limitations. Source title, authors, publisher, stable DOI and publication date retained; access date refreshed. Web reader returned transient 429 responses, but the publisher article at https://www.mdpi.com/2311-7524/9/12/1261 was successfully retrieved directly and checked against indexed primary-source passages. Reviewed Methods 2.1, taxonomic description 3.1, Figure 1 and Figure 2 captions, and the article-specific CC BY 4.0 statement. Both original asset URLs were retrieved for temporary inspection under the existing reuse license; no binary, crop, new media reference or license was committed. Visual review confirmed the mixed panel types and unlabeled bars. Current assets retain historical dimensions and dHash: Figure 1 2606x2393/dhash64:8cc8a28ac0229218 and Figure 2 3714x986/dhash64:c9c9e9f9999999a9. Current byte SHA-256 values differ from historical fingerprints as already documented for publisher PNG re-encodings; historical metadata was not silently replaced. Observed byte hashes were 2f3a4d166d138feb2dd9dea313a1e07b17b2afaf8b6043a32ff59efa7cf9cf6a and e2fd02b383bdd68967dd2d269529cd897e83ec62cbdeb9c2ed3eab74087afa41 respectively. The Figure 2 caption genuinely prints microscopic scale-bar values in microliters; retained as an unresolved length-unit discrepancy, not silently corrected or converted into physical dimensions. Preparation, calibrated measurements and panel identity must remain separate from leaf-level dimensions and image-only species labels; annotation safeguards are bounded inferences, not additional experimental results. Only fungal-pseudocercospora-leaf-spot changed among 63 exported profiles, within confirmation, sources and media limitations. Existing tissue/surface/distribution/progression context, exclusions, confounders, species/causality constraints and 0.2 photo-only ceiling remain unchanged. CC BY 4.0 display/training permissions remain unchanged, but both mixed composites remain training-ineligible pending panel-level scientific review. No generated, vendor, anecdotal, forum or unverified image was promoted. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. New regression assertions failed against the old content as intended, then passed with the enrichment; full application suite and candidate-leakage audit passed before freezing. All 68 local validation commands passed: 62 validators, type check, 293 application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. Gates checked JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, label consistency, URL syntax/source identity and source-to-claim links. Historical URLs were not all independently revisited. Two serial freezes matched the full actual lock and synchronized byte-level pins for the 191-row text mixture; no model training or inference. Final full suite including receipt and all hosted exact-head workflows required before squash merge, including PHP lint and immediately rechecked live base freshness. Worktree-isolation and verification-before-completion skills gate publication. Unrelated local work and the blocked Botrytis draft preserved; operational task claim excluded from commits and released after merge. No production deployment. Remaining gaps: author/publisher clarification of Figure 2 microscopic units, new plant/lesion-linked calibrated microscopy and multilocus evidence, leaf-age-linked field progression video, and panel-resolved training admission. Uncertain scale calibration, image-only labels, mixed-organism captures and unlinked laboratory results remain flagged for human review. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
