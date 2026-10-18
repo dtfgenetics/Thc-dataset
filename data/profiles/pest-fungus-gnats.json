@@ -82,6 +82,7 @@
     "Capture a traceable same-plant sequence: whole plant, labeled container, medium surface, low sticky card, exposed root ball, washed representative roots, and larval macro or microscope views with a scale.",
     "Place dated sticky cards close to the medium and record repeated adult activity by plant and location; keep adult counts as a scouting cue, not a causal injury label.",
     "Use standardized potato-piece and direct medium inspections, recording placement, exposure interval, plant ID, container, medium, moisture, and the number and location of recovered larvae.",
+    "Record sticky-card orientation and replacement dates, and whether potato pieces maintained medium contact. For the UConn 48-hour method, inspect and image both the medium beneath and the potato surface; a negative one-surface or poorly contacted sample does not establish larval absence.",
     "Image larvae at sufficient resolution to show the legless translucent body and dark head capsule; image adult antennae, body form, and Y-shaped wing vein when possible, and explicitly exclude shore flies.",
     "Map larval position against fine-root, root-hair, seed, cutting-base, or lower-stem injury in the same plant and include a similarly managed unaffected comparator where available.",
     "Record root color, firmness, odor, moisture or oxygen status, pH, EC, drainage, root restriction, irrigation history, and laboratory pathogen or nematode results when root decline is present.",
@@ -198,6 +199,23 @@
       "supportedClaims": [
         "UC IPM states that its photographs are copyrighted by the Regents of the University of California unless otherwise noted.",
         "The policy permits educational websites to link directly to a UC IPM photo file or descriptive page, but prohibits use or distribution in software or other electronic media without written consent and does not authorize automated training."
+      ]
+    },
+    {
+      "title": "Managing Fungus Gnats in the Greenhouse",
+      "organization": "UConn Extension, Integrated Pest Management",
+      "url": "https://ipm.cahnr.uconn.edu/managing-fungus-gnats-in-the-greenhouse-2/",
+      "authors": [
+        "Leanne Pundt"
+      ],
+      "publisher": "University of Connecticut, College of Agriculture, Health and Natural Resources",
+      "publicationDate": "2024-06",
+      "year": 2024,
+      "accessedDate": "2026-10-18",
+      "supportedClaims": [
+        "The June 2024 revision recommends horizontal yellow sticky cards at the growing-medium surface, checked and changed weekly, for adult monitoring; this is cross-crop greenhouse scouting guidance, not a Cannabis injury threshold.",
+        "Its larval protocol keeps potato plugs in contact with medium and checks both the medium beneath and the potato surface after 48 hours. Dataset inference: counts or negative checks without placement, contact and exposure interval are not comparable sampling evidence.",
+        "The guide reports laboratory evidence of fungal spores carried by adult gnats but explicitly says the importance of disease transmission in commercial greenhouses is unclear; carriage or an adult photograph does not establish transmission to a Cannabis plant."
       ]
     }
   ],
