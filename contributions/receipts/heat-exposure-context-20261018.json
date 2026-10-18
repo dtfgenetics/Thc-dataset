@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "heat-exposure-context-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "dc43b3c17afcb9ffce9cf8609590fe437d4cd8d6",
+  "head_commit": "b67a11af4d05d190d9874f0ef2c7476069d907b3",
+  "branch": "work/grow-doc/GD-DIAG-001/heat-exposure-context-20261018",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/env-heat.json"],
+  "related_release_paths": ["src/lib/data-quality.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1016/j.envexpbot.2025.106085"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, repository instructions, schemas, active task claims, current records, tests, validation commands and CI. Enriched one environmental-stress profile and existing primary citation with two bounded abstract-level claims: four cultivation cycles with two per temperature regime in two named genotypes, and the distinction between lower total cannabinoid concentrations and no reported terpenoid effect while upper/lower inflorescence chemical uniformity increased. Added a confirmation safeguard requiring cycle, temperature, genotype, PPFD, developmental-stage and inflorescence-position context and matched chemical assays instead of predicting chemistry from flower appearance. The cycle-to-leaf-temperature distinction and prohibition on image-based chemical inference are annotation safeguards, not measured diagnostic accuracy. Added only the institutionally reported February 2025 publication-month precision, without inventing a day, and updated access date. The Wageningen University and Research portal returned the primary article abstract, bibliographic metadata and open-access license link; a second search engine verified that institutional record. Direct institutional PDF and publisher article opens returned 403; no access barrier was bypassed and no inaccessible humidity, leaf-temperature or full-method claim was added. The existing figure reference and CC BY metadata were not changed. All profile fields other than sources and confirmation, including every media and symptom field, were programmatically compared with baseline and preserved. No new source, media, binary, license, label, confidence cap or training permission added. Counts remain 63 profiles, 205 sources, 92 media references, 36 originals plus 68 crops and zero training-eligible media. All 68 local commands passed, including 62 validators, 291 application tests, 103 Python tests, type check, build, frozen-artifact verification and diff check; five supplemental artifact/evaluator self-tests passed. Candidate-source isolation passed. Frozen 191-row text artifact hashes were synchronized without a model training run. Historical URLs were not all independently revalidated; changed claims were checked against the available institutional primary abstract. PHP is unavailable locally; all exact-head hosted workflows including PHP lint remain required before integration. Verification-before-completion gated publication. Operational claim is excluded from publication and released after merge. The prior blocked Botrytis draft is untouched and excluded. No production deployment occurred. Remaining gaps include plant-linked serial Cannabis image/video, measured leaf exposure, independent cultivar/system replication, chemical-sample linkage and panel-level training review. Symptom-only, exposure-unlinked, chemistry-inferred, cross-context and rights-unclear samples retain review restrictions. Agent review is not human, expert or laboratory specimen confirmation.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}

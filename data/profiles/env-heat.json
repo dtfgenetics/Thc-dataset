@@ -91,6 +91,7 @@
     "Camera exposure, white-balance, or grow-light color artifact"
   ],
   "confirmation": [
+    "For flowering comparisons, retain cultivation-cycle and temperature-regime identifiers, genotype, PPFD, developmental stage and upper-versus-lower inflorescence position. Link any cannabinoid or terpenoid claim to a matched chemical assay rather than inferring it from abnormal flower clusters or a canopy image.",
     "For a cold-exposure differential, retain time-stamped canopy and leaf-temperature records, duration, light/dark conditions, cultivar, plant age, leaf age and attached versus detached sampling status. Link serial whole-canopy and both-surface images of the same marked leaves to any fluorescence, chlorophyll-index or laboratory membrane-injury measurements; do not substitute freezer-leaf results for whole-plant outcomes.",
     "Do not confirm heat or light injury from curl, bleaching, dry margins, foxtailing, one photograph, or one video; retain a suspected label until measured exposure and exclusion evidence are linked to the photographed plant.",
     "Record heat and light as separate exposures: high PPFD is not evidence of high leaf temperature, and a high air temperature does not establish the temperature of each photographed leaf.",
@@ -164,14 +165,17 @@
         "Leo F. M. Marcelis"
       ],
       "publisher": "Elsevier",
+      "publicationDate": "2025-02",
       "year": 2025,
-      "accessedDate": "2026-08-13",
+      "accessedDate": "2026-10-18",
       "doi": "10.1016/j.envexpbot.2025.106085",
       "supportedClaims": [
         "In controlled short-day production, plants of two medical Cannabis genotypes were compared at 25/21 and 31/27 degrees Celsius day/night temperatures and at PPFDs of 600, 900, and 1,200 micromoles per square metre per second.",
         "The higher-temperature treatment reduced total cannabinoid concentration in both genotypes but reduced inflorescence dry matter only in Harmony CBD, demonstrating a genotype-specific production response.",
         "High temperature produced abnormal new inflorescence clusters on top of older inflorescences and disrupted normal maturation; this flowering morphology is treatment-associated but is not a universal image-only heat threshold.",
-        "Figure 2 pairs whole-plant views across 600, 900, and 1,200 micromoles per square metre per second with a close view of an abnormal inflorescence cluster; the article is distributed under CC BY, but the composite does not isolate temperature from genotype, PPFD, camera color, or developmental context for automated classification."
+        "Figure 2 pairs whole-plant views across 600, 900, and 1,200 micromoles per square metre per second with a close view of an abnormal inflorescence cluster; the article is distributed under CC BY, but the composite does not isolate temperature from genotype, PPFD, camera color, or developmental context for automated classification.",
+        "The primary abstract describes four cultivation cycles, two per air-temperature regime, during the short-day phase in Original Blitz and Harmony CBD. Dataset annotation inference: these cycle-level exposure treatments are not temperatures measured from each photographed leaf or a universal acute-injury threshold.",
+        "The abstract reports lower total cannabinoid concentrations at higher air temperature but no effect on terpenoids, alongside greater specialized-metabolite uniformity between upper and lower inflorescences. These chemical outcomes are separate from flower appearance and do not validate image-based potency, terpene-loss or harvest-maturity predictions."
       ]
     },
     {

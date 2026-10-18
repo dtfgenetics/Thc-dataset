@@ -522,6 +522,12 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps heat and light labels exposure-measured and cultivar-bounded', () => {
     const record = issues.find((issue) => issue.slug === 'heat-light-stress')
+    const heatTrial = record?.sources.find((source) => source.doi === '10.1016/j.envexpbot.2025.106085')
+    expect(heatTrial?.publicationDate).toBe('2025-02')
+    expect(heatTrial?.accessedDate).toBe('2026-10-18')
+    expect(heatTrial?.supportedClaims.join(' ')).toContain('four cultivation cycles')
+    expect(heatTrial?.supportedClaims.join(' ')).toContain('no effect on terpenoids')
+    expect(record?.confirmation.join(' ')).toContain('matched chemical assay')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/ppfd/)
     expect(record?.confirmation.join(' ').toLowerCase()).toMatch(/leaf temperature/)
