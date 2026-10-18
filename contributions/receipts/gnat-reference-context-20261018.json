@@ -1,0 +1,46 @@
+{
+  "base_commit": "40a7250e53752be9c557538ecba7348ed842ba64",
+  "branch": "work/grow-doc/GD-DIAG-001/gnat-reference-context-20261018",
+  "changed_paths": [
+    "data/profiles/pest-fungus-gnats.json",
+    "src/data/supplemental-issues.ts"
+  ],
+  "contribution_id": "gnat-reference-context-20261018",
+  "head_commit": "df355cd0cf7112ec81ca9de14f0116a46aba9611",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://ipm.cahnr.uconn.edu/managing-fungus-gnats-in-the-greenhouse-2/"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 inspected fresh main, recent changes, instructions, schemas, task claims, diagnostic standard, inventory and validation commands. Enriched one Insect profile, pest-fungus-gnats, with one UConn Extension citation and three claim mappings, increasing its mapped claims from 17 to 20. Retrieved the institutional guide, authored by Leanne Pundt and revised June 2024. Mappings distinguish horizontal soil-surface adult monitoring, potato-medium contact and both inspection surfaces after 48 hours, and uncertain commercial disease transmission despite laboratory spore carriage. One confirmation safeguard bounds negative samples; cross-crop sampling inference is explicitly identified and is not a Cannabis injury threshold or clearance rule. Only sources and confirmation changed within the target profile; all other 62 profiles are unchanged. Existing visual symptoms, plant parts, progression, confounders, exclusion checks, specimen confirmation, confidence ceiling and media restrictions preserved. Sources total 207; media remain 92 references, 36 originals, 68 crops and zero training-eligible media. No new media, binary, asset reference, license or permission. New visual research was insufficient: MDPI returned 429, PMC presented a CAPTCHA and a UConn figure asset returned 502; none bypassed or admitted. Existing non-Cannabis UC IPM reference remains license-review and not permitted for display or training. Baseline and corrected final application tests passed 293 tests; initial full run exposed obsolete confirmation/source count assertions, which were reconciled with the added record fields without changing evidence or admission gates. Full validation rerun required before publication: all 62 validators, type check, application tests, build, 103 Python tests, artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL syntax, CSV consistency, identifier/duplicate checks, label consistency, source identities, claim links and leakage gates checked. Historical URLs were not all independently revisited. Two serial freezes matched and synchronized actual provenance pins for the unchanged 191-row text corpus; no model training or inference. Hosted exact-head workflows, including PHP lint, and live base/head freshness are required before squash integration. Existing isolated worktree reused; unrelated work and the blocked Botrytis draft excluded. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: licensed plant-linked Cannabis injury sequences, verified diagnostic video, species vouchers and causal root/canopy evidence. Adult-only, unlinked, low-resolution and uncertain samples retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

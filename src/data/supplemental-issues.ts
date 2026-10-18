@@ -157,6 +157,21 @@ const sources = {
       'This is cross-crop greenhouse evidence rather than Cannabis-specific symptom validation, so plant yellowing or stunting cannot identify fungus gnats without observing adults, larvae, or other root-zone evidence.',
     ],
   }),
+  fungusGnatUconnScouting: source({
+    title: 'Managing Fungus Gnats in the Greenhouse',
+    organization: 'UConn Extension, Integrated Pest Management',
+    url: 'https://ipm.cahnr.uconn.edu/managing-fungus-gnats-in-the-greenhouse-2/',
+    authors: ['Leanne Pundt'],
+    publisher: 'University of Connecticut, College of Agriculture, Health and Natural Resources',
+    publicationDate: '2024-06',
+    year: 2024,
+    accessedDate: '2026-10-18',
+    supportedClaims: [
+      'The June 2024 revision recommends horizontal yellow sticky cards at the growing-medium surface, checked and changed weekly, for adult monitoring; this is cross-crop greenhouse scouting guidance, not a Cannabis injury threshold.',
+      'Its larval protocol keeps potato plugs in contact with medium and checks both the medium beneath and the potato surface after 48 hours. Dataset inference: counts or negative checks without placement, contact and exposure interval are not comparable sampling evidence.',
+      'The guide reports laboratory evidence of fungal spores carried by adult gnats but explicitly says the importance of disease transmission in commercial greenhouses is unclear; carriage or an adult photograph does not establish transmission to a Cannabis plant.',
+    ],
+  }),
   fungusGnatUnh: source({
     title: 'Fungus Gnats fact sheet',
     organization: 'University of New Hampshire Extension',
@@ -590,6 +605,7 @@ export const supplementalIssues: IssueRecord[] = [
       'Capture a traceable same-plant sequence: whole plant, labeled container, medium surface, low sticky card, exposed root ball, washed representative roots, and larval macro or microscope views with a scale.',
       'Place dated sticky cards close to the medium and record repeated adult activity by plant and location; keep adult counts as a scouting cue, not a causal injury label.',
       'Use standardized potato-piece and direct medium inspections, recording placement, exposure interval, plant ID, container, medium, moisture, and the number and location of recovered larvae.',
+      'Record sticky-card orientation and replacement dates, and whether potato pieces maintained medium contact. For the UConn 48-hour method, inspect and image both the medium beneath and the potato surface; a negative one-surface or poorly contacted sample does not establish larval absence.',
       'Image larvae at sufficient resolution to show the legless translucent body and dark head capsule; image adult antennae, body form, and Y-shaped wing vein when possible, and explicitly exclude shore flies.',
       'Map larval position against fine-root, root-hair, seed, cutting-base, or lower-stem injury in the same plant and include a similarly managed unaffected comparator where available.',
       'Record root color, firmness, odor, moisture or oxygen status, pH, EC, drainage, root restriction, irrigation history, and laboratory pathogen or nematode results when root decline is present.',
@@ -599,7 +615,7 @@ export const supplementalIssues: IssueRecord[] = [
     correctivePlan: ['Use sanitation, moisture and drainage correction, physical or biological controls, and other locally legal integrated measures appropriate to the confirmed organism and production system.', 'Track adults and larvae separately during follow-up; fewer adults alone do not prove that larvae or root injury have resolved.', 'If root or canopy decline continues after larval pressure falls, continue the independent pathogen, irrigation, pH, EC, salinity, nutrition, and root-restriction workup.'],
     prevention: ['Avoid chronic surface wetness while maintaining crop-appropriate root hydration and drainage.', 'Remove algae, decomposing roots, discarded media, and plant debris that support development without disturbing verified evidence before documentation.', 'Inspect incoming media, clones, rooted cuttings, and propagation areas, and use dated low-position monitoring before symptoms appear.', 'Retain plant- and location-specific records so recurring adults can be connected to direct larval and root inspections rather than treated as facility-wide injury proof.'],
     warnings: ['Photo or video alone is capped at low confidence because adult fungus gnats, wet media, yellowing, wilt, and stunting do not prove that larvae caused plant injury.', 'A few adults or a sticky-card capture establish neither a plant link nor economic injury; the same-plant root zone must be inspected.', 'The University of Tennessee guide reports greenhouse-hemp root feeding and possible increased root-disease incidence but also identifies major hemp arthropod knowledge gaps; it does not supply a universal symptom, severity, threshold, or species diagnosis.', 'Cloyd and the Pacific Northwest guidance provide cross-crop greenhouse biology and morphology. Their host response and timing details must not be universalized to Cannabis cultivars or production systems.', 'Pathogen carriage or coexistence does not prove that fungus gnats caused a specific infection; pathogen and abiotic root-zone evidence must be labeled and confirmed independently.', 'The UC IPM larval photograph is a non-Cannabis greenhouse reference with rights that prohibit software distribution without written consent. Only lawful reference metadata is stored; the binary is not copied, displayed, or admitted to training.', 'No licensed, plant-linked Cannabis injury progression, verified diagnostic video, or species-vouchered Cannabis media is included, and no media is eligible for automated training.'],
-    sources: [sources.fungusGnatEcology, sources.fungusGnatUnh, sources.fungusGnatUtHemp, sources.fungusGnatPnw, sources.fungusGnatUcipmLarvae, sources.fungusGnatUcipmRights],
+    sources: [sources.fungusGnatEcology, sources.fungusGnatUnh, sources.fungusGnatUtHemp, sources.fungusGnatPnw, sources.fungusGnatUcipmLarvae, sources.fungusGnatUcipmRights, sources.fungusGnatUconnScouting],
     media: [],
   },
   {
