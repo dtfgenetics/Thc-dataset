@@ -1,0 +1,41 @@
+{
+  "base_commit": "cd3310bb109bf6d85a07b0f3cd760b23f9826f3a",
+  "branch": "work/grow-doc/GD-DIAG-001/clomazone-exposure-20261018",
+  "changed_paths": [
+    "data/profiles/env-herbicide-clomazone.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "clomazone-exposure-20261018",
+  "head_commit": "97ed3b4c033dff1e4362211f0f6ba2d62b14f5fb",
+  "lane": "diagnostic",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 UTC inspected current main, recent batches, repository instructions, diagnostic standard, task registry, schemas, exported profiles, validation scripts and CI. Selected clomazone bleaching as a relatively sparse abiotic look-alike (16 mapped claims before batch). Reviewed methods section 2.1.1 and Table 2 in the UC Davis-hosted primary PDF at https://hemp.ucdavis.edu/sites/g/files/dgvnsk12601/files/media/documents/Evaluating%20herbicide%20tolerance%20of%20industrial%20hemp.%20Flessner.pdf and verified DOI, authors and date on the Wiley publisher page. Refined the existing quantitative claim with dry-mass per-plant units, eight weeks after treatment and pooled 2017/2018 context; added two mappings separating living-plant mean height from dead-plus-living shoot biomass and describing lined-pot exposure retention. Added one image/assay capture safeguard. Endpoint and production-transfer cautions are explicit annotation inferences, not camera-validated severity scores or irrigation recommendations. Only env-herbicide-clomazone changed among 63 exported profiles, and only sources and confirmation within that profile. Existing affected parts, leaf-age context, indicators, progression, exclusions, look-alikes, confidence ceiling, media labels, rights and eligibility preserved. No new source identity, image/video reference, copied media, license or training permission. Totals remain 206 sources, 92 profile media, 36 originals, 68 crops and zero training-eligible media. Source title, authors, DOI and publisher retained; access date updated. Bibliographic review flag: the publisher says first published 2020-03-09, while the institutional PDF header says published online 2020-02-14; retain publisher date without creating a duplicate source or treating the discrepancy as diagnostic evidence. Existing isolated worktree reused with unrelated files and prior blocked draft preserved and excluded. Baseline 293 application tests passed. All 68 local commands passed: 62 validators, 293 application tests, 103 Python tests, type check, production build, artifact verifier and diff check; five supplemental evaluator/artifact self-tests passed. JSON/JSONL syntax, CSV/export consistency, identifier and duplicate checks, label consistency, URL syntax/source identity, claim links and candidate leakage passed. Current primary and institutional pages were retrieved, but historical media URLs were not all independently revalidated. Two serial freezes agreed and synchronized provenance pins for 191 text rows without a model run. PHP is unavailable locally; all exact-head hosted CI including PHP lint is required before integration. Canonical changed paths generated from Git; related exports, tests and pins listed separately. Operational claim excluded and released after merge. No production deployment. Remaining gaps: exposure-linked Cannabis imagery, paired residue/tissue records, freely draining-system validation and tracked diagnostic video. Symptom-only, non-Cannabis, exposure-unlinked, inferred-dose and inferred-outcome samples retain human-review restrictions. Agent review is not actual human, expert or laboratory sample confirmation.",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1002/csc2.20055"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
