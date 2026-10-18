@@ -378,7 +378,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')!
     const guide = record.sources.find((item) => item.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')!
     expect(guide.publicationDate).toBe('2020-06')
-    expect(guide.accessedDate).toBe('2026-10-15')
+    expect(guide.accessedDate).toBe('2026-10-18')
     expect(guide.authors).toHaveLength(7)
     expect(guide.supportedClaims.join(' ')).toContain('cultivar susceptibility differences remain unresolved')
     expect(record.indicators.join(' ')).toContain('poorly defined margins')
