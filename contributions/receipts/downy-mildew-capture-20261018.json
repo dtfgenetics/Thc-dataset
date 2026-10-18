@@ -1,0 +1,42 @@
+{
+  "base_commit": "4eaf7660b3766518eda4f8f6f202100b421a7c6f",
+  "branch": "work/grow-doc/GD-DIAG-001/downy-mildew-capture-20261018",
+  "changed_paths": [
+    "data/profiles/oomycete-downy-mildew.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "downy-mildew-capture-20261018",
+  "head_commit": "b48169ed15496cd602d9389308e76aa5b44bfd9b",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-08-22-1930-PDN",
+    "https://doi.org/10.1094/PDIS-09-25-1916-RE"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-18 inspected fresh main, recent merges including dependency pinning PR634, instructions, repository structure, schemas, source/media interfaces, diagnostic standard, validation commands, records, coverage and active task claims before editing. Selected downy mildew, among the shallower profiles at 17 mapped claims, avoiding recently enriched profiles and the separately blocked Botrytis slice. Enriched the existing New York primary citation with two study-bounded mappings (19 profile claims total) and one capture safeguard distinguishing inoculum concentration, controlled chamber exposure and detached-leaf recovery substrate from field timing or axenic agar culture. Fresh primary publisher-indexed passages at https://apsjournals.apsnet.org/doi/full/10.1094/PDIS-08-22-1930-PDN explicitly report spray-to-runoff concentration, chamber temperature/photoperiod/misting, seven-day symptoms, detached Anka host-tissue recovery, sporangia/oospores and three-locus confirmation. Direct reader and HTTP retrieval of the publisher page were inaccessible (403), so no full-text retrieval or supplemental-figure inspection is asserted. New capture instructions are bounded annotation inferences, not additional experiments. Normalized two existing citation publication dates to publisher final Published dates: New York note 2023-05-16 (First Look 2022-10-21; issue date 2023-05-31) instead of a month-default 2023-05-01, and resistance study 2026-09-08 instead of its valid First Look date 2026-03-29. The latter final date is corroborated by PubMed PMID41906300; USDA ARS publication428781 still lists the earlier date and early manuscript pagination. These are publication-stage distinctions, not invented dates. Both access dates refreshed; source titles, publishers, authors and stable DOIs retained. No new scientific claim was added from inaccessible resistance-study methods; existing phenotyping limitations remain unchanged. Only oomycete-downy-mildew changed among all 63 exported profiles, within sources and confirmation. Existing plant-part, leaf-age, canopy distribution, morphology, progression, temporal sporulation, exclusions, confounders, organism confirmation and 0.35 photo-only ceiling preserved. No new source identity, media reference, binary, license, permission or sample ground-truth promotion. Ontario image references remain metadata-only, hidden, license-review, training-prohibited and training-ineligible; no media was fetched or copied. Publisher access or metadata discovery does not authorize media reuse or AI training. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. New regression assertions failed against old content as intended and passed after enrichment; the full application suite and candidate-leakage audit passed before freezing. All 68 local validation commands passed: 62 validators, type check, 293 application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. Gates checked JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, labels, URL syntax/source identity and source-to-claim links; historical URLs were not all independently revisited. Two serial freezes matched the full actual artifact lock and synchronized byte-level pins for the 191-row text mixture; no model training or inference. Final full suite including receipt and all hosted exact-head workflows required before squash integration, including PHP lint and immediately rechecked live base freshness. Worktree-isolation and verification-before-completion skills gate publication. Unrelated local work, dependency pins and blocked Botrytis draft preserved. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: reusable Cannabis imagery, leaf-age-linked paired upper/lower field video, calibrated specimen-linked sporangiophore/sporangium microscopy, and documented field/assay exposure histories. Symptom-only, undocumented exposure, unlinked laboratory, mixed-pathogen and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
