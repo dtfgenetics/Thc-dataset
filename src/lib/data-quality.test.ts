@@ -668,6 +668,13 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
     const record = issues.find((issue) => issue.slug === 'genetic-variegation')
+    const vigs = record?.sources.find((source) => source.doi === '10.1186/s13007-019-0542-5')
+    expect(vigs?.accessedDate).toBe('2026-10-18')
+    expect(vigs?.supportedClaims).toHaveLength(5)
+    expect(vigs?.supportedClaims.join(' ')).toContain('newly developed leaves approximately four weeks')
+    expect(vigs?.supportedClaims.join(' ')).toContain('five of 25 survivors')
+    expect(vigs?.supportedClaims.join(' ')).toContain('empty-vector controls lacked the bleaching phenotype')
+    expect(record?.confirmation.join(' ')).toContain('never turn a survivor-based efficiency into natural-trait prevalence')
     const comparison = record?.sources.find((source) => source.doi === '10.17660/ActaHortic.2020.1287.21')
     expect(comparison?.publicationDate).toBe('2020')
     expect(comparison?.accessedDate).toBe('2026-10-16')
