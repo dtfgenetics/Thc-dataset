@@ -541,13 +541,16 @@
     "publisher": "Oxford University Press for the Entomological Society of America",
     "publicationDate": "2023-08-03",
     "year": 2024,
-    "accessedDate": "2026-10-07",
+    "accessedDate": "2026-10-18",
     "doi": "10.1093/ee/nvad060",
     "supportedClaims": [
       "The study developed a species-specific SYBR Green real-time PCR assay targeting a 104-base-pair Aculops cannabicola ITS1 sequence and reported detection of all life stages in under two hours.",
       "The assay amplified DNA from microscope-confirmed infested hemp leaves and did not amplify the tested uninfested hemp, wheat curl mite, two-spotted spider mite, or western flower thrips samples.",
       "The authors caution that the assay was validated on hemp leaf tissue, not environmental DNA or every alternative sample type, and that careful sample handling plus negative and no-template controls are needed to limit contamination-related false positives.",
-      "The paper states that visible curling and bronzing are subtle, non-universal among cultivars, and may appear only after mites have proliferated, supporting microscopy or validated molecular confirmation rather than symptom-only labeling."
+      "The paper states that visible curling and bronzing are subtle, non-universal among cultivars, and may appear only after mites have proliferated, supporting microscopy or validated molecular confirmation rather than symptom-only labeling.",
+      "Analytical sensitivity was estimated with a seven-step tenfold dilution of a linearized plasmid carrying the ITS1 insert; Results report approximately 48 copies per microlitre at the lowest tested dilution. This is a DNA-standard endpoint, not 48 mites per leaf or a validated field-abundance threshold.",
+      "The study used three technical replicates per plant or arthropod sample and classified a sample as negative if any technical replicate exceeded Cq 35. That protocol-specific decision rule is not a universal diagnostic cutoff or three independently sampled plants.",
+      "The partial hemp-russet-mite ITS1 sequence used for primer design was deposited as GenBank OL944642.1; this accession anchors the assay target, not a whole-genome identification or a causal diagnosis of an unlinked photographed plant."
     ]
   },
   {
