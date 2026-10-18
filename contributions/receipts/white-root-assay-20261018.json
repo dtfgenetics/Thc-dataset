@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "white-root-assay-20261018",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c4fd833b623c638b6e94d92bac9de3041078afa1",
+  "head_commit": "e312ef76bdaaf45352a434074c27990465ae2173",
+  "branch": "work/grow-doc/GD-DIAG-001/white-root-assay-20261018",
+  "changed_paths": ["src/data/expanded-issues-batch3.ts", "data/profiles/root-white-root-rot.json"],
+  "related_release_paths": ["src/lib/catalog-coverage-expansion.test.ts", "data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml"],
+  "source_ids": ["https://doi.org/10.1094/PDIS-07-20-1521-PDN"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "scope_note": "Agent review on 2026-10-18 UTC inspected fresh main, recent batches, repository instructions, schemas, current records, task claims, test scripts and CI. Enriched one three-source white-root-rot profile and its existing primary citation with three claim mappings: five-isolate initial ITS/MK937913 evidence versus post-pathogenicity EF1-alpha/MW541068 evidence; controlled Kompolty inoculation and negative controls with three-week symptom onset followed by death within two further weeks; and the original authors' orchard-history adaptation hypothesis. Added one confirmation safeguard separating field dates, inoculation dates, loci, accessions and specimen linkage. Orchard-source and timing limitations are annotation safeguards, not demonstrated source tracing or universal thresholds. Corrected publicationDate from 2021-10-01 to the publisher's explicit Published date 2021-10-22; its History separately lists First Look 2021-04-01. Updated access date. Direct APS opening returned 403; search returned the full primary publisher note including History, methods and results, with a second search verifying the ITS accession. No access barrier was bypassed. No new source, asset, license, diagnostic label, confidence cap or media permission changed. Programmatic comparison verified all profile fields except sources and confirmation unchanged. Totals remain 63 profiles, 205 sources, 92 media references, 36 original assets plus 68 crops, zero training-eligible media. The reserved-source Botrytis draft was left untouched and excluded from this batch; candidate-source leakage audit passed before artifact regeneration. The full 68-command run passed 67 commands and caught one stale access-date test assertion. Systematic debugging traced it to the intentionally refreshed citation; after correction, the full 291-test suite, type check, build and diff check passed fresh. All 62 validators, 103 Python tests, frozen-artifact verification and five supplemental evaluator/artifact self-tests passed. PHP is unavailable locally; all exact-head hosted workflows including PHP lint remain required before integration. Frozen 191-row text artifacts and hash pins were synchronized; no model training or production deployment occurred. Historical URLs were not all independently revalidated. Verification-before-completion gated publication. Operational claim is excluded from publication and released after successful merge. Remaining gaps: licensed longitudinal Cannabis imagery/video, specimen-linked assays, representative cultivar/system replication and panel-level training review. Symptom-only, unlinked, cross-crop and molecularly ambiguous samples retain human-review restrictions. Agent review is not human, expert or laboratory specimen review.",
+  "validation": {
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  }
+}
