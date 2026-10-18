@@ -218,14 +218,17 @@
       "Leo F. M. Marcelis"
     ],
     "publisher": "Elsevier",
+    "publicationDate": "2025-02",
     "year": 2025,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-18",
     "doi": "10.1016/j.envexpbot.2025.106085",
     "supportedClaims": [
       "In controlled short-day production, plants of two medical Cannabis genotypes were compared at 25/21 and 31/27 degrees Celsius day/night temperatures and at PPFDs of 600, 900, and 1,200 micromoles per square metre per second.",
       "The higher-temperature treatment reduced total cannabinoid concentration in both genotypes but reduced inflorescence dry matter only in Harmony CBD, demonstrating a genotype-specific production response.",
       "High temperature produced abnormal new inflorescence clusters on top of older inflorescences and disrupted normal maturation; this flowering morphology is treatment-associated but is not a universal image-only heat threshold.",
-      "Figure 2 pairs whole-plant views across 600, 900, and 1,200 micromoles per square metre per second with a close view of an abnormal inflorescence cluster; the article is distributed under CC BY, but the composite does not isolate temperature from genotype, PPFD, camera color, or developmental context for automated classification."
+      "Figure 2 pairs whole-plant views across 600, 900, and 1,200 micromoles per square metre per second with a close view of an abnormal inflorescence cluster; the article is distributed under CC BY, but the composite does not isolate temperature from genotype, PPFD, camera color, or developmental context for automated classification.",
+      "The primary abstract describes four cultivation cycles, two per air-temperature regime, during the short-day phase in Original Blitz and Harmony CBD. Dataset annotation inference: these cycle-level exposure treatments are not temperatures measured from each photographed leaf or a universal acute-injury threshold.",
+      "The abstract reports lower total cannabinoid concentrations at higher air temperature but no effect on terpenoids, alongside greater specialized-metabolite uniformity between upper and lower inflorescences. These chemical outcomes are separate from flower appearance and do not validate image-based potency, terpene-loss or harvest-maturity predictions."
     ]
   },
   {
