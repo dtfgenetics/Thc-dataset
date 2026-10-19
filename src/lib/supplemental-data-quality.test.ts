@@ -405,7 +405,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
     const media = record?.media[0]
-    expect(record?.sources).toHaveLength(3)
+    expect(record?.sources).toHaveLength(4)
     expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
     expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
     expect(media?.creator).toContain('Zachariah Hansen')
@@ -422,6 +422,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
   it('keeps rust barcode guidance locus-specific, voucher-linked, and provisional', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')!
+    const microscopy = record.sources.find((item) => item.url.includes('identifying_microfungi_under_microscope_sample_name'))!
+    expect(microscopy.publicationDate).toBe('2025-06')
+    expect(microscopy.accessedDate).toBe('2026-10-19')
+    expect(microscopy.authors).toEqual(['Megan Romberg'])
+    expect(microscopy.supportedClaims).toHaveLength(3)
+    expect(microscopy.supportedClaims.join(' ')).toContain('shape, size, septation, appendages, and the structure from which spores originate')
+    expect(record.confirmation.join(' ')).toContain('intact pustule before scraping or slide preparation')
+    expect(record.confirmation.join(' ')).toContain('mounting medium, preparation date, objective, lighting, and calibration')
+    expect(record.warnings.join(' ')).toContain('general fungal-identification workflow, not a validated Cannabis rust assay')
     const barcode = record.sources.find((item) => item.organization === 'National Plant Diagnostic Network')!
     expect(barcode.publicationDate).toBe('2024-05')
     expect(barcode.accessedDate).toBe('2026-10-16')

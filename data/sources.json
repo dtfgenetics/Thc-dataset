@@ -4671,6 +4671,24 @@
     ]
   },
   {
+    "sourceKey": "https://www.npdn.org/newsletter/2025/06/identifying_microfungi_under_microscope_sample_name",
+    "title": "Identifying Microfungi Under the Microscope - from Sample to Name",
+    "organization": "National Plant Diagnostic Network / USDA-APHIS",
+    "url": "https://www.npdn.org/newsletter/2025/06/identifying_microfungi_under_microscope_sample_name",
+    "authors": [
+      "Megan Romberg"
+    ],
+    "publisher": "National Plant Diagnostic Network, The Communicator, Volume 6, Issue 6",
+    "publicationDate": "2025-06",
+    "year": 2025,
+    "accessedDate": "2026-10-19",
+    "supportedClaims": [
+      "The general diagnostic workflow starts with host and fungal-group assessment under dissecting microscopy or a 10–30× hand lens with oblique lighting, followed by low-objective compound-microscope scanning; these are different observation scales, not Cannabis-specific diagnostic thresholds.",
+      "The guide asks diagnosticians to record spore shape, size, septation, appendages, and the structure from which spores originate, then compare tentative identifications with current nomenclature and taxonomy. Orange powder alone does not supply that structural evidence.",
+      "Slide preparation can remove fungal tissue or dislodge structures by scraping into a mounting medium. Dataset inference: preserve intact-tissue images and preparation metadata separately from the resulting slide, rather than treating altered material as an untouched pustule or another in-plant progression stage."
+    ]
+  },
+  {
     "sourceKey": "https://www.publications.gov.on.ca/store/20170501121/Free_Download_Files/301400.pdf",
     "title": "Nutrient Deficiency ID Guide for Hemp",
     "organization": "Ontario Ministry of Agriculture, Food and Rural Affairs",
