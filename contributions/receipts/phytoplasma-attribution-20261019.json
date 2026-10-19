@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "phytoplasma-attribution-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "a37958863d8aa0ea355db8eb80115cbcd33a3314",
+  "head_commit": "b1e1eabd8a04052db12e08c696d1ef46cee36683",
+  "branch": "work/grow-doc/GD-DIAG-001/phytoplasma-attribution-20261019",
+  "changed_paths": [
+    "data/profiles/phytoplasma-hemp-witches-broom.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1094/PHYTOFR-05-23-0064-SC"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent commits, instructions, active task registry/claims, coverage, schemas, canonical/exported profiles/media, exporter and CI validation commands before edits. Selected hemp witches-broom among the weakest remaining profiles, 15 to 17 mapped claims. Refreshed existing Schoener and Wang 2023 primary citation, DOI 10.1094/PHYTOFR-05-23-0064-SC, published 2023-10-13; authors, publisher, title and stable URL retained. Publisher-indexed primary text retrieved through search supplies the duplex phytoplasma assay/plant 18S internal-control method and the authors' explicit limitation on individual/combined symptom contributions. Direct page open returned 403; no restricted access attempted. Two explicitly marked dataset inferences distinguish plant-control signal from pathogen/species confirmation and co-detection from causal symptom partition. Added plant/control/run linkage guidance and an attribution warning. No new PCR recipe, universal cutoff, validated sensitivity, species diagnosis or proven symptom-specific mechanism. Only phytoplasma-hemp-witches-broom changed among 63 profiles, within confirmation/warnings/sources. Existing plant part, leaf age, paired surfaces, architecture, progression, distribution, confounders, exclusions, molecular identification and 0.15 photo-only safeguard retained. No new media/reference, binary, crop, license, attribution, display/training permission or training admission. All three institutional records remain hidden metadata-only license-review candidates and training-prohibited. No generated, anecdotal, forum, vendor or unverified ground truth. Totals stay 210 evidence sources, 93 references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. Baseline passed 293 app tests. New regression failed on absent refreshed source as intended; all 37 targeted tests then passed. Candidate-leakage audit passed. Two serial freezes matched the full lock; README/config hashes synchronized, mixture unchanged at 150 SFT plus 37 grounded-QA rows (187). Five supplemental artifact/evaluator self-tests passed. All 68 commands passed: 62 package validators, type check, 293 app tests, production build, 103 Python tests, artifact verifier and diff check. Export/schema checks cover JSON/JSONL/CSV consistency, identifiers, duplicates, labels, URL syntax/source identities and source-to-claim links; historical URLs were not all independently retrieved. Final full suite including receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before integration with live base/head/tree recheck. Worktree-isolation and verification-before-completion skills guided isolation and publication gates. No actual model training, inference or production deployment. Operational claim excluded and released after merge; unrelated work preserved. Remaining gaps: plant-linked tissue/molecular/video sequences, independently resolved mixed-infection effects and reusable confirmed media. Symptom-only, plant-control-only, band-only, case-unlinked, pooled, leaf-unlocalized, unresolved-attribution and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}
