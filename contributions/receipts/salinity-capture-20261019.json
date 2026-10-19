@@ -1,0 +1,43 @@
+{
+  "base_commit": "e61b558020fe45d860f86854de5ce797e6a0ed0c",
+  "branch": "work/grow-doc/GD-DIAG-001/salinity-capture-20261019",
+  "changed_paths": [
+    "data/profiles/stress-salinity-high-ec.json",
+    "src/data/supplemental-issues.ts",
+    "src/data/verified-reference-media-batch3.ts"
+  ],
+  "contribution_id": "salinity-capture-20261019",
+  "head_commit": "e82d4829b1a54bba174fa0402fa6f3061f7295bd",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2020.01169"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent merges, instructions, repository structure, schemas, source/media interfaces, diagnostic standard, validation commands, records, coverage and task claims before editing. Selected salinity/high-EC stress, among the weaker root-zone profiles at 18 mapped claims, avoiding recently enriched slices and the separately blocked Botrytis work. Corrected one existing claim that incorrectly assigned hydroponic low-dose concentrations to both Figure 1 panels: hydroponic A uses 1/5/10/20/40 mM NaCl, while aquaponic B uses 4/8/10/20/40 mM. This is an evidence-backed claim correction, not speculative sample relabeling. Added two study-bounded mappings for treatment initiation on flowering day 12 and coordinated solution-renewal protocol (20 profile claims total), one capture safeguard and limitations for two existing diagram references. Fresh full primary text retrieved at https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2020.01169/full, including Plant Culture, Experimental Design and Treatments, measurement methods and Figure 1/2 captions. Both publisher image renditions were temporarily retrieved and visually inspected at https://www.frontiersin.org/files/Articles/549564/xml-images/fpls-11-01169-g001.webp and https://www.frontiersin.org/files/Articles/549564/xml-images/fpls-11-01169-g002.webp under the verified article-specific CC BY license. Their legends confirm the unequal low-dose panels and axes labeled days in flowering. Existing NCBI asset URLs, fingerprints, dimensions, attribution, display permission and training permission were retained; publisher renditions were not substituted for those historical encodings or claimed byte-identical. No binary, crop, new media reference or license was committed. PMC landing-page retrieval showed a browser-check wall; no bypass was attempted, and the public publisher text/images supplied the independent evidence. Source title, authors, publisher, DOI and publication date retained; access date refreshed. Capture instructions separating flowering day, exposure duration, solution identity and renewal are bounded dataset inferences, not new experimental results or universal correction prescriptions. Only stress-salinity-high-ec changed among all 63 exported profiles, within confirmation, sources and media limitations. Existing affected parts, leaf-age context, morphology, distribution, temporal progression, confounders, exclusions, chemistry confirmation and 0.2 photo-only ceiling preserved. The two graphs remain reference-only and training-ineligible, not symptom photographs or specimen-level ground truth; no generated, anecdotal, vendor, forum or unverified media promotion. Totals remain 209 source pages, 93 references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. New regression assertions failed on old content as intended and passed after enrichment; the full application suite and candidate-leakage audit passed before freezing. One initial patch was rejected atomically for duplicate file targets; the consolidated patch applied without partial canonical changes. All 68 local validation commands passed: 62 validators, type check, 293 application tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. Gates checked JSON/JSONL syntax, CSV/export consistency, identifiers, duplicates, labels, URL syntax/source identity and source-to-claim links. Historical URLs were not all independently revisited. Two serial freezes matched the full actual lock and synchronized byte-level pins for the 191-row text mixture; no model training or inference. Final full suite including receipt and all hosted exact-head workflows required before squash integration, including PHP lint and immediately rechecked live base freshness. Worktree-isolation and verification-before-completion skills gate publication. Unrelated work, dependency pins and blocked Botrytis draft preserved. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: linked symptom photos, leaf-age-specific paired canopy/root and meter sequences, verified diagnostic video and multi-cultivar exposure/recovery evidence. Composition-unknown, meter-unlinked, symptom-only, unmatched, single-timepoint and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

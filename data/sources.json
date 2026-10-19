@@ -2410,15 +2410,17 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2020-08-05",
     "year": 2020,
-    "accessedDate": "2026-10-13",
+    "accessedDate": "2026-10-19",
     "doi": "10.3389/fpls.2020.01169",
     "supportedClaims": [
       "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
       "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
-      "Figure 1 reports weekly canopy growth-index trajectories during flowering for 1, 5, 10, 20, and 40 mM NaCl in matched hydroponic and aquaponic panels; it is a treatment-response diagram, not a symptom photograph or a universal diagnostic threshold.",
+      "Figure 1 reports weekly canopy growth-index trajectories for 1, 5, 10, 20 and 40 mM NaCl in hydroponic panel A, versus 4, 8, 10, 20 and 40 mM in aquaponic panel B. The low-dose treatments differ; this is a response diagram, not a symptom photograph or universal threshold.",
       "Figure 2 reports chlorophyll content index from the most recently expanded center leaflet over the same flowering-stage treatments; the hydroponic 40 mM treatment declined while the aquaponic panel did not show the same NaCl response.",
       "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
-      "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
+      "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause.",
+      "Treatments began on flowering day 12 after 11 days in a common nutrient solution; the figure axes report days in flowering, not days since NaCl exposure. Preserve both clocks when annotating response timing.",
+      "All plants received fresh treatment solutions when any plant exceeded the specified pH-change, depletion or EC-change trigger, or every seven days otherwise. This renewal protocol differs from uninterrupted salt accumulation in an unmanaged reservoir."
     ]
   },
   {

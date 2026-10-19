@@ -201,6 +201,13 @@ describe('diagnostic coverage audit', () => {
     const record = issues.find((issue) => issue.slug === 'salinity-high-ec-stress')
     const confirmation = record?.confirmation.join(' ').toLowerCase() ?? ''
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
+    const primary = record?.sources.find((source) => source.doi === '10.3389/fpls.2020.01169')!
+    expect(primary.accessedDate).toBe('2026-10-19')
+    expect(primary.supportedClaims).toHaveLength(8)
+    expect(primary.supportedClaims.join(' ')).toContain('4, 8, 10, 20 and 40 mM in aquaponic panel B')
+    expect(primary.supportedClaims.join(' ')).not.toContain('matched hydroponic and aquaponic panels')
+    expect(confirmation).toContain('flowering day separately from days since salt exposure')
+    expect(record?.media.every((item) => item.useLimitations.join(' ').includes('not an identical low-dose comparison'))).toBe(true)
 
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
