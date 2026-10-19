@@ -1821,6 +1821,7 @@
     "hostContext": "cannabis",
     "useLimitations": [
       "Diagram only: chlorophyll content index is a meter-derived measurement and the figure contains no inspectable leaf-color, margin, underside, root, or whole-plant phenotype.",
+      "Panel A uses 1, 5, 10, 20 and 40 mM NaCl; panel B uses 4, 8, 10, 20 and 40 mM. This is not an identical low-dose comparison. The x-axis is flowering day, with treatment starting on day 12, not exposure day zero.",
       "The plotted center leaflet of the most recently expanded leaf does not represent older foliage, every canopy position, or a visible chlorosis threshold.",
       "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
       "The one-chemovar flowering experiment cannot establish cultivar-independent response timing, severity, recovery, or diagnostic specificity.",
@@ -1859,6 +1860,7 @@
     "hostContext": "cannabis",
     "useLimitations": [
       "Diagram only: it contains derived treatment means and standard errors, not inspectable plant, leaf, root, meter, or injury imagery.",
+      "Panel A uses 1, 5, 10, 20 and 40 mM NaCl; panel B uses 4, 8, 10, 20 and 40 mM. This is not an identical low-dose comparison. The x-axis is flowering day, with treatment starting on day 12, not exposure day zero.",
       "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
       "The 1–40 mM NaCl treatments, one chemovar, continuous root exposure, and flowering-stage design are study-specific and are not universal EC or action thresholds.",
       "Keep the whole figure, axes, treatment legend, panel identities, caption, and attribution together; do not relabel a plotted point as specimen-level ground truth.",

@@ -16458,6 +16458,7 @@
       "Measure root-zone moisture, pH, and temperature and record air and leaf temperature, relative humidity, VPD, PPFD, and airflow at the same time as each visual capture.",
       "Inspect and photograph the intact root ball, crown, drainage pattern, emitter placement, and root color and firmness; use diagnostic testing when disease, nematodes, or vascular injury remains plausible.",
       "Capture fixed whole-plant front and side views plus top, upper-leaf, lower-leaf, margin, underside, root-zone, meter-display, and source-label views at the same time of day before exposure, during the EC rise, before correction, and during recovery.",
+      "Record flowering day separately from days since salt exposure and solution renewal; preserve each solution-specific concentration and panel identity. Do not compare the hydroponic 1/5 mM curves with aquaponic 4/8 mM curves as equal-dose controls or treat the study renewal schedule as a corrective prescription.",
       "Keep symptom-only, detached-leaf-only, single-timepoint, unmatched, meter-unlinked, composition-unknown, generated, vendor, anecdotal, forum, unverified, and rights-unclear captures out of the confirmed salinity class and route them to human review."
     ],
     "immediateActions": [
@@ -16517,15 +16518,17 @@
         "publisher": "Frontiers Media SA",
         "publicationDate": "2020-08-05",
         "year": 2020,
-        "accessedDate": "2026-10-13",
+        "accessedDate": "2026-10-19",
         "doi": "10.3389/fpls.2020.01169",
         "supportedClaims": [
           "A controlled indoor flowering experiment tested one type-II chemovar at 1 to 40 mM NaCl in hydroponic and aquaponic solutions and measured canopy growth, chlorophyll content index, gas exchange, chlorophyll fluorescence, water-use physiology, solution pH/EC, yield, and cannabinoids.",
           "At 40 mM NaCl, hydroponic plants had reduced growth index and chlorophyll content index over time, while the same measured responses were not significantly affected by NaCl in the aquaponic solution.",
-          "Figure 1 reports weekly canopy growth-index trajectories during flowering for 1, 5, 10, 20, and 40 mM NaCl in matched hydroponic and aquaponic panels; it is a treatment-response diagram, not a symptom photograph or a universal diagnostic threshold.",
+          "Figure 1 reports weekly canopy growth-index trajectories for 1, 5, 10, 20 and 40 mM NaCl in hydroponic panel A, versus 4, 8, 10, 20 and 40 mM in aquaponic panel B. The low-dose treatments differ; this is a response diagram, not a symptom photograph or universal threshold.",
           "Figure 2 reports chlorophyll content index from the most recently expanded center leaflet over the same flowering-stage treatments; the hydroponic 40 mM treatment declined while the aquaponic panel did not show the same NaCl response.",
           "The solution-dependent result and single-chemovar flowering design show that production system, genotype, stage, and treatment composition must accompany any image or video label.",
-          "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause."
+          "The study did not establish a universal visible symptom signature; image appearance alone cannot identify NaCl exposure or elevated root-zone EC as the primary cause.",
+          "Treatments began on flowering day 12 after 11 days in a common nutrient solution; the figure axes report days in flowering, not days since NaCl exposure. Preserve both clocks when annotating response timing.",
+          "All plants received fresh treatment solutions when any plant exceeded the specified pH-change, depletion or EC-change trigger, or every seven days otherwise. This renewal protocol differs from uninterrupted salt accumulation in an unmanaged reservoir."
         ]
       },
       {
@@ -16587,6 +16590,7 @@
         "hostContext": "cannabis",
         "useLimitations": [
           "Diagram only: it contains derived treatment means and standard errors, not inspectable plant, leaf, root, meter, or injury imagery.",
+          "Panel A uses 1, 5, 10, 20 and 40 mM NaCl; panel B uses 4, 8, 10, 20 and 40 mM. This is not an identical low-dose comparison. The x-axis is flowering day, with treatment starting on day 12, not exposure day zero.",
           "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
           "The 1–40 mM NaCl treatments, one chemovar, continuous root exposure, and flowering-stage design are study-specific and are not universal EC or action thresholds.",
           "Keep the whole figure, axes, treatment legend, panel identities, caption, and attribution together; do not relabel a plotted point as specimen-level ground truth.",
@@ -16621,6 +16625,7 @@
         "hostContext": "cannabis",
         "useLimitations": [
           "Diagram only: chlorophyll content index is a meter-derived measurement and the figure contains no inspectable leaf-color, margin, underside, root, or whole-plant phenotype.",
+          "Panel A uses 1, 5, 10, 20 and 40 mM NaCl; panel B uses 4, 8, 10, 20 and 40 mM. This is not an identical low-dose comparison. The x-axis is flowering day, with treatment starting on day 12, not exposure day zero.",
           "The plotted center leaflet of the most recently expanded leaf does not represent older foliage, every canopy position, or a visible chlorosis threshold.",
           "Hydroponic and aquaponic panels represent different solution contexts and must not be collapsed into a single visual salinity class.",
           "The one-chemovar flowering experiment cannot establish cultivar-independent response timing, severity, recovery, or diagnostic specificity.",
