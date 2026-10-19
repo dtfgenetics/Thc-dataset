@@ -639,7 +639,7 @@ const sources = {
     publisher: 'American Phytopathological Society',
     publicationDate: '2020-10-07',
     year: 2020,
-    accessedDate: '2026-10-18',
+    accessedDate: '2026-10-19',
     doi: '10.1094/PDIS-03-20-0546-PDN',
     supportedClaims: [
       'In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.',
@@ -654,6 +654,8 @@ const sources = {
       'The authors cite prior reports on areca palm and goosegrass but propose goosegrass only as a possible alternative host. Dataset inference: nearby weeds or a shared host report do not establish the source of a photographed hemp infection.',
       'The assay sprayed the suspension to runoff but reports no delivered volume per plant or leaf. Dataset inference: suspension concentration is not a measured deposited dose, and a leaf image cannot recover that missing exposure.',
       'Inoculum was prepared in 0.01% Tween 20; controls are described as sterile-deionized-water sprays under the same conditions, without explicit surfactant matching. Dataset inference: record the reported water control, not an assumed vehicle-matched control; this reporting limit does not negate the reported symptom reproduction and reisolation.',
+      'The field account reports lesions on up to 70% of plants and separately up to 50% leaf damage. Dataset inference: these are different observation units; the undefined leaf-damage assessment is not a defined image-segmentation metric, calibrated severity class, or regional prevalence estimate.',
+      'Reported matches to reference CPC 28808 were 99.32% ITS, 99.58% GAPDH and 99.88% EF1-alpha for the closely grouping isolates. Dataset inference: locus-specific sequence similarities are not classifier accuracy, posterior species probability, or universal identity cutoffs; phylogenetic interpretation remains necessary.',
     ],
   }),
   curvulariaFieldGuide: source({
@@ -1488,6 +1490,7 @@ export const expandedIssues: IssueRecord[] = [
       'Link plant, tagged lesion, culture and sequence IDs at each locus; retain chromatograms or laboratory reports and accession-to-isolate mapping. Do not manufacture individual mappings from the published grouped GenBank ranges, especially for divergent isolate 19-405.',
       'When causality is required, retain symptom reproduction, reisolation, and negative controls linked to the isolate; organism detection alone does not prove that every visible lesion was caused by it.',
       'For inoculation-image sequences, retain suspension concentration, any measured delivered volume, runoff endpoint, formulation, control composition and plant identity separately. Mark missing deposited dose or surfactant matching as unreported, not zero or experimentally matched.',
+      'For mapped surveys or videos, record plants examined and plants with lesions separately from leaf-level damage; preserve the scoring method and leaf identity. Keep each sequence-match percentage linked to its locus, reference, alignment and isolate, not the photograph confidence.',
       'Keep symptom-only, detached-leaf-only, mixed-pathogen, culture-unlinked, single-locus-only, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and route unresolved evidence to review.',
     ],
     immediateActions: ['Tag and photograph representative plants before removing tissue, preserving field and canopy distribution.', 'Limit movement of symptomatic propagation material and retain fresh, traceable lesions for a plant diagnostic laboratory.', 'Map affected plants against cultivar blocks, splash or irrigation zones, leaf wetness, airflow, recent foliar applications, and mechanical or weather injury.'],
@@ -1499,6 +1502,7 @@ export const expandedIssues: IssueRecord[] = [
       'Pumma-2 in the field account and Puma-3 in the inoculation assay are distinct reported labels, not interchangeable spellings; goosegrass is a proposed alternative host, not a demonstrated local transmission source. Unresolved cultivar or reservoir assignments require review.',
       'The 72-hour bagging exposure and two-week symptom endpoint belong to an artificial inoculation assay, not an untreated field time series. Matching those times or conidial dimensions alone cannot confirm an image; incomplete isolate-to-sequence linkage requires human review.',
       'One isolate was phylogenetically differentiated from the other three and may represent a cryptic species, so species labels require isolate-linked multilocus interpretation.',
+      'Sequence similarity is not diagnostic confidence. The report does not define a transferable pixel-area severity scale; field maxima cannot label a detached leaf or establish an image classifier threshold.',
       'UF/IFAS Figure 4 is an attributed institutional whole-leaf differential, not a plant- and lesion-linked laboratory record; its CC BY-NC-ND 4.0 license prohibits derivatives and commercial reuse without permission.',
       'The reference lacks a scale, paired underside, whole-plant distribution, sample identifier, culture, microscopy, sequence accessions, and pathogenicity linkage for the pictured leaf.',
       'All unresolved symptom-only, detached, mixed-organism, unlinked-laboratory, single-locus-only, low-resolution, and rights-unclear samples retain review flags.',
