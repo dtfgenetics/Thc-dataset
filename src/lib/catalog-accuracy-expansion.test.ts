@@ -47,8 +47,9 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(evidence).toContain('species label')
     expect(evidence).toContain('alternate host is unknown')
     const tennessee = record.sources.find((source) => source.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')!
-    expect(tennessee.accessedDate).toBe('2026-10-18')
-    expect(tennessee.supportedClaims).toHaveLength(4)
+    expect(tennessee.accessedDate).toBe('2026-10-19')
+    expect(tennessee.supportedClaims).toHaveLength(5)
+    expect(tennessee.supportedClaims.join(' ')).toContain('leaf-spot ratings are not rust-resistance ratings')
     expect(tennessee.supportedClaims.join(' ')).toContain('August 26, 2019')
     expect(tennessee.supportedClaims.join(' ')).toContain('historical regional reporting, not a global first report or current prevalence estimate')
     expect(tennessee.supportedClaims.join(' ')).toContain('assignments may change with research')

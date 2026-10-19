@@ -93,6 +93,7 @@
     "Ask the diagnostic laboratory to select a rust-appropriate locus: NPDN identifies 28S as the standard rust barcode and warns that ITS intragenomic variation limits separation. This general guidance does not validate a Cannabis-specific assay.",
     "For Rust HUBB matching, retain the lesion-linked query sequence and locus, database access date, query coverage, identity, score and E value, reference accession and voucher, and host/country metadata. Dataset inference: require specialist interpretation instead of promoting a ranked best match directly to a species label.",
     "Keep sample collection, first observed lesion, photograph and laboratory confirmation dates separate. Dataset inference: retain site and exposure history as context, but do not assign infection date or transmission route from lesion color, regional reports or proximity to another hemp field.",
+    "Capture intact leaf surfaces before handling; wound-free leaves are not negative controls for rust. For cultivar comparisons, record the number of plants examined per cultivar, laboratory-linked rust status, plant age and exposure context; do not transfer leaf-spot trial ratings to rust resistance or infer resistance from unexposed symptom-negative plants.",
     "Keep symptom-only, residue-uncleared, detached-leaf-only, unmatched-surface, specimen-unlinked, low-resolution, generated, vendor, anecdotal, forum, and rights-unclear samples out of confirmed labels and retain an unresolved classification when the evidence is incomplete."
   ],
   "immediateActions": [
@@ -134,12 +135,13 @@
       "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
       "publicationDate": "2024-12-05",
       "year": 2024,
-      "accessedDate": "2026-10-13",
+      "accessedDate": "2026-10-19",
       "doi": "10.32473/edis-pp379-2024",
       "supportedClaims": [
         "The UF/IFAS guide describes hemp rust as orange, brown, or rust-colored lesions on both leaf surfaces, beginning light orange and darkening as disease progresses.",
         "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
         "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
+        "UF/IFAS describes deposited rust spores that actively penetrate the leaf. Dataset inference: absence of visible wounds does not exclude rust, and a nearby injury does not establish the entry point of a photographed lesion; preserve intact-surface observations separately from handling damage.",
         "UF/IFAS Figure 9 is an institutional three-panel hemp reference credited to Zachariah Hansen, University of Tennessee Extension; CC BY-NC-ND 4.0 permits unchanged noncommercial display with attribution but not crops, derivatives, commercial reuse, or automated training."
       ]
     },
@@ -159,12 +161,13 @@
       "publisher": "University of Tennessee Extension",
       "publicationDate": "2020-06",
       "year": 2020,
-      "accessedDate": "2026-10-18",
+      "accessedDate": "2026-10-19",
       "supportedClaims": [
         "The Tennessee W 916 guide describes poorly bounded yellow-orange spots, followed by darker orange-brown lesions that may merge; cultivar susceptibility differences remain unresolved.",
         "The guide distinguishes lower-surface pustules visible without magnification, a pustule viewed with a dissecting microscope, and uredospores viewed with a compound microscope. Pustule visibility does not mean an ordinary photograph resolves individual spores or their species.",
         "W 916 page 5 reports first confirmation at the UT Soil, Plant and Pest Center from East Tennessee samples collected on August 26, 2019, followed by observations across Tennessee and surrounding states; this is historical regional reporting, not a global first report or current prevalence estimate.",
-        "W 916 Table 2 lists nearby or possibly distant hemp fields as the most likely rust inoculum source and rain, wind, soil splash, workers, tools and equipment as likely dispersal routes; its footnote warns that disease understanding and these assignments may change with research."
+        "W 916 Table 2 lists nearby or possibly distant hemp fields as the most likely rust inoculum source and rain, wind, soil splash, workers, tools and equipment as likely dispersal routes; its footnote warns that disease understanding and these assignments may change with research.",
+        "W 916 Table 1 evaluates leaf-spot susceptibility in 2019 trials, while the rust section says cultivar susceptibility needs research. Dataset inference: leaf-spot ratings are not rust-resistance ratings; cultivar-associated rust observations need their own diagnosis, sampling denominators and exposure context."
       ]
     },
     {
