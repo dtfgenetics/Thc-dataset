@@ -1,0 +1,47 @@
+{
+  "base_commit": "1075927dab9806dd6995eec17ec6acabe80841d3",
+  "branch": "work/grow-doc/GD-DIAG-001/rust-sampling-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-hemp-rust.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "rust-sampling-20261019",
+  "head_commit": "0cd07dd4d2c82f07637df18e3f572e4d9b8638f6",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://www.npdn.org/newsletter/2025/06/identifying_microfungi_under_microscope_sample_name"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "data/export-manifest.json",
+    "data/profiles/index.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, instructions, task registry/claims, schemas/interfaces, profiles/media, quality standard, exports, tests and validation commands before editing. Selected hemp rust, the weakest profile at 11 mapped claims, while preserving the separately blocked Botrytis work and avoiding repeat enrichment of recent slices. Added one public institutional source and three supported mappings (14 profile claims total): Megan Romberg, USDA-APHIS National Mycologist/Plant Pathologist, Identifying Microfungi Under the Microscope - from Sample to Name, NPDN The Communicator 6(6), June 2025. Fresh full text at https://www.npdn.org/newsletter/2025/06/identifying_microfungi_under_microscope_sample_name verified author, institutional affiliation, editorial review, publication month and method scope. Dissecting/hand-lens inspection, compound-slide observation, spore traits and originating structures are general mycological guidance rather than Cannabis species criteria. Expanded one capture instruction and added one warning to link intact-pustule photographs with preparation and microscopy metadata; preparation-induced changes are not in-plant progression. No chemical preparation recipe or species threshold was added. Source taxonomic/host databases and login-required books were not independently validated or accessed; their mention is not evidence that hemp rust is covered. Only fungal-hemp-rust changed among 63 exported profiles, within confirmation, warnings and sources. Existing plant-part, leaf-position/age context, morphology, distribution, temporal capture, confounders, exclusions, specimen linkage, provisional species interpretation and 0.25 photo-only ceiling retained. No new media reference, binary, crop, license, display/training permission or training admission was added or changed. The intact UF/IFAS CC BY-NC-ND composite remains reference-only and training-prohibited; no generated, anecdotal, vendor, forum or unverified media promotion. Current source count increases 209 to 210; manifests/readiness/split summaries synchronized without rewriting historical verification. Media totals remain 93 references, 36 originals, 68 crops and zero training-eligible samples. Baseline passed 293 app tests. Regression assertions failed on missing source/count as intended and passed after enrichment; candidate-leakage audit passed. Initial full validation found a second stale three-source assertion and README mixture-count drift. Systematic debugging traced the latter to the source-component deterministic split after corpus membership changed; actual manifest and lock report 150 SFT plus 37 grounded-QA rows, total 187 (19.8%), replacing 153 plus 38, total 191 (19.9%). Updated only documentation and source-count assertions, adding explicit new-source presence checks; no split algorithm, admission rule or leakage gate changed. Full app suite, README contract and self-test then passed. All 68 commands subsequently passed: 62 validators, type check, 293 app tests, build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL parsing, CSV/export consistency, IDs, duplicates, labels, URL syntax/source identity and claim links checked; historical URLs were not all independently revisited. Two serial freezes matched the entire actual lock and byte-level README/config pins were synchronized. No actual model training or inference. Final full suite including receipt and all hosted exact-head workflows, including unavailable-local PHP lint, required before squash integration; immediately recheck live base/head/tree freshness. Worktree-isolation, systematic-debugging and verification-before-completion skills guided isolation, stale-expectation repair and publication gates. Unrelated work and blocked drafts preserved. Operational task claim excluded from commits and released after merge. No production deployment. Remaining gaps: specimen-linked hemp-rust microscopy, voucher/sequence confirmation, calibrated paired surfaces over time, diagnostic video and rights-cleared training samples. Symptom-only, residue-uncleared, detached, unmatched-surface, specimen-unlinked, ambiguous-taxonomy, low-resolution and rights-unclear samples retain human-review flags. Agent review is not actual human, expert or laboratory review.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
