@@ -4146,12 +4146,14 @@
     "organization": "University of California Statewide Integrated Pest Management Program",
     "url": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
     "publisher": "Regents of the University of California, Agriculture and Natural Resources",
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-19",
     "supportedClaims": [
       "In the reviewed woody-host guidance, Rosellinia can produce scattered cobwebby whitish mycelia on lower trunks, soil over infected roots, root surfaces, and beneath root-crown or major-root bark.",
       "Removing infected root cortex can expose a whitish fluffy mycelial layer; older mycelium may darken to blackish, brown, or tan and become crustlike, so absence of bright white growth in a late sample does not exclude the organism.",
       "The guidance distinguishes Rosellinia from larger fanlike Armillaria mycelia and from Phytophthora root rot, which does not produce whitish mycelia; these are non-Cannabis differential cues and do not replace crop-linked laboratory confirmation.",
-      "Rosellinia can persist in infected root or woody debris and spread through moist soil, supporting conservative soil, water-runoff, tool, and root-debris biosecurity after a confirmed diagnosis; this source does not establish Cannabis treatment efficacy."
+      "Rosellinia can persist in infected root or woody debris and spread through moist soil, supporting conservative soil, water-runoff, tool, and root-debris biosecurity after a confirmed diagnosis; this source does not establish Cannabis treatment efficacy.",
+      "UC IPM describes abundant white mycelium from infected bark or root pieces after several days in a moist chamber. Dataset inference: chamber-induced growth must be labeled separately from the specimen appearance at collection, not interpreted as an in-plant disease clock.",
+      "The same non-Cannabis guidance describes tiny stalked coremia with fluffy white tips that may develop in the chamber and be visible with a hand lens. Dataset inference: document magnification and incubation context; these structures are not species confirmation or a required field sign."
     ]
   },
   {

@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "white-root-sampling-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "7576e4f6fc0c51e8b15e52330c29c931273d4fdd",
+  "head_commit": "be634f521f554851bf10bcecd20aaacef51f7976",
+  "branch": "work/grow-doc/GD-DIAG-001/white-root-sampling-20261019",
+  "changed_paths": [
+    "data/profiles/root-white-root-rot.json",
+    "src/data/expanded-issues-batch3.ts"
+  ],
+  "source_ids": [
+    "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent changes, repository instructions, active tasks/claims, coverage, schemas, canonical and exported records/media, exporter, validators, test assertions and CI before editing. Selected white root rot among the thinner profiles: 18 to 20 source-linked claims. Refreshed the existing UC IPM institutional citation using its directly retrieved Identification section; retained title, organization, publisher and stable URL. No publication date is stated and none was invented. Two explicitly marked dataset inferences separate laboratory conditioning and observation scale from field progression or species confirmation; added one capture-linkage instruction and a clearly labeled laboratory-context progression entry. Only root-white-root-rot changed among 63 profiles, within progression/confirmation/sources. Existing plant parts, canopy/root linkage, morphology, distribution, timeline limits, look-alikes, exclusions, laboratory confirmation and 0.20 image-only ceiling retained. The source is non-Cannabis landscape guidance, not hemp assay validation. No new media, binary, crop, license, attribution, display/training permission or admission. The existing apple reference remains hidden metadata-only, license-review, training-prohibited and illustrative. Totals remain 210 source pages, 93 references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, forum, vendor or unverified ground truth. Baseline passed 293 app tests. New regression failed on missing refreshed metadata, then all 53 targeted tests passed. Candidate-leakage audit passed. Two serial artifact freezes produced identical full locks; mixture remains 150 SFT plus 37 grounded-QA rows (187), and README/config pins match actual bytes. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 app tests, build, 103 Python tests, artifact verification and diff check. Release checks cover JSON/JSONL/CSV consistency, schema fields, identifiers, duplicate detection, label consistency, source identities, URL syntax and claim links. Changed source URL was retrieved; historical URLs were not all independently fetched. Final full run including receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before squash with live main/head/tree freshness recheck. Isolation and fresh-verification skills guided branch and publication safety. Operational task claim excluded from commits and released after merge. No actual training, inference or production deployment. Remaining gaps: licensed Cannabis root/canopy sequences, specimen-linked laboratory imagery and diagnostic video. Canopy-only, detached-root, incubation-only, morphology-only, unlinked, ambiguous, mixed-pathogen, cross-crop and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}

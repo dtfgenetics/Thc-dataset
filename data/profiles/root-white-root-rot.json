@@ -61,6 +61,10 @@
       "description": "The hemp report describes pear-shaped hyphal swellings near septa and microscopic conidia in cultured isolates. Keep these observations separate from field root-mat appearance; this is a specimen-workup step, not an additional symptom stage or image-only species test."
     },
     {
+      "stage": "Laboratory conditioning—not field progression",
+      "description": "UC IPM moist-chamber observations concern removed root or bark pieces. Later white growth or coremia is laboratory context, not an in-plant symptom interval or confirmed Cannabis diagnosis."
+    },
+    {
       "stage": "Linked canopy decline",
       "description": "Yellowing and apical wilt develop while compatible root signs remain on the same plant; canopy morphology is nonspecific and must stay linked to the root sequence."
     },
@@ -94,6 +98,7 @@
     "Record plant age and cultivar, onset and repeat dates, neighboring-plant pattern, prior crop or perennial-root history, planting-stock source, root-debris and soil movement, irrigation/runoff, substrate, root-zone temperature, moisture, pH, and EC.",
     "Submit plant-linked tissue to a qualified plant-diagnostic laboratory for isolation and morphology plus a validated molecular assay; preserve the chain between sample, image, culture, sequence result, and plant identifier.",
     "For laboratory reference captures, retain microscope scale, culture and root-sample identifiers, observed structures, assay target, sequence accession, and the matched reisolation result; the study accession is a reference, not a result for a new sample.",
+    "If a diagnostic laboratory uses a moist chamber, link before/after incubation images to the original root specimen and plant; record collection, incubation and capture times, conditions, scale and magnification separately.",
     "Separate field symptom-onset dates from controlled inoculation dates and initial-isolate ITS results from post-pathogenicity EF1-alpha results. Preserve the photographed plant, root sample, isolate, locus and accession links; neither a similar decline interval nor orchard history establishes cause or source.",
     "Request a differential workup for southern blight, Sclerotinia, Pythium/Phytophthora, Fusarium, Rhizoctonia, Armillaria where plausible, and pair pathogen testing with root-zone measurements and nematode assessment.",
     "Use serial imaging to document change but not to prove identity. Keep canopy-only, detached-root, white-growth-only, incubation-only, culture-unlinked, single-locus-ambiguous, mixed-pathogen, low-resolution, cross-crop, stock, generated, vendor, forum, anecdotal, or rights-unclear samples out of confirmed ground truth."
@@ -155,12 +160,14 @@
       "organization": "University of California Statewide Integrated Pest Management Program",
       "url": "https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/",
       "publisher": "Regents of the University of California, Agriculture and Natural Resources",
-      "accessedDate": "2026-08-24",
+      "accessedDate": "2026-10-19",
       "supportedClaims": [
         "In the reviewed woody-host guidance, Rosellinia can produce scattered cobwebby whitish mycelia on lower trunks, soil over infected roots, root surfaces, and beneath root-crown or major-root bark.",
         "Removing infected root cortex can expose a whitish fluffy mycelial layer; older mycelium may darken to blackish, brown, or tan and become crustlike, so absence of bright white growth in a late sample does not exclude the organism.",
         "The guidance distinguishes Rosellinia from larger fanlike Armillaria mycelia and from Phytophthora root rot, which does not produce whitish mycelia; these are non-Cannabis differential cues and do not replace crop-linked laboratory confirmation.",
-        "Rosellinia can persist in infected root or woody debris and spread through moist soil, supporting conservative soil, water-runoff, tool, and root-debris biosecurity after a confirmed diagnosis; this source does not establish Cannabis treatment efficacy."
+        "Rosellinia can persist in infected root or woody debris and spread through moist soil, supporting conservative soil, water-runoff, tool, and root-debris biosecurity after a confirmed diagnosis; this source does not establish Cannabis treatment efficacy.",
+        "UC IPM describes abundant white mycelium from infected bark or root pieces after several days in a moist chamber. Dataset inference: chamber-induced growth must be labeled separately from the specimen appearance at collection, not interpreted as an in-plant disease clock.",
+        "The same non-Cannabis guidance describes tiny stalked coremia with fluffy white tips that may develop in the chamber and be visible with a hand lens. Dataset inference: document magnification and incubation context; these structures are not species confirmation or a required field sign."
       ]
     },
     {

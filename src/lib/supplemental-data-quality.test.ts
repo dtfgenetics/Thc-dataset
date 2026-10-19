@@ -396,6 +396,23 @@ describe('supplemental diagnostic catalog quality gates', () => {
     }
   })
 
+  it('keeps white-root-rot chamber growth separate from field progression and species confirmation', () => {
+    const record = supplementalIssues.find((issue) => issue.slug === 'white-root-rot-dematophora-necatrix')!
+    const guide = record.sources.find((item) => item.url === 'https://ipm.ucanr.edu/home-and-landscape/dematophora-root-rot-or-rosellinia-root-rot/')!
+    expect(guide.accessedDate).toBe('2026-10-19')
+    expect(guide.publicationDate).toBeUndefined()
+    expect(guide.supportedClaims).toHaveLength(6)
+    expect(guide.supportedClaims.join(' ')).toContain('after several days in a moist chamber')
+    expect(guide.supportedClaims.join(' ')).toContain('coremia with fluffy white tips')
+    expect(guide.supportedClaims.join(' ')).toContain('not species confirmation or a required field sign')
+    expect(record.confirmation.join(' ')).toContain('before/after incubation images')
+    expect(record.progression.find((step) => step.stage === 'Laboratory conditioning—not field progression')?.description).toContain('not an in-plant symptom interval')
+    expect(record.photoOnlyMaxConfidence).toBe(0.2)
+    expect(record.media).toHaveLength(1)
+    expect(record.media[0].trainingEligible).toBe(false)
+    expect(record.warnings.join(' ')).toContain('incubation-only')
+  })
+
   it('separates rust pustule visibility from microscopic spore confirmation', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')!
     const guide = record.sources.find((item) => item.url === 'https://solutions.tennessee.edu/?view_pub_pdf=2571')!
