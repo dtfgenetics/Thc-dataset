@@ -1,0 +1,43 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rust-field-context-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "5273ec9a4bd1bf1ee9d1ebc1efeb55a53a924f2e",
+  "head_commit": "cd824ddd2d0418b3240a7304a361466b2bb1655f",
+  "branch": "work/grow-doc/GD-DIAG-001/rust-field-context-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-hemp-rust.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://solutions.tennessee.edu/?view_pub_pdf=2571",
+    "https://doi.org/10.32473/edis-pp379-2024"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected current main, recent merges, instructions, active task/claims, schemas, catalog/exported profiles, source records, media restrictions, exporter, quality validators, scripts and CI before editing. Selected hemp rust, tied weakest with 14 mapped claims, enriched to 16. Refreshed two existing institutional citations, retaining titles, publishers, authors, stable URL/DOI and publication dates (Tennessee W 916 June 2020; UF/IFAS field guide 2024-12-05); access dates 2026-10-19. Directly retrieved UF/IFAS rust section and Tennessee PDF Table 1 and rust page; inspected rendered pages 3 and 5. New claims distinguish direct leaf penetration from wound-required infection and historical leaf-spot cultivar ratings from rust-resistance evidence. Sampling implications explicitly marked Dataset inference: intact pre-handling surfaces, cultivar-specific denominators, diagnosis, age and exposure context. No new species, causal, prevalence, resistance, dose or chemical management conclusion. Only confirmation/sources changed in one of 63 profiles. Existing plant part, leaf age, upper/lower same-lesion context, morphology, progression, distributions, confounders, exclusions, microscopy/molecular confirmation and 0.25 image-only ceiling retained. All media identical: intact UF/IFAS Figure 9 remains CC BY-NC-ND 4.0 reference-only; no local image, crop, derivative, license, permission, attribution or training admission added. Totals unchanged: 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, vendor, forum or unverified ground truth. Regression red verified on old access date; 33 targeted tests then passed. Full suite revealed a second test pinned to old access date/count; updated those evidence expectations and added specific leaf-spot/rust distinction assertion, preserving diagnostic and rights safeguards; both affected files passed 48 tests. Initial full run failed only that stale app assertion. Subsequent full run passed all 68 commands: 62 package validators, type check, 294 app tests, build, 103 Python tests, artifact verifier and diff check. Candidate leakage passed; two serial full artifact locks identical, unchanged 150 SFT plus 37 grounded-QA mixture (187 rows), actual split/dataset pins synchronized in config/README. Five supplemental artifact/evaluator self-tests passed. Validation covers JSON/JSONL/CSV agreement, schema fields, URL syntax, identifiers, duplicates, labels, source identities and claim mappings. Two changed institutional sources freshly retrieved, not all historical URLs independently fetched. Final receipt-inclusive full run and all exact-head hosted checks including locally unavailable PHP lint required before squash with live main/head/tree freshness checks. Verification and debugging skills guided evidence gates and stale-test diagnosis. Operational claim excluded from commits and released after merge; unrelated workspace files preserved. Agent review is not actual human/expert/laboratory review. No actual training, inference or production deployment. Remaining gaps: rust-specific matched cultivar exposure trials, lesion-linked specimen confirmation, calibrated paired-surface progression and reusable diagnostic video. Symptom-only, specimen-unlinked, detached, unmatched-surface, low-resolution and rights-unclear media retain human-review restrictions."
+}

@@ -2201,7 +2201,7 @@
     "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
     "publicationDate": "2024-12-05",
     "year": 2024,
-    "accessedDate": "2026-10-14",
+    "accessedDate": "2026-10-19",
     "doi": "10.32473/edis-pp379-2024",
     "supportedClaims": [
       "The UF/IFAS field guide describes Xanthomonas-associated hemp injury as small necrotic leaf spots with yellow or chlorotic halos, leaf yellowing, and blighting.",
@@ -2223,6 +2223,7 @@
       "The UF/IFAS guide describes hemp rust as orange, brown, or rust-colored lesions on both leaf surfaces, beginning light orange and darkening as disease progresses.",
       "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
       "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
+      "UF/IFAS describes deposited rust spores that actively penetrate the leaf. Dataset inference: absence of visible wounds does not exclude rust, and a nearby injury does not establish the entry point of a photographed lesion; preserve intact-surface observations separately from handling damage.",
       "UF/IFAS Figure 9 is an institutional three-panel hemp reference credited to Zachariah Hansen, University of Tennessee Extension; CC BY-NC-ND 4.0 permits unchanged noncommercial display with attribution but not crops, derivatives, commercial reuse, or automated training.",
       "The UF/IFAS field guide describes Septoria symptoms beginning on older lower foliage and spreading through the canopy, with irregular light-brown spots becoming brown and surrounded by bright yellow halos.",
       "The guide states that lesions can expand and coalesce as severity increases, contributing to yellow-brown tissue and leaf drop, while black pinhead-sized pycnidia may be visible in lesion centers.",
@@ -4594,12 +4595,13 @@
     "publisher": "University of Tennessee Extension",
     "publicationDate": "2020-06",
     "year": 2020,
-    "accessedDate": "2026-10-18",
+    "accessedDate": "2026-10-19",
     "supportedClaims": [
       "The Tennessee W 916 guide describes poorly bounded yellow-orange spots, followed by darker orange-brown lesions that may merge; cultivar susceptibility differences remain unresolved.",
       "The guide distinguishes lower-surface pustules visible without magnification, a pustule viewed with a dissecting microscope, and uredospores viewed with a compound microscope. Pustule visibility does not mean an ordinary photograph resolves individual spores or their species.",
       "W 916 page 5 reports first confirmation at the UT Soil, Plant and Pest Center from East Tennessee samples collected on August 26, 2019, followed by observations across Tennessee and surrounding states; this is historical regional reporting, not a global first report or current prevalence estimate.",
       "W 916 Table 2 lists nearby or possibly distant hemp fields as the most likely rust inoculum source and rain, wind, soil splash, workers, tools and equipment as likely dispersal routes; its footnote warns that disease understanding and these assignments may change with research.",
+      "W 916 Table 1 evaluates leaf-spot susceptibility in 2019 trials, while the rust section says cultivar susceptibility needs research. Dataset inference: leaf-spot ratings are not rust-resistance ratings; cultivar-associated rust observations need their own diagnosis, sampling denominators and exposure context.",
       "University of Tennessee Extension reports fungus-gnat larvae as a root-feeding pest of hemp grown under greenhouse conditions and states that they may increase root-disease incidence.",
       "The guide also states that much remains unknown about arthropod pests in hemp; its report supports a greenhouse-hemp association but not a universal symptom, damage threshold, species label, or causal attribution from an adult capture alone."
     ]
