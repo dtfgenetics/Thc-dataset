@@ -227,6 +227,14 @@ describe('diagnostic coverage audit', () => {
 
   it('counts only the licensed Dectes specimen as displayable', () => {
     const record = issues.find((issue) => issue.slug === 'dectes-stem-borer')
+    const sampling = record?.sources.find((source) => source.url.includes('fs-1196'))
+    expect(sampling?.publicationDate).toBe('2022-06')
+    expect(sampling?.accessedDate).toBe('2026-10-19')
+    expect(sampling?.supportedClaims).toHaveLength(5)
+    expect(sampling?.supportedClaims.join(' ')).toContain('72% infested stems at the field edge versus 26%')
+    expect(sampling?.supportedClaims.join(' ')).toContain('adult counts declined but stem infestation and lodging did not')
+    expect(record?.confirmation.join(' ')).toContain('edge/interior position, distance, stem diameter, and total stems examined')
+    expect(record?.confirmation.join(' ')).toContain('adult activity, dissected-stem infestation, and breakage/lodging as separate endpoints')
     expect(record).toBeTruthy()
     expect(record?.media).toHaveLength(2)
     expect(record?.media.filter(isDisplayableMedia)).toHaveLength(1)
