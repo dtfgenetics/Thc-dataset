@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-volume-context-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "27b16f9f9cc30da0b984bdda09e04a477d504f10",
+  "head_commit": "f54e954e6f1ded9678e38571e527b5c24f9ab66c",
+  "branch": "work/grow-doc/GD-DIAG-001/root-volume-context-20261019",
+  "changed_paths": [
+    "data/profiles/root-binding-container-stress.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1071/FP12049"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent changes, repository instructions, active tasks/claims, weakest coverage, schemas, canonical/exported profiles and media, exporter, validation scripts, test assertions and CI contract before editing. Selected root-binding/container restriction, 17 to 19 mapped claims. Refreshed existing Poorter et al. citation, CSIRO Publishing Functional Plant Biology, published 2012-06-15, DOI 10.1071/FP12049. Direct publisher HTML, root-distribution discussion, Figure 3 caption and imaging-method appendix support two new claim mappings. Species remain broadly described as barley and sugar beet, not Cannabis. Explicit dataset inferences distinguish regional MRI measurements and segmentation/detection limits from surface-photo counts and diagnostic thresholds. Added one quantitative-record metadata instruction. No required MRI procedure for Cannabis diagnosis, unseen-root imputation, severity cutoff or validated treatment claim. Only root-binding-container-stress changed among 63 profiles, within confirmation/sources. Existing root part, age/stage, distribution, morphology, temporal linkage, multiple root-ball views, moisture/EC/pH measurements, confounders, exclusions, laboratory escalation and 0.15 image-only confidence ceiling retained. No new media reference, binary, crop, license, attribution, display/training permission or admission. Both existing root references remain illustrative, hidden metadata-only, license-review and training-prohibited. No figure copied from the paper and no generated, anecdotal, forum, vendor or unverified ground truth. Totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. Baseline passed 294 application tests. Changed regression failed on absent new confirmation entry as expected; all 63 targeted tests then passed. Candidate-leakage audit passed. Two serial freezes produced identical full artifact locks, unchanged 150 SFT plus 37 grounded-QA mixture (187 rows); README/config pins synchronized to actual bytes. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 application tests, build, 103 Python tests, artifact verification and diff check. Release checks cover JSON/JSONL/CSV consistency, schema fields, identifiers, duplicates, label consistency, source identities, URL syntax and source-to-claim links. Changed citation was freshly retrieved; historical URLs were not all independently fetched. Final full run including receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before squash with live base/head/tree freshness recheck. Worktree isolation and fresh-verification skills guided branch and integration gates. Operational task claim excluded from commits and released after merge; unrelated work preserved. No actual training, inference or production deployment. Remaining gaps: matched Cannabis root-ball/canopy controls, measured spatial root data, licensed progression imagery and diagnostic video. Canopy-only, detached, unmatched, transfer-only, unresolved-causality and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}

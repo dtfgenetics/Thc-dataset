@@ -324,12 +324,14 @@
     "publisher": "CSIRO Publishing",
     "publicationDate": "2012-06-15",
     "year": 2012,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-19",
     "doi": "10.1071/FP12049",
     "supportedClaims": [
       "A meta-analysis of 65 plant studies found that doubling pot size increased biomass by 43% on average and that reduced growth in smaller pots was associated mainly with lower photosynthesis per unit leaf area.",
       "The analysis establishes that rooting volume can materially alter plant growth, but it is not Cannabis-specific and does not validate a universal Cannabis container size, root-density threshold, visual symptom, or field diagnosis.",
-      "The authors caution that appropriate pot size depends on plant size; the paper's experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis."
+      "The authors caution that appropriate pot size depends on plant size; the paper's experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis.",
+      "MRI observations in barley and sugar beet placed 20–25% of root biomass in the inner half of the soil volume and roughly half within the outer 4 mm. Dataset inference: these non-Cannabis regional fractions are not Cannabis diagnostic thresholds or percentages assignable from a surface photograph.",
+      "The MRI analysis thresholded images, excluded the stem and developing storage beet, and integrated pixel values by soil region; the finest roots could go undetected. Dataset inference: retain modality and segmentation limits with root-distribution measurements, rather than treating visible root area or counts in photographs as equivalent measurements."
     ]
   },
   {
