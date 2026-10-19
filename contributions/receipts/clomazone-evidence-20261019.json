@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "clomazone-evidence-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c6ec8a2ecbd0f39305fdc2ea4adf57c3477f5518",
+  "head_commit": "e7e9210d92526b63b32a011fb3e6f4b1403fcc33",
+  "branch": "work/grow-doc/GD-DIAG-001/clomazone-evidence-20261019",
+  "changed_paths": [
+    "data/profiles/env-herbicide-clomazone.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://content.ces.ncsu.edu/carotenoid-pigments"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent changes, instructions, active tasks/claims, weakest coverage, schemas, canonical/exported profiles and media, exporter, validators, test assertions and CI before editing. Selected environmental-stress clomazone differential, 18 to 20 mapped claims. Refreshed existing NC State Extension Carotenoid Pigments citation using directly retrieved Similar Problems and Herbicide Mode of Action Categories sections. Retained four authors, publisher, stable URL and original 2015-09-10 publication date; page separately reports review/revision 2025-03-26. Two explicitly marked dataset inferences distinguish pigment-inhibitor mechanisms from visible bleaching and contextual host distribution from validated infection exclusion. The source contains inconsistent pathovar spelling, so no new pathovar or Cannabis pathogen-host claim is introduced. Added host-by-host transect capture guidance. No chemical application, remediation, legal-source, species, dose, residue or causal confirmation from photographs. Only env-herbicide-clomazone changed among 63 profiles, within confirmation/sources. Existing plant part, leaf age, location/progression, morphology, distribution, temporal behavior, look-alikes, active exclusions, measured root-zone checks, exposure records, laboratory chain of custody and 0.20 image-only ceiling retained. No new media, binary, crop, license, attribution, display/training permission or admission. Both existing licensed NC State grape/pokeweed images remain non-Cannabis transfer-only, training-prohibited and excluded from Cannabis evaluation; no new image was copied or indexed. Totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, vendor, forum or unverified ground truth. Baseline passed 294 app tests. Changed regression failed on old citation metadata, then all 63 targeted tests passed. Candidate-leakage audit passed. Two serial artifact freezes produced identical full locks, unchanged 150 SFT plus 37 grounded-QA mixture (187); README/config pins synchronized to actual bytes. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 app tests, build, 103 Python tests, artifact verifier and diff check. Release checks cover JSON/JSONL/CSV consistency, schema fields, identifiers, duplicates, labels, source identities, URL syntax and source-to-claim links. Changed institutional citation was freshly retrieved; historical URLs were not all independently fetched. Final full run including receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before squash with live main/head/tree freshness recheck. Worktree isolation and fresh-verification skills guided safe branch and publication gates. Operational claim excluded from commits and released after merge; unrelated work preserved. No actual training, inference or production deployment. Remaining gaps: exposure/residue-linked Cannabis progression, matched multi-host field transects, reusable confirmed imagery and diagnostic video. Symptom-only, detached, exposure-unlinked, mixed-cause, unverified and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}

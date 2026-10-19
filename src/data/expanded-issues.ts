@@ -305,12 +305,14 @@ const sources = {
     publisher: 'North Carolina Cooperative Extension',
     publicationDate: '2015-09-10',
     year: 2015,
-    accessedDate: '2026-08-20',
+    accessedDate: '2026-10-19',
     supportedClaims: [
       'Carotenoid-pigment-inhibitor injury can produce white, pale-yellow, or pale-green new shoot tips and leaves, occasional pink-to-purple margins, reduced growth, and later necrosis; resumed green growth can appear above older bleached foliage in less-sensitive plants.',
       'The guide identifies clomazone as a soil-absorbed Group 13 pigment inhibitor with high vapor-drift potential and recommends inspecting susceptible weeds and other plants along field edges for a shared exposure pattern.',
       'Severe iron deficiency, bleaching infections, contact-herbicide injury, PPO-inhibitor bronzing, air pollution, and insect-growth-regulator exposure can overlap visually and require contextual exclusion.',
       'The grape and pokeweed photographs are explicitly credited to J. Neal under CC BY-NC-SA 4.0, but they are non-Cannabis transfer references and do not establish clomazone injury in hemp.',
+      'NC State distinguishes clomazone DOXP synthase inhibition (Group 13) from phytoene-desaturase inhibitors (Group 12) and HPPD inhibitors (Group 27). Dataset inference: shared bleaching is not an active-ingredient identification or evidence that these mechanisms are interchangeable.',
+      'The guide contrasts an aster-family infection example with pigment-inhibitor injury across plant families. Dataset inference: record host distribution as differential context, but absence of symptoms in other families is not a validated pathogen exclusion or confirmation of clomazone in Cannabis.',
     ],
   }),
   alternaria: source({
@@ -1953,6 +1955,7 @@ export const expandedIssues: IssueRecord[] = [
       'Capture neutral-color whole-area video plus matched upper, middle, and lower canopy stills, close-ups of both leaf surfaces, and unaffected comparison plants before any correction.',
       'Map affected and unaffected Cannabis plants against field edges, wind direction, previous-crop rows, treated soil, bed or container lots, irrigation zones, traffic routes, and application or transplant dates.',
       'Photograph susceptible weeds and other plant species along affected and unaffected edges; shared bleaching supports an exposure plume but does not identify clomazone.',
+      'Record host identity and symptom status for each plant in a mapped edge transect, including unaffected families; preserve comparable views and sampling dates, and test infectious alternatives rather than classifying from host-range pattern alone.',
       'Reconstruct product, active ingredient, rate, formulation, application, weather, soil, prior-crop restriction, equipment-cleanout, substrate, and water-treatment records with a qualified crop professional.',
       'For assay-linked images, record pot drainage or lining and elapsed time after treatment. Keep live stand count, mean height of living plants and dry biomass including dead shoots separately labeled; do not estimate them from bleaching or turn the lined-pot watering protocol into a production treatment.',
       'Preserve plant, soil, water, and product samples under an accredited laboratory chain of custody when residue analysis is appropriate; interpret nondetection with sampling time, analyte, matrix, and method limits.',
