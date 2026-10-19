@@ -107,12 +107,14 @@
     "publisher": "Wiley on behalf of the Crop Science Society of America",
     "publicationDate": "2021-11-22",
     "year": 2022,
-    "accessedDate": "2026-10-08",
+    "accessedDate": "2026-10-19",
     "doi": "10.1002/tpg2.20169",
     "supportedClaims": [
       "The Honey Banana study sequenced three stem samples at different heights from one approximately 1.5-year-old mother plant; it did not compare visibly pale and green leaf sectors or demonstrate a causal pigment mutation.",
       "Deep whole-genome sequencing of top, middle, and bottom samples from one 1.5-year-old Cannabis mother plant detected many variants unique to individual canopy samples, demonstrating within-plant genetic mosaicism in that plant.",
-      "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability."
+      "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability.",
+      "Methods 2.1 and Figure 1 locate the bottom, middle, and top stem samples at 59, 151, and 226 cm; Figure 1c and Results 3.3 group top and bottom together while middle is separate. This spatial comparison is not a measured chronological leaf-sector progression.",
+      "Methods 2.2 and Results 3.2 describe a new DNA library from the original frozen top stem tissue, sequenced at 32× coverage with 99.97% variant-call agreement. This is technical resequencing, not an independent mother plant, descendant generation, or pigment-sector causal test."
     ]
   },
   {
