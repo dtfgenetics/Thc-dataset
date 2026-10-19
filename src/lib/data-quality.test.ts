@@ -96,6 +96,13 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps Botrytis bud-rot labels internal-view aware, laboratory-bounded, and license-safe', () => {
     const record = issues.find((issue) => issue.slug === 'botrytis-gray-mold-bud-rot')
+    const handbook = record?.sources.find((source) => source.organization === 'Pacific Northwest Pest Management Handbooks')
+    expect(handbook?.accessedDate).toBe('2026-10-19')
+    expect(handbook?.supportedClaims).toHaveLength(6)
+    expect(handbook?.supportedClaims.join(' ')).toContain('weakened, damaged or senescing tissue')
+    expect(handbook?.supportedClaims.join(' ')).toContain('throughout bloom')
+    expect(handbook?.supportedClaims.join(' ')).toContain('not proof of transmission direction')
+    expect(record?.confirmation.join(' ')).toContain('Map stem lesions and handling wounds alongside affected flowers')
     expect(record?.reviewStatus).toBe('reviewed')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.30)
     expect(record?.confirmation.join(' ').toLowerCase()).toContain('same marked plant')
