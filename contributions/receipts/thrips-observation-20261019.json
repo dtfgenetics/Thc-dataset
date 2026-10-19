@@ -1,0 +1,42 @@
+{
+  "base_commit": "4353b65b771f1c2c2687066d66929e7a91e143ff",
+  "branch": "work/grow-doc/GD-DIAG-001/thrips-observation-20261019",
+  "changed_paths": [
+    "data/profiles/insect-thrips.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "thrips-observation-20261019",
+  "head_commit": "745f9d3d685099b84d379352d1eea28286357c8d",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://agsci.colostate.edu/agbio/ipm-pests/thrips/",
+    "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-thrips"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, instructions, active task registry/claims, current coverage, canonical source records, schemas/types, exported records, media permissions and validation/export contracts. Selected insect-thrips, among the weakest insect profiles at 16 mapped claims, avoiding the separately heldout-source-blocked Botrytis slice and recently enriched rust. Added two supported claim mappings (18 total) by refreshing existing institutional CSU and USU citations, not adding new source identities. CSU Life history and habits states adults and feeding larvae crawl when disturbed; Monitoring distinguishes above-canopy flight traps from plant tapping. USU Time for Concern states hot/arid conditions favor populations and heavy rain or overhead irrigation decrease them. Added explicit dataset annotation inferences distinguishing undisturbed and handling-triggered video, crawl/flight sampling, and weather/irrigation context from treatment effects. These qualitative observations are not a measured Cannabis detection probability, species test, feeding demonstration, eradication endpoint, universal scouting interval, or irrigation/pesticide recommendation. Source publication dates/authors are unavailable on these landing pages; no footer copyright year was substituted as a publication date. Titles, institutional publishers, stable URLs, access dates and exact claim mappings preserved. Only insect-thrips changed among 63 profiles, within progression, confirmation, warnings and sources. Existing affected parts, leaf-age context, morphology, distribution, confounders, exclusions, species confirmation, matched controls, and 0.25 photo-only confidence safeguard retained. No media reference, binary, crop, license, attribution, display/training permission, or training admission changed. Three thrips references remain reference-only/training-ineligible; no generated, anecdotal, vendor or forum ground truth added. Release totals remain 210 evidence sources, 93 references, 36 originals, 68 reviewed crops, zero vision-training-eligible samples. Baseline 293 app tests passed. Targeted regression failed on missing fourth CSU claim as intended and passed after enrichment (37 tests). Candidate-leakage audit passed. All 68 commands passed: all 62 package validators, type check, 293 app tests, production build, 103 Python tests, artifact verifier and diff check. Five supplemental evaluator/artifact self-tests passed. Export/schema checks cover JSON/JSONL/CSV consistency, IDs, duplicates, label consistency, URL syntax/source identities and source-to-claim links; only the two changed citation landing pages were freshly retrieved, not every historical URL. Two serial freezes produced identical complete locks; documentation/config byte hashes updated, mixture unchanged at 150 SFT plus 37 grounded-QA rows (187 total). No actual model training, inference or production deployment. Final full suite including this receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before integration with live base/head/tree recheck. Worktree-isolation and verification-before-completion skills guided isolation and publication gates. Unrelated work preserved; operational task claim excluded and released after merge. Remaining gaps: undisturbed/handled paired Cannabis clips, specimen-linked stage/species evidence, comparable weather-event scouting sequences and rights-cleared diagnostic video. Scar-only, trap-only, motion-only, event-confounded, low-resolution and unlinked samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

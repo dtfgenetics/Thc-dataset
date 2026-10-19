@@ -3402,11 +3402,12 @@
     "organization": "Colorado State University, Department of Agricultural Biology",
     "url": "https://agsci.colostate.edu/agbio/ipm-pests/thrips/",
     "publisher": "Colorado State University, College of Agricultural Sciences",
-    "accessedDate": "2026-10-16",
+    "accessedDate": "2026-10-19",
     "supportedClaims": [
       "CSU describes onion and western flower thrips depositing eggs within host tissue; their first two larval instars feed, whereas the third and fourth instars are nonfeeding prepupal and pupal stages.",
       "The guide describes sheltering between adjacent leaves or flower structures and nonfeeding stages maturing in soil; surface foliage inspection does not sample all life-stage locations.",
-      "CSU recommends above-canopy blue or yellow traps to capture thrips in flight and direct plant inspection or tapping over white paper; its multi-crop guide records onion thrips on indoor hemp but does not establish a Cannabis-specific sampling interval or economic threshold."
+      "CSU recommends above-canopy blue or yellow traps to capture thrips in flight and direct plant inspection or tapping over white paper; its multi-crop guide records onion thrips on indoor hemp but does not establish a Cannabis-specific sampling interval or economic threshold.",
+      "CSU reports that adults and feeding larvae crawl when disturbed. Dataset video-annotation inference: distinguish undisturbed observation from handling or tapping, and keep crawling on tissue separate from above-canopy flight captures; motion alone does not identify species or demonstrate feeding."
     ]
   },
   {
@@ -4035,13 +4036,14 @@
     "organization": "Utah State University Extension, Utah Plant Pest Diagnostic Laboratory",
     "url": "https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-thrips",
     "publisher": "Utah State University Extension",
-    "accessedDate": "2026-10-08",
+    "accessedDate": "2026-10-19",
     "supportedClaims": [
       "Onion thrips and western flower thrips occur on field- and greenhouse-grown hemp; adults are minute, elongated, yellow to yellow-brown insects with fringed wings and larvae are creamy yellow and wingless.",
       "Feeding on hemp produces white flecks or silvery scars with dark fecal spots, often along veins, and feeding on developing leaves can distort them.",
       "Field injury is usually minor in Utah, economic damage is more likely indoors, and no industrial-hemp treatment threshold is established.",
       "USU identifies larvae and adults as damaging stages, recommends transplant inspection with a 10× hand lens, and treats beneficial thrips as look-alikes rather than automatically classifying every thrips-shaped insect as a pest.",
-      "The two hemp symptom photographs on the page are credited collectively to the USU Extension IPM Program, while the page provides no explicit reuse license."
+      "The two hemp symptom photographs on the page are credited collectively to the USU Extension IPM Program, while the page provides no explicit reuse license.",
+      "USU reports populations favored by hot, arid conditions and decreasing with heavy rain or overhead irrigation. Dataset observation inference: record weather and irrigation timing with repeat counts; this qualitative association is not a Cannabis detection-probability estimate, eradication criterion, or irrigation treatment recommendation."
     ]
   },
   {
