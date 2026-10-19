@@ -1,0 +1,42 @@
+{
+  "base_commit": "60c573c46bf9dac4b53793bcdaa820334a147179",
+  "branch": "work/grow-doc/GD-DIAG-001/southern-capture-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-southern-blight.json",
+    "src/data/expanded-issues-batch2.ts"
+  ],
+  "contribution_id": "southern-capture-20261019",
+  "head_commit": "f83e7ec0dfea1d98e96a936bd269ce9b01067be4",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1002/pld3.528"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/catalog-coverage-expansion.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, instructions, task registry/claims, schemas/interfaces, canonical records, exports, quality standard, tests and validation/CI commands before editing. Selected southern blight, among the lower-coverage profiles at 19 mapped claims, avoiding recently enriched slices and the separately blocked Botrytis work. Added two study-bounded claim mappings (21 total) to the existing Plant Direct primary citation, refreshed its access date, expanded one capture instruction, and enriched one existing composite-image limitation. Source identity, authors, publisher and 2023-09-08 publication date retained. Fresh full primary text at https://onlinelibrary.wiley.com/doi/full/10.1002/pld3.528 was inspected, especially Methods 2.5, Figure 2 caption, results 3.3 and Figure S4 caption. Figure 2 uses days since Root-TRAPR transfer: Day 0 transfer, Day 6 priming, Day 8 inoculation and Day 13 collection; Day 13 means five days post-inoculation, not thirteen infection days. Tissue collected on Day 13 underwent a further seven days of culture incubation before morphological examination. Separating these clocks in annotation is an evidence-bounded dataset inference, not a universal incubation period or an additional observed plant-progression frame. The existing local Figure 2 was visually inspected; its columns and rows agree with the caption. Its original NCBI asset URL, DOI landing-page URL, creator, attribution, CC BY 4.0 license, type, view, diagnostic label, fingerprint, dimensions and permissions remain unchanged. No new binary, crop, media reference, source identity or license was added, and no existing media permission or training eligibility was promoted. The composite remains reference-only and training-ineligible; generated, anecdotal, vendor, forum and unverified media were not admitted as ground truth. PMC full-text retrieval showed a browser-check wall; no bypass was attempted, and the independent public publisher supplied the full evidence. Only fungal-southern-blight changed among all 63 exported profiles, within confirmation, sources and media limitations. Existing affected-part, morphology, distribution, temporal, confounder, exclusion, laboratory-confirmation and 0.30 photo-only ceiling controls preserved. Counts remain 209 sources, 93 media references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. Regression assertions failed against old content as expected and passed after enrichment; candidate-leakage audit passed. All 68 local commands passed: 62 validators, type check, 293 application tests, production build, 103 Python tests, artifact verifier and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL parsing, CSV/export consistency, identifiers, duplicates, labels, source identity/URL syntax and source-to-claim links checked; historical URLs were not all independently revisited. Two serial artifact freezes matched the full actual lock; byte-level config/README pins synchronized for the 191-row text mixture. No model training or inference performed. Final full checks including this receipt and all exact-head hosted workflows, including unavailable-local PHP lint, required before squash integration; live base/head/tree freshness rechecked immediately before merge. Worktree-isolation and verification-before-completion skills gate publication. Operational task claim excluded from commits and released after merge. Unrelated work and blocked drafts preserved. No production deployment. Remaining gaps: licensed panel-resolved field progression, specimen-linked canopy/crown/root and laboratory sequences, diagnostic video and cultivar/leaf-age-specific temporal evidence. Symptom-only, detached, mixed-treatment, unlinked, low-resolution and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory confirmation.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
