@@ -5005,7 +5005,7 @@
       "Measure root-zone pH and EC and review irrigation, tissue or solution analysis, nutrient history, spray records, lamp position, temperature, and mechanical injury before assigning a developmental explanation.",
       "Submit symptomatic and matched asymptomatic tissue to a plant diagnostic laboratory for a locally appropriate validated virus/viroid differential; a negative targeted assay excludes only the agents and sample covered by that assay.",
       "Before destructive sampling, photograph and map pale and adjacent green sectors from the same leaf or branch separately; coordinate paired sampling with the laboratory and preserve individual plant, node, tissue, and assay identifiers rather than pooling away the boundary.",
-      "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof.",
+      "When a genetic attribution is operationally important, compare mapped sectors and clones and use qualified genetic or meristem-lineage analysis; persistence alone is supportive context, not proof. Link sampling height, tissue identity, branch/node lineage, and collection date to the photographed sector and sequencing library. Treat resequencing of the same original tissue as a technical repeat rather than another plant or generation; retain independent plant and descendant identifiers when those are actually sampled.",
       "Separate observations on originally affected leaves from new leaves and descendant shoots; record experimental manipulation history if present, but never infer TRV infection or a stable mutation from bleaching localization alone.",
       "Track independently identified descendant cuttings under matched conditions and record both persistence and loss of the phenotype; do not infer seed inheritance, a stable cultivar trait, or transmissibility from one mother plant or cutting."
     ],
@@ -5029,7 +5029,7 @@
       "Lower growth in a documented variegated cultivar can be developmental context rather than proof of a new disorder, but this comparison cannot normalize new distortion, spreading chlorosis or unexplained decline; keep the infectious, nutritional and exposure differential active.",
       "Neither pale-sector area nor resemblance to Divina establishes cannabinoid or terpenoid content, harvest maturity, cultivar identity, seed inheritance or a universal biomass penalty; unsupported causal or chemical labels require human review.",
       "Image/video-only confidence is capped at 0.10 as a conservative annotation policy, not a measured accuracy estimate; visible sectoring remains a phenotype label until independently supported causal attribution.",
-      "The sequencing study used three stem positions on one Honey Banana mother plant, not paired pale and green leaf sectors; its variant counts cannot validate a sector label, predict potency loss, or establish inheritance.",
+      "The sequencing study used three stem positions on one Honey Banana mother plant, not paired pale and green leaf sectors; its variant counts cannot validate a sector label, predict potency loss, or establish inheritance. It is not a longitudinal mutation-rate measurement, and vertical position alone cannot turn the observed spatial genetic differences into successive symptom stages.",
       "“Genetic mosaicism” describes within-organism genetic variation; a visible “mosaic symptom” is not evidence of that mechanism.",
       "The Cannabis mosaicism sequencing study sampled one mother plant and did not link its variants to visible leaf sectors.",
       "The 2022 TRV study provides an experimentally induced look-alike, not field evidence of natural TRV disease; its largely leaf-localized response cannot establish spontaneous variegation, inheritance, or pathogen freedom.",
@@ -5051,12 +5051,14 @@
         "publisher": "Wiley on behalf of the Crop Science Society of America",
         "publicationDate": "2021-11-22",
         "year": 2022,
-        "accessedDate": "2026-10-08",
+        "accessedDate": "2026-10-19",
         "doi": "10.1002/tpg2.20169",
         "supportedClaims": [
           "The Honey Banana study sequenced three stem samples at different heights from one approximately 1.5-year-old mother plant; it did not compare visibly pale and green leaf sectors or demonstrate a causal pigment mutation.",
           "Deep whole-genome sequencing of top, middle, and bottom samples from one 1.5-year-old Cannabis mother plant detected many variants unique to individual canopy samples, demonstrating within-plant genetic mosaicism in that plant.",
-          "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability."
+          "The study examined a single mother plant and did not validate a visible leaf-sector pattern as a diagnostic marker of somatic mutation, heritability, or clonal stability.",
+          "Methods 2.1 and Figure 1 locate the bottom, middle, and top stem samples at 59, 151, and 226 cm; Figure 1c and Results 3.3 group top and bottom together while middle is separate. This spatial comparison is not a measured chronological leaf-sector progression.",
+          "Methods 2.2 and Results 3.2 describe a new DNA library from the original frozen top stem tissue, sequenced at 32× coverage with 99.97% variant-call agreement. This is technical resequencing, not an independent mother plant, descendant generation, or pigment-sector causal test."
         ]
       },
       {

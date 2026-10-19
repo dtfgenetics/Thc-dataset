@@ -1,0 +1,41 @@
+{
+  "base_commit": "bcf587f799b396161ccb01a3fa06b13405a29a83",
+  "branch": "work/grow-doc/GD-DIAG-001/variegation-lineage-20261019",
+  "changed_paths": [
+    "data/profiles/gen-variegation.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "variegation-lineage-20261019",
+  "head_commit": "f9c6fbe3ec9ccc4d795e81720ffca77cf3e7c6b5",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1002/tpg2.20169"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, repository instructions, task registry/claims, schemas/interfaces, canonical records, quality standard, exports, tests and validation commands before editing. Selected suspected genetic variegation, among lower-coverage profiles at 19 mapped claims, to diversify beyond recent pathogen/root-zone batches and avoid repeating recent pigment-silencing additions. Added two mappings to existing primary DOI 10.1002/tpg2.20169 (21 profile claims total), refreshed its access date, expanded one confirmation instruction and one warning. Fresh full primary publisher text at https://acsess.onlinelibrary.wiley.com/doi/10.1002/tpg2.20169 was inspected, especially Methods 2.1/2.2, Figure 1 caption, Results 3.2/3.3 and the conclusion. Bottom/middle/top stem samples were at 59/151/226 cm, while the genetic-distance tree groups top and bottom together and middle separately. The new library from original frozen top tissue produced 32x sequencing with 99.97% variant-call agreement. Dataset safeguards distinguish spatial sampling from observed symptom progression and technical resequencing from independent plants or generations; these are explicitly bounded annotation inferences, not an inherited-trait diagnosis or a longitudinal mutation-rate claim. Existing title, authors, publisher, first-publication date 2021-11-22 and issue year 2022 preserved. The publisher /full route was unavailable through the retrieval tool; the independently public DOI landing page supplied full text. PMC retrieval showed a browser-check wall; no bypass was attempted. No new source identity, image/video reference, binary, crop, license, permission or training admission was added or changed. Existing media metadata and fingerprints remain untouched, and both mixed or induced-look-alike composites remain training-ineligible. Only gen-variegation changed among all 63 exported profiles, within confirmation, warnings and sources. Existing affected parts, leaf-age/position context, morphology, distribution, progression, confounders, exclusion checks, pathogen differential and 0.10 photo-only confidence ceiling retained. Generated, anecdotal, vendor, forum and unverified media were not promoted to ground truth. Counts remain 209 sources, 93 media references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. New regression assertions failed on old content as intended and passed after enrichment; candidate-leakage audit passed. All 68 local commands passed: 62 validators, type check, 293 application tests, build, 103 Python tests, artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL parsing, CSV/export consistency, identifiers, duplicates, labels, URL syntax/source identity and source-to-claim links checked; historical URLs were not all independently revisited. Two serial freezes matched the full actual artifact lock, with README/config byte-level pins synchronized for the 191-row text mixture; no model training or inference. Final full checks including this receipt and all hosted exact-head workflows, including unavailable-local PHP lint, required before squash integration; immediately recheck live base/head/tree freshness. Worktree-isolation and verification-before-completion skills gate publication. Unrelated work and blocked drafts preserved; operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: independently confirmed pale/green-sector pairs, longitudinal branch/clone image or video with linked genotype and pathogen-testing evidence, multi-cultivar replication and inheritance data. All symptom-only, unlinked, mixed-cause and unresolved genetic attributions retain human-review restrictions; technical concordance is not diagnostic accuracy. Agent review is not actual human, expert or laboratory review.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

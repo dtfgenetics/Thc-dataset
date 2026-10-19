@@ -696,6 +696,14 @@ describe('diagnostic dataset quality gates', () => {
 
   it('keeps suspected genetic variegation exclusion-based and out of image-only ground truth', () => {
     const record = issues.find((issue) => issue.slug === 'genetic-variegation')
+    const mosaicism = record?.sources.find((source) => source.doi === '10.1002/tpg2.20169')
+    expect(mosaicism?.accessedDate).toBe('2026-10-19')
+    expect(mosaicism?.supportedClaims).toHaveLength(5)
+    expect(mosaicism?.supportedClaims.join(' ')).toContain('59, 151, and 226 cm')
+    expect(mosaicism?.supportedClaims.join(' ')).toContain('99.97% variant-call agreement')
+    expect(record?.confirmation.join(' ')).toContain('sampling height, tissue identity, branch/node lineage, and collection date')
+    expect(record?.confirmation.join(' ')).toContain('technical repeat rather than another plant or generation')
+    expect(record?.warnings.join(' ')).toContain('not a longitudinal mutation-rate measurement')
     const vigs = record?.sources.find((source) => source.doi === '10.1186/s13007-019-0542-5')
     expect(vigs?.accessedDate).toBe('2026-10-18')
     expect(vigs?.supportedClaims).toHaveLength(5)
