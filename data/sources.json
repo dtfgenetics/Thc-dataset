@@ -82,14 +82,16 @@
     "publisher": "Wiley",
     "publicationDate": "2023-09-08",
     "year": 2023,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-19",
     "doi": "10.1002/pld3.528",
     "supportedClaims": [
       "In a controlled Root-TRAPR hydroponic experiment with Cannabis sativa cultivar Ferimon, an ITS-confirmed Athelia rolfsii isolate was placed at the crown and caused yellowing, drooping, and wilt within five days in both unprimed and chitosan-primed plants.",
       "The experiment recovered A. rolfsii from inoculated stem tissue but not root tissue; visible root browning or root rot was not observed during the five-day infection window, showing that root rot is possible in field reports but is not required in every early controlled presentation.",
       "The study used four treatment groups and four timepoints; 0.2% chitosan inhibited root development and did not prevent visible disease, so chitosan-treated morphology cannot serve as an untreated southern-blight progression series.",
       "ITS evidence, controlled inoculation, compatible disease, recovery of the fungus from inoculated plants, and absence from controls provide causal support that is stronger than canopy appearance alone.",
-      "The five-day hydroponic Ferimon response, chitosan results, hormone changes, enzyme responses, and root-growth measurements are experiment-specific and are not universal diagnostic thresholds or treatment recommendations."
+      "The five-day hydroponic Ferimon response, chitosan results, hormone changes, enzyme responses, and root-growth measurements are experiment-specific and are not universal diagnostic thresholds or treatment recommendations.",
+      "Figure 2 and Methods 2.5 define Day 0 as transfer into Root-TRAPR, Day 6 as priming, Day 8 as inoculation, and Day 13 as collection; Day 13 is five days after inoculation, not thirteen days of infection.",
+      "Methods 2.5.3 and Figure S4 distinguish tissue collection on Day 13 from a further seven days of room-temperature incubation on antibiotic-supplemented PDA before fungal morphology was examined; culture-read time is not the in-plant symptom timeline."
     ]
   },
   {

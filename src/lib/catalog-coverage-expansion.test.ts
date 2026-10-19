@@ -179,6 +179,13 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(southernBlight.sources).toHaveLength(4)
     expect(southernBlight.sources.some((source) => source.doi === '10.1007/s42161-022-01072-8')).toBe(true)
     expect(southernBlight.sources.some((source) => source.doi === '10.1002/pld3.528')).toBe(true)
+    const hydroponic = southernBlight.sources.find((source) => source.doi === '10.1002/pld3.528')!
+    expect(hydroponic.accessedDate).toBe('2026-10-19')
+    expect(hydroponic.supportedClaims).toHaveLength(7)
+    expect(hydroponic.supportedClaims.join(' ')).toContain('Day 13 is five days after inoculation, not thirteen days of infection')
+    expect(hydroponic.supportedClaims.join(' ')).toContain('a further seven days of room-temperature incubation')
+    expect(southernBlight.confirmation.join(' ')).toContain('system-transfer, priming, inoculation, tissue-collection, and culture-read dates separately')
+    expect(southernBlight.media[0].useLimitations.join(' ')).toContain('not thirteen days of infection')
     expect(southernBlight.media).toHaveLength(1)
     const reference = southernBlight.media[0]
     expect(reference.license).toBe('CC BY 4.0')

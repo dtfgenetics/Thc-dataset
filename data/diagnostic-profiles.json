@@ -4749,7 +4749,7 @@
     "confirmation": [
       "Capture the same intact plant at whole-canopy, soil-line, crown, and root scales with a ruler or other scale; preserve the shoot-to-lesion-to-root connection.",
       "Photograph the active lesion margin, cottony growth, and sclerotia in place before handling, then record whether the structures are embedded in plant-linked mycelium or merely loose on substrate.",
-      "Mark the plant and repeat images to document basal lesion expansion, canopy decline, mycelial spread, and sclerotial color development rather than assembling progression from unrelated plants.",
+      "Mark the plant and repeat images to document basal lesion expansion, canopy decline, mycelial spread, and sclerotial color development rather than assembling progression from unrelated plants. Record system-transfer, priming, inoculation, tissue-collection, and culture-read dates separately; the Root-TRAPR Day 13 image is five days post-inoculation, and its later culture read must not be annotated as additional observed in-plant progression.",
       "Record cultivar, plant age and stage, field or protected/hydroponic setting, location, date, irrigation, drainage, substrate, soil-line temperature and moisture context, and nearby affected plants.",
       "Submit fresh active crown/lower-stem tissue, representative sclerotia, and when involved taproot tissue under the same plant identifier; retain paired apparently healthy material when feasible.",
       "Use lesion-derived culture and microscopy to document compatible hyphae, clamp connections, and sclerotia, but do not assign Athelia rolfsii from morphology alone.",
@@ -4869,14 +4869,16 @@
         "publisher": "Wiley",
         "publicationDate": "2023-09-08",
         "year": 2023,
-        "accessedDate": "2026-08-24",
+        "accessedDate": "2026-10-19",
         "doi": "10.1002/pld3.528",
         "supportedClaims": [
           "In a controlled Root-TRAPR hydroponic experiment with Cannabis sativa cultivar Ferimon, an ITS-confirmed Athelia rolfsii isolate was placed at the crown and caused yellowing, drooping, and wilt within five days in both unprimed and chitosan-primed plants.",
           "The experiment recovered A. rolfsii from inoculated stem tissue but not root tissue; visible root browning or root rot was not observed during the five-day infection window, showing that root rot is possible in field reports but is not required in every early controlled presentation.",
           "The study used four treatment groups and four timepoints; 0.2% chitosan inhibited root development and did not prevent visible disease, so chitosan-treated morphology cannot serve as an untreated southern-blight progression series.",
           "ITS evidence, controlled inoculation, compatible disease, recovery of the fungus from inoculated plants, and absence from controls provide causal support that is stronger than canopy appearance alone.",
-          "The five-day hydroponic Ferimon response, chitosan results, hormone changes, enzyme responses, and root-growth measurements are experiment-specific and are not universal diagnostic thresholds or treatment recommendations."
+          "The five-day hydroponic Ferimon response, chitosan results, hormone changes, enzyme responses, and root-growth measurements are experiment-specific and are not universal diagnostic thresholds or treatment recommendations.",
+          "Figure 2 and Methods 2.5 define Day 0 as transfer into Root-TRAPR, Day 6 as priming, Day 8 as inoculation, and Day 13 as collection; Day 13 is five days after inoculation, not thirteen days of infection.",
+          "Methods 2.5.3 and Figure S4 distinguish tissue collection on Day 13 from a further seven days of room-temperature incubation on antibiotic-supplemented PDA before fungal morphology was examined; culture-read time is not the in-plant symptom timeline."
         ]
       }
     ],
@@ -4900,6 +4902,7 @@
           "Control, chitosan-only, Athelia rolfsii, and chitosan-plus-pathogen groups must not be collapsed into one class.",
           "Chitosan independently inhibited root development, and right-side shoot and root insets are explicitly not to scale.",
           "The hydroponic Ferimon experiment ended five days after crown inoculation and did not show visible root browning or root rot; it does not represent field progression or every cultivar.",
+          "Figure 2 days are measured from system transfer: Day 6 priming, Day 8 inoculation, and Day 13 collection; Day 13 is five days post-inoculation, not thirteen days of infection. The seven-day culture incubation after tissue collection is a separate laboratory clock, not a photographed plant timepoint.",
           "Display with the full caption and attribution; do not crop, relabel, or use for automated training until panel identities, timepoints, treatment confounding, and sample linkage are resolved."
         ],
         "displayPermission": "permitted",
