@@ -70,7 +70,8 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     expect(record.exclusions).toHaveLength(10)
     const primary = record.sources.find((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')!
     expect(primary.publicationDate).toBe('2020-10-07')
-    expect(primary.accessedDate).toBe('2026-10-18')
+    expect(primary.accessedDate).toBe('2026-10-19')
+    expect(primary.supportedClaims.join(' ')).toContain('not classifier accuracy')
     expect(primary.supportedClaims.join(' ')).toContain('25 conidia')
     expect(primary.supportedClaims.join(' ')).toContain('MT085366–MT085369')
     expect(primary.supportedClaims.join(' ')).toContain('72 hours')

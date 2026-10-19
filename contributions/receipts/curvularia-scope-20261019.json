@@ -1,0 +1,42 @@
+{
+  "base_commit": "71a84a37f8ce545e24c529f49b6fc06de5fd5fd6",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-scope-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-curvularia-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "curvularia-scope-20261019",
+  "head_commit": "61e3fe3396c511c79831b262865eabc1fadd45b9",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-03-20-0546-PDN"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, instructions, active task registry/claims, coverage, schemas/types, canonical and exported profile/source/media records, exporter and validation contract. Selected Curvularia among the weakest fungal profiles at 15 claims, avoiding the separately heldout-source-blocked Botrytis slice and recently enriched rust. Added two primary-source mappings, giving 17 total. Retrieved publisher-indexed primary text for Marin et al., First Report of Curvularia pseudobrachyspora Causing Leaf Spot on Hemp (Cannabis sativa) in Florida, Plant Disease, DOI 10.1094/PDIS-03-20-0546-PDN, published 2020-10-07; a direct page open returned 403, and no restricted access was attempted. Search retrieval supplied the primary text containing both field maxima and per-locus similarities. Preserve lesions on up to 70% of plants separately from up to 50% leaf damage; the note does not define a transferable pixel-segmentation or severity method. Preserve reported ITS/GAPDH/EF1-alpha matches to CPC 28808 separately, not as diagnostic confidence, classifier accuracy or universal species cutoffs. Annotation inferences are explicitly marked. Expanded one confirmation step and one warning to keep survey denominators, leaf-level scoring, specimen IDs and locus/reference/alignment evidence separate. Existing publication date, authors, publisher and DOI retained; access date refreshed. Only fungal-curvularia-leaf-spot changed among 63 exported profiles, within confirmation, warnings and sources. Plant part/age, paired surfaces, progression, distribution, morphology, confounders, exclusions, causal/species confirmation and 0.2 photo-only safeguard retained. No media reference, binary, crop, license, attribution, display/training permission or training admission changed. The whole-leaf UF/IFAS CC BY-NC-ND 4.0 reference remains non-training; no generated, vendor, forum, anecdotal or unverified media promotion. Totals remain 210 evidence sources, 93 references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. Baseline 293 app tests passed. New regression failed on the absent refresh as intended, then 32 tests passed. Initial full suite found a second stale access-date assertion, reproduced alone at catalog-accuracy-expansion.test.ts:73 (expected 2026-10-18, actual 2026-10-19). Systematic debugging traced the canonical catalog source refresh; updated only that expectation and added a not-classifier-accuracy assertion. Both affected test files then passed 47 tests. All 68 commands subsequently passed: all 62 package validators, type check, 293 app tests, production build, 103 Python tests, artifact verifier and diff check. Five additional evaluator/artifact self-tests passed. JSON/JSONL/CSV consistency, IDs, duplicates, labels, URL syntax/source identities and claim links checked; not every historical URL was independently retrieved. Candidate-leakage audit passed, and two serial freezes matched the entire lock; README/config hashes synchronized. Mixture unchanged at 150 SFT plus 37 grounded-QA rows (187 total); no actual training or inference. Final full suite including receipt plus all hosted exact-head workflows, including locally unavailable PHP lint, required before squash integration with live base/head/tree recheck. Worktree-isolation, systematic-debugging and verification-before-completion skills guided isolation, stale assertion repair and publication gates. Operational claim excluded from commits and released after merge; unrelated work preserved. No deployment. Remaining gaps: calibrated field incidence/severity series with explicit denominators and scoring, plant/lesion/isolate-linked multilocus evidence, paired surfaces, diagnostic video and reusable training-media rights. Detached, symptom-only, locus-unlinked, undefined-severity, low-resolution and rights-unclear samples retain human-review flags. Agent review is not actual human, expert or laboratory review.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}

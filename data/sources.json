@@ -1027,7 +1027,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2020-10-07",
     "year": 2020,
-    "accessedDate": "2026-10-18",
+    "accessedDate": "2026-10-19",
     "doi": "10.1094/PDIS-03-20-0546-PDN",
     "supportedClaims": [
       "In one October-to-December 2019 Wimauma, Florida field trial, small yellow spots occurred on young and old leaves of one-month-old hemp and developed into tan-to-brown spots with yellow halos; field incidence, damage, varieties, and timing are study-specific observations.",
@@ -1041,7 +1041,9 @@
       "Field varieties included Pumma-2, Eletta Campana, Carmagnola Selezionata and Tygra; the inoculation test used Puma-3. Preserve those distinct reported names and settings rather than inferring a replicated cultivar-susceptibility ranking.",
       "The authors cite prior reports on areca palm and goosegrass but propose goosegrass only as a possible alternative host. Dataset inference: nearby weeds or a shared host report do not establish the source of a photographed hemp infection.",
       "The assay sprayed the suspension to runoff but reports no delivered volume per plant or leaf. Dataset inference: suspension concentration is not a measured deposited dose, and a leaf image cannot recover that missing exposure.",
-      "Inoculum was prepared in 0.01% Tween 20; controls are described as sterile-deionized-water sprays under the same conditions, without explicit surfactant matching. Dataset inference: record the reported water control, not an assumed vehicle-matched control; this reporting limit does not negate the reported symptom reproduction and reisolation."
+      "Inoculum was prepared in 0.01% Tween 20; controls are described as sterile-deionized-water sprays under the same conditions, without explicit surfactant matching. Dataset inference: record the reported water control, not an assumed vehicle-matched control; this reporting limit does not negate the reported symptom reproduction and reisolation.",
+      "The field account reports lesions on up to 70% of plants and separately up to 50% leaf damage. Dataset inference: these are different observation units; the undefined leaf-damage assessment is not a defined image-segmentation metric, calibrated severity class, or regional prevalence estimate.",
+      "Reported matches to reference CPC 28808 were 99.32% ITS, 99.58% GAPDH and 99.88% EF1-alpha for the closely grouping isolates. Dataset inference: locus-specific sequence similarities are not classifier accuracy, posterior species probability, or universal identity cutoffs; phylogenetic interpretation remains necessary."
     ]
   },
   {

@@ -977,8 +977,13 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('separates Curvularia field, culture and inoculation context from reservoir claims', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')!
     const study = record.sources.find((item) => item.doi === '10.1094/PDIS-03-20-0546-PDN')!
-    expect(study.accessedDate).toBe('2026-10-18')
-    expect(study.supportedClaims).toHaveLength(12)
+    expect(study.accessedDate).toBe('2026-10-19')
+    expect(study.supportedClaims.join(' ')).toContain('up to 70% of plants')
+    expect(study.supportedClaims.join(' ')).toContain('not a defined image-segmentation metric')
+    expect(study.supportedClaims.join(' ')).toContain('99.32% ITS, 99.58% GAPDH and 99.88% EF1-alpha')
+    expect(record.confirmation.join(' ')).toContain('plants examined and plants with lesions')
+    expect(record.warnings.join(' ')).toContain('Sequence similarity is not diagnostic confidence')
+    expect(study.supportedClaims).toHaveLength(14)
     expect(study.supportedClaims.join(' ')).toContain('no delivered volume per plant or leaf')
     expect(study.supportedClaims.join(' ')).toContain('without explicit surfactant matching')
     expect(record.confirmation.join(' ')).toContain('unreported, not zero or experimentally matched')
