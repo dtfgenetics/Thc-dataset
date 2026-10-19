@@ -5803,10 +5803,10 @@
       "Record a continuous video from the external symptom to the connected petiole or stem, then split the stem lengthwise on camera so the gallery-to-symptom relationship is preserved.",
       "Photograph the intact stem exterior, entry or swelling site, cross-section, full longitudinal gallery, frass if present, and larva in situ with a metric scale and color reference.",
       "Obtain dorsal, lateral, antenna, head-capsule, and full-body macro views of recovered adults or larvae; do not identify Dectes from a damaged stem alone.",
-      "Sample several symptomatic and asymptomatic stems across several field locations because one adult, one wilted leaf, or one gallery cannot establish field distribution.",
+      "Sample several symptomatic and asymptomatic stems across several field locations because one adult, one wilted leaf, or one gallery cannot establish field distribution. Record edge/interior position, distance, stem diameter, and total stems examined rather than selecting only broken stems or field-edge plants; the soybean survey motivates this annotation safeguard but does not establish a hemp sampling threshold or gradient.",
       "Submit the organism and connected stem section to an Extension entomologist or diagnostic laboratory when morphology is incomplete or another borer/blister beetle is plausible.",
       "Pair insect confirmation with vascular and root-zone inspection when wilt, dieback, or crown decline could represent a co-occurring pathogen.",
-      "Assign separate confidence to injury class, stem-borer class, Dectes genus, and D. texanus species; do not promote a species label when the organism is absent, incomplete, or taxonomically ambiguous."
+      "Assign separate confidence to injury class, stem-borer class, Dectes genus, and D. texanus species; do not promote a species label when the organism is absent, incomplete, or taxonomically ambiguous. Record adult activity, dissected-stem infestation, and breakage/lodging as separate endpoints with observation dates and sampling effort; fewer adults after intervention cannot by itself label the linked Cannabis stems uninfested or recovered."
     ],
     "immediateActions": [
       "Flag affected plants and preserve the symptom-to-stem connection before pruning, disposal, or destructive sampling.",
@@ -5906,13 +5906,15 @@
           "David Owens"
         ],
         "publisher": "University of Maryland Extension",
-        "publicationDate": "2022-06-01",
+        "publicationDate": "2022-06",
         "year": 2022,
-        "accessedDate": "2026-08-20",
+        "accessedDate": "2026-10-19",
         "supportedClaims": [
           "The peer-reviewed soybean factsheet describes gray adults with black-and-gray banded antennae and creamy white to yellow, legless, accordion-like larvae.",
           "Petiole pith feeding can produce a single wilted leaf before larvae tunnel into the main stem; later internal girdling can predispose mature plants to basal breakage and lodging.",
-          "Regional occurrence and lodging losses are variable, so soybean severity, yield, and management values must not be transferred directly to Cannabis."
+          "Regional occurrence and lodging losses are variable, so soybean severity, yield, and management values must not be transferred directly to Cannabis.",
+          "The Life History and Phenology section reports a 2021 soybean survey with 72% infested stems at the field edge versus 26% at 100 m into the field, and associates wider soybean stems with infestation in Delmarva surveys. These observations support documenting sampling position and stem diameter, not a universal Cannabis distribution pattern.",
+          "The Insecticides section summarizes a 2010 Delaware soybean trial in which adult counts declined but stem infestation and lodging did not; adult activity, internal infestation, and structural loss are distinct observation endpoints, not interchangeable proof of Cannabis control or treatment efficacy."
         ]
       },
       {

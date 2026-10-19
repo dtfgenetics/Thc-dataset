@@ -1,0 +1,41 @@
+{
+  "base_commit": "f8d1c0b9a88e41c44681db695846764188a1c70a",
+  "branch": "work/grow-doc/GD-DIAG-001/dectes-sampling-20261019",
+  "changed_paths": [
+    "data/profiles/insect-dectes-stem-borer.json",
+    "src/data/expanded-issues-batch3.ts"
+  ],
+  "contribution_id": "dectes-sampling-20261019",
+  "head_commit": "8796e1a421f371321cb0136780858e0334e74b6e",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196"
+  ],
+  "task_id": "GD-DIAG-001",
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/coverage-audit.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent evidence review on 2026-10-19 inspected fresh main, recent changes, instructions, task registry/claims, interfaces, existing profiles/media, quality standard, exports, tests and validation commands before editing. Selected Dectes stem-borer injury, among lower-coverage profiles at 19 claim mappings, to improve insect sampling context without repeating recent pathogen/root-zone/variegation batches. Added two bounded institutional claim mappings to existing University of Maryland Extension FS-1196 (21 profile claims total), refreshed access date and corrected publication-date precision from an unsupported first day of the month to 2022-06. The source states FS-1196 June 2022 and a separate web update of July 5, 2022; the update is not treated as first publication. Fresh full institutional text at https://extension.umd.edu/resource/dectes-stem-borer-management-soybeans-fs-1196 was inspected, particularly Life History and Phenology, Sampling and Decision Making, Insecticides and the author/peer-review metadata. The 2021 soybean survey reports 72% infested stems at the edge versus 26% at 100 m inside and associates wider stems with infestation; a summarized 2010 Delaware soybean trial reduced adult counts without reducing stem infestation or lodging. Recording edge/interior position, stem diameter, totals and separate adult/infestation/breakage endpoints is an explicitly bounded annotation inference. These soybean observations do not establish Cannabis prevalence, gradients, thresholds, efficacy or a treatment recommendation. Only insect-dectes-stem-borer changed among 63 exported profiles, within sources and two expanded confirmation steps. Existing morphology, affected parts, canopy/leaf context, distribution/progression, exclusions, look-alikes, organism-linkage controls, 0.20 photo-only ceiling and human-review restrictions retained. No new source identity, media reference, binary, crop, license, display/training permission or admission was added or changed. Existing organism-only CC BY adult reference and rights-unclear soybean video remain unchanged and training-ineligible; no generated, anecdotal, vendor, forum or unverified media was promoted. Counts remain 209 sources, 93 media references, 36 originals, 68 crops and zero training-eligible media. Baseline passed 293 application tests. Regression assertions failed on the old citation date as expected and passed after enrichment; candidate-leakage audit passed. All 68 local commands passed: 62 validators, type check, 293 app tests, production build, 103 Python tests, artifact verification and diff check. Five supplemental artifact/evaluator self-tests passed. JSON/JSONL parsing, CSV/export consistency, identifiers, duplicates, labels, URL syntax/source identity and source-to-claim links checked; historical URLs were not all independently revisited. Two serial freezes matched the full actual lock and synchronized README/config byte-level pins for the 191-row text mixture; no actual model training or inference. Final full suite including this receipt and all hosted exact-head workflows, including unavailable-local PHP lint, required before squash merge; immediately recheck live base/head/tree freshness. Worktree-isolation and verification-before-completion skills gate publication. Unrelated changes and blocked drafts preserved. Operational claim excluded from commits and released after merge. No production deployment. Remaining gaps: specimen-linked Cannabis stem dissections, species vouchers, field progression/video, independent healthy/look-alike controls and hemp-specific sampling/endpoint validation. Damage-only, gallery-only, organism-only, unlinked specimen/stem, non-Cannabis and unresolved-taxonomy samples retain human-review flags. Agent review is not actual human, expert or laboratory review.",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  }
+}
