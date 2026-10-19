@@ -78,6 +78,7 @@
     "Noninfectious postharvest browning"
   ],
   "confirmation": [
+    "Map stem lesions and handling wounds alongside affected flowers; record dated pruning, handling and senescence events, keep sample IDs separate for each tissue, and request lesion-linked testing rather than infer infection direction.",
     "Do not confirm Botrytis or assign a species from a photograph or video alone; keep symptom-only, detached, plant-unlinked, and culture-only observations suspected and flagged for human review.",
     "Capture the affected flower exterior, a safely exposed interior cross-section, a close-up of the active lesion margin, surrounding flowers, and a whole-plant distribution view with scale; do not infer a clean interior from an exterior photograph.",
     "Track the same marked plant, flower, and lesion margin across serial photographs or video with dates and scale; match exterior and interior views to a shared plant and sample identifier, and record symptom-negative neighboring flowers without treating them as proven pathogen-free.",
@@ -147,12 +148,14 @@
       ],
       "publisher": "Oregon State University, Washington State University, and University of Idaho",
       "year": 2026,
-      "accessedDate": "2026-08-13",
+      "accessedDate": "2026-10-19",
       "supportedClaims": [
         "Gray mold can affect Cannabis seedlings, stems, foliage, and flowers; brown water-soaked bud spots can progress to dead inflorescences covered by brown to gray-brown spores.",
         "Stem infection can produce cankers, splitting or breakage, and black sclerotia, while heavily affected plants can decline quickly under conducive conditions.",
         "Cool, humid or wet conditions and prolonged tissue wetness favor disease, but environmental conditions are risk context rather than proof of cause.",
-        "The page photographs show a close exterior bud-rot view, a close sporulating-flower view, and a whole-plant distribution view; each is credited to Cynthia M. Ocamb in 2020, and the page states copyright without an explicit media-reuse license."
+        "The page photographs show a close exterior bud-rot view, a close sporulating-flower view, and a whole-plant distribution view; each is credited to Cynthia M. Ocamb in 2020, and the page states copyright without an explicit media-reuse license.",
+        "The handbook describes opportunistic invasion of weakened, damaged or senescing tissue and easy infection through wounds. Dataset inference: dated injury and tissue-age context support sampling, but neither a wound nor senescence confirms Botrytis in a photographed lesion.",
+        "Stem infections are described as durable inoculum sources producing conidia throughout bloom. Dataset inference: inspect stems as well as flowers; co-occurring lesions are not proof of transmission direction, a shared isolate or the origin of a specific flower infection."
       ]
     },
     {

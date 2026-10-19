@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "botrytis-infection-context-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "dbde6fc817dbb91dd7fa80d29481149c659371b7",
+  "head_commit": "f0a2c275a58f806d7940b663bb0363894648fbf5",
+  "branch": "work/grow-doc/GD-DIAG-001/botrytis-infection-context-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-botrytis-bud-rot.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://pnwhandbooks.org/plantdisease/host-disease/hemp-cannabis-sativa-gray-mold-botrytis-bud-blight-stem-canker"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent history, instructions, tasks/claims, coverage, schemas, canonical/exported profiles/media, exporter, validators, tests and CI before editing. Selected weakest Botrytis fungal-pathogen profile, 12 to 14 mapped claims. Refreshed existing Pacific Northwest Pest Management Handbooks institutional citation; retained title, authors C. M. Ocamb and N. K. Osterbauer, joint university publisher and stable URL. Year 2026 refers to latest revision March 2026, not a known original publication date; access date 2026-10-19. Two source-linked claims distinguish wound/senescence risk context and persistent stem inoculum during bloom from lesion-specific causal proof; sampling implications explicitly marked Dataset inference. One confirmation step adds paired stem/flower mapping, dated injury/senescence history and separate tissue sample IDs without asserting infection direction or shared isolate. Only confirmation/sources changed in one of 63 profiles. Existing plant part, leaf age, progression, color/morphology, distribution, serial capture, look-alikes, exclusion checks, laboratory confirmation and 0.30 image-only ceiling retained. Four media references unchanged: licensed composite remains reference-only pending panel/split review; three university copyright references remain hidden metadata-only, license-review required and training prohibited. No new media, binary, crop, license, attribution, permission or training admission. Totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, forum, vendor or unverified ground truth. Baseline 294 app tests passed; changed regression failed on old access date, then 37 focused tests passed. Candidate leakage passed without adding previously quarantined source families. Initial lock retained previous exported input hash; two subsequent clean serial freezes matched byte-for-byte with unchanged 150 SFT plus 37 grounded-QA mixture (187), and actual split/dataset hash pins synchronized in README/config. Five additional artifact/evaluator self-tests passed. All 68 local commands passed: 62 validators, type check, 294 app tests, build, 103 Python tests, artifact verifier and diff check. Checks cover JSON/JSONL/CSV consistency, schemas, identifiers, duplicates, labels, source identities, URL syntax and source-to-claim links. Changed institutional URL directly retrieved; historical URLs were not all independently fetched. Final full suite including receipt and exact-head hosted workflows including locally unavailable PHP lint required before squash with live main/head/tree freshness checks. Isolation, debugging and fresh-verification skills guided worktree, stale-lock investigation and publication gates. Operational claim excluded from commits and released after merge; unrelated changes preserved. No actual human/expert/laboratory review, model training, inference or production deployment. Remaining gaps: lesion-linked paired stem/flower laboratory evidence, serial Cannabis progression, reusable confirmed imagery and diagnostic video. Symptom-only, plant-unlinked, detached, mixed-cause, culture-only, species-uncertain and rights-unclear samples retain human-review restrictions."
+}
