@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-aphid-choice-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "8bf9485fe4edff1f3437c3c324bfb10a453b1b9b",
+  "head_commit": "045c5af90f6a79f94edf2f93850253ee86ad4f37",
+  "branch": "work/grow-doc/GD-DIAG-001/root-aphid-choice-20261019",
+  "changed_paths": [
+    "data/profiles/pest-rice-root-aphid.json",
+    "src/data/supplemental-issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1111/eea.70014"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent commits, instructions, active task registry/claims, coverage, schemas/types, canonical/exported profiles/media, exporter and validation scripts before canonical edits. Selected rice root aphid among the weakest insect profiles, 16 to 18 mapped claims. Fresh Wiley primary full text for Ong et al., DOI 10.1111/eea.70014, published 2025-09-10, verified methods sections 2.3-2.5 and author list. Corrected existing erroneous Ashley Lau and Leah Buirs entries to Audrey Lau and Liam Buirs; preserved remaining authors, publication date, title, publisher and DOI; refreshed access date. Added two mappings: plant-choice/no-choice trials began with ten winged founders and counted above/belowground aphids at day ten; Y-tube assays excluded plant contact and visual cues, used distinct first/final-choice endpoints and excluded non-response groups. Explicit dataset inferences distinguish terminal abundance from births, survival, instantaneous root density and feeding; conditional orientation is not a root-colony detection probability. Added experimental-video provenance guidance and warning; clarified rye-choice versus rye/barley no-choice wording rather than conflating endpoints. Only pest-rice-root-aphid changed among 63 exported profiles, in confirmation/warnings/sources. Existing root/canopy linkage, age/organ/distribution/progression context, confounders, exclusions, expert species confirmation and photo-only ceiling 0.3 retained. No new media/reference, binary, crop, license, attribution, display/training permission or training admission; existing CC BY reference remains training-ineligible. Source total stays 210; media totals unchanged. Baseline 293 app tests passed. Regression failed first on wrong authors, then caught an omitted confirmation edit and an old regex that enforced conflated host-choice wording. Systematic debugging traced the multiline array edit and exact stale assertion; added the missing instruction and replaced the old regex with separate choice/no-choice assertions. All 32 targeted tests then passed. Candidate leakage passed. Two serial freezes matched the complete lock, byte hashes synchronized; mixture unchanged at 150 SFT plus 37 grounded-QA rows (187). Five supplemental evaluator/artifact self-tests passed. All 68 commands passed: 62 package validators, type check, 293 app tests, build, 103 Python tests, artifact verifier and diff check. Export/schema checks cover JSON/JSONL/CSV consistency, identifiers, duplicates, labels, URL syntax/source identities and claim links; not every historical URL was revisited. Final full suite including receipt and hosted exact-head workflows, including locally unavailable PHP lint, required before integration with live base/head/tree recheck. Worktree-isolation, systematic-debugging and verification-before-completion skills guided isolation, failed-edit diagnosis and gates. No actual training, inference or deployment. Operational claim excluded and released after merge; unrelated work preserved. Remaining gaps: specimen-linked Cannabis root-colony progression, calibrated counts by root area and stage, matched experimental video and reusable training media. Canopy-only, trap-only, alate-only, unlinked-root, odor-choice-only, low-resolution and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}

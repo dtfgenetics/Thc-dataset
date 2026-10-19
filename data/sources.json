@@ -1799,19 +1799,21 @@
       "Mikhaela Ong",
       "Calla Pickett",
       "Anita Feng",
-      "Ashley Lau",
-      "Leah Buirs",
+      "Audrey Lau",
+      "Liam Buirs",
       "Gerhard Gries"
     ],
     "publisher": "Wiley on behalf of the Netherlands Entomological Society",
     "publicationDate": "2025-09-10",
     "year": 2025,
-    "accessedDate": "2026-10-10",
+    "accessedDate": "2026-10-19",
     "doi": "10.1111/eea.70014",
     "supportedClaims": [
       "In greenhouse two-choice experiments, rice root aphids selected and multiplied more strongly on rye than on Cannabis; this study-specific preference does not negate Cannabis host status or diagnose an infestation.",
       "In a ten-day no-choice greenhouse experiment, rice root aphids multiplied on Cannabis but significantly less than on rye or barley; the result must not be converted into a universal Cannabis susceptibility, population-growth, injury, or economic threshold.",
-      "The authors proposed rye as a possible trap crop but explicitly stated that the concept still requires testing in commercial production; it is not validated management guidance for Cannabis facilities."
+      "The authors proposed rye as a possible trap crop but explicitly stated that the concept still requires testing in commercial production; it is not validated management guidance for Cannabis facilities.",
+      "Plant-choice and no-choice assays began with 10 winged founders and counted all aphids above and below ground on day 10. Dataset inference: terminal abundance is not a count of births, an instantaneous root-colony density, or direct visual evidence of feeding.",
+      "Y-tube assays excluded plant contact and visual cues; first choice required 30 seconds in a distal arm, final choice was scored at 10 minutes, and non-response groups were excluded. Dataset inference: these conditional orientation endpoints are distinct from plant infestation or reproduction."
     ]
   },
   {
