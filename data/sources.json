@@ -1726,7 +1726,7 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2023-10-13",
     "year": 2023,
-    "accessedDate": "2026-10-16",
+    "accessedDate": "2026-10-19",
     "doi": "10.1094/PHYTOFR-05-23-0064-SC",
     "supportedClaims": [
       "Across 67 symptomatic Nevada hemp samples, abnormal growth included stunting, yellowing, excessive apical branching, witches’ broom clusters, upward leaf rolling, mottling, and mosaic.",
@@ -1734,7 +1734,9 @@
       "The overlapping syndrome cannot assign one causal agent visually, so diagnostic testing should consider phytoplasma, Spiroplasma citri, and Beet curly top virus rather than treating witches’ broom as a species-specific image label.",
       "P1/P7 amplified rDNA products from both Candidatus Phytoplasma trifolii and Spiroplasma citri in this study; cloning and sequencing identified Spiroplasma. Dataset inference: an expected-size P1/P7 band alone must not become a phytoplasma-specific ground-truth label.",
       "The method used a 200 mg midvein-and-petiole subsample from five to six leaves of each symptomatic plant. This within-plant composite is not cross-plant pooling; its result does not localize infection to every photographed leaf or shoot.",
-      "The 67 samples were symptomatic diagnostic submissions received in Nevada during 2017–2019, not a random crop survey. Detection proportions describe that selected series, not field prevalence, visual-test accuracy or the probability that a new broom-like plant carries one particular agent."
+      "The 67 samples were symptomatic diagnostic submissions received in Nevada during 2017–2019, not a random crop survey. Detection proportions describe that selected series, not field prevalence, visual-test accuracy or the probability that a new broom-like plant carries one particular agent.",
+      "The duplex real-time PCR detected phytoplasma DNA and plant 18S DNA as an internal control. Dataset inference: a plant-control signal is not phytoplasma identification, species confirmation, or proof that a pathogen-negative sample is infection-free.",
+      "The authors state that individual and combined contributions to observed symptoms remain incompletely known and propose single- and mixed-pathogen inoculation to resolve them. Dataset inference: co-detection does not partition causality or prove that one agent caused a particular visible symptom."
     ]
   },
   {
