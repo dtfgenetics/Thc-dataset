@@ -847,9 +847,14 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('separates anthracnose collection context and culture timing from field-image labels', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'anthracnose-colletotrichum-leaf-spot')!
     const source = record.sources.find((item) => item.doi === '10.1094/PDIS-10-19-2216-PDN')!
-    expect(source.accessedDate).toBe('2026-10-18')
+    expect(source.accessedDate).toBe('2026-10-19')
     expect(source.publicationDate).toBe('2020-02-23')
-    expect(source.supportedClaims).toHaveLength(10)
+    expect(source.supportedClaims).toHaveLength(12)
+    expect(source.supportedClaims.join(' ')).toContain('100,000 conidia/ml')
+    expect(source.supportedClaims.join(' ')).toContain('not a natural exposure threshold')
+    expect(source.supportedClaims.join(' ')).toContain('30% average annual yield loss concerns apple bitter rot')
+    expect(record.confirmation.join(' ')).toContain('inoculum concentration, single-spore culture age and application route')
+    expect(record.warnings.join(' ')).toContain('not a hemp yield-loss estimate')
     expect(source.supportedClaims.join(' ')).toContain('different observation units in one field')
     expect(source.supportedClaims.join(' ')).toContain('bright pink-to-red pigment in the medium on the reverse')
     expect(record.confirmation.join(' ')).toContain('top and reverse culture views from the same identified plate')

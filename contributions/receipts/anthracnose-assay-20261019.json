@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "anthracnose-assay-20261019",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "0f960c7c1e48b621bb06a3db622e32a26acd6e4c",
+  "head_commit": "55a50f3397e7c7372fc7dfb3061fdf9b92246e01",
+  "branch": "work/grow-doc/GD-DIAG-001/anthracnose-assay-20261019",
+  "changed_paths": [
+    "data/profiles/fungal-anthracnose-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-10-19-2216-PDN"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-19 inspected fresh main, recent changes, repository instructions, active task/claims, profile coverage, source and media metadata, schemas, exporter, tests and CI contract before editing. Selected anthracnose among the weakest remaining profiles: 16 to 18 mapped claims. Refreshed one existing primary citation, Szarka et al., American Phytopathological Society Plant Disease, DOI 10.1094/PDIS-10-19-2216-PDN, published 2020-02-23; retained title, authors, publisher and stable DOI URL. Publisher-indexed primary full text was retrieved through search; direct publisher open returned 403, and no restricted access was attempted. Two explicit dataset inferences separate imposed assay exposure from natural field exposure and cross-host loss context from Cannabis outcomes. Added experimental image-sequence metadata guidance and a host-attribution warning; unreported experimental metadata must remain unknown. Only fungal-anthracnose-leaf-spot changed among 63 profiles, within confirmation/warnings/sources. Existing organ, leaf age, lower-canopy location, progression, color, morphology, distribution, temporal behavior, look-alikes, exclusions, multilocus confirmation and 0.30 photo-only ceiling remain unchanged. No new media asset/reference, binary, crop, license, attribution, display/training permission or training admission. The profile still has no verified reusable Cannabis image/video; totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, vendor, forum, anecdotal or unverified ground truth. Baseline passed 293 application tests; changed regression first failed on old source metadata as expected, then all 32 targeted tests passed. Candidate-leakage audit passed. Two serial artifact freezes produced identical full locks and the unchanged 150 SFT plus 37 grounded-QA mixture (187 rows); config/README pins synchronized to actual bytes. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 293 application tests, production build, 103 Python tests, artifact verification and diff check. Export/release checks cover JSON/JSONL/CSV consistency, schema fields, identifiers, duplicate detection, labels, source identities, URL syntax and source-to-claim links; historical URLs were not all independently retrieved. Final full run including receipt and all hosted exact-head workflows, including locally unavailable PHP lint, required before integration with live base/head/tree freshness recheck. Existing worktree isolation and fresh-verification skills guided safe branch and integration gates. Operational claim excluded from commits and released after merge. No actual model training, inference or production deployment. Remaining gaps are specimen-linked licensed Cannabis imagery/video and independently observed field outcome evidence. Symptom-only, hole-only, mixed-pathogen, detached, culture-unlinked, single-locus-only, unverified and rights-unclear samples retain human-review restrictions. Agent review is not actual human, expert or laboratory review."
+}
