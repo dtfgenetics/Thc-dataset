@@ -3549,12 +3549,14 @@
     "publisher": "North Carolina Cooperative Extension",
     "publicationDate": "2015-09-10",
     "year": 2015,
-    "accessedDate": "2026-08-20",
+    "accessedDate": "2026-10-19",
     "supportedClaims": [
       "Carotenoid-pigment-inhibitor injury can produce white, pale-yellow, or pale-green new shoot tips and leaves, occasional pink-to-purple margins, reduced growth, and later necrosis; resumed green growth can appear above older bleached foliage in less-sensitive plants.",
       "The guide identifies clomazone as a soil-absorbed Group 13 pigment inhibitor with high vapor-drift potential and recommends inspecting susceptible weeds and other plants along field edges for a shared exposure pattern.",
       "Severe iron deficiency, bleaching infections, contact-herbicide injury, PPO-inhibitor bronzing, air pollution, and insect-growth-regulator exposure can overlap visually and require contextual exclusion.",
-      "The grape and pokeweed photographs are explicitly credited to J. Neal under CC BY-NC-SA 4.0, but they are non-Cannabis transfer references and do not establish clomazone injury in hemp."
+      "The grape and pokeweed photographs are explicitly credited to J. Neal under CC BY-NC-SA 4.0, but they are non-Cannabis transfer references and do not establish clomazone injury in hemp.",
+      "NC State distinguishes clomazone DOXP synthase inhibition (Group 13) from phytoene-desaturase inhibitors (Group 12) and HPPD inhibitors (Group 27). Dataset inference: shared bleaching is not an active-ingredient identification or evidence that these mechanisms are interchangeable.",
+      "The guide contrasts an aster-family infection example with pigment-inhibitor injury across plant families. Dataset inference: record host distribution as differential context, but absence of symptoms in other families is not a validated pathogen exclusion or confirmation of clomazone in Cannabis."
     ]
   },
   {
