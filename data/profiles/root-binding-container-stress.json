@@ -95,7 +95,8 @@
     "Assign persistent plant and root-specimen identifiers before disturbance and carry them through intact and washed root views, container and transplant history, moisture and chemistry measurements, laboratory results, canopy images, and follow-up observations.",
     "Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels.",
     "For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated.",
-    "For field transplants, pair the former plug boundary with a scaled surrounding soil-profile view and cultivation-depth history. Record whether roots remain in the old plug or encounter a deeper compacted layer; separate these observations from canopy drought and test moisture and root-health alternatives independently."
+    "For field transplants, pair the former plug boundary with a scaled surrounding soil-profile view and cultivation-depth history. Record whether roots remain in the old plug or encounter a deeper compacted layer; separate these observations from canopy drought and test moisture and root-health alternatives independently.",
+    "For quantitative root-distribution records, retain species, container geometry, image modality, region definitions, resolution and segmentation masks; distinguish volumetric measurements from surface-only root-ball photographs and do not impute unseen fine roots."
   ],
   "immediateActions": [
     "Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.",
@@ -159,12 +160,14 @@
       "publisher": "CSIRO Publishing",
       "publicationDate": "2012-06-15",
       "year": 2012,
-      "accessedDate": "2026-08-20",
+      "accessedDate": "2026-10-19",
       "doi": "10.1071/FP12049",
       "supportedClaims": [
         "A meta-analysis of 65 plant studies found that doubling pot size increased biomass by 43% on average and that reduced growth in smaller pots was associated mainly with lower photosynthesis per unit leaf area.",
         "The analysis establishes that rooting volume can materially alter plant growth, but it is not Cannabis-specific and does not validate a universal Cannabis container size, root-density threshold, visual symptom, or field diagnosis.",
-        "The authors caution that appropriate pot size depends on plant size; the paper's experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis."
+        "The authors caution that appropriate pot size depends on plant size; the paper's experimental biomass-per-volume proposal is research-design guidance and is not a diagnostic threshold for cultivated Cannabis.",
+        "MRI observations in barley and sugar beet placed 20–25% of root biomass in the inner half of the soil volume and roughly half within the outer 4 mm. Dataset inference: these non-Cannabis regional fractions are not Cannabis diagnostic thresholds or percentages assignable from a surface photograph.",
+        "The MRI analysis thresholded images, excluded the stem and developing storage beet, and integrated pixel values by soil region; the finest roots could go undetected. Dataset inference: retain modality and segmentation limits with root-distribution measurements, rather than treating visible root area or counts in photographs as equivalent measurements."
       ]
     },
     {
