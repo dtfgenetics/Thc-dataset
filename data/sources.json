@@ -2381,14 +2381,16 @@
     "publisher": "Frontiers Media SA",
     "publicationDate": "2019-10-17",
     "year": 2019,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-20",
     "doi": "10.3389/fpls.2019.01120",
     "supportedClaims": [
       "Across sampled indoor, greenhouse, and field Cannabis crops, flower buds with brown discoloration, blighted bracts and leaves, tissue decay, and grayish-brown mycelium yielded cultures identified as Botrytis cinerea by morphology and ITS-rDNA sequencing.",
       "The study documented a visual sequence from browning and decay of leaves and bracts in developing inflorescences to destruction of the entire inflorescence, as well as internal mycelium and decay in harvested flowers.",
       "Under severe late-harvest disease pressure, Cannabis leaves developed small circular spots that enlarged and coalesced into necrotic, often vein-delimited areas, sometimes with yellow margins; this leaf presentation was contextual rather than a standalone diagnostic rule.",
       "Botrytis cinerea, Fusarium oxysporum, and Penicillium olsonii recovered from harvested buds each produced browning and decay after inoculation under high humidity, demonstrating that brown bud rot is not species-specific in an image.",
-      "Figure 4 is a multi-panel Cannabis reference containing early and advanced inflorescence disease, internal harvested-bud decay, culture and microscopy views, and leaf lesions; the article and figure are licensed CC BY 4.0."
+      "Figure 4 is a multi-panel Cannabis reference containing early and advanced inflorescence disease, internal harvested-bud decay, culture and microscopy views, and leaf lesions; the article and figure are licensed CC BY 4.0.",
+      "Results describe grayish-brown mycelium after diseased tissues were bag-incubated for 48 hours (Figure 4D). Dataset inference: conditioned postharvest growth is not an unaltered field view or a universal infection-to-symptom interval.",
+      "Figure 4E depicts a recovered culture with peripheral sporulation and central sclerotia; F–G are scanning electron micrographs from culture. Dataset inference: these are laboratory views, not camera-visible structures on intact flowers."
     ]
   },
   {

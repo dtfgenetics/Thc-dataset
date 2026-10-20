@@ -1,0 +1,42 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "botrytis-conditioned-views-20261020",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "499853f58b2b768225a2689f5f1409c9fcf99325",
+  "head_commit": "f77a5de6606000cdc3618a7cec0acd5d2bfd57f5",
+  "branch": "work/grow-doc/GD-DIAG-001/botrytis-conditioned-views-20261020",
+  "changed_paths": [
+    "data/profiles/fungal-botrytis-bud-rot.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.3389/fpls.2019.01120"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-20 inspected fresh main, recent changes, AGENTS, active task/claims, weakest coverage, canonical/exported profiles, source/media and receipt schemas, exporter, validation scripts, tests and CI before editing. Selected lowest-coverage Botrytis fungal-pathogen profile, 14 to 16 mapped claims. Refreshed existing primary DOI citation access date, retaining title, authors, publisher and 2019-10-17 publication date. Retrieved primary publisher results/caption and visually inspected original Figure 4. Two source mappings explicitly separate laboratory conditions and imaging modality from field progression; dataset inferences are labeled. Added one confirmation step and enriched one existing composite-reference useLimitations only. No universal timing, phone-visible microscopic structure, species-specific image diagnosis or causal promotion. Scope comparison verified other 62 profiles unchanged and only confirmation/sources/media changed here. All four media retain URLs, creator, attribution, license, permissions, labels, fingerprints and training status. Existing CC BY 4.0 composite remains reference-only pending panel boundaries and split review; three PNW copyright references remain hidden metadata-only/license-review/training prohibited. No new media, license, copied binary, crop, derivative, training admission or generated/unverified ground truth. Existing visual plant-part, leaf-age, morphology, distribution, temporal capture, confounder, exclusion, specimen-linked testing and 0.30 photo-only confidence ceiling retained. Totals remain 63 profiles, 210 source pages, 93 media references, 36 originals, 68 reviewed crops, zero vision-training-eligible samples. Regression failed against old access date then all 37 focused tests passed. Candidate leakage passed; two serial full artifact locks byte-identical. Actual split/dataset pins synchronized in README/config, unchanged 150 SFT plus 37 grounded-QA mixture, 187 rows. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 application tests, build, 103 Python tests, artifact verifier and diff check. Covers JSON/JSONL/CSV syntax and agreement, schemas, URL syntax, identifiers, duplicates, labels, source identity and claim links. Changed primary URL freshly retrieved; not all historical URLs independently fetched. Final receipt-inclusive full run and 27 exact-head hosted workflows including PHP lint required before squash with live main/head/tree freshness. Verification-before-completion skill guided evidence gates. Operational claim excluded from commits and released after merge; unrelated work preserved. Agent evidence review is not actual human/expert/laboratory review. No actual model training, inference or production deployment. Remaining gaps: specimen-linked unconditioned/conditioned time series, species-linked confirmed image/video, reusable media rights and panel-level adjudication. Symptom-only, culture-only, mixed-infection, unlinked and rights-unclear samples retain human-review flags."
+}
