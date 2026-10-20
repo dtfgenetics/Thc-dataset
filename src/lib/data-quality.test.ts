@@ -422,6 +422,12 @@ describe('diagnostic dataset quality gates', () => {
     }
     const phytoplasma = issues.find((issue) => issue.slug === 'hemp-witches-broom-phytoplasma')
     expect(phytoplasma?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    const firstReport = phytoplasma?.sources.find((source) => source.doi === '10.1094/PDIS-01-19-0098-PDN')!
+    expect(firstReport.accessedDate).toBe('2026-10-20')
+    expect(firstReport.supportedClaims).toHaveLength(5)
+    expect(firstReport.supportedClaims.join(' ')).toContain('site incidence from sampled-plant leaf fractions')
+    expect(firstReport.supportedClaims.join(' ')).toContain('not matched-site visual controls')
+    expect(phytoplasma?.confirmation.join(' ')).toContain('Keep site incidence, within-plant symptomatic-leaf fractions and image lesion area as separate units')
     const assay = phytoplasma?.sources.find((source) => source.doi === '10.1094/PHYTOFR-05-23-0064-SC')!
     expect(assay.publicationDate).toBe('2023-10-13')
     expect(assay.accessedDate).toBe('2026-10-19')
