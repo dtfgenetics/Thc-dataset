@@ -1,0 +1,48 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "rust-ish-context-20261020",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "aeb8c0213718f73353135e8fea86b0fd2d12d195",
+  "head_commit": "fc26c2f82246596ce68c988e5499f81cc02c4753",
+  "branch": "work/grow-doc/GD-DIAG-001/rust-ish-context-20261020",
+  "changed_paths": [
+    "data/profiles/fungal-hemp-rust.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1186/s13007-016-0137-3"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/catalog-accuracy-expansion.test.ts",
+    "src/lib/data-quality.test.ts",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-20 inspected current main and recent batches, sole AGENTS, active task/claims, weakest coverage, canonical and exported profiles, source/media and receipt schemas, exporter, quality/release validators, package commands and CI before editing. Rust was tied for lowest mapped-claim count. Bounded enrichment raises one fungal-pathogen profile from 16 to 19 claims with one new primary citation: full title, five authors, publisher, DOI, 2016-07-27 publication date and 2026-10-20 access date. Retrieved publisher full text and USDA-ARS publication metadata; exact Methods/Results scope reviewed, not abstract-only inference. Cross-host method context explicitly not Cannabis assay validation. Added one specimen-linked confirmation step and warning; dataset inferences labeled. No species, causal, prevalence, infection-clock, calibration or severity promotion. Scope comparison verified other 62 profiles and all media unchanged; only confirmation, warnings and sources changed here. Existing leaf parts, age/site context, paired surfaces, morphology, distributions, temporal capture, look-alikes, exclusions, laboratory confirmation and 0.25 photo-only ceiling retained. Existing attributed CC BY-NC-ND 4.0 composite remains unchanged, reference-only and training prohibited. No media indexed, copied, cropped, relabeled or admitted; no new media license or generated/unverified ground truth. Source count 210 to 211; synchronized current manifest, readiness and split knowledge-layer counts only, leaving historical snapshots, empty supervised splits and readiness=false unchanged. Totals otherwise 63 profiles, 93 media references, 36 originals, 68 crops, zero vision-training-eligible samples. Regression first failed on absent citation; 38 focused tests then passed. Full run exposed two four-source test expectations and one stale split-summary count; inspected exact failures, updated only fifth-source expectations and the measured current count without weakening safeguards. All 86 affected focused tests and final 68-command full rerun passed, including 62 package validators, type check, 295 application tests, build, 103 Python tests, artifact verifier and diff check. Candidate leakage and five supplemental evaluator/artifact self-tests passed. Two serial complete artifact locks byte-identical; actual split/dataset hash pins synchronized with unchanged 150 SFT plus 37 grounded-QA mixture, 187 rows. Checks cover JSON/JSONL/CSV agreement, schemas, URL syntax, identifiers, duplicates, labels, source-to-claim provenance and export consistency. New primary URL freshly retrieved; not all historical links independently fetched. Verification and systematic-debugging skills guided evidence gates and narrow expectation/count corrections. Final receipt-inclusive full run and all 27 exact-head hosted workflows including locally unavailable PHP lint required before squash after live main/head/tree freshness. Operational claim excluded from commits and released after integration; unrelated work preserved. No actual human/expert/laboratory review, model training, inference or production deployment. Remaining gaps: Cannabis-specific method validation, independent specimen-linked species confirmation, paired field/laboratory time series and reusable diagnostic image/video coverage. Cross-host transfer, method-negative, symptom-only, unlinked and rights-unclear observations retain human-review flags."
+}

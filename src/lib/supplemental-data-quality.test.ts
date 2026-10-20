@@ -435,7 +435,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('keeps the UF/IFAS hemp rust composite intact, reference-only, and non-training', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'hemp-rust')
     const media = record?.media[0]
-    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources).toHaveLength(5)
     expect(record?.sources[0].doi).toBe('10.32473/edis-pp379-2024')
     expect(record?.warnings.join(' ').toLowerCase()).toContain('alternate host is unknown')
     expect(media?.creator).toContain('Zachariah Hansen')

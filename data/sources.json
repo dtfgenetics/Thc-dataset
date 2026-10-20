@@ -1919,6 +1919,29 @@
     ]
   },
   {
+    "sourceKey": "10.1186/s13007-016-0137-3",
+    "title": "In situ hybridization for the detection of rust fungi in paraffin embedded plant tissue sections",
+    "organization": "Plant Methods (Ellison et al.; USDA-ARS collaborators)",
+    "url": "https://doi.org/10.1186/s13007-016-0137-3",
+    "authors": [
+      "Mitchell A. Ellison",
+      "Michael B. McMahon",
+      "Morris R. Bonde",
+      "Cristi L. Palmer",
+      "Douglas G. Luster"
+    ],
+    "publisher": "BioMed Central",
+    "publicationDate": "2016-07-27",
+    "year": 2016,
+    "accessedDate": "2026-10-20",
+    "doi": "10.1186/s13007-016-0137-3",
+    "supportedClaims": [
+      "Ellison et al. tested rust-localizing ISH in chrysanthemum, gladiolus and soybean with uninfected controls, not Cannabis. This is cross-host method context, not validation for Uredo kriegeriana.",
+      "Soybean rust produced weak signal in one of five antisense-probe slides and needed further optimization; omitted digestion also eliminated signal in the chrysanthemum experiment. Dataset inference: a negative stain alone cannot exclude hemp rust.",
+      "The purple reaction product marked processed tissue-level hybridization signal; intracellular detail was not resolved. Dataset inference: stained sections are not natural leaf coloration or camera-visible intracellular infection."
+    ]
+  },
+  {
     "sourceKey": "10.1186/s13007-019-0542-5",
     "title": "Virus-induced gene silencing (VIGS) in Cannabis sativa L.",
     "organization": "Plant Methods (Schachtsiek et al.)",
