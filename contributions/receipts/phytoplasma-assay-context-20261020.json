@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "phytoplasma-assay-context-20261020",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "f8d724eeb66c311db61fe667f30ac5c35891dcd6",
+  "head_commit": "5ec80333897b59e34df4c8dad58f7484364641d7",
+  "branch": "work/grow-doc/GD-DIAG-001/phytoplasma-assay-context-20261020",
+  "changed_paths": [
+    "data/profiles/phytoplasma-hemp-witches-broom.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-01-19-0098-PDN"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-20 inspected fresh main, recent merges, instructions, active task/claims, category coverage, canonical/exported records, issue/source/media and receipt schemas, exporter, release/quality validation, scripts, regression tests and CI before editing. Selected low-coverage phytoplasma witches-broom profile, 17 to 19 mapped claims. Refreshed existing Feng et al. Plant Disease citation (published 2019-05-03), retaining four authors, APS publisher, title, stable DOI and access date 2026-10-20. Direct DOI open was unavailable; publisher-hosted primary full text was retrieved by search and corroborated with a second search engine, not forum or vendor content. Two new source-linked statements and explicitly marked inferences distinguish epidemiological measurement units and comparator design; one confirmation step adds denominator/date records and comparator provenance. No new species, infection-source, resistance, calibrated sensitivity/specificity, threshold or photograph-derived severity conclusion. Only confirmation/sources changed in one of 63 profiles. Existing affected part, leaf age, paired surfaces, architecture, color/morphology, progression uncertainty, distribution, confounders, exclusions, sampling, laboratory panel and 0.15 image/video-only ceiling retained. All media identical: three institutional photographs remain hidden metadata-only license-review candidates with copyright and no reuse permission, training prohibited. No media file, crop, derivative, license, attribution, permission, reference display or training admission added. Totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, forum, vendor or unverified ground truth. Changed regression failed against old access metadata, then all 37 focused tests passed. Candidate-leakage audit passed. Two serial full artifact locks identical with unchanged 150 SFT plus 37 grounded-QA mixture (187 rows); actual split/dataset hash pins synchronized in config/README. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 app tests, build, 103 Python tests, artifact verifier and diff check. Checks cover JSON/JSONL/CSV agreement, schema fields, URL syntax, identifiers, duplicates, labels, source identity and source-to-claim links. Changed primary citation freshly retrieved, not all historical URLs independently fetched. Final receipt-inclusive full run and all exact-head hosted workflows including locally unavailable PHP lint required before squash with live main/head/tree freshness verification. Fresh-verification skill guided evidence-before-publication gates. Operational task claim excluded from commits and released after merge; unrelated work preserved. Agent evidence review is not actual human/expert/laboratory review. No actual training, inference or production deployment. Remaining gaps: matched field controls, lesion/plant-linked diagnostic progression, causal resolution of mixed infections, and reusable licensed image/video evidence. Symptom-only, case-unlinked, pooled, species-unresolved and rights-unclear samples retain human-review restrictions."
+}

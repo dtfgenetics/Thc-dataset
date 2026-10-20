@@ -888,12 +888,14 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2019-05-03",
     "year": 2019,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-20",
     "doi": "10.1094/PDIS-01-19-0098-PDN",
     "supportedClaims": [
       "Symptomatic Nevada cannabis had leaf curling, mottling, chlorosis, witches’ broom, stunting, and shortened nodes.",
       "Upper leaf surfaces showed vein-bounded green islands while lower surfaces showed interveinal discoloration with a pale pustule-like appearance.",
-      "Phytoplasma was detected from petioles of the most symptomatic leaves by 23S rRNA real-time PCR; nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis supported identification near Candidatus Phytoplasma trifolii."
+      "Phytoplasma was detected from petioles of the most symptomatic leaves by 23S rRNA real-time PCR; nested 16S rRNA PCR, Sanger sequencing, BLASTn, and iPhyClassifier analysis supported identification near Candidatus Phytoplasma trifolii.",
+      "The September 2018 report gives site incidence of 5–20% in Central Nevada and 30% in Southern Nevada, while the two sampled plants had 80% and 50% symptomatic leaves. Dataset inference: separate site incidence from sampled-plant leaf fractions; none is lesion-area severity, a universal threshold or a percentage assignable to a photograph.",
+      "The report tested two symptomatic Nevada plants and used DNA from two nonsymptomatic California plants as negative controls. Dataset inference: these are not matched-site visual controls or a diagnostic-accuracy validation set; retain control origin and sampling design without deriving sensitivity, specificity or cultivar resistance."
     ]
   },
   {
