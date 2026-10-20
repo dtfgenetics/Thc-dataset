@@ -1001,6 +1001,12 @@ describe('supplemental diagnostic catalog quality gates', () => {
 
   it('keeps the UF/IFAS Curvularia image whole-leaf-only, reference-only, and non-training', () => {
     const record = supplementalIssues.find((issue) => issue.slug === 'curvularia-leaf-spot')
+    const guide = record?.sources.find((source) => source.doi === '10.32473/edis-pp379-2024')
+    expect(guide?.accessedDate).toBe('2026-10-20')
+    expect(guide?.supportedClaims).toHaveLength(4)
+    expect(guide?.supportedClaims.join(' ')).toContain('life-cycle account as an assumption')
+    expect(guide?.supportedClaims.join(' ')).toContain('not demonstrated sources or infection requirements')
+    expect(record?.confirmation.join(' ')).toContain('exposure metadata rather than confirmed transmission events')
     const media = record?.media[0]
     expect(record?.sources).toHaveLength(2)
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)

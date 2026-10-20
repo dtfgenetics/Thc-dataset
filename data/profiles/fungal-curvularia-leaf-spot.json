@@ -91,6 +91,7 @@
     "Use lesion-edge isolation and trained examination of colony, conidiophore, and conidium morphology while recording every organism recovered from the sample.",
     "Keep field-lesion, culture-plate, and inoculated-plant captures in separate observation contexts linked by plant, lesion and isolate IDs; label plate images with medium, incubation temperature, light cycle and culture age. The reported 25 degrees C and 12-hour light/12-hour dark cycle describe initial isolation, not a field climate diagnostic rule.",
     "Preserve the field variety names separately from greenhouse Puma-3 and record any nearby goosegrass as contextual scouting data, not a confirmed reservoir. Resolving a transmission-source claim requires linked plant/weed sampling and specialist evidence beyond proximity.",
+    "Keep dated residue, splash, wind and wetness observations as exposure metadata rather than confirmed transmission events. Record the institutional life-cycle account as provisional; do not label a photographed residue source, infection route or weather requirement as demonstrated without linked case evidence.",
     "For species-level confirmation, link the photographed plant and lesion to validated multilocus evidence including ITS, GAPDH, and EF1-alpha or an equivalently resolving current method; ITS or appearance alone is insufficient.",
     "Interpret divergent isolates cautiously because one isolate in the first report raised a cryptic-species possibility despite similarity to C. pseudobrachyspora.",
     "Capture calibrated microscopy of lesion-linked cultures with scale bars, conidial length and width, septation, middle-cell pigmentation, conidiophore origin and measurement count. Keep the reported 25-conidium size range as study context, not an identification threshold.",
@@ -173,12 +174,13 @@
       "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
       "publicationDate": "2024-12-05",
       "year": 2024,
-      "accessedDate": "2026-10-12",
+      "accessedDate": "2026-10-20",
       "doi": "10.32473/edis-pp379-2024",
       "supportedClaims": [
         "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
         "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
-        "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample."
+        "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample.",
+        "The UF/IFAS Curvularia section says epidemiology needs more study and presents its residue-borne life-cycle account as an assumption. Dataset inference: residue, rain splash, wind and wetness are exposure hypotheses, not demonstrated sources or infection requirements for a photographed Cannabis lesion."
       ]
     }
   ],

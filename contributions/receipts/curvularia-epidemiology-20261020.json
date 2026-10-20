@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "curvularia-epidemiology-20261020",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "7eff6be3abc2c93512730cf3680f8ecff6b4a7df",
+  "head_commit": "443346879bfce64c98361e1660192bd97be35c05",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-epidemiology-20261020",
+  "changed_paths": [
+    "data/profiles/fungal-curvularia-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.32473/edis-pp379-2024"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "src/lib/supplemental-data-quality.test.ts",
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-20 inspected fresh main, recent changes, AGENTS, task/claims, lowest coverage, canonical/exported profiles, issue source/media and receipt schemas, exporter, release/quality validators, scripts, regression tests and CI before editing. Selected low-coverage Curvularia fungal profile, 17 to 18 mapped claims. Refreshed existing UF/IFAS field-guide citation access date 2026-10-20, retaining title, four authors, institutional publisher, stable DOI and 2024-12-05 publication date. Directly retrieved Curvularia Disease Cycle section: one new uncertainty-qualified source mapping and one capture/confirmation step preserve the source assumption rather than promote it to established epidemiology. Sampling implications explicitly marked Dataset inference. No new species, causal transmission, reservoir, weather requirement, action threshold, exposure dose or efficacy conclusion. Only confirmation/sources changed in one of 63 profiles. Existing plant part, young/old leaves, paired surfaces, color/morphology, progression, distribution, confounders, exclusions, lesion-linked microscopy/multilocus evidence and 0.20 photo-only ceiling retained. All media identical: one institutional whole-leaf Figure 4 remains intact CC BY-NC-ND 4.0 reference-only, with automated training/evaluation prohibited. No binary, crop, derivative, license, attribution, permission or training admission added. Totals remain 210 source pages, 93 media references, 36 originals, 68 reviewed crops and zero vision-training-eligible samples. No generated, anecdotal, forum, vendor or unverified ground truth. Changed regression failed on old access metadata, then 33 focused tests passed. Candidate leakage passed. Two serial full artifact locks identical; unchanged 150 SFT plus 37 grounded-QA mixture (187 rows); actual split/dataset hash pins synchronized in README/config. Five supplemental artifact/evaluator self-tests passed. All 68 local commands passed: 62 package validators, type check, 294 app tests, build, 103 Python tests, artifact verifier and diff check. Checks cover JSON/JSONL/CSV agreement, schemas, URL syntax, identifiers, duplicates, labels, source identity and source-to-claim links. Changed institutional source freshly retrieved, not all historical URLs independently fetched. Final receipt-inclusive full run and all exact-head hosted checks including locally unavailable PHP lint required before squash with fresh main/head/tree checks. Fresh-verification skill guided evidence-before-publication gates. Operational claim excluded from commits and released after merge; unrelated changes preserved. Agent evidence review is not actual human/expert/laboratory review. No actual training, inference or production deployment. Remaining gaps: experimentally resolved field epidemiology, linked residue/source sampling, calibrated same-leaf progression, sample-linked species confirmation and reusable diagnostic video. Symptom-only, culture-unlinked, single-locus, mixed-pathogen and rights-unclear samples retain human-review restrictions."
+}
