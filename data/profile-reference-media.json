@@ -154,6 +154,8 @@
     "hostSpecies": "Cannabis sativa",
     "hostContext": "cannabis",
     "useLimitations": [
+      "Figure 4D shows harvested tissue after 48-hour bag incubation, not an untreated field timepoint; preserve conditioning metadata separately.",
+      "Panel E is a culture colony; F–G are scanning electron microscopy from culture, not phone-scale flower views or consecutive disease stages.",
       "Scientific reference only until each panel is separately bounded, annotated, and assigned a dataset split.",
       "Panels A-D and H-I show plant phenotypes; panels E-G show culture or microscope morphology and must not be mixed into a symptom-image class.",
       "Brown flower decay overlaps Fusarium and Penicillium; the figure cannot establish that appearance alone is species-specific."
