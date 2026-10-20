@@ -2203,7 +2203,7 @@
     "publisher": "University of Florida Institute of Food and Agricultural Sciences Extension",
     "publicationDate": "2024-12-05",
     "year": 2024,
-    "accessedDate": "2026-10-19",
+    "accessedDate": "2026-10-20",
     "doi": "10.32473/edis-pp379-2024",
     "supportedClaims": [
       "The UF/IFAS field guide describes Xanthomonas-associated hemp injury as small necrotic leaf spots with yellow or chlorotic halos, leaf yellowing, and blighting.",
@@ -2222,6 +2222,7 @@
       "The UF/IFAS field guide describes Curvularia spots on young and old hemp leaves as yellow spots that become tan to brown with a yellow halo and explicitly notes visual confusion with Cercospora and Septoria.",
       "UF/IFAS Figure 4 is an institutional hemp-leaf reference credited to Marcus Marin, Jacqueline Coburn, Johan Desaeger, and Natalia Peres; its CC BY-NC-ND 4.0 license limits reuse to unchanged noncommercial display with attribution.",
       "The guide recommends plant-diagnostic-center identification and confirmation, so Figure 4 supplies bounded whole-leaf differential context rather than laboratory ground truth for an individual dataset sample.",
+      "The UF/IFAS Curvularia section says epidemiology needs more study and presents its residue-borne life-cycle account as an assumption. Dataset inference: residue, rain splash, wind and wetness are exposure hypotheses, not demonstrated sources or infection requirements for a photographed Cannabis lesion.",
       "The UF/IFAS guide describes hemp rust as orange, brown, or rust-colored lesions on both leaf surfaces, beginning light orange and darkening as disease progresses.",
       "The guide identifies an erumpent orange spore mass from a lower-surface pustule as the strongest pictured rust sign, while still recommending plant-diagnostic-center confirmation.",
       "UF/IFAS states that the alternate host is unknown and that little is known about hemp-rust epidemiology; wind dispersal is context, not proof of the source or timing of an individual infection.",
