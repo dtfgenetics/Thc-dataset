@@ -1,0 +1,42 @@
+{
+  "base_commit": "a817d6011191f0421b11f9b8397ce1f2ecb2f0cd",
+  "branch": "work/grow-doc/GD-SYS-006/release-integrity-20261021",
+  "changed_paths": [
+    ".github/workflows/export-machine-data.yml",
+    ".github/workflows/validate-data-release.yml",
+    "contributions/routing-policy.json",
+    "contributions/tasks.json",
+    "package.json",
+    "scripts/validate-data-release.mjs",
+    "src/lib/coverage-audit.test.ts",
+    "src/lib/media-license.test.ts",
+    "src/lib/media.ts",
+    "src/lib/supplemental-data-quality.test.ts",
+    "tests/test_data_release_integrity.py"
+  ],
+  "contribution_id": "release-integrity-20261021",
+  "head_commit": "01b5e47166a5bdac88f31c794ee44b60aa6d52c2",
+  "lane": "system",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [],
+  "task_id": "GD-SYS-006",
+  "validation": {
+    "completed": [
+      "validate:data-release",
+      "validate:grow-doc-task-registry",
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims"
+    ],
+    "required": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims",
+      "validate:data-release",
+      "validate:grow-doc-task-registry"
+    ]
+  },
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [],
+  "scope_note": "Agent implementation/review 2026-10-21 against main a817d60. User requested project completion; inspected open release gate #563 and legacy PRs #560/#562/#564, current resolver/UI call sites, export workflows and data validator. Reproduced commercial-rights defect using the prior proposed licensing regression suite: 30 of 32 failed before repair. Reconciled existing patch onto current main, added unresolved-license rejection and commercially reusable-license cases; 41 new licensing cases pass. Both issue and reference UIs use the gated resolver, including shared composites. Preserves source/license records and training flags; does not rewrite restricted source permissions to make them legal. Added record-level JSONL equality and exact eligible-media subset parity from reviewed pending proposals. Both PR export workflows now check the exact event head SHA and reject modified, deleted or untracked data outputs after generation. Six isolated mutation tests run the actual validator and actual workflow shell bodies; no fixture mutation touches real data or image binaries. Registered a dedicated system task and exact routing paths without taking other sessions' claims. All 68 local commands pass: 62 validators, type check, 336 application tests, build, 114 Python tests, artifact verifier and diff check. Dataset/source/media and model artifact hashes unchanged from validated base; inventory remains 63 profiles, 224 sources, 99 media and zero vision-training-eligible samples. No claim/media/license addition or training admission. App build publishes existing permitted research crops; no new media binary. Browser connection did not complete and was aborted; no visual, mobile or live-runtime verification claimed. Public page retrieval succeeded but deploy-version.txt was inaccessible, so production commit identity remains unverified. Four broader completion dependencies remain in canonical tracking: governance #398, compute benchmark #399, supervised vision #400, deployment #95. Prior GPU dispatch was rejected with 402; no retry or compute spend authorized through this patch. No actual human/expert/lab review, model training, deployment or whole-project completion. Exact-head hosted checks and fresh live main/head/parent/tree gate required before squash; claim excluded and released after merge. Pending superseded PRs should close only after replacement integration."
+}

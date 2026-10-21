@@ -43,7 +43,7 @@ jobs:
       - name: Check out repository branch
         uses: actions/checkout@v7
         with:
-          ref: ${{ github.head_ref || github.ref_name }}
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v7
@@ -62,6 +62,16 @@ jobs:
 
       - name: Show generated changes
         run: git diff --stat -- data
+
+      - name: Reject generated export drift on pull requests
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          if [[ -n "$(git status --porcelain --untracked-files=all -- data/)" ]]; then
+            echo '::error::Generated data differs from the committed release. Run npm run export:data and commit all generated outputs.'
+            git status --short --untracked-files=all -- data/
+            exit 1
+          fi
 
       - name: Commit validated generated dataset files
         if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'

@@ -2,6 +2,18 @@
   "schema_version": "grow-doc-task-registry-v2",
   "tasks": [
     {
+      "id": "GD-SYS-006",
+      "lane": "system",
+      "priority": "P0",
+      "status": "active",
+      "title": "Enforce commercial media rights and committed export integrity",
+      "evidence_gap": "Approved display flags bypass noncommercial rights; PR export generation can hide committed drift and JSONL checks accept altered content with unchanged IDs.",
+      "dependencies": [],
+      "allowed_paths": ["src/lib/media.ts", "src/lib/media-license.test.ts", "src/lib/coverage-audit.test.ts", "src/lib/supplemental-data-quality.test.ts", "scripts/validate-data-release.mjs", "tests/test_data_release_integrity.py", ".github/workflows/validate-data-release.yml", ".github/workflows/export-machine-data.yml", "package.json", "contributions/"],
+      "required_validators": ["validate:data-release", "validate:grow-doc-task-registry", "validate:grow-doc-contributions", "validate:grow-doc-claims"],
+      "definition_of_done": ["noncommercial and rights-unclear references cannot render", "permissive reviewed references remain usable", "JSONL records and training subset match canonical exports", "PR export drift including untracked outputs fails", "regression tests and full CI pass without training admission changes"]
+    },
+    {
       "id": "GD-SYS-005",
       "lane": "system",
       "priority": "P0",

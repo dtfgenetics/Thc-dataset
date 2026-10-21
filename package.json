@@ -11,7 +11,7 @@
     "check": "tsc -b --pretty false",
     "test": "vitest run",
     "export:data": "node scripts/export-machine-data.mjs",
-    "validate:data-release": "node scripts/validate-data-release.mjs",
+    "validate:data-release": "node scripts/validate-data-release.mjs && python3 -m unittest discover -s tests -p test_data_release_integrity.py",
     "validate:diagnostic-profiles": "node scripts/audit-diagnostic-profile-quality.mjs",
     "validate:crop-geometry": "node scripts/validate-reference-crop-geometry.mjs",
     "validate:release-metadata": "node scripts/validate-release-metadata.mjs && python3 -m unittest discover -s tests -p test_release_metadata_validation.py",

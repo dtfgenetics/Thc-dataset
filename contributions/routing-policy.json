@@ -118,6 +118,11 @@
     },
     "system": {
       "allowed_prefixes": [
+        "src/lib/media.ts",
+        "src/lib/media-license.test.ts",
+        "src/lib/coverage-audit.test.ts",
+        "src/lib/supplemental-data-quality.test.ts",
+        "tests/test_data_release_integrity.py",
         "contributions/",
         "scripts/",
         "package.json",
