@@ -4036,11 +4036,13 @@
     "organization": "University of New Hampshire Cooperative Extension",
     "url": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
     "publisher": "University of New Hampshire Cooperative Extension",
-    "accessedDate": "2026-08-23",
+    "accessedDate": "2026-10-21",
     "supportedClaims": [
       "Adult Japanese beetles feed on hemp leaves and developing flowers; leaf feeding produces skeletonization, and large populations may completely defoliate plants.",
       "Japanese beetle grubs may damage roots, but turfgrass is their preferred larval habitat; an adult observed on hemp should not be used to infer that hemp roots contain grubs.",
       "Representative field scouting should cover multiple plants and locations and record the pest, plant injury, crop context, and collected specimens rather than relying on one image.",
+      "UNH recommends representative hemp scouting at regular intervals, examining 5–10 plants in 5–10 field areas when possible along transects, zig-zags or diamonds, and recording pests, beneficials, injury, photographs and specimens. Dataset inference: these are general field-scouting suggestions, not a validated thrips sample size, detection probability or treatment threshold.",
+      "UNH qualifies its low outdoor thrips economic-impact expectation by the presence of natural predators and contrasts it with potentially impactful unmanaged populations in protected agriculture; it also notes limited New Hampshire hemp-pest data. Dataset inference: document production protection and observed natural enemies rather than infer low risk from an outdoor image or assume absent predators from one frame.",
       "UNH Extension associates Rhopalosiphum rufiabdominale with indoor Cannabis sativa grown as a high-THC crop and reports observations from indoor cultivation across the United States.",
       "The institutional guide reported no North American outdoor-hemp records and identified hemp soil-insect research as a gap; this supports an indoor-production scope flag rather than proof that outdoor infestation is impossible."
     ],

@@ -1,0 +1,42 @@
+{
+  "base_commit": "767f57160f6d0d905034b856b3577c8558073c25",
+  "branch": "work/grow-doc/GD-DIAG-001/thrips-field-sampling-20261021",
+  "changed_paths": [
+    "data/profiles/insect-thrips.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "thrips-field-sampling-20261021",
+  "head_commit": "c7f72bd589f15616f62745a0c888f4c823ac1207",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://extension.unh.edu/resource/hemp-pests-new-hampshire"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 767f571, repository instructions, current tasks/claims, schemas, existing source/media records, history and validation scripts. Fresh UNH https://extension.unh.edu/resource/hemp-pests-new-hampshire supported two thrips field-sampling and production/predator-context mappings; added that existing institutional citation to the thrips profile and one capture instruction. Source has no explicit publication date or author byline; contact names and crawl dates were not substituted. Its general 5–10 plants/5–10 areas advice is not a validated thrips sample size, diagnostic probability or threshold. Do not infer economic safety from outdoor context or absence of natural enemies from one image. Other 62 profiles, previous claims and all 99 media unchanged; global unique sources remain 224 because this source already occurs elsewhere. No media/license grant or training admission added; zero eligible vision samples. All 68 local commands passed: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Two serial artifact locks matched; actual pins synchronized, 191 text rows retained. Five supplemental model/artifact self-tests and actual corroboration builder/filter/decision flow passed with four retained decisions, 100 discovery, 28 priority, 72 exclusions and no promotion. Includes schemas, JSON/CSV parity, URL syntax, IDs, duplicates, labels, source-claim links and leakage; not every historical URL fetched. Exact-head hosted workflows and fresh live main/head/parent/tree required before squash; claim excluded and released after merge. Existing low-confidence/specimen-linkage review remains. No actual human/expert/lab review, model training or production deployment."
+}
