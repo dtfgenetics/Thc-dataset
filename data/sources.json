@@ -4228,6 +4228,23 @@
     ]
   },
   {
+    "sourceKey": "https://hdl.handle.net/1813/113216",
+    "title": "What Nutrient Disorder do my Hemp Plants Have? A Diagnostic Guide",
+    "organization": "Cornell University, Integrative Plant Science Professional Masters Projects",
+    "url": "https://hdl.handle.net/1813/113216",
+    "authors": [
+      "Homa Hajarian"
+    ],
+    "publisher": "Cornell University eCommons",
+    "year": 2022,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "The project used vegetatively propagated TJ’s CBD Hemp in one-gallon deep-water culture, two plants per treatment and three crop cycles, with weekly observations over six weeks. Dataset inference: this small cultivar/system-specific experiment does not establish universal onset or diagnostic thresholds.",
+      "PDF page 11 labels three detached-leaf scans +B and dates them 2022-10-17, 2022-10-24 and 2022-10-31, alongside whole-plant, close-up and exposed-root views. Dataset inference: dated scans do not demonstrate repeated observation of the same leaf or individual plant.",
+      "Cornell identifies this as a 2022 masters project under CC BY-NC 4.0. Dataset inference: the noncommercial license does not authorize commercial display or unrestricted automated training; treatment labels and photographs alone do not supply image-linked tissue boron results."
+    ]
+  },
+  {
     "sourceKey": "https://hemp.ucdavis.edu/blog/planning-drought-resilient-hemp-crop",
     "title": "Planning a Drought Resilient Hemp Crop",
     "organization": "UC Davis Agronomy – Hemp",
