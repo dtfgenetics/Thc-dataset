@@ -197,10 +197,10 @@ describe('supplemental diagnostic catalog quality gates', () => {
       }
       if (issue.slug === 'spotted-cucumber-beetle') {
         expect(issue.media).toHaveLength(1)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
         expect(issue.media[0].hostContext).toBe('organism-only')
         expect(issue.media[0].license).toBe('CC BY-SA 4.0')
-        expect(issue.media[0].reviewStatus).toBe('scientific-review')
+        expect(issue.media[0].reviewStatus).toBe('approved-reference')
         expect(issue.media[0].trainingPermission).toBe('permitted')
         expect(issue.media[0].trainingEligible).toBe(false)
         continue
@@ -527,8 +527,10 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(record?.media[0].sourceUrl).toBe('https://commons.wikimedia.org/wiki/File:Spotted_cucumber_beetle_(72669).jpg')
     expect(record?.media[0].sha256).toBe('f8d038c6885ef1d26b7170ab16f1705a41bda7156051547db63918209d949f6b')
     expect(record?.media[0].perceptualHash).toBe('dhash64:3333c86868e0695c')
-    expect(record?.media[0].confirmation).toBe('visual')
-    expect(record?.media[0].reviewStatus).toBe('scientific-review')
+    expect(record?.media[0].confirmation).toBe('illustrative')
+    expect(record?.media[0].reviewStatus).toBe('approved-reference')
+    expect(record?.media[0].useLimitations.join(' ')).toContain('Agent reference-display review 2026-10-21')
+    expect(record?.media[0].requiredAttribution).toContain('https://creativecommons.org/licenses/by-sa/4.0/')
     expect(record?.media[0].trainingEligible).toBe(false)
   })
 
