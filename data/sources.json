@@ -4134,6 +4134,56 @@
     ]
   },
   {
+    "sourceKey": "https://idtools.org/aphid/index.cfm?entityID=64865&packageID=2365",
+    "title": "AphID: Rhopalosiphum rufiabdominale",
+    "organization": "USDA APHIS Identification Technology Program",
+    "url": "https://idtools.org/aphid/index.cfm?entityID=64865&packageID=2365",
+    "authors": [
+      "Colin Favret",
+      "Gary L. Miller"
+    ],
+    "publisher": "USDA APHIS, in cooperation with the University of Maryland",
+    "year": 2012,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "The species sheet separates aptera and alata habitus, head, antenna, rostrum, abdomen, siphunculus and cauda micrographs. These are organism morphology references, not Cannabis injury photographs or a temporal sequence."
+    ]
+  },
+  {
+    "sourceKey": "https://idtools.org/aphid/index.cfm?pageID=5272",
+    "title": "AphID: Copyright, citation, and disclaimers",
+    "organization": "USDA APHIS Identification Technology Program",
+    "url": "https://idtools.org/aphid/index.cfm?pageID=5272",
+    "authors": [
+      "Colin Favret",
+      "Gary L. Miller"
+    ],
+    "publisher": "USDA APHIS, in cooperation with the University of Maryland",
+    "year": 2012,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "AphID declares its content public domain unless otherwise indicated, requests author and institutional acknowledgement, and requires separate permission for credited third-party material. The linked rice-root-aphid habitus micrographs have no contrary credit on the species sheet or images."
+    ]
+  },
+  {
+    "sourceKey": "https://idtools.org/aphid/index.cfm?pageID=5289",
+    "title": "AphID: About this tool",
+    "organization": "USDA APHIS Identification Technology Program",
+    "url": "https://idtools.org/aphid/index.cfm?pageID=5289",
+    "authors": [
+      "Colin Favret",
+      "Gary L. Miller"
+    ],
+    "publisher": "USDA APHIS, in cooperation with the University of Maryland",
+    "year": 2012,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "AphID is designed for slide-mounted adult live-bearing females, winged or wingless; males, egg-laying females and immatures are excluded, and some foundresses or primary-host morphs may not key correctly.",
+      "The key covers 66 species, a small subset of aphid diversity; an unrepresented species can yield an incorrect match. Its authors recommend comparison with the species page and an authoritatively identified reference specimen.",
+      "Identification uses measured lengths, counts and ratios with specimen-limited ranges. Dataset inference: a key result from an unsuitable stage or unmeasured low-resolution image is not species confirmation."
+    ]
+  },
+  {
     "sourceKey": "https://ipm.cahnr.uconn.edu/managing-fungus-gnats-in-the-greenhouse-2/",
     "title": "Managing Fungus Gnats in the Greenhouse",
     "organization": "UConn Extension, Integrated Pest Management",

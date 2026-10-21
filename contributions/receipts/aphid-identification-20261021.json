@@ -1,0 +1,49 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "aphid-identification-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "b79e340c8d769995316db119c90ff3885165c877",
+  "head_commit": "c30415efd3e726fbc4743fa52e0f04999d3ef636",
+  "branch": "work/grow-doc/GD-DIAG-001/aphid-identification-20261021",
+  "changed_paths": [
+    "data/profiles/pest-rice-root-aphid.json",
+    "src/data/supplemental-issues.ts"
+  ],
+  "source_ids": [
+    "https://idtools.org/aphid/index.cfm?pageID=5289",
+    "https://idtools.org/aphid/index.cfm?entityID=64865&packageID=2365",
+    "https://idtools.org/aphid/index.cfm?pageID=5272"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence and rights review 2026-10-21 UTC. Inspected fresh main and recent merges, sole AGENTS, active task/claims, canonical/exported records, schemas, exporter, quality/release validators, package commands, CI and open PRs before editing. Current-main hosted workflows had no failures; stale independent PRs were left untouched. Reviewed the IssueLibrary/media filter and regression contracts so pending morphology references cannot appear as display-ready or training data. Rice root aphid was among the lowest-claim profiles (18), with only one Cannabis root-crown reference and no explicit AphID specimen eligibility. One Insect profile enriched to 23 evidence mappings: three key-scope mappings, one morphology-view mapping and one rights mapping across three new USDA institutional pages. Full title, authors Colin Favret and Gary L. Miller, publisher, stable page URLs, 2012 tool citation year and access date recorded; original tool year is not a new species-page publication date. Current site states content updated March 2014, nomenclature February 2026; no exact original day/month invented. Evidence locators: About/Key, Limited number of species/morphs/specimens; species-sheet named habitus views; Copyright notice and suggested citation. Dataset inferences explicitly labeled. Added a calibrated, morph- and specimen-linked confirmation step and two warnings. Existing plant part/age, distribution, color, progression, video context, confounders, exclusions, root confirmation and 0.30 ceiling preserved. Scope comparison verified the other 62 profiles and every preexisting media record unchanged. Two original linked thumbnail URLs visually inspected and fingerprinted: aptera 270x252 and alata 270x150. Stored metadata only, no binary or crop committed. Each has original URL, landing page, institution/creator with individual photographer unknown, public-domain notice basis, requested institutional acknowledgements, image/microscope view, adult morph, organism-only host scope, illustrative label, SHA256/dHash, permitted reuse rights and trainingEligible=false. No contrary item-level credit appeared on these two images or their species sheet. Third-party exceptions remain explicit; general government authorship alone was not assumed to grant rights. Both new references stay scientific-review and hidden from display pending assessment of thumbnail resolution, absent specimen voucher and missing plant linkage; neither is Cannabis infestation, injury, field-color or progression ground truth. No generated, anecdotal or vendor media admitted, no actual human/expert/laboratory review. Current totals 63 profiles, 211 to 214 sources, 93 to 95 references, 36 originals and 68 crops, zero vision-training-eligible samples. Updated current release summaries only; historical counts and empty supervised splits preserved. Regression failed before enrichment, then exposed stale source/media counts and a position-dependent old-reference assertion; replaced the positional assertion with the immutable existing asset ID and added explicit pending-review safeguards without weakening eligibility gates. All 33 focused and all 295 application tests passed. All 68 local commands passed, including 62 package validators, type check, build, 108 Python tests, artifact verifier and diff check. Fresh leakage audit and five supplemental evaluator/artifact self-tests passed. Two serial complete artifact locks byte-identical; refreshed actual manifest pins while retaining 150 SFT plus 37 grounded-QA rows. Actual corroboration builder/filter/decision workflow passed with all four prior decisions retained, 100 discovery candidates, 28 priority, 72 excluded cross-profile reuse and zero promotion. Checks cover JSON/CSV agreement, schema, identifiers, duplicates, labels, source-to-claim links, URL syntax and rights; new source and asset URLs freshly retrieved, not every historical URL. Receipt validation and exact-head hosted workflows including PHP lint required before squash with live base/head/tree freshness. Operational claim excluded and released after integration. No model training or production deployment. Remaining gaps: independent plant-linked root-colony confirmation, high-resolution specimen vouchers, longitudinal Cannabis images and diagnostic videos. Nymph-only, unsupported-morph, low-resolution, unlinked and symptom-only observations retain human-review flags."
+}

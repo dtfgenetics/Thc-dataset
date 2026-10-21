@@ -116,7 +116,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(warnings).toContain('increased pathogen susceptibility remains unconfirmed')
     expect(warnings).toContain('evidence gap does not prove outdoor infestation is impossible')
     expect(warnings).toContain('no verified diagnostic video or matched cannabis progression series')
-    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources).toHaveLength(7)
     const cannabisAccount = record?.sources.find((item) => item.doi === '10.1093/jipm/pmaa008')
     expect(cannabisAccount?.accessedDate).toBe('2026-10-18')
     expect(cannabisAccount?.supportedClaims).toHaveLength(8)
@@ -145,11 +145,30 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(choice?.supportedClaims.join(' ')).toContain('non-response groups')
     expect(confirmation).toContain('odor-only orientation from plant-contact')
     expect(warnings).toContain('not a root-colony detection probability')
-    expect(record?.media).toHaveLength(1)
-    expect(record?.media[0].sourceUrl).toBe('https://doi.org/10.1093/jipm/pmaa008')
-    expect(record?.media[0].license).toBe('CC BY 4.0')
-    expect(record?.media[0].hostContext).toBe('cannabis')
-    expect(record?.media[0].trainingEligible).toBe(false)
+    expect(record?.media).toHaveLength(3)
+    const aphidKey = record?.sources.find((source) => source.url === 'https://idtools.org/aphid/index.cfm?pageID=5289')
+    expect(aphidKey?.authors).toEqual(['Colin Favret', 'Gary L. Miller'])
+    expect(aphidKey?.supportedClaims.join(' ')).toContain('slide-mounted adult live-bearing females')
+    expect(confirmation).toContain('adult vivipara status')
+    expect(warnings).toContain('excluded stages cannot be forced through aphid')
+    const morphology = record?.media.filter((media) => media.id.startsWith('aphid-rice-root-')) ?? []
+    expect(morphology).toHaveLength(2)
+    expect(morphology.map((media) => media.stage)).toEqual(['adult aptera vivipara; slide-mounted', 'adult alata vivipara; slide-mounted'])
+    for (const media of morphology) {
+      expect(media.hostContext).toBe('organism-only')
+      expect(media.view).toBe('microscope')
+      expect(media.reviewStatus).toBe('scientific-review')
+      expect(media.license).toMatch(/public domain/i)
+      expect(media.trainingPermission).toBe('permitted')
+      expect(media.trainingEligible).toBe(false)
+      expect(isDisplayableMedia(media)).toBe(false)
+      expect(media.useLimitations.join(' ')).toContain('not Cannabis injury')
+    }
+    const rootReference = record?.media.find((media) => media.id === 'media-rice-root-aphid-cannabis-figure-2')
+    expect(rootReference?.sourceUrl).toBe('https://doi.org/10.1093/jipm/pmaa008')
+    expect(rootReference?.license).toBe('CC BY 4.0')
+    expect(rootReference?.hostContext).toBe('cannabis')
+    expect(rootReference?.trainingEligible).toBe(false)
   })
 
   it('admits only fully verified reference media into supplemental profiles', () => {
@@ -167,6 +186,13 @@ describe('supplemental diagnostic catalog quality gates', () => {
       ['salinity-high-ec-stress', 2],
     ])
     for (const issue of supplementalIssues) {
+      if (issue.slug === 'rice-root-aphid') {
+        expect(issue.media).toHaveLength(3)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
+        expect(issue.media.filter((media) => media.reviewStatus === 'scientific-review')).toHaveLength(2)
+        expect(issue.media.every((media) => !media.trainingEligible)).toBe(true)
+        continue
+      }
       if (issue.slug === 'spotted-cucumber-beetle') {
         expect(issue.media).toHaveLength(1)
         expect(issue.media.filter(isDisplayableMedia)).toHaveLength(0)
