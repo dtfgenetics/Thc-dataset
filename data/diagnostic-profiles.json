@@ -15486,7 +15486,7 @@
       "A single runoff or reservoir pH value does not prove the pH experienced throughout the root system.",
       "Extraction method, substrate moisture, sampling location, equilibration or drainage time, calibration, and crop-specific interpretation materially affect pH and EC results; general greenhouse ranges are not Cannabis thresholds.",
       "The Purdue source is a cross-crop measurement protocol. Its non-Cannabis figures and general EC ranges are not diagnostic media or direct Cannabis response evidence.",
-      "No image or video is admitted for this record because no stable original Cannabis asset with plant-linked pH exposure and suitable item-level rights was independently verified during this review.",
+      "One PDF-located figure candidate is indexed as metadata only; original image bytes, visual content, exact license version and item-level credits remain unverified. No image or video is admitted for display or training.",
       "All symptom-only, uncalibrated-pH, mixed-method, or plant-unlinked samples remain low confidence and require human review.",
       "The NC State source is a general agricultural-soil guide, not a Cannabis diagnostic trial. Its crop targets, Ac-value equation, application rates, and amendment time courses must not be transferred to container or hydroponic systems; the added sampling safeguards are annotation inferences, not validated visual classifiers."
     ],
@@ -15567,7 +15567,36 @@
         ]
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "media-ph-micronutrient-sweetened-figure-6-candidate",
+        "url": "https://acsess.onlinelibrary.wiley.com/doi/pdf/10.1002/agg2.70044#page=9",
+        "sourceUrl": "https://doi.org/10.1002/agg2.70044",
+        "alt": "Publisher Figure 6, described as lower-foliage bronzing progression in Sweetened; visual content pending independent review.",
+        "caption": "PDF page 9 locates Figure 6 in Experiment 3. The text links lower-leaf symptoms to Sweetened under target pH 3.8 plus fourfold micronutrients. Metadata candidate only; not a pH-only or iron-only diagnostic image.",
+        "creator": "Patrick Veazie, Paul Cockson, J. Turner Smith, Brian Schulker, Brian Jackson, Kristin Hicks, and Brian Whipker; individual photographer not specified",
+        "license": "Creative Commons Attribution (CC BY) notice on PDF page 1; exact version and item-level exceptions pending verification",
+        "requiredAttribution": "Credit Veazie et al. (2025), Impact of substrate pH and micronutrient fertility rates on Cannabis sativa, Agrosystems, Geosciences & Environment 8:e70044, DOI 10.1002/agg2.70044, Figure 6. Preserve the original copyright/license notice and identify any future extraction or modification.",
+        "mediaType": "image",
+        "diagnosticLabel": "acidic-extreme-substrate-ph-stress — mixed-micronutrient exposure figure candidate, unverified and not ground truth",
+        "hostSpecies": "Cannabis sativa Sweetened, as identified by the source caption",
+        "hostContext": "cannabis",
+        "view": "close-up",
+        "stage": "lower foliage in Experiment 3; figure timing and individual leaf IDs unverified",
+        "severity": "not scored; candidate not visually adjudicated",
+        "useLimitations": [
+          "PDF figure locator, not a standalone image URL. No media bytes copied or committed; no image hash, dimensions or crop inferred.",
+          "Source caption and treatment text checked 2026-10-21; figure not independently visually inspected. Panel count, visual appearance, scale, orientation and leaf continuity require human review.",
+          "Multiple micronutrients varied together; do not label as isolated pH injury or iron toxicity. A caption progression is not a verified time series of the same leaf.",
+          "Verify exact license version, item-level credits and original image before display, extraction or training-rights approval. Maintain source-group isolation and plant-linked confirmation requirements."
+        ],
+        "displayPermission": "unknown",
+        "reviewStatus": "scientific-review",
+        "trainingPermission": "unknown",
+        "confirmation": "illustrative",
+        "trainingEligible": false
+      }
+    ],
     "canonicalId": "CAN-STRESS-006",
     "responsePolicyId": "POL-PH-LOCKOUT"
   },

@@ -599,7 +599,8 @@ describe('diagnostic dataset quality gates', () => {
     expect(record?.warnings.join(' ').toLowerCase()).toMatch(/fourfold micronutrients/)
     expect(record?.lookAlikes).toContain('Waterlogging or root-zone hypoxia')
     expect(record?.lookAlikes.join(' ')).toMatch(/Pythium/)
-    expect(record?.media).toHaveLength(0)
+    expect(record?.media).toHaveLength(1)
+    expect(record?.media.every((media) => !isDisplayableMedia(media) && !media.trainingEligible)).toBe(true)
   })
 
   it('keeps pH root-window measurements distinct from biomass and serial imagery', () => {
@@ -622,7 +623,7 @@ describe('diagnostic dataset quality gates', () => {
     expect(source.supportedClaims.join(' ')).toContain('Table 5')
     expect(record.progression.find((item) => item.stage === 'Analytical differential')?.description).toContain('linked tissue analysis')
     expect(record.progression.find((item) => item.stage === 'Treatment confounders')?.description).toContain('lime composition')
-    expect(record.media).toEqual([])
+    expect(record.media[0].reviewStatus).toBe('scientific-review')
     expect(record.photoOnlyMaxConfidence).toBe(0.15)
   })
 
