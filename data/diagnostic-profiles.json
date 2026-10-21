@@ -1843,7 +1843,7 @@
     "id": "fungal-botrytis-bud-rot",
     "slug": "botrytis-gray-mold-bud-rot",
     "name": "Botrytis gray mold and bud rot",
-    "scientificName": "Botrytis cinerea",
+    "scientificName": "Botrytis cinerea and other Botrytis species",
     "category": "Fungal pathogen",
     "severity": "critical",
     "reviewStatus": "reviewed",
@@ -1919,6 +1919,7 @@
       "Noninfectious postharvest browning"
     ],
     "confirmation": [
+      "Retain isolate and lesion IDs, sequence targets and results when separating B. cinerea, B. pseudocinerea and B. porri; the study used ITS-rDNA, G3PDH and HSP. Keep detached inoculation captures linked to treatment and sampling times, separate from field progression; unresolved species remain flagged for human review.",
       "Document whether black structures are attached to or within the sampled lesion, with scale and intact-tissue context; retain gray versus white growth separately and request laboratory identification for unresolved Botrytis versus Sclerotinia labels.",
       "Separate unconditioned field captures from incubated tissues, culture plates and electron micrographs; retain collection, harvest, conditioning and imaging times with specimen linkage. Do not equate 48-hour bag incubation with field progression.",
       "Map stem lesions and handling wounds alongside affected flowers; record dated pruning, handling and senescence events, keep sample IDs separate for each tissue, and request lesion-linked testing rather than infer infection direction.",
@@ -2022,6 +2023,24 @@
           "Brown water-soaked lesions on hemp stems, leaves, or flowers can become necrotic and develop gray spores; stem lesions can girdle stems, cause breakage, and form black irregular sclerotia.",
           "Seedlings and cuttings can damp off under cool, wet conditions, with necrotic or water-soaked roots, while moist and humid production conditions favor disease development.",
           "Fusarium flower mold can resemble gray mold but lacks the characteristic gray spore masses, Fusarium cankers lack gray spores and sclerotia, and Sclerotinia produces white mycelial mats; these features guide triage but laboratory confirmation remains appropriate."
+        ]
+      },
+      {
+        "title": "The bud rot pathogens infecting cannabis (Cannabis sativa L., marijuana) inflorescences: symptomology, species identification, pathogenicity and biological control",
+        "organization": "Simon Fraser University / Canadian Journal of Plant Pathology (Punja and Ni)",
+        "url": "https://doi.org/10.1080/07060661.2021.1936650",
+        "authors": [
+          "Zamir K. Punja",
+          "Li Ni"
+        ],
+        "publisher": "Taylor & Francis / Informa UK Limited",
+        "publicationDate": "2021-06-29",
+        "year": 2021,
+        "accessedDate": "2026-10-21",
+        "doi": "10.1080/07060661.2021.1936650",
+        "supportedClaims": [
+          "Sampling seven cannabis production sites and three hemp fields in 2019–2020 yielded 178 diseased-tissue isolates; ITS-rDNA, G3PDH and heat shock 60 (HSP) sequences identified B. cinerea, B. pseudocinerea and B. porri alongside other fungi. Dataset inference: these isolate counts are not population prevalence or visual classifier priors; species labels require resolving, lesion-linked evidence.",
+          "Fresh detached cannabis buds inoculated with spores or mycelial plugs developed more rot with B. cinerea, Sclerotinia sclerotiorum and Fusarium graminearum than with B. pseudocinerea, B. porri and Diaporthe eres in this study. Dataset inference: this assay comparison does not establish field severity, onset timing or a species-specific visual rule."
         ]
       }
     ],

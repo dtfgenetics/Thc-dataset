@@ -86,7 +86,7 @@
       "category": "Fungal pathogen",
       "severity": "critical",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
+      "sourceCount": 4,
       "mediaCount": 4,
       "path": "data/profiles/fungal-botrytis-bud-rot.json"
     },
