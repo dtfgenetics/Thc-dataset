@@ -1596,6 +1596,38 @@
     "issueCategory": "Normal development"
   },
   {
+    "id": "media-ph-micronutrient-sweetened-figure-6-candidate",
+    "url": "https://acsess.onlinelibrary.wiley.com/doi/pdf/10.1002/agg2.70044#page=9",
+    "sourceUrl": "https://doi.org/10.1002/agg2.70044",
+    "alt": "Publisher Figure 6, described as lower-foliage bronzing progression in Sweetened; visual content pending independent review.",
+    "caption": "PDF page 9 locates Figure 6 in Experiment 3. The text links lower-leaf symptoms to Sweetened under target pH 3.8 plus fourfold micronutrients. Metadata candidate only; not a pH-only or iron-only diagnostic image.",
+    "creator": "Patrick Veazie, Paul Cockson, J. Turner Smith, Brian Schulker, Brian Jackson, Kristin Hicks, and Brian Whipker; individual photographer not specified",
+    "license": "Creative Commons Attribution (CC BY) notice on PDF page 1; exact version and item-level exceptions pending verification",
+    "requiredAttribution": "Credit Veazie et al. (2025), Impact of substrate pH and micronutrient fertility rates on Cannabis sativa, Agrosystems, Geosciences & Environment 8:e70044, DOI 10.1002/agg2.70044, Figure 6. Preserve the original copyright/license notice and identify any future extraction or modification.",
+    "mediaType": "image",
+    "diagnosticLabel": "acidic-extreme-substrate-ph-stress — mixed-micronutrient exposure figure candidate, unverified and not ground truth",
+    "hostSpecies": "Cannabis sativa Sweetened, as identified by the source caption",
+    "hostContext": "cannabis",
+    "view": "close-up",
+    "stage": "lower foliage in Experiment 3; figure timing and individual leaf IDs unverified",
+    "severity": "not scored; candidate not visually adjudicated",
+    "useLimitations": [
+      "PDF figure locator, not a standalone image URL. No media bytes copied or committed; no image hash, dimensions or crop inferred.",
+      "Source caption and treatment text checked 2026-10-21; figure not independently visually inspected. Panel count, visual appearance, scale, orientation and leaf continuity require human review.",
+      "Multiple micronutrients varied together; do not label as isolated pH injury or iron toxicity. A caption progression is not a verified time series of the same leaf.",
+      "Verify exact license version, item-level credits and original image before display, extraction or training-rights approval. Maintain source-group isolation and plant-linked confirmation requirements."
+    ],
+    "displayPermission": "unknown",
+    "reviewStatus": "scientific-review",
+    "trainingPermission": "unknown",
+    "confirmation": "illustrative",
+    "trainingEligible": false,
+    "issueId": "root-ph-extreme",
+    "issueSlug": "acidic-extreme-substrate-ph-stress",
+    "issueName": "Acidic or extreme substrate-pH root stress",
+    "issueCategory": "Water / root-zone"
+  },
+  {
     "id": "media-pot-bound-root-mass-umd-reference-only",
     "url": "https://extension.umd.edu/sites/extension.umd.edu/files/styles/optimized/public/2021-03/hgic_houseplant_pot_bound_plant_--0053-051-slide.jpg?itok=HAjmW2dw",
     "alt": "University of Maryland Extension photograph of an unidentified non-Cannabis indoor plant removed from a pot, with a dense root mass retaining the tapered container shape beside the empty pot.",

@@ -698,7 +698,15 @@ describe('diagnostic coverage audit', () => {
     expect(record?.progression.find((step) => step.stage === 'Bronzing attribution check')?.description).toContain('iron-specific causality as separate labels')
     expect(exclusions).toContain('universal diagnostic threshold')
     expect(exclusions).toContain('generic nutrient-availability chart')
-    expect(record?.media).toEqual([])
+    expect(record?.media).toHaveLength(1)
+    const candidate = record!.media[0]
+    expect(candidate.url).toBe('https://acsess.onlinelibrary.wiley.com/doi/pdf/10.1002/agg2.70044#page=9')
+    expect(candidate.reviewStatus).toBe('scientific-review')
+    expect(candidate.confirmation).toBe('illustrative')
+    expect(candidate.trainingEligible).toBe(false)
+    expect(candidate.trainingPermission).toBe('unknown')
+    expect(isDisplayableMedia(candidate)).toBe(false)
+    expect(candidate.useLimitations.join(' ')).toContain('not independently visually inspected')
   })
 
   it('bounds root-binding labels to intact plant-linked root evidence', () => {
