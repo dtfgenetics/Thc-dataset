@@ -1919,6 +1919,7 @@
       "Noninfectious postharvest browning"
     ],
     "confirmation": [
+      "Document whether black structures are attached to or within the sampled lesion, with scale and intact-tissue context; retain gray versus white growth separately and request laboratory identification for unresolved Botrytis versus Sclerotinia labels.",
       "Separate unconditioned field captures from incubated tissues, culture plates and electron micrographs; retain collection, harvest, conditioning and imaging times with specimen linkage. Do not equate 48-hour bag incubation with field progression.",
       "Map stem lesions and handling wounds alongside affected flowers; record dated pruning, handling and senescence events, keep sample IDs separate for each tissue, and request lesion-linked testing rather than infer infection direction.",
       "Do not confirm Botrytis or assign a species from a photograph or video alone; keep symptom-only, detached, plant-unlinked, and culture-only observations suspected and flagged for human review.",
@@ -1946,6 +1947,7 @@
       "Maintain traceable records linking plant, room or field position, media, environmental logs, sample identifier, and laboratory result."
     ],
     "warnings": [
+      "Sclerotia alone cannot distinguish Botrytis from Sclerotinia; debris-associated black structures do not establish the diagnosis of an adjacent plant. Keep unresolved structures and mixed molds flagged for human review.",
       "Image/video-only confidence is capped at 0.30; the cap is a conservative annotation safeguard, not a validated diagnostic accuracy estimate. Human review remains mandatory for species-level labels, ambiguous lesions, mixed infections, and unlinked laboratory results.",
       "Progression checkpoints are contextual alternatives, not a universal sequence or elapsed-time rule; flower stage, leaf lesions, stem cankers, propagation disease, and postharvest decay must retain their own sampling context.",
       "Brown flower decay, gray fuzz, humidity, or a damaged sugar leaf alone is not species-level ground truth; multiple fungi and noninfectious injuries overlap visually.",
@@ -2013,8 +2015,10 @@
         "publisher": "North Carolina State University Extension",
         "publicationDate": "2019-09-09",
         "year": 2019,
-        "accessedDate": "2026-08-13",
+        "accessedDate": "2026-10-21",
         "supportedClaims": [
+          "Both Botrytis and Sclerotinia can form black irregular sclerotia in hemp lesions; NC State describes gray sporulation for Botrytis and white mats without gray spores for Sclerotinia. Dataset inference: black structures alone do not distinguish these diseases.",
+          "Botrytis sclerotia persist in soil or plant debris and later produce inoculum under conducive conditions. Dataset inference: a detached sclerotium does not establish an active infection, its age, or the cause of a nearby photographed lesion.",
           "Brown water-soaked lesions on hemp stems, leaves, or flowers can become necrotic and develop gray spores; stem lesions can girdle stems, cause breakage, and form black irregular sclerotia.",
           "Seedlings and cuttings can damp off under cool, wet conditions, with necrotic or water-soaked roots, while moist and humid production conditions favor disease development.",
           "Fusarium flower mold can resemble gray mold but lacks the characteristic gray spore masses, Fusarium cankers lack gray spores and sclerotia, and Sclerotinia produces white mycelial mats; these features guide triage but laboratory confirmation remains appropriate."

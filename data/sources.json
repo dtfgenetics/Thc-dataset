@@ -3601,8 +3601,10 @@
     "publisher": "North Carolina State University Extension",
     "publicationDate": "2019-09-09",
     "year": 2019,
-    "accessedDate": "2026-08-13",
+    "accessedDate": "2026-10-21",
     "supportedClaims": [
+      "Both Botrytis and Sclerotinia can form black irregular sclerotia in hemp lesions; NC State describes gray sporulation for Botrytis and white mats without gray spores for Sclerotinia. Dataset inference: black structures alone do not distinguish these diseases.",
+      "Botrytis sclerotia persist in soil or plant debris and later produce inoculum under conducive conditions. Dataset inference: a detached sclerotium does not establish an active infection, its age, or the cause of a nearby photographed lesion.",
       "Brown water-soaked lesions on hemp stems, leaves, or flowers can become necrotic and develop gray spores; stem lesions can girdle stems, cause breakage, and form black irregular sclerotia.",
       "Seedlings and cuttings can damp off under cool, wet conditions, with necrotic or water-soaked roots, while moist and humid production conditions favor disease development.",
       "Fusarium flower mold can resemble gray mold but lacks the characteristic gray spore masses, Fusarium cankers lack gray spores and sclerotia, and Sclerotinia produces white mycelial mats; these features guide triage but laboratory confirmation remains appropriate."

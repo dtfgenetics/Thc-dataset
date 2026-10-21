@@ -1,0 +1,41 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "botrytis-context-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "02f0d31b39ee5d9e2b5c32d99f5575897006f1cc",
+  "head_commit": "bc7b01872a7b48ab095cea4e3c2ea8e0b0bb80de",
+  "branch": "work/grow-doc/GD-DIAG-001/botrytis-context-20261021",
+  "changed_paths": [
+    "data/profiles/fungal-botrytis-bud-rot.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://content.ces.ncsu.edu/gray-mold-of-industrial-hemp"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/sources.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "scope_note": "Agent evidence review 2026-10-21 inspected current main, recent changes, AGENTS, active task/claims, canonical/exported profiles, source/media and receipt schemas, exporter, validators, package scripts and CI. Botrytis had the lowest mapped-claim count (16). One bounded fungal-pathogen/look-alike enrichment adds two exact institutional claim mappings (18 total), one specimen-linked capture/confirmation step, and one warning. Fresh NC State full text Gray Mold of Industrial Hemp by Shelby Ferrell and Lindsey Thiessen, published 2019-09-09 and revised 2024-06-18, was retrieved at the stable source URL; existing bibliographic metadata retained with access date refreshed to 2026-10-21. Evidence locators: Pathogen, Symptoms, Diseases With Similar Symptoms (Hemp Canker), and Disease Cycle. Shared black sclerotia and persistence in debris are separated from active lesion causality, infection age and organism identification; dataset inferences explicitly labeled. Existing tissue/leaf age, canopy position, morphology, distribution, progression, temporal capture, look-alikes, exclusion checks and laboratory guidance retained. Snapshot comparison confirmed other 62 profiles and every media record byte-identical. Source count remains 211, 63 profiles, 93 media references, zero vision-training-eligible samples. No media added/copied/cropped/relabeled, new licenses, generated imagery, confirmation promotion or human/expert/lab review. Existing CC BY composite remains reference-only pending panel/split review; university photographs remain hidden rights-unresolved metadata. Symptom-only, detached, mixed-organism and unlinked observations retain human-review flags and 0.30 photo-only ceiling. Regression first failed on old access metadata; 38 focused tests then passed. All 68 local commands passed: 62 package validation commands, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Fresh candidate leakage check and five supplemental evaluator/artifact self-tests passed. Actual corroboration generation/filter/decision workflow passed with 100 candidates, 28 priority, 72 excluded cross-profile reuse, all four decisions retained and zero promotion. Two serial complete artifact locks matched byte-for-byte; actual split/dataset pins refreshed, mixture remains 150 SFT plus 37 grounded-QA rows. Checks cover JSON/CSV consistency, schemas, IDs, duplicates, labels, source-to-claim links, URL syntax and rights gates; the enriched source URL was freshly retrieved, not every historical URL. Receipt validation and exact-head hosted checks, including locally unavailable PHP lint, required before squash after live freshness check. Operational claim excluded and released after integration. No model training or production deployment. Remaining gaps: independent lesion-linked confirmation and reusable longitudinal image/video samples; this batch supplies reference evidence, not supervised ground truth."
+}
