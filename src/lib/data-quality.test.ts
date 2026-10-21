@@ -451,6 +451,11 @@ describe('diagnostic dataset quality gates', () => {
     }
     const phytoplasma = issues.find((issue) => issue.slug === 'hemp-witches-broom-phytoplasma')
     expect(phytoplasma?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.15)
+    const washington = phytoplasma?.sources.find((source) => source.doi === '10.1094/PDIS-08-25-1736-PDN')!
+    expect(washington.publicationDate).toBe('2026-04-01')
+    expect(washington.supportedClaims.join(' ')).toContain('stem fasciation and purpling')
+    expect(washington.supportedClaims.join(' ')).toContain('16S rRNA and secY')
+    expect(phytoplasma?.confirmation.join(' ')).toContain('flattened or fused-looking stem')
     const firstReport = phytoplasma?.sources.find((source) => source.doi === '10.1094/PDIS-01-19-0098-PDN')!
     expect(firstReport.accessedDate).toBe('2026-10-20')
     expect(firstReport.supportedClaims).toHaveLength(5)
