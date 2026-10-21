@@ -135,6 +135,10 @@ describe('61-profile evidence-backed coverage expansion', () => {
     expect(sclerotinia.name).toContain('crown rot complex')
     expect(sclerotinia.scientificName).toContain('Sclerotinia minor')
     const dois = new Set(sclerotinia.sources.map((source) => source.doi).filter(Boolean))
+    expect(dois).toContain('10.1111/jph.70228')
+    const correctedStudy = sclerotinia.sources.find((source) => source.doi === '10.1111/jph.70196')!
+    expect(correctedStudy.authors?.[0]).toBe('Fikile Phatudi')
+    expect(sclerotinia.confirmation.join(' ')).toContain('unversioned or superseded copies review-only')
     expect(dois).toContain('10.1094/PDIS-01-19-0088-PDN')
     const crownReport = sclerotinia.sources.find((source) => source.doi === '10.1094/PDIS-01-19-0088-PDN')!
     expect(crownReport.accessedDate).toBe('2026-10-18')

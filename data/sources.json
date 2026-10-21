@@ -1881,15 +1881,38 @@
     "title": "Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation",
     "organization": "Journal of Phytopathology",
     "url": "https://doi.org/10.1111/jph.70196",
+    "authors": [
+      "Fikile Phatudi",
+      "Wilhelm Botha",
+      "Thando Bhiya",
+      "Elsie Cruywagen",
+      "Shaakir Badat",
+      "Fahimeh Jami"
+    ],
     "publisher": "Wiley",
     "publicationDate": "2025-11-16",
     "year": 2025,
-    "accessedDate": "2026-08-24",
+    "accessedDate": "2026-10-21",
     "doi": "10.1111/jph.70196",
     "supportedClaims": [
       "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
       "Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.",
       "Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone."
+    ]
+  },
+  {
+    "sourceKey": "10.1111/jph.70228",
+    "title": "Correction to ‘Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation’",
+    "organization": "Journal of Phytopathology",
+    "url": "https://doi.org/10.1111/jph.70228",
+    "publisher": "Wiley-VCH GmbH / John Wiley & Sons Ltd",
+    "publicationDate": "2026-01-11",
+    "year": 2026,
+    "accessedDate": "2026-10-21",
+    "doi": "10.1111/jph.70228",
+    "supportedClaims": [
+      "The publisher correction names the lead author Fikile Phatudi and replaces Figure 1 of DOI 10.1111/jph.70196; it reports a correction to the same study, not independent replication.",
+      "Replacement Figure 1 maps A to facility symptoms, B to Pythium myriotylum inoculation, C to Fusarium oxysporum, D to Botrytis cinerea, E to Sclerotinia sclerotiorum and F to controls. Dataset inference: preserve the corrected panel identity before considering an image label."
     ]
   },
   {

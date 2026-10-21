@@ -1,0 +1,47 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "sclerotinia-correction-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "398b89eb4252e712fde77886ce95d7ceb18ed77d",
+  "head_commit": "2568b30a7d8f85317b7c32a3a39f1db9d15dd52c",
+  "branch": "work/grow-doc/GD-DIAG-001/sclerotinia-correction-20261021",
+  "changed_paths": [
+    "src/data/expanded-issues.ts",
+    "data/profiles/fungal-sclerotinia-white-mold.json"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1111/jph.70196",
+    "https://doi.org/10.1111/jph.70228"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/catalog-coverage-expansion.test.ts"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 398b89e, AGENTS/task claims, recent changes, open PRs, current main workflows, schemas and source/media coverage. Fresh publisher primary/correction pages at https://onlinelibrary.wiley.com/doi/10.1111/jph.70196 and https://onlinelibrary.wiley.com/doi/10.1111/jph.70228 verified the missing correction relationship. Added two provenance/panel-mapping claims, corrected-author metadata from the explicit notice, and a version-check instruction. Original article author widget still displays the old order; the explicit correction governs the first author entry. No new experiment or independent replication inferred. No correction figure asset fetched, copied, indexed or admitted; free access is not treated as a reuse or training grant. Existing scientific claims and all 98 media unchanged, other 62 profiles unchanged; original primary source access refreshed. Sources 218 to 219, profiles 63, vision-training-eligible zero. No new media or license grants. Existing rights, confidence, specimen linkage and human-review limits retained. All 63 supplemental/coverage focused tests and 20 catalog-expansion tests passed, including correction linkage, corrected author and superseded-copy review safeguards. All 68 local commands passed: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Two serial full artifact locks identical and actual pins synchronized; 153 SFT plus 38 supplied-claim grounded QA remains 191 rows. Five supplemental artifact/evaluator self-tests and actual corroboration builder/filter/decision flow passed: four decisions retained, 100 discovery, 28 priority, 72 exclusions and no promotion. Checks include JSON/CSV parity, schemas, URL syntax, identifiers, duplicates, labels, source-to-claim links and leakage; not every historical URL fetched. Exact-head hosted workflows including PHP lint and fresh main/head/parent/tree gate required before squash. Claim excluded and released after merge. No actual human/expert/lab review, model training or deployment. Unversioned source figures and unresolved specimen/rights evidence remain review-only; verified diagnostic video and confirmed progression imagery remain gaps."
+}
