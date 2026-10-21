@@ -609,7 +609,12 @@ describe('diagnostic coverage audit', () => {
     expect(firstReport.supportedClaims.join(' ')).toContain('19 degrees C')
     expect(firstReport.supportedClaims.join(' ')).toContain('not axenic agar culture')
     expect(resistance.publicationDate).toBe('2026-09-08')
-    expect(resistance.accessedDate).toBe('2026-10-18')
+    expect(resistance.accessedDate).toBe('2026-10-21')
+    expect(resistance.supportedClaims.join(' ')).toContain('final publisher abstract')
+    const version = record?.sources.find((source) => source.url.includes('seqNo115=428781'))
+    expect(version?.supportedClaims.join(' ')).toContain('detached-leaf')
+    expect(warnings).toContain('source-version conflict')
+    expect(confirmation).toContain('paired scores on the same identified disc')
     expect(confirmation).toContain('inoculum concentration rather than a measured deposited dose')
     expect(confirmation).toContain('host-tissue recovery substrate')
 

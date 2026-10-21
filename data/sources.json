@@ -1349,13 +1349,14 @@
     "publisher": "American Phytopathological Society",
     "publicationDate": "2026-09-08",
     "year": 2026,
-    "accessedDate": "2026-10-18",
+    "accessedDate": "2026-10-21",
     "doi": "10.1094/PDIS-09-25-1916-RE",
     "supportedClaims": [
       "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides and can be associated with leaf curling, defoliation, and yield loss.",
       "The study evaluated 108 hemp entries by robotic convolutional-neural-network leaf-disc analysis, visual scoring of the same discs, and detached-leaf assays; susceptibility ranged from 0 to 100%.",
       "G 33532 and Santhica 27 had 0% severity across all three methods, while detached-leaf, CNN, and visual methods produced systematically different severity estimates; cultivar and assay context must therefore remain attached to image labels.",
-      "The CNN method consistently underestimated severity relative to visual assessment, so experimental machine scores are not a universal field or production-image threshold."
+      "The CNN method consistently underestimated severity relative to visual assessment, so experimental machine scores are not a universal field or production-image threshold.",
+      "The final publisher abstract assigns the lowest residual variance to CNN scores and the highest severity and variability to visual disc scores. Dataset inference: lower variance does not establish accuracy when scores remain systematically biased."
     ]
   },
   {
@@ -4721,6 +4722,19 @@
       "The CSU note describes dark olive-green, generally round aphids, with wingless stages belowground and winged stages sometimes trapped on upper-leaf hairs; these are scouting cues, not species confirmation.",
       "The note reports maturation in about 9–10 days and population doubling in 1.6 days at 73°F under favorable conditions; these context-dependent biology estimates are not a Cannabis injury threshold or a specimen-specific progression clock.",
       "Warm indoor populations can reproduce year-round while living hosts remain, without a persistent indoor egg stage; calendar season or absence of visible eggs therefore cannot exclude an active root colony."
+    ]
+  },
+  {
+    "sourceKey": "https://www.ars.usda.gov/research/publications/publication/?seqNo115=428781",
+    "title": "USDA ARS publication 428781: Evaluation of downy mildew resistance in the USDA Hemp Germplasm Repository using high-throughput and traditional phenotyping methods",
+    "organization": "USDA Agricultural Research Service, Plant Genetic Resources Unit",
+    "url": "https://www.ars.usda.gov/research/publications/publication/?seqNo115=428781",
+    "publisher": "U.S. Department of Agriculture, Agricultural Research Service",
+    "publicationDate": "2026-03-29",
+    "year": 2026,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "The USDA technical abstract assigns the lowest residual variance to visually rated detached-leaf assays. Its record dates publication to March 29 and cites the same study DOI; it is not an independent replication."
     ]
   },
   {

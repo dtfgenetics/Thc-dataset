@@ -13348,6 +13348,7 @@
       "Confirm Pseudoperonospora cannabina with oomycete morphology plus validated molecular evidence; the New York report used ITS, cox2, and ypt1 and confirmed a reisolate after pathogenicity testing.",
       "Retain cultivar, assay type, tissue type, inoculation or field context, time of day, humidity or leaf wetness, and sampling location with every image label because these factors change symptom visibility and severity estimates.",
       "For assay images, record spray-to-runoff exposure as inoculum concentration rather than a measured deposited dose, plus chamber temperature, photoperiod, mist schedule and elapsed time. Preserve the detached-leaf host-tissue recovery substrate with the isolate and molecular results; do not label it as agar culture or use seven days as a field-onset rule.",
+      "Preserve paired scores on the same identified disc, original image, scoring method and source version; keep detached-leaf scores separate. Obtain full analyses or author clarification before resolving the variance-ranking discrepancy.",
       "Keep symptom-only, upper-surface-only, midday-underside-only, detached-stock-photo, mixed-pathogen, unlinked-laboratory, low-resolution, forum, vendor, or generated captures out of the confirmed downy-mildew class and route them to human review."
     ],
     "immediateActions": [
@@ -13366,6 +13367,7 @@
       "Keep cultivar identity and source-lot metadata because the controlled germplasm study documented extreme susceptibility differences."
     ],
     "warnings": [
+      "Source-version conflict: USDA and the final publisher abstract disagree on the lowest-variance method. Keep that ranking unresolved for human review; precision is not accuracy, and neither comparison calibrates production images.",
       "Pseudoperonospora is an oomycete, not a true fungus; a generic mildew label can lead to incorrect organism and management assumptions.",
       "Vein-limited brown lesions, yellow halos, and underside dark growth overlap other pathogens and injuries and do not establish species without plant-linked organism evidence.",
       "Underside sporulation may be absent by midday, after drying, or in a single frame; time of day and wetness must accompany negative observations.",
@@ -13427,13 +13429,14 @@
         "publisher": "American Phytopathological Society",
         "publicationDate": "2026-09-08",
         "year": 2026,
-        "accessedDate": "2026-10-18",
+        "accessedDate": "2026-10-21",
         "doi": "10.1094/PDIS-09-25-1916-RE",
         "supportedClaims": [
           "Pseudoperonospora cannabina causes angular brown foliar lesions and dark sporulation on leaf undersides and can be associated with leaf curling, defoliation, and yield loss.",
           "The study evaluated 108 hemp entries by robotic convolutional-neural-network leaf-disc analysis, visual scoring of the same discs, and detached-leaf assays; susceptibility ranged from 0 to 100%.",
           "G 33532 and Santhica 27 had 0% severity across all three methods, while detached-leaf, CNN, and visual methods produced systematically different severity estimates; cultivar and assay context must therefore remain attached to image labels.",
-          "The CNN method consistently underestimated severity relative to visual assessment, so experimental machine scores are not a universal field or production-image threshold."
+          "The CNN method consistently underestimated severity relative to visual assessment, so experimental machine scores are not a universal field or production-image threshold.",
+          "The final publisher abstract assigns the lowest residual variance to CNN scores and the highest severity and variability to visual disc scores. Dataset inference: lower variance does not establish accuracy when scores remain systematically biased."
         ]
       },
       {
@@ -13468,6 +13471,18 @@
           "Gray-to-black down-like growth on corresponding leaf undersides during wet periods is a crucial sign, while chemical damage and other leaf spots are important visual confounders.",
           "High humidity and free water on leaves are conducive conditions; environmental context supports a differential but does not confirm the organism.",
           "The institutional page lists images but retains Purdue copyright and does not state item-level reusable or automated-training terms, so no Purdue media were copied or admitted."
+        ]
+      },
+      {
+        "title": "USDA ARS publication 428781: Evaluation of downy mildew resistance in the USDA Hemp Germplasm Repository using high-throughput and traditional phenotyping methods",
+        "organization": "USDA Agricultural Research Service, Plant Genetic Resources Unit",
+        "url": "https://www.ars.usda.gov/research/publications/publication/?seqNo115=428781",
+        "publisher": "U.S. Department of Agriculture, Agricultural Research Service",
+        "publicationDate": "2026-03-29",
+        "year": 2026,
+        "accessedDate": "2026-10-21",
+        "supportedClaims": [
+          "The USDA technical abstract assigns the lowest residual variance to visually rated detached-leaf assays. Its record dates publication to March 29 and cites the same study DOI; it is not an independent replication."
         ]
       }
     ],

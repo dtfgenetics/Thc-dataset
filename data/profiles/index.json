@@ -526,7 +526,7 @@
       "category": "Oomycete pathogen",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
+      "sourceCount": 5,
       "mediaCount": 2,
       "path": "data/profiles/oomycete-downy-mildew.json"
     },
