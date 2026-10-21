@@ -645,10 +645,10 @@ export const supplementalIssues: IssueRecord[] = [
                   'Metadata-only reference; no image file committed. Rights reviewed 2026-10-21 against species sheet, images and AphID public-domain notice; third-party exceptions remain separate.',
                   'Prepared morphology, not Cannabis injury or proof of a plant-linked root colony.',
                   'Published thumbnail: insufficient for independent species measurements; no specimen voucher or plant linkage exposed here.',
-                  'Scientific review required before display or training admission; preserve adult morph and preparation context.'
+                  'Agent reference-display review 2026-10-21: source-linked wingless habitus, visible prepared whole body and scale bar, no contrary item credit. Approved only for illustrative adult-morph comparison; no human, expert or laboratory review claimed. Training admission remains blocked by resolution, absent voucher and plant linkage.'
             ],
             'displayPermission': 'permitted',
-            'reviewStatus': 'scientific-review',
+            'reviewStatus': 'approved-reference',
             'trainingPermission': 'permitted',
             'view': 'microscope',
             'severity': 'not applicable to organism-only morphology',
@@ -677,10 +677,10 @@ export const supplementalIssues: IssueRecord[] = [
                   'Metadata-only reference; no image file committed. Rights reviewed 2026-10-21 against species sheet, images and AphID public-domain notice; third-party exceptions remain separate.',
                   'Prepared morphology, not Cannabis injury or proof of a plant-linked root colony.',
                   'Published thumbnail: insufficient for independent species measurements; no specimen voucher or plant linkage exposed here.',
-                  'Scientific review required before display or training admission; preserve adult morph and preparation context.'
+                  'Agent reference-display review 2026-10-21: source-linked winged habitus, visible prepared whole body and scale bar, no contrary item credit. Approved only for illustrative adult-morph comparison; no human, expert or laboratory review claimed. Training admission remains blocked by resolution, absent voucher and plant linkage.'
             ],
             'displayPermission': 'permitted',
-            'reviewStatus': 'scientific-review',
+            'reviewStatus': 'approved-reference',
             'trainingPermission': 'permitted',
             'view': 'microscope',
             'severity': 'not applicable to organism-only morphology',

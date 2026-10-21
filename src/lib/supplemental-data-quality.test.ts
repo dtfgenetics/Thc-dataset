@@ -157,11 +157,13 @@ describe('supplemental diagnostic catalog quality gates', () => {
     for (const media of morphology) {
       expect(media.hostContext).toBe('organism-only')
       expect(media.view).toBe('microscope')
-      expect(media.reviewStatus).toBe('scientific-review')
+      expect(media.reviewStatus).toBe('approved-reference')
       expect(media.license).toMatch(/public domain/i)
       expect(media.trainingPermission).toBe('permitted')
       expect(media.trainingEligible).toBe(false)
-      expect(isDisplayableMedia(media)).toBe(false)
+      expect(isDisplayableMedia(media)).toBe(true)
+      expect(media.confirmation).toBe('illustrative')
+      expect(media.useLimitations.join(' ')).toContain('Agent reference-display review')
       expect(media.useLimitations.join(' ')).toContain('not Cannabis injury')
     }
     const rootReference = record?.media.find((media) => media.id === 'media-rice-root-aphid-cannabis-figure-2')
@@ -174,7 +176,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
   it('admits only fully verified reference media into supplemental profiles', () => {
     const permittedMediaCounts = new Map([
       ['alternaria-leaf-spot', 2],
-      ['rice-root-aphid', 1],
+      ['rice-root-aphid', 3],
       ['fusarium-crown-root-rot', 1],
       ['fusarium-foliar-flower-head-blight', 1],
       ['cannabis-aphid', 2],
@@ -188,8 +190,8 @@ describe('supplemental diagnostic catalog quality gates', () => {
     for (const issue of supplementalIssues) {
       if (issue.slug === 'rice-root-aphid') {
         expect(issue.media).toHaveLength(3)
-        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(1)
-        expect(issue.media.filter((media) => media.reviewStatus === 'scientific-review')).toHaveLength(2)
+        expect(issue.media.filter(isDisplayableMedia)).toHaveLength(3)
+        expect(issue.media.filter((media) => media.reviewStatus === 'approved-reference')).toHaveLength(3)
         expect(issue.media.every((media) => !media.trainingEligible)).toBe(true)
         continue
       }

@@ -1,0 +1,28 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "aphid-reference-display-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "4c53a39f765f6e77db38389aa30a3a7abeb5dd77",
+  "head_commit": "c3c7e743da7c36dcfaaba7fd407c98b6028b7c26",
+  "branch": "work/grow-doc/GD-DIAG-001/aphid-reference-display-20261021",
+  "changed_paths": ["data/profiles/pest-rice-root-aphid.json", "src/data/supplemental-issues.ts"],
+  "source_ids": [
+    "https://idtools.org/aphid/index.cfm?entityID=64865&packageID=2365",
+    "https://idtools.org/aphid/index.cfm?pageID=5272",
+    "https://idtools.org/aphid/index.cfm?pageID=5289"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl",
+    "data/profile-reference-media.json", "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml", "src/lib/supplemental-data-quality.test.ts"
+  ],
+  "scope_note": "Agent reference-display review on 2026-10-21. Inspected fresh main 4c53a39, AGENTS, active task and claims, recent merges, open PRs, source records, media schema, exporter, media display filter, tests, validation and CI contracts. Reviewed the USDA AphID rice-root-aphid species sheet, About/Key limitations and Copyright notice live. Original linked aptera/alata thumbnail URLs were retrieved, visually inspected, and SHA256 matched existing metadata: 6e4c1affe04d7746de7add655944f568ec5681f8e21e892fdd702a6fe5e5a281 and ac31710c0fc2bdc72714d4bde97fdadf4d468ec932b872a4bb020c4da95a83ab. Images show prepared whole-body wingless/winged specimens and scale bars at 270x252/270x150. Species page links each named morph; no contrary item credit observed on page or images. AphID public-domain notice applies unless otherwise indicated, permits copying/distribution and requests author/institution acknowledgement; existing attribution retained. Third-party exceptions not generalized. Approval is limited to illustrative adult-morph reference display, not independent species measurement, Cannabis infestation, injury, severity, field color or temporal progression. Thumbnail resolution and absent specimen voucher and plant linkage still block training admission. No human/expert/laboratory review claimed. Two existing media records changed scientific-review to approved-reference and replaced the unresolved-display note with exact agent review scope. Both remain organism-only, illustrative and trainingEligible=false. Existing rights permissions, hashes, original URLs, landing pages, creators, license, requested attribution, morph and preparation labels preserved. No binary or crop committed, no new source, claim, asset or license added. One Insect profile enriched; scope comparison proves all diagnostic claims, the other 62 profiles and all other media unchanged. Dataset remains 63 profiles, 215 sources, 95 media references and zero vision-training-eligible samples. Regression first failed on old pending-review state then all 33 focused tests passed. All 68 local commands passed: 62 package validators, type check, 295 application tests, build, 108 Python tests, artifact verification and diff check. Leakage audit and five evaluator/artifact self-tests passed. Two complete serial artifact locks byte-identical; actual hash pins refreshed with mixture still 153 SFT plus 38 grounded QA, 191 rows. Actual corroboration builder/filter/decision workflow passed with four prior decisions unchanged, 100 discovery candidates, 28 priority, 72 excluded cross-profile reuse and zero promotion. Checks cover JSON/CSV, schemas, IDs, duplicates, labels, provenance links and URL syntax; three current source URLs and two assets retrieved, not every historical URL. Receipt checks and all exact-head hosted checks including PHP lint required before squash with live main/head/tree freshness. Claim excluded and released after integration. No model run or production deployment. Remaining gaps: independently confirmed plant-linked Cannabis root-colony samples, high-resolution voucher material and diagnostic video; unmeasured, unsupported-morph, symptom-only and unlinked samples retain human-review flags."
+}
