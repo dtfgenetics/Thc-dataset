@@ -4894,6 +4894,63 @@
     ]
   },
   {
+    "sourceKey": "https://www.ncbi.nlm.nih.gov/nuccore/MT071994.1",
+    "title": "GenBank MT071994.1: Curvularia sp. isolate 19-405 internal transcribed spacer and 5.8S rRNA sequence",
+    "organization": "NCBI GenBank / University of Florida direct submission",
+    "url": "https://www.ncbi.nlm.nih.gov/nuccore/MT071994.1",
+    "authors": [
+      "Marcus V. Marin",
+      "Nan-Yi Wang",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "National Center for Biotechnology Information, National Library of Medicine",
+    "year": 2020,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "MT071994.1 explicitly links a 443-base ITS1/5.8S/ITS2 sequence to isolate 19-405, Cannabis sativa leaves and cultivar Carmagnola Selezionata; the deposited organism is Curvularia sp. Dataset inference: retain this genus-level deposit label rather than promote the divergent isolate to C. pseudobrachyspora from the article title or leaf appearance."
+    ]
+  },
+  {
+    "sourceKey": "https://www.ncbi.nlm.nih.gov/nuccore/MT085362.1",
+    "title": "GenBank MT085362.1: Curvularia sp. strain 19-405 GAPDH gene, partial cds",
+    "organization": "NCBI GenBank / University of Florida direct submission",
+    "url": "https://www.ncbi.nlm.nih.gov/nuccore/MT085362.1",
+    "authors": [
+      "Marcus V. Marin",
+      "Nan-Yi Wang",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "National Center for Biotechnology Information, National Library of Medicine",
+    "year": 2020,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "MT085362.1 identifies a 476-base partial GAPDH record for strain 19-405, from leaf spot on Cannabis sativa cv. Carmagnola Selezionata in Florida, collected in 2019; the organism remains Curvularia sp. Dataset inference: accession, version, locus and strain are linked provenance, not an analytical result for a new photograph."
+    ]
+  },
+  {
+    "sourceKey": "https://www.ncbi.nlm.nih.gov/nuccore/MT085366.1",
+    "title": "GenBank MT085366.1: Curvularia sp. strain 19-405 translation elongation factor gene, partial cds",
+    "organization": "NCBI GenBank / University of Florida direct submission",
+    "url": "https://www.ncbi.nlm.nih.gov/nuccore/MT085366.1",
+    "authors": [
+      "Marcus V. Marin",
+      "Nan-Yi Wang",
+      "Jacqueline Coburn",
+      "Johan Desaeger",
+      "Natalia A. Peres"
+    ],
+    "publisher": "National Center for Biotechnology Information, National Library of Medicine",
+    "year": 2020,
+    "accessedDate": "2026-10-21",
+    "supportedClaims": [
+      "MT085366.1 identifies an 828-base partial translation elongation factor sequence for strain 19-405 from hemp leaf spot in Florida in 2019 and retains Curvularia sp. as the organism. Dataset inference: the direct record resolves this locus-to-strain mapping, while species assignment and linkage to any pictured lesion still require independent evidence."
+    ]
+  },
+  {
     "sourceKey": "https://www.npdn.org/newsletter/2024/05/rust_hubb_new_blast_searchable_online_tool_identification_rust_fungi",
     "title": "Rust HUBB - A new BLAST searchable online tool for identification of rust fungi",
     "organization": "National Plant Diagnostic Network",

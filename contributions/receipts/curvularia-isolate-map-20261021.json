@@ -1,0 +1,49 @@
+{
+  "base_commit": "b0f88484a7ed1bcffc5073f1b10d6fdbabe6bd62",
+  "branch": "work/grow-doc/GD-DIAG-001/curvularia-isolate-map-20261021",
+  "changed_paths": [
+    "data/profiles/fungal-curvularia-leaf-spot.json",
+    "src/data/expanded-issues.ts"
+  ],
+  "contribution_id": "curvularia-isolate-map-20261021",
+  "head_commit": "758fea932a5550332741e24e7c0f31f7bae8a105",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://www.ncbi.nlm.nih.gov/nuccore/MT071994.1",
+    "https://www.ncbi.nlm.nih.gov/nuccore/MT085362.1",
+    "https://www.ncbi.nlm.nih.gov/nuccore/MT085366.1"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/supplemental-data-quality.test.ts",
+    "src/lib/catalog-accuracy-expansion.test.ts"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main b0f8848, instructions, active task/claims, canonical weakest-coverage records, schemas/types, scripts/workflows, recent history and open PRs. Added three primary GenBank record citations and three bounded claims to the Curvularia profile, plus a versioned reference-isolate confirmation map. Fresh NCBI E-Utilities efetch query https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=nuccore&id=MT071994,MT085362,MT085366&rettype=gb&retmode=text retrieved the three full author-submitted records; response SHA256 690363af88be95aff4e06bfc33f7c74a9499b0c202c7b0bc877e59b47744f7fb. Direct nuccore pages were inaccessible through web retrieval; NCBI Entrez skill succeeded after installing its requests dependency only in a temporary directory. Versioned records explicitly identify 19-405, loci and host; all retain Curvularia sp. rather than a resolved species. GenBank record dates are not asserted to be article publication dates. Primary article grouped ranges remain unchanged; no isolate mappings fabricated for other isolates. A reference sequence does not establish identity or causality for a new leaf image. Other 62 profiles, all prior source claims and all 99 media unchanged; sources 221 to 224, vision-training-eligible zero. No media or license grants added, no sequence files committed. Existing paired-surface, distribution, progression, culture, molecular confirmation and human-review limits retained. All 68 local command requirements resolved green: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Full runner found only a stale two-source catalog assertion; updated to five and all 295 tests plus type/build passed. Tests retain media/species safeguards and assert the versioned mapping and unresolved deposit label. Two serial artifact freezes matched; the comparison helper initially sliced unrelated preceding test text and was corrected without data changes; actual pins synchronized and 191 text rows retained. Five supplemental artifact/evaluator tests and actual corroboration builder/filter/decision flow passed: four decisions, 100 discovery, 28 priority, 72 exclusions, no promotion. Checks include syntax/schema/parity, URL syntax, IDs, duplicates, labels, claim links and leakage; not every historical URL fetched. Exact-head hosted workflows including PHP lint and fresh main/head/parent/tree gate required before squash. Claim excluded and released after merge. No actual human/expert/lab review, model run or production deployment. Cryptic-species interpretation, new-case specimen linkage, licensed confirmed progression images and diagnostic video remain gaps."
+}

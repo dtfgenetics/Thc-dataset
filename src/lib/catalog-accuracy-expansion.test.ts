@@ -65,7 +65,7 @@ describe('canonical diagnostic catalog accuracy expansion', () => {
     const evidence = record.confirmation.join(' ').toLowerCase()
     expect(record.reviewStatus).toBe('reviewed')
     expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
-    expect(record.sources).toHaveLength(2)
+    expect(record.sources).toHaveLength(5)
     expect(record.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)
     expect(record.indicators).toHaveLength(8)
     expect(record.exclusions).toHaveLength(10)
