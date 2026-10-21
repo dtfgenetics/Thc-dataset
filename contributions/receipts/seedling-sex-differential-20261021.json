@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "seedling-sex-differential-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "3fc07b7b4758c8d3fcda6e336f5894362e41e8d9",
+  "head_commit": "1852b96ea2be26f5a2065d2b03d1defdbc50891a",
+  "branch": "work/grow-doc/GD-DIAG-001/seedling-sex-differential-20261021",
+  "changed_paths": ["src/data/issues.ts", "data/profiles/normal-sex-expression.json"],
+  "source_ids": ["https://doi.org/10.1139/cjb-2024-0129"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  },
+  "related_release_paths": ["data/diagnostic-profiles.csv", "data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/export-manifest.json", "data/manifest.json", "data/model-training-readiness.json", "data/profiles/index.json", "data/sources.json", "data/splits/manifest.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts"],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 3fc07b7, AGENTS, task/claims, recent merges, open PRs, canonical/exported records, schemas, exporter, quality checks and CI. Identified a missing primary seedling-treatment differential in the Normal development sex-expression profile. New source DOI 10.1139/cjb-2024-0129 verified from publisher metadata and the published article PDF distributed by Biodiversity Literature Repository/Plazi at https://zenodo.org/records/15809510/files/source.pdf?download=1. Read published Abstract, Methods Part 1, discussion and Article history/copyright. Version of record 2025-05-13 distinguished from accepted manuscript 2025-03-14 and inaccurate generic Zenodo January timestamp. Full title, three authors, institutional affiliation, publisher, DOI, publication/access dates and two exact claims recorded. One seedling-assay differential capture step links treatment, dark germination, age, plant ID and separate organ measurements; interpretive safeguards explicitly labeled dataset inferences. No dosing or production treatment recommendation imported. Existing flower-organ classification, distribution, maturity context, confounders, exclusion checks, confirmation, 0.40 ceiling and human-review flags unchanged. This is not a validation of camera-only sex or ethylene-injury diagnosis. No media/reference image/video added or copied to repository; no new license record. Scope comparison verifies the other 62 profiles and all 96 existing media unchanged, and all six previous citations in this profile preserved. Unique evidence sources 215 to 216; media 96, vision-training-eligible zero. Current counts synchronized without changing historical snapshots. Focused regression failed before enrichment then all 38 tests passed. All 68 local commands passed: 62 package validators, type check, 295 app tests, build, 108 Python tests, artifact verification and diff check. Two serial complete artifact locks identical; actual pins updated while 153 SFT plus 38 grounded QA remains 191 rows. Five supplemental evaluator/artifact self-tests passed. Actual corroboration builder/filter/decision workflow passed with four prior decisions retained, 100 discovery, 28 priority, 72 cross-profile exclusions and no promotion. Checks include JSON/CSV parity, schema, URL syntax, IDs, duplicates, labels, source-claim links and leakage. Source DOI/publisher metadata and published-PDF mirror checked; not all historical URLs fetched. Exact-head hosted workflows including PHP lint and fresh main/head/parent/tree gate required before squash. Claim excluded and released after merge. No actual human/expert/lab review, model training or production deployment. Remaining gaps include independently labeled longitudinal reproductive imagery and diagnostic video; seedling-only, treatment-unlinked and organ-ambiguous samples retain human-review flags."
+}

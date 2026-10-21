@@ -71,6 +71,10 @@
     {
       "stage": "Maturation and distribution update",
       "description": "Pistillate stigmas can curl and shift toward brown or red as carpels and bracts swell; staminate flowers can release pollen. Update the label only for mapped organs and dates rather than treating maturation color or an earlier negative view as proof of future expression."
+    },
+    {
+      "stage": "Seedling assay differential",
+      "description": "A seven-day dark-germination ethephon assay produced shorter radicles and shorter, thicker hypocotyls without exaggerated apical hooks. This is a treatment-linked seedling growth response, not a floral-sex classifier. For image/video review retain germination age, light history, treatment/control identity, plant ID and separate radicle/hypocotyl measurements; later sex-expression labels still require mapped reproductive organs. These capture safeguards are dataset inferences, not evidence that an untreated production seedling has ethylene injury."
     }
   ],
   "lookAlikes": [
@@ -270,6 +274,25 @@
         "The experiments used CFX-2 hemp and selected the five earliest-flowering males from ten tagged males per experiment; this single-cultivar sampling does not calibrate pollen function in every genotype or co-sexual flower.",
         "Paired modified-Alexander-stain non-abortion estimates did not significantly predict in vitro germination in the reported linear model; an intact-cytoplasm stain result must not be relabeled as a germination rate or proven fertilization.",
         "The germination assay counted rehydrated grains with protruding pollen tubes after 24 hours at 28 °C; burst grains were tallied separately and excluded from totals, and clumped grains were excluded because their status could not be resolved."
+      ]
+    },
+    {
+      "title": "Ethylene sensitivity assay in medicinal and fiber-type Cannabis seedlings reveals a triple-response-like phenotype",
+      "organization": "Université Laval and Université Catholique de Lyon; Botany",
+      "authors": [
+        "Adrian S. Monthony",
+        "Marilou Ledeuil",
+        "Davoud Torkamaneh"
+      ],
+      "publisher": "Canadian Science Publishing",
+      "url": "https://doi.org/10.1139/cjb-2024-0129",
+      "doi": "10.1139/cjb-2024-0129",
+      "publicationDate": "2025-05-13",
+      "year": 2025,
+      "accessedDate": "2026-10-21",
+      "supportedClaims": [
+        "Dark-grown ethephon-treated hemp and drug-type Cannabis seedlings showed hypocotyl and radicle shortening with hypocotyl thickening, without an exaggerated apical hook. This was a controlled ethylene-response assay, not a production-plant injury diagnosis.",
+        "The assay held sealed, upright dishes in darkness for seven days and measured seedling growth endpoints. Dataset inference: retain germination, light and treatment context separately from later flower-organ observations; these endpoints do not establish a seedling floral-sex label."
       ]
     }
   ],
