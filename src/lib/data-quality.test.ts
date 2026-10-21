@@ -4,6 +4,23 @@ import { issues as catalogIssues } from '../data/catalog'
 import { isDisplayableMedia } from './media'
 
 describe('diagnostic dataset quality gates', () => {
+  it('bounds rust tissue-localization evidence to the tested hosts and preparation controls', () => {
+    const record = catalogIssues.find((issue) => issue.id === 'fungal-hemp-rust')!
+    const study = record.sources.find((item) => item.doi === '10.1186/s13007-016-0137-3')!
+    expect(study?.publicationDate).toBe('2016-07-27')
+    expect(study?.accessedDate).toBe('2026-10-20')
+    expect(study?.authors).toHaveLength(5)
+    expect(study?.supportedClaims).toHaveLength(3)
+    expect(study?.supportedClaims.join(' ')).toContain('not Cannabis')
+    expect(study?.supportedClaims.join(' ')).toContain('one of five')
+    expect(study?.supportedClaims.join(' ')).toContain('purple reaction product')
+    expect(record.confirmation.join(' ')).toContain('negative ISH image alone')
+    expect(record.warnings.join(' ')).toContain('not a validated hemp-rust assay')
+    expect(record.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.25)
+    expect(record.media).toHaveLength(1)
+    expect(record.media[0].trainingPermission).toBe('not-permitted')
+    expect(record.media[0].trainingEligible).toBe(false)
+  })
   it('separates photoperiod reversion from heat-specific inflorescence injury', () => {
     const record = issues.find((issue) => issue.slug === 'heat-light-stress')!
     const study = record.sources.find((item) => item.doi === '10.1016/j.indcrop.2025.121442')!
