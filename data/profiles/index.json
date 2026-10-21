@@ -559,8 +559,8 @@
       "category": "Insect",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
-      "mediaCount": 1,
+      "sourceCount": 7,
+      "mediaCount": 3,
       "path": "data/profiles/pest-rice-root-aphid.json"
     },
     {
