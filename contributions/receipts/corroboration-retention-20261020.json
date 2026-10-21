@@ -1,0 +1,34 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "corroboration-retention-20261020",
+  "task_id": "GD-SYS-005",
+  "lane": "system",
+  "base_commit": "b44da826ec418ffec5e94821563482f2c7044473",
+  "head_commit": "024b079262ed1f22cadd5af8aae1a0977cfeeaae",
+  "branch": "work/grow-doc/GD-SYS-005/corroboration-retention-20261020",
+  "changed_paths": [
+    ".github/workflows/corroboration-review.yml",
+    "contributions/tasks.json",
+    "scripts/build-corroboration-review-queue.py"
+  ],
+  "source_ids": [],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "tests/test_corroboration_queue_retention.py"
+  ],
+  "validation": {
+    "completed": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims",
+      "validate:grow-doc-task-registry"
+    ],
+    "required": [
+      "validate:grow-doc-contributions",
+      "validate:grow-doc-claims",
+      "validate:grow-doc-task-registry"
+    ]
+  },
+  "scope_note": "Authorized engineering repair for the deterministic corroboration queue failure reported on PR 656. Inspected current main, AGENTS, task registry/claims, actual failed workflow logs and queue builder/filter/decision validator. Reproduced the unchanged Serratia reject decision at rank 101 outside a 100-row cap. Preserve exact currently eligible reviewed source/claim pairs within the existing capacity; fill remaining slots by existing rank. Source identity, normalized claim binding, similarity thresholds, noise filter, decision validator and training/corroboration ineligibility remain enforced. Missing or changed source/claim pairs are never synthesized; overflow fails explicitly. Existing four review decisions remain byte-identical. Five new regression tests failed on the missing retention argument and passed after repair, covering cutoff, reversed orientation, changed claim/source, overflow and ordinary ranking. Actual generation/filter/decision workflow passes all four decisions, with zero automatic merges or promotions. Added regression execution and path triggers to hosted workflow. Complete 68-command validation previously passed on the identical repair alongside the dataset batch, including 295 application tests and 108 Python tests. PR 656 was merged independently as b44da826ec418ffec5e94821563482f2c7044473 while repair verification was running, without this repair. Rebased the repair onto that main commit with its own system task, branch and receipt; final complete validation and current-commit hosted checks required before merge. No dataset claims, sources, media, licenses, labels, model weights or training admission changes in this system fix. No external messages, paid compute or production deployment. Operational claim is excluded from commits and released after integration. Scientific/media, GPU, administration and deployment requirements remain separate from this queue repair."
+}

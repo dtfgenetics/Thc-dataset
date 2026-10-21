@@ -2,6 +2,18 @@
   "schema_version": "grow-doc-task-registry-v2",
   "tasks": [
     {
+      "id": "GD-SYS-005",
+      "lane": "system",
+      "priority": "P0",
+      "status": "active",
+      "title": "Preserve valid reviewed pairs through discovery queue ranking changes",
+      "evidence_gap": "New evidence can push an unchanged reviewed pair beyond the discovery cutoff and invalidate prior review history.",
+      "dependencies": [],
+      "allowed_paths": ["scripts/build-corroboration-review-queue.py", ".github/workflows/corroboration-review.yml", "contributions/"],
+      "required_validators": ["validate:grow-doc-contributions", "validate:grow-doc-claims", "validate:grow-doc-task-registry"],
+      "definition_of_done": ["exact live reviewed pairs retained within queue capacity", "stale source or claim identities never synthesized", "overflow fails explicitly", "existing review and training eligibility gates preserved", "cutoff regression tests and actual decision validation pass"]
+    },
+    {
       "id": "GD-SYS-004",
       "lane": "system",
       "priority": "P1",

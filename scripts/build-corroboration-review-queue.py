@@ -18,6 +18,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / "data/diagnostic-profiles.jsonl"
 DEFAULT_OUTPUT = ROOT / "model_tuning/generated/corroboration/review_queue_v1.jsonl"
 DEFAULT_DISCOVERY_OUTPUT = ROOT / "model_tuning/generated/corroboration/discovery_queue_v1.jsonl"
+DEFAULT_DECISIONS = ROOT / "model_tuning/reviews/corroboration_decisions_v1.jsonl"
 DOI_RE = re.compile(r"^10\.\d{4,9}/\S+$", re.IGNORECASE)
 BOILERPLATE_RE = re.compile(r"\b(copyright|license|licensed under|terms of use|diagnostic policy|privacy policy)\b", re.IGNORECASE)
 
@@ -126,6 +127,14 @@ def candidate_pairs(profiles: list[dict], min_jaccard: float, min_sequence: floa
     return [unique[k] for k in sorted(unique)]
 
 
+def review_pair_key(row: dict) -> tuple:
+    """Bind each exact normalized claim to its source, independent of pair orientation."""
+    return (row.get("profile_id") or "", frozenset({
+        (row.get("source_a_id") or row.get("source_a", {}).get("canonical_source_id") or "", norm(row.get("claim_a") or "")),
+        (row.get("source_b_id") or row.get("source_b", {}).get("canonical_source_id") or "", norm(row.get("claim_b") or "")),
+    }))
+
+
 def discovery_pairs(
     profiles: list[dict],
     strict_jaccard: float,
@@ -133,6 +142,7 @@ def discovery_pairs(
     discovery_jaccard: float,
     discovery_sequence: float,
     top_k: int,
+    reviewed_decisions: list[dict] | tuple = (),
 ) -> list[dict]:
     """Rank near matches below strict thresholds without upgrading their evidence status."""
     out = []
@@ -170,7 +180,21 @@ def discovery_pairs(
             norm(row["claim_b"]),
         )
     )
-    return rows[:top_k]
+    if top_k < 1:
+        raise ValueError("discovery budget must be positive")
+    reviewed_keys = {review_pair_key(row) for row in reviewed_decisions}
+    retained = [row for row in rows if review_pair_key(row) in reviewed_keys]
+    if len(retained) > top_k:
+        raise ValueError("live reviewed pairs exceed discovery budget; increase capacity explicitly")
+    # Only current pairs that passed the existing thresholds can be retained. A stale
+    # decision is never used to synthesize a candidate; downstream validation rejects it.
+    remaining = top_k - len(retained)
+    selected_keys = {review_pair_key(row) for row in retained}
+    for row in rows:
+        if remaining and review_pair_key(row) not in selected_keys:
+            selected_keys.add(review_pair_key(row))
+            remaining -= 1
+    return [row for row in rows if review_pair_key(row) in selected_keys]
 
 
 def load_jsonl(path: pathlib.Path) -> list[dict]:
@@ -235,6 +259,7 @@ def main() -> int:
     parser.add_argument("--discovery-min-jaccard", type=float, default=0.10)
     parser.add_argument("--discovery-min-sequence", type=float, default=0.25)
     parser.add_argument("--discovery-top-k", type=int, default=100)
+    parser.add_argument("--reviewed-decisions", type=pathlib.Path, default=DEFAULT_DECISIONS)
     parser.add_argument("--check-only", action="store_true")
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
@@ -250,6 +275,7 @@ def main() -> int:
         args.discovery_min_jaccard,
         args.discovery_min_sequence,
         args.discovery_top_k,
+        reviewed_decisions=load_jsonl(args.reviewed_decisions),
     )
     if not args.check_only:
         write_jsonl(args.output, rows)
