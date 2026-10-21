@@ -96,7 +96,8 @@
     "Keep compatible root-ball morphology, verified restricted rooting volume, irrigation nonuniformity, salinity, hypoxia, infectious or nematode findings, post-transplant persistence, and causally attributed container-restriction injury as separate labels.",
     "For post-repotting decline, pair dated root views with old/new container dimensions, drainage and center/perimeter wetting records. Firm, pale roots are inspection context, not a laboratory-negative pathogen result; retain disease testing when indicated.",
     "For field transplants, pair the former plug boundary with a scaled surrounding soil-profile view and cultivation-depth history. Record whether roots remain in the old plug or encounter a deeper compacted layer; separate these observations from canopy drought and test moisture and root-health alternatives independently.",
-    "For quantitative root-distribution records, retain species, container geometry, image modality, region definitions, resolution and segmentation masks; distinguish volumetric measurements from surface-only root-ball photographs and do not impute unseen fine roots."
+    "For quantitative root-distribution records, retain species, container geometry, image modality, region definitions, resolution and segmentation masks; distinguish volumetric measurements from surface-only root-ball photographs and do not impute unseen fine roots.",
+    "Keep measured leaf area and leaf-area-based gas exchange separate, with leaf age, canopy position, developmental stage, rooting volume, moisture, nutrients and temperature controls. This annotation inference uses a sweet-pepper experiment, not Cannabis validation; root-ball or canopy images cannot establish sink limitation or a physiological rate."
   ],
   "immediateActions": [
     "Preserve and document at least one intact symptomatic root ball and one matched comparison before cutting, teasing, washing, transplanting, or changing irrigation.",
@@ -234,6 +235,27 @@
       "accessedDate": "2026-10-18",
       "supportedClaims": [
         "Figure 2 is credited to Gordon Jones and captioned as rootbound hemp after poor starts or transplanting. Its single root close-up is an institutional morphology reference, not a paired disease exclusion, moisture assay, time series, or confirmed causal injury sample; no item-level reuse permission is stated."
+      ]
+    },
+    {
+      "title": "Revisiting Plant Responses to Root Volume Restriction: From Leaf Acclimation to Whole Plant Growth",
+      "organization": "Physiologia Plantarum; Chinese Academy of Agricultural Sciences and Wageningen University",
+      "url": "https://doi.org/10.1111/ppl.70716",
+      "authors": [
+        "Yuan Wen",
+        "Yuqi Zhang",
+        "Ep Heuvelink",
+        "Siqi Zhang",
+        "Tao Li"
+      ],
+      "publisher": "Wiley on behalf of the Scandinavian Plant Physiology Society",
+      "publicationDate": "2025-12-28",
+      "year": 2025,
+      "accessedDate": "2026-10-21",
+      "doi": "10.1111/ppl.70716",
+      "supportedClaims": [
+        "A 90-day sweet-pepper experiment varied rooting volume using nylon-mesh inner pots inside equal-volume outer pots while controlling water, nutrient and temperature effects. This is Capsicum annuum research, not a Cannabis diagnostic or container-size trial.",
+        "Smaller rooting volume reduced leaf area and biomass, while leaf-area-based photosynthesis rarely changed except in the middle canopy at late anthesis; the authors inferred sink limitation. Dataset transfer inference: reduced canopy size does not establish reduced photosynthesis per unit leaf area or a universal Cannabis restriction mechanism."
       ]
     }
   ],
