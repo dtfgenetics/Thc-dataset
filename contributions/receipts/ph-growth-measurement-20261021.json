@@ -1,0 +1,20 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "ph-growth-measurement-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "c37424604e2aca6dfdb16947eff7294726719538",
+  "head_commit": "b97107a4f15a6244a10f45e7d71533a1988cd55f",
+  "branch": "work/grow-doc/GD-DIAG-001/ph-growth-measurement-20261021",
+  "changed_paths": ["data/profiles/root-ph-extreme.json", "src/data/issues.ts"],
+  "source_ids": ["https://doi.org/10.1002/agg2.70044"],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"],
+    "required": ["validate:diagnostic-profiles", "validate:sources", "validate:data-release"]
+  },
+  "related_release_paths": ["data/diagnostic-profiles.json", "data/diagnostic-profiles.jsonl", "data/sources.json", "model_tuning/README.md", "model_tuning/config/qlora_8b.yaml", "src/lib/data-quality.test.ts", "src/lib/coverage-audit.test.ts"],
+  "scope_note": "Agent evidence review 2026-10-21. Inspected fresh main c374246, AGENTS, active task/claims, recent merges, open PRs, schemas, canonical/exported records, exporter, validators and CI before edits. Root-pH profile has zero media and 22 mappings. Primary publisher indexed Methods/Experiment 1 of Veazie et al. (2025), DOI 10.1002/agg2.70044, verified independently through two search systems: height from pot rim to apical meristem; diameter based on widest and perpendicular measurements; endpoints collected at final harvest. Added one exact source-linked measurement claim and explicitly labeled dataset inference, refreshing access date only; original bibliography and publication date retained. Added one image/video capture context stage separating height and two canopy spans, persistent plant ID, date, units, camera orientation/in-plane scale, calibrated pH/EC and same-cultivar control. No numerical formula inferred from ambiguous typesetting, no pixel-to-biomass conversion, disease clock or photo-only pH classifier asserted. Existing symptoms, leaf-age context, confounders, exclusion checks, confirmation requirements, unknown-media rights state, human-review flags and 0.15 confidence ceiling preserved. Scope comparison verified only root-ph-extreme changed among 63 profiles and all media unchanged. Mappings 22 to 23, one existing citation enriched; no new source/media/license or binary. Totals remain 215 sources, 95 references and zero vision-training-eligible samples. Focused regression failed before change then 38 tests passed. Full 68-command suite passed all except one stale access-date/claim-count assertion; corrected that expectation and complete application suite then passed 295 tests in 26 files. All 62 package validation commands, type check, build, 108 Python tests, artifact verifier and diff check passed. Two serial complete artifact locks identical; actual manifest pins updated, 153 SFT plus 38 grounded QA still 191 rows. Five evaluator/artifact self-tests passed. Actual corroboration workflow retained four decisions with 100 discovery candidates, 28 priority, 72 cross-profile exclusions and zero promotion. Validation covers schema, JSON/CSV release parity, IDs, duplicate detection, labels, source-claim links, URL syntax and leakage. Primary indexed Methods retrieved; no claim of full figure rights review or all historical URLs fetched. Receipt/claim validators and exact-head hosted checks including PHP lint required before squash; live base/head/parent/tree freshness required. Operational claim excluded and released after integration. No actual human/expert/laboratory review, model training or production deployment. Remaining gaps: plant-linked licensed pH exposure images/video and independently confirmed causal samples."
+}
