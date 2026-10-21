@@ -1893,6 +1893,28 @@
     ]
   },
   {
+    "sourceKey": "10.1111/ppl.70716",
+    "title": "Revisiting Plant Responses to Root Volume Restriction: From Leaf Acclimation to Whole Plant Growth",
+    "organization": "Physiologia Plantarum; Chinese Academy of Agricultural Sciences and Wageningen University",
+    "url": "https://doi.org/10.1111/ppl.70716",
+    "authors": [
+      "Yuan Wen",
+      "Yuqi Zhang",
+      "Ep Heuvelink",
+      "Siqi Zhang",
+      "Tao Li"
+    ],
+    "publisher": "Wiley on behalf of the Scandinavian Plant Physiology Society",
+    "publicationDate": "2025-12-28",
+    "year": 2025,
+    "accessedDate": "2026-10-21",
+    "doi": "10.1111/ppl.70716",
+    "supportedClaims": [
+      "A 90-day sweet-pepper experiment varied rooting volume using nylon-mesh inner pots inside equal-volume outer pots while controlling water, nutrient and temperature effects. This is Capsicum annuum research, not a Cannabis diagnostic or container-size trial.",
+      "Smaller rooting volume reduced leaf area and biomass, while leaf-area-based photosynthesis rarely changed except in the middle canopy at late anthesis; the authors inferred sink limitation. Dataset transfer inference: reduced canopy size does not establish reduced photosynthesis per unit leaf area or a universal Cannabis restriction mechanism."
+    ]
+  },
+  {
     "sourceKey": "10.1139/cjb-2024-0129",
     "title": "Ethylene sensitivity assay in medicinal and fiber-type Cannabis seedlings reveals a triple-response-like phenotype",
     "organization": "Université Laval and Université Catholique de Lyon; Botany",

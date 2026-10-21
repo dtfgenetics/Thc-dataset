@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "root-volume-context-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "82176ef37154c19793b5304ca5eaf9fb1f18f502",
+  "head_commit": "99c0a4296481a96d2b9e1aae7fd3cfa1e5801ef3",
+  "branch": "work/grow-doc/GD-DIAG-001/root-volume-context-20261021",
+  "changed_paths": [
+    "src/data/expanded-issues.ts",
+    "data/profiles/root-binding-container-stress.json"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1111/ppl.70716"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/coverage-audit.test.ts"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 82176ef, AGENTS/task claims, recent merges, open PRs, current main workflows, schemas, source/media coverage, canonical records and release scripts. Added two bounded primary evidence mappings and one linked measurement-context instruction to root-binding/container stress. Primary publisher abstract and metadata verified at https://onlinelibrary.wiley.com/doi/abs/10.1111/ppl.70716 and independently indexed author abstract at https://pubmed.ncbi.nlm.nih.gov/41457430/ . Full title, five authors, DOI, publisher, online publication December 28 2025 and access date recorded; January/February 2026 issue distinguished from first publication. Explicit sweet-pepper transfer evidence, not Cannabis trial or camera validation. The controlled experiment provides a counterexample to assuming a universal leaf-area-based photosynthetic mechanism from smaller growth; existing meta-analysis claims retained rather than overwritten. Separate structural images from measured physiological quantities and preserve host, leaf age, position, stage and environmental controls. No Cannabis threshold, universal mechanism, symptom clock or treatment efficacy imported. Other 62 profiles, six prior sources in this profile and all 97 media unchanged. Profile claims 19 to 21; unique evidence sources 217 to 218; profiles 63 and vision-training-eligible zero. No new media, copied figures or license grants. Two stale exact-count test expectations corrected to current source/instruction totals with non-Cannabis and image-inference safeguards asserted; all 63 focused tests then passed. All 68 local commands passed, including 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Two serial complete artifact freezes identical; actual pins refreshed with 153 SFT and 38 supplied-claim grounded QA rows unchanged at 191. Five supplemental evaluator/artifact self-tests and actual corroboration builder/filter/decision flow passed: 100 discovery, 28 priority, 72 exclusions, four prior decisions retained and no promotion. Validation includes JSON/CSV parity, schemas, IDs, duplicate/label consistency, source-to-claim links, URL syntax and leakage; not all historical URLs fetched. Exact-head hosted workflows including PHP lint and fresh main/head/parent/tree gate required before squash; operational claim excluded and released after merge. No actual human/expert/lab review, model training or deployment. Remaining root-binding gaps include confirmed plant-linked Cannabis progression imagery and video; non-Cannabis, root-unlinked or physiologically unmeasured samples retain review flags."
+}
