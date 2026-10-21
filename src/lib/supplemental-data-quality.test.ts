@@ -726,8 +726,14 @@ describe('supplemental diagnostic catalog quality gates', () => {
     const warnings = record?.warnings.join(' ').toLowerCase() ?? ''
 
     expect(record?.reviewStatus).toBe('reviewed')
+    const deposits = record?.sources.find((source) => source.doi === '10.1139/cjb-2025-0085')
+    expect(deposits?.supportedClaims).toHaveLength(3)
+    expect(deposits?.supportedClaims.join(' ')).toContain('upper-surface')
+    expect(confirmation).toContain('keep young and older tissues separate')
+    expect(warnings).toContain('white deposits do not establish salt composition')
+    expect(record?.lookAlikes).toContain('Powdery mildew or other superficial fungal growth')
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
-    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources).toHaveLength(5)
     expect(record?.sources.some((source) => source.doi === '10.3389/fpls.2024.1293184')).toBe(true)
     const negative = record?.sources.find((source) => source.doi === '10.3389/fpls.2025.1433985')
     expect(negative?.publicationDate).toBe('2025-02-20')

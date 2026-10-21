@@ -211,7 +211,7 @@ describe('diagnostic coverage audit', () => {
 
     expect(record).toBeTruthy()
     expect(record?.photoOnlyMaxConfidence).toBeLessThanOrEqual(0.2)
-    expect(record?.sources).toHaveLength(4)
+    expect(record?.sources).toHaveLength(5)
     expect(record?.sources.filter((source) => source.doi === '10.3389/fpls.2025.1433985')).toHaveLength(1)
     expect(record?.indicators.length).toBeGreaterThanOrEqual(8)
     expect(record?.exclusions.length).toBeGreaterThanOrEqual(8)
