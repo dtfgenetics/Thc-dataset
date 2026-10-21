@@ -605,7 +605,12 @@ describe('diagnostic dataset quality gates', () => {
   it('keeps pH root-window measurements distinct from biomass and serial imagery', () => {
     const record = issues.find((issue) => issue.id === 'root-ph-extreme')!
     const source = record.sources.find((item) => item.doi === '10.1002/agg2.70044')!
-    expect(source.accessedDate).toBe('2026-10-16')
+    expect(source.accessedDate).toBe('2026-10-21')
+    expect(source.supportedClaims.join(' ')).toContain('pot rim to the apical meristem')
+    const geometry = record.progression.find((item) => item.stage === 'Whole-plant measurement linkage')!.description
+    expect(geometry).toContain('pot-rim-to-apex height')
+    expect(geometry).toContain('widest and perpendicular canopy spans')
+    expect(geometry).toContain('not a validated image-to-biomass conversion')
     expect(source.supportedClaims.join(' ')).toContain('five longest wall-visible roots per chamber')
     expect(source.supportedClaims.join(' ')).toContain('not total root biomass')
     expect(record.progression.find((item) => item.stage === 'Vegetative growth response')?.description).not.toContain('root mass')
