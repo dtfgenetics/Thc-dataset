@@ -7066,6 +7066,7 @@
       "Camera sharpening, compression, or grow-light color artifact"
     ],
     "confirmation": [
+      "Map the scouting route and field areas, plants examined per area, sampled organs, time and search effort before selecting symptom photographs. Record pest and beneficial counts separately with production protection, plant IDs and image/sample links; UNH field guidance supplies a sampling framework, not a thrips-specific statistical guarantee or economic threshold.",
       "Record indicator-plant host, position and observation effort separately from hemp organ inspections and flight traps. Link each image/video and count to its sampled host and site; compare like sampling methods over time, and require plant-linked organisms plus fresh injury before attributing hemp damage.",
       "Record starting infestation or exposure separately from contemporaneous plant, organ and trap counts, and retain substrate and biostimulant history. The preliminary study compared individual-plant starting treatments in two substrates; a photographed count or old scar cannot be substituted for its treatment assignment or used to predict fresh yield.",
       "Inspect both leaf surfaces, veins, folds, growing tips, and flowers with at least a 10× hand lens; record whether scars, dark fecal spots, larvae, adults, and shed skins occur together.",
@@ -7175,6 +7176,17 @@
           "CSU recommends above-canopy blue or yellow traps to capture thrips in flight and direct plant inspection or tapping over white paper; its multi-crop guide records onion thrips on indoor hemp but does not establish a Cannabis-specific sampling interval or economic threshold.",
           "CSU reports that adults and feeding larvae crawl when disturbed. Dataset video-annotation inference: distinguish undisturbed observation from handling or tapping, and keep crawling on tissue separate from above-canopy flight captures; motion alone does not identify species or demonstrate feeding.",
           "CSU notes that indicator plants can be more attractive to thrips than the cultivated crop and can reveal early presence. Dataset inference: indicator-plant detections, flight-trap captures and direct crop-organ counts are not interchangeable hemp infestation-density measurements; an indicator-positive result does not identify the cause of a photographed hemp scar."
+        ]
+      },
+      {
+        "title": "Hemp Pests in New Hampshire",
+        "organization": "University of New Hampshire Cooperative Extension",
+        "url": "https://extension.unh.edu/resource/hemp-pests-new-hampshire",
+        "publisher": "University of New Hampshire Cooperative Extension",
+        "accessedDate": "2026-10-21",
+        "supportedClaims": [
+          "UNH recommends representative hemp scouting at regular intervals, examining 5–10 plants in 5–10 field areas when possible along transects, zig-zags or diamonds, and recording pests, beneficials, injury, photographs and specimens. Dataset inference: these are general field-scouting suggestions, not a validated thrips sample size, detection probability or treatment threshold.",
+          "UNH qualifies its low outdoor thrips economic-impact expectation by the presence of natural predators and contrasts it with potentially impactful unmanaged populations in protected agriculture; it also notes limited New Hampshire hemp-pest data. Dataset inference: document production protection and observed natural enemies rather than infer low risk from an outdoor image or assume absent predators from one frame."
         ]
       }
     ],
