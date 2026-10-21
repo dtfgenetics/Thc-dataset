@@ -4198,6 +4198,7 @@
       "When safe and diagnostically appropriate, split a representative symptomatic stem longitudinally and photograph the pith and any internal sclerotia with scale, keeping it linked to exterior and whole-plant views.",
       "Submit an active lesion margin and representative sclerotia to a plant diagnostic laboratory for microscopy and culture; sample before disposal or a treatment obscures signs.",
       "Use validated molecular evidence to resolve Sclerotinia and species; the Oregon report combined ITS and G3PDH data with phylogeny, pathogenicity, symptom reproduction, and reisolation.",
+      "For South African Figure 1 references, record correction DOI 10.1111/jph.70228, capture/version date and panel identity. Keep unversioned or superseded copies review-only; corrected captions do not establish reuse permission, specimen linkage or a validated visual classifier.",
       "Photograph crown and roots separately, even when roots look symptomless. For inoculation series retain plant age, inoculum placement, elapsed time and controls. Link original and reisolated culture IDs to the sampled plant; published sequence accessions and a two-week assay response do not confirm a new case.",
       "Route symptom-only, detached, species-inferred, unlinked-laboratory, mixed-pathogen, low-resolution, rights-unclear, forum, vendor, stock, or generated images and videos to human review rather than confirmed ground truth."
     ],
@@ -4231,10 +4232,18 @@
         "title": "Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation",
         "organization": "Journal of Phytopathology",
         "url": "https://doi.org/10.1111/jph.70196",
+        "authors": [
+          "Fikile Phatudi",
+          "Wilhelm Botha",
+          "Thando Bhiya",
+          "Elsie Cruywagen",
+          "Shaakir Badat",
+          "Fahimeh Jami"
+        ],
         "publisher": "Wiley",
         "publicationDate": "2025-11-16",
         "year": 2025,
-        "accessedDate": "2026-08-24",
+        "accessedDate": "2026-10-21",
         "doi": "10.1111/jph.70196",
         "supportedClaims": [
           "Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.",
@@ -4297,6 +4306,20 @@
           "The institutional hemp field guide describes white mold as white cottony mycelium on stems with hard dark sclerotia that form on the mycelium and turn black as they mature.",
           "Sclerotia can persist in plant debris, seed, or soil, and wet foliage favors infection; these contextual factors support scouting and confirmation but do not identify an unknown lesion by themselves.",
           "The guide places white mold among overlapping hemp diseases, supporting comparison with gray mold, southern blight, root disease, and noninfectious injury rather than symptom-only ground truth."
+        ]
+      },
+      {
+        "title": "Correction to ‘Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation’",
+        "organization": "Journal of Phytopathology",
+        "url": "https://doi.org/10.1111/jph.70228",
+        "publisher": "Wiley-VCH GmbH / John Wiley & Sons Ltd",
+        "publicationDate": "2026-01-11",
+        "year": 2026,
+        "accessedDate": "2026-10-21",
+        "doi": "10.1111/jph.70228",
+        "supportedClaims": [
+          "The publisher correction names the lead author Fikile Phatudi and replaces Figure 1 of DOI 10.1111/jph.70196; it reports a correction to the same study, not independent replication.",
+          "Replacement Figure 1 maps A to facility symptoms, B to Pythium myriotylum inoculation, C to Fusarium oxysporum, D to Botrytis cinerea, E to Sclerotinia sclerotiorum and F to controls. Dataset inference: preserve the corrected panel identity before considering an image label."
         ]
       },
       {

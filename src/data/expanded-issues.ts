@@ -933,15 +933,28 @@ const sources = {
     title: 'Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation',
     organization: 'Journal of Phytopathology',
     url: 'https://doi.org/10.1111/jph.70196',
+    authors: ['Fikile Phatudi', 'Wilhelm Botha', 'Thando Bhiya', 'Elsie Cruywagen', 'Shaakir Badat', 'Fahimeh Jami'],
     publisher: 'Wiley',
     publicationDate: '2025-11-16',
     year: 2025,
-    accessedDate: '2026-08-24',
+    accessedDate: '2026-10-21',
     doi: '10.1111/jph.70196',
     supportedClaims: [
       'Cannabis samples from an aeroponic facility with wilting, yellowing, white mold, and gray mold were investigated with DNA sequence data and pathogenicity testing.',
       'Sclerotinia sclerotiorum, Botrytis cinerea, Fusarium oxysporum, and Pythium myriotylum were all confirmed capable of causing disease, demonstrating strong visual overlap among mold and wilt syndromes.',
       'Sclerotinia diagnosis therefore requires organism-level evidence rather than white mold appearance alone.',
+    ],
+  }),
+  sclerotiniaCorrection: source({
+    title: 'Correction to ‘Emerging Fungal and Oomycete Diseases of Cannabis in South Africa: First Reports and Pathogenicity Confirmation’',
+    organization: 'Journal of Phytopathology',
+    url: 'https://doi.org/10.1111/jph.70228',
+    publisher: 'Wiley-VCH GmbH / John Wiley & Sons Ltd',
+    publicationDate: '2026-01-11', year: 2026, accessedDate: '2026-10-21',
+    doi: '10.1111/jph.70228',
+    supportedClaims: [
+      'The publisher correction names the lead author Fikile Phatudi and replaces Figure 1 of DOI 10.1111/jph.70196; it reports a correction to the same study, not independent replication.',
+      'Replacement Figure 1 maps A to facility symptoms, B to Pythium myriotylum inoculation, C to Fusarium oxysporum, D to Botrytis cinerea, E to Sclerotinia sclerotiorum and F to controls. Dataset inference: preserve the corrected panel identity before considering an image label.',
     ],
   }),
   sclerotiniaOregon: source({
@@ -1896,6 +1909,7 @@ export const expandedIssues: IssueRecord[] = [
       'When safe and diagnostically appropriate, split a representative symptomatic stem longitudinally and photograph the pith and any internal sclerotia with scale, keeping it linked to exterior and whole-plant views.',
       'Submit an active lesion margin and representative sclerotia to a plant diagnostic laboratory for microscopy and culture; sample before disposal or a treatment obscures signs.',
       'Use validated molecular evidence to resolve Sclerotinia and species; the Oregon report combined ITS and G3PDH data with phylogeny, pathogenicity, symptom reproduction, and reisolation.',
+      'For South African Figure 1 references, record correction DOI 10.1111/jph.70228, capture/version date and panel identity. Keep unversioned or superseded copies review-only; corrected captions do not establish reuse permission, specimen linkage or a validated visual classifier.',
       'Photograph crown and roots separately, even when roots look symptomless. For inoculation series retain plant age, inoculum placement, elapsed time and controls. Link original and reisolated culture IDs to the sampled plant; published sequence accessions and a two-week assay response do not confirm a new case.',
       'Route symptom-only, detached, species-inferred, unlinked-laboratory, mixed-pathogen, low-resolution, rights-unclear, forum, vendor, stock, or generated images and videos to human review rather than confirmed ground truth.',
     ],
@@ -1903,7 +1917,7 @@ export const expandedIssues: IssueRecord[] = [
     correctivePlan: ['Base disease management on a plant-linked laboratory result and measures legal and appropriate for the crop, jurisdiction, and production system.', 'Remove confirmed infected material and sclerotia using sanitary handling appropriate to the site; clean tools and surfaces to avoid moving contaminated debris.', 'Reduce avoidable extended tissue wetness and improve drying or airflow where feasible, while recognizing that environmental response does not retrospectively confirm Sclerotinia.'],
     prevention: ['Scout crowns, stem junctions, senescing leaves, and dense flower sites during prolonged wetness, preserving external and internal views when a canker is found.', 'Limit carryover of infected plant debris and sclerotia and maintain sanitation for tools, containers, floors, and production areas appropriate to the system.', 'Keep cultivar, field or room zone, irrigation, canopy-wetness, wound, and prior-disease metadata so recurrent site patterns can be evaluated.'],
     warnings: ['Photo/video-only confidence is capped at 0.30: even white mycelium plus black structures requires verification that the structures are sclerotia on the same actively diseased plant.', 'Sclerotinia sclerotiorum and S. minor overlap visually and must not be separated by canopy appearance, sclerotial size, shape, or infection position alone.', 'Water-soaked lesions, white cottony growth, cankers, wilt, and shoot death each overlap Botrytis, southern blight, Fusarium, Pythium, bacterial decay, injury, and residue.', 'Bud infection is documented by institutional guidance but was absent from the Oregon stem-canker report; it is possible, not required, and must not be inferred from a stem-only view.', 'Exact wetness duration, temperature, disease timing, incidence, and economic loss from one site or experiment are contextual observations rather than universal Cannabis thresholds.', 'The three institutional hemp images below have no explicit item-level reuse or automated-training permission. They are hidden metadata references, no media file is copied, and all remain training-prohibited.', 'No verified diagnostic video or controlled same-plant progression sequence was located; every symptom-only, detached, unlinked, mixed-organism, or rights-unclear sample requires human review.'],
-    sources: [sources.sclerotinia, sources.sclerotiniaOregon, sources.sclerotiniaPnw, sources.sclerotiniaUf],
+    sources: [sources.sclerotinia, sources.sclerotiniaOregon, sources.sclerotiniaPnw, sources.sclerotiniaUf, sources.sclerotiniaCorrection],
     media: [
       {
         id: 'pnw-hemp-sclerotinia-external-canker-2022',
