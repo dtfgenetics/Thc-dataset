@@ -1880,13 +1880,16 @@
     "publisher": "Canadian Science Publishing",
     "publicationDate": "2026-03-03",
     "year": 2026,
-    "accessedDate": "2026-10-07",
+    "accessedDate": "2026-10-21",
     "doi": "10.1139/cjb-2025-0085",
     "supportedClaims": [
       "Hydroponic Cannabis plants developed leaf spots, foliar necrosis and blighting, wilt, and superficial white stem patches that visually resembled pathogen injury.",
       "Culture, whole-genome sequencing, and fungal-specific PCR did not identify a causal fungal or bacterial pathogen; light and scanning electron microscopy plus X-ray microanalysis instead linked white crystalline deposits to salts extruded from non-glandular trichomes.",
       "Excess nutrient-salt treatments reproduced compatible injury, making measured nutrient exposure, crystalline surface deposits, microscopy, and pathogen testing important exclusions before a bacterial-leaf-spot label.",
-      "The observations involved one named production genotype and controlled excess-salt treatments, so their timing, appearance, and severity are not universal Cannabis thresholds."
+      "The observations involved one named production genotype and controlled excess-salt treatments, so their timing, appearance, and severity are not universal Cannabis thresholds.",
+      "Figure 2 shows upper-surface discrete and coalescing leaf lesions near midveins and margins, young-leaf necrosis, and white petiole deposits; Figure 1 also shows powdery stem deposits. These reported salt-associated appearances overlap infectious injury.",
+      "Sampling separated young shoots, stems, petioles and leaves at 10 days after transplanting from older leaves at 20 days, with comparable asymptomatic tissues. Dataset inference: retain tissue age and sampling-event identity in analytical comparisons.",
+      "Methods describe initial symptoms about five days after flowering-room transfer, while Figure 1 compares asymptomatic one-week and symptomatic two-to-three-week views. Dataset inference: these contexts do not establish a tracked individual progression or universal salt-injury clock."
     ]
   },
   {

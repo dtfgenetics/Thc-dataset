@@ -658,7 +658,7 @@
       "category": "Water / root-zone",
       "severity": "moderate",
       "reviewStatus": "reviewed",
-      "sourceCount": 4,
+      "sourceCount": 5,
       "mediaCount": 2,
       "path": "data/profiles/stress-salinity-high-ec.json"
     },
