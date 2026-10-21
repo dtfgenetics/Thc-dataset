@@ -1044,7 +1044,7 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(guide?.supportedClaims.join(' ')).toContain('not demonstrated sources or infection requirements')
     expect(record?.confirmation.join(' ')).toContain('exposure metadata rather than confirmed transmission events')
     const media = record?.media[0]
-    expect(record?.sources).toHaveLength(2)
+    expect(record?.sources).toHaveLength(5)
     expect(record?.sources.some((source) => source.doi === '10.1094/PDIS-03-20-0546-PDN')).toBe(true)
     expect(record?.warnings.join(' ').toLowerCase()).toContain('institutional whole-leaf differential')
     expect(media?.creator).toContain('Marcus Marin')
@@ -1068,6 +1068,15 @@ describe('supplemental diagnostic catalog quality gates', () => {
     expect(study.supportedClaims.join(' ')).toContain('not a defined image-segmentation metric')
     expect(study.supportedClaims.join(' ')).toContain('99.32% ITS, 99.58% GAPDH and 99.88% EF1-alpha')
     expect(record.confirmation.join(' ')).toContain('plants examined and plants with lesions')
+    const deposited = record.sources.filter((item) => item.url.startsWith('https://www.ncbi.nlm.nih.gov/nuccore/'))
+    expect(deposited.map((item) => item.url)).toEqual([
+      'https://www.ncbi.nlm.nih.gov/nuccore/MT071994.1',
+      'https://www.ncbi.nlm.nih.gov/nuccore/MT085362.1',
+      'https://www.ncbi.nlm.nih.gov/nuccore/MT085366.1',
+    ])
+    expect(deposited.every((item) => item.supportedClaims.join(' ').includes('19-405'))).toBe(true)
+    expect(record.confirmation.join(' ')).toContain('Preserve the deposited Curvularia sp. label')
+    expect(record.confirmation.join(' ')).toContain('nor these reference sequences links an untested leaf image')
     expect(record.warnings.join(' ')).toContain('Sequence similarity is not diagnostic confidence')
     expect(study.supportedClaims).toHaveLength(14)
     expect(study.supportedClaims.join(' ')).toContain('no delivered volume per plant or leaf')
