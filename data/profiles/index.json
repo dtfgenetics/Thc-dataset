@@ -493,8 +493,8 @@
       "category": "Nutrient toxicity",
       "severity": "high",
       "reviewStatus": "reviewed",
-      "sourceCount": 3,
-      "mediaCount": 1,
+      "sourceCount": 4,
+      "mediaCount": 2,
       "path": "data/profiles/nut-tox-b.json"
     },
     {

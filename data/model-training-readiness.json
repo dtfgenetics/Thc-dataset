@@ -5,8 +5,8 @@
   "knowledgeLayer": {
     "diagnosticProfiles": 63,
     "materializedProfiles": 63,
-    "evidenceSources": 220,
-    "profileLinkedReferenceMedia": 98,
+    "evidenceSources": 221,
+    "profileLinkedReferenceMedia": 99,
     "status": "complete-for-current-63-profile-taxonomy"
   },
   "visionLayer": {

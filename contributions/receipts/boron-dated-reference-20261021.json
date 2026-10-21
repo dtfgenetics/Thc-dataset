@@ -1,0 +1,47 @@
+{
+  "base_commit": "5eaf6e2e6d0e2185f14583b773b791c48f90d419",
+  "branch": "work/grow-doc/GD-DIAG-001/boron-dated-reference-20261021",
+  "changed_paths": [
+    "data/profiles/nut-tox-b.json",
+    "src/data/issues.ts"
+  ],
+  "contribution_id": "boron-dated-reference-20261021",
+  "head_commit": "b66b113f223f7333ad8bcb128ab9e2a6a0ec2cda",
+  "lane": "diagnostic",
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "source_ids": [
+    "https://hdl.handle.net/1813/113216"
+  ],
+  "task_id": "GD-DIAG-001",
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profile-reference-media.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "scope_note": "Agent research and visual review 2026-10-21. Inspected current main 5eaf6e2, instructions, task claims, schema/types, validators/workflows, coverage and recent changes; no pending routine PR. Added one institutional primary masters-project citation, three bounded mappings and one metadata-only PDF page reference to boron toxicity. Fresh Cornell landing https://ecommons.cornell.edu/entities/publication/55d90f30-4166-4c52-949a-d5d007a62a0d verified author/year/CC BY-NC 4.0; license deed https://creativecommons.org/licenses/by-nc/4.0/ verified. Original download link returned 405 through web retrieval; institutional API content URL downloaded successfully for research. PDF SHA256 707b013a01426bc00fbf72cb5e938dc7fb3fb5d250c4876b938267a0348d978d; read text and visually inspected rendered page 11 (rendered page; render SHA256 0d9773a581c2675749d1511fd91638eca0530ce413e0670a7acb4b18e0054055). Page labels +B leaf scans with three dates and separate plant/close-up/root shots, but lacks individual plant/leaf IDs and image-linked analytical results. Dates do not establish same-organ progression; treatment association is illustrative, not confirmed image ground truth. No source PDF/render/extracted media committed or served. Noncommercial rights recorded; current commercial display/training prohibited pending separate permission. Other 62 profiles and prior claims/media preserved. Sources 220 to 221, references 98 to 99, vision-training-eligible zero. All 68 local check commands resolved green: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Initial test failures found missing canonical slug and a stale media count; a mis-scoped test patch temporarily affected the iron block, was fully restored, then all 295 tests plus type/build passed. Only boron test changed in final diff, preserving prior composite checks and asserting new restrictions/identity limits. Two serial final artifact locks matched; actual pins synchronized; 191 text rows unchanged. Five supplemental artifact/evaluator tests and actual corroboration builder/filter/decision flow passed: four retained decisions, 100 discovery, 28 priority, 72 exclusions, no promotion. Includes syntax/schema/parity, URL syntax, IDs, duplicates, labels, claim links and leakage; not every historical URL fetched. Hosted exact-head CI/PHP lint and fresh live base/head/parent/tree required before squash. No human/expert/lab review, model training or production deployment. Original plant/leaf linkage, boron assay and commercial reuse permission remain human-review gaps; verified diagnostic video remains missing."
+}
