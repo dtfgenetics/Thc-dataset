@@ -238,18 +238,19 @@
       "license": "CC BY-SA 4.0",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Spotted_cucumber_beetle_(72669).jpg",
       "mediaType": "image",
-      "requiredAttribution": "Rhododendrites, “Spotted cucumber beetle (72669),” Wikimedia Commons, CC BY-SA 4.0. Link the license, indicate modifications, and distribute adaptations under the same or a compatible license.",
-      "diagnosticLabel": "spotted-cucumber-beetle — visually identified adult morphology on non-Cannabis vegetation, organism-only scientific-review reference",
+      "requiredAttribution": "Rhododendrites, “Spotted cucumber beetle (72669),” Wikimedia Commons, CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Indicate modifications and distribute adaptations under the same or a compatible license; no endorsement implied.",
+      "diagnosticLabel": "spotted-cucumber-beetle — illustrative adult morphology on non-Cannabis vegetation; visual attribution, not specimen-confirmed ground truth",
       "hostSpecies": "Non-Cannabis vegetation; visually identified Diabrotica undecimpunctata adult",
       "hostContext": "organism-only",
       "useLimitations": [
         "Organism-only non-Cannabis reference; it does not document Cannabis host use, active feeding, injury, crop stage, canopy location, field distribution, progression, severity, or yield effect.",
         "The Commons identification and quality-image assessment do not substitute for a retained specimen or expert/key-based species and subspecies determination in a new observation.",
         "The dorsal-oblique view does not fully resolve ventral abdomen and leg characters and must not be used to separate eastern and western subspecies or similar chrysomelids by spot count alone.",
-        "Keep this media outside Cannabis condition training and evaluation splits; a plant-linked feeding sequence and scientific label review remain required."
+        "Keep this media outside Cannabis condition training and evaluation splits; a plant-linked feeding sequence and scientific label review remain required.",
+        "Agent reference-display review 2026-10-21: original bytes match the recorded SHA256; own-work author and CC BY-SA 4.0 license verified on Commons. Visible yellow-green wing covers, black spots, head and antennae are compatible with the USU adult description (https://extension.usu.edu/planthealth/ipm/notes_ag/hemp-spotted-cucumber-beetle). Approved only as an illustrative dorsal-oblique adult view; no retained specimen, complete key, expert review or Cannabis injury linkage is established."
       ],
       "displayPermission": "permitted",
-      "reviewStatus": "scientific-review",
+      "reviewStatus": "approved-reference",
       "trainingPermission": "permitted",
       "sha256": "f8d038c6885ef1d26b7170ab16f1705a41bda7156051547db63918209d949f6b",
       "perceptualHash": "dhash64:3333c86868e0695c",
@@ -258,7 +259,7 @@
       "view": "close-up",
       "stage": "adult",
       "severity": "not applicable",
-      "confirmation": "visual",
+      "confirmation": "illustrative",
       "trainingEligible": false
     }
   ]
