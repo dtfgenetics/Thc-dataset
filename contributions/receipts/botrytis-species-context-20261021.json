@@ -1,0 +1,45 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "botrytis-species-context-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "096c6af95a8ce8289a25fc8dba5d2306c2ffbab1",
+  "head_commit": "12c27e9a2530feb9c2fea108f440c934d8169bae",
+  "branch": "work/grow-doc/GD-DIAG-001/botrytis-species-context-20261021",
+  "changed_paths": [
+    "data/profiles/fungal-botrytis-bud-rot.json",
+    "src/data/issues.ts"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1080/07060661.2021.1936650"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 096c6af, repository instructions, active task/claims, schemas, canonical records, recent changes, scripts and open PRs. Added one primary citation and two bounded claims to Botrytis gray mold, widened the scientific-name field to acknowledge other Botrytis species, and added specimen/assay confirmation context. Author-institution abstract freshly verified at https://advance.science.sfu.ca/biology/publications/browserecord.php?-action=browse&-recid=23089 ; indexed publisher DOI page verified publication date 2021-06-29, authors and identity; direct publisher access returned 403. Inferences explicitly separated from study results; no prevalence, field-time or visual species rule inferred. Other 62 profiles, all previous source claims and all 98 media unchanged. Sources 219 to 220; 63 profiles and zero vision-training-eligible records. No media downloaded, added, licensed or admitted. Existing visual context, uncertain species review and rights restrictions retained; unresolved species need lesion-linked resolving evidence. All 68 local commands passed: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verifier and diff check. Two serial full artifact locks matched, actual pins synchronized, text mixture remains 191 rows. Five supplementary model/artifact self-tests and actual corroboration builder/filter/decision flow passed, retaining four decisions, 100 discovery, 28 priority and 72 exclusions with no promotion. Scope comparison passed after increasing the read buffer; no data or validation failure. Checks include schemas, JSON/CSV parity, identifiers, duplicate and label consistency, source-claim links, URL syntax and leakage; not every historical URL fetched. Exact-head hosted CI including PHP lint and fresh main/head/parent/tree gate required before squash. Claim excluded and released after merge. No actual human/expert/laboratory review, model run or deployment. Confirmed longitudinal imagery and diagnostic videos remain gaps."
+}
