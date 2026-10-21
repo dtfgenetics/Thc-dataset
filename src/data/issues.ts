@@ -1439,6 +1439,21 @@ const sources: Record<string, SourceRecord> = {
       'The authors state that individual and combined contributions to observed symptoms remain incompletely known and propose single- and mixed-pathogen inoculation to resolve them. Dataset inference: co-detection does not partition causality or prove that one agent caused a particular visible symptom.',
     ],
   },
+  washingtonHempMollicutes: {
+    title: 'First Report of ‘Candidatus Phytoplasma trifolii’ and Spiroplasma citri in Cannabis sativa in Washington State, U.S.A.',
+    organization: 'Washington State University and USDA Agricultural Research Service; Plant Disease',
+    url: 'https://doi.org/10.1094/PDIS-08-25-1736-PDN',
+    authors: ['Camille Wagstaff', 'Christopher J. Gorman', 'Kylie D. Swisher Grimm', 'David W. Crowder'],
+    publisher: 'American Phytopathological Society',
+    publicationDate: '2026-04-01',
+    year: 2026,
+    accessedDate: '2026-10-21',
+    doi: '10.1094/PDIS-08-25-1736-PDN',
+    supportedClaims: [
+      'The 2024 Washington report sampled 38 symptomatic hemp plants at two Prosser research farms, including plants with stem fasciation and purpling; phytoplasma and Spiroplasma were detected and coinfections were common. Dataset inference: this selected sample is not a prevalence survey, and the symptom combination cannot assign a causal agent.',
+      'Following multiplex screening, the study confirmed phytoplasma with 16S rRNA and secY targets and Spiroplasma citri with spiralin sequencing. Dataset inference: preserve each assay target, sampled plant and sequence result separately; an overlapping visual syndrome or generic positive band does not identify both organisms.',
+    ],
+  },
   pnwHempWitchesBroom: {
     title: 'Hemp (Cannabis sativa)-Witches’ Broom',
     organization: 'Pacific Northwest Pest Management Handbooks',
@@ -2970,6 +2985,7 @@ export const issues: IssueRecord[] = [
       'Record assay target and primer set, controls, amplification round, sequence/classification result and plant case ID separately from symptom labels. In the Nevada study P1/P7 amplified both phytoplasma and Spiroplasma products; band presence or approximate size alone does not establish phytoplasma identity.',
       'Record each sampled leaf and shoot position before laboratory compositing. Distinguish the study\'s midvein/petiole composite from five to six leaves of one plant from a pool across plants; a plant-linked positive result does not prove every pictured leaf or broom cluster is infected.',
       'Record whole-plant architecture, both leaf surfaces, affected shoot position, field location, onset date, and serial change to preserve image and video context without treating those observations as proof.',
+      'For fasciation or purpling differentials, capture the flattened or fused-looking stem in several orientations with a scale and the same plant\'s branch tips and leaves. Record leaf age, node, light/color conditions and repeated dates; link the sampled tissue to separate phytoplasma 16S/secY and Spiroplasma spiralin results. This capture plan is a dataset inference from the Washington report, not a validated image test or a demonstrated symptom sequence.',
       'Link every image sequence, tissue submission, and assay result to the same marked plant and sampling event; do not assign a plant-level label from a pooled or neighboring-plant result.',
       'Record nearby weed or crop hosts and leafhopper observations with dated field positions, but require independently linked testing before attributing a reservoir or transmission source. For image comparisons, retain leaf age, canopy position, paired surfaces and repeated plant identity; do not stitch the three institutional 2022 reference photographs into a progression sequence.',
       'Interpret a negative result only within the validated assay target, sampled tissue, sample quality, and collection time; it does not by itself establish pathogen freedom or prove a noninfectious cause.',
@@ -2978,7 +2994,7 @@ export const issues: IssueRecord[] = [
     correctivePlan: ['Base removal and vector-management decisions on laboratory results, production policy, and locally legal recommendations.', 'If phytoplasma is not detected, continue testing or differential review for BCTV, Spiroplasma citri, mites, chemical injury, and physiological causes.', 'Continue serial observation because one plant or branch can combine architecture, foliar color, and distortion differently over time.'],
     prevention: ['Use tested and traceable propagation material.', 'Monitor leafhoppers and regional alerts without assuming every vector carries the same pathogen.', 'Control weed reservoirs and vectors only with locally appropriate, crop-legal practices.'],
     warnings: ['Witches’ broom is a syndrome, not a species-level visual diagnosis.', 'Cannabis symptom overlap and documented mixed infections make image-only ground truth unsafe.', 'The 0.15 image/video-only ceiling is a conservative annotation safeguard, not a measured diagnostic-accuracy estimate.', 'The three institutional photographs below are metadata-only license-review candidates: no reuse license is stated, so they are hidden and prohibited from automated training.', 'Cannabis-specific evidence does not establish a universal symptom order, cultivar response, infection-to-symptom interval, or universal dominant phytoplasma group.', 'The Nevada diagnostic-submission series was selected for symptoms; its detection proportions are not a prevalence prior or visual classifier accuracy. Band-only, case-unlinked or leaf-unlocalized assignments require review.', 'A plant-DNA control is not a pathogen result, and mixed detection does not assign a causal share to curling, chlorosis or shoot proliferation. Unresolved attribution remains review-only.'],
-    sources: [sources.nevadaHempPhytoplasma, sources.nevadaHempAbnormalGrowth, sources.pnwHempWitchesBroom],
+    sources: [sources.nevadaHempPhytoplasma, sources.nevadaHempAbnormalGrowth, sources.pnwHempWitchesBroom, sources.washingtonHempMollicutes],
     media: [
       {
         id: 'pnw-hemp-phytoplasma-misshapen-leaves-2022',

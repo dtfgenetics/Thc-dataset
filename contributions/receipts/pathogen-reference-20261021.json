@@ -1,0 +1,46 @@
+{
+  "schema_version": "grow-doc-contribution-receipt-v1",
+  "contribution_id": "pathogen-reference-20261021",
+  "task_id": "GD-DIAG-001",
+  "lane": "diagnostic",
+  "base_commit": "2525c2aac7d81c557656d9ddd7215aeb56f73a6b",
+  "head_commit": "663554d5fa55039102dd586a2d833fb66d662118",
+  "branch": "work/grow-doc/GD-DIAG-001/pathogen-reference-20261021",
+  "changed_paths": [
+    "src/data/issues.ts",
+    "data/profiles/phytoplasma-hemp-witches-broom.json"
+  ],
+  "source_ids": [
+    "https://doi.org/10.1094/PDIS-08-25-1736-PDN"
+  ],
+  "human_reviewed": false,
+  "training_eligible": false,
+  "weight_training_eligible": false,
+  "validation": {
+    "completed": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ],
+    "required": [
+      "validate:diagnostic-profiles",
+      "validate:sources",
+      "validate:data-release"
+    ]
+  },
+  "related_release_paths": [
+    "data/diagnostic-profiles.csv",
+    "data/diagnostic-profiles.json",
+    "data/diagnostic-profiles.jsonl",
+    "data/export-manifest.json",
+    "data/manifest.json",
+    "data/model-training-readiness.json",
+    "data/profiles/index.json",
+    "data/sources.json",
+    "data/splits/manifest.json",
+    "model_tuning/README.md",
+    "model_tuning/config/qlora_8b.yaml",
+    "src/lib/data-quality.test.ts"
+  ],
+  "scope_note": "Agent research review 2026-10-21. Inspected current main 2525c2a, AGENTS, task/claims, recent changes, open PRs, latest main workflows, source/profile/media records, schemas and validation contracts. Rejected further Bipolaris enrichment because accessible abstract was already covered and full publisher access returned 403; no speculative media added. Located a missing Washington mollicute report and read the primary one-page published note from Washington State University at https://wpcdn.web.wsu.edu/wp-labs/uploads/sites/2701/2026/06/Wagstaff2026.pdf and its USDA author record https://www.ars.usda.gov/research/publications/publication/?seqNo115=428238 . DOI, four authors and April 2026 issue date verified; publisher first-look date February 5 distinguished from issue publication April 1 and January 25 acceptance. Two concise original factual paraphrases add regional stem-morphology context and separate organism confirmation targets. A linked capture plan explicitly marks dataset inference; no camera-only validation, symptom chronology, universal leaf-age order or causal partition claimed. Existing confidence ceiling, confounders, exclusions, serial capture safeguards and human-review flags retained. Other 62 profiles, three prior sources in this profile and all 97 media unchanged. Unique evidence sources 216 to 217; profiles 63 and vision-training-eligible zero unchanged. The primary PDF reserves rights including AI training; no article text, figure, media binary, or license grant copied or admitted, only original factual paraphrases and lawful citation metadata. No new media or licenses. Focused regression failed before enrichment then all 38 focused tests passed. All 68 local commands passed: 62 validators, type check, 295 app tests, build, 108 Python tests, artifact verification and diff check. Two serial complete artifact locks identical and actual pins synchronized; 153 SFT plus 38 supplied-claim grounded QA remains 191 rows. Five extra artifact/evaluator self-tests and actual corroboration builder/filter/decision flow passed: 100 discovery, 28 priority, 72 excluded, four prior decisions retained and no promotion. Checks include JSON/CSV parity, schema, URL syntax, identifiers, duplicates, labels, source-claim links and leakage; not all historical URLs fetched. Exact-head hosted workflows including PHP lint and fresh main/head/parent/tree gate required before squash. Claim excluded and released after integration. No actual human/expert/lab review, model training or production deployment. Remaining gaps include reusable confirmed symptom imagery and diagnostic video; organism-unresolved or mixed-attribution samples remain review-only."
+}

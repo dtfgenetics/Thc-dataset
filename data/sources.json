@@ -1310,6 +1310,27 @@
     ]
   },
   {
+    "sourceKey": "10.1094/PDIS-08-25-1736-PDN",
+    "title": "First Report of ‘Candidatus Phytoplasma trifolii’ and Spiroplasma citri in Cannabis sativa in Washington State, U.S.A.",
+    "organization": "Washington State University and USDA Agricultural Research Service; Plant Disease",
+    "url": "https://doi.org/10.1094/PDIS-08-25-1736-PDN",
+    "authors": [
+      "Camille Wagstaff",
+      "Christopher J. Gorman",
+      "Kylie D. Swisher Grimm",
+      "David W. Crowder"
+    ],
+    "publisher": "American Phytopathological Society",
+    "publicationDate": "2026-04-01",
+    "year": 2026,
+    "accessedDate": "2026-10-21",
+    "doi": "10.1094/PDIS-08-25-1736-PDN",
+    "supportedClaims": [
+      "The 2024 Washington report sampled 38 symptomatic hemp plants at two Prosser research farms, including plants with stem fasciation and purpling; phytoplasma and Spiroplasma were detected and coinfections were common. Dataset inference: this selected sample is not a prevalence survey, and the symptom combination cannot assign a causal agent.",
+      "Following multiplex screening, the study confirmed phytoplasma with 16S rRNA and secY targets and Spiroplasma citri with spiralin sequencing. Dataset inference: preserve each assay target, sampled plant and sequence result separately; an overlapping visual syndrome or generic positive band does not identify both organisms."
+    ]
+  },
+  {
     "sourceKey": "10.1094/PDIS-09-16-1249-PDN",
     "title": "First Report of Pythium aphanidermatum Crown and Root Rot of Industrial Hemp in the United States",
     "organization": "Plant Disease",
